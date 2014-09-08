@@ -1,0 +1,55 @@
+class InputController : ZilchComponent
+{
+    [Dependency]
+    var Transform: Transform = null;
+    
+    [Property]
+    var Active:Boolean = true;
+    
+    [Property]
+    var GamepadIndex:Integer = 0;
+    
+    var Gamepad:Gamepad = null;
+    var MovementVec:Real3 = Real3(0,0,0);
+    var ButtonArray:Array[Boolean] = new Array[Boolean]();
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnInputUpdate(event : UpdateEvent)
+    {
+    }
+    function GetMovement():Real3
+    {
+        this.MovementVec = Real3(0,0,0);
+        if(!this.Gamepad.IsActive)
+        {
+
+            if(Zero.Keyboard.KeyIsDown(Keys.W) || Zero.Keyboard.KeyIsDown(Keys.Up))
+            {
+                this.MovementVec +=Real3(0,1,0);
+            }
+            if(Zero.Keyboard.KeyIsDown(Keys.A) || Zero.Keyboard.KeyIsDown(Keys.Left))
+            {
+                this.MovementVec +=Real3(1,0,0);
+            }
+            if(Zero.Keyboard.KeyIsDown(Keys.S) || Zero.Keyboard.KeyIsDown(Keys.Down))
+            {
+                this.MovementVec +=Real3(0,-1,0);
+            }
+            if(Zero.Keyboard.KeyIsDown(Keys.D) || Zero.Keyboard.KeyIsDown(Keys.Right))
+            {
+                this.MovementVec +=Real3(-1,0,0);
+            }
+            
+        }
+        else
+        {
+            this.MovementVec = Real3(-this.Gamepad.LeftStick.X, this.Gamepad.LeftStick.Y, 0.0);
+        }
+        return Math.Normalize(this.MovementVec);
+    }
+}

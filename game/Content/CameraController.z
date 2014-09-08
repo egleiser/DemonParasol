@@ -1,0 +1,25 @@
+class CameraController : ZilchComponent
+{
+    [Property]
+    var Target : CogPath = null;
+    [Property]
+    var MaxMove: Real = 5.0;
+    var CamLerp: Real3 = Real3(0,0,10);
+    var WantedcamLerp : Real3 = Real3(0,0,10);
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.Target.Cog != null)
+        {
+            var wantedPosition = this.Target.Cog.Transform.Translation + Real3(0,-12,25);
+                    
+            this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, wantedPosition, event.Dt*4);
+            this.CamLerp = Math.Lerp(this.CamLerp, this.WantedcamLerp, event.Dt*4);
+            this.Owner.Camera.Size = this.CamLerp.Z ;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+class PlayerController : ZilchComponent
+{
+    [Dependency]
+    var Orientation: Orientation = null;
+    
+    [Dependency]
+    var Transform: Transform = null;
+    
+    [Property]
+    var MovmentSpeed:Real = 10.0;
+    
+    [Property]
+    var RotateSpeed:Real = 25.0;
+    
+    [Property]
+    var MaxMoveForce:Real = 10.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Owner.DynamicMotor.MaxMoveForce = this.MaxMoveForce;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.MovementUpdate(event);
+        this.AttackUpdate(event);
+    }
+    function AttackUpdate(event : UpdateEvent)
+    {
+        if(this.Owner.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space))
+        {
+            Console.WriteLine("Attack!");
+            this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed * 100, this.Orientation.WorldUp);
+        }
+    }
+    function MovementUpdate(event : UpdateEvent)
+    {
+        if(this.Owner.InputController.GetMovement() != Real3(0,0,0))
+        {
+            var radians:Real = 0.0;
+            radians = Math.ATan2(this.Owner.InputController.GetMovement().X,this.Owner.InputController.GetMovement().Y);
+            this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation,Math.Euler(Real3(0.0,0.0,radians)),event.Dt*this.RotateSpeed);
+            
+            this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed, this.Orientation.WorldUp);
+        }
+        else
+        {
+            this.Owner.DynamicMotor.MoveInDirection(Real3(0,0,0), this.Orientation.WorldUp);
+            this.Owner.RigidBody.Velocity /= Real3(2,2,1);
+        }
+    }
+}

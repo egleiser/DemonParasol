@@ -1,0 +1,28 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Person",
+	},
+	Archetyped = 
+	{
+		string Name = "54354d278a1ac769:Person",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "54354a3358ccba15:blinn1",
+		string MeshName = "54354d278a087b35:Person",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+},
