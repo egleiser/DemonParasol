@@ -2,20 +2,20 @@ class NewCameraController : ZilchComponent
 {
     //Target for camera to rotate around and what it is looking at
     [Property]
-    var Target:CogPath = null;
+    var Target : CogPath = null;
     
     //Radius of the circle to rotate camera around. Can also control zoom.
     [Property]
-    var Radius:Real = 10.0;
+    var Radius : Real = 10.0;
     
     [Property]
-    var PanSensitivity:Real = 0.01;
+    var PanSensitivity : Real = 0.01;
     
     [Property]
-    var RotationSensitivity:Real = 0.01;
+    var RotationSensitivity : Real = 0.01;
     
     [Property]
-    var TranslationSensitivity:Real = 0.01;
+    var TranslationSensitivity : Real = 0.01;
     
     // The minimum radius on the sphere. This controls the max that the camera can zoom in.
     [Property]
@@ -23,6 +23,24 @@ class NewCameraController : ZilchComponent
     // The maximum radius on the sphere. This controls the max that the camera can zoom out.
     [Property]
     var MaxDistance : Real = 100.0;
+    
+    // Coordinates for the original rotation when switching between worlds
+    [Property]
+    var OriginRotation : Quaternion = Quaternion(0,0,0,0);
+    
+    //Coordinates for the original position when switching between worlds
+    [Property]
+    var OriginPosition : Real3 = Real3(0,0,0);
+    
+    // Coordinates for the wanted rotation when switching between worlds
+    var WantedRotation : Quaternion = Quaternion(0,0,0,0);
+    //Coordinates for the wanted position when switching between worlds
+    var WantedPosition : Real3 = Real3(0,0,0);
+    // Coordinates for the position of the Player
+    var TargetPosition : Real3 = Real3(0,0,0);
+    
+    // Bool for flagging whether to switch worlds or not
+    var ChangeCam : Boolean = true;
     
     // Spherical coordinates. These control our position on the sphere we're rotating about.
     var Phi : Real = Math.Pi * 0.5;
@@ -46,6 +64,10 @@ class NewCameraController : ZilchComponent
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         
         var viewport = this.Camera.Viewport;
+        
+        this.WantedRotation = this.Owner.Transform.Rotation;
+        this.WantedPosition = this.Owner.Transform.Translation;
+        this.TargetPosition = this.Target.Cog.Transform.Translation;
         
         // Connect on the viewport for all the mouse events we need
         Zero.Connect(viewport, Events.MouseDown, this.OnMouseDown);
@@ -131,12 +153,13 @@ class NewCameraController : ZilchComponent
         // Compute the sensitivity for tranlational movement, this is based upon
         // how far zoomed out we are (so we move faster when we're more zoomed out)
         var moveSensitivity = 2.0 + this.TranslationSensitivity * this.Radius;
+        
         // When translating, we move our target position (which implicitly moves our position)
-        //this.Target.Cog.Transform.Translation += movementW * event.Dt * moveSensitivity;
+        this.Target.Cog.Transform.Translation += movementW * event.Dt * moveSensitivity;
         // Set our position to be focused on our target, but back along our
         // view vector based upon the sphere's current radius
         var transform = this.Owner.Transform;
-        transform.Translation = this.Target.Cog.Transform.Translation + cameraDir;
+        //transform.Translation = this.Target.Cog.Transform.Translation + cameraDir;
         
         // Set the rotation bases for our camera
         transform.SetRotationBases(forward, up, right);
@@ -146,7 +169,48 @@ class NewCameraController : ZilchComponent
         
         // Draw where our origin is so we can see what's going on
         this.DebugDrawOrigin();
+        
+        // Rotates and translates camera to wanted vectors (see below for more info)
+        this.SwitchWorlds(event);
+        
+        //If Shift is pressed, the SwitchWorld boolean changtes to true
+        if(Zero.Keyboard.KeyIsPressed(Keys.Shift))
+        {
+            this.ToggleSwitchWorld();
+        }
     }
+    
+    //This function updates the camera vectors relevant to world switching if the
+    // SwitchWorld boolean is true. The camera slerps towards the wanted rotation
+    // and lerps towards the wanted position.
+    function SwitchWorlds(event : UpdateEvent)
+    {
+        if(this.ChangeCam)
+        {
+            this.WantedRotation = this.OriginRotation;
+            this.WantedPosition = this.OriginPosition;
+        }
+        else
+        {
+            this.WantedRotation = Math.Euler(Real3(30, 180, 0));
+            this.WantedPosition = Real3(0, 15, 11.25);
+        }
+        
+        //Slerps and lerps the rotation and translation, respectively, according to the
+        // updated wanted rotation and position.
+        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.WantedRotation, 2.0);
+        this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, this.WantedPosition, 2.0); 
+    }
+    
+    //This function toggeles the Switch World boolean
+    function ToggleSwitchWorld()
+    {
+        Console.WriteLine("Toggling SwitchWorld Boolean!");
+        Console.WriteLine("The current Wanted Rotation is: `this.WantedRotation` ");
+        Console.WriteLine("The current Wanted Position is: `this.WantedPosition` ");
+        this.ChangeCam = !this.ChangeCam;
+    }
+    
     
     function OnMouseDown(viewportMouseEvent : ViewportMouseEvent)
     {
