@@ -73,9 +73,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [7.04911, -2.86252, 4.56181],
+			Vec3 Translation = [1.83464, -6.23926, 9.65763],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.123434, 0.369128, -0.0495349, 0.919813],
+			Quat Rotation = [0.23517, 0.00547087, -0.0013237, 0.971938],
 		},
 		Camera = 
 		{
@@ -91,9 +91,9 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 8,
-			float VerticalAngle = -0.266795,
-			float HorizontalAngle = -25.896,
+			float LookDistance = 12,
+			float VerticalAngle = -0.474795,
+			float HorizontalAngle = -25.144,
 			Vec3 LookTarget = [1.71449, -0.753386, -1.01433],
 		},
 		EditorRenderer = 
@@ -223,7 +223,7 @@ Level =
 				},
 				BoxCollider = 
 				{
-					bool Ghost = true,
+					bool Ghost = false,
 					bool SendsMessages = true,
 					bool Seamless = true,
 					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
@@ -271,7 +271,7 @@ Level =
 						},
 						BoxCollider = 
 						{
-							bool Ghost = true,
+							bool Ghost = false,
 							bool SendsMessages = true,
 							bool Seamless = true,
 							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
