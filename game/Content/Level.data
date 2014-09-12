@@ -73,9 +73,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [4.55677, -12.3847, 8.70899],
+			Vec3 Translation = [7.04911, -2.86252, 4.56181],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.459354, -0.0198666, 0.0102772, 0.887972],
+			Quat Rotation = [0.123434, 0.369128, -0.0495349, 0.919813],
 		},
 		Camera = 
 		{
@@ -91,10 +91,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 16,
-			float VerticalAngle = -0.954795,
-			float HorizontalAngle = -25.088,
-			Vec3 LookTarget = [4.97021, 0.674409, -0.526185],
+			float LookDistance = 8,
+			float VerticalAngle = -0.266795,
+			float HorizontalAngle = -25.896,
+			Vec3 LookTarget = [1.71449, -0.753386, -1.01433],
 		},
 		EditorRenderer = 
 		{
@@ -207,9 +207,9 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [1.39324, 0.696096, 1.08852],
+					Vec3 Translation = [0.939622, 0.226482, 1.08852],
 					Vec3 Scale = [0.5, 0.5, 0.5],
-					Quat Rotation = [0, 0, 0, 1],
+					Quat Rotation = [-0.377228, 0.115321, -0.262333, 0.880671],
 				},
 				Model = 
 				{
@@ -230,6 +230,19 @@ Level =
 					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 					Vec3 Offset = [0, 0, 0],
 					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				AnimationGraph = 
+				{
+					bool Active = true,
+					AnimPlayMode PlayMode = PlayOnce,
+					float TimeScale = 3,
+					string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+					uint64 DebugPreviewId = 5443d743ccc2e60d,
+				},
+				SimpleAnimation = 
+				{
+					string AnimationName = "5443d30e1085fd91:IdleSlash",
+					AnimPlayMode PlayMode = PlayOnce,
 				},
 				Hierarchy = 
 				{

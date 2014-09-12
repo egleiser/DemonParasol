@@ -32,7 +32,7 @@ class PlayerController : ZilchComponent
         {
             var attackEvent = new AttackEvent();
             this.Owner.DispatchDown("attackEvent", attackEvent);
-            this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed * 100, this.Orientation.WorldUp);
+            this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed * 1000, this.Orientation.WorldUp);
         }
     }
     function MovementUpdate(event : UpdateEvent)
