@@ -73,9 +73,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [4.55677, -12.3847, 8.70899],
+			Vec3 Translation = [4.22079, -22.9953, 16.2126],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.459354, -0.0198666, 0.0102772, 0.887972],
+			Quat Rotation = [0.459354, -0.0198683, 0.010278, 0.887971],
 		},
 		Camera = 
 		{
@@ -91,7 +91,7 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 16,
+			float LookDistance = 29,
 			float VerticalAngle = -0.954795,
 			float HorizontalAngle = -25.088,
 			Vec3 LookTarget = [4.97021, 0.674409, -0.526185],
@@ -350,10 +350,15 @@ Level =
 			float Density = 1.13,
 			bool RadialOnly = true,
 		},
-		CameraController = 
+		NewCameraController = 
 		{
 			string Target = ":/Player",
-			float MaxMove = 5,
+			float Radius = 10,
+			float PanSensitivity = 3,
+			float RotationSensitivity = 0.01,
+			float TranslationSensitivity = 0.01,
+			float MinDistance = 1,
+			float MaxDistance = 100,
 		},
 		Hierarchy = 
 		{
