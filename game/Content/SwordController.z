@@ -1,11 +1,18 @@
 class SwordController : ZilchComponent
 {
+    var WantedRot:Real3 = Real3(0,0,0);
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, "attackEvent", this.OnAttack);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        
+    }
+    function OnAttack(event : AttackEvent)
+    {
+        Console.WriteLine("Attack!");
     }
 }

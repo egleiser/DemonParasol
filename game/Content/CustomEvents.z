@@ -1,18 +1,5 @@
-  class CustomEvents : ZilchComponent
-{
-    function Initialize(init : CogInitializer)
-    {
-        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-    }
-
-    function OnLogicUpdate(event : UpdateEvent)
-    {
-    }
-}
-
 class AttackEvent : Event
 {
-    // Remember that member variable names MUST be capitalized in Zilch
     var InfoToSend : String = "";
     var NumberToSend : Integer = 0;
 }  
