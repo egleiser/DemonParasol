@@ -2,7 +2,7 @@ GeometryContent =
 {
 	GeneratedArchetype = 
 	{
-		uint64 ResourceId = 544381016a309957,
+		uint64 ResourceId = 53f50b788ef864f3,
 	},
 	GeometryImport = 
 	{
@@ -15,6 +15,50 @@ GeometryContent =
 	{
 		Array Meshes = 
 		[
+			{
+				string Name = "BoxMan.Stomach",
+				uint64 ResourceId = 53f50b788ef4a1b7,
+			},
+			{
+				string Name = "BoxMan.Chest",
+				uint64 ResourceId = 53f50b788ef4a1bc,
+			},
+			{
+				string Name = "BoxMan.Head",
+				uint64 ResourceId = 53f50b788ef4a1bf,
+			},
+			{
+				string Name = "BoxMan.LArm",
+				uint64 ResourceId = 53f50b788ef4a1c0,
+			},
+			{
+				string Name = "BoxMan.LArm01",
+				uint64 ResourceId = 53f50b788ef4a1c2,
+			},
+			{
+				string Name = "BoxMan.RArm",
+				uint64 ResourceId = 53f50b788ef4a1c4,
+			},
+			{
+				string Name = "BoxMan.RArm01",
+				uint64 ResourceId = 53f50b788ef4a1c6,
+			},
+			{
+				string Name = "BoxMan.LLeg",
+				uint64 ResourceId = 53f50b788ef4a1c7,
+			},
+			{
+				string Name = "BoxMan.LLeg01",
+				uint64 ResourceId = 53f50b788ef4a1c9,
+			},
+			{
+				string Name = "BoxMan.RLeg",
+				uint64 ResourceId = 53f50b788ef4a1cb,
+			},
+			{
+				string Name = "BoxMan.RLeg01",
+				uint64 ResourceId = 53f50b788ef4a1cd,
+			},
 		],
 		MeshMode MeshMode = Multi,
 		ResourceCompression CompressMesh = None,
@@ -24,10 +68,5 @@ GeometryContent =
 		Generation Normals = Import,
 		Generation Tangents = Import,
 		float SmoothingAngle = 60,
-	},
-	SkeletonBuilder = 
-	{
-		string Name = "BoxMan",
-		uint64 ResourceId = 544381016a309954,
 	},
 },

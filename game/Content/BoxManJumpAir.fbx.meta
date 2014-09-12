@@ -1,0 +1,27 @@
+GeometryContent = 
+{
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	AnimationBuilder = 
+	{
+		string Name = "BoxManJumpAir",
+		uint64 ResourceId = 53f50ba1be63a12e,
+		bool MakeAnimationSet = false,
+		ResourceCompression CompressAnimation = None,
+		Array Clips = 
+		[
+			{
+				string Name = "All",
+				uint64 ResourceId = 53f50ba1bf90956e,
+				int StartFrame = 0,
+				int EndFrame = 5,
+				LoopingMode LoopingMode = Default,
+			},
+		],
+	},
+},

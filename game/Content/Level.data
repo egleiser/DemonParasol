@@ -40,25 +40,14 @@ Level =
 		},
 		DeferredRenderer = 
 		{
-			Vec4 ClearColor = [0, 0, 0, 1],
+			Vec4 ClearColor = [0.12, 0.12, 0.12, 1],
 			bool Hdr = true,
 			bool Glow = true,
 			bool ToneMapping = false,
-			float BrightThreshold = 0.9,
+			float BrightThreshold = 0.4,
 			float Exposure = 0.5,
 			bool Refraction = true,
 			bool Shadows = true,
-		},
-		Ssao = 
-		{
-			bool Enabled = false,
-			float Adjustment = 0.3,
-			float SampleCount = 8,
-			float SampleRadius = 3.25,
-			float SampleBias = 1,
-			float Intensity = 18.1,
-			SSAOTechnique Technique = Sphere,
-			SSAODownSample DownSample = Automatic,
 		},
 	},
 	Cog = 
@@ -73,9 +62,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [3.5561, -7.36079, 7.92946],
+			Vec3 Translation = [2.9986, -13.0426, 10.5234],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.375893, 0.0126326, -0.0051248, 0.926563],
+			Quat Rotation = [0.41995, -0.00578656, 0.00267774, 0.907525],
 		},
 		Camera = 
 		{
@@ -91,10 +80,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 13,
-			float VerticalAngle = -0.770796,
-			float HorizontalAngle = -25.16,
-			Vec3 LookTarget = [3.30186, 1.6964, -1.39271],
+			float LookDistance = 19,
+			float VerticalAngle = -0.8668,
+			float HorizontalAngle = -25.12,
+			Vec3 LookTarget = [3.15542, 1.44038, -1.77372],
 		},
 		EditorRenderer = 
 		{
@@ -120,13 +109,6 @@ Level =
 			Vec3 Translation = [0, -3.19109, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
-		},
-		Model = 
-		{
-			string MaterialName = "537644533dba9ae8:mat_Plain",
-			string MeshName = "54354d278a087b35:Person",
-			Vec4 Color = [1, 0.39915, 0.015, 1],
-			bool Visible = true,
 		},
 		InputController = 
 		{
@@ -204,13 +186,343 @@ Level =
 				},
 				Named = 
 				{
+					string Name = "BoxMan",
+				},
+				Archetyped = 
+				{
+					string Name = "53f50b788ef864f3:BoxMan",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [2, 2, 2],
+					Quat Rotation = [-3.09086e-008, 0.707107, 0.707107, -3.09086e-008],
+				},
+				AnimationGraph = 
+				{
+					bool Active = true,
+					AnimPlayMode PlayMode = PlayOnce,
+					float TimeScale = 1,
+					string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+					uint64 DebugPreviewId = 03b11c3c086e7898,
+				},
+				SimpleAnimation = 
+				{
+					string AnimationName = "53f50b9fbfe71185:BoxManIdleBreathing.All",
+					AnimPlayMode PlayMode = Loop,
+				},
+				PlayerAnimator = 
+				{
+					string AniIdle = "53f50b9fbf1b424b:BoxManIdleHeadDribble.All",
+					string AniWalk = "53f50ba0bfb0cbbd:BoxManWalk.All",
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 6,
+						},
+						Named = 
+						{
+							string Name = "Stomach",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0.622383, 1.19209e-007],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [-0.707107, 0, 0, 0.707107],
+						},
+						Model = 
+						{
+							string MaterialName = "544380cb7820af93:lambert1",
+							string MeshName = "53f50b788ef4a1b7:BoxMan.Stomach",
+							Vec4 Color = [1, 1, 1, 1],
+							bool Visible = true,
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 7,
+								},
+								Named = 
+								{
+									string Name = "Chest",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [1.79638e-016, -5.32755e-008, 0.104358],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [7.10543e-015, -7.52316e-037, 6.31088e-030, 1],
+								},
+								Model = 
+								{
+									string MaterialName = "544380cb7820af93:lambert1",
+									string MeshName = "53f50b788ef4a1bc:BoxMan.Chest",
+									Vec4 Color = [1, 1, 1, 1],
+									bool Visible = true,
+								},
+								Hierarchy = 
+								{
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 8,
+										},
+										Named = 
+										{
+											string Name = "Head",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [-6.01702e-018, -2.02938e-007, 0.473109],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [-8.23312e-019, 1.86265e-009, 4.42013e-010, 1],
+										},
+										Model = 
+										{
+											string MaterialName = "544380cb7820af93:lambert1",
+											string MeshName = "53f50b788ef4a1bf:BoxMan.Head",
+											Vec4 Color = [1, 1, 1, 1],
+											bool Visible = true,
+										},
+										Hierarchy = 
+										{
+										},
+									},
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 9,
+										},
+										Named = 
+										{
+											string Name = "LArm",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [0.337381, -1.75468e-007, 0.408789],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [0, 0, 0, 1],
+										},
+										Model = 
+										{
+											string MaterialName = "544380cb7820af93:lambert1",
+											string MeshName = "53f50b788ef4a1c0:BoxMan.LArm",
+											Vec4 Color = [1, 1, 1, 1],
+											bool Visible = true,
+										},
+										Hierarchy = 
+										{
+											Cog = 
+											{
+												LinkId = 
+												{
+													uint Id = 10,
+												},
+												Named = 
+												{
+													string Name = "LArm01",
+												},
+												Transform = 
+												{
+													Vec3 Translation = [2.98023e-008, 1.28688e-007, -0.299804],
+													Vec3 Scale = [1, 1, 1],
+													Quat Rotation = [0, 0, 0, 1],
+												},
+												Model = 
+												{
+													string MaterialName = "544380cb7820af93:lambert1",
+													string MeshName = "53f50b788ef4a1c2:BoxMan.LArm01",
+													Vec4 Color = [1, 1, 1, 1],
+													bool Visible = true,
+												},
+											},
+										},
+									},
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 11,
+										},
+										Named = 
+										{
+											string Name = "RArm",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [-0.337996, -1.75468e-007, 0.408789],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [0, 0, 0, 1],
+										},
+										Model = 
+										{
+											string MaterialName = "544380cb7820af93:lambert1",
+											string MeshName = "53f50b788ef4a1c4:BoxMan.RArm",
+											Vec4 Color = [1, 1, 1, 1],
+											bool Visible = true,
+										},
+										Hierarchy = 
+										{
+											Cog = 
+											{
+												LinkId = 
+												{
+													uint Id = 12,
+												},
+												Named = 
+												{
+													string Name = "RArm01",
+												},
+												Transform = 
+												{
+													Vec3 Translation = [-2.98023e-008, 1.28688e-007, -0.299804],
+													Vec3 Scale = [1, 1, 1],
+													Quat Rotation = [0, 0, 0, 1],
+												},
+												Model = 
+												{
+													string MaterialName = "544380cb7820af93:lambert1",
+													string MeshName = "53f50b788ef4a1c6:BoxMan.RArm01",
+													Vec4 Color = [1, 1, 1, 1],
+													bool Visible = true,
+												},
+												Hierarchy = 
+												{
+												},
+											},
+										},
+									},
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 13,
+								},
+								Named = 
+								{
+									string Name = "LLeg",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0.130405, -2.20144e-008, 0.028952],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [7.10543e-015, -7.52316e-037, 6.31088e-030, 1],
+								},
+								Model = 
+								{
+									string MaterialName = "544380cb7820af93:lambert1",
+									string MeshName = "53f50b788ef4a1c7:BoxMan.LLeg",
+									Vec4 Color = [1, 1, 1, 1],
+									bool Visible = true,
+								},
+								Hierarchy = 
+								{
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 14,
+										},
+										Named = 
+										{
+											string Name = "LLeg01",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [0, 1.28688e-007, -0.299807],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [0, 0, 0, 1],
+										},
+										Model = 
+										{
+											string MaterialName = "544380cb7820af93:lambert1",
+											string MeshName = "53f50b788ef4a1c9:BoxMan.LLeg01",
+											Vec4 Color = [1, 1, 1, 1],
+											bool Visible = true,
+										},
+									},
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 15,
+								},
+								Named = 
+								{
+									string Name = "RLeg",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-0.13, -1.67773e-008, 0.028952],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [7.10543e-015, -7.52316e-037, 6.31088e-030, 1],
+								},
+								Model = 
+								{
+									string MaterialName = "544380cb7820af93:lambert1",
+									string MeshName = "53f50b788ef4a1cb:BoxMan.RLeg",
+									Vec4 Color = [1, 1, 1, 1],
+									bool Visible = true,
+								},
+								Hierarchy = 
+								{
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 16,
+										},
+										Named = 
+										{
+											string Name = "RLeg01",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [0, 1.28688e-007, -0.299807],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [0, 0, 0, 1],
+										},
+										Model = 
+										{
+											string MaterialName = "544380cb7820af93:lambert1",
+											string MeshName = "53f50b788ef4a1cd:BoxMan.RLeg01",
+											Vec4 Color = [1, 1, 1, 1],
+											bool Visible = true,
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 17,
+				},
+				Named = 
+				{
 					string Name = "Sword",
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0.939622, 0.226482, 1.08852],
+					Vec3 Translation = [0.939623, 0.22648, 1.08852],
 					Vec3 Scale = [0.5, 0.5, 0.5],
-					Quat Rotation = [-0.317861, 0.120867, -0.213452, 0.915856],
+					Quat Rotation = [-0.0184185, 0.214771, 0.147744, 0.965249],
 				},
 				Model = 
 				{
@@ -251,7 +563,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 6,
+							uint Id = 18,
 						},
 						Named = 
 						{
@@ -289,7 +601,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 7,
+			uint Id = 19,
 		},
 		Archetyped = 
 		{
@@ -377,7 +689,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 8,
+			uint Id = 20,
 		},
 		Named = 
 		{
@@ -419,7 +731,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 9,
+			uint Id = 21,
 		},
 		Named = 
 		{
@@ -477,7 +789,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 10,
+			uint Id = 22,
 		},
 		Archetyped = 
 		{
@@ -491,10 +803,10 @@ Level =
 		},
 		Model = 
 		{
-			string MaterialName = "537644533dba9ae8:mat_Plain",
+			string MaterialName = "4de020863e816dde:Grid",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.357192, 0.82, 0.2624, 1],
-			bool Visible = true,
+			bool Visible = false,
 		},
 		RigidBody = 
 		{
@@ -517,6 +829,19 @@ Level =
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		GridDraw = 
+		{
+			bool HalfCellOffset = false,
+			float CellSize = 0.05,
+			GridAxis Axis = ZAxis,
+			int Lines = 100,
+			bool AlwaysDrawInEditor = true,
+			bool DrawInGame = true,
+			Vec4 GridColor = [0.5, 0.5, 0.5, 0.4],
+			Vec4 GridHiLight = [0.0200001, 1, 0, 0.4],
+			int HilightInterval = 2,
+			bool FollowEditorCamera = false,
 		},
 	},
 },

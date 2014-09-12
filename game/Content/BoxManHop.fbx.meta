@@ -1,0 +1,27 @@
+GeometryContent = 
+{
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	AnimationBuilder = 
+	{
+		string Name = "BoxManHop",
+		uint64 ResourceId = 53f50ba1bf9e7b96,
+		bool MakeAnimationSet = false,
+		ResourceCompression CompressAnimation = None,
+		Array Clips = 
+		[
+			{
+				string Name = "All",
+				uint64 ResourceId = 53f50b9fbfecf34d,
+				int StartFrame = 0,
+				int EndFrame = 62,
+				LoopingMode LoopingMode = Default,
+			},
+		],
+	},
+},
