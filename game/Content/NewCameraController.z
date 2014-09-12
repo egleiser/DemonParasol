@@ -1,0 +1,33 @@
+class NewCameraController : ZilchComponent
+{
+    //Target for camera to rotate around and what it is looking at
+    [Property]
+    var Target:CogPath = null;
+    
+    //Radius of the circle to rotate camera around. Can also control zoom.
+    [Property]
+    var Radius:Real = 10.0;
+    
+    [Property]
+    var PanSensitivity:Real = 0.01;
+    
+    [Property]
+    var RotationSensitivity:Real = 0.01;
+    
+    [Property]
+    var TranslationSensitivity:Real = 0.01;
+    
+    [Dependency]
+    var Camera:Camera = null;
+    
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}
