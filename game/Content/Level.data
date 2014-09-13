@@ -62,9 +62,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.9986, -13.0426, 10.5234],
+			Vec3 Translation = [9.62369, -14.5752, 13.7426],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.41995, -0.00578656, 0.00267774, 0.907525],
+			Quat Rotation = [0.323411, 0.243731, -0.0866004, 0.91022],
 		},
 		Camera = 
 		{
@@ -80,10 +80,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 19,
-			float VerticalAngle = -0.8668,
-			float HorizontalAngle = -25.12,
-			Vec3 LookTarget = [3.15542, 1.44038, -1.77372],
+			float LookDistance = 22,
+			float VerticalAngle = -0.682797,
+			float HorizontalAngle = -25.656,
+			Vec3 LookTarget = [1.09466, -0.693927, -1.04138],
 		},
 		EditorRenderer = 
 		{
@@ -213,7 +213,7 @@ Level =
 				},
 				PlayerAnimator = 
 				{
-					string AniIdle = "53f50b9fbf1b424b:BoxManIdleHeadDribble.All",
+					string AniIdle = "53f50b9fbfe71185:BoxManIdleBreathing.All",
 					string AniWalk = "53f50ba0bfb0cbbd:BoxManWalk.All",
 				},
 				Hierarchy = 
@@ -520,7 +520,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0.939623, 0.22648, 1.08852],
+					Vec3 Translation = [0.613419, 0.22648, 1.08852],
 					Vec3 Scale = [0.5, 0.5, 0.5],
 					Quat Rotation = [-0.0184185, 0.214771, 0.147744, 0.965249],
 				},
@@ -572,7 +572,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [-0.00796628, 1.85248, 0],
-							Vec3 Scale = [0.569051, 3.80008, 0.664915],
+							Vec3 Scale = [0.569051, 4, 0.664915],
 							Quat Rotation = [0, 0, 0, 1],
 						},
 						Model = 
@@ -673,13 +673,27 @@ Level =
 		MotionBlur = 
 		{
 			int Samples = 20,
-			float Density = 1.13,
+			float Density = 2,
 			bool RadialOnly = true,
 		},
 		CameraController = 
 		{
 			string Target = ":/Player",
 			float MaxMove = 5,
+		},
+		ScreenDrops = 
+		{
+		},
+		ScreenDropGenerator = 
+		{
+			float Rate = 0.5,
+			float RateVariance = 0.3,
+			float Size = 0.02,
+			float SizeVariance = 0.01,
+			float Intensity = 0.5,
+			float IntensityDissipation = 0.001,
+			float OutwardForce = 0,
+			Vec2 ConstantForce = [0, -1],
 		},
 		Hierarchy = 
 		{
@@ -791,6 +805,10 @@ Level =
 		{
 			uint Id = 22,
 		},
+		Named = 
+		{
+			string Name = "Grid",
+		},
 		Archetyped = 
 		{
 			string Name = "4faa6050b86884ec:DefaultArchetype",
@@ -800,13 +818,6 @@ Level =
 			Vec3 Translation = [0, 0, -1],
 			Vec3 Scale = [100, 100, 1],
 			Quat Rotation = [0, 0, 0, 1],
-		},
-		Model = 
-		{
-			string MaterialName = "4de020863e816dde:Grid",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [0.357192, 0.82, 0.2624, 1],
-			bool Visible = false,
 		},
 		RigidBody = 
 		{
@@ -828,7 +839,7 @@ Level =
 			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
+			Vec3 Size = [2, 2, 0.5],
 		},
 		GridDraw = 
 		{
