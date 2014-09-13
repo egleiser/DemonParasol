@@ -73,9 +73,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [8.17969, -11.9604, 25.3787],
+			Vec3 Translation = [4.55677, -12.3847, 8.70899],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.22307, 0.0600363, -0.0137659, 0.972854],
+			Quat Rotation = [0.459354, -0.0198666, 0.0102772, 0.887972],
 		},
 		Camera = 
 		{
@@ -91,9 +91,9 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 29,
-			float VerticalAngle = -0.450796,
-			float HorizontalAngle = -25.256,
+			float LookDistance = 16,
+			float VerticalAngle = -0.954795,
+			float HorizontalAngle = -25.088,
 			Vec3 LookTarget = [4.97021, 0.674409, -0.526185],
 		},
 		EditorRenderer = 
@@ -106,52 +106,6 @@ Level =
 		LinkId = 
 		{
 			uint Id = 4,
-		},
-		Archetyped = 
-		{
-			string Name = "4faa6050b86884ec:DefaultArchetype",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0, 0, -1],
-			Vec3 Scale = [100, 100, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Model = 
-		{
-			string MaterialName = "537644533dba9ae8:mat_Plain",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [0.357192, 0.82, 0.2624, 1],
-			bool Visible = true,
-		},
-		RigidBody = 
-		{
-			bool Static = true,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 5,
 		},
 		Named = 
 		{
@@ -245,7 +199,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 6,
+					uint Id = 5,
 				},
 				Named = 
 				{
@@ -253,8 +207,8 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [1.39324, 0.677598, 1.08852],
-					Vec3 Scale = [1, 1, 1],
+					Vec3 Translation = [1.39324, 0.696096, 1.08852],
+					Vec3 Scale = [0.5, 0.5, 0.5],
 					Quat Rotation = [0, 0, 0, 1],
 				},
 				Model = 
@@ -276,6 +230,43 @@ Level =
 					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 					Vec3 Offset = [0, 0, 0],
 					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 6,
+						},
+						Named = 
+						{
+							string Name = "Blade",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-0.00796628, 1.85248, 0],
+							Vec3 Scale = [0.569051, 3.80008, 0.664915],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "4de020863e85bb61:DefaultMaterial",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [1, 1, 1, 1],
+							bool Visible = true,
+						},
+						BoxCollider = 
+						{
+							bool Ghost = true,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.5, 0.5],
+						},
+					},
 				},
 			},
 		},
@@ -466,6 +457,52 @@ Level =
 			bool LocalSpaceDirection = false,
 			float Strength = 100,
 			Vec3 Direction = [0, 0, -1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 10,
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, -1],
+			Vec3 Scale = [100, 100, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "537644533dba9ae8:mat_Plain",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.357192, 0.82, 0.2624, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
 		},
 	},
 },

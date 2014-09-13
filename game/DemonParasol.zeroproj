@@ -6,7 +6,7 @@ Cog =
 		string ProjectOwner = "",
 		string DefaultLevel = "Level",
 		string ProjectSpace = "Space",
-		uint ProjectEngineRevision = 9900,
+		uint ProjectEngineRevision = 9923,
 	},
 	EditorSettings = 
 	{
@@ -14,5 +14,11 @@ Cog =
 		float DefaultPixelsPerUnit = 64,
 		bool SpriteSmoothing = true,
 		float DefaultImportScale = 1,
+	},
+	DeveloperConfig = 
+	{
+		bool DoubleEscapeQuit = true,
+		bool EnableDeprecatedTileGrid = false,
+		bool EnableEditorOrientationGizmo = false,
 	},
 },

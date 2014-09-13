@@ -30,7 +30,8 @@ class PlayerController : ZilchComponent
     {
         if(this.Owner.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space))
         {
-            Console.WriteLine("Attack!");
+            var attackEvent = new AttackEvent();
+            this.Owner.DispatchDown("attackEvent", attackEvent);
             this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed * 100, this.Orientation.WorldUp);
         }
     }
