@@ -73,9 +73,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.876655, -23.772, 14.9066],
+			Vec3 Translation = [32.3084, -65.6085, 137.857],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.480532, -0.0196142, 0.010751, 0.876692],
+			Quat Rotation = [0.163657, 0.107924, -0.018015, 0.980431],
 		},
 		Camera = 
 		{
@@ -91,10 +91,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 29,
-			float VerticalAngle = -1.0028,
-			float HorizontalAngle = -25.088,
-			Vec3 LookTarget = [1.57436, 0.674409, -0.678226],
+			float LookDistance = 107,
+			float VerticalAngle = -0.330797,
+			float HorizontalAngle = -25.352,
+			Vec3 LookTarget = [10.2956, -30.8553, 39.0813],
 		},
 		EditorRenderer = 
 		{
@@ -329,7 +329,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, -15, 11.25],
+			Vec3 Translation = [0.825109, -37.6843, 96.8931],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.258819, 0, 0, 0.965926],
 		},
@@ -350,17 +350,12 @@ Level =
 			float Density = 1.13,
 			bool RadialOnly = true,
 		},
-		NewCameraController = 
+		Orientation = 
 		{
-			string Target = ":/Player",
-			float Radius = 10,
-			float PanSensitivity = 3,
-			float RotationSensitivity = 0.01,
-			float TranslationSensitivity = 0.01,
-			float MinDistance = 1,
-			float MaxDistance = 100,
-			Quat OriginRotation = [0.258819, 0, 0, 0.965926],
-			Vec3 OriginPosition = [0, -15, 11.25],
+			Vec3 GlobalUp = [0, 1, 0],
+			Vec3 UpVector = [0, 1, 0],
+			Vec3 ForwardVector = [0, 0, 1],
+			OrientationBases DefaultBases = ForwardZUpY,
 		},
 		Hierarchy = 
 		{
@@ -510,6 +505,83 @@ Level =
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 11,
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 1.43169, 19.593],
+			Vec3 Scale = [4, 4, 4],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "537644533dba9ae8:mat_Plain",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.975, 0, 0, 1],
+			bool Visible = true,
+		},
+		Camera = 
+		{
+			ProjectionMode ProjectionMode = Perspective,
+			Facing Facing = NegativeZ,
+			SpriteSort SpriteSort = ZDepth,
+			string SpriteLayerOrder = "",
+			float FieldOfView = 45,
+			float NearPlane = 1,
+			float FarPlane = 100,
+			float Size = 20,
+		},
+		OrbitCameraController = 
+		{
+			string OrbitTarget = ":/Player",
+			float MaxMove = 5,
+			float Radius = 1,
+			float AngleChange = 90,
+			float AngleOrigin = 0,
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 1, 0],
+			Vec3 UpVector = [0, 1, 0],
+			Vec3 ForwardVector = [0, 0, 1],
+			OrientationBases DefaultBases = ForwardZUpY,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 12,
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, -0.790174],
+					Vec3 Scale = [0.5, 0.5, 0.5],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					string MaterialName = "537644533dba9ae8:mat_Plain",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0.975, 0.26325, 0, 1],
+					bool Visible = true,
+				},
+			},
 		},
 	},
 },
