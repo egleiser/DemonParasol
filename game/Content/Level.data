@@ -73,9 +73,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [32.3084, -65.6085, 137.857],
+			Vec3 Translation = [-5.26377, -52.4554, 50.392],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.163657, 0.107924, -0.018015, 0.980431],
+			Quat Rotation = [0.466059, -0.0410011, 0.0216278, 0.883538],
 		},
 		Camera = 
 		{
@@ -91,10 +91,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 107,
-			float VerticalAngle = -0.330797,
-			float HorizontalAngle = -25.352,
-			Vec3 LookTarget = [10.2956, -30.8553, 39.0813],
+			float LookDistance = 25,
+			float VerticalAngle = -0.970797,
+			float HorizontalAngle = -25.04,
+			Vec3 LookTarget = [-3.95646, -31.822, 36.3366],
 		},
 		EditorRenderer = 
 		{
@@ -335,7 +335,7 @@ Level =
 		},
 		Camera = 
 		{
-			ProjectionMode ProjectionMode = Perspective,
+			ProjectionMode ProjectionMode = Orthographic,
 			Facing Facing = NegativeZ,
 			SpriteSort SpriteSort = ViewDepth,
 			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
@@ -356,6 +356,14 @@ Level =
 			Vec3 UpVector = [0, 1, 0],
 			Vec3 ForwardVector = [0, 0, 1],
 			OrientationBases DefaultBases = ForwardZUpY,
+		},
+		OrbitCameraController = 
+		{
+			string OrbitTarget = ":/Player",
+			float MaxMove = 5,
+			float Radius = 40,
+			float AngleChange = 90,
+			float AngleOrigin = 0,
 		},
 		Hierarchy = 
 		{
@@ -505,83 +513,6 @@ Level =
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 11,
-		},
-		Archetyped = 
-		{
-			string Name = "4faa6050b86884ec:DefaultArchetype",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0, 1.43169, 19.593],
-			Vec3 Scale = [4, 4, 4],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Model = 
-		{
-			string MaterialName = "537644533dba9ae8:mat_Plain",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [0.975, 0, 0, 1],
-			bool Visible = true,
-		},
-		Camera = 
-		{
-			ProjectionMode ProjectionMode = Perspective,
-			Facing Facing = NegativeZ,
-			SpriteSort SpriteSort = ZDepth,
-			string SpriteLayerOrder = "",
-			float FieldOfView = 45,
-			float NearPlane = 1,
-			float FarPlane = 100,
-			float Size = 20,
-		},
-		OrbitCameraController = 
-		{
-			string OrbitTarget = ":/Player",
-			float MaxMove = 5,
-			float Radius = 1,
-			float AngleChange = 90,
-			float AngleOrigin = 0,
-		},
-		Orientation = 
-		{
-			Vec3 GlobalUp = [0, 1, 0],
-			Vec3 UpVector = [0, 1, 0],
-			Vec3 ForwardVector = [0, 0, 1],
-			OrientationBases DefaultBases = ForwardZUpY,
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 12,
-				},
-				Archetyped = 
-				{
-					string Name = "4faa6050b86884ec:DefaultArchetype",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, -0.790174],
-					Vec3 Scale = [0.5, 0.5, 0.5],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					string MaterialName = "537644533dba9ae8:mat_Plain",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [0.975, 0.26325, 0, 1],
-					bool Visible = true,
-				},
-			},
 		},
 	},
 },
