@@ -34,7 +34,7 @@ Level =
 			bool Blocking = true,
 			uint Renderer = 1,
 			uint Camera = 2,
-			ViewportScaling Scaling = Fill,
+			ViewportScaling Scaling = Letterbox,
 			Vec2 Resolution = [1280, 720],
 			Vec4 MarginColor = [0, 0, 0, 1],
 		},
@@ -62,9 +62,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [9.62369, -14.5752, 13.7426],
+			Vec3 Translation = [2.87977, -33.8586, 19.3663],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.323411, 0.243731, -0.0866004, 0.91022],
+			Quat Rotation = [0.487144, 0.0398126, -0.022238, 0.87213],
 		},
 		Camera = 
 		{
@@ -80,10 +80,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 22,
-			float VerticalAngle = -0.682797,
-			float HorizontalAngle = -25.656,
-			Vec3 LookTarget = [1.09466, -0.693927, -1.04138],
+			float LookDistance = 39,
+			float VerticalAngle = -1.0188,
+			float HorizontalAngle = -25.224,
+			Vec3 LookTarget = [1.01645, -0.650976, -0.999929],
 		},
 		EditorRenderer = 
 		{
@@ -175,6 +175,12 @@ Level =
 			string Material = "4de020863e85bb61:DefaultMaterial",
 			Vec4 Color = [1, 1, 1, 1],
 			bool Visible = true,
+		},
+		ScreenWarpRing = 
+		{
+			float Size = 5,
+			float Thickness = 1,
+			float Intensity = 0.1,
 		},
 		Hierarchy = 
 		{
@@ -668,18 +674,13 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 200,
-			float Size = 20,
+			float Size = 25,
 		},
 		MotionBlur = 
 		{
 			int Samples = 20,
 			float Density = 2,
 			bool RadialOnly = true,
-		},
-		CameraController = 
-		{
-			string Target = ":/Player",
-			float MaxMove = 5,
 		},
 		ScreenDrops = 
 		{
@@ -694,6 +695,11 @@ Level =
 			float IntensityDissipation = 0.001,
 			float OutwardForce = 0,
 			Vec2 ConstantForce = [0, -1],
+		},
+		CameraFollow = 
+		{
+			string Target = ":/Player",
+			float MaxMove = 5,
 		},
 		Hierarchy = 
 		{
