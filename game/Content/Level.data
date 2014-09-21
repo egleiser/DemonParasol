@@ -62,9 +62,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.87977, -33.8586, 19.3663],
+			Vec3 Translation = [-20.4963, -27.004, 36.665],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.487144, 0.0398126, -0.022238, 0.87213],
+			Quat Rotation = [0.225208, -0.240973, 0.0575931, 0.942283],
 		},
 		Camera = 
 		{
@@ -80,10 +80,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 39,
-			float VerticalAngle = -1.0188,
-			float HorizontalAngle = -25.224,
-			Vec3 LookTarget = [1.01645, -0.650976, -0.999929],
+			float LookDistance = 51,
+			float VerticalAngle = -0.469203,
+			float HorizontalAngle = -24.632,
+			Vec3 LookTarget = [1.34129, -3.94306, -3.23882],
 		},
 		EditorRenderer = 
 		{
@@ -163,24 +163,6 @@ Level =
 			bool LocalSpaceDirection = false,
 			float Strength = 100,
 			Vec3 Direction = [0, 0, -1],
-		},
-		DynamicMesh = 
-		{
-			bool GenerateNormals = true,
-			bool GenerateUVs = false,
-			bool GenerateAdjacencyInfo = false,
-		},
-		DynamicMeshRenderer = 
-		{
-			string Material = "4de020863e85bb61:DefaultMaterial",
-			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
-		},
-		ScreenWarpRing = 
-		{
-			float Size = 5,
-			float Thickness = 1,
-			float Intensity = 0.1,
 		},
 		Hierarchy = 
 		{
@@ -349,6 +331,67 @@ Level =
 													Vec4 Color = [1, 1, 1, 1],
 													bool Visible = true,
 												},
+												Hierarchy = 
+												{
+													Cog = 
+													{
+														LinkId = 
+														{
+															uint Id = 11,
+														},
+														Named = 
+														{
+															string Name = "Lantern",
+														},
+														Archetyped = 
+														{
+															string Name = "54045e28b8fa15b8:Lantern",
+														},
+														Transform = 
+														{
+															Vec3 Translation = [0.0704139, -0.11324, -0.291466],
+															Vec3 Scale = [0.35, 0.35, 0.35],
+															Quat Rotation = [-0.214771, -0.0184185, 0.965249, -0.147744],
+														},
+														Model = 
+														{
+															string MaterialName = "5404506d3dd2a41e:mat_Light",
+															string MeshName = "4de0354322b345ae:Cube",
+															Vec4 Color = [1, 0.5712, 0.36, 1],
+															bool Visible = true,
+														},
+														Light = 
+														{
+															LightType LightType = Point,
+															bool Active = true,
+															float Range = 10,
+															float MinRange = 0.1,
+															float Angle = 45,
+															float Intensity = 1,
+															Vec4 Color = [0.99, 0.409613, 0.12375, 1],
+															float MinRange = 0.1,
+															float Size = 20,
+															bool Baked = false,
+														},
+														GodRayLight = 
+														{
+															GodRayLightType LightType = Point,
+															bool Active = true,
+															int Samples = 80,
+															Vec4 Color = [1, 0.4575, 0.225, 1],
+															float Intensity = 1,
+															float ScreenRadius = 0.11,
+															float OccluderClarity = 0.27,
+															bool ScreenEdgeFade = false,
+															float BeginFade = -0.1,
+															float EndFade = 0.1,
+															float DepthOffset = 0,
+														},
+														Hierarchy = 
+														{
+														},
+													},
+												},
 											},
 										},
 									},
@@ -356,7 +399,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 11,
+											uint Id = 12,
 										},
 										Named = 
 										{
@@ -381,7 +424,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 12,
+													uint Id = 13,
 												},
 												Named = 
 												{
@@ -412,7 +455,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 13,
+									uint Id = 14,
 								},
 								Named = 
 								{
@@ -437,7 +480,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 14,
+											uint Id = 15,
 										},
 										Named = 
 										{
@@ -463,7 +506,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 15,
+									uint Id = 16,
 								},
 								Named = 
 								{
@@ -488,7 +531,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 16,
+											uint Id = 17,
 										},
 										Named = 
 										{
@@ -518,7 +561,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 17,
+					uint Id = 18,
 				},
 				Named = 
 				{
@@ -569,7 +612,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 18,
+							uint Id = 19,
 						},
 						Named = 
 						{
@@ -607,7 +650,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 19,
+			uint Id = 20,
 		},
 		Archetyped = 
 		{
@@ -615,7 +658,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 1.43169, 1.86517],
+			Vec3 Translation = [0, 1.43169, 1.08815],
 			Vec3 Scale = [4, 4, 4],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -667,7 +710,7 @@ Level =
 		},
 		Camera = 
 		{
-			ProjectionMode ProjectionMode = Perspective,
+			ProjectionMode ProjectionMode = Orthographic,
 			Facing Facing = NegativeZ,
 			SpriteSort SpriteSort = ViewDepth,
 			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
@@ -698,7 +741,7 @@ Level =
 		},
 		CameraFollow = 
 		{
-			string Target = ":/Player",
+			CogPath Target = ":/Player",
 			float MaxMove = 5,
 		},
 		Hierarchy = 
@@ -709,7 +752,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 20,
+			uint Id = 21,
 		},
 		Named = 
 		{
@@ -728,30 +771,18 @@ Level =
 			float Range = 50,
 			float MinRange = 2,
 			float Angle = 107,
-			float Intensity = 1.73,
-			Vec4 Color = [1, 1, 1, 1],
+			float Intensity = 0.2,
+			Vec4 Color = [0.975, 0.833625, 0.969345, 1],
 			float MinRange = 2,
 			float Size = 128,
 			bool Baked = false,
-		},
-		Shadow = 
-		{
-			Quality Quality = VeryHighQuality,
-			ShadowType ShadowType = Esm,
-			bool SoftShadows = false,
-			float Size = 0.1,
-			uint Splits = 1,
-			uint CurrentSplit = 0,
-			float PaddingScaler = 0.3,
-			Vec4 Color = [0, 0, 0, 1],
-			bool Active = false,
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 21,
+			uint Id = 22,
 		},
 		Named = 
 		{
@@ -763,7 +794,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [11.6344, 1.43169, 1.86517],
+			Vec3 Translation = [11.6344, 1.43169, 1.31417],
 			Vec3 Scale = [4, 4, 4],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -809,7 +840,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 22,
+			uint Id = 23,
 		},
 		Named = 
 		{
@@ -859,6 +890,34 @@ Level =
 			Vec4 GridHiLight = [0.0200001, 1, 0, 0.4],
 			int HilightInterval = 2,
 			bool FollowEditorCamera = false,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 24,
+		},
+		Named = 
+		{
+			string Name = "BseGround",
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, -1.70015],
+			Vec3 Scale = [100, 100, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "537644533dba9ae8:mat_Plain",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = true,
 		},
 	},
 },

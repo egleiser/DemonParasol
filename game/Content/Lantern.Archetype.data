@@ -1,0 +1,54 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Lantern",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0.0704139, -0.11324, -0.291466],
+		Vec3 Scale = [0.35, 0.35, 0.35],
+		Quat Rotation = [-0.214771, -0.0184185, 0.965249, -0.147744],
+	},
+	Model = 
+	{
+		string MaterialName = "5404506d3dd2a41e:mat_Light",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 0.5712, 0.36, 1],
+		bool Visible = true,
+	},
+	Light = 
+	{
+		LightType LightType = Point,
+		bool Active = true,
+		float Range = 10,
+		float MinRange = 2,
+		float Angle = 45,
+		float Intensity = 1,
+		Vec4 Color = [0.99, 0.409613, 0.12375, 1],
+		float MinRange = 2,
+		float Size = 20,
+		bool Baked = false,
+	},
+	GodRayLight = 
+	{
+		GodRayLightType LightType = Point,
+		bool Active = true,
+		int Samples = 80,
+		Vec4 Color = [1, 0.4575, 0.225, 1],
+		float Intensity = 1,
+		float ScreenRadius = 0.11,
+		float OccluderClarity = 0.27,
+		bool ScreenEdgeFade = false,
+		float BeginFade = -0.1,
+		float EndFade = 0.1,
+		float DepthOffset = 0,
+	},
+	Hierarchy = 
+	{
+	},
+},
