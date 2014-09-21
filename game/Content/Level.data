@@ -62,9 +62,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-20.4963, -27.004, 36.665],
+			Vec3 Translation = [1.33908, -14.5209, 27.8426],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.225208, -0.240973, 0.0575931, 0.942283],
+			Quat Rotation = [0.278827, -0.0137837, 0.00400247, 0.960234],
 		},
 		Camera = 
 		{
@@ -81,9 +81,9 @@ Level =
 		{
 			ControlMode ControlMode = Orbit,
 			float LookDistance = 51,
-			float VerticalAngle = -0.469203,
-			float HorizontalAngle = -24.632,
-			Vec3 LookTarget = [1.34129, -3.94306, -3.23882],
+			float VerticalAngle = -0.565204,
+			float HorizontalAngle = -25.104,
+			Vec3 LookTarget = [2.57527, 12.7941, -15.2081],
 		},
 		EditorRenderer = 
 		{
@@ -710,7 +710,7 @@ Level =
 		},
 		Camera = 
 		{
-			ProjectionMode ProjectionMode = Orthographic,
+			ProjectionMode ProjectionMode = Perspective,
 			Facing Facing = NegativeZ,
 			SpriteSort SpriteSort = ViewDepth,
 			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
@@ -772,7 +772,7 @@ Level =
 			float MinRange = 2,
 			float Angle = 107,
 			float Intensity = 0.2,
-			Vec4 Color = [0.975, 0.833625, 0.969345, 1],
+			Vec4 Color = [0.995, 0.940275, 0.992811, 1],
 			float MinRange = 2,
 			float Size = 128,
 			bool Baked = false,
