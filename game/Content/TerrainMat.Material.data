@@ -1,0 +1,31 @@
+Material = 
+{
+	Lambert = 
+	{
+	},
+	NormalMapping = 
+	{
+		float Bumpiness = 4,
+		string NormalMapTexture = "5438253cb5888f4b:Water",
+		Vec2 NormalScroll = [1, 0.1],
+		Vec2 NormalTiling = [1, 1],
+		Vec2 NormalOffset = [0, 0],
+	},
+	Reflective = 
+	{
+		float Reflectivity = 0.02,
+		string Environment = "5438253cb5888f4b:Water",
+		Vec2 ReflectiveScroll = [0.05, 0],
+	},
+	WeightedTextures = 
+	{
+		string Texture0Name = "543827b3e3a68078:Ground1",
+		Vec2 Tile0 = [1, 1],
+		string Texture1Name = "543827bbeafbb2a6:Ground2",
+		Vec2 Tile1 = [1, 1],
+		string Texture2Name = "4df5d3b6b7338274:Stripes",
+		Vec2 Tile2 = [1, 1],
+		string Texture3Name = "4df5d3b6b7338274:Stripes",
+		Vec2 Tile3 = [1, 1],
+	},
+},
