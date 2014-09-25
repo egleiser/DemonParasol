@@ -62,9 +62,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [6.12387, -55.3033, 23.4975],
+			Vec3 Translation = [7.08819, -3.59946, 1.51916],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.614507, 0.108857, -0.0861356, 0.776603],
+			Quat Rotation = [0.0411705, 0.740084, -0.0454969, 0.669709],
 		},
 		Camera = 
 		{
@@ -80,10 +80,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 65.1,
-			float VerticalAngle = -1.3388,
-			float HorizontalAngle = -19.1281,
-			Vec3 LookTarget = [2.00857, 8.05262, 9.10632],
+			float LookDistance = 7.1,
+			float VerticalAngle = -0.122796,
+			float HorizontalAngle = -20.5201,
+			Vec3 LookTarget = [0.076684, -2.7298, 2.22092],
 		},
 		EditorRenderer = 
 		{
@@ -576,7 +576,7 @@ Level =
 				Transform = 
 				{
 					Vec3 Translation = [0.613419, 0.22648, 1.08852],
-					Vec3 Scale = [0.5, 0.5, 0.5],
+					Vec3 Scale = [0.5, 0.5, 0.500001],
 					Quat Rotation = [-0.0184185, 0.214771, 0.147744, 0.965249],
 				},
 				Model = 
@@ -646,6 +646,34 @@ Level =
 							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 							Vec3 Offset = [0, 0, 0],
 							Vec3 Size = [0.5, 0.5, 0.5],
+						},
+						DynamicMesh = 
+						{
+							bool GenerateNormals = true,
+							bool GenerateUVs = false,
+							bool GenerateAdjacencyInfo = false,
+						},
+						Ribbon = 
+						{
+							bool Spawning = true,
+							Vec3 LocalSpawnPointA = [0, 0.6, 0],
+							Vec3 LocalSpawnPointB = [0, -0.6, -0],
+							uint MaxLength = 25,
+							float LengthBetweenSpawn = 0.01,
+							float TimeBetweenSpawn = 0.01,
+							CurveType CurveType = BSpline,
+							uint CurveResolution = 5,
+							Vec2 TextureScalar = [1, 1],
+							bool FlipTextureX = false,
+							bool FlipTextureY = false,
+							bool UseDecayCurve = false,
+							string DecayCurveName = "4f16dfae49806add:DefaultCurve",
+						},
+						DynamicMeshRenderer = 
+						{
+							string Material = "5404506d3dd2a41e:mat_Light",
+							Vec4 Color = [0.4375, 0.63875, 0.875, 1],
+							bool Visible = true,
 						},
 					},
 				},
