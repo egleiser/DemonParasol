@@ -1,0 +1,105 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: OrbitCameraController.z  ////
+////    Written by: Jason Clark      ////
+////                and Eric Gleiser ////
+////     Last Updtaed: 9-17-14       ////
+////                                 ////
+/////////////////////////////////////////
+
+
+class OrbitCameraController : ZilchComponent
+{
+    [Property]
+    var OrbitTarget : CogPath = null;
+    
+    [Property]
+    var Height: Real = 30.0;
+    
+    [Property]
+    var Radius : Real = 20.0;
+    
+    [Property]
+    var AngleChange : Real = 90.0;
+    
+    [Property]
+    var AngleOrigin : Real = 0.0;
+    
+    var CamLerp: Real3 = Real3(0,0,30);
+    var WantedcamLerp : Real3 = Real3(0,0,10);
+    
+    var FlipCam : Boolean = false;
+    
+    var Direction : Real3 = Real3(0,0,0);
+    var CurrentAngle : Real = 0;
+    
+    var WantedRotation : Quaternion = Quaternion(0,0,0,0);
+    var WantedPosition : Real3 = Real3(0,0,0);
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Direction = Math.Normalize(this.Owner.Transform.Translation - this.OrbitTarget.Cog.Transform.Translation);
+        
+        this.Owner.Transform.Rotation = Math.Euler(Real3(Math.ToRadians(210.0), Math.ToRadians(180.0), 33.0));
+        
+        this.CurrentAngle = Math.ToRadians(270);
+        this.Owner.Transform.WorldTranslation = Real3( Math.Cos(this.CurrentAngle) * this.Radius, Math.Sin(this.CurrentAngle) * this.Radius, 0.0) + this.OrbitTarget.Cog.Transform.Translation;
+        
+        this.Owner.Camera.Size = this.CamLerp.Z ;
+        this.Owner.Orientation.LookAtDirectionWithUp(this.Direction, Real3(0,0,1));
+        this.WantedRotation = this.Owner.Orientation.Rotation;
+            
+
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Direction = Math.Normalize(this.Owner.Transform.Translation - this.OrbitTarget.Cog.Transform.Translation);
+        this.UpdatePlayerInput();
+
+        if(this.FlipCam)
+        {
+            //this.WantedRotation = Math.Euler(Real3(Math.ToRadians(210.0), Math.ToRadians(180.0), 0.0));
+            //this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1))
+            this.WantedRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1));
+            
+            this.CurrentAngle = Math.Lerp(this.CurrentAngle, Math.ToRadians(this.AngleChange), event.Dt * 3);
+            this.WantedPosition = Real3( Math.Cos(this.CurrentAngle) * this.Radius, Math.Sin(this.CurrentAngle) * this.Radius, this.Height) + this.OrbitTarget.Cog.Transform.Translation;
+            
+            //this.Owner.Transform.Rotation = this.WantedRotation;
+            this.Owner.Transform.Rotation = Math.RotateTowards(this.Owner.Transform.Rotation, this.WantedRotation, 1);    
+            this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, this.WantedPosition, event.Dt * 5);
+            
+
+        }
+        else
+        {
+            //this.WantedRotation = Math.Euler(Real3(Math.ToRadians(30.0), 0.0, 0.0));
+            //this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1))
+            this.WantedRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1));
+            
+            this.CurrentAngle = Math.Lerp(this.CurrentAngle, Math.ToRadians(270), event.Dt * 3);
+            this.WantedPosition = Real3( Math.Cos(this.CurrentAngle) * this.Radius, Math.Sin(this.CurrentAngle) * this.Radius, this.Height) + this.OrbitTarget.Cog.Transform.Translation;
+            
+            //this.Owner.Transform.Rotation = this.WantedRotation;
+            this.Owner.Transform.Rotation = Math.RotateTowards(this.Owner.Transform.Rotation, this.WantedRotation, 5);
+            this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, this.WantedPosition, event.Dt * 5);
+            
+        }
+
+    }
+    
+    function UpdatePlayerInput()
+    {
+        if(Zero.Keyboard.KeyIsPressed(Keys.Shift))
+        {
+            this.ToggleFlipCam();
+        }
+    }
+    
+    function ToggleFlipCam()
+    {
+        this.FlipCam = !this.FlipCam;
+    }
+}

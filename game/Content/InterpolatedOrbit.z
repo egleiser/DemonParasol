@@ -1,0 +1,39 @@
+class InterpolatedOrbit : ZilchComponent
+{
+    [Property]
+    var Active : Boolean = true;
+    [Property]
+    var Radius : Real = 10.0;
+    
+    [Property]
+    var OrbitTarget : CogPath = null;
+    
+    var CurrentAngle : Real = 0;
+    
+    [Property]
+    var AngleChange : Real = 0;
+    
+    var StartLoc : Real3 = Real3(0,0,0);
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        var startDir : Real3 = Math.Normalize(this.Owner.Transform.Translation - this.OrbitTarget.Cog.Transform.Translation);
+        this.CurrentAngle = Math.ATan2(startDir.Y, startDir.X);
+        this.StartLoc = this.OrbitTarget.Cog.Transform.Translation;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(!this.Active)
+        {
+            return;
+        }
+        this.CurrentAngle += Math.ToRadians(this.AngleChange) * event.Dt;
+        
+        var objectVec : Real3 = Real3(Math.Cos(this.CurrentAngle), Math.Sin(this.CurrentAngle), 0) ;
+        this.Owner.Transform.Translation = (objectVec * this.Radius) + this.StartLoc;
+    }
+}
