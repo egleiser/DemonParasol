@@ -1,18 +1,65 @@
 class SwordController : ZilchComponent
 {
-    var WantedRot:Real3 = Real3(0,0,0);
+    var SlashCount:Integer = 0;
+    var Timer:Integer = 0;
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, "attackEvent", this.OnAttack);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        
+        this.Timer += 1;
+        if(this.Timer >= 30)
+        {
+            this.SlashCount = 0;
+        }
+        if(this.SlashCount == 0)
+        {
+            this.Owner.SimpleAnimation.CrossBlend(Animation.Find("IdleSlash"),0.5,0);
+            this.Owner.BoxCollider.Ghost = true;
+            this.Owner.FindChildByName("Blade").BoxCollider.Ghost = true;
+        }
+        else
+        {
+            this.Owner.BoxCollider.Ghost = false;
+            this.Owner.FindChildByName("Blade").BoxCollider.Ghost = false;
+        }
     }
     function OnAttack(event : AttackEvent)
     {
         Console.WriteLine("Attack!");
+        this.SlashCount += 1;
+        this.Timer = 2;
+        if(this.SlashCount == 1)
+        {
+            this.Owner.SimpleAnimation.PlaySingle(Animation.Find("HorizontalSlash1"),0);
+        }
+        else if(this.SlashCount == 2)
+        {
+            this.Owner.SimpleAnimation.PlaySingle(Animation.Find("HorizontalSlash2"),0);
+        }
+        else if(this.SlashCount == 3)
+        {
+            this.Owner.SimpleAnimation.PlaySingle(Animation.Find("VerticalSlash1"),0);
+        }
+        else
+        {
+            this.Owner.SimpleAnimation.PlaySingle(Animation.Find("HorizontalSlash1"),0);
+            this.SlashCount = 0;
+        }
+    }
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+         // Get the object we collided with:
+        var otherObject = event.OtherObject;
+        if(this.Owner.FindChildByName("Blade").BoxCollider.Ghost == true)
+        {
+            var hitEvent = new HitEvent();
+            otherObject.DispatchDown("hitEvent", hitEvent);
+        }
     }
 }

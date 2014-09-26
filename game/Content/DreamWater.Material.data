@@ -1,0 +1,37 @@
+Material = 
+{
+	Phong = 
+	{
+		float SpecularExponent = 48,
+		float SpecularScalar = 1,
+	},
+	ModulateModelColor = 
+	{
+	},
+	NormalMapping = 
+	{
+		float Bumpiness = 2,
+		string NormalMapTexture = "543827b3e3a68078:Ground1",
+		Vec2 NormalScroll = [0.001, 0],
+		Vec2 NormalTiling = [100, 100],
+		Vec2 NormalOffset = [0, 0],
+	},
+	Reflective = 
+	{
+		float Reflectivity = 0.2,
+		string Environment = "5438253cb5888f4b:Water",
+		Vec2 ReflectiveScroll = [-0.02, 0],
+	},
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Alpha,
+		bool CastShadow = false,
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "5438253cb5888f4b:Water",
+		Vec2 DiffuseScroll = [0.01, 0],
+		Vec2 DiffuseTiling = [100, 100],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},
