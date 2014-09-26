@@ -24,7 +24,7 @@ class OrbitCameraController : ZilchComponent
     
     [Property]
     var AngleOrigin : Real = 0.0;
-    
+    [Property]
     var CamLerp: Real3 = Real3(0,0,30);
     var WantedcamLerp : Real3 = Real3(0,0,10);
     
@@ -92,7 +92,7 @@ class OrbitCameraController : ZilchComponent
     
     function UpdatePlayerInput()
     {
-        if(Zero.Keyboard.KeyIsPressed(Keys.Shift))
+        if(Zero.Keyboard.KeyIsPressed(Keys.Control))
         {
             this.ToggleFlipCam();
         }

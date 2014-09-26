@@ -62,9 +62,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-5.02667, -2.56048, 76.9569],
+			Vec3 Translation = [-12.1492, 2.37276, 43.7474],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.179758, -0.0832385, 0.0152672, 0.980064],
+			Quat Rotation = [0.231242, 0.0187378, -0.00445452, 0.972706],
 		},
 		Camera = 
 		{
@@ -80,10 +80,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 126.1,
-			float VerticalAngle = -0.362796,
-			float HorizontalAngle = -18.6801,
-			Vec3 LookTarget = [14.8554, 42.1911, -39.2464],
+			float LookDistance = 110.1,
+			float VerticalAngle = -0.466796,
+			float HorizontalAngle = -18.8881,
+			Vec3 LookTarget = [-15.9358, 51.9208, -54.5006],
 		},
 		EditorRenderer = 
 		{
@@ -577,7 +577,7 @@ Level =
 				{
 					Vec3 Translation = [0.613419, 0.22648, 1.08852],
 					Vec3 Scale = [0.5, 0.5, 0.500001],
-					Quat Rotation = [-0.0184185, 0.214771, 0.147744, 0.965249],
+					Quat Rotation = [-0.392772, 0.115007, -0.275321, 0.869886],
 				},
 				Model = 
 				{
@@ -744,25 +744,20 @@ Level =
 		},
 		Camera = 
 		{
-			ProjectionMode ProjectionMode = Perspective,
+			ProjectionMode ProjectionMode = Orthographic,
 			Facing Facing = NegativeZ,
 			SpriteSort SpriteSort = ViewDepth,
 			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
 			float FieldOfView = 39,
 			float NearPlane = 0.5,
 			float FarPlane = 200,
-			float Size = 25,
+			float Size = 50,
 		},
 		MotionBlur = 
 		{
 			int Samples = 20,
 			float Density = 2,
 			bool RadialOnly = true,
-		},
-		CameraFollow = 
-		{
-			CogPath Target = ":/Player",
-			float MaxMove = 5,
 		},
 		SoundEmitter = 
 		{
@@ -783,6 +778,22 @@ Level =
 			Vec4 Color = [0.100281, 0.054375, 0.125, 1],
 			float FogDensity = 0.293,
 			float FogStart = 0,
+		},
+		OrbitCameraController = 
+		{
+			CogPath OrbitTarget = ":/Player",
+			float Height = 30,
+			float Radius = 20,
+			float AngleChange = 90,
+			float AngleOrigin = 0,
+			Vec3 CamLerp = [0, 0, 20],
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 1, 0],
+			Vec3 UpVector = [0, 1, 0],
+			Vec3 ForwardVector = [0, 0, 1],
+			OrientationBases DefaultBases = ForwardZUpY,
 		},
 		Hierarchy = 
 		{
