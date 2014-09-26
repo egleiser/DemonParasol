@@ -62,9 +62,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [7.08819, -3.59946, 1.51916],
+			Vec3 Translation = [-5.02667, -2.56048, 76.9569],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.0411705, 0.740084, -0.0454969, 0.669709],
+			Quat Rotation = [0.179758, -0.0832385, 0.0152672, 0.980064],
 		},
 		Camera = 
 		{
@@ -80,10 +80,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 7.1,
-			float VerticalAngle = -0.122796,
-			float HorizontalAngle = -20.5201,
-			Vec3 LookTarget = [0.076684, -2.7298, 2.22092],
+			float LookDistance = 126.1,
+			float VerticalAngle = -0.362796,
+			float HorizontalAngle = -18.6801,
+			Vec3 LookTarget = [14.8554, 42.1911, -39.2464],
 		},
 		EditorRenderer = 
 		{
@@ -106,7 +106,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, -3.19109, 0],
+			Vec3 Translation = [0, 46.3747, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -866,7 +866,7 @@ Level =
 				},
 				Named = 
 				{
-					string Name = "BseGround",
+					string Name = "DreamFogger",
 				},
 				Archetyped = 
 				{
@@ -880,7 +880,7 @@ Level =
 				},
 				Model = 
 				{
-					string MaterialName = "543828feeb5b6cf5:TerrainMatCopy1",
+					string MaterialName = "543828feeb5b6cf5:DreamFog",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 0.045],
 					bool Visible = true,
@@ -1006,8 +1006,8 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, -1],
-			Vec3 Scale = [100, 100, 1],
+			Vec3 Translation = [0, 0, -0.375614],
+			Vec3 Scale = [100, 100, 10],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		RigidBody = 
@@ -1024,7 +1024,7 @@ Level =
 		},
 		BoxCollider = 
 		{
-			bool Ghost = false,
+			bool Ghost = true,
 			bool SendsMessages = true,
 			bool Seamless = true,
 			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
@@ -1039,9 +1039,9 @@ Level =
 			GridAxis Axis = ZAxis,
 			int Lines = 100,
 			bool AlwaysDrawInEditor = true,
-			bool DrawInGame = false,
+			bool DrawInGame = true,
 			Vec4 GridColor = [0.5, 0.5, 0.5, 0.4],
-			Vec4 GridHiLight = [0.0200001, 1, 0, 0.4],
+			Vec4 GridHiLight = [0.97, 0.47045, 0.47045, 0.4],
 			int HilightInterval = 2,
 			bool FollowEditorCamera = false,
 		},
@@ -1064,7 +1064,7 @@ Level =
 		},
 		HeightMap = 
 		{
-			float UnitsPerPatch = 10,
+			float UnitsPerPatch = 100,
 			string SourceName = "54385a3debe9291e:Level_HeightMap01",
 		},
 		HeightMapRenderer = 
@@ -11710,6 +11710,127 @@ Level =
 					uint Direction = 1,
 				},
 			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 231,
+		},
+		Named = 
+		{
+			string Name = "DreamWater",
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 78.6802, -8.01821],
+			Vec3 Scale = [1000, 1000, 10],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "54f4a2d723452ed1:DreamWater",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 0.54],
+			bool Visible = true,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		Region = 
+		{
+			bool WakeUpOnEffectChange = false,
+		},
+		BuoyancyEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			float Density = 200,
+			Vec3 Gravity = [0, 0, -9.81],
+			uint Detail = 10,
+			bool DebugDraw = true,
+		},
+		FlowEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalForce = false,
+			bool AttractToFlowCenter = false,
+			float FlowSpeed = 100,
+			float MaxFlowForce = 10000,
+			Vec3 FlowDirection = [-1, 0, 0],
+			float AttractSpeed = 5,
+			float MaxAttractForce = 50,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 232,
+		},
+		Named = 
+		{
+			string Name = "PushBlock",
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [11.6344, 64.1283, 1.31417],
+			Vec3 Scale = [4, 4, 4],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "537644533dba9ae8:mat_Plain",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.82, 0.82, 0.82, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 100,
+			Vec3 Direction = [0, 0, -1],
 		},
 	},
 },

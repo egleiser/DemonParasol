@@ -10,8 +10,8 @@ Material =
 	{
 		float Bumpiness = 4,
 		string NormalMapTexture = "5438253cb5888f4b:Water",
-		Vec2 NormalScroll = [1, 0.1],
-		Vec2 NormalTiling = [1, 1],
+		Vec2 NormalScroll = [0.02, 0.002],
+		Vec2 NormalTiling = [10, 10],
 		Vec2 NormalOffset = [0, 0],
 	},
 	Reflective = 
@@ -23,12 +23,12 @@ Material =
 	WeightedTextures = 
 	{
 		string Texture0Name = "4fab71e8bcb7a8ce:DefaultTexture",
-		Vec2 Tile0 = [1, 1],
+		Vec2 Tile0 = [10, 10],
 		string Texture1Name = "543827bbeafbb2a6:Ground2",
-		Vec2 Tile1 = [1, 1],
+		Vec2 Tile1 = [10, 10],
 		string Texture2Name = "4df5d3b6b7338274:Stripes",
-		Vec2 Tile2 = [1, 1],
+		Vec2 Tile2 = [10, 10],
 		string Texture3Name = "4df5d3b6b7338274:Stripes",
-		Vec2 Tile3 = [1, 1],
+		Vec2 Tile3 = [10, 10],
 	},
 },
