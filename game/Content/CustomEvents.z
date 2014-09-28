@@ -3,3 +3,9 @@ class AttackEvent : Event
     var InfoToSend : String = "";
     var NumberToSend : Integer = 0;
 }  
+
+class HitEvent : Event
+{
+    var DispatcherName : String = "";
+    var NumberToSend : Integer = 0;
+}  

@@ -1,0 +1,38 @@
+ResourceTable = 
+{
+	string ResourceType = "Animation",
+	Array EntryList = 
+	[
+		{
+			string Name = "Idle",
+			string Value = "53f50b9fbfe71185:BoxManIdleBreathing.All",
+			float Weight = 1,
+		},
+		{
+			string Name = "Walk",
+			string Value = "53f50ba0bfb0cbbd:BoxManWalk.All",
+			float Weight = 1,
+		},
+		{
+			string Name = "Run",
+			string Value = "53f50ba0bfb4baa6:BoxManRun.All",
+			float Weight = 1,
+		},
+		{
+			string Name = "Jump",
+			string Value = "53f83ea725288900:Jump2.All",
+			float Weight = 1,
+		},
+		{
+			string Name = "Fall",
+			string Value = "53f50b9fbfc4b7e5:BoxManFall.All",
+			float Weight = 1,
+		},
+		{
+			string Name = "Dance",
+			string Value = "53f50ba0bfc8480d:BoxManDanceFull.All",
+			float Weight = 1,
+		},
+	],
+	float MaxWeight = 1,
+},

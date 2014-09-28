@@ -1,0 +1,27 @@
+GeometryContent = 
+{
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	AnimationBuilder = 
+	{
+		string Name = "BoxManCrawl",
+		uint64 ResourceId = 53f50ba1be60aeb8,
+		bool MakeAnimationSet = false,
+		ResourceCompression CompressAnimation = None,
+		Array Clips = 
+		[
+			{
+				string Name = "All",
+				uint64 ResourceId = 53f50ba0bfd488ac,
+				int StartFrame = 0,
+				int EndFrame = 30,
+				LoopingMode LoopingMode = Default,
+			},
+		],
+	},
+},

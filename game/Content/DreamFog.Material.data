@@ -1,0 +1,24 @@
+Material = 
+{
+	ModulateModelColor = 
+	{
+	},
+	Reflective = 
+	{
+		float Reflectivity = 1,
+		string Environment = "5438253cb5888f4b:Water",
+		Vec2 ReflectiveScroll = [0, 0],
+	},
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Multiply,
+		bool CastShadow = false,
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "5438253cb5888f4b:Water",
+		Vec2 DiffuseScroll = [0.01, 0.01],
+		Vec2 DiffuseTiling = [10, 10],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

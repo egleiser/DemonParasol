@@ -1,0 +1,84 @@
+class CoolOrbitThingy : ZilchComponent
+{
+    [Property]
+    var OrbitTarget : CogPath = null;
+    
+    [Property]
+    var MaxMove: Real = 5.0;
+    
+    [Property]
+    var Radius : Real = 1.0;
+    
+    [Property]
+    var AngleChange : Real = 0.0;
+    
+    [Property]
+    var AngleOrigin : Real = 0.0;
+    
+    var CamLerp: Real3 = Real3(0,0,30);
+    var WantedcamLerp : Real3 = Real3(0,0,10);
+    
+    var FlipCam : Boolean = false;
+    
+    var StartDirection : Real3 = Real3(0,0,0);
+    var CurrentAngle : Real = 0;
+    
+    var WantedRotation : Quaternion = Quaternion(0,0,0,0);
+    var WantedPosition : Real3 = Real3(0,0,0);
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.StartDirection = Math.Normalize(this.Owner.Transform.Translation - this.OrbitTarget.Cog.Transform.Translation);
+        this.CurrentAngle = 270;
+        
+        this.WantedRotation = this.Owner.Transform.Rotation;
+        this.WantedPosition = this.Owner.Transform.Translation;
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.UpdatePlayerInput();
+        
+        if(this.FlipCam)
+        {
+            this.WantedRotation = Math.Euler(Real3(Math.ToRadians(210.0), Math.ToRadians(180.0), 0.0));
+            
+            this.CurrentAngle = Math.Lerp(this.CurrentAngle, Math.ToRadians(this.AngleChange), event.Dt);
+            this.WantedPosition = Real3( Math.Cos(this.CurrentAngle) * 20, Math.Sin(this.CurrentAngle) * 20, 0.0) + this.OrbitTarget.Cog.Transform.Translation;
+            
+            this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.WantedRotation, event.Dt);
+            this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, this.WantedPosition, event.Dt * 5);
+            
+            this.CamLerp = Math.Lerp(this.CamLerp, this.WantedcamLerp, event.Dt*4);
+            this.Owner.Camera.Size = this.CamLerp.Z ;
+        }
+        else
+        {
+            this.WantedRotation = Math.Euler(Real3(Math.ToRadians(30.0), 0.0, 0.0));
+            
+            this.CurrentAngle = Math.Lerp(this.CurrentAngle, Math.ToRadians(270), event.Dt);
+            this.WantedPosition = Real3( Math.Cos(this.CurrentAngle) * 20, Math.Sin(this.CurrentAngle) * 20, 0.0) + this.OrbitTarget.Cog.Transform.Translation;
+            
+            this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.WantedRotation, event.Dt);
+            this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, this.WantedPosition, event.Dt * 5);
+            
+            this.CamLerp = Math.Lerp(this.CamLerp, this.WantedcamLerp, event.Dt*4);
+            this.Owner.Camera.Size = this.CamLerp.Z ;
+        }
+    }
+    
+    function UpdatePlayerInput()
+    {
+        if(Zero.Keyboard.KeyIsPressed(Keys.Shift))
+        {
+            this.ToggleFlipCam();
+        }
+    }
+    
+    function ToggleFlipCam()
+    {
+        this.FlipCam = !this.FlipCam;
+    }
+}

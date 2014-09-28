@@ -1,0 +1,306 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BoxMan",
+	},
+	Archetyped = 
+	{
+		string Name = "53f50b788ef864f3:BoxMan",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Stomach",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0.622383, 1.19209e-007],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.707107, 0, 0, 0.707107],
+			},
+			Model = 
+			{
+				string MaterialName = "544380cb7820af93:lambert1",
+				string MeshName = "53f50b788ef4a1b7:BoxMan.Stomach",
+				Vec4 Color = [1, 1, 1, 1],
+				bool Visible = true,
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "Chest",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [1.79638e-016, -5.32755e-008, 0.104358],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [7.10543e-015, -7.52316e-037, 6.31088e-030, 1],
+					},
+					Model = 
+					{
+						string MaterialName = "544380cb7820af93:lambert1",
+						string MeshName = "53f50b788ef4a1bc:BoxMan.Chest",
+						Vec4 Color = [1, 1, 1, 1],
+						bool Visible = true,
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 4,
+							},
+							Named = 
+							{
+								string Name = "Head",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [-6.01702e-018, -2.02938e-007, 0.473109],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [-8.23312e-019, 1.86265e-009, 4.42013e-010, 1],
+							},
+							Model = 
+							{
+								string MaterialName = "544380cb7820af93:lambert1",
+								string MeshName = "53f50b788ef4a1bf:BoxMan.Head",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 5,
+							},
+							Named = 
+							{
+								string Name = "LArm",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0.337381, -1.75468e-007, 0.408789],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							Model = 
+							{
+								string MaterialName = "544380cb7820af93:lambert1",
+								string MeshName = "53f50b788ef4a1c0:BoxMan.LArm",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 6,
+									},
+									Named = 
+									{
+										string Name = "LArm01",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [2.98023e-008, 1.28688e-007, -0.299804],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									Model = 
+									{
+										string MaterialName = "544380cb7820af93:lambert1",
+										string MeshName = "53f50b788ef4a1c2:BoxMan.LArm01",
+										Vec4 Color = [1, 1, 1, 1],
+										bool Visible = true,
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 7,
+							},
+							Named = 
+							{
+								string Name = "RArm",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [-0.337996, -1.75468e-007, 0.408789],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							Model = 
+							{
+								string MaterialName = "544380cb7820af93:lambert1",
+								string MeshName = "53f50b788ef4a1c4:BoxMan.RArm",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 8,
+									},
+									Named = 
+									{
+										string Name = "RArm01",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [-2.98023e-008, 1.28688e-007, -0.299804],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									Model = 
+									{
+										string MaterialName = "544380cb7820af93:lambert1",
+										string MeshName = "53f50b788ef4a1c6:BoxMan.RArm01",
+										Vec4 Color = [1, 1, 1, 1],
+										bool Visible = true,
+									},
+								},
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 9,
+					},
+					Named = 
+					{
+						string Name = "LLeg",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.130405, -2.20144e-008, 0.028952],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [7.10543e-015, -7.52316e-037, 6.31088e-030, 1],
+					},
+					Model = 
+					{
+						string MaterialName = "544380cb7820af93:lambert1",
+						string MeshName = "53f50b788ef4a1c7:BoxMan.LLeg",
+						Vec4 Color = [1, 1, 1, 1],
+						bool Visible = true,
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 10,
+							},
+							Named = 
+							{
+								string Name = "LLeg01",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 1.28688e-007, -0.299807],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							Model = 
+							{
+								string MaterialName = "544380cb7820af93:lambert1",
+								string MeshName = "53f50b788ef4a1c9:BoxMan.LLeg01",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 11,
+					},
+					Named = 
+					{
+						string Name = "RLeg",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.13, -1.67773e-008, 0.028952],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [7.10543e-015, -7.52316e-037, 6.31088e-030, 1],
+					},
+					Model = 
+					{
+						string MaterialName = "544380cb7820af93:lambert1",
+						string MeshName = "53f50b788ef4a1cb:BoxMan.RLeg",
+						Vec4 Color = [1, 1, 1, 1],
+						bool Visible = true,
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 12,
+							},
+							Named = 
+							{
+								string Name = "RLeg01",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 1.28688e-007, -0.299807],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							Model = 
+							{
+								string MaterialName = "544380cb7820af93:lambert1",
+								string MeshName = "53f50b788ef4a1cd:BoxMan.RLeg01",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+						},
+					},
+				},
+			},
+		},
+	},
+},

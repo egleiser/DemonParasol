@@ -15,6 +15,8 @@ class PlayerController : ZilchComponent
     [Property]
     var MaxMoveForce:Real = 10.0;
     
+    [Property]
+    var Deceleration:Real = 1.5;
     function Initialize(init : CogInitializer)
     {
         this.Owner.DynamicMotor.MaxMoveForce = this.MaxMoveForce;
@@ -32,7 +34,7 @@ class PlayerController : ZilchComponent
         {
             var attackEvent = new AttackEvent();
             this.Owner.DispatchDown("attackEvent", attackEvent);
-            this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed * 100, this.Orientation.WorldUp);
+            this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed * 1000, this.Orientation.WorldUp);
         }
     }
     function MovementUpdate(event : UpdateEvent)
@@ -48,7 +50,7 @@ class PlayerController : ZilchComponent
         else
         {
             this.Owner.DynamicMotor.MoveInDirection(Real3(0,0,0), this.Orientation.WorldUp);
-            this.Owner.RigidBody.Velocity /= Real3(2,2,1);
+            this.Owner.RigidBody.Velocity /= Real3(this.Deceleration,this.Deceleration,1);
         }
     }
 }
