@@ -26,11 +26,13 @@ class SwordController : ZilchComponent
             this.Owner.SimpleAnimation.CrossBlend(Animation.Find("IdleSlash"),0.5,0);
             this.Owner.BoxCollider.Ghost = true;
             this.Owner.FindChildByName("Blade").BoxCollider.Ghost = true;
+            this.Owner.FindChildByName("Blade").Ribbon.Spawning = false;
         }
         else
         {
             this.Owner.BoxCollider.Ghost = false;
             this.Owner.FindChildByName("Blade").BoxCollider.Ghost = false;
+            this.Owner.FindChildByName("Blade").Ribbon.Spawning = true;
         }
     }
     function OnAttack(event : AttackEvent)

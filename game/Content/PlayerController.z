@@ -50,7 +50,7 @@ class PlayerController : ZilchComponent
             var radians:Real = 0.0;
             radians = Math.ATan2(this.Owner.InputController.GetMovement().X,this.Owner.InputController.GetMovement().Y) + cameraAngle + 1.57079633;
             this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation,Math.Euler(Real3(0.0,0.0,radians)),event.Dt*this.RotateSpeed);
-            
+            this.Owner.FootstepDetector.Walk();
             this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed, this.Orientation.WorldUp);
         }
         else

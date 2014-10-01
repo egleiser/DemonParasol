@@ -59,7 +59,7 @@ Level =
 		{
 			bool StartPlaying = true,
 			int ExtraPriority = 0,
-			string CueName = "54fc7096f93b9e50:DreamWorld_Forest_MainLoop",
+			string CueName = "54fc7096f93b5812:DreamWorld_Forest_LostLoop",
 			float Volume = 1,
 			float Pitch = 1,
 			bool Positional = false,
@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [7.1688, -34.3364, 27.1845],
+			Vec3 Translation = [20.3292, 48.9169, 48.1465],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.469655, 0.0381721, -0.020331, 0.88179],
+			Quat Rotation = [0.187823, -0.0674511, 0.0129301, 0.979799],
 		},
 		Camera = 
 		{
@@ -95,10 +95,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 122.1,
-			float VerticalAngle = -0.978796,
-			float HorizontalAngle = -18.9361,
-			Vec3 LookTarget = [1.28081, 66.9853, -40.6951],
+			float LookDistance = 72.1,
+			float VerticalAngle = -0.378797,
+			float HorizontalAngle = -18.7121,
+			Vec3 LookTarget = [29.5089, 75.5797, -18.2104],
 		},
 		EditorRenderer = 
 		{
@@ -121,7 +121,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 46.3747, 0],
+			Vec3 Translation = [3.03652, 61.0559, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -137,6 +137,12 @@ Level =
 			float MaxMoveForce = 300,
 			float Deceleration = 1.5,
 			CogPath CameraPath = ":/Camera",
+		},
+		FootstepDetector = 
+		{
+			int WalkRate = 15,
+			bool DebugDraw = true,
+			Vec4 DebugColor = [0, 1, 0, 0.7],
 		},
 		Orientation = 
 		{
@@ -185,6 +191,20 @@ Level =
 			float Size = 15,
 			float Thickness = 10,
 			float Intensity = 0.05,
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "4e1bd44008b4dc2a:DefaultCue",
+			float Volume = 1.5,
+			float Pitch = 1,
+			bool Positional = true,
+		},
+		WaterSplasher = 
+		{
+			int SplashRate = 20,
+			float SplashIntensity = 1,
 		},
 		Hierarchy = 
 		{
@@ -719,7 +739,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 1.43169, 1.08815],
+			Vec3 Translation = [4.30445, 1.43169, 1.08815],
 			Vec3 Scale = [4, 4, 4],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1043,28 +1063,6 @@ Level =
 			Vec3 Scale = [100, 100, 10],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		RigidBody = 
-		{
-			bool Static = true,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		BoxCollider = 
-		{
-			bool Ghost = true,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [2, 2, 0.5],
-		},
 		GridDraw = 
 		{
 			bool HalfCellOffset = false,
@@ -1072,7 +1070,7 @@ Level =
 			GridAxis Axis = ZAxis,
 			int Lines = 100,
 			bool AlwaysDrawInEditor = true,
-			bool DrawInGame = true,
+			bool DrawInGame = false,
 			Vec4 GridColor = [0.5, 0.5, 0.5, 0.4],
 			Vec4 GridHiLight = [0.97, 0.47045, 0.47045, 0.4],
 			int HilightInterval = 2,
@@ -1114,6 +1112,10 @@ Level =
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Thickness = 1,
+		},
+		FootstepSurface = 
+		{
+			Enum SurfaceType = Dirt,
 		},
 	},
 	Cog = 
@@ -11757,7 +11759,7 @@ Level =
 		},
 		Archetyped = 
 		{
-			string Name = "4faa6050b86884ec:DefaultArchetype",
+			string Name = "54fc5510fcafdb57:DreamWater",
 		},
 		Transform = 
 		{
@@ -11782,6 +11784,10 @@ Level =
 			Vec3 Offset = [0, 0, 0],
 			Vec3 Size = [0.5, 0.5, 0.5],
 		},
+		FootstepSurface = 
+		{
+			Enum SurfaceType = Water,
+		},
 		Region = 
 		{
 			bool WakeUpOnEffectChange = false,
@@ -11793,7 +11799,7 @@ Level =
 			float Density = 200,
 			Vec3 Gravity = [0, 0, -9.81],
 			uint Detail = 10,
-			bool DebugDraw = true,
+			bool DebugDraw = false,
 		},
 		FlowEffect = 
 		{
@@ -11806,6 +11812,11 @@ Level =
 			Vec3 FlowDirection = [-1, 0, 0],
 			float AttractSpeed = 5,
 			float MaxAttractForce = 50,
+		},
+		WaterSplasher = 
+		{
+			int SplashRate = 20,
+			float SplashIntensity = 1,
 		},
 	},
 	Cog = 
@@ -11864,6 +11875,67 @@ Level =
 			bool LocalSpaceDirection = false,
 			float Strength = 100,
 			Vec3 Direction = [0, 0, -1],
+		},
+		WaterSplasher = 
+		{
+			int SplashRate = 20,
+			float SplashIntensity = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 233,
+		},
+		Named = 
+		{
+			string Name = "WoodSurface",
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4.30445, 67.3657, -4.27658],
+			Vec3 Scale = [4, 44, 4],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "537644533dba9ae8:mat_Plain",
+			string MeshName = "4de0354322b3572e:Cylinder",
+			Vec4 Color = [0.22, 0.0429, 0.0429, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CylinderCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 1,
+			float Height = 1,
+			uint Direction = 1,
+		},
+		FootstepSurface = 
+		{
+			Enum SurfaceType = Wood,
 		},
 	},
 },

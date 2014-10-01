@@ -1,0 +1,41 @@
+class WaterSplasher : ZilchComponent
+{
+    [Property]
+    var SplashRate : Integer = 20;
+    var SplashTimer : Integer = 0;
+    
+    [Property]
+    var SplashIntensity : Real = 1.0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    function OnCollisionPersisted(event : CollisionEvent)
+    {
+        this.SplashTimer += 1;
+        var objectHit = event.OtherObject;
+        if((objectHit != null && objectHit.FootstepSurface != null) && (this.SplashTimer % this.SplashRate) == 0)
+        {
+            if(objectHit.FootstepSurface.SurfaceType == FootstepType.Water)
+            {
+                this.Space.CreateAtPosition(Archetype.Find("WaterSplashRing"), this.Owner.Transform.Translation);
+            }
+        }
+    }
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var objectHit = event.OtherObject;
+        if(objectHit != null && objectHit.FootstepSurface != null)
+        {
+            if(objectHit.FootstepSurface.SurfaceType == FootstepType.Water)
+            {
+                this.Space.CreateAtPosition(Archetype.Find("WaterSplash"), this.Owner.Transform.Translation);
+            }
+        }
+    }
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

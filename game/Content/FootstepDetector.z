@@ -1,0 +1,89 @@
+
+class FootstepDetector : ZilchComponent
+{
+    [Dependency]
+    var Orientation: Orientation = null;
+    [Dependency]
+    var Transform: Transform = null;
+    [Property]
+    var WalkRate : Integer = 60;
+    var WalkTimer : Integer = 0;
+    [Property]
+    var DebugDraw : Boolean = false;
+    [Property]
+    var DebugColor : Real4 = Real4(0,1,0,0.7);
+    
+    var CurrentSurface : FootstepType = FootstepType.Dirt;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+    }
+    function OnCollisionPersisted(event : CollisionEvent)
+    {
+        var objectHit = event.OtherObject;
+        if(objectHit != null && objectHit.FootstepSurface != null)
+        {
+            if(objectHit.FootstepSurface.SurfaceType == FootstepType.Water)
+            {
+                this.CurrentSurface = FootstepType.Water;
+            }
+        }
+    }
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        
+    }
+    function Walk()
+    {
+
+        this.WalkTimer += 1;
+        if((this.WalkTimer % this.WalkRate) == 0)
+        {
+            if(this.CurrentSurface == FootstepType.Wood)
+            {
+                this.Owner.SoundEmitter.PlayCue(SoundCue.Find("FootstepsWood"));
+            }
+            else if(this.CurrentSurface == FootstepType.Water)
+            {
+                this.Owner.SoundEmitter.PlayCue(SoundCue.Find("FootstepsWater"));
+            }
+            else if(this.CurrentSurface == FootstepType.Gravel)
+            {
+                this.Owner.SoundEmitter.PlayCue(SoundCue.Find("FootstepsGravel"));
+            }
+            else
+            {
+                this.Owner.SoundEmitter.PlayCue(SoundCue.Find("FootstepsDirt"));
+            }
+        }
+        this.DetectGround();
+    }
+    function DetectGround()
+    {
+        var rayCast = Ray();
+        rayCast.Start = this.Transform.WorldTranslation + Real3(0,0,2);
+        rayCast.Direction = -this.Orientation.LocalUp;
+        var rayDistance = 10.0;
+        var objectHit = this.Space.PhysicsSpace.CastRayFirst(rayCast);
+        if(objectHit != null && objectHit.FootstepSurface != null)
+        {
+            this.CurrentSurface = objectHit.FootstepSurface.SurfaceType;
+        }
+        var endPosition = rayCast.Start + rayCast.Direction * rayDistance;
+        if(this.DebugDraw == true)
+        {
+            this.DrawArrow(rayCast.Start, endPosition, this.DebugColor);
+        }
+    }
+    function DrawArrow(startPos : Real3, endPos : Real3, arrowColor : Real4)
+    {
+        var line = DebugLine();
+        line.Start(startPos);
+        line.End(endPos);
+        line.HeadSize(0.25);
+        line.Float4Color(arrowColor);
+        line.Draw();
+    }
+}

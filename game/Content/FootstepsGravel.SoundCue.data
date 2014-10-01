@@ -1,7 +1,7 @@
 SoundCue = 
 {
-	SoundPlayMode PlayMode = Looping,
-	float Volume = 0.35,
+	SoundPlayMode PlayMode = Single,
+	float Volume = 1,
 	float VolumeVariation = 0,
 	float Pitch = 0,
 	float PitchVariation = 0,
@@ -13,9 +13,5 @@ SoundCue =
 	bool LinearRollOff = true,
 	Array Sounds = 
 	[
-		{
-			string SoundName = "54fc7162051dbda7:DreamWorld_LostChipDrumsLoop",
-			float Weight = 1,
-		},
 	],
 },
