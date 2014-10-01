@@ -1,0 +1,37 @@
+SoundCue = 
+{
+	SoundPlayMode PlayMode = Single,
+	float Volume = 1,
+	float VolumeVariation = 0,
+	float Pitch = 0.1,
+	float PitchVariation = 0.1,
+	float MinDistance = 10,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 128,
+	bool LinearRollOff = true,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "54fc772ca29bb9c6:Female_LS_D_AttackGrunt01",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fc772ca29bc854:Female_LS_D_AttackGrunt03",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fc772ca2988e0e:Female_LS_D_AttackGrunt06",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fc772ca298a6b7:Female_LS_D_AttackGrunt07",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fc4a6b995a1441:Female_LS_D_AttackGrunt02",
+			float Weight = 1,
+		},
+	],
+},

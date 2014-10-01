@@ -17,9 +17,14 @@ class PlayerController : ZilchComponent
     
     [Property]
     var Deceleration:Real = 1.5;
+    [Property]
+    
+    var CameraPath:CogPath = null;
+    var Camera:Cog = null;
     function Initialize(init : CogInitializer)
     {
         this.Owner.DynamicMotor.MaxMoveForce = this.MaxMoveForce;
+        this.Camera = this.CameraPath.Cog;
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
 
@@ -41,8 +46,9 @@ class PlayerController : ZilchComponent
     {
         if(this.Owner.InputController.GetMovement() != Real3(0,0,0))
         {
+            var cameraAngle= this.Camera.OrbitCameraController.CurrentAngle;
             var radians:Real = 0.0;
-            radians = Math.ATan2(this.Owner.InputController.GetMovement().X,this.Owner.InputController.GetMovement().Y);
+            radians = Math.ATan2(this.Owner.InputController.GetMovement().X,this.Owner.InputController.GetMovement().Y) + cameraAngle + 1.57079633;
             this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation,Math.Euler(Real3(0.0,0.0,radians)),event.Dt*this.RotateSpeed);
             
             this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed, this.Orientation.WorldUp);

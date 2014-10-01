@@ -49,6 +49,21 @@ Level =
 			bool Refraction = true,
 			bool Shadows = true,
 		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = true,
+			int ExtraPriority = 0,
+			string CueName = "54fc7096f93b9e50:DreamWorld_Forest_MainLoop",
+			float Volume = 1,
+			float Pitch = 1,
+			bool Positional = false,
+		},
 	},
 	Cog = 
 	{
@@ -62,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [1.80686, 7.09218, 45.5893],
+			Vec3 Translation = [7.1688, -34.3364, 27.1845],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.231242, 0.018748, -0.00445694, 0.972705],
+			Quat Rotation = [0.469655, 0.0381721, -0.020331, 0.88179],
 		},
 		Camera = 
 		{
@@ -80,10 +95,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 110.1,
-			float VerticalAngle = -0.466796,
-			float HorizontalAngle = -18.8881,
-			Vec3 LookTarget = [-1.98186, 56.6402, -52.6586],
+			float LookDistance = 122.1,
+			float VerticalAngle = -0.978796,
+			float HorizontalAngle = -18.9361,
+			Vec3 LookTarget = [1.28081, 66.9853, -40.6951],
 		},
 		EditorRenderer = 
 		{
@@ -121,6 +136,7 @@ Level =
 			float RotateSpeed = 25,
 			float MaxMoveForce = 300,
 			float Deceleration = 1.5,
+			CogPath CameraPath = ":/Camera",
 		},
 		Orientation = 
 		{
@@ -571,7 +587,7 @@ Level =
 				},
 				Named = 
 				{
-					string Name = "Sword",
+					string Name = "Parasol",
 				},
 				Transform = 
 				{
@@ -588,6 +604,8 @@ Level =
 				},
 				SwordController = 
 				{
+					string GruntSound = "54fc772fa224f98d:PlayerAttackGrunt",
+					string SwishSound = "54fc4f740d467ada:Swish",
 				},
 				BoxCollider = 
 				{
@@ -611,6 +629,15 @@ Level =
 				{
 					string AnimationName = "5443d30e1085fd91:IdleSlash",
 					AnimPlayMode PlayMode = PlayOnce,
+				},
+				SoundEmitter = 
+				{
+					bool StartPlaying = false,
+					int ExtraPriority = 0,
+					string CueName = "54fc4f740d467ada:Swish",
+					float Volume = 1,
+					float Pitch = 1,
+					bool Positional = true,
 				},
 				Hierarchy = 
 				{
@@ -759,15 +786,6 @@ Level =
 			float Density = 2,
 			bool RadialOnly = true,
 		},
-		SoundEmitter = 
-		{
-			bool StartPlaying = true,
-			int ExtraPriority = 0,
-			string CueName = "54382260c578ba24:HauntingForest",
-			float Volume = 1,
-			float Pitch = 1,
-			bool Positional = false,
-		},
 		Fog = 
 		{
 			FogType FogType = Linear,
@@ -795,6 +813,10 @@ Level =
 			Vec3 ForwardVector = [0, 0, 1],
 			OrientationBases DefaultBases = ForwardZUpY,
 		},
+		Microphone = 
+		{
+			bool Active = true,
+		},
 		Hierarchy = 
 		{
 			Cog = 
@@ -809,7 +831,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, 0.580175, -2.24089],
+					Vec3 Translation = [0, 9.47829, -7.37822],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [-0.258819, 0, 0, 0.965926],
 				},
@@ -843,7 +865,7 @@ Level =
 				{
 					Vec4 Color0 = [0, 0.46, 1, 0],
 					Vec4 Color1 = [1, 1, 1, 1],
-					Vec4 Color2 = [0.404625, 0.803887, 0.975, 0],
+					Vec4 Color2 = [0.404625, 0.803887, 0.975, 0.9999],
 					Vec4 Color3 = [1, 1, 1, 1],
 					Vec4 Color4 = [0, 0.5808, 0.66, 0],
 				},
@@ -853,8 +875,8 @@ Level =
 					uint EmitCount = 0,
 					float EmitRate = 5000,
 					float EmitVariance = 0,
-					float Size = 0.05,
-					float SizeVariance = 0.02,
+					float Size = 0.25,
+					float SizeVariance = 0.1,
 					float Lifetime = 0.2,
 					float LifetimeVariance = 0.1,
 					float Spin = 0,
@@ -862,10 +884,10 @@ Level =
 					bool RandomSpin = true,
 					float Fill = 1,
 					float EmitterVelocityPercent = 0,
-					Vec3 StartVelocity = [0, 0, -20],
+					Vec3 StartVelocity = [0, 0, -30],
 					Vec3 RandomVelocity = [0, 0, 2],
 					Vec3 TangentVelocity = [1, 0, 0],
-					Vec3 EmitterSize = [10, 10, 5],
+					Vec3 EmitterSize = [50, 40, 5],
 					bool FastMovingEmitter = true,
 				},
 			},
