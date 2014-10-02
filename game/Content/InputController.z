@@ -25,31 +25,31 @@ class InputController : ZilchComponent
     function GetMovement():Real3
     {
         this.MovementVec = Real3(0,0,0);
-        if(!this.Gamepad.IsActive)
+        var keyboardVec:Real3 = Real3(0,0,0);
+        var gamepadVec:Real3 = Real3(0,0,0);
+        if(Zero.Keyboard.KeyIsDown(Keys.W) || Zero.Keyboard.KeyIsDown(Keys.Up))
+        {
+            keyboardVec +=Real3(0,1,0);
+        }
+        if(Zero.Keyboard.KeyIsDown(Keys.A) || Zero.Keyboard.KeyIsDown(Keys.Left))
+        {
+            keyboardVec +=Real3(1,0,0);
+        }
+        if(Zero.Keyboard.KeyIsDown(Keys.S) || Zero.Keyboard.KeyIsDown(Keys.Down))
+        {
+            keyboardVec +=Real3(0,-1,0);
+        }
+        if(Zero.Keyboard.KeyIsDown(Keys.D) || Zero.Keyboard.KeyIsDown(Keys.Right))
+        {
+            keyboardVec +=Real3(-1,0,0);
+        }
+        if(this.Gamepad.IsActive)
         {
 
-            if(Zero.Keyboard.KeyIsDown(Keys.W) || Zero.Keyboard.KeyIsDown(Keys.Up))
-            {
-                this.MovementVec +=Real3(0,1,0);
-            }
-            if(Zero.Keyboard.KeyIsDown(Keys.A) || Zero.Keyboard.KeyIsDown(Keys.Left))
-            {
-                this.MovementVec +=Real3(1,0,0);
-            }
-            if(Zero.Keyboard.KeyIsDown(Keys.S) || Zero.Keyboard.KeyIsDown(Keys.Down))
-            {
-                this.MovementVec +=Real3(0,-1,0);
-            }
-            if(Zero.Keyboard.KeyIsDown(Keys.D) || Zero.Keyboard.KeyIsDown(Keys.Right))
-            {
-                this.MovementVec +=Real3(-1,0,0);
-            }
+            gamepadVec = Real3(-this.Gamepad.LeftStick.X, this.Gamepad.LeftStick.Y, 0.0);
             
         }
-        else
-        {
-            this.MovementVec = Real3(-this.Gamepad.LeftStick.X, this.Gamepad.LeftStick.Y, 0.0);
-        }
-        return Math.Normalize(this.MovementVec);
+        this.MovementVec = gamepadVec + keyboardVec;
+        return Math.Normalize(this.MovementVec + Real3(-this.Gamepad.LeftStick.X, this.Gamepad.LeftStick.Y, 0.0));
     }
 }
