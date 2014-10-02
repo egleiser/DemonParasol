@@ -1,0 +1,21 @@
+class SampleCurveLight : ZilchComponent
+{
+    [Dependency]
+    var Light: Light = null;
+    [Property]
+    var LightingCurve : SampleCurve = null;
+    var SampleTime : Real = 0;
+    [Property]
+    var LocalTimeScale : Real = 1.0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        
+        this.Light.Intensity = this.LightingCurve.Sample(this.SampleTime);
+        this.SampleTime += event.Dt * this.LocalTimeScale;
+    }
+}

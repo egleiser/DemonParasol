@@ -1,0 +1,193 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "AmbienceManager",
+	},
+	Archetyped = 
+	{
+		string Name = "54fd940c712168ab:AmbienceManager",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [-0.258819, 0, 0, 0.965926],
+	},
+	Thunderstorm = 
+	{
+		bool Active = true,
+		string LightningArchetype = "54fdef646265a31e:LightningStrike",
+		int DiceSize = 8,
+		int StrikeFreq = 60,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "DreamFogger",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 14.3137, -7.81046],
+				Vec3 Scale = [100, 100, 1],
+				Quat Rotation = [1.49012e-008, 0, 0, 1],
+			},
+			Model = 
+			{
+				string MaterialName = "543828feeb5b6cf5:DreamFog",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [1, 1, 1, 0.045],
+				bool Visible = true,
+			},
+			SoundEmitter = 
+			{
+				bool StartPlaying = true,
+				int ExtraPriority = 0,
+				string CueName = "54fdee753324d46c:Wind_BlowingLoop2",
+				float Volume = 1,
+				float Pitch = 1,
+				bool Positional = true,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "Rain",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 11.8976, -1.65058],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteParticleSystem = 
+			{
+				SystemChildMode ChildMode = Independent,
+				SystemSpace SystemSpace = WorldSpace,
+				uint DrawOrder = 0,
+				float WarmUpTime = 0,
+				ParticleGeometry GeometryMode = Beam,
+				ParticleRenderMode RenderMode = Additive,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Single,
+				string Texture = "54382d46a1e2190e:soft",
+				Vec4 Tint = [1, 1, 1, 0.225],
+				float VelocityScale = 0.2,
+				float LengthScale = 0.2,
+				float MaxParticleSize = 100,
+				Vec3 SystemSize = [20, 20, 5],
+			},
+			LinearParticleAnimator = 
+			{
+				Vec3 Force = [0, 0, 0],
+				Vec3 RandomForce = [0, 0, 0],
+				float Torque = 0,
+				float Growth = 0,
+				float Dampening = 0,
+				Vec3 Twist = [0, 0, 0],
+			},
+			ParticleColorAnimator = 
+			{
+				Vec4 Color0 = [0, 0.46, 1, 0],
+				Vec4 Color1 = [1, 1, 1, 1],
+				Vec4 Color2 = [0.404625, 0.803887, 0.975, 0.9999],
+				Vec4 Color3 = [1, 1, 1, 1],
+				Vec4 Color4 = [0, 0.5808, 0.66, 0],
+			},
+			BoxParticleEmitter = 
+			{
+				bool Active = true,
+				uint EmitCount = 0,
+				float EmitRate = 5000,
+				float EmitVariance = 0,
+				float Size = 0.25,
+				float SizeVariance = 0.1,
+				float Lifetime = 0.2,
+				float LifetimeVariance = 0.1,
+				float Spin = 0,
+				float SpinVariance = 50,
+				bool RandomSpin = true,
+				float Fill = 1,
+				float EmitterVelocityPercent = 0,
+				Vec3 StartVelocity = [0, 0, -30],
+				Vec3 RandomVelocity = [0, 0, 2],
+				Vec3 TangentVelocity = [1, 0, 0],
+				Vec3 EmitterSize = [50, 40, 5],
+				bool FastMovingEmitter = true,
+			},
+			SoundEmitter = 
+			{
+				bool StartPlaying = true,
+				int ExtraPriority = 0,
+				string CueName = "54fdeee4493c2c1a:Rain_Loop10",
+				float Volume = 1,
+				float Pitch = 1,
+				bool Positional = false,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "Light",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 25.9835, -21.3908],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0.204158, 0.253013, 0.0547137, 0.944092],
+			},
+			Light = 
+			{
+				LightType LightType = Directional,
+				bool Active = true,
+				float Range = 50,
+				float MinRange = 2,
+				float Angle = 107,
+				float Intensity = 0.13,
+				Vec4 Color = [0.865361, 0.773175, 0.915, 1],
+				float MinRange = 2,
+				float Size = 128,
+				bool Baked = false,
+			},
+			GodRayLight = 
+			{
+				GodRayLightType LightType = Point,
+				bool Active = true,
+				int Samples = 80,
+				Vec4 Color = [0.2726, 0, 0.58, 1],
+				float Intensity = 0.23,
+				float ScreenRadius = 1,
+				float OccluderClarity = 0.1,
+				bool ScreenEdgeFade = false,
+				float BeginFade = -0.1,
+				float EndFade = 0.1,
+				float DepthOffset = 0,
+			},
+		},
+	},
+},
