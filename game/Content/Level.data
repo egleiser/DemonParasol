@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [10.599, 40.0744, 43.2475],
+			Vec3 Translation = [45.7904, 22.9731, 78.1521],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.187824, -0.0674464, 0.0129293, 0.979799],
+			Quat Rotation = [0.23523, 0.173136, -0.0426259, 0.955444],
 		},
 		Camera = 
 		{
@@ -95,10 +95,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 72.1,
-			float VerticalAngle = -0.378797,
-			float HorizontalAngle = -18.7121,
-			Vec3 LookTarget = [19.7781, 66.7372, -23.1095],
+			float LookDistance = 117.1,
+			float VerticalAngle = -0.482796,
+			float HorizontalAngle = -19.2081,
+			Vec3 LookTarget = [9.39679, 77.3377, -18.9685],
 		},
 		EditorRenderer = 
 		{
@@ -121,7 +121,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [3.03652, 61.0559, 0],
+			Vec3 Translation = [3.03652, 14.22, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -197,7 +197,7 @@ Level =
 			bool StartPlaying = false,
 			int ExtraPriority = 0,
 			string CueName = "4e1bd44008b4dc2a:DefaultCue",
-			float Volume = 1.5,
+			float Volume = 2.5,
 			float Pitch = 1,
 			bool Positional = true,
 		},
@@ -713,8 +713,8 @@ Level =
 							Vec2 TextureScalar = [1, 1],
 							bool FlipTextureX = false,
 							bool FlipTextureY = false,
-							bool UseDecayCurve = false,
-							string DecayCurveName = "4f16dfae49806add:DefaultCurve",
+							bool UseDecayCurve = true,
+							string DecayCurveName = "54fcfaaf9f68a225:BladeCurve",
 						},
 						DynamicMeshRenderer = 
 						{
@@ -1065,12 +1065,14 @@ Level =
 		},
 		GridDraw = 
 		{
+			bool Active = true,
 			bool HalfCellOffset = false,
 			float CellSize = 0.05,
 			GridAxis Axis = ZAxis,
 			int Lines = 100,
+			bool DrawAxisOrigins = true,
 			bool AlwaysDrawInEditor = true,
-			bool DrawInGame = false,
+			bool DrawInGame = true,
 			Vec4 GridColor = [0.5, 0.5, 0.5, 0.4],
 			Vec4 GridHiLight = [0.97, 0.47045, 0.47045, 0.4],
 			int HilightInterval = 2,
@@ -11807,7 +11809,7 @@ Level =
 			bool WakeUpOnChange = true,
 			bool LocalForce = false,
 			bool AttractToFlowCenter = false,
-			float FlowSpeed = 100,
+			float FlowSpeed = 10,
 			float MaxFlowForce = 10000,
 			Vec3 FlowDirection = [-1, 0, 0],
 			float AttractSpeed = 5,
@@ -11936,6 +11938,438 @@ Level =
 		FootstepSurface = 
 		{
 			Enum SurfaceType = Wood,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 234,
+		},
+		Named = 
+		{
+			string Name = "Sphere",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [7.69167, 17.5917, 3.54927],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b376ae:Sphere",
+			Vec4 Color = [0.414113, 0.11625, 0.75, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		SphereCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 1,
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 100,
+			Vec3 Direction = [0, 0, -1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 235,
+		},
+		Named = 
+		{
+			string Name = "Sphere",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-2.79353, 18.269, 3.54927],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b376ae:Sphere",
+			Vec4 Color = [0.414113, 0.11625, 0.75, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		SphereCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 1,
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 100,
+			Vec3 Direction = [0, 0, -1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 236,
+		},
+		Named = 
+		{
+			string Name = "Sphere",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [41.3167, 58.9023, 3.54927],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b376ae:Sphere",
+			Vec4 Color = [0.414113, 0.11625, 0.75, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		SphereCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 1,
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 100,
+			Vec3 Direction = [0, 0, -1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 237,
+		},
+		Named = 
+		{
+			string Name = "Sphere",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.996966, 5.93414, 3.54927],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b376ae:Sphere",
+			Vec4 Color = [0.414113, 0.11625, 0.75, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		SphereCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 1,
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 100,
+			Vec3 Direction = [0, 0, -1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 238,
+		},
+		Named = 
+		{
+			string Name = "Sphere",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [31.4679, 61.3835, 3.54927],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b376ae:Sphere",
+			Vec4 Color = [0.414113, 0.11625, 0.75, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		SphereCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 1,
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 100,
+			Vec3 Direction = [0, 0, -1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 239,
+		},
+		Named = 
+		{
+			string Name = "Sphere",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [31.4679, 56.9006, 3.54927],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b376ae:Sphere",
+			Vec4 Color = [0.414113, 0.11625, 0.75, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		SphereCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 1,
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 100,
+			Vec3 Direction = [0, 0, -1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 240,
+		},
+		Named = 
+		{
+			string Name = "Sphere",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [20.2446, 66.8925, 3.54927],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b376ae:Sphere",
+			Vec4 Color = [0.414113, 0.11625, 0.75, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		SphereCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 1,
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 100,
+			Vec3 Direction = [0, 0, -1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 241,
+		},
+		Named = 
+		{
+			string Name = "Sphere",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [25.591, 63.9818, 3.54927],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b376ae:Sphere",
+			Vec4 Color = [0.414113, 0.11625, 0.75, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		SphereCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 1,
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 100,
+			Vec3 Direction = [0, 0, -1],
 		},
 	},
 },
