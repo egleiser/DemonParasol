@@ -36,12 +36,12 @@
 </p>
 <h3>Environment Examples and Styles</h3>
 <p>An example of actual environment and polyworld style to draw inspiration from.</p>
-<img src="1" alt="forest" width="600" />
-<img src="2" alt="countryside" />
-<img src="1950s-model-home" alt="1950s home" width="600" />
-<img src="beech-forest" alt="beech-forest" width="600" />
-<img src="destroyed-building" alt="destroyed-building" width="600" />
-<img src="home" alt="home" width="600" />
-<img src="maple-forest" alt="maple-forest" width="600" />
-<img src="polyworld-environment" alt="polyworld-environment" width="600" />
-<img src="polyworld-trees" alt="polyworld-trees" width="600" />
+<img src="1.jpg" alt="forest" width="600" />
+<img src="2.jpg" alt="countryside" />
+<img src="1950s-model-home.jpg" alt="1950s home" width="600" />
+<img src="beech-forest.jpg" alt="beech-forest" width="600" />
+<img src="destroyed-building.jpg" alt="destroyed-building" width="600" />
+<img src="home.jpg" alt="home" width="600" />
+<img src="maple-forest.jpg" alt="maple-forest" width="600" />
+<img src="polyworld-environment.png" alt="polyworld-environment" width="600" />
+<img src="polyworld-trees" alt="polyworld-trees.png" width="600" />
