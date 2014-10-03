@@ -44,4 +44,4 @@
 <img src="home.jpg" alt="home" width="600" />
 <img src="maple-forest.jpg" alt="maple-forest" width="600" />
 <img src="polyworld-environment.png" alt="polyworld-environment" width="600" />
-<img src="polyworld-trees" alt="polyworld-trees.png" width="600" />
+<img src="polyworld-trees.png" alt="polyworld-trees" width="600" />
