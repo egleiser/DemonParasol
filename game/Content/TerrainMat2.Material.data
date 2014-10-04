@@ -1,0 +1,23 @@
+Material = 
+{
+	Phong = 
+	{
+		float SpecularExponent = 40,
+		float SpecularScalar = 1,
+	},
+	ModulateModelColor = 
+	{
+	},
+	NormalMapping = 
+	{
+		float Bumpiness = 0.8,
+		string NormalMapTexture = "54ff30eba2db9c71:Stone_Normal",
+		Vec2 NormalScroll = [0, 0],
+		Vec2 NormalTiling = [1, 1],
+		Vec2 NormalOffset = [0, 0],
+	},
+	ColorDiffuse = 
+	{
+		Vec4 DiffuseColor = [1, 1, 1, 1],
+	},
+},

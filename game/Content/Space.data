@@ -1,43 +1,37 @@
-Space =
+Space = 
 {
-  TimeSpace =
-  {
-    float TimeScale = 1,
-    float Framerate = 60,
-    float FramelossCap = 0.5,
-  },
-  GraphicsSpace =
-  {
-    float SpritePixelsPerUnit = 64,
-    bool SpriteSmoothing = true,
-    bool PixelSnapping = false,
-  },
-  ActionSpace =
-  {
-  },
-  PhysicsSpace =
-  {
-    bool AllowSleep = true,
-    bool Mode2D = false,
-    bool Deterministic = true,
-    uint SubStepCount = 1,
-    string CollisionFilterName = "4e66a5c0b9dc59b9:DefaultCollisionTable",
-    BroadPhase =
-    {
-      bool RefineRayCast = false,
-      bool Tracking = false,
-      DynamicAabbTreeBroadPhase =
-      {
-        BroadPhase Type = Dynamic,
-      },
-      StaticAabbTreeBroadPhase =
-      {
-        BroadPhase Type = Static,
-        PartitionMethods PartitionMethod = MinimizeVolumeSum,
-      },
-    },
-  },
-  SoundSpace =
-  {
-  },
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Archetyped = 
+	{
+		string Name = "537644322bbe895a:Space",
+	},
+	TimeSpace = 
+	{
+		float MaxDt = 0.3,
+		float MinDt = 1e-006,
+		float TimeScale = 1,
+		uint TimeMode = 0,
+		uint StepCount = 1,
+	},
+	GraphicsSpace = 
+	{
+	},
+	ActionSpace = 
+	{
+	},
+	PhysicsSpace = 
+	{
+		bool AllowSleep = true,
+		bool Mode2D = false,
+		bool Deterministic = true,
+		uint SubStepCount = 1,
+		string CollisionFilterName = "54ff0efdab48c7a7:GlobalCollisionTable",
+		string PhysicsSolverConfigName = "52a967fb4cda91cb:Baumgarte",
+	},
+	SoundSpace = 
+	{
+	},
 },
