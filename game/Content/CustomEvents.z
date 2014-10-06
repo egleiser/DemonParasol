@@ -3,9 +3,17 @@ class AttackEvent : Event
     var InfoToSend : String = "";
     var NumberToSend : Integer = 0;
 }  
-
 class HitEvent : Event
 {
     var DispatcherName : String = "";
     var NumberToSend : Integer = 0;
+}  
+class CinemaEvent : Event
+{
+    var CamEventType : String = "";
+    var CamTarget : Cog = null;
+    var LetterBox : Boolean = false;
+    var StartPosition : Real3 = Real3(0.0,0.0,0.0);
+    var EndPosition : Real3 = Real3(0.0,0.0,0.0);
+    var EasingCurve : SampleCurve = null;
 }  

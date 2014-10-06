@@ -1,8 +1,5 @@
 class InputController : ZilchComponent
 {
-    [Dependency]
-    var Transform: Transform = null;
-    
     [Property]
     var Active:Boolean = true;
     
@@ -21,6 +18,7 @@ class InputController : ZilchComponent
 
     function OnInputUpdate(event : UpdateEvent)
     {
+        //Will be used for potedntial time manipulation in the future
     }
     function GetMovement():Real3
     {
