@@ -1,0 +1,28 @@
+Material = 
+{
+	Phong = 
+	{
+		float SpecularExponent = 15,
+		float SpecularScalar = 0.35,
+	},
+	Fresnel = 
+	{
+		string TestTexture = "4fab71e8bcb7a8ce:DefaultTexture",
+		float EdgeFalloffPower = 2,
+		float EdgeFalloffScale = 4,
+		float PulseTimeScale = 0,
+		float PulseIntensity = 0.5,
+		float PulseIntensityOffset = 1.3,
+		Vec4 EdgeGlowColor = [1, 0, 0.000599861, 1],
+	},
+	ModulateModelColor = 
+	{
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "54ff066cf9708547:EnemyEye",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [2, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

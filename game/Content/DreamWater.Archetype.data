@@ -1,0 +1,67 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "DreamWater",
+	},
+	Archetyped = 
+	{
+		string Name = "4faa6050b86884ec:DefaultArchetype",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 78.6802, -8.01821],
+		Vec3 Scale = [1000, 1000, 10],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "54f4a2d723452ed1:DreamWater",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 0.54],
+		bool Visible = true,
+	},
+	BoxCollider = 
+	{
+		bool Ghost = true,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [0.5, 0.5, 0.5],
+	},
+	FootstepSurface = 
+	{
+		Enum SurfaceType = Water,
+	},
+	Region = 
+	{
+		bool WakeUpOnEffectChange = false,
+	},
+	BuoyancyEffect = 
+	{
+		bool Active = true,
+		bool WakeUpOnChange = true,
+		float Density = 200,
+		Vec3 Gravity = [0, 0, -9.81],
+		uint Detail = 10,
+		bool DebugDraw = true,
+	},
+	FlowEffect = 
+	{
+		bool Active = true,
+		bool WakeUpOnChange = true,
+		bool LocalForce = false,
+		bool AttractToFlowCenter = false,
+		float FlowSpeed = 100,
+		float MaxFlowForce = 10000,
+		Vec3 FlowDirection = [-1, 0, 0],
+		float AttractSpeed = 5,
+		float MaxAttractForce = 50,
+	},
+},

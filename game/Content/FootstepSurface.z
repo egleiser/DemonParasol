@@ -1,0 +1,14 @@
+enum FootstepType{Dirt, Wood, Water, Gravel}
+class FootstepSurface : ZilchComponent
+{
+    [Property]
+    var SurfaceType : FootstepType = FootstepType.Dirt;
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

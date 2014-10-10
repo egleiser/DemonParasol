@@ -3,11 +3,9 @@
 ////  Name: OrbitCameraController.z  ////
 ////    Written by: Jason Clark      ////
 ////                and Eric Gleiser ////
-////     Last Updtaed: 9-17-14       ////
+////     Last Updated: 9-17-14       ////
 ////                                 ////
 /////////////////////////////////////////
-
-
 class OrbitCameraController : ZilchComponent
 {
     [Property]
@@ -92,9 +90,11 @@ class OrbitCameraController : ZilchComponent
     
     function UpdatePlayerInput()
     {
-        if(Zero.Keyboard.KeyIsPressed(Keys.Control))
+        if(Zero.Keyboard.KeyIsPressed(Keys.Control) || this.Space.FindObjectByName("Player").InputController.Gamepad.IsButtonPressed(Buttons.RightShoulder))
         {
             this.ToggleFlipCam();
+            //throw(new Exception("FlipCam not at Sleep point"));
+
         }
     }
     

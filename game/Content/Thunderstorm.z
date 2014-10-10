@@ -1,0 +1,37 @@
+class Thunderstorm : ZilchComponent
+{
+    [Property]
+    var Active:Boolean = false;
+    [Property]
+    var LightningArchetype:Archetype = null;
+    [Property]
+    var DiceSize:Integer = 5;
+    [Property]
+    var StrikeFreq:Integer = 30;
+    var Timer:Integer = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.Active)
+        {
+            this.Timer += 1;
+            if(this.Timer % this.StrikeFreq == 0)
+            {
+               // Create a random number generator
+               var randNumGen = new Random();
+               var randNum = randNumGen.DieRoll(this.DiceSize);
+               
+               if(randNum == 1)
+               {
+                   Console.WriteLine("LightningStrike!");
+                   
+                   this.Space.CreateAtPosition(this.LightningArchetype,this.Owner.Transform.WorldTranslation);
+               }
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "TongueJoint",
+	},
+	ObjectLink = 
+	{
+		uint ObjectA = 2,
+		uint ObjectB = 3,
+		Vec3 BodyPointA = [0, 0, 0],
+		Vec3 BodyPointB = [0, 0, 0],
+	},
+	StickJoint = 
+	{
+		bool Active = true,
+		bool SendsEvents = false,
+		bool AutoSnaps = false,
+		bool CollideConnected = true,
+		float MaxForce = 0,
+		float Length = 0.2,
+		Vec3 BodyPointA = [0, 0, 0],
+		Vec3 BodyPointB = [0, 0, 0],
+	},
+	JointLimit = 
+	{
+		bool Active = true,
+		uint AtomIds = 1,
+		float LowerLimit = 0,
+		float UpperLimit = 0.2,
+	},
+},

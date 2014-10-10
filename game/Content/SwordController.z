@@ -2,6 +2,10 @@ class SwordController : ZilchComponent
 {
     var SlashCount:Integer = 0;
     var Timer:Integer = 0;
+    [Property]
+    var GruntSound : SoundCue = null;
+    [Property]
+    var SwishSound : SoundCue = null;
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -22,16 +26,23 @@ class SwordController : ZilchComponent
             this.Owner.SimpleAnimation.CrossBlend(Animation.Find("IdleSlash"),0.5,0);
             this.Owner.BoxCollider.Ghost = true;
             this.Owner.FindChildByName("Blade").BoxCollider.Ghost = true;
+            this.Owner.FindChildByName("Blade").Ribbon.Spawning = false;
         }
         else
         {
             this.Owner.BoxCollider.Ghost = false;
             this.Owner.FindChildByName("Blade").BoxCollider.Ghost = false;
+            this.Owner.FindChildByName("Blade").Ribbon.Spawning = true;
         }
     }
     function OnAttack(event : AttackEvent)
     {
         Console.WriteLine("Attack!");
+        //Play Player Grunt
+        this.Space.SoundSpace.PlayCueAt(this.GruntSound, this.Owner.Transform.Translation);
+        //Play Swish Sound
+        this.Owner.SoundEmitter.PlayCue(this.SwishSound);
+        
         this.SlashCount += 1;
         this.Timer = 2;
         if(this.SlashCount == 1)

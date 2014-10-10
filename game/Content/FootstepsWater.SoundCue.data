@@ -1,0 +1,37 @@
+SoundCue = 
+{
+	SoundPlayMode PlayMode = Single,
+	float Volume = 1,
+	float VolumeVariation = 0.3,
+	float Pitch = 0,
+	float PitchVariation = 0.1,
+	float MinDistance = 10,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 128,
+	bool LinearRollOff = true,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "54fc52850f517fc9:Foot_DeepWater_Run01",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fc52850f5e60b8:Foot_DeepWater_Run02",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fc52850f5e7776:Foot_DeepWater_Run03",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fc52850f5e8d09:Foot_DeepWater_Run04",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fc52850f5e9deb:Foot_DeepWater_Run05",
+			float Weight = 1,
+		},
+	],
+},

@@ -1,0 +1,30 @@
+SoundCue = 
+{
+	SoundPlayMode PlayMode = Single,
+	float Volume = 1,
+	float VolumeVariation = 0,
+	float Pitch = 0,
+	float PitchVariation = 0.1,
+	float MinDistance = 10,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 128,
+	bool LinearRollOff = false,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "54fd948094d91542:Thunder02",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fd948094d928ee:Thunder08",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fd948094d93953:Thunder10",
+			float Weight = 1,
+		},
+	],
+	string RolloffCurveName = "",
+},
