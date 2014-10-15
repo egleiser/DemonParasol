@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-32.6383, 20.5899, 93.3848],
+			Vec3 Translation = [1.88413, 8.8423, 5.5852],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0541446, -0.125078, -0.00683628, 0.990645],
+			Quat Rotation = [0.148755, 0.0340186, -0.00512048, 0.988275],
 		},
 		Camera = 
 		{
@@ -95,10 +95,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 97.1,
-			float VerticalAngle = 0.109203,
-			float HorizontalAngle = -6.032,
-			Vec3 LookTarget = [-8.6472, 10.0073, -0.107697],
+			float LookDistance = 9.1,
+			float VerticalAngle = -0.298797,
+			float HorizontalAngle = -6.352,
+			Vec3 LookTarget = [1.28611, 11.5211, -3.091],
 		},
 		EditorRenderer = 
 		{
@@ -121,7 +121,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-35.7287, 32.6012, 0],
+			Vec3 Translation = [0.0516014, 10.2423, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -199,15 +199,6 @@ Level =
 		{
 			int SplashRate = 20,
 			float SplashIntensity = 1,
-		},
-		MassOverride = 
-		{
-			bool Active = true,
-			float invMass = 0.5,
-			Vec3 invInertiaX = [0, 0, 0],
-			Vec3 invInertiaY = [0, 0, 0],
-			Vec3 invInertiaZ = [0, 0, 0],
-			Vec3 LocalCenterOfMass = [0, 0, 0],
 		},
 		Hierarchy = 
 		{
@@ -1280,7 +1271,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54e80e68a07263b9,
+					uint64 CachedGeometryId = 54eec46514727dd3,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1383,7 +1374,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54e80e68a0726ddd,
+					uint64 CachedGeometryId = 54eec4651472880f,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1499,7 +1490,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54e80e68a07277f5,
+					uint64 CachedGeometryId = 54eec4651472921a,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1615,7 +1606,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54e80e68a07281db,
+					uint64 CachedGeometryId = 54eec46514729c4d,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1732,7 +1723,7 @@ Level =
 				{
 					int Layer = -2,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54e80e68a072893b,
+					uint64 CachedGeometryId = 54eec4651472a3ac,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1834,7 +1825,7 @@ Level =
 				{
 					int Layer = -2,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54e80e68a072939d,
+					uint64 CachedGeometryId = 54eec4651472ae00,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1951,7 +1942,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54e80e68a072ad0e,
+					uint64 CachedGeometryId = 54eec4651472c65d,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2127,7 +2118,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54e80e68a072c4e0,
+					uint64 CachedGeometryId = 54eec4651472e3f4,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2322,7 +2313,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54e80c294fe6c618,
+					uint64 CachedGeometryId = 54eec4651472e8d9,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2418,10 +2409,10 @@ Level =
 		MassOverride = 
 		{
 			bool Active = true,
-			float invMass = 1,
-			Vec3 invInertiaX = [62.5, -4.77083e-007, 1.59028e-007],
-			Vec3 invInertiaY = [2.22639e-006, 62.5, 5.66492e-015],
-			Vec3 invInertiaZ = [2.43843e-006, 3.39259e-006, 62.5],
+			float invMass = 100,
+			Vec3 invInertiaX = [6250, -4.77083e-005, 1.59028e-005],
+			Vec3 invInertiaY = [0.000222639, 6250, 5.66492e-013],
+			Vec3 invInertiaZ = [0.000243843, 0.000339259, 6250],
 			Vec3 LocalCenterOfMass = [0, 0, 0],
 		},
 		DebugDrawLineToTarget = 
@@ -2481,10 +2472,10 @@ Level =
 				MassOverride = 
 				{
 					bool Active = true,
-					float invMass = 1,
-					Vec3 invInertiaX = [62.5, -2.49143e-006, 2.17338e-006],
-					Vec3 invInertiaY = [-4.55879e-006, 62.5, 3.39259e-006],
-					Vec3 invInertiaZ = [4.0287e-006, -1.60596e-013, 62.5],
+					float invMass = 100,
+					Vec3 invInertiaX = [6250, -0.000249143, 0.000217338],
+					Vec3 invInertiaY = [-0.000455879, 6250, 0.000339259],
+					Vec3 invInertiaZ = [0.00040287, -1.60596e-011, 6250],
 					Vec3 LocalCenterOfMass = [0, 0, 0],
 				},
 				Light = 
@@ -2553,10 +2544,10 @@ Level =
 						MassOverride = 
 						{
 							bool Active = true,
-							float invMass = 1,
-							Vec3 invInertiaX = [62.5, -3.60463e-006, 4.77084e-007],
-							Vec3 invInertiaY = [-3.97569e-006, 62.5, -6.78518e-006],
-							Vec3 invInertiaZ = [2.22639e-006, -6.78518e-006, 62.5],
+							float invMass = 100,
+							Vec3 invInertiaX = [6250, -0.000360463, 4.77084e-005],
+							Vec3 invInertiaY = [-0.000397569, 6250, -0.000678518],
+							Vec3 invInertiaZ = [0.000222639, -0.000678518, 6250],
 							Vec3 LocalCenterOfMass = [0, 0, 0],
 						},
 						Light = 
@@ -2625,10 +2616,10 @@ Level =
 								MassOverride = 
 								{
 									bool Active = true,
-									float invMass = 1,
-									Vec3 invInertiaX = [62.5, -1.784e-013, 1.64329e-006],
-									Vec3 invInertiaY = [-3.71065e-007, 62.5, -6.78518e-006],
-									Vec3 invInertiaZ = [2.06736e-006, -6.78518e-006, 62.5],
+									float invMass = 100,
+									Vec3 invInertiaX = [6250, -1.784e-011, 0.000164329],
+									Vec3 invInertiaY = [-3.71065e-005, 6250, -0.000678518],
+									Vec3 invInertiaZ = [0.000206736, -0.000678518, 6250],
 									Vec3 LocalCenterOfMass = [0, 0, 0],
 								},
 								Light = 
@@ -2697,10 +2688,10 @@ Level =
 										MassOverride = 
 										{
 											bool Active = true,
-											float invMass = 1,
-											Vec3 invInertiaX = [62.5, 2.43842e-006, -9.01156e-007],
-											Vec3 invInertiaY = [4.24073e-006, 62.5, -6.1145e-014],
-											Vec3 invInertiaZ = [-7.42129e-007, -3.39259e-006, 62.5],
+											float invMass = 100,
+											Vec3 invInertiaX = [6250, 0.000243842, -9.01156e-005],
+											Vec3 invInertiaY = [0.000424073, 6250, -6.1145e-012],
+											Vec3 invInertiaZ = [-7.42129e-005, -0.000339259, 6250],
 											Vec3 LocalCenterOfMass = [0, 0, 0],
 										},
 										Light = 
@@ -2769,10 +2760,10 @@ Level =
 												MassOverride = 
 												{
 													bool Active = true,
-													float invMass = 1,
-													Vec3 invInertiaX = [62.5, -3.71065e-007, -3.02153e-006],
-													Vec3 invInertiaY = [-1.06018e-006, 62.5, 5.1254e-014],
-													Vec3 invInertiaZ = [-6.8912e-007, 3.39259e-006, 62.5],
+													float invMass = 100,
+													Vec3 invInertiaX = [6250, -3.71065e-005, -0.000302153],
+													Vec3 invInertiaY = [-0.000106018, 6250, 5.1254e-012],
+													Vec3 invInertiaZ = [-6.8912e-005, 0.000339259, 6250],
 													Vec3 LocalCenterOfMass = [0, 0, 0],
 												},
 												Light = 
@@ -2841,10 +2832,10 @@ Level =
 														MassOverride = 
 														{
 															bool Active = true,
-															float invMass = 1,
-															Vec3 invInertiaX = [62.5, -1.21921e-006, -2.38541e-006],
-															Vec3 invInertiaY = [-2.54444e-006, 62.5, 3.39259e-006],
-															Vec3 invInertiaZ = [6.36111e-007, -1.24089e-014, 62.5],
+															float invMass = 100,
+															Vec3 invInertiaX = [6250, -0.000121921, -0.000238541],
+															Vec3 invInertiaY = [-0.000254444, 6250, 0.000339259],
+															Vec3 invInertiaZ = [6.36111e-005, -1.24089e-012, 6250],
 															Vec3 LocalCenterOfMass = [0, 0, 0],
 														},
 														Light = 
@@ -2913,10 +2904,10 @@ Level =
 																MassOverride = 
 																{
 																	bool Active = true,
-																	float invMass = 1,
-																	Vec3 invInertiaX = [62.5, -2.65046e-007, -3.39259e-006],
-																	Vec3 invInertiaY = [-2.33241e-006, 62.5, 1.26606e-013],
-																	Vec3 invInertiaZ = [-2.96852e-006, -6.78518e-006, 62.5],
+																	float invMass = 100,
+																	Vec3 invInertiaX = [6250, -2.65046e-005, -0.000339259],
+																	Vec3 invInertiaY = [-0.000233241, 6250, 1.26606e-011],
+																	Vec3 invInertiaZ = [-0.000296852, -0.000678518, 6250],
 																	Vec3 LocalCenterOfMass = [0, 0, 0],
 																},
 																Light = 
@@ -2985,10 +2976,10 @@ Level =
 																		MassOverride = 
 																		{
 																			bool Active = true,
-																			float invMass = 1,
-																			Vec3 invInertiaX = [62.5, -1.80231e-006, -1.85532e-006],
-																			Vec3 invInertiaY = [-3.18055e-006, 62.5, 3.39259e-006],
-																			Vec3 invInertiaZ = [1.21921e-006, -3.51585e-014, 62.5],
+																			float invMass = 100,
+																			Vec3 invInertiaX = [6250, -0.000180231, -0.000185532],
+																			Vec3 invInertiaY = [-0.000318055, 6250, 0.000339259],
+																			Vec3 invInertiaZ = [0.000121921, -3.51585e-012, 6250],
 																			Vec3 LocalCenterOfMass = [0, 0, 0],
 																		},
 																		Light = 
@@ -3057,10 +3048,10 @@ Level =
 																				MassOverride = 
 																				{
 																					bool Active = true,
-																					float invMass = 1,
-																					Vec3 invInertiaX = [62.5, -3.18055e-007, 7.52731e-006],
-																					Vec3 invInertiaY = [-3.71064e-007, 62.5, 3.39259e-006],
-																					Vec3 invInertiaZ = [5.725e-006, 3.39259e-006, 62.5],
+																					float invMass = 100,
+																					Vec3 invInertiaX = [6250, -3.18055e-005, 0.000752731],
+																					Vec3 invInertiaY = [-3.71064e-005, 6250, 0.000339259],
+																					Vec3 invInertiaZ = [0.0005725, 0.000339259, 6250],
 																					Vec3 LocalCenterOfMass = [0, 0, 0],
 																				},
 																				Light = 
@@ -3129,10 +3120,10 @@ Level =
 																						MassOverride = 
 																						{
 																							bool Active = true,
-																							float invMass = 1,
-																							Vec3 invInertiaX = [62.4999, 5.30092e-008, 1.7493e-006],
-																							Vec3 invInertiaY = [-9.54164e-007, 62.5, 3.39258e-006],
-																							Vec3 invInertiaZ = [-4.24073e-007, 3.39258e-006, 62.4999],
+																							float invMass = 100,
+																							Vec3 invInertiaX = [6249.99, 5.30092e-006, 0.00017493],
+																							Vec3 invInertiaY = [-9.54164e-005, 6250, 0.000339258],
+																							Vec3 invInertiaZ = [-4.24073e-005, 0.000339258, 6249.99],
 																							Vec3 LocalCenterOfMass = [0, 0, 0],
 																						},
 																						Light = 
@@ -3201,10 +3192,10 @@ Level =
 																								MassOverride = 
 																								{
 																									bool Active = true,
-																									float invMass = 1,
-																									Vec3 invInertiaX = [62.5, -4.55879e-006, -5.1949e-006],
-																									Vec3 invInertiaY = [-3.23356e-006, 62.5, 3.39259e-006],
-																									Vec3 invInertiaZ = [-1.53727e-006, 3.39259e-006, 62.5],
+																									float invMass = 100,
+																									Vec3 invInertiaX = [6250, -0.000455879, -0.00051949],
+																									Vec3 invInertiaY = [-0.000323356, 6250, 0.000339259],
+																									Vec3 invInertiaZ = [-0.000153727, 0.000339259, 6250],
 																									Vec3 LocalCenterOfMass = [0, 0, 0],
 																								},
 																								Light = 
@@ -3273,10 +3264,10 @@ Level =
 																										MassOverride = 
 																										{
 																											bool Active = true,
-																											float invMass = 1,
-																											Vec3 invInertiaX = [62.4999, 2.75647e-006, 7.47428e-006],
-																											Vec3 invInertiaY = [3.71064e-006, 62.5, 4.4375e-013],
-																											Vec3 invInertiaZ = [6.4141e-006, -3.39258e-006, 62.5],
+																											float invMass = 100,
+																											Vec3 invInertiaX = [6249.99, 0.000275647, 0.000747428],
+																											Vec3 invInertiaY = [0.000371064, 6250, 4.4375e-011],
+																											Vec3 invInertiaZ = [0.00064141, -0.000339258, 6250],
 																											Vec3 LocalCenterOfMass = [0, 0, 0],
 																										},
 																										Light = 
