@@ -32,6 +32,7 @@ class PlayerController : ZilchComponent
     {
         this.MovementUpdate(event);
         this.AttackUpdate(event);
+        this.Zoom(event);
     }
     function AttackUpdate(event : UpdateEvent)
     {
@@ -59,4 +60,24 @@ class PlayerController : ZilchComponent
             this.Owner.RigidBody.Velocity /= Real3(this.Deceleration,this.Deceleration,1);
         }
     }
+    function Zoom(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsPressed(Keys.Shift))
+        {
+            var zoomEvent = new CameraZoomEvent();
+            zoomEvent.CamSize = 10.0;
+            zoomEvent.ZoomInTime = 2.0;
+            zoomEvent.IsActive = true;
+            this.Camera.DispatchEvent("zoomEvent", zoomEvent);
+        }
+        if(Zero.Keyboard.KeyIsPressed(Keys.Alt))
+        {
+            var zoomEvent = new CameraZoomEvent();
+            zoomEvent.ZoomOutTime = 1.0;
+            zoomEvent.IsActive = false;
+            this.Camera.DispatchEvent("zoomEvent", zoomEvent);
+        }
+    }
+        
+        
 }

@@ -16,4 +16,31 @@ class CinemaEvent : Event
     var StartPosition : Real3 = Real3(0.0,0.0,0.0);
     var EndPosition : Real3 = Real3(0.0,0.0,0.0);
     var EasingCurve : SampleCurve = null;
-}  
+}
+class CameraZoomEvent : Event
+{
+    var IsActive : Boolean = false;
+    var CamSize : Real = 0.0;
+    var CameraTarget : CogPath = null;
+    var EasingCurve : Ease = Ease.QuadInOut;
+    var ZoomInTime : Real = 0.0;
+    var ZoomOutTime : Real = 0.0;
+}
+class CameraPanEvent : Event
+{
+    var IsActive : Boolean = false;
+    var CameraTarget : CogPath = null;
+    var StartPosition : Real3 = Real3(0.0,0.0,0.0);
+    var EndPosition : Real3 = Real3(0.0,0.0,0.0);
+    var PanTime : Real = 0.0;
+    var EasingCurve : SampleCurve = null;
+}
+class CameraDollyEvent : Event
+{
+    var IsActive : Boolean = false;
+    var CameraTarget : CogPath = null;
+    var StartPosition: Real3  = Real3(0.0,0.0,0.0);
+    var EndPosition: Real3  = Real3(0.0,0.0,0.0);
+    var DollyTime : Real = 0.0;
+    var EasingCurve : SampleCurve = null;
+}

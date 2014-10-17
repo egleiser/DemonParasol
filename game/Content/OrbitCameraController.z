@@ -49,6 +49,7 @@ class OrbitCameraController : ZilchComponent
             
 
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, "zoomEvent", this.OnZoom);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -94,12 +95,26 @@ class OrbitCameraController : ZilchComponent
         {
             this.ToggleFlipCam();
             //throw(new Exception("FlipCam not at Sleep point"));
-
         }
     }
     
     function ToggleFlipCam()
     {
         this.FlipCam = !this.FlipCam;
+    }
+    
+    function OnZoom(event : CameraZoomEvent)
+    {
+        if(event.IsActive)
+        {
+            Console.WriteLine("Zoom Event Started");
+            var seq = Action.Sequence(this.Owner.Actions);
+            Action.Property(seq, @this.Owner.Camera.Size, event.CamSize, event.ZoomInTime, event.EasingCurve);
+        }
+        else
+        {
+            var seq = Action.Sequence(this.Owner.Actions);
+            Action.Property(seq, @this.Owner.Camera.Size, this.CamLerp.Z, event.ZoomOutTime, event.EasingCurve);
+        }
     }
 }
