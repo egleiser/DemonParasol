@@ -1,0 +1,87 @@
+class TongueManager : ZilchComponent
+{
+    [Dependency]
+    var Transform: Transform = null;
+    
+    var TongueArray:Array[Cog] = new Array[Cog]();
+    
+    var RootTongue:Cog = null;
+    var EndTongue:Cog = null;
+    var MasterTongueJoint:Cog = null;
+    var LastTongueJoint:Cog = null;
+    function Initialize(init : CogInitializer)
+    {
+        this.InitializeTongue();
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.ExtendTongue(25);
+
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        
+    }
+    function InitializeTongue()
+    {
+        //Create the first Tongue Segment
+        this.RootTongue = this.Space.CreateAtPosition(Archetype.Find("RootTongue"), this.Transform.WorldTranslation);
+        
+        //Create the last Tongue Segment
+        this.EndTongue = this.Space.CreateAtPosition(Archetype.Find("EndTongue"), this.Transform.WorldTranslation);
+        this.EndTongue.Transform.Scale = Real3(0.2,0.2,0.2);
+        //Attach the last segment to the first
+        this.EndTongue.AttachTo(this.RootTongue);
+        
+        //attach the root to the mount on the umbrella
+        var firstTongueJoint = this.Space.CreateAtPosition(Archetype.Find("TongueJoint"), this.Transform.WorldTranslation);
+        firstTongueJoint.ObjectLink.ObjectA = this.RootTongue;
+        firstTongueJoint.ObjectLink.ObjectB = this.Owner;
+        this.TongueArray.Add(firstTongueJoint);
+        
+        //Create the last tongue joint
+        this.LastTongueJoint = this.Space.CreateAtPosition(Archetype.Find("TongueJoint"), this.Transform.WorldTranslation);
+        this.LastTongueJoint.ObjectLink.ObjectA = this.RootTongue;
+        this.LastTongueJoint.ObjectLink.ObjectB = this.EndTongue;
+        this.TongueArray.Add(this.LastTongueJoint);
+        
+        //Create the master tongue joint (it will keep the tongue at a fixed length)
+        this.MasterTongueJoint = this.Space.CreateAtPosition(Archetype.Find("MasterTongueJoint"), this.Transform.WorldTranslation);
+        this.MasterTongueJoint.ObjectLink.ObjectA = this.RootTongue;
+        this.MasterTongueJoint.ObjectLink.ObjectB = this.EndTongue;
+        
+        
+    }
+    function ExtendTongue(length : Integer)
+    {
+        //NOTE: NEVER ADD MORE THAN 30 (Preferably less than 20)
+        //Add i number of joints
+        for(var i = 1; i <= length; i += 1)
+        {
+            //Create a new tongue segment
+            var tongueSegment = this.Space.CreateAtPosition(Archetype.Find("Tongue"), this.RootTongue.Transform.WorldTranslation + Real3(1,1,0));
+            tongueSegment.Transform.Scale = Real3(0.2,0.2,0.2);
+            //Correctly Parent the New Tongue segment
+            tongueSegment.AttachTo(this.EndTongue.FindPreviousInOrder());
+            //Re-parent the last tongue segment to the newly created one
+            this.EndTongue.AttachTo(tongueSegment);
+
+            //Create and attach a new tongue joint
+            var tongueJoint = this.Space.CreateAtPosition(Archetype.Find("TongueJoint"), this.Transform.WorldTranslation);
+            this.TongueArray.Add(tongueJoint);
+            tongueJoint.ObjectLink.ObjectA = tongueSegment.Parent;
+            tongueJoint.ObjectLink.ObjectB = tongueSegment;
+            
+            //Update the last tongue joint to link to the the correct tongue segments
+            this.LastTongueJoint.ObjectLink.ObjectA = tongueSegment;
+            this.LastTongueJoint.ObjectLink.ObjectB = this.EndTongue;
+        }
+        //Calculate locked tongue length
+        this.MasterTongueJoint.StickJoint.Length = 0.625 * (this.TongueArray.Count-2);
+    }
+    function RetractTongue(length : Integer)
+    {
+    }
+    function ReconfigureJoints(length : Integer)
+    {
+    }
+}

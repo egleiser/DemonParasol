@@ -1,0 +1,33 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "MasterTongueJoint",
+	},
+	Archetyped = 
+	{
+		string Name = "549048a334218eaf:MasterTongueJoint",
+	},
+	ObjectLink = 
+	{
+		uint ObjectA = 4294967293,
+		uint ObjectB = 4294967293,
+		Vec3 BodyPointA = [0.236511, -0.919565, 0.313843],
+		Vec3 BodyPointB = [0.3414, -0.920101, -0.19194],
+	},
+	StickJoint = 
+	{
+		bool Active = true,
+		bool SendsEvents = false,
+		bool AutoSnaps = true,
+		bool CollideConnected = true,
+		float MaxForce = 0,
+		float Length = 5,
+		Vec3 BodyPointA = [0.236511, -0.919565, 0.313843],
+		Vec3 BodyPointB = [0.3414, -0.920101, -0.19194],
+	},
+},
