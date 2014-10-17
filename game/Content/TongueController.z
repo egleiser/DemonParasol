@@ -1,0 +1,54 @@
+class TongueController : ZilchComponent
+{
+    [Dependency]
+    var Orientation: Orientation = null;
+    
+    [Dependency]
+    var Transform: Transform = null;
+    
+    [Property]
+    var MovmentSpeed:Real = 800.0;
+    
+    [Property]
+    var RotateSpeed:Real = 25.0;
+    
+    [Property]
+    var MaxMoveForce:Real = 100.0;
+    
+    [Property]
+    var Deceleration:Real = 1.5;
+    [Property]
+    
+    var CameraPath:CogPath = null;
+    var Camera:Cog = null;
+    function Initialize(init : CogInitializer)
+    {
+        //this.Owner.DynamicMotor.MaxMoveForce = this.MaxMoveForce;
+        this.Camera = this.CameraPath.Cog;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.MovementUpdate(event);
+    }
+
+    function MovementUpdate(event : UpdateEvent)
+    {
+        if(this.Owner.InputController.GetMovementRight() != Real3(0,0,0))
+        {
+            //var cameraAngle= this.Camera.OrbitCameraController.CurrentAngle;
+            //var radians:Real = 0.0;
+            //radians = Math.ATan2(this.Owner.InputController.GetMovementRight().X,this.Owner.InputController.GetMovementRight().Y) + cameraAngle + 1.57079633;
+            //this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation,Math.Euler(Real3(0.0,0.0,radians)),event.Dt*this.RotateSpeed);
+            //this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed, this.Orientation.WorldUp);
+            this.Owner.RigidBody.Velocity = (this.Owner.InputController.GetMovementRight() * Real3(-1,1,1)) * this.MovmentSpeed ;
+        }
+        else
+        {
+            //this.Owner.DynamicMotor.MoveInDirection(Real3(0,0,0), this.Orientation.WorldUp);
+            //Stablizes the player
+            this.Owner.RigidBody.Velocity /= Real3(this.Deceleration,this.Deceleration,1);
+        }
+    }
+}

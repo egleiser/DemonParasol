@@ -18,7 +18,6 @@ class PlayerController : ZilchComponent
     [Property]
     var Deceleration:Real = 1.5;
     [Property]
-    
     var CameraPath:CogPath = null;
     var Camera:Cog = null;
     function Initialize(init : CogInitializer)

@@ -13,7 +13,7 @@ class TongueManager : ZilchComponent
     {
         this.InitializeTongue();
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-        this.ExtendTongue(25);
+        this.ExtendTongue(20);
 
     }
 
@@ -45,9 +45,9 @@ class TongueManager : ZilchComponent
         this.TongueArray.Add(this.LastTongueJoint);
         
         //Create the master tongue joint (it will keep the tongue at a fixed length)
-        this.MasterTongueJoint = this.Space.CreateAtPosition(Archetype.Find("MasterTongueJoint"), this.Transform.WorldTranslation);
-        this.MasterTongueJoint.ObjectLink.ObjectA = this.RootTongue;
-        this.MasterTongueJoint.ObjectLink.ObjectB = this.EndTongue;
+        //this.MasterTongueJoint = this.Space.CreateAtPosition(Archetype.Find("MasterTongueJoint"), this.Transform.WorldTranslation);
+        //this.MasterTongueJoint.ObjectLink.ObjectA = this.Owner;
+        //this.MasterTongueJoint.ObjectLink.ObjectB = this.EndTongue;
         
         
     }
@@ -76,7 +76,7 @@ class TongueManager : ZilchComponent
             this.LastTongueJoint.ObjectLink.ObjectB = this.EndTongue;
         }
         //Calculate locked tongue length
-        this.MasterTongueJoint.StickJoint.Length = 0.625 * (this.TongueArray.Count-2);
+        //this.MasterTongueJoint.StickJoint.Length = 0.625 * (this.TongueArray.Count-2);
     }
     function RetractTongue(length : Integer)
     {

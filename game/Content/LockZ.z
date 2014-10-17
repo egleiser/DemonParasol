@@ -1,0 +1,14 @@
+class LockZ : ZilchComponent
+{
+    var InitialZ:Real = 0;
+    function Initialize(init : CogInitializer)
+    {
+        //this.InitialZ = this.Owner.Transform.Translation.Z;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Owner.Transform.Translation.Z = this.InitialZ;
+    }
+}

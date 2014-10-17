@@ -53,17 +53,17 @@ Cog =
 	MassOverride = 
 	{
 		bool Active = true,
-		float invMass = 100,
-		Vec3 invInertiaX = [6249.99, 0.000275647, 0.000747428],
-		Vec3 invInertiaY = [0.000371064, 6250, 4.4375e-011],
-		Vec3 invInertiaZ = [0.00064141, -0.000339258, 6250],
+		float invMass = 10,
+		Vec3 invInertiaX = [624.999, 2.75647e-005, 7.47428e-005],
+		Vec3 invInertiaY = [3.71064e-005, 625, 4.4375e-012],
+		Vec3 invInertiaZ = [6.4141e-005, -3.39258e-005, 625],
 		Vec3 LocalCenterOfMass = [0, 0, 0],
 	},
 	Light = 
 	{
 		LightType LightType = Point,
 		bool Active = true,
-		float Range = 8,
+		float Range = 12,
 		float MinRange = 2,
 		float Angle = 45,
 		float Intensity = 0.27,
@@ -71,6 +71,26 @@ Cog =
 		float MinRange = 2,
 		float Size = 20,
 		bool Baked = false,
+	},
+	InputController = 
+	{
+		bool Active = true,
+		int GamepadIndex = 0,
+	},
+	Orientation = 
+	{
+		Vec3 GlobalUp = [0, 1, 0],
+		Vec3 UpVector = [0, 0, 1],
+		Vec3 ForwardVector = [0, 1, 0],
+		OrientationBases DefaultBases = ForwardYUpZ,
+	},
+	TongueController = 
+	{
+		float MovmentSpeed = 20,
+		float RotateSpeed = 25,
+		float MaxMoveForce = 100,
+		float Deceleration = 1.5,
+		CogPath CameraPath = ":/Camera",
 	},
 	Hierarchy = 
 	{

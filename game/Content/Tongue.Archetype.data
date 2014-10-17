@@ -53,10 +53,10 @@ Cog =
 	MassOverride = 
 	{
 		bool Active = true,
-		float invMass = 100,
-		Vec3 invInertiaX = [6250, -0.000249143, 0.000217338],
-		Vec3 invInertiaY = [-0.000455879, 6250, 0.000339259],
-		Vec3 invInertiaZ = [0.00040287, -1.60596e-011, 6250],
+		float invMass = 10,
+		Vec3 invInertiaX = [625, -2.49143e-005, 2.17338e-005],
+		Vec3 invInertiaY = [-4.55879e-005, 625, 3.39259e-005],
+		Vec3 invInertiaZ = [4.0287e-005, -1.60596e-012, 625],
 		Vec3 LocalCenterOfMass = [0, 0, 0],
 	},
 	Light = 
@@ -71,6 +71,9 @@ Cog =
 		float MinRange = 2,
 		float Size = 20,
 		bool Baked = false,
+	},
+	LockZ = 
+	{
 	},
 	Hierarchy = 
 	{
