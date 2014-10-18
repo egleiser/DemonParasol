@@ -26,6 +26,11 @@ class OrbitCameraController : ZilchComponent
     var CamLerp: Real3 = Real3(0,0,30);
     var WantedcamLerp : Real3 = Real3(0,0,10);
     
+    var PanStartRotation : Quaternion = Quaternion(0,0,0,0);
+    var PanTimer : Real = 1.1;
+    
+    var ShouldUpdateCamera : Boolean = true;
+        
     var FlipCam : Boolean = false;
     
     var Direction : Real3 = Real3(0,0,0);
@@ -50,43 +55,47 @@ class OrbitCameraController : ZilchComponent
 
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, "zoomEvent", this.OnZoom);
+        Zero.Connect(this.Owner, "panEvent", this.OnPan);
+        Zero.Connect(this.Owner, "dollyEvent", this.OnDolly);
+        Zero.Connect(this.Owner, "cameraLockEvent", this.OnToggleCameraLock);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
         this.Direction = Math.Normalize(this.Owner.Transform.Translation - this.OrbitTarget.Cog.Transform.Translation);
         this.UpdatePlayerInput();
-
-        if(this.FlipCam)
+        
+        if(this.ShouldUpdateCamera)
         {
-            //this.WantedRotation = Math.Euler(Real3(Math.ToRadians(210.0), Math.ToRadians(180.0), 0.0));
-            //this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1))
-            this.WantedRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1));
-            
-            this.CurrentAngle = Math.Lerp(this.CurrentAngle, Math.ToRadians(this.AngleChange), event.Dt * 3);
-            this.WantedPosition = Real3( Math.Cos(this.CurrentAngle) * this.Radius, Math.Sin(this.CurrentAngle) * this.Radius, this.Height) + this.OrbitTarget.Cog.Transform.Translation;
-            
-            //this.Owner.Transform.Rotation = this.WantedRotation;
-            this.Owner.Transform.Rotation = Math.RotateTowards(this.Owner.Transform.Rotation, this.WantedRotation, 1);    
-            this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, this.WantedPosition, event.Dt * 5);
-            
+            if(this.FlipCam)
+            {
+                //this.WantedRotation = Math.Euler(Real3(Math.ToRadians(210.0), Math.ToRadians(180.0), 0.0));
+                //this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1))
+                this.WantedRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1));
+                
+                this.CurrentAngle = Math.Lerp(this.CurrentAngle, Math.ToRadians(this.AngleChange), event.Dt * 3);
+                this.WantedPosition = Real3( Math.Cos(this.CurrentAngle) * this.Radius, Math.Sin(this.CurrentAngle) * this.Radius, this.Height) + this.OrbitTarget.Cog.Transform.Translation;
+                
+                //this.Owner.Transform.Rotation = this.WantedRotation;
+                this.Owner.Transform.Rotation = Math.RotateTowards(this.Owner.Transform.Rotation, this.WantedRotation, 1);    
+                this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, this.WantedPosition, event.Dt * 5);
+                
 
+            }
+            else
+            {
+                //this.WantedRotation = Math.Euler(Real3(Math.ToRadians(30.0), 0.0, 0.0));
+                //this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1))
+                this.WantedRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1));
+                
+                this.CurrentAngle = Math.Lerp(this.CurrentAngle, Math.ToRadians(270), event.Dt * 3);
+                this.WantedPosition = Real3( Math.Cos(this.CurrentAngle) * this.Radius, Math.Sin(this.CurrentAngle) * this.Radius, this.Height) + this.OrbitTarget.Cog.Transform.Translation;
+                
+                //this.Owner.Transform.Rotation = this.WantedRotation;
+                this.Owner.Transform.Rotation = Math.RotateTowards(this.Owner.Transform.Rotation, this.WantedRotation, 5);
+                this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, this.WantedPosition, event.Dt * 5);
+            }
         }
-        else
-        {
-            //this.WantedRotation = Math.Euler(Real3(Math.ToRadians(30.0), 0.0, 0.0));
-            //this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1))
-            this.WantedRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1));
-            
-            this.CurrentAngle = Math.Lerp(this.CurrentAngle, Math.ToRadians(270), event.Dt * 3);
-            this.WantedPosition = Real3( Math.Cos(this.CurrentAngle) * this.Radius, Math.Sin(this.CurrentAngle) * this.Radius, this.Height) + this.OrbitTarget.Cog.Transform.Translation;
-            
-            //this.Owner.Transform.Rotation = this.WantedRotation;
-            this.Owner.Transform.Rotation = Math.RotateTowards(this.Owner.Transform.Rotation, this.WantedRotation, 5);
-            this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, this.WantedPosition, event.Dt * 5);
-            
-        }
-
     }
     
     function UpdatePlayerInput()
@@ -117,4 +126,68 @@ class OrbitCameraController : ZilchComponent
             Action.Property(seq, @this.Owner.Camera.Size, this.CamLerp.Z, event.ZoomOutTime, event.EasingCurve);
         }
     }
+    
+    function OnPan(event : CameraPanEvent)
+    {
+        if(event.IsActive)
+        {
+            if(this.PanTimer >= 1.0)
+            {
+                this.ShouldUpdateCamera = false;
+                this.PanTimer = 0.0;
+                this.PanStartRotation = this.Owner.Transform.LocalRotation;
+                Console.WriteLine("End Rotation: `event.EndRotation`");
+            }
+            
+            Console.WriteLine("Pan Event Started");
+            //Rotating camera using slerp
+            this.Owner.Transform.LocalRotation = (Math.Slerp(this.PanStartRotation, event.EndRotation, this.PanTimer));
+            
+            this.PanTimer += event.PanTime;
+            Console.WriteLine("Pan Timer = `this.PanTimer`");
+            Console.WriteLine("Local Rotation = `this.Owner.Transform.LocalRotation`");
+            if(this.PanTimer >= 1.0)
+            {
+                var panFinished = new PanFinishedEvent();
+                this.Space.DispatchEvent("panFinishedEvent", panFinished);
+                this.ShouldUpdateCamera = false;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Pan Event Ending");
+            //Slerp back to original local rotation
+        }
+    }
+    
+    function OnDolly(event : CameraDollyEvent)
+    {
+        if(event.IsActive)
+        {
+            Console.WriteLine("Dolly Event Started");
+            var seq = Action.Sequence(this.Owner.Actions);
+            Action.Property(seq, @this.Owner.Transform.Translation, event.EndPosition, event.DollyTime, event.EasingCurve);
+            
+        }
+        else
+        {
+            Console.WriteLine("Dolly Event Ending");
+            var seq = Action.Sequence(this.Owner.Actions);
+            Action.Property(seq, @this.Owner.Transform.Translation, event.StartPosition, event.DollyTime, event.EasingCurve);
+            Action.Call(seq, this.ToggleCameraLock);
+        }
+    }
+    
+    function ToggleCameraLock()
+    {
+        var cameraLockEvent = new CameraLockEvent();
+        cameraLockEvent.IsLocked = !this.ShouldUpdateCamera;
+        this.Owner.DispatchEvent("cameraLockEvent", cameraLockEvent);
+    }
+    
+    function OnToggleCameraLock(event : CameraLockEvent)
+    {
+        this.ShouldUpdateCamera = event.IsLocked;
+    }
+    
 }

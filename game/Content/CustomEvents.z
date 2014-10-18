@@ -21,7 +21,7 @@ class CameraZoomEvent : Event
 {
     var IsActive : Boolean = false;
     var CamSize : Real = 0.0;
-    var CameraTarget : CogPath = null;
+    var CameraTarget : Cog = null;
     var EasingCurve : Ease = Ease.QuadInOut;
     var ZoomInTime : Real = 0.0;
     var ZoomOutTime : Real = 0.0;
@@ -29,18 +29,25 @@ class CameraZoomEvent : Event
 class CameraPanEvent : Event
 {
     var IsActive : Boolean = false;
-    var CameraTarget : CogPath = null;
-    var StartPosition : Real3 = Real3(0.0,0.0,0.0);
-    var EndPosition : Real3 = Real3(0.0,0.0,0.0);
+    var CameraTarget : Cog = null;
+    var StartRotation : Quaternion = Quaternion(0,0,0,0);
+    var EndRotation : Quaternion = Quaternion(0,0,0,0);
     var PanTime : Real = 0.0;
-    var EasingCurve : SampleCurve = null;
 }
 class CameraDollyEvent : Event
 {
     var IsActive : Boolean = false;
-    var CameraTarget : CogPath = null;
+    var CameraTarget : Cog = null;
     var StartPosition: Real3  = Real3(0.0,0.0,0.0);
     var EndPosition: Real3  = Real3(0.0,0.0,0.0);
     var DollyTime : Real = 0.0;
-    var EasingCurve : SampleCurve = null;
+    var EasingCurve : Ease = Ease.QuadInOut;
 }
+class PanFinishedEvent : Event
+{
+}
+class CameraLockEvent : Event
+{
+    var IsLocked : Boolean  = false;
+}
+

@@ -21,11 +21,15 @@ class PlayerController : ZilchComponent
     
     var CameraPath:CogPath = null;
     var Camera:Cog = null;
+    
+    var IsPanning : Boolean = false;
+    
     function Initialize(init : CogInitializer)
     {
         this.Owner.DynamicMotor.MaxMoveForce = this.MaxMoveForce;
         this.Camera = this.CameraPath.Cog;
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, "panFinishedEvent", this.OnPanFinished);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -33,6 +37,8 @@ class PlayerController : ZilchComponent
         this.MovementUpdate(event);
         this.AttackUpdate(event);
         this.Zoom(event);
+        this.Pan(event);
+        this.Dolly(event);
     }
     function AttackUpdate(event : UpdateEvent)
     {
@@ -77,6 +83,38 @@ class PlayerController : ZilchComponent
             zoomEvent.IsActive = false;
             this.Camera.DispatchEvent("zoomEvent", zoomEvent);
         }
+    }
+    function Pan(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsPressed(Keys.Q))
+        {
+            this.IsPanning = true;
+        }
+        if(this.IsPanning)
+        {
+            var panEvent = new CameraPanEvent();
+            panEvent.EndRotation = Math.Euler(Real3(0.0, 5.0, 0.0));
+            panEvent.PanTime = 1.0 * event.Dt;
+            panEvent.IsActive = true;
+            this.Camera.DispatchEvent("panEvent", panEvent);
+        }
+    }
+    function Dolly(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsPressed(Keys.E))
+        {
+            var dollyEvent = new CameraDollyEvent();
+            dollyEvent.EndPosition = this.Owner.Transform.Translation + Real3(5.0, 0.0, 0.0);
+            dollyEvent.DollyTime = 2.0;
+            dollyEvent.EasingCurve = Ease.Linear;
+            dollyEvent.IsActive = true;
+            this.Camera.DispatchEvent("dollyEvent", dollyEvent);
+        }
+    }
+    
+    function OnPanFinished(event : PanFinishedEvent)
+    {
+        this.IsPanning = false;
     }
         
         
