@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [6.03193, -38.639, 34.9801],
+			Vec3 Translation = [13.0509, -8.26295, 42.8422],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.517039, 0.00513578, -0.00310231, 0.855941],
+			Quat Rotation = [0.353577, -0.00561255, 0.00212155, 0.935386],
 		},
 		Camera = 
 		{
@@ -96,9 +96,9 @@ Level =
 		{
 			ControlMode ControlMode = FirstPerson,
 			float LookDistance = 27.1,
-			float VerticalAngle = -1.0868,
-			float HorizontalAngle = -0.0120002,
-			Vec3 LookTarget = [5.88061, -14.6517, 22.3708],
+			float VerticalAngle = -0.722798,
+			float HorizontalAngle = 0.0120003,
+			Vec3 LookTarget = [13.2948, 9.66331, 22.5198],
 		},
 		EditorRenderer = 
 		{
@@ -12035,6 +12035,98 @@ Level =
 			bool LocalSpaceDirection = false,
 			float Strength = 100,
 			Vec3 Direction = [0, 0, -1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 236,
+		},
+		Named = 
+		{
+			string Name = "PracticeDollyCube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [12.8583, -1.66285, 16.9896],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 237,
+		},
+		Named = 
+		{
+			string Name = "TestPanCube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-8.71658, 14.0102, 3.83442],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
 		},
 	},
 },

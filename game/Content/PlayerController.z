@@ -23,6 +23,7 @@ class PlayerController : ZilchComponent
     var Camera:Cog = null;
     
     var IsPanning : Boolean = false;
+    var IsReturnPanning : Boolean = false;
     
     function Initialize(init : CogInitializer)
     {
@@ -73,14 +74,14 @@ class PlayerController : ZilchComponent
             var zoomEvent = new CameraZoomEvent();
             zoomEvent.CamSize = 10.0;
             zoomEvent.ZoomInTime = 2.0;
-            zoomEvent.IsActive = true;
+            zoomEvent.IsZoomingIn = true;
             this.Camera.DispatchEvent("zoomEvent", zoomEvent);
         }
         if(Zero.Keyboard.KeyIsPressed(Keys.Alt))
         {
             var zoomEvent = new CameraZoomEvent();
             zoomEvent.ZoomOutTime = 1.0;
-            zoomEvent.IsActive = false;
+            zoomEvent.IsZoomingIn = false;
             this.Camera.DispatchEvent("zoomEvent", zoomEvent);
         }
     }
@@ -92,29 +93,55 @@ class PlayerController : ZilchComponent
         }
         if(this.IsPanning)
         {
+            var testPanCube = this.Space.FindObjectByName("TestPanCube");
+            
             var panEvent = new CameraPanEvent();
-            panEvent.EndRotation = Math.Euler(Real3(0.0, 5.0, 0.0));
+            panEvent.CameraTarget = testPanCube;
+            panEvent.EndRotation = Math.Euler(Real3(0.4, 0.0, 1.0));
             panEvent.PanTime = 1.0 * event.Dt;
             panEvent.IsActive = true;
+            this.Camera.DispatchEvent("panEvent", panEvent);
+        }
+        if(Zero.Keyboard.KeyIsPressed(Keys.E))
+        {
+            this.IsReturnPanning = true;
+        }
+        if(this.IsReturnPanning)
+        {
+            var panEvent = new CameraPanEvent();
+            panEvent.EndRotation = panEvent.StartRotation;
+            panEvent.PanTime = 1.0 * event.Dt;
+            panEvent.IsActive = false;
             this.Camera.DispatchEvent("panEvent", panEvent);
         }
     }
     function Dolly(event : UpdateEvent)
     {
-        if(Zero.Keyboard.KeyIsPressed(Keys.E))
+        if(Zero.Keyboard.KeyIsPressed(Keys.Z))
         {
+            //Just an invisible practice cube to test dolly movement
+            var practiceCube = this.Space.FindObjectByName("PracticeDollyCube");
+            
             var dollyEvent = new CameraDollyEvent();
-            dollyEvent.EndPosition = this.Owner.Transform.Translation + Real3(5.0, 0.0, 0.0);
+            dollyEvent.EndPosition = practiceCube.Transform.Translation;
             dollyEvent.DollyTime = 2.0;
-            dollyEvent.EasingCurve = Ease.Linear;
+            dollyEvent.EasingCurve = Ease.QuadInOut;
             dollyEvent.IsActive = true;
             this.Camera.DispatchEvent("dollyEvent", dollyEvent);
         }
+        if(Zero.Keyboard.KeyIsPressed(Keys.C))
+        {
+            var dollyEvent = new CameraDollyEvent();
+            dollyEvent.DollyTime = 1.0;
+            dollyEvent.EasingCurve = Ease.QuadInOut;
+            dollyEvent.IsActive = false;
+            this.Camera.DispatchEvent("dollyEvent", dollyEvent);
+        }
     }
-    
     function OnPanFinished(event : PanFinishedEvent)
     {
         this.IsPanning = false;
+        this.IsReturnPanning = false;
     }
         
         
