@@ -27,7 +27,9 @@ class CameraZoomEvent : Event
     var CameraTarget : Cog = null;
     //Hpefully this will be for a custom ease later on
     var EasingCurve : Ease = Ease.QuadInOut;
+    //To be used when zooming in
     var ZoomInTime : Real = 0.0;
+    //To be used when zooming out
     var ZoomOutTime : Real = 0.0;
 }
 class CameraPanEvent : Event

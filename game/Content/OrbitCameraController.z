@@ -147,7 +147,7 @@ class OrbitCameraController : ZilchComponent
                 this.ShouldUpdateCamera = false;
                 //Timer for how long the pan lasts is set to 0.
                 this.PanTimer = 0.0;
-                //The start rotation (used when Slerping) is set to the current rotation of camera)
+                //The start rotation (used when Slerping) is set to the current rotation of camera
                 this.PanStartRotation = this.Owner.Transform.LocalRotation;
             }
             //Console.WriteLine("Pan Event Started");
@@ -162,7 +162,8 @@ class OrbitCameraController : ZilchComponent
                 //Defining the direction vector
                 targetDirection = Math.Normalize(this.Owner.Transform.Translation - panTarget.Transform.Translation);
                 this.PanTargetRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(targetDirection, Real3(0,0,1));
-                this.Owner.Transform.LocalRotation = Math.Slerp(this.Owner.Transform.Rotation, this.PanTargetRotation, this.PanTimer);
+                this.Owner.Transform.LocalRotation = Math.Slerp(this.PanStartRotation, this.PanTargetRotation, this.PanTimer);
+                
             }
             else
             {
@@ -172,12 +173,13 @@ class OrbitCameraController : ZilchComponent
             }
             //Incremenets the PanTimer by event.Dt (as set in the event call) 
             this.PanTimer += event.PanTime;
-            //Console.WriteLine("Pan Timer = `this.PanTimer`");
+            Console.WriteLine("Pan Timer = `this.PanTimer`");
             //Checks to see if the rotation has completed
             if(this.PanTimer >= 1.0)
             {
+                Console.WriteLine("PAN IS OVER!!!!!!!!!!!!!!!!!!");
                 var panFinished = new PanFinishedEvent();
-                //this.Space.DispatchEvent("panFinishedEvent", panFinished);
+                this.Space.DispatchEvent("panFinishedEvent", panFinished);
                 //Locks the camera from updating according to player position
                 //This will stay locked until the pan back (for now; may need to change later)
                 this.ShouldUpdateCamera = false;
@@ -196,10 +198,20 @@ class OrbitCameraController : ZilchComponent
                 this.PanStartRotation = this.Owner.Transform.LocalRotation;
                 Console.WriteLine("End Rotation: `event.EndRotation`");
             }
-            
-            Console.WriteLine("Pan Event Ending");
-            //Slerp back to original local rotation
-            this.Owner.Transform.LocalRotation = (Math.Slerp(this.PanStartRotation, this.WantedRotation, this.PanTimer));
+            //If rotating back from panning towards an object (and not just a quaternion value)
+            if(event.CameraTarget != null)
+            {
+                Console.WriteLine("Targeted Pan Ending");
+                this.Owner.Transform.LocalRotation = Math.Slerp(this.PanTargetRotation, this.WantedRotation, this.PanTimer);
+            }
+            //If rotating back from a defined value (and not from an actual object)
+            else
+            {
+                Console.WriteLine("Non-Targeted Pan Ending");
+                //Slerp back to original local rotation
+                //\\this.Owner.Transform.LocalRotation = (Math.Slerp(this.PanStartRotation, this.WantedRotation, this.PanTimer));
+            }
+           
             //Increments PanTimer by event.Dt (as set in the event call)
             this.PanTimer += event.PanTime;
             Console.WriteLine("Pan Timer = `this.PanTimer`");
@@ -246,7 +258,6 @@ class OrbitCameraController : ZilchComponent
     
     function ToggleCameraLock()
     {
-        
         var cameraLockEvent = new CameraLockEvent();
         cameraLockEvent.IsLocked = !this.ShouldUpdateCamera;
         this.Owner.DispatchEvent("cameraLockEvent", cameraLockEvent);
@@ -256,5 +267,4 @@ class OrbitCameraController : ZilchComponent
     {
         this.ShouldUpdateCamera = event.IsLocked;
     }
-    
 }

@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [13.0509, -8.26295, 42.8422],
+			Vec3 Translation = [6.21917, -8.2023, 18.3445],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.353577, -0.00561255, 0.00212155, 0.935386],
+			Quat Rotation = [0.523908, 0.0523892, -0.0323079, 0.849548],
 		},
 		Camera = 
 		{
@@ -96,9 +96,9 @@ Level =
 		{
 			ControlMode ControlMode = FirstPerson,
 			float LookDistance = 27.1,
-			float VerticalAngle = -0.722798,
-			float HorizontalAngle = 0.0120003,
-			Vec3 LookTarget = [13.2948, 9.66331, 22.5198],
+			float VerticalAngle = -1.1052,
+			float HorizontalAngle = 6.16001,
+			Vec3 LookTarget = [4.72429, 16.013, 6.27001],
 		},
 		EditorRenderer = 
 		{
@@ -12049,15 +12049,15 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [12.8583, -1.66285, 16.9896],
+			Vec3 Translation = [5.82342, 18.5837, 5.70223],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Model = 
 		{
-			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 1],
+			Vec4 Color = [0.2444, 0.65, 0.143, 1],
 			bool Visible = false,
 		},
 		RigidBody = 
@@ -12101,10 +12101,10 @@ Level =
 		},
 		Model = 
 		{
-			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MaterialName = "54385a97b1252648:TerrainMat",
 			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = false,
+			Vec4 Color = [0.755, 0.071725, 0.071725, 1],
+			bool Visible = true,
 		},
 		RigidBody = 
 		{

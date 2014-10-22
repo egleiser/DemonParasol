@@ -85,31 +85,42 @@ class PlayerController : ZilchComponent
             this.Camera.DispatchEvent("zoomEvent", zoomEvent);
         }
     }
+    //Used for testing the Pan Custom Event based on Key Pressses
     function Pan(event : UpdateEvent)
     {
         if(Zero.Keyboard.KeyIsPressed(Keys.Q))
         {
+            this.IsReturnPanning = false;
             this.IsPanning = true;
         }
         if(this.IsPanning)
         {
+            //Grabs a test cube to pan towards
             var testPanCube = this.Space.FindObjectByName("TestPanCube");
             
+            //Create new event
             var panEvent = new CameraPanEvent();
             panEvent.CameraTarget = testPanCube;
-            panEvent.EndRotation = Math.Euler(Real3(0.4, 0.0, 1.0));
+            //panEvent.EndRotation = Math.Euler(Real3(0.4, 0.0, 1.0));
+            //Set the time of the event
             panEvent.PanTime = 1.0 * event.Dt;
             panEvent.IsActive = true;
             this.Camera.DispatchEvent("panEvent", panEvent);
         }
         if(Zero.Keyboard.KeyIsPressed(Keys.E))
         {
+            this.IsPanning = false;
             this.IsReturnPanning = true;
         }
         if(this.IsReturnPanning)
         {
+            //Grabs a test cube to pan towards
+            var testPanCube = this.Space.FindObjectByName("TestPanCube");
+            //Creates the new event
             var panEvent = new CameraPanEvent();
-            panEvent.EndRotation = panEvent.StartRotation;
+            //Sets the target of the pan to the object found above
+            panEvent.CameraTarget = testPanCube;
+            //Set the tiem of the event
             panEvent.PanTime = 1.0 * event.Dt;
             panEvent.IsActive = false;
             this.Camera.DispatchEvent("panEvent", panEvent);
