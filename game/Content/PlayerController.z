@@ -100,7 +100,7 @@ class PlayerController : ZilchComponent
             
             //Create new event
             var panEvent = new CameraPanEvent();
-            panEvent.CameraTarget = testPanCube;
+            panEvent.PanTarget = testPanCube;
             //panEvent.EndRotation = Math.Euler(Real3(0.4, 0.0, 1.0));
             //Set the time of the event
             panEvent.PanTime = 1.0 * event.Dt;
@@ -119,7 +119,7 @@ class PlayerController : ZilchComponent
             //Creates the new event
             var panEvent = new CameraPanEvent();
             //Sets the target of the pan to the object found above
-            panEvent.CameraTarget = testPanCube;
+            panEvent.PanTarget = testPanCube;
             //Set the tiem of the event
             panEvent.PanTime = 1.0 * event.Dt;
             panEvent.IsActive = false;
@@ -130,11 +130,8 @@ class PlayerController : ZilchComponent
     {
         if(Zero.Keyboard.KeyIsPressed(Keys.Z))
         {
-            //Just an invisible practice cube to test dolly movement
-            var practiceCube = this.Space.FindObjectByName("PracticeDollyCube");
-            
             var dollyEvent = new CameraDollyEvent();
-            dollyEvent.EndPosition = practiceCube.Transform.Translation;
+            dollyEvent.DollyTarget = this.Space.FindObjectByName("PracticeDollyCube");
             dollyEvent.DollyTime = 2.0;
             dollyEvent.EasingCurve = Ease.QuadInOut;
             dollyEvent.IsActive = true;
@@ -143,7 +140,7 @@ class PlayerController : ZilchComponent
         if(Zero.Keyboard.KeyIsPressed(Keys.C))
         {
             var dollyEvent = new CameraDollyEvent();
-            dollyEvent.DollyTime = 1.0;
+            dollyEvent.DollyTime = 2.0;
             dollyEvent.EasingCurve = Ease.QuadInOut;
             dollyEvent.IsActive = false;
             this.Camera.DispatchEvent("dollyEvent", dollyEvent);

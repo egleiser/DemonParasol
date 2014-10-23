@@ -36,8 +36,10 @@ class CameraPanEvent : Event
 {
     var IsActive : Boolean = false;
     //Use if you want to rotate TOWARDS another object besides the player
-    var CameraTarget : Cog = null;
+    var PanTarget : Cog = null;
+    //Use if you want to rotate using a specific quaternion value
     var EndRotation : Quaternion = Quaternion(0,0,0,0);
+    //The start rotation before panning
     var StartRotation : Quaternion = Quaternion(0,0,0,0);
     var PanTime : Real = 0.0;
     //Hopefully this will be for a custom ease later on
@@ -45,6 +47,7 @@ class CameraPanEvent : Event
 }
 class CameraDollyEvent : Event
 {
+    //
     var IsActive : Boolean = false;
     //Use if you want to dolly to an object (either pre-set object or one created at runtime)
     var DollyTarget : Cog = null;
