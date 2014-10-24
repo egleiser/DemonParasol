@@ -247,7 +247,6 @@ class OrbitCameraController : ZilchComponent
             {
                 //Making a variable for the DollyTarget object
                 var dollyTarget : Cog = event.DollyTarget;
-                this.Owner.Actions.Cancel();
                 //Action interpolating between original camera translation and translation of the target object
                 var seq = Action.Sequence(this.Owner.Actions);
                 Action.Property(seq,
@@ -277,7 +276,6 @@ class OrbitCameraController : ZilchComponent
         else
         {
             Console.WriteLine("Dolly Event Ending");
-            this.Owner.Actions.Cancel();
             //Action interpolating between former Endposition and original translation behind player
             var seq = Action.Sequence(this.Owner.Actions);
             //Calls the ToggleCameraLock function so that the camera unlocks and updates according to player movement again
