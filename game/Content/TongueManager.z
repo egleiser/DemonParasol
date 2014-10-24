@@ -13,7 +13,7 @@ class TongueManager : ZilchComponent
     {
         this.InitializeTongue();
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-        this.ExtendTongue(20);
+        this.ExtendTongue(10);
 
     }
 

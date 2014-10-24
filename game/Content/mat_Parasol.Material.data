@@ -1,0 +1,34 @@
+Material = 
+{
+	Lambert = 
+	{
+	},
+	DoubledSide = 
+	{
+	},
+	Fresnel = 
+	{
+		string TestTexture = "549077217d8b12f4:CurseGlow",
+		float EdgeFalloffPower = 8,
+		float EdgeFalloffScale = 1,
+		float PulseTimeScale = 0,
+		float PulseIntensity = 0,
+		float PulseIntensityOffset = 0,
+		Vec4 EdgeGlowColor = [0.456505, 0.026325, 0.585, 1],
+	},
+	ModulateModelColor = 
+	{
+	},
+	NormalMapping = 
+	{
+		float Bumpiness = 0.8,
+		string NormalMapTexture = "549a9dd7ad7c3001:basicFabric_NRM",
+		Vec2 NormalScroll = [0, 0],
+		Vec2 NormalTiling = [1, 1],
+		Vec2 NormalOffset = [0, 0],
+	},
+	ColorDiffuse = 
+	{
+		Vec4 DiffuseColor = [1, 1, 1, 1],
+	},
+},
