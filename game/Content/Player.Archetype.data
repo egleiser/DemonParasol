@@ -210,13 +210,108 @@ Cog =
 									},
 									Hierarchy = 
 									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 6,
+											},
+											Named = 
+											{
+												string Name = "Hat",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0, -9.53674e-007, 0.353713],
+												Vec3 Scale = [0.499999, 0.5, 0.0879925],
+												Quat Rotation = [-1.86265e-009, 3.47047e-015, 1, 4.41533e-008],
+											},
+											Model = 
+											{
+												string MaterialName = "549a9f71f45ed652:mat_Fabric",
+												string MeshName = "4de0354322b376ae:Sphere",
+												Vec4 Color = [1, 0.59795, 0.065, 1],
+												bool Visible = true,
+											},
+											RigidBody = 
+											{
+												bool Static = false,
+												bool Asleep = false,
+												bool Kinematic = true,
+												bool RotationLocked = false,
+												bool Mode2D = false,
+												bool AllowSleep = true,
+												bool Inherit2DMode = true,
+												Vec3 Velocity = [0, 0, 0],
+												Vec3 AngularVelocity = [0, 0, 0],
+											},
+											SphereCollider = 
+											{
+												bool Ghost = false,
+												bool SendsMessages = true,
+												bool Seamless = true,
+												string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+												string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+												Vec3 Offset = [0, 0, 0],
+												float Radius = 1,
+											},
+											Hierarchy = 
+											{
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 7,
+													},
+													Named = 
+													{
+														string Name = "HatB",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [2.98023e-008, 3.43323e-005, 1.45729],
+														Vec3 Scale = [0.486087, 0.486087, 1.81245],
+														Quat Rotation = [0, 0, 0, 1],
+													},
+													Model = 
+													{
+														string MaterialName = "549a9f71f45ed652:mat_Fabric",
+														string MeshName = "4de0354322b376ae:Sphere",
+														Vec4 Color = [1, 0.59795, 0.065, 1],
+														bool Visible = true,
+													},
+													RigidBody = 
+													{
+														bool Static = false,
+														bool Asleep = false,
+														bool Kinematic = true,
+														bool RotationLocked = false,
+														bool Mode2D = false,
+														bool AllowSleep = true,
+														bool Inherit2DMode = true,
+														Vec3 Velocity = [0, 0, 0],
+														Vec3 AngularVelocity = [0, 0, 0],
+													},
+													SphereCollider = 
+													{
+														bool Ghost = false,
+														bool SendsMessages = true,
+														bool Seamless = true,
+														string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+														string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+														Vec3 Offset = [0, 0, 0],
+														float Radius = 1,
+													},
+												},
+											},
+										},
 									},
 								},
 								Cog = 
 								{
 									LinkId = 
 									{
-										uint Id = 6,
+										uint Id = 8,
 									},
 									Named = 
 									{
@@ -241,7 +336,7 @@ Cog =
 										{
 											LinkId = 
 											{
-												uint Id = 7,
+												uint Id = 9,
 											},
 											Named = 
 											{
@@ -266,7 +361,7 @@ Cog =
 												{
 													LinkId = 
 													{
-														uint Id = 8,
+														uint Id = 10,
 													},
 													Named = 
 													{
@@ -328,7 +423,7 @@ Cog =
 								{
 									LinkId = 
 									{
-										uint Id = 9,
+										uint Id = 11,
 									},
 									Named = 
 									{
@@ -353,7 +448,7 @@ Cog =
 										{
 											LinkId = 
 											{
-												uint Id = 10,
+												uint Id = 12,
 											},
 											Named = 
 											{
@@ -384,7 +479,7 @@ Cog =
 						{
 							LinkId = 
 							{
-								uint Id = 11,
+								uint Id = 13,
 							},
 							Named = 
 							{
@@ -409,7 +504,7 @@ Cog =
 								{
 									LinkId = 
 									{
-										uint Id = 12,
+										uint Id = 14,
 									},
 									Named = 
 									{
@@ -435,7 +530,7 @@ Cog =
 						{
 							LinkId = 
 							{
-								uint Id = 13,
+								uint Id = 15,
 							},
 							Named = 
 							{
@@ -460,7 +555,7 @@ Cog =
 								{
 									LinkId = 
 									{
-										uint Id = 14,
+										uint Id = 16,
 									},
 									Named = 
 									{
@@ -490,7 +585,83 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 15,
+				uint Id = 17,
+			},
+			Named = 
+			{
+				string Name = "OnFire",
+			},
+			Archetyped = 
+			{
+				string Name = "549a983f28a95fba:OnFire",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.0153871, 0.459993, 0.334081],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteParticleSystem = 
+			{
+				SystemChildMode ChildMode = Independent,
+				SystemSpace SystemSpace = WorldSpace,
+				uint DrawOrder = 0,
+				float WarmUpTime = 0,
+				ParticleGeometry GeometryMode = Billboarded,
+				ParticleRenderMode RenderMode = Blended,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Single,
+				string Texture = "549077776ae53c06:tex_toon_explosion",
+				Vec4 Tint = [1, 1, 1, 0.87],
+				float VelocityScale = 1,
+				float LengthScale = 1,
+				float MaxParticleSize = 100,
+				Vec3 SystemSize = [4, 4, 4],
+			},
+			SphericalParticleEmitter = 
+			{
+				bool Active = false,
+				uint EmitCount = 0,
+				float EmitRate = 80,
+				float EmitVariance = 0,
+				float Size = 1,
+				float SizeVariance = 0.5,
+				float Lifetime = 1,
+				float LifetimeVariance = 0.2,
+				float Spin = 360,
+				float SpinVariance = 50,
+				bool RandomSpin = true,
+				float Fill = 1,
+				float EmitterVelocityPercent = 0,
+				Vec3 StartVelocity = [0, 0, 8],
+				Vec3 RandomVelocity = [1, 1, 1],
+				Vec3 TangentVelocity = [0, 0, 0],
+				Vec3 EmitterSize = [1, 1, 1],
+				bool FastMovingEmitter = true,
+			},
+			LinearParticleAnimator = 
+			{
+				Vec3 Force = [0, 0, 0],
+				Vec3 RandomForce = [0, 0, 0],
+				float Torque = 0,
+				float Growth = -1,
+				float Dampening = 0,
+				Vec3 Twist = [0, 0, 0],
+			},
+			ParticleColorAnimator = 
+			{
+				Vec4 Color0 = [1, 0.75, 0, 0],
+				Vec4 Color1 = [1, 0.69, 0, 1],
+				Vec4 Color2 = [0.985, 0.426209, 0.06895, 1],
+				Vec4 Color3 = [1, 0.15, 0, 1],
+				Vec4 Color4 = [1, 0.15, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 18,
 			},
 			Named = 
 			{
@@ -499,15 +670,15 @@ Cog =
 			Transform = 
 			{
 				Vec3 Translation = [0.613419, 0.22648, 1.08852],
-				Vec3 Scale = [0.5, 0.5, 0.500001],
-				Quat Rotation = [-0.476611, -0.490147, 0.0539754, 0.727794],
+				Vec3 Scale = [0.5, 0.5, 0.5],
+				Quat Rotation = [0.126604, 0.12717, 0.0260524, 0.983423],
 			},
 			Model = 
 			{
 				string MaterialName = "537644533dba9ae8:mat_Plain",
 				string MeshName = "4de0354322b345ae:Cube",
 				Vec4 Color = [0.26, 0.135447, 0.0741, 1],
-				bool Visible = true,
+				bool Visible = false,
 			},
 			SwordController = 
 			{
@@ -534,7 +705,7 @@ Cog =
 			},
 			SimpleAnimation = 
 			{
-				string AnimationName = "5443d30e1085fd91:IdleSlash",
+				string AnimationName = "549aeec1abd86258:Blocking",
 				AnimPlayMode PlayMode = PlayOnce,
 			},
 			SoundEmitter = 
@@ -552,7 +723,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 16,
+						uint Id = 19,
 					},
 					Named = 
 					{
@@ -561,14 +732,14 @@ Cog =
 					Transform = 
 					{
 						Vec3 Translation = [-0.00796628, 1.85248, 0],
-						Vec3 Scale = [0.569051, 4, 0.664915],
+						Vec3 Scale = [0.3, 4, 0.3],
 						Quat Rotation = [0, 0, 0, 1],
 					},
 					Model = 
 					{
 						string MaterialName = "5404506d3dd2a41e:mat_Light",
 						string MeshName = "4de0354322b345ae:Cube",
-						Vec4 Color = [0.762565, 0.52865, 0.97, 1],
+						Vec4 Color = [0.19, 0.0627, 0, 1],
 						bool Visible = true,
 					},
 					BoxCollider = 
@@ -609,41 +780,7 @@ Cog =
 						Vec4 Color = [0.4375, 0.63875, 0.875, 1],
 						bool Visible = true,
 					},
-				},
-				Cog = 
-				{
-					LinkId = 
-					{
-						uint Id = 17,
-					},
-					Named = 
-					{
-						string Name = "TongueMount",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [0.326633, 2.12751, 3.72529e-009],
-						Vec3 Scale = [0.2, 0.2, 0.2],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					Model = 
-					{
-						string MaterialName = "54ff27758d4308c1:mat_Ghost",
-						string MeshName = "4de0354322b376ae:Sphere",
-						Vec4 Color = [1, 0, 0, 1],
-						bool Visible = true,
-					},
-					SphereCollider = 
-					{
-						bool Ghost = false,
-						bool SendsMessages = true,
-						bool Seamless = true,
-						string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-						string SerializedGroupName = "54ff0eb5b975b8c8:CG_Tongue",
-						Vec3 Offset = [0, 0, 0],
-						float Radius = 1,
-					},
-					TongueManager = 
+					Hierarchy = 
 					{
 					},
 				},
@@ -651,7 +788,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 18,
+						uint Id = 20,
 					},
 					Named = 
 					{
@@ -669,6 +806,156 @@ Cog =
 						string MeshName = "4de0354322b376ae:Sphere",
 						Vec4 Color = [1, 1, 1, 1],
 						bool Visible = true,
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 21,
+					},
+					Named = 
+					{
+						string Name = "Ribs",
+					},
+					Archetyped = 
+					{
+						string Name = "549a958d188e088b:Ribs",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.0594798, 4.03428, -0.0567631],
+						Vec3 Scale = [0.3, 4.5, 0.3],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						string MaterialName = "549a946bb9e88da4:mat_Parasol",
+						string MeshName = "549a90678d6bf01f:BaseParasol",
+						Vec4 Color = [0.660215, 0.378775, 0.695, 1],
+						bool Visible = true,
+					},
+					RibController = 
+					{
+						float WindSpeed = 20,
+					},
+					BoxCollider = 
+					{
+						bool Ghost = true,
+						bool SendsMessages = true,
+						bool Seamless = true,
+						string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+						string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+						Vec3 Offset = [0, -0.5, 0],
+						Vec3 Size = [2.5, 0.5, 2.5],
+					},
+					RigidBody = 
+					{
+						bool Static = false,
+						bool Asleep = false,
+						bool Kinematic = true,
+						bool RotationLocked = false,
+						bool Mode2D = false,
+						bool AllowSleep = true,
+						bool Inherit2DMode = true,
+						Vec3 Velocity = [0, 0, 0],
+						Vec3 AngularVelocity = [0, 0, 0],
+					},
+					SoundEmitter = 
+					{
+						bool StartPlaying = false,
+						int ExtraPriority = 0,
+						string CueName = "549afd4c3301db44:Whoosh_ParasolOpen",
+						float Volume = 1,
+						float Pitch = 1,
+						bool Positional = true,
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 22,
+							},
+							Named = 
+							{
+								string Name = "TongueMount",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [1.76814, -0.424878, 0.42237],
+								Vec3 Scale = [0.666667, 0.0444444, 0.666667],
+								Quat Rotation = [-3.35276e-007, 1.11759e-008, 3.747e-015, 1],
+							},
+							Model = 
+							{
+								string MaterialName = "54ff27758d4308c1:mat_Ghost",
+								string MeshName = "4de0354322b376ae:Sphere",
+								Vec4 Color = [1, 0, 0, 1],
+								bool Visible = false,
+							},
+							SphereCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = true,
+								string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+								string SerializedGroupName = "54ff0eb5b975b8c8:CG_Tongue",
+								Vec3 Offset = [0, 0, 0],
+								float Radius = 1,
+							},
+							TongueManager = 
+							{
+							},
+						},
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 23,
+			},
+			Named = 
+			{
+				string Name = "TargetLock",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 24,
+					},
+					Named = 
+					{
+						string Name = "Indicator",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-4.76837e-007, 2.6226e-006, -2.86102e-006],
+						Vec3 Scale = [0.5, 0.5, 2],
+						Quat Rotation = [-0, 1, -0, -4.37114e-008],
+					},
+					Model = 
+					{
+						string MaterialName = "549ac0a634988ae0:mat_Indicator",
+						string MeshName = "4de0354322b33457:Cone",
+						Vec4 Color = [0, 0.25, 1, 1],
+						bool Visible = true,
+					},
+					IndicatorLock = 
+					{
 					},
 				},
 			},

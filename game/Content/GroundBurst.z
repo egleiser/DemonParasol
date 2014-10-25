@@ -1,0 +1,54 @@
+class GroundBurst : ZilchComponent
+{
+    [Property]
+    var Offset:Real3 = Real3(0,0,2);
+    var OriginalPos:Real3 = Real3(0,0,0);
+    var Burst:Boolean = false;
+    var JustBursted:Boolean = false;
+    var Timer:Integer = 0;
+    var Dt:Real = 0;
+    function Initialize(init : CogInitializer)
+    {
+        this.OriginalPos = this.Owner.Transform.WorldTranslation;
+        Zero.Connect(this.Owner, "triggerEvent", this.OnTrigger);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnTrigger(event : TriggerEvent)
+    {
+        
+        if(event.Activate)
+        {
+            this.Burst = true;
+            
+            if(this.JustBursted == false)
+            {
+                this.Owner.SoundEmitter.Play();
+                var wind = this.Space.CreateAtPosition(Archetype.Find("GroundSmoke"),this.Owner.Parent.Transform.WorldTranslation + Real3(0,0,1));
+                this.JustBursted = true;
+            }
+        }
+        else
+        {
+            this.JustBursted = false;
+            this.Burst = false;
+        }
+        
+        var wantedTransform = this.OriginalPos;
+        if(this.Burst)
+        {
+            wantedTransform = this.OriginalPos + this.Offset;
+            this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, wantedTransform, this.Dt * 15.0);
+        }
+        else
+        {
+            this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, wantedTransform, this.Dt * 5.0);
+        }
+        
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Dt = event.Dt;
+    }
+}

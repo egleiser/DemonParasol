@@ -1,20 +1,20 @@
 SoundCue = 
 {
 	SoundPlayMode PlayMode = Single,
-	float Volume = 1,
+	float Volume = 0.46,
 	float VolumeVariation = 0,
-	float Pitch = 0,
-	float PitchVariation = 0.2,
+	float Pitch = 0.1,
+	float PitchVariation = 0.3,
 	float MinDistance = 10,
-	float MaxDistance = 10000,
+	float MaxDistance = 100,
 	float PositionRandomization = 0,
 	uint MaxPlaybacks = 10,
 	int Priority = 128,
-	bool LinearRollOff = true,
+	bool LinearRollOff = false,
 	Array Sounds = 
 	[
 		{
-			string SoundName = "54fc49437645f9ec:Hit_Bush_Leaves5",
+			string SoundName = "549afc191123d14e:Magic_Spell_Tornado1",
 			float Weight = 1,
 		},
 	],

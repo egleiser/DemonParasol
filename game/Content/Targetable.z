@@ -1,0 +1,30 @@
+enum TargetType{Standard, Friendly, Enemy, Information}
+class Targetable : ZilchComponent
+{
+    [Property]
+    var IndicatorType:TargetType = TargetType.Standard;
+    [Property]
+    var IndicatorOffset:Real3 = Real3(0,0,0);
+    [Property]
+    var Range:Real = 20.0;
+    var Player:Cog = null;
+    var PlayerDistance:Real = 0.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
+        this.Player.PlayerController.TargetList.Add(this.Owner);
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        
+    }
+    function GetDistanceToPlayer():Real
+    {
+        this.PlayerDistance = Math.Length(this.Player.Transform.Translation - this.Owner.Transform.WorldTranslation);
+        return this.PlayerDistance;
+    }
+}
