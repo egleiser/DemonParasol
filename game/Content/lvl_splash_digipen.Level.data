@@ -29,11 +29,14 @@ Level =
 			bool Background = true,
 			Vec2 Offset = [0, 0],
 			Vec2 Size = [1, 1],
-			uint Layer = 0,
+			int Layer = 0,
 			bool Active = true,
 			bool Blocking = true,
 			uint Renderer = 1,
 			uint Camera = 2,
+			ViewportScaling Scaling = Fill,
+			Vec2 Resolution = [1280, 720],
+			Vec4 MarginColor = [0, 0, 0, 1],
 		},
 		ForwardRenderer = 
 		{
@@ -46,6 +49,7 @@ Level =
 			float CellSize = 1,
 			GridAxis Axis = YAxis,
 			int Lines = 100,
+			bool DrawAxisOrigins = true,
 			bool AlwaysDrawInEditor = true,
 			bool DrawInGame = false,
 			Vec4 GridColor = [0.5, 0.5, 0.5, 0.4],
@@ -66,13 +70,16 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 14.776, 47.7668],
+			Vec3 Translation = [-4.43001, 31.8193, 89.5985],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0.149438, -1.10519e-008, -3.26607e-009, 0.988771],
 		},
 		Camera = 
 		{
 			ProjectionMode ProjectionMode = Perspective,
+			Facing Facing = NegativeZ,
+			SpriteSort SpriteSort = ViewDepth,
+			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
@@ -81,10 +88,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 50,
+			float LookDistance = 95,
 			float VerticalAngle = 0.3,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [0, 0, 0],
+			Vec3 LookTarget = [-4.43001, 3.74492, -1.15844],
 		},
 		EditorRenderer = 
 		{
@@ -103,13 +110,13 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 14.776, 47.7668],
+			Vec3 Translation = [0, 27.9993, 20],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.149438, -1.10519e-008, -3.26607e-009, 0.988771],
+			Quat Rotation = [-0.707107, 0, 0, 0.707107],
 		},
 		Camera = 
 		{
-			ProjectionMode ProjectionMode = Perspective,
+			ProjectionMode ProjectionMode = Orthographic,
 			Facing Facing = NegativeZ,
 			SpriteSort SpriteSort = ViewDepth,
 			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
@@ -121,6 +128,45 @@ Level =
 		Microphone = 
 		{
 			bool Active = true,
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 0, 1],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [0, 1, 0],
+			OrientationBases DefaultBases = ForwardYUpZ,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 4,
+		},
+		Named = 
+		{
+			string Name = "scn-splash-digipen",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 20],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [-0.707107, 0, 0, 0.707107],
+		},
+		Sprite = 
+		{
+			string SpriteSource = "548c87b5ba3a3427:scn-splash-digipen",
+			bool FlipX = false,
+			bool FlipY = false,
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = true,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 		},
 	},
 },
