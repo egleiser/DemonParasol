@@ -1,0 +1,78 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//SCRIPT-Z_SplashScreenLogic.z
+//AUTHOR-Travis Moore
+//COURSE-GAM205
+//COPYRIGHT-© 2014 DigiPen, All Rights Reserved.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+class Z_LevelLogic:ZilchComponent
+{
+    //PROPERTIES
+    [Property]
+    var SplashScreenDelayTimer:Real = 3;
+    
+    //SPLASH
+    var LvlSplashDigipen:Level = Level.Find("lvl_splash_digipen");
+    var LvlSplashTeamLogo:Level = Level.Find("lvl_splash_team_logo");
+    var LvlSplashStart:Level = Level.Find("lvl_splash_start");
+    
+    //MENUS
+    var LvlMenuMain:Level = Level.Find("lvl_menu_main");
+    
+    //CURRENT LEVEL
+    var LvlCurrentLevel:Level = null;
+    
+    //TIMER
+    //timer variabe
+    var Timer:Real = 0; //used to sequence through splash screen
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Initialize
+    //EXPLANATION-Initialize variables/functions for further use
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Initialize(init : CogInitializer)
+    {
+        //variable to hook to current level
+        this.LvlCurrentLevel = this.Space.CurrentLevel;
+        
+        //connect to LogicUpdate event
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-OnLogicUpdate
+    //EXPLANATION-Update every frame, perform actions and listen for keyboard
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.LvlCurrentLevel == this.LvlSplashDigipen)
+        {
+            //keep track of the Timer
+            this.Timer += event.Dt;
+            
+            //continue to team logo splash screen once digipen splash screen is done
+            if(this.Timer >= this.SplashScreenDelayTimer)
+            {
+                this.Space.LoadLevel(this.LvlSplashTeamLogo);
+            }
+            
+            //reset timer
+            this.Timer = 0;
+        }
+        
+        if(this.LvlCurrentLevel == this.LvlSplashTeamLogo)
+        {
+            //keep track of the Timer
+            this.Timer += event.Dt;
+            
+            //continue to start splash screen once team logo splash screen is done
+            if(this.Timer >= this.SplashScreenDelayTimer)
+            {
+                this.Space.LoadLevel(this.LvlSplashStart);
+            }
+            
+            //reset timer
+            this.Timer = 0;
+        }
+    }
+}
