@@ -1,0 +1,165 @@
+class DogController : ZilchComponent
+{
+    [Dependency]
+    var Orientation : Orientation = null;
+    
+    [Property]
+    var PaceSpeed : Real = 0.0;
+    
+    [Property]
+    var MaxMoveDistance : Real = 0.0;
+    
+    [Property]
+    var TargetObjectPath : CogPath = null;
+    
+    [Property]
+    var BarkTriggerDistance : Real = 5.0;
+    
+    [Property]
+    var BarkColor : Real4 = Real4(0,0,0,0);
+
+    [Property]
+    var RunAwayTriggerDistance : Real = 2.0;
+    
+    [Property]
+    var RunAwayColor : Real4 = Real4(0,0,0,0);
+    
+    [Property]
+    var MaxRunAwayDistance : Real = 0.0;
+    
+    [Property]
+    var RunAwaySpeed : Real = 0.0;
+    
+    var TargetObject : Cog = null;
+    
+    var PaceDirection : Real3 = Real3(0,0,0);
+    var PaceRotation : Quaternion = Quaternion(0,0,0,0);
+    
+    var BarkDirection : Real3 = Real3(0,0,0);
+    var BarkRotation : Quaternion = Quaternion(0,0,0,0);
+    
+    var RunAwayDirection : Real3 = Real3(0,0,0);
+    var RunAwayRotation : Quaternion = Quaternion(0,0,0,0);
+    var RunningAway : Boolean = false;
+    
+    var StartPosition : Real3 = Real3(0,0,0);
+    var OriginalColor : Real4 = Real4(0,0,0,0);
+    var BarkDistanceFromTarget : Real = 0.0;
+    var RunAwayDistanceFromTarget : Real = 0.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.TargetObject = this.TargetObjectPath.Cog;
+        this.OriginalColor = this.Owner.Model.Color;
+        //Start position of the object at the beginning of level loaded
+        //this.StartPosition = this.Owner.Transform.Translation;
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var targetIsWithinBarkRange : Boolean = false;
+        var targetIsWithinRunAwayRange : Boolean = false;
+        //If there is a target object...
+        if(this.TargetObject != null)
+        {
+            this.CalculateBarkDirectionAndDistance();
+            this.CalculateRunAwayDirectionAndDistance();
+            targetIsWithinBarkRange = (this.BarkDistanceFromTarget <= this.BarkTriggerDistance);
+            targetIsWithinRunAwayRange = (this.RunAwayDistanceFromTarget <= this.RunAwayTriggerDistance);
+        }
+        
+        if(targetIsWithinBarkRange && !targetIsWithinRunAwayRange)
+        {
+            if(!this.RunningAway)
+            {
+                this.BarkAtTarget();
+            }
+        }
+        else if(targetIsWithinBarkRange && targetIsWithinRunAwayRange)
+        {
+            this.RunningAway = true;
+            this.RunAwayFromTarget(event);
+        }
+        else
+        {
+            this.PaceBackAndForth(event);
+        }
+        
+    }
+    
+    function PaceBackAndForth(event : UpdateEvent)
+    {
+        this.Owner.Model.Color = this.OriginalColor;
+        
+        var displacement : Real3 = Real3(0,0,0);
+        displacement = this.Owner.Transform.Translation - this.StartPosition;
+        
+        var distanceFromStart : Real = 0.0;
+        distanceFromStart = Math.Length(displacement);
+        
+        if(distanceFromStart >= this.MaxMoveDistance)
+        {
+            this.PaceDirection = -displacement;
+        }
+        
+        this.PaceDirection = Math.Normalize(this.PaceDirection);
+        
+        this.Owner.Transform.Translation += this.PaceDirection * event.Dt * this.PaceSpeed;
+        
+        this.PaceRotation = this.Orientation.GetLookAtDirectionWithUpRotation(this.PaceDirection, Real3(0,0,1));
+        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.PaceRotation, 0.1);
+    }
+    
+    function BarkAtTarget()
+    {
+        this.Owner.Model.Color = this.BarkColor;
+        this.BarkRotation = this.Orientation.GetLookAtDirectionWithUpRotation(this.BarkDirection, Real3(0,0,1));
+        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.BarkRotation, 0.1);
+        Console.WriteLine("Bark, Bark");
+    }
+    
+    //This function gets the direction vector towards the target this object is barking at
+    //normalizes it, and also gets the length of that vector before its normalized
+    function CalculateBarkDirectionAndDistance()
+    {
+        this.BarkDirection = this.Owner.Transform.Translation - this.TargetObject.Transform.Translation;
+        this.BarkDistanceFromTarget = Math.Length(this.BarkDirection);
+        this.BarkDirection = Math.Normalize(this.BarkDirection);
+    }
+    
+    function RunAwayFromTarget(event : UpdateEvent)
+    {
+        //var runAwayStartPosition : Real3 = this.Owner.Transform.Translation;
+        //var runAwayDisplacement : Real3 = this.Owner.Transform.Translation - runAwayStartPosition;
+        //var distanceSinceRunning : Real = 0.0;
+        //distanceSinceRunning = Math.Length(runAwayDisplacement);
+        
+        this.Owner.Model.Color = this.RunAwayColor;
+        Console.WriteLine(this.RunAwayDirection);
+        this.Owner.Transform.Translation += this.RunAwayDirection * event.Dt * this.RunAwaySpeed;
+        
+        //if(distanceSinceRunning >= this.MaxRunAwayDistance)
+        //{
+        //    var runAwayEndPosition : Real3 = this.Owner.Transform.Translation;
+        //    var ranAwayDisplacement : Real3 = this.StartPosition - runAwayEndPosition;
+        //    var distanceRan : Real = 0.0;
+        //    distanceRan = Math.Length(ranAwayDisplacement);
+        //    this.RunningAway = false;
+        //    this.PaceBackAndForth(event);        
+        //}
+    }
+    
+    function CalculateRunAwayDirectionAndDistance()
+    {
+        var reverseDirection : Real3 = Real3(0,0,0);
+        reverseDirection = this.TargetObject.Transform.Translation - this.Owner.Transform.Translation;
+        this.RunAwayDirection = -reverseDirection;
+        this.RunAwayDistanceFromTarget = Math.Length(reverseDirection);
+        this.RunAwayDirection = Math.Normalize(this.RunAwayDirection);
+        
+    }
+    
+
+}

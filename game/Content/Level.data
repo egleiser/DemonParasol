@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.25909, 0.778807, 13.2751],
+			Vec3 Translation = [2.55307, -30.3834, 16.1292],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.504325, -0.000356085, 0.000207981, 0.863514],
+			Quat Rotation = [0.5153, 0.00993094, -0.00597177, 0.856932],
 		},
 		Camera = 
 		{
@@ -96,9 +96,9 @@ Level =
 		{
 			ControlMode ControlMode = FirstPerson,
 			float LookDistance = 27.1,
-			float VerticalAngle = -1.0572,
-			float HorizontalAngle = 6.28401,
-			Vec3 LookTarget = [2.27007, 24.3825, -0.0394493],
+			float VerticalAngle = -1.0828,
+			float HorizontalAngle = 6.26001,
+			Vec3 LookTarget = [2.25861, -6.44678, 3.4265],
 		},
 		EditorRenderer = 
 		{
@@ -733,7 +733,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [4.30445, 1.43169, 1.08815],
+			Vec3 Translation = [11.161, 5.48981, 2],
 			Vec3 Scale = [4, 4, 4],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -12127,6 +12127,71 @@ Level =
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 238,
+		},
+		Named = 
+		{
+			string Name = "Dog",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4.22173, -13.4175, 2],
+			Vec3 Scale = [3, 3, 3],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "54ff27758d4308c1:mat_Ghost",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.875, 0.02625, 0.02625, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 1, 0],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [0, 1, 0],
+			OrientationBases DefaultBases = ForwardYUpZ,
+		},
+		DogController = 
+		{
+			float PaceSpeed = 3,
+			float MaxMoveDistance = 10,
+			CogPath TargetObjectPath = ":/Player",
+			float BarkTriggerDistance = 8,
+			Vec4 BarkColor = [0.033075, 0.124268, 0.945, 0.83],
+			float RunAwayTriggerDistance = 4,
+			Vec4 RunAwayColor = [0.278526, 0.915, 0.0549, 0.815],
+			float MaxRunAwayDistance = 20,
+			float RunAwaySpeed = 5,
 		},
 	},
 },
