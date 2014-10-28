@@ -1,0 +1,272 @@
+class OrientationHelper : ZilchComponent
+{
+    [Dependency]
+    var Orientation : Orientation = null;
+   
+    function Initialize(init : CogInitializer)
+    {
+    }
+ 
+    // Constrains the components of the given vector to the given orientation axis plane
+    function ConstrainVectorToPlane(plane : OrientedPlanes, vec : Real3) : Real3
+    {
+        if(plane == OrientedPlanes.ForwardUp)
+        {
+            return (this.Orientation.LocalForward + this.Orientation.LocalUp) * vec;
+        }
+        else if(plane == OrientedPlanes.ForwardRight)
+        {
+            return (this.Orientation.LocalForward + this.Orientation.LocalRight) * vec;
+        }
+        else// if(plane == OrientedPlanes.UpRight)
+        {
+            return (this.Orientation.LocalUp + this.Orientation.LocalRight) * vec;
+        }
+    }
+   
+    // Return the angle of the given vector in around the given axis constrained to the plane orthogonal to the given axis
+    function AxisVectorToAngle(axis : AxisType, vec : Real3) : Real
+    {
+        if(axis == AxisType.Forward)
+        {
+            var up = this.GetAxisValue(AxisType.Up, vec);
+            var right = this.GetAxisValue(AxisType.Right, vec);
+           
+            return Math.ATan2(up, right);
+        }
+        else if(axis == AxisType.Right)
+        {
+            var up = this.GetAxisValue(AxisType.Up, vec);
+            var forward = this.GetAxisValue(AxisType.Forward, vec);
+           
+            return Math.ATan2(up, forward);
+        }
+        else// if(axis == AxisType.Up)
+        {
+            var forward = this.GetAxisValue(AxisType.Forward, vec);
+            var right = this.GetAxisValue(AxisType.Right, vec);
+           
+            return Math.ATan2(forward, right);
+        }
+    }
+   
+    // Return the unit vector of the given angle around the given axis constrained to the plane orthogonal to the given axis
+    function AxisAngleToVector(axisType : AxisType, angle : Real) : Real3
+    {
+        if(axisType == AxisType.Forward)
+        {
+            return (this.Orientation.LocalUp * Math.Sin(angle)) + (this.Orientation.LocalRight * Math.Cos(angle));
+        }
+        else if(axisType == AxisType.Right)
+        {
+            return (this.Orientation.LocalUp * Math.Sin(angle)) + (this.Orientation.LocalForward * Math.Cos(angle));
+        }
+        else// if(axisType == AxisType.Up)
+        {
+            return (this.Orientation.LocalForward * Math.Sin(angle)) + (this.Orientation.LocalRight * Math.Cos(angle));
+        }
+    }
+   
+    // Get the value on the given orientation axis
+    function GetAxisTranslation(axisType : AxisType) : Real
+    {
+        var vector : Real3 = this.Owner.Transform.Translation;
+        var axis : Real3 = Real3();
+        if(axisType == AxisType.Forward)
+        {
+            axis = this.Orientation.LocalForward;
+        }
+        else if(axisType == AxisType.Right)
+        {
+            axis = this.Orientation.LocalRight;
+        }
+        else// if(axisType == AxisType.Up)
+        {
+            axis = this.Orientation.LocalUp;
+        }
+       
+        return Math.Dot(axis, vector);
+    }
+   
+    // Get the value on the given orientation axis
+    function GetWorldAxisTranslation(axisType : AxisType) : Real
+    {
+        var vector : Real3 = this.Owner.Transform.Translation;
+        var axis : Real3 = Real3();
+        if(axisType == AxisType.Forward)
+        {
+            axis = this.Orientation.WorldForward;
+        }
+        else if(axisType == AxisType.Right)
+        {
+            axis = this.Orientation.WorldRight;
+        }
+        else// if(axisType == AxisType.Up)
+        {
+            axis = this.Orientation.WorldUp;
+        }
+       
+        return Math.Dot(axis, vector);
+    }
+   
+    // Get the value on the given orientation axis
+    function SetAxisTranslation(axisType : AxisType, val : Real)
+    {
+        var vector : Real3 = Real3();
+        if(axisType == AxisType.Forward)
+        {
+            vector = this.Orientation.LocalForward * val;
+            vector += this.Orientation.LocalRight * this.Owner.Transform.Translation;
+            vector += this.Orientation.LocalUp * this.Owner.Transform.Translation;
+        }
+        else if(axisType == AxisType.Right)
+        {
+            vector = this.Orientation.LocalForward * this.Owner.Transform.Translation;
+            vector += this.Orientation.LocalRight * val;
+            vector += this.Orientation.LocalUp * this.Owner.Transform.Translation;
+        }
+        else// if(axisType == AxisType.Up)
+        {
+            vector = this.Orientation.LocalForward * this.Owner.Transform.Translation;
+            vector += this.Orientation.LocalRight * this.Owner.Transform.Translation;
+            vector += this.Orientation.LocalUp * val;
+        }
+       
+        this.Owner.Transform.Translation = vector;
+    }
+   
+    // Get the value on the given orientation axis
+    function SetWorldAxisTranslation(axisType : AxisType, val : Real)
+    {
+        var vector : Real3 = Real3();
+        if(axisType == AxisType.Forward)
+        {
+            vector = this.Orientation.WorldForward * val;
+            vector += this.Orientation.WorldRight * this.Owner.Transform.Translation;
+            vector += this.Orientation.WorldUp * this.Owner.Transform.Translation;
+        }
+        else if(axisType == AxisType.Right)
+        {
+            vector = this.Orientation.WorldForward * this.Owner.Transform.Translation;
+            vector += this.Orientation.WorldRight * val;
+            vector += this.Orientation.WorldUp * this.Owner.Transform.Translation;
+        }
+        else// if(axisType == AxisType.Up)
+        {
+            vector = this.Orientation.WorldForward * this.Owner.Transform.Translation;
+            vector += this.Orientation.WorldRight * this.Owner.Transform.Translation;
+            vector += this.Orientation.WorldUp * val;
+        }
+       
+        this.Owner.Transform.Translation = vector;
+    }
+   
+    // Get the value on the given orientation axis
+    function GetAxisValue(axisType : AxisType, vector : Real3) : Real
+    {
+        var axis : Real3 = Real3();
+        if(axisType == AxisType.Forward)
+        {
+            axis = this.Orientation.LocalForward;
+        }
+        else if(axisType == AxisType.Right)
+        {
+            axis = this.Orientation.LocalRight;
+        }
+        else// if(axisType == AxisType.Up)
+        {
+            axis = this.Orientation.LocalUp;
+        }
+       
+        return Math.Dot(axis, vector);
+    }
+   
+    // Get the value on the given orientation axis
+    function GetWorldAxisValue(axisType : AxisType, vector : Real3) : Real
+    {
+        var axis : Real3 = Real3();
+        if(axisType == AxisType.Forward)
+        {
+            axis = this.Orientation.WorldForward;
+        }
+        else if(axisType == AxisType.Right)
+        {
+            axis = this.Orientation.WorldRight;
+        }
+        else// if(axisType == AxisType.Up)
+        {
+            axis = this.Orientation.WorldUp;
+        }
+       
+        return Math.Dot(axis, vector);
+    }
+   
+    // Returns the given local axis scaled by the given Real
+    function OrientToLocalAxis(axisType : AxisType, scalar : Real) : Real3
+    {
+        if(axisType == AxisType.Forward)
+        {
+            return this.Orientation.LocalForward * scalar;
+        }
+        else if(axisType == AxisType.Right)
+        {
+            return this.Orientation.LocalRight * scalar;
+        }
+        else// if(axisType == AxisType.Up)
+        {
+            return this.Orientation.LocalUp * scalar;
+        }
+    }
+   
+    // Resturns the vector with the non-given local axises set to 0.0
+    function OrientToLocalAxis(axisType : AxisType, vector : Real3) : Real3
+    {
+        if(axisType == AxisType.Forward)
+        {
+            return this.Orientation.LocalForward * vector;
+        }
+        else if(axisType == AxisType.Right)
+        {
+            return this.Orientation.LocalRight * vector;
+        }
+        else// if(axisType == AxisType.Up)
+        {
+            return this.Orientation.LocalUp * vector;
+        }
+    }
+   
+    function OrientToWorldAxis(axisType : AxisType, scalar : Real) : Real3
+    {
+        if(axisType == AxisType.Forward)
+        {
+            return this.Orientation.WorldForward * scalar;
+        }
+        else if(axisType == AxisType.Right)
+        {
+            return this.Orientation.WorldRight * scalar;
+        }
+        else// if(axisType == AxisType.Up)
+        {
+            return this.Orientation.WorldUp * scalar;
+        }
+    }
+   
+    function OrientToWorldAxis(axisType : AxisType, vector : Real3) : Real3
+    {
+        if(axisType == AxisType.Forward)
+        {
+            return this.Orientation.WorldForward * vector;
+        }
+        else if(axisType == AxisType.Right)
+        {
+            return this.Orientation.WorldRight * vector;
+        }
+        else// if(axisType == AxisType.Up)
+        {
+            return this.Orientation.WorldUp * vector;
+        }
+    }
+}
+ 
+enum AxisType {Forward, Right, Up}
+enum OrientedPlanes {ForwardUp, ForwardRight, UpRight}
