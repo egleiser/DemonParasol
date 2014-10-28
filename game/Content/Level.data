@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.55307, -30.3834, 16.1292],
+			Vec3 Translation = [2.4744, -35.1725, 18.5244],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.5153, 0.00993094, -0.00597177, 0.856932],
+			Quat Rotation = [0.525512, -0.0139619, 0.00862558, 0.850628],
 		},
 		Camera = 
 		{
@@ -96,9 +96,9 @@ Level =
 		{
 			ControlMode ControlMode = FirstPerson,
 			float LookDistance = 27.1,
-			float VerticalAngle = -1.0828,
-			float HorizontalAngle = 6.26001,
-			Vec3 LookTarget = [2.25861, -6.44678, 3.4265],
+			float VerticalAngle = -1.1068,
+			float HorizontalAngle = 6.31601,
+			Vec3 LookTarget = [2.87242, -10.9378, 6.40301],
 		},
 		EditorRenderer = 
 		{
@@ -12141,7 +12141,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [4.22173, -13.4175, 2],
+			Vec3 Translation = [4.22173, -13.4175, 0],
 			Vec3 Scale = [3, 3, 3],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -12183,6 +12183,7 @@ Level =
 		},
 		DogController = 
 		{
+			Vec3 PaceDirection = [1, 0, 0],
 			float PaceSpeed = 3,
 			float MaxMoveDistance = 10,
 			CogPath TargetObjectPath = ":/Player",
