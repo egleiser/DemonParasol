@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.4744, -35.1725, 18.5244],
+			Vec3 Translation = [4.43882, -25.7532, 6.16952],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.525512, -0.0139619, 0.00862558, 0.850628],
+			Quat Rotation = [0.525499, 0.0149609, -0.00924267, 0.850612],
 		},
 		Camera = 
 		{
@@ -94,11 +94,11 @@ Level =
 		},
 		EditorCameraController = 
 		{
-			ControlMode ControlMode = FirstPerson,
-			float LookDistance = 27.1,
-			float VerticalAngle = -1.1068,
-			float HorizontalAngle = 6.31601,
-			Vec3 LookTarget = [2.87242, -10.9378, 6.40301],
+			ControlMode ControlMode = Orbit,
+			float LookDistance = 13.7942,
+			float VerticalAngle = -1.10679,
+			float HorizontalAngle = 6.24801,
+			Vec3 LookTarget = [4.22173, -13.4175, 0],
 		},
 		EditorRenderer = 
 		{
@@ -12157,7 +12157,7 @@ Level =
 			bool Static = false,
 			bool Asleep = false,
 			bool Kinematic = false,
-			bool RotationLocked = false,
+			bool RotationLocked = true,
 			bool Mode2D = false,
 			bool AllowSleep = true,
 			bool Inherit2DMode = true,

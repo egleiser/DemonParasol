@@ -82,9 +82,12 @@ class DogController : ZilchComponent
         }
         else if(targetIsWithinBarkRange && targetIsWithinRunAwayRange)
         {
-            this.CalculateRunAwayDirectionAndDistance();
-            this.RunningAway = true;
-            this.RunAwayFromTarget(event);
+            if(!this.RunningAway)
+            {
+                this.CalculateRunAwayDirectionAndDistance();
+                this.RunningAway = true;
+                this.RunAwayFromTarget(event);
+            }
         }
         else
         {
@@ -148,15 +151,19 @@ class DogController : ZilchComponent
         this.BarkRotation = this.Orientation.GetLookAtDirectionWithUpRotation(this.BarkDirection, Real3(0,0,1));
         //Slerps the dogs rotation towards the player using the BarkRotation quaternion
         this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.BarkRotation, 0.1);
-        Console.WriteLine("Bark, Bark");
+        //Console.WriteLine("Bark, Bark");
     }
     
     /*This function gets the direction vector towards the target this object is barking at
     normalizes it, and also gets the length of that vector before its normalized*/
     function CalculateBarkDirectionAndDistance()
     {
+        var playerpos = this.TargetObject.Transform.Translation;
+        playerpos.Z = 0.0;
+        var dogpos = this.Owner.Transform.Translation;
+        dogpos.Z = 0.0;
         //Grabs the vector from the dog towards the player
-        this.BarkDirection = this.Owner.Transform.Translation - this.TargetObject.Transform.Translation;
+        this.BarkDirection = dogpos - playerpos;
         //Gets the length of this vector to be used in LogicUpdate
         this.BarkDistanceFromTarget = Math.Length(this.BarkDirection);
         //Normalizes the vector to be used when getting the rotation for the dog in the BarkAtTarget
@@ -174,7 +181,7 @@ class DogController : ZilchComponent
         this.Owner.Model.Color = this.RunAwayColor;
         Console.WriteLine(this.RunAwayDirection);
         //Dog moves off in a direction opposite that of player as defined in calculate function below
-        this.Owner.Transform.Translation += this.RunAwayDirection * event.Dt * this.RunAwaySpeed;
+        this.Owner.RigidBody.Velocity = this.RunAwayDirection * this.RunAwaySpeed;
         
         /*These next few lines are to determine how far the Dog has
         run away and what to do when it reaches its max running away
@@ -201,8 +208,13 @@ class DogController : ZilchComponent
     
     function CalculateRunAwayDirectionAndDistance()
     {
+        var playerpos = this.TargetObject.Transform.Translation;
+        playerpos.Z = 0.0;
+        var dogpos = this.Owner.Transform.Translation;
+        dogpos.Z = 0.0;
         var reverseDirection : Real3 = Real3(0,0,0);
-        reverseDirection = this.TargetObject.Transform.Translation - this.Owner.Transform.Translation;
+        reverseDirection = playerpos - dogpos;
+        
         this.RunAwayDirection = -reverseDirection;
         this.RunAwayDistanceFromTarget = Math.Length(reverseDirection);
         this.RunAwayDirection = Math.Normalize(this.RunAwayDirection);
