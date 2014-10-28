@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [15.247, -23.3791, 62.2012],
+			Vec3 Translation = [26.46, -31.2486, 27.2251],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.251658, 0.0386988, -0.0100713, 0.96699],
+			Quat Rotation = [0.459411, -0.0142116, 0.0073518, 0.88808],
 		},
 		Camera = 
 		{
@@ -95,10 +95,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 96.3923,
-			float VerticalAngle = -0.509203,
-			float HorizontalAngle = -0.0799971,
-			Vec3 LookTarget = [8.52136, 23.6104, -21.693],
+			float LookDistance = 46.157,
+			float VerticalAngle = -0.954796,
+			float HorizontalAngle = 0.0320026,
+			Vec3 LookTarget = [27.3133, 6.4245, 0.570329],
 		},
 		EditorRenderer = 
 		{
@@ -2743,7 +2743,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [9.15221, 23.1553, 2.62654],
+			Vec3 Translation = [8.52046, 23.1553, 2.62654],
 			Vec3 Scale = [22.6954, 15.5282, 10],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2794,7 +2794,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [16.9604, 13.305, -1.83183],
+			Vec3 Translation = [17.0972, 13.305, -1.36166],
 			Vec3 Scale = [5.63399, 2.1848, 5],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2845,7 +2845,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [10.3925, 13.305, -1.83183],
+			Vec3 Translation = [10.3925, 13.305, -1.40912],
 			Vec3 Scale = [5.63399, 2.1848, 5],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2887,36 +2887,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "PlayerHouse2",
-		},
-		EditorFlags = 
-		{
-			bool Locked = true,
-			bool Hidden = false,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [33.5263, -1.77603, -2.11719e-007],
-			Vec3 Scale = [0.116655, 0.116655, 0.116655],
-			Quat Rotation = [0.707107, 0, 0, 0.707107],
-		},
-		Model = 
-		{
-			string MaterialName = "544380cb7820af93:lambert1",
-			string MeshName = "543cfdaae4a963c5:PlayerHouse2",
-			Vec4 Color = [0.58, 0.5597, 0.5597, 1],
-			bool Visible = true,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 60,
-		},
-		Named = 
-		{
-			string Name = "HouseFence",
+			string Name = "HouseFenceCollider",
 		},
 		EditorFlags = 
 		{
@@ -2935,6 +2906,52 @@ Level =
 			{
 				LinkId = 
 				{
+					uint Id = 60,
+				},
+				Named = 
+				{
+					string Name = "Fence",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [27.7669, -18.4612, 0],
+					Vec3 Scale = [23.3098, 0.511128, 5],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					string MaterialName = "54354a3358ccba15:blinn1",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 1],
+					bool Visible = false,
+				},
+				RigidBody = 
+				{
+					bool Static = true,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = true,
+					bool Mode2D = false,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
 					uint Id = 61,
 				},
 				Named = 
@@ -2943,9 +2960,9 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [28.2238, -18.4612, 0],
-					Vec3 Scale = [23.9284, 0.511128, 5],
-					Quat Rotation = [0, 0, 0, 1],
+					Vec3 Translation = [-25.0524, -14.1947, 0],
+					Vec3 Scale = [11.7898, 0.420387, 5],
+					Quat Rotation = [0, 0, 0.92388, 0.382683],
 				},
 				Model = 
 				{
@@ -2989,9 +3006,9 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [-26.5336, -15.5864, 0],
-					Vec3 Scale = [11.7898, 4.57195, 5],
-					Quat Rotation = [0, 0, 0.92388, 0.382683],
+					Vec3 Translation = [-26.1716, 15.6877, 0],
+					Vec3 Scale = [5.63399, 0.269569, 5],
+					Quat Rotation = [0, 0, 0, 1],
 				},
 				Model = 
 				{
@@ -3035,54 +3052,8 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [-26.1716, 16.6376, 0],
-					Vec3 Scale = [5.63399, 2.1848, 5],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					string MaterialName = "54354a3358ccba15:blinn1",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
-				},
-				RigidBody = 
-				{
-					bool Static = true,
-					bool Asleep = false,
-					bool Kinematic = false,
-					bool RotationLocked = true,
-					bool Mode2D = false,
-					bool AllowSleep = true,
-					bool Inherit2DMode = true,
-					Vec3 Velocity = [0, 0, 0],
-					Vec3 AngularVelocity = [0, 0, 0],
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 64,
-				},
-				Named = 
-				{
-					string Name = "Fence",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [40.0642, 4.60688, 0],
-					Vec3 Scale = [47.2585, 2.1848, 5],
+					Vec3 Translation = [39.1569, 4.39821, 0],
+					Vec3 Scale = [46.0983, 0.402567, 5],
 					Quat Rotation = [0, 0, 0.707107, 0.707107],
 				},
 				Model = 
@@ -3119,7 +3090,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 65,
+					uint Id = 64,
 				},
 				Named = 
 				{
@@ -3165,7 +3136,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 66,
+					uint Id = 65,
 				},
 				Named = 
 				{
@@ -3173,8 +3144,8 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [-29.8531, 2.91854, 0],
-					Vec3 Scale = [26.6303, 2.1848, 5],
+					Vec3 Translation = [-29.0029, 2.91854, 0],
+					Vec3 Scale = [26.6303, 0.425044, 5],
 					Quat Rotation = [0, 0, 0.707107, 0.707107],
 				},
 				Model = 
@@ -3211,7 +3182,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 67,
+					uint Id = 66,
 				},
 				Named = 
 				{
@@ -3219,8 +3190,8 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [19.6663, 28.0692, 0],
-					Vec3 Scale = [39.4727, 2.1848, 5],
+					Vec3 Translation = [19.6663, 27.2683, 0],
+					Vec3 Scale = [39.4727, 0.564344, 5],
 					Quat Rotation = [0, 0, 0, 1],
 				},
 				Model = 
@@ -3259,7 +3230,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 68,
+			uint Id = 67,
 		},
 		Named = 
 		{
@@ -3277,7 +3248,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 69,
+					uint Id = 68,
 				},
 				Named = 
 				{
@@ -3323,7 +3294,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 70,
+					uint Id = 69,
 				},
 				Named = 
 				{
@@ -3369,7 +3340,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 71,
+					uint Id = 70,
 				},
 				Named = 
 				{
@@ -3415,7 +3386,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 72,
+					uint Id = 71,
 				},
 				Named = 
 				{
@@ -3461,7 +3432,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 73,
+					uint Id = 72,
 				},
 				Named = 
 				{
@@ -3507,7 +3478,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 74,
+					uint Id = 73,
 				},
 				Named = 
 				{
@@ -3553,7 +3524,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 75,
+					uint Id = 74,
 				},
 				Named = 
 				{
@@ -3599,7 +3570,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 76,
+					uint Id = 75,
 				},
 				Named = 
 				{
@@ -3645,7 +3616,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 77,
+					uint Id = 76,
 				},
 				Named = 
 				{
@@ -3693,7 +3664,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 78,
+			uint Id = 77,
 		},
 		Named = 
 		{
@@ -3751,7 +3722,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 79,
+			uint Id = 78,
 		},
 		Named = 
 		{
@@ -3809,7 +3780,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 80,
+			uint Id = 79,
 		},
 		Named = 
 		{
@@ -3867,7 +3838,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 81,
+			uint Id = 80,
 		},
 		Named = 
 		{
@@ -3919,6 +3890,126 @@ Level =
 			bool LocalSpaceDirection = false,
 			float Strength = 100,
 			Vec3 Direction = [0, 0, -1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 81,
+		},
+		Named = 
+		{
+			string Name = "HouseFence",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [33.6158, -2.06644, 0],
+			Vec3 Scale = [0.116655, 0.116655, 0.116655],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "5426339b19a2d30c:HouseFence",
+			Vec4 Color = [0.37, 0.249935, 0.1517, 1],
+			bool Visible = true,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 82,
+		},
+		Named = 
+		{
+			string Name = "PlayerHouse",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [32.9106, -1.50167, 0.201157],
+			Vec3 Scale = [0.116655, 0.116655, 0.116655],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			string MaterialName = "544380cb7820af93:lambert1",
+			string MeshName = "5439c8766b5ef558:PlayerHouse",
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = true,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 83,
+		},
+		Named = 
+		{
+			string Name = "HousePatio",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [45.9097, -1.44659, -2.36842],
+			Vec3 Scale = [0.116655, 0.116655, 0.116655],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "542632d0eeae4587:HousePatio",
+			Vec4 Color = [0.29, 0.251401, 0.11455, 1],
+			bool Visible = true,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 84,
+		},
+		Named = 
+		{
+			string Name = "PlanterBox",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [33.5941, -1.79222, 0],
+			Vec3 Scale = [0.116655, 0.116655, 0.116655],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "54262cf3f0ff3f56:PlanterBox",
+			Vec4 Color = [0.1031, 0.2, 0.098, 1],
+			bool Visible = true,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 85,
+		},
+		Named = 
+		{
+			string Name = "PlanterBox",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [40.3087, -1.79222, 0],
+			Vec3 Scale = [0.116655, 0.116655, 0.116655],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "54262cf3f0ff3f56:PlanterBox",
+			Vec4 Color = [0.0680985, 0.185, 0.05365, 1],
+			bool Visible = true,
 		},
 	},
 },
