@@ -14,15 +14,15 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [5.6464, 12.7874, -0.559892],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0.707107, 0, 0, 0.707107],
+		Quat Rotation = [0, 0, 0, 1],
 	},
 	SkinnedModel = 
 	{
-		string Material = "5490712ad8b3fc25:mat_Grass",
+		string Material = "54907628415a45d9:03___Default",
 		string Mesh = "5490712ad8abfdb8:GrassClump",
-		Vec4 Color = [0.20306, 0.715, 0.075075, 1],
+		Vec4 Color = [1, 1, 1, 1],
 		bool Visible = true,
 	},
 	Hierarchy = 
@@ -57,12 +57,9 @@ Cog =
 					},
 					Transform = 
 					{
-						Vec3 Translation = [1.07329, -0.00819294, -1.96259e-007],
+						Vec3 Translation = [0.483768, -2.53208e-007, -2.88349e-008],
 						Vec3 Scale = [1.00013, 1.44634, 1.44503],
 						Quat Rotation = [4.32582e-006, 8.41991e-008, 0.00425504, 0.999991],
-					},
-					Def_Grass = 
-					{
 					},
 				},
 			},

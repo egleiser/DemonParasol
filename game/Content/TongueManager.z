@@ -11,9 +11,9 @@ class TongueManager : ZilchComponent
     var LastTongueJoint:Cog = null;
     function Initialize(init : CogInitializer)
     {
-        //this.InitializeTongue();
+        this.InitializeTongue();
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-        //this.ExtendTongue(10);
+        this.ExtendTongue(10);
 
     }
 
