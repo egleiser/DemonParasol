@@ -42,6 +42,8 @@ class DogController : ZilchComponent
     
     var RunAwayDirection : Real3 = Real3(0,0,0);
     var RunAwayRotation : Quaternion = Quaternion(0,0,0,0);
+    var RunAwayStartPosition : Real3 = Real3(0,0,0);
+    var RunningAwayDistance : Real = 0;
     var RunningAway : Boolean = false;
     
     var StartPosition : Real3 = Real3(0,0,0);
@@ -84,9 +86,20 @@ class DogController : ZilchComponent
         {
             if(!this.RunningAway)
             {
-                this.CalculateRunAwayDirectionAndDistance();
                 this.RunningAway = true;
-                this.RunAwayFromTarget(event);
+            }
+        }
+        else if(this.RunningAway)
+        {
+            this.CalculateRunAwayDirectionAndDistance();
+            this.RunAwayFromTarget(event);
+            //If the distance that the dog has run away is greater than or equal to the
+            //MaxRunAwayDistance set in the properties...
+            if(this.RunningAwayDistance >= this.MaxRunAwayDistance)
+            {
+                Console.WriteLine("Dog Coming Home");
+                //Calls this function, which causes the dog to return to it original start position
+                this.ReturnToStart(event);
             }
         }
         else if(!this.RunningAway)
@@ -150,6 +163,7 @@ class DogController : ZilchComponent
         this.BarkRotation = this.Orientation.GetLookAtDirectionWithUpRotation(this.BarkDirection, Real3(0,0,1));
         //Slerps the dogs rotation towards the player using the BarkRotation quaternion
         this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.BarkRotation, 0.1);
+        this.RunAwayStartPosition = this.Owner.Transform.Translation;
         //Console.WriteLine("Bark, Bark");
     }
     
@@ -186,23 +200,18 @@ class DogController : ZilchComponent
         run away and what to do when it reaches its max running away
         distance (it calls the ReturnToStart function)*/
         
-        //Grabs the current position of the dog to mark as the "start" position when running away
-        var runAwayStartPosition : Real3 = this.Owner.Transform.Translation;
         //Gets the displacement vector between the start position and where the dog currently is
-        var runAwayDisplacement : Real3 = this.Owner.Transform.Translation - runAwayStartPosition;
-        //A variable to keep track of the distance that dog has run
-        var distanceSinceRunning : Real = 0.0;
+        var runAwayDisplacement : Real3 = this.Owner.Transform.Translation - this.RunAwayStartPosition;
         //Constantly updates the distance variable with the length of the displacement vector
         //In other words, it sees how far the dog has run each update
-        distanceSinceRunning = Math.Length(runAwayDisplacement);
+        this.RunningAwayDistance = Math.Length(runAwayDisplacement);
+        Console.WriteLine("Running Away Distance = `this.RunningAwayDistance`");
         
-        //If the distance that the dog has run away is greater than or equal to the
-        //MaxRunAwayDistance set in the properties...
-        if(distanceSinceRunning >= this.MaxRunAwayDistance)
-        {
-            //Calls this function, which causes the dog to return to it original start position
-            this.ReturnToStart(event);
-        }
+    }
+    
+    function CalculateSegmentDirectionAndDistance()
+    {
+        
     }
     
     function CalculateRunAwayDirectionAndDistance()
@@ -226,6 +235,7 @@ class DogController : ZilchComponent
         var ranAwayDisplacement : Real3 = this.StartPosition - runAwayEndPosition;
         var distanceRan : Real = 0.0;
         distanceRan = Math.Length(ranAwayDisplacement);
+        Console.WriteLine("Distance Running = `distanceRan`");
         ranAwayDisplacement = Math.Normalize(ranAwayDisplacement);
         this.Owner.RigidBody.Velocity = ranAwayDisplacement * this.RunAwaySpeed;
         this.RunningAway = false;

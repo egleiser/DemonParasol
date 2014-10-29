@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.07103, -47.3523, 37.9583],
+			Vec3 Translation = [1.77047, -43.3874, 23.2978],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.578641, -0.0251239, 0.0178376, 0.815],
+			Quat Rotation = [0.634477, -0.00990409, 0.00813098, 0.772835],
 		},
 		Camera = 
 		{
@@ -96,9 +96,9 @@ Level =
 		{
 			ControlMode ControlMode = FirstPerson,
 			float LookDistance = 60.7942,
-			float VerticalAngle = -1.2348,
-			float HorizontalAngle = 12.628,
-			Vec3 LookTarget = [0.163629, 10.0423, 17.9516],
+			float VerticalAngle = -1.3748,
+			float HorizontalAngle = 12.592,
+			Vec3 LookTarget = [2.07387, 16.2428, 11.4623],
 		},
 		EditorRenderer = 
 		{
@@ -12187,12 +12187,27 @@ Level =
 			float PaceSpeed = 3,
 			float MaxMoveDistance = 10,
 			CogPath TargetObjectPath = ":/Player",
-			float BarkTriggerDistance = 8,
+			float BarkTriggerDistance = 9,
 			Vec4 BarkColor = [0.033075, 0.124268, 0.945, 0.83],
-			float RunAwayTriggerDistance = 4,
+			float RunAwayTriggerDistance = 5,
 			Vec4 RunAwayColor = [0.278526, 0.915, 0.0549, 0.815],
-			float MaxRunAwayDistance = 15,
-			float RunAwaySpeed = 25,
+			float MaxRunAwayDistance = 100,
+			float RunAwaySpeed = 10,
+		},
+		IgnoreSpaceEffects = 
+		{
+			bool Drag = true,
+			bool Flow = false,
+			bool Force = false,
+			bool Gravity = false,
+			bool Thrust = false,
+			bool Vortex = false,
+			bool Wind = false,
+			bool Invalid = false,
+			bool Torque = false,
+			bool PointGravity = false,
+			bool PointForce = false,
+			bool Buoyancy = false,
 		},
 	},
 	Cog = 
@@ -12225,9 +12240,9 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [8.08374, -22.3619, 7.01303],
-					Vec3 Scale = [1.36767, 1.36767, 1.36767],
-					Quat Rotation = [0, 0, 0.978148, 0.207912],
+					Vec3 Translation = [8.08374, -22.3619, 10.7701],
+					Vec3 Scale = [1.66882, 1.66882, 1.66882],
+					Quat Rotation = [-0, 0, 0.669129, -0.743146],
 				},
 				AnimationGraph = 
 				{
@@ -12235,16 +12250,12 @@ Level =
 					AnimPlayMode PlayMode = PlayOnce,
 					float TimeScale = 0.35,
 					string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
-					uint64 DebugPreviewId = 3efeff003f800000,
+					uint64 DebugPreviewId = 5475feb22f89cacc,
 				},
 				SimpleAnimation = 
 				{
 					string AnimationName = "5475bfaa8c54a3bf:CirclePatrol",
 					AnimPlayMode PlayMode = Loop,
-				},
-				BirdController = 
-				{
-					CogPath TargetObjectPath = "",
 				},
 				Model = 
 				{
@@ -12277,6 +12288,10 @@ Level =
 							string MeshName = "4de0354322b376ae:Sphere",
 							Vec4 Color = [0.809991, 0.042075, 0.935, 1],
 							bool Visible = true,
+						},
+						BirdController = 
+						{
+							CogPath TargetObjectPath = "",
 						},
 					},
 				},

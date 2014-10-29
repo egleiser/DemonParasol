@@ -1,16 +1,41 @@
+enum BirdStates{Patrolling, Swooping, Attacking, Returning}
+
 class BirdController : ZilchComponent
 {
     [Property]
     var TargetObjectPath : CogPath = null;
     
+    var IsPatrolling : Boolean = false;
+    var IsSwooping : Boolean = false;
+    var IsAttacking : Boolean = false;
+    var IsReturning : Boolean = false;
+    
+    
     function Initialize(init : CogInitializer)
     {
+        this.IsPatrolling = true;
+        
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
     }
 
+   
     function OnLogicUpdate(event : UpdateEvent)
     {
-        //this.Owner.AnimationGraph.Active = false;
+        if(this.IsPatrolling == true)
+        {
+        }
         
     }
+    
+    function DiveBomb()
+    {
+        
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        
+    }
+
 }
