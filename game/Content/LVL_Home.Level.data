@@ -77,7 +77,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [26.46, -31.2486, 27.2251],
+			Vec3 Translation = [26.3121, -37.7782, 31.8449],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.459411, -0.0142116, 0.0073518, 0.88808],
 		},
@@ -95,7 +95,7 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 46.157,
+			float LookDistance = 54.157,
 			float VerticalAngle = -0.954796,
 			float HorizontalAngle = 0.0320026,
 			Vec3 LookTarget = [27.3133, 6.4245, 0.570329],
@@ -199,6 +199,10 @@ Level =
 		{
 			int SplashRate = 20,
 			float SplashIntensity = 1,
+		},
+		Z_Teleport = 
+		{
+			Vec3 TeleportToLocation = [3, 7.5, 0],
 		},
 		Hierarchy = 
 		{
