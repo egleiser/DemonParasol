@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [3.5684, -44.5367, 16.3351],
+			Vec3 Translation = [-1.07103, -47.3523, 37.9583],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.508002, -0.0365116, 0.0215596, 0.860311],
+			Quat Rotation = [0.578641, -0.0251239, 0.0178376, 0.815],
 		},
 		Camera = 
 		{
@@ -94,11 +94,11 @@ Level =
 		},
 		EditorCameraController = 
 		{
-			ControlMode ControlMode = Orbit,
-			float LookDistance = 31.7942,
-			float VerticalAngle = -1.06679,
-			float HorizontalAngle = 6.36801,
-			Vec3 LookTarget = [4.86935, -16.696, 1.03567],
+			ControlMode ControlMode = FirstPerson,
+			float LookDistance = 60.7942,
+			float VerticalAngle = -1.2348,
+			float HorizontalAngle = 12.628,
+			Vec3 LookTarget = [0.163629, 10.0423, 17.9516],
 		},
 		EditorRenderer = 
 		{
@@ -4462,7 +4462,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [-9.94461, 0.0237447, -25.3796],
+					Vec3 Translation = [-4.28693, 0.0237449, -52.9944],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [1.96695e-005, 0, 0, 1],
 				},
@@ -12193,6 +12193,94 @@ Level =
 			Vec4 RunAwayColor = [0.278526, 0.915, 0.0549, 0.815],
 			float MaxRunAwayDistance = 15,
 			float RunAwaySpeed = 25,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 239,
+		},
+		Named = 
+		{
+			string Name = "Root",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-4.63263, 35.9772, 6.45104],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 240,
+				},
+				Named = 
+				{
+					string Name = "BirdAnchor",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [8.08374, -22.3619, 7.01303],
+					Vec3 Scale = [1.36767, 1.36767, 1.36767],
+					Quat Rotation = [0, 0, 0.978148, 0.207912],
+				},
+				AnimationGraph = 
+				{
+					bool Active = true,
+					AnimPlayMode PlayMode = PlayOnce,
+					float TimeScale = 0.35,
+					string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+					uint64 DebugPreviewId = 3efeff003f800000,
+				},
+				SimpleAnimation = 
+				{
+					string AnimationName = "5475bfaa8c54a3bf:CirclePatrol",
+					AnimPlayMode PlayMode = Loop,
+				},
+				BirdController = 
+				{
+					CogPath TargetObjectPath = "",
+				},
+				Model = 
+				{
+					string MaterialName = "4de020863e85bb61:DefaultMaterial",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 1],
+					bool Visible = false,
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 241,
+						},
+						Named = 
+						{
+							string Name = "Bird",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.85797, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5404506d3dd2a41e:mat_Light",
+							string MeshName = "4de0354322b376ae:Sphere",
+							Vec4 Color = [0.809991, 0.042075, 0.935, 1],
+							bool Visible = true,
+						},
+					},
+				},
+			},
 		},
 	},
 },
