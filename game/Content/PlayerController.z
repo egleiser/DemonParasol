@@ -21,17 +21,25 @@ class PlayerController : ZilchComponent
     
     var CameraPath:CogPath = null;
     var Camera:Cog = null;
+    
+    var IsPanning : Boolean = false;
+    var IsReturnPanning : Boolean = false;
+    
     function Initialize(init : CogInitializer)
     {
         this.Owner.DynamicMotor.MaxMoveForce = this.MaxMoveForce;
         this.Camera = this.CameraPath.Cog;
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, "panFinishedEvent", this.OnPanFinished);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
         this.MovementUpdate(event);
         this.AttackUpdate(event);
+        this.Zoom(event);
+        this.Pan(event);
+        this.Dolly(event);
     }
     function AttackUpdate(event : UpdateEvent)
     {
@@ -59,4 +67,90 @@ class PlayerController : ZilchComponent
             this.Owner.RigidBody.Velocity /= Real3(this.Deceleration,this.Deceleration,1);
         }
     }
+    function Zoom(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsPressed(Keys.Shift))
+        {
+            var zoomEvent = new CameraZoomEvent();
+            zoomEvent.CamSize = 10.0;
+            zoomEvent.ZoomInTime = 2.0;
+            zoomEvent.IsZoomingIn = true;
+            this.Camera.DispatchEvent("zoomEvent", zoomEvent);
+        }
+        if(Zero.Keyboard.KeyIsPressed(Keys.Alt))
+        {
+            var zoomEvent = new CameraZoomEvent();
+            zoomEvent.ZoomOutTime = 1.0;
+            zoomEvent.IsZoomingIn = false;
+            this.Camera.DispatchEvent("zoomEvent", zoomEvent);
+        }
+    }
+    //Used for testing the Pan Custom Event based on Key Pressses
+    function Pan(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsPressed(Keys.Q))
+        {
+            this.IsReturnPanning = false;
+            this.IsPanning = true;
+        }
+        if(this.IsPanning)
+        {
+            //Grabs a test cube to pan towards
+            var testPanCube = this.Space.FindObjectByName("TestPanCube");
+            
+            //Create new event
+            var panEvent = new CameraPanEvent();
+            panEvent.PanTarget = testPanCube;
+            //panEvent.EndRotation = Math.Euler(Real3(0.4, 0.0, 1.0));
+            //Set the time of the event
+            panEvent.PanTime = 1.0 * event.Dt;
+            panEvent.IsActive = true;
+            this.Camera.DispatchEvent("panEvent", panEvent);
+        }
+        if(Zero.Keyboard.KeyIsPressed(Keys.E))
+        {
+            this.IsPanning = false;
+            this.IsReturnPanning = true;
+        }
+        if(this.IsReturnPanning)
+        {
+            //Grabs a test cube to pan towards
+            var testPanCube = this.Space.FindObjectByName("TestPanCube");
+            //Creates the new event
+            var panEvent = new CameraPanEvent();
+            //Sets the target of the pan to the object found above
+            panEvent.PanTarget = testPanCube;
+            //Set the tiem of the event
+            panEvent.PanTime = 1.0 * event.Dt;
+            panEvent.IsActive = false;
+            this.Camera.DispatchEvent("panEvent", panEvent);
+        }
+    }
+    function Dolly(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsPressed(Keys.Z))
+        {
+            var dollyEvent = new CameraDollyEvent();
+            dollyEvent.DollyTarget = this.Space.FindObjectByName("PracticeDollyCube");
+            dollyEvent.DollyTime = 2.0;
+            dollyEvent.EasingCurve = Ease.QuadInOut;
+            dollyEvent.IsActive = true;
+            this.Camera.DispatchEvent("dollyEvent", dollyEvent);
+        }
+        if(Zero.Keyboard.KeyIsPressed(Keys.C))
+        {
+            var dollyEvent = new CameraDollyEvent();
+            dollyEvent.DollyTime = 2.0;
+            dollyEvent.EasingCurve = Ease.QuadInOut;
+            dollyEvent.IsActive = false;
+            this.Camera.DispatchEvent("dollyEvent", dollyEvent);
+        }
+    }
+    function OnPanFinished(event : PanFinishedEvent)
+    {
+        this.IsPanning = false;
+        this.IsReturnPanning = false;
+    }
+        
+        
 }

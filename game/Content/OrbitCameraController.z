@@ -8,9 +8,11 @@
 /////////////////////////////////////////
 class OrbitCameraController : ZilchComponent
 {
+    //The target for the camera to follow
     [Property]
     var OrbitTarget : CogPath = null;
     
+    //The height of the camera, relative to the target
     [Property]
     var Height: Real = 30.0;
     
@@ -22,10 +24,22 @@ class OrbitCameraController : ZilchComponent
     
     [Property]
     var AngleOrigin : Real = 0.0;
+    
     [Property]
     var CamLerp: Real3 = Real3(0,0,30);
+    
     var WantedcamLerp : Real3 = Real3(0,0,10);
     
+    var PanStartRotation : Quaternion = Quaternion(0,0,0,0);
+    var PanTimer : Real = 1.1;
+    var PanTargetRotation : Quaternion = Quaternion(0,0,0,0);
+    
+    var DefaultPosition : Real3 = Real3(0,0,0);
+    
+    var CinematicEventOn : Boolean = false;
+    
+    var ShouldUpdateCamera : Boolean = true;
+        
     var FlipCam : Boolean = false;
     
     var Direction : Real3 = Real3(0,0,0);
@@ -41,7 +55,9 @@ class OrbitCameraController : ZilchComponent
         this.Owner.Transform.Rotation = Math.Euler(Real3(Math.ToRadians(210.0), Math.ToRadians(180.0), 33.0));
         
         this.CurrentAngle = Math.ToRadians(270);
-        this.Owner.Transform.WorldTranslation = Real3( Math.Cos(this.CurrentAngle) * this.Radius, Math.Sin(this.CurrentAngle) * this.Radius, 0.0) + this.OrbitTarget.Cog.Transform.Translation;
+        this.Owner.Transform.WorldTranslation = Real3( Math.Cos(this.CurrentAngle) * this.Radius,
+         Math.Sin(this.CurrentAngle) * this.Radius, 0.0) + this.OrbitTarget.Cog.Transform.Translation;
+        
         
         this.Owner.Camera.Size = this.CamLerp.Z ;
         this.Owner.Orientation.LookAtDirectionWithUp(this.Direction, Real3(0,0,1));
@@ -49,43 +65,48 @@ class OrbitCameraController : ZilchComponent
             
 
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, "zoomEvent", this.OnZoom);
+        Zero.Connect(this.Owner, "panEvent", this.OnPan);
+        Zero.Connect(this.Owner, "dollyEvent", this.OnDolly);
+        Zero.Connect(this.Owner, "cameraLockEvent", this.OnToggleCameraLock);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
         this.Direction = Math.Normalize(this.Owner.Transform.Translation - this.OrbitTarget.Cog.Transform.Translation);
         this.UpdatePlayerInput();
-
-        if(this.FlipCam)
+        
+        if(this.ShouldUpdateCamera)
         {
-            //this.WantedRotation = Math.Euler(Real3(Math.ToRadians(210.0), Math.ToRadians(180.0), 0.0));
-            //this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1))
-            this.WantedRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1));
-            
-            this.CurrentAngle = Math.Lerp(this.CurrentAngle, Math.ToRadians(this.AngleChange), event.Dt * 3);
-            this.WantedPosition = Real3( Math.Cos(this.CurrentAngle) * this.Radius, Math.Sin(this.CurrentAngle) * this.Radius, this.Height) + this.OrbitTarget.Cog.Transform.Translation;
-            
-            //this.Owner.Transform.Rotation = this.WantedRotation;
-            this.Owner.Transform.Rotation = Math.RotateTowards(this.Owner.Transform.Rotation, this.WantedRotation, 1);    
-            this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, this.WantedPosition, event.Dt * 5);
-            
+            if(this.FlipCam)
+            {
+                //this.WantedRotation = Math.Euler(Real3(Math.ToRadians(210.0), Math.ToRadians(180.0), 0.0));
+                //this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1))
+                this.WantedRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1));
+                
+                this.CurrentAngle = Math.Lerp(this.CurrentAngle, Math.ToRadians(this.AngleChange), event.Dt * 3);
+                this.WantedPosition = Real3( Math.Cos(this.CurrentAngle) * this.Radius, Math.Sin(this.CurrentAngle) * this.Radius, this.Height) + this.OrbitTarget.Cog.Transform.Translation;
+                
+                //this.Owner.Transform.Rotation = this.WantedRotation;
+                this.Owner.Transform.Rotation = Math.RotateTowards(this.Owner.Transform.Rotation, this.WantedRotation, 1);    
+                this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, this.WantedPosition, event.Dt * 5);
+                
 
+            }
+            else
+            {
+                //this.WantedRotation = Math.Euler(Real3(Math.ToRadians(30.0), 0.0, 0.0));
+                //this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1))
+                this.WantedRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1));
+                
+                this.CurrentAngle = Math.Lerp(this.CurrentAngle, Math.ToRadians(270), event.Dt * 3);
+                this.WantedPosition = Real3( Math.Cos(this.CurrentAngle) * this.Radius, Math.Sin(this.CurrentAngle) * this.Radius, this.Height) + this.OrbitTarget.Cog.Transform.Translation;
+                
+                //this.Owner.Transform.Rotation = this.WantedRotation;
+                this.Owner.Transform.Rotation = Math.RotateTowards(this.Owner.Transform.Rotation, this.WantedRotation, 5);
+                this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, this.WantedPosition, event.Dt * 5);
+            }
         }
-        else
-        {
-            //this.WantedRotation = Math.Euler(Real3(Math.ToRadians(30.0), 0.0, 0.0));
-            //this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1))
-            this.WantedRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1));
-            
-            this.CurrentAngle = Math.Lerp(this.CurrentAngle, Math.ToRadians(270), event.Dt * 3);
-            this.WantedPosition = Real3( Math.Cos(this.CurrentAngle) * this.Radius, Math.Sin(this.CurrentAngle) * this.Radius, this.Height) + this.OrbitTarget.Cog.Transform.Translation;
-            
-            //this.Owner.Transform.Rotation = this.WantedRotation;
-            this.Owner.Transform.Rotation = Math.RotateTowards(this.Owner.Transform.Rotation, this.WantedRotation, 5);
-            this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, this.WantedPosition, event.Dt * 5);
-            
-        }
-
     }
     
     function UpdatePlayerInput()
@@ -94,12 +115,192 @@ class OrbitCameraController : ZilchComponent
         {
             this.ToggleFlipCam();
             //throw(new Exception("FlipCam not at Sleep point"));
-
         }
     }
     
     function ToggleFlipCam()
     {
         this.FlipCam = !this.FlipCam;
+    }
+    
+    function OnZoom(event : CameraZoomEvent)
+    {
+        //If wanting to zoom in (only towards player at the moment)
+        if(event.IsZoomingIn)
+        {
+            Console.WriteLine("Zoom Event Started");
+            var seq = Action.Sequence(this.Owner.Actions);
+            Action.Property(seq, @this.Owner.Camera.Size, event.CamSize, event.ZoomInTime, event.EasingCurve);
+        }
+        //If wanting to zoom back out to regular size (set at CamLerp.z, which is 30 right now)
+        else
+        {
+            var seq = Action.Sequence(this.Owner.Actions);
+            Action.Property(seq, @this.Owner.Camera.Size, this.CamLerp.Z, event.ZoomOutTime, event.EasingCurve);
+        }
+    }
+    
+    function OnPan(event : CameraPanEvent)
+    {
+        //If wanting to pan awwy from the player
+        if(event.IsActive)
+        {
+            //Sets the start point for rotation and locks caemra
+            if(this.PanTimer >= 1.0)
+            {
+                //Camera is no longer updating according to player movement
+                this.ShouldUpdateCamera = false;
+                //Timer for how long the pan lasts is set to 0.
+                this.PanTimer = 0.0;
+                //The start rotation (used when Slerping) is set to the current rotation of camera
+                this.PanStartRotation = this.Owner.Transform.LocalRotation;
+            }
+            //Console.WriteLine("Pan Event Started");
+            //If there is an object specified (other than the player) that you wish to rotate towards...
+            if(event.PanTarget != null)
+            {
+                Console.WriteLine("Targeted Pan");
+                // Variable for the new direction vector based on CameraTarget
+                var targetDirection : Real3 = Real3(0,0,0);
+                //Grabbing the target object.
+                var panTarget : Cog = event.PanTarget;
+                //Defining the direction vector
+                targetDirection = Math.Normalize(this.Owner.Transform.Translation - panTarget.Transform.Translation);
+                this.PanTargetRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(targetDirection, Real3(0,0,1));
+                this.Owner.Transform.LocalRotation = Math.Slerp(this.PanStartRotation, this.PanTargetRotation, this.PanTimer);
+                
+            }
+            else
+            {
+                Console.WriteLine("Non-Targeted Pan");
+                //Rotating camera towards the EndRotation defined when calling the event using Math.Slerp
+                this.Owner.Transform.LocalRotation = (Math.Slerp(this.PanStartRotation, event.EndRotation, this.PanTimer));
+            }
+            //Incremenets the PanTimer by event.Dt (as set in the event call) 
+            this.PanTimer += event.PanTime;
+            Console.WriteLine("Pan Timer = `this.PanTimer`");
+            //Checks to see if the rotation has completed
+            if(this.PanTimer >= 1.0)
+            {
+                var panFinished = new PanFinishedEvent();
+                this.Space.DispatchEvent("panFinishedEvent", panFinished);
+                //Locks the camera from updating according to player position
+                //This will stay locked until the pan back (for now; may need to change later)
+                this.ShouldUpdateCamera = false;
+            }
+        }
+        //For returning to original rotation looking towards the player
+        else
+        {
+            if(this.PanTimer >= 1.0)
+            {
+                //Camera is no longer updating according to player movement
+                this.ShouldUpdateCamera = false;
+                //Timer for how long the pan lasts is set to 0.
+                this.PanTimer = 0.0;
+                //The start rotation (used when Slerping) is set to the current rotation of camera)
+                this.PanStartRotation = this.Owner.Transform.LocalRotation;
+                Console.WriteLine("End Rotation: `event.EndRotation`");
+            }
+            //If rotating back from panning towards an object (and not just a quaternion value)
+            if(event.PanTarget != null)
+            {
+                Console.WriteLine("Targeted Pan Ending");
+                this.Owner.Transform.LocalRotation = Math.Slerp(this.PanTargetRotation, this.WantedRotation, this.PanTimer);
+            }
+            //If rotating back from a defined value (and not from an actual object)
+            else
+            {
+                Console.WriteLine("Non-Targeted Pan Ending");
+                //Slerp back to original local rotation
+                this.Owner.Transform.LocalRotation = (Math.Slerp(this.PanStartRotation, this.WantedRotation, this.PanTimer));
+            }
+           
+            //Increments PanTimer by event.Dt (as set in the event call)
+            this.PanTimer += event.PanTime;
+            Console.WriteLine("Pan Timer = `this.PanTimer`");
+            //Revert back to regular camera usage when done panning
+            if(this.PanTimer >= 1.0)
+            {
+                //This event, when called in PlayerController, sets the IsPannning/IsReturnPanning to false
+                var panFinished = new PanFinishedEvent();
+                this.Space.DispatchEvent("panFinishedEvent", panFinished);
+                //Unlocks the camera so that it will now update according to player movement
+                this.ShouldUpdateCamera = true;
+            }
+        }
+    }
+    
+    function OnDolly(event : CameraDollyEvent)
+    {
+        //Grabs the position of the camera before dollying so that it can be used when dollying back to original position
+        
+            
+        //If wanting to change translation of camera
+        if(event.IsActive)
+        {
+            //If dollying to the same position twice in a row without dollying back, this position will screw up
+            //the return dolly because the second default position is not actually the Default position.
+            this.DefaultPosition = this.Owner.Transform.Translation;
+            Console.WriteLine("Dolly Event Started");
+            if(event.DollyTarget != null)
+            {
+                //Making a variable for the DollyTarget object
+                var dollyTarget : Cog = event.DollyTarget;
+                //Action interpolating between original camera translation and translation of the target object
+                var seq = Action.Sequence(this.Owner.Actions);
+                Action.Property(seq,
+                                @this.Owner.Transform.Translation,
+                                dollyTarget.Transform.Translation,
+                                event.DollyTime,
+                                event.EasingCurve);
+                //Calls the function that disables the camera from updating according to player
+                Action.Call(seq, this.CameraLock);
+            }
+            else
+            {
+                //Action interpolating between original camera translation and EndPosition as defined when dispatching event
+                var seq = Action.Sequence(this.Owner.Actions);
+                Action.Property(seq,
+                                @this.Owner.Transform.Translation,
+                                event.EndPosition,
+                                event.DollyTime,
+                                event.EasingCurve);
+                //Calls the function that will now allow the camera to update according to the player again
+                Action.Call(seq, this.CameraLock);
+            }
+            //Calls the ToggleCameraLock function so that the camera locks and will not update according to player movement
+            
+        }
+        //For returning to original translation before dolly occurs
+        else
+        {
+            Console.WriteLine("Dolly Event Ending");
+            //Action interpolating between former Endposition and original translation behind player
+            var seq = Action.Sequence(this.Owner.Actions);
+            //Calls the ToggleCameraLock function so that the camera unlocks and updates according to player movement again
+            Action.Call(seq, this.CameraUnlock);
+            //Action interpolating BACK to where camera was positioned before dolly.
+            Action.Property(seq, @this.Owner.Transform.Translation, this.DefaultPosition, event.DollyTime, event.EasingCurve);
+        }
+    }
+    
+    function CameraLock()
+    {
+        var cameraLockEvent = new CameraLockEvent();
+        cameraLockEvent.IsLocked = false;
+        this.Owner.DispatchEvent("cameraLockEvent", cameraLockEvent);
+    }
+    
+    function CameraUnlock()
+    {
+        var cameraLockEvent = new CameraLockEvent();
+        cameraLockEvent.IsLocked = true;
+        this.Owner.DispatchEvent("cameraLockEvent", cameraLockEvent);
+    }
+    
+    function OnToggleCameraLock(event : CameraLockEvent)
+    {
+        this.ShouldUpdateCamera = event.IsLocked;
     }
 }

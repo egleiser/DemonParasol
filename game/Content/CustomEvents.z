@@ -16,4 +16,54 @@ class CinemaEvent : Event
     var StartPosition : Real3 = Real3(0.0,0.0,0.0);
     var EndPosition : Real3 = Real3(0.0,0.0,0.0);
     var EasingCurve : SampleCurve = null;
-}  
+}
+class CameraZoomEvent : Event
+{
+    //Indicates whether the initial zoom is active
+    var IsZoomingIn : Boolean = false;
+    //The main variable to change when zooming
+    var CamSize : Real = 0.0;
+    //Use if you want to zoom TOWARDS another object besides the player
+    var CameraTarget : Cog = null;
+    //Hpefully this will be for a custom ease later on
+    var EasingCurve : Ease = Ease.QuadInOut;
+    //To be used when zooming in
+    var ZoomInTime : Real = 0.0;
+    //To be used when zooming out
+    var ZoomOutTime : Real = 0.0;
+}
+class CameraPanEvent : Event
+{
+    var IsActive : Boolean = false;
+    //Use if you want to rotate TOWARDS another object besides the player
+    var PanTarget : Cog = null;
+    //Use if you want to rotate using a specific quaternion value
+    var EndRotation : Quaternion = Quaternion(0,0,0,0);
+    //The start rotation before panning
+    var StartRotation : Quaternion = Quaternion(0,0,0,0);
+    var PanTime : Real = 0.0;
+    //Hopefully this will be for a custom ease later on
+    var EasingCurve : Ease = Ease.Linear;
+}
+class CameraDollyEvent : Event
+{
+    //
+    var IsActive : Boolean = false;
+    //Use if you want to dolly to an object (either pre-set object or one created at runtime)
+    var DollyTarget : Cog = null;
+    var EndPosition: Real3  = Real3(0.0,0.0,0.0);
+    var DollyTime : Real = 0.0;
+    //Hopefully this will be for a custom ease later on
+    var EasingCurve : Ease = Ease.QuadInOut;
+}
+class PanFinishedEvent : Event
+{
+}
+class DollyFinishedEvent : Event
+{
+}
+class CameraLockEvent : Event
+{
+    var IsLocked : Boolean  = false;
+}
+
