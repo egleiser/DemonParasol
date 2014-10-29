@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [9.89291, -12.0026, 20.535],
+			Vec3 Translation = [7.96629, -12.4755, 19.9455],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.462393, 0.0460697, -0.0240663, 0.88515],
+			Quat Rotation = [0.473618, 0.00352332, -0.0018947, 0.880722],
 		},
 		Camera = 
 		{
@@ -96,8 +96,8 @@ Level =
 		{
 			ControlMode ControlMode = Orbit,
 			float LookDistance = 35.1,
-			float VerticalAngle = -0.962796,
-			float HorizontalAngle = -0.104001,
+			float VerticalAngle = -0.986796,
+			float HorizontalAngle = -0.00800099,
 			Vec3 LookTarget = [7.81145, 16.8072, 0.593223],
 		},
 		EditorRenderer = 
@@ -789,6 +789,11 @@ Level =
 		{
 			string Name = "Camera",
 		},
+		EditorFlags = 
+		{
+			bool Locked = true,
+			bool Hidden = false,
+		},
 		Transform = 
 		{
 			Vec3 Translation = [0, -14.3137, 11.028],
@@ -887,6 +892,11 @@ Level =
 						Archetyped = 
 						{
 							string Name = "4faa6050b86884ec:DefaultArchetype",
+						},
+						EditorFlags = 
+						{
+							bool Locked = true,
+							bool Hidden = false,
 						},
 						Transform = 
 						{
@@ -1448,7 +1458,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 542bd4538cad1910,
+					uint64 CachedGeometryId = 543cf9335d8f15c0,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1551,7 +1561,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 542bd4538cad5e5b,
+					uint64 CachedGeometryId = 543cf9335d8f1f55,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1667,7 +1677,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 542bd4538cada22c,
+					uint64 CachedGeometryId = 543cf9335d8f28e7,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1783,7 +1793,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 542bd4538cade5f6,
+					uint64 CachedGeometryId = 543cf9335d8f326c,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1900,7 +1910,7 @@ Level =
 				{
 					int Layer = -2,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 542bd4538cae166b,
+					uint64 CachedGeometryId = 543cf9335d8f390e,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2002,7 +2012,7 @@ Level =
 				{
 					int Layer = -2,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 542bd4538cae5c7a,
+					uint64 CachedGeometryId = 543cf9335d8f426e,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2119,7 +2129,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 542bd4538caf130e,
+					uint64 CachedGeometryId = 543cf9335d8f58f4,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2295,7 +2305,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 542bd4538cafb623,
+					uint64 CachedGeometryId = 543cf9335d8f6e82,
 					Shape2D Shape = 
 					{
 						Array Contours = 

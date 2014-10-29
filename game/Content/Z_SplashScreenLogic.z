@@ -1,0 +1,51 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//SCRIPT-Z_SplashScreenLogic.z
+//AUTHOR-Travis Moore
+//COURSE-GAM205
+//COPYRIGHT-© 2014 DigiPen, All Rights Reserved.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+class Z_SplashScreenLogic:ZilchComponent
+{
+    //PROPERTIES
+    [Property]
+    var SplashScreenDelayTimer:Real = 3;
+    [Property]
+    var NextLevel:Level = null;
+    
+    //CURRENT LEVEL
+    var LvlCurrentLevel:Level = null;
+    
+    //TIMER
+    //timer variabe
+    var Timer:Real = 0; //used to sequence through splash screen
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Initialize
+    //EXPLANATION-Initialize variables/functions for further use
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Initialize(init:CogInitializer)
+    {
+        //variable to hook to current level
+        this.LvlCurrentLevel = this.Space.CurrentLevel;
+        
+        //connect to LogicUpdate event
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-OnLogicUpdate
+    //EXPLANATION-Update every frame, perform actions and listen for keyboard
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function OnLogicUpdate(event:UpdateEvent)
+    {
+        //keep track of the Timer
+        this.Timer += event.Dt;
+        
+        //continue to next level
+        if(this.Timer >= this.SplashScreenDelayTimer)
+        {
+            this.Space.LoadLevel(this.NextLevel);
+        }
+    }
+}
