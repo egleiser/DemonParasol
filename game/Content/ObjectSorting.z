@@ -1,0 +1,9 @@
+class ObjectSorting : ZilchComponent
+{
+    [Static]
+    function SortTargetByDistance(left: Cog, right: Cog) : Boolean
+    {
+        
+        return left.Targetable.GetDistanceToPlayer() < right.Targetable.GetDistanceToPlayer();
+    }
+}

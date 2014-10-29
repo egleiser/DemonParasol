@@ -1,0 +1,59 @@
+class RibController : ZilchComponent
+{
+    [Property]
+    var WindSpeed:Real = 20.0;
+    var OpenScale:Real3 = Real3(2,1.5,2);
+    var ClosedScale:Real3 = Real3(0.3,4.5,0.3);
+    var Open:Boolean = false;
+    var JustOpened:Boolean = false;
+    var Timer:Integer = 0;
+    var Player:Cog = null;
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Owner.FindRoot();
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, "blockEvent", this.OnBlock);
+    }
+    function OnBlock(event : BlockEvent)
+    {
+        this.Open = true;
+        
+        if(this.JustOpened == false)
+        {
+            this.Owner.SoundEmitter.Play();
+            //Create the wind when the umbrella opens
+            var wind = this.Space.CreateAtPosition(Archetype.Find("PushWind"),this.Owner.Transform.WorldTranslation + Real3(0,0,1));
+            wind.Transform.Rotation = Math.Euler(Real3(0,0,this.Player.PlayerController.MoveAngle));
+            wind.RigidBody.Velocity = this.Player.Orientation.WorldForward * this.WindSpeed;
+            this.JustOpened = true;
+        }
+        this.Timer = 0;
+        //this.Player.DynamicMotor.MoveInDirection(this.Player.Orientation.WorldForward * -1000, this.Player.Orientation.WorldUp);
+        
+    }
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Timer += 1;
+        var wantedScale = this.ClosedScale;
+        if(this.Open)
+        {
+            wantedScale = this.OpenScale;
+            this.Owner.Transform.LocalScale = Math.Lerp(this.Owner.Transform.LocalScale, wantedScale, event.Dt * 15.0);
+        }
+        else
+        {
+            this.Owner.Transform.LocalScale = Math.Lerp(this.Owner.Transform.LocalScale, wantedScale, event.Dt * 10.0);
+        }
+        
+        
+        if(Zero.Keyboard.KeyIsPressed(Keys.M))
+        {
+            this.Open = !this.Open;
+        }
+        if(this.Timer > 10)
+        {
+            this.JustOpened = false;
+            this.Open = false;
+        }
+    }
+}

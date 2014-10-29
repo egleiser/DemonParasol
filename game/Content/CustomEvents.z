@@ -1,3 +1,12 @@
+class BlockEvent : Event
+{
+    var InfoToSend : String = "";
+    var NumberToSend : Integer = 0;
+}  
+class TriggerEvent : Event
+{
+    var Activate : Boolean = false;
+}  
 class AttackEvent : Event
 {
     var InfoToSend : String = "";

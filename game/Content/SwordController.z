@@ -6,8 +6,10 @@ class SwordController : ZilchComponent
     var GruntSound : SoundCue = null;
     [Property]
     var SwishSound : SoundCue = null;
+    var Ribs : Cog = null;
     function Initialize(init : CogInitializer)
     {
+        this.Ribs = this.Owner.FindChildByName("Ribs");
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, "attackEvent", this.OnAttack);
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
@@ -21,9 +23,12 @@ class SwordController : ZilchComponent
         {
             this.SlashCount = 0;
         }
-        if(this.SlashCount == 0)
+        if(this.SlashCount == 0 && this.Ribs.RibController.Open == false)
         {
             this.Owner.SimpleAnimation.CrossBlend(Animation.Find("IdleSlash"),0.5,0);
+        }
+        if(this.SlashCount == 0)
+        {
             this.Owner.BoxCollider.Ghost = true;
             this.Owner.FindChildByName("Blade").BoxCollider.Ghost = true;
             this.Owner.FindChildByName("Blade").Ribbon.Spawning = false;
@@ -34,33 +39,40 @@ class SwordController : ZilchComponent
             this.Owner.FindChildByName("Blade").BoxCollider.Ghost = false;
             this.Owner.FindChildByName("Blade").Ribbon.Spawning = true;
         }
+        if(this.Ribs.RibController.Open)
+        {
+            this.Owner.SimpleAnimation.CrossBlend(Animation.Find("Blocking"),0.5,0);
+        }
     }
     function OnAttack(event : AttackEvent)
     {
-        Console.WriteLine("Attack!");
-        //Play Player Grunt
-        this.Space.SoundSpace.PlayCueAt(this.GruntSound, this.Owner.Transform.Translation);
-        //Play Swish Sound
-        this.Owner.SoundEmitter.PlayCue(this.SwishSound);
-        
-        this.SlashCount += 1;
-        this.Timer = 2;
-        if(this.SlashCount == 1)
+        if(this.Ribs.RibController.Open == false)
         {
-            this.Owner.SimpleAnimation.PlaySingle(Animation.Find("HorizontalSlash1"),0);
-        }
-        else if(this.SlashCount == 2)
-        {
-            this.Owner.SimpleAnimation.PlaySingle(Animation.Find("HorizontalSlash2"),0);
-        }
-        else if(this.SlashCount == 3)
-        {
-            this.Owner.SimpleAnimation.PlaySingle(Animation.Find("VerticalSlash1"),0);
-        }
-        else
-        {
-            this.Owner.SimpleAnimation.PlaySingle(Animation.Find("HorizontalSlash1"),0);
-            this.SlashCount = 0;
+            Console.WriteLine("Attack!");
+            //Play Player Grunt
+            this.Space.SoundSpace.PlayCueAt(this.GruntSound, this.Owner.Transform.Translation);
+            //Play Swish Sound
+            this.Owner.SoundEmitter.PlayCue(this.SwishSound);
+            
+            this.SlashCount += 1;
+            this.Timer = 2;
+            if(this.SlashCount == 1)
+            {
+                this.Owner.SimpleAnimation.PlaySingle(Animation.Find("HorizontalSlash1"),0);
+            }
+            else if(this.SlashCount == 2)
+            {
+                this.Owner.SimpleAnimation.PlaySingle(Animation.Find("HorizontalSlash2"),0);
+            }
+            else if(this.SlashCount == 3)
+            {
+                this.Owner.SimpleAnimation.PlaySingle(Animation.Find("VerticalSlash1"),0);
+            }
+            else
+            {
+                this.Owner.SimpleAnimation.PlaySingle(Animation.Find("HorizontalSlash1"),0);
+                this.SlashCount = 0;
+            }
         }
     }
     function OnCollisionStarted(event : CollisionEvent)

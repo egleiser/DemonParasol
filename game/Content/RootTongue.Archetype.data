@@ -1,0 +1,66 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "RootTongue",
+	},
+	Archetyped = 
+	{
+		string Name = "549048b2371ff79b:RootTongue",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [4.33847, 8.74184, 0.299674],
+		Vec3 Scale = [0.2, 0.2, 0.2],
+		Quat Rotation = [-0.392772, 0.115007, -0.275321, 0.869886],
+	},
+	Model = 
+	{
+		string MaterialName = "54ff27758d4308c1:mat_Ghost",
+		string MeshName = "4de0354322b376ae:Sphere",
+		Vec4 Color = [1, 0, 0, 1],
+		bool Visible = false,
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = false,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	SphereCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "54ff0eb5b975b8c8:CG_Tongue",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 1,
+	},
+	MassOverride = 
+	{
+		bool Active = true,
+		float invMass = 100,
+		Vec3 invInertiaX = [6250, -4.77083e-005, 1.59028e-005],
+		Vec3 invInertiaY = [0.000222639, 6250, 5.66492e-013],
+		Vec3 invInertiaZ = [0.000243843, 0.000339259, 6250],
+		Vec3 LocalCenterOfMass = [0, 0, 0],
+	},
+	DebugDrawLineToTarget = 
+	{
+		CogPath Target = ":/Player/Parasol/TongueMount",
+	},
+	Hierarchy = 
+	{
+	},
+},

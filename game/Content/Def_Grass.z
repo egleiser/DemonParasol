@@ -1,0 +1,39 @@
+class Def_Grass : ZilchComponent
+{
+    var MinForce:Real = -2.0;
+    var MaxForce:Real = 2.0;
+    var Timer:Real = 0;
+    var Speed:Real = 0.35;
+    var WantedRotation:Quaternion = Quaternion(0,0,0,0);
+    
+    function Initialize(init : CogInitializer)
+    {
+        //this.WantedRotation = Math.Euler(Real3(0,0,1.5707));
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Timer += 1;
+        if(this.Timer % 40 == 0)
+        {
+            this.Speed = 0.35;
+            this.WantedRotation = Quaternion(0,0,0,0);
+        }
+        this.Owner.Transform.WorldRotation = Math.Slerp(this.Owner.Transform.WorldRotation, this.WantedRotation , event.Dt * this.Speed);
+    }
+    function OnCollisionPersisted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Collider.Ghost == false)
+        {
+            var dVec = this.Owner.Transform.WorldTranslation - otherObject.Transform.WorldTranslation;
+            Math.Normalize(dVec);
+            this.WantedRotation = Math.Euler(Real3((dVec.X*1.5),(dVec.Y*1.5),0.0));
+            this.Speed = 5;
+        }
+    }
+
+}

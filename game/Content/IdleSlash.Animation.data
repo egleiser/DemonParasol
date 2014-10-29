@@ -8,6 +8,7 @@ RichAnimation =
 		string Name = "Root",
 		string Path = "",
 		bool Disabled = false,
+		string PropertyTypeName = "void",
 		Array KeyFrames = 
 		[
 		],
@@ -18,6 +19,7 @@ RichAnimation =
 				string Name = "/",
 				string Path = "/",
 				bool Disabled = false,
+				string PropertyTypeName = "void",
 				Array KeyFrames = 
 				[
 				],
@@ -28,6 +30,7 @@ RichAnimation =
 						string Name = "Transform",
 						string Path = "Transform",
 						bool Disabled = false,
+						string PropertyTypeName = "void",
 						Array KeyFrames = 
 						[
 						],
@@ -38,6 +41,7 @@ RichAnimation =
 								string Name = "Rotation",
 								string Path = "Transform.Rotation",
 								bool Disabled = false,
+								string PropertyTypeName = "Quat",
 								Array KeyFrames = 
 								[
 								],
@@ -48,6 +52,7 @@ RichAnimation =
 										string Name = "X",
 										string Path = "Transform.Rotation.X",
 										bool Disabled = false,
+										string PropertyTypeName = "void",
 										Array KeyFrames = 
 										[
 											{
@@ -82,6 +87,7 @@ RichAnimation =
 										string Name = "Y",
 										string Path = "Transform.Rotation.Y",
 										bool Disabled = false,
+										string PropertyTypeName = "void",
 										Array KeyFrames = 
 										[
 											{
@@ -127,6 +133,7 @@ RichAnimation =
 										string Name = "Z",
 										string Path = "Transform.Rotation.Z",
 										bool Disabled = false,
+										string PropertyTypeName = "void",
 										Array KeyFrames = 
 										[
 											{

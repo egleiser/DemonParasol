@@ -18,139 +18,145 @@ class PlayerController : ZilchComponent
     [Property]
     var Deceleration:Real = 1.5;
     [Property]
-    
     var CameraPath:CogPath = null;
+    var MoveAngle:Real = 0;
     var Camera:Cog = null;
-    
-    var IsPanning : Boolean = false;
-    var IsReturnPanning : Boolean = false;
-    
+    var TargetList:Array[Cog] = new Array[Cog]();
+    var TargetProximity:Array[Cog] = new Array[Cog]();
+    var TargetIndex:Integer = 0;
+    var TargetAngle:Real = 0;
+    var Target:Cog = null;
+    var TargetIndicator:Cog = null;
+    var EnterTargetMode:Boolean = false;
     function Initialize(init : CogInitializer)
     {
         this.Owner.DynamicMotor.MaxMoveForce = this.MaxMoveForce;
         this.Camera = this.CameraPath.Cog;
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-        Zero.Connect(this.Space, "panFinishedEvent", this.OnPanFinished);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
         this.MovementUpdate(event);
         this.AttackUpdate(event);
-        this.Zoom(event);
-        this.Pan(event);
-        this.Dolly(event);
+        this.BlockUpdate(event);
+        this.ZTargetingUpdate(event);
+        this.SwitchTargetUpdate(event);
     }
     function AttackUpdate(event : UpdateEvent)
     {
-        if(this.Owner.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space))
+        if(this.Owner.InputController.Gamepad.IsButtonPressed(Buttons.X) || Zero.Keyboard.KeyIsPressed(Keys.Space))
         {
             var attackEvent = new AttackEvent();
             this.Owner.DispatchDown("attackEvent", attackEvent);
             this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed * 1000, this.Orientation.WorldUp);
         }
     }
+    function BlockUpdate(event : UpdateEvent)
+    {
+        if(this.Owner.InputController.Gamepad.RightTrigger > 0.5 || Zero.Keyboard.KeyIsDown(Keys.F))
+        {
+            var blockEvent = new BlockEvent();
+            this.Owner.DispatchDown("blockEvent", blockEvent);
+            
+        }
+    }
+    function ZTargetingUpdate(event : UpdateEvent)
+    {
+        this.TargetIndicator.IndicatorLock.Target = this.Target;
+        if(this.Owner.InputController.Gamepad.LeftTrigger > 0.5 || Zero.Keyboard.KeyIsDown(Keys.V))
+        {
+            if(this.EnterTargetMode == false)
+            {
+                this.UpdateTargets();
+                this.EnterTargetMode = true;
+            }
+            if(this.TargetProximity.Count > 0)
+            {
+                this.Target = this.TargetProximity.Get(this.TargetIndex);
+            }
+        }
+        else
+        {
+            this.Target = null;
+            this.TargetIndex = 0;
+            this.EnterTargetMode = false;
+        }
+        
+        if(this.Target != null)
+        {
+            var targetDistanceVec = this.Target.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
+            Math.Normalize(targetDistanceVec);
+            this.TargetAngle = Math.ATan2(targetDistanceVec.Y,targetDistanceVec.X) - 1.57079633;
+            this.MoveAngle = this.TargetAngle;
+            this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation,Math.Euler(Real3(0.0,0.0,this.TargetAngle)),event.Dt*this.RotateSpeed);
+        }
+    }
+    
+    function UpdateTargets()
+    {
+        this.TargetList.Sort(ObjectSorting.SortTargetByDistance);
+        this.TargetProximity.Clear();
+        foreach(var cog in this.TargetList )
+        {
+            if(cog.Targetable.GetDistanceToPlayer() < cog.Targetable.Range)
+            {
+                this.TargetProximity.Add(cog);
+            }
+        }
+        this.TargetProximity.Sort(ObjectSorting.SortTargetByDistance);
+        
+    }
+    
+    function SwitchTargetUpdate(event : UpdateEvent)
+    {
+        this.NextTarget();
+    }
+    function NextTarget()
+    {
+        if(this.Owner.InputController.Gamepad.IsButtonPressed(Buttons.Y))
+        {
+            Console.WriteLine(this.TargetProximity);
+            if(this.TargetIndex < this.TargetProximity.Count-1)
+            {
+                this.TargetIndex += 1;
+            }
+            else
+            {
+                this.TargetIndex = 0;
+            }
+        }
+    }
+    
     function MovementUpdate(event : UpdateEvent)
     {
         if(this.Owner.InputController.GetMovement() != Real3(0,0,0))
         {
             var cameraAngle= this.Camera.OrbitCameraController.CurrentAngle;
-            var radians:Real = 0.0;
-            radians = Math.ATan2(this.Owner.InputController.GetMovement().X,this.Owner.InputController.GetMovement().Y) + cameraAngle + 1.57079633;
-            this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation,Math.Euler(Real3(0.0,0.0,radians)),event.Dt*this.RotateSpeed);
-            this.Owner.FootstepDetector.Walk();
-            this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed, this.Orientation.WorldUp);
+            
+            if(this.Target == null)
+            {
+                this.MoveAngle = 0.0;
+                this.MoveAngle = Math.ATan2(this.Owner.InputController.GetMovement().X,this.Owner.InputController.GetMovement().Y) + cameraAngle + 1.57079633;
+                this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation,Math.Euler(Real3(0.0,0.0,this.MoveAngle)),event.Dt*this.RotateSpeed);
+                this.Owner.FootstepDetector.Walk();
+                this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed, this.Orientation.WorldUp);
+            }
+            else
+            {
+                this.Owner.FootstepDetector.Walk();
+                this.Owner.DynamicMotor.MoveInDirection(
+                 
+                Real3(-this.Owner.InputController.GetMovement().X,this.Owner.InputController.GetMovement().Y,0) * 
+                    event.Dt * this.MovmentSpeed, this.Orientation.WorldUp);
+            }
+
         }
         else
         {
             this.Owner.DynamicMotor.MoveInDirection(Real3(0,0,0), this.Orientation.WorldUp);
+            //Stablizes the player
             this.Owner.RigidBody.Velocity /= Real3(this.Deceleration,this.Deceleration,1);
         }
     }
-    function Zoom(event : UpdateEvent)
-    {
-        if(Zero.Keyboard.KeyIsPressed(Keys.Shift))
-        {
-            var zoomEvent = new CameraZoomEvent();
-            zoomEvent.CamSize = 10.0;
-            zoomEvent.ZoomInTime = 2.0;
-            zoomEvent.IsZoomingIn = true;
-            this.Camera.DispatchEvent("zoomEvent", zoomEvent);
-        }
-        if(Zero.Keyboard.KeyIsPressed(Keys.Alt))
-        {
-            var zoomEvent = new CameraZoomEvent();
-            zoomEvent.ZoomOutTime = 1.0;
-            zoomEvent.IsZoomingIn = false;
-            this.Camera.DispatchEvent("zoomEvent", zoomEvent);
-        }
-    }
-    //Used for testing the Pan Custom Event based on Key Pressses
-    function Pan(event : UpdateEvent)
-    {
-        if(Zero.Keyboard.KeyIsPressed(Keys.Q))
-        {
-            this.IsReturnPanning = false;
-            this.IsPanning = true;
-        }
-        if(this.IsPanning)
-        {
-            //Grabs a test cube to pan towards
-            var testPanCube = this.Space.FindObjectByName("TestPanCube");
-            
-            //Create new event
-            var panEvent = new CameraPanEvent();
-            panEvent.PanTarget = testPanCube;
-            //panEvent.EndRotation = Math.Euler(Real3(0.4, 0.0, 1.0));
-            //Set the time of the event
-            panEvent.PanTime = 1.0 * event.Dt;
-            panEvent.IsActive = true;
-            this.Camera.DispatchEvent("panEvent", panEvent);
-        }
-        if(Zero.Keyboard.KeyIsPressed(Keys.E))
-        {
-            this.IsPanning = false;
-            this.IsReturnPanning = true;
-        }
-        if(this.IsReturnPanning)
-        {
-            //Grabs a test cube to pan towards
-            var testPanCube = this.Space.FindObjectByName("TestPanCube");
-            //Creates the new event
-            var panEvent = new CameraPanEvent();
-            //Sets the target of the pan to the object found above
-            panEvent.PanTarget = testPanCube;
-            //Set the tiem of the event
-            panEvent.PanTime = 1.0 * event.Dt;
-            panEvent.IsActive = false;
-            this.Camera.DispatchEvent("panEvent", panEvent);
-        }
-    }
-    function Dolly(event : UpdateEvent)
-    {
-        if(Zero.Keyboard.KeyIsPressed(Keys.Z))
-        {
-            var dollyEvent = new CameraDollyEvent();
-            dollyEvent.DollyTarget = this.Space.FindObjectByName("PracticeDollyCube");
-            dollyEvent.DollyTime = 2.0;
-            dollyEvent.EasingCurve = Ease.QuadInOut;
-            dollyEvent.IsActive = true;
-            this.Camera.DispatchEvent("dollyEvent", dollyEvent);
-        }
-        if(Zero.Keyboard.KeyIsPressed(Keys.C))
-        {
-            var dollyEvent = new CameraDollyEvent();
-            dollyEvent.DollyTime = 2.0;
-            dollyEvent.EasingCurve = Ease.QuadInOut;
-            dollyEvent.IsActive = false;
-            this.Camera.DispatchEvent("dollyEvent", dollyEvent);
-        }
-    }
-    function OnPanFinished(event : PanFinishedEvent)
-    {
-        this.IsPanning = false;
-        this.IsReturnPanning = false;
-    }
-        
-        
 }

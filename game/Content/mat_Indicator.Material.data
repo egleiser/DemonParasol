@@ -1,0 +1,39 @@
+Material = 
+{
+	Lambert = 
+	{
+	},
+	EmissiveMapping = 
+	{
+		float EmissiveScale = 1,
+		string EmissiveMapTexture = "5438253cb5888f4b:Water",
+		Vec2 EmissiveScroll = [0.1, 0.1],
+		Vec2 EmissiveTiling = [1, 1],
+		Vec2 EmissiveOffset = [0, 0],
+	},
+	Fresnel = 
+	{
+		string TestTexture = "4fab71e8bcb7a8ce:DefaultTexture",
+		float EdgeFalloffPower = 2,
+		float EdgeFalloffScale = 4,
+		float PulseTimeScale = 8,
+		float PulseIntensity = 0.5,
+		float PulseIntensityOffset = 1.3,
+		Vec4 EdgeGlowColor = [1, 1, 1, 1],
+	},
+	ModulateModelColor = 
+	{
+	},
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Additive,
+		bool CastShadow = false,
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "4fab71e8bcb7a8ce:DefaultTexture",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},
