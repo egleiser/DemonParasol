@@ -30,6 +30,10 @@ class Z_UI_Button:ZilchComponent
     //CURRENT LEVEL
     var CurrentLevel:Level = null;
     
+    //NEXT LEVEL
+    [Property]
+    var LevelToLoad:Level = null;
+    
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCTION-Initialize
     //EXPLANATION-Initialize variables/functions so that we can use them
@@ -144,12 +148,12 @@ class Z_UI_Button:ZilchComponent
         //if button is "Start Game"
         if(this.Owner.Name == "btn-game-start")
         {
-            this.Space.LoadLevel(this.LvlMenuMain);
+            this.Space.LoadLevel(this.LvlSplashStart);
         }
         //if button is "New Game"
         if(this.Owner.Name == "btn-game-new")
         {
-            this.Space.LoadLevel(this.Lvl_01);
+            this.Space.LoadLevel(this.LevelToLoad);
         }
         //if button is "Quit Game"
         if(this.Owner.Name == "btn-game-quit")
