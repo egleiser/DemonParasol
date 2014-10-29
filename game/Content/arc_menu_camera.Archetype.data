@@ -1,0 +1,39 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Camera",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 50],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Camera = 
+	{
+		ProjectionMode ProjectionMode = Orthographic,
+		Facing Facing = NegativeZ,
+		SpriteSort SpriteSort = ViewDepth,
+		string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
+		float FieldOfView = 45,
+		float NearPlane = 0.5,
+		float FarPlane = 5000,
+		float Size = 16.9,
+	},
+	Microphone = 
+	{
+		bool Active = true,
+	},
+	Orientation = 
+	{
+		Vec3 GlobalUp = [0, 1, 0],
+		Vec3 UpVector = [0, 1, 0],
+		Vec3 ForwardVector = [0, 0, 1],
+		OrientationBases DefaultBases = ForwardZUpY,
+	},
+},

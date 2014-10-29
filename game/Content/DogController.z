@@ -75,7 +75,7 @@ class DogController : ZilchComponent
         
         if(targetIsWithinBarkRange && !targetIsWithinRunAwayRange)
         {
-            if(!this.RunningAway)
+            if(!this.RunningAway )
             {
                 this.BarkAtTarget();
             }
@@ -89,9 +89,8 @@ class DogController : ZilchComponent
                 this.RunAwayFromTarget(event);
             }
         }
-        else
+        else if(!this.RunningAway)
         {
-            this.RunningAway = false;
             this.PaceBackAndForth(event);
         }
         
@@ -227,8 +226,10 @@ class DogController : ZilchComponent
         var ranAwayDisplacement : Real3 = this.StartPosition - runAwayEndPosition;
         var distanceRan : Real = 0.0;
         distanceRan = Math.Length(ranAwayDisplacement);
+        ranAwayDisplacement = Math.Normalize(ranAwayDisplacement);
+        this.Owner.RigidBody.Velocity = ranAwayDisplacement * this.RunAwaySpeed;
         this.RunningAway = false;
-        this.PaceBackAndForth(event);     
+        //this.PaceBackAndForth(event);
     }
     
     

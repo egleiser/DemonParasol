@@ -1,0 +1,48 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "PlayerHouse2",
+	},
+	Archetyped = 
+	{
+		string Name = "543cfdaae4a399c0:PlayerHouse2",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "543cfda9e4286682:PlayerHouse2RootNodeMulti",
+		string MeshName = "543cfdaae4a963c5:PlayerHouse2",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "polySurface312",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1160.49, -0.0564808, 149.996],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+		},
+	},
+},

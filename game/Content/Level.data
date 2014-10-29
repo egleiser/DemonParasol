@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [4.43882, -25.7532, 6.16952],
+			Vec3 Translation = [3.5684, -44.5367, 16.3351],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.525499, 0.0149609, -0.00924267, 0.850612],
+			Quat Rotation = [0.508002, -0.0365116, 0.0215596, 0.860311],
 		},
 		Camera = 
 		{
@@ -87,18 +87,18 @@ Level =
 			Facing Facing = NegativeZ,
 			SpriteSort SpriteSort = ViewDepth,
 			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
-			float FieldOfView = 45,
+			float FieldOfView = 38,
 			float NearPlane = 0.5,
-			float FarPlane = 500,
+			float FarPlane = 10000,
 			float Size = 20,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 13.7942,
-			float VerticalAngle = -1.10679,
-			float HorizontalAngle = 6.24801,
-			Vec3 LookTarget = [4.22173, -13.4175, 0],
+			float LookDistance = 31.7942,
+			float VerticalAngle = -1.06679,
+			float HorizontalAngle = 6.36801,
+			Vec3 LookTarget = [4.86935, -16.696, 1.03567],
 		},
 		EditorRenderer = 
 		{
@@ -789,7 +789,7 @@ Level =
 			Facing Facing = NegativeZ,
 			SpriteSort SpriteSort = ViewDepth,
 			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
-			float FieldOfView = 39,
+			float FieldOfView = 89,
 			float NearPlane = 0.05,
 			float FarPlane = 200,
 			float Size = 50,
@@ -12191,8 +12191,8 @@ Level =
 			Vec4 BarkColor = [0.033075, 0.124268, 0.945, 0.83],
 			float RunAwayTriggerDistance = 4,
 			Vec4 RunAwayColor = [0.278526, 0.915, 0.0549, 0.815],
-			float MaxRunAwayDistance = 20,
-			float RunAwaySpeed = 5,
+			float MaxRunAwayDistance = 15,
+			float RunAwaySpeed = 25,
 		},
 	},
 },

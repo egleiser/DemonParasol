@@ -1,0 +1,44 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "PlanterBox",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "54262cf3f0e51cb8:PlanterBoxRootNodeMulti",
+		string MeshName = "54262cf3f0ff3f56:PlanterBox",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "group2",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-198.535, 4.88898, -130.136],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+		},
+	},
+},
