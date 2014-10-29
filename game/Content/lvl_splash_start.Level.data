@@ -29,11 +29,14 @@ Level =
 			bool Background = true,
 			Vec2 Offset = [0, 0],
 			Vec2 Size = [1, 1],
-			uint Layer = 0,
+			int Layer = 0,
 			bool Active = true,
 			bool Blocking = true,
 			uint Renderer = 1,
 			uint Camera = 2,
+			ViewportScaling Scaling = Fill,
+			Vec2 Resolution = [1280, 720],
+			Vec4 MarginColor = [0, 0, 0, 1],
 		},
 		ForwardRenderer = 
 		{
@@ -46,12 +49,16 @@ Level =
 			float CellSize = 1,
 			GridAxis Axis = YAxis,
 			int Lines = 100,
+			bool DrawAxisOrigins = true,
 			bool AlwaysDrawInEditor = true,
 			bool DrawInGame = false,
 			Vec4 GridColor = [0.5, 0.5, 0.5, 0.4],
 			Vec4 GridHiLight = [0, 0, 0, 0.4],
 			int HilightInterval = 10,
 			bool FollowEditorCamera = false,
+		},
+		Z_LevelLogic = 
+		{
 		},
 	},
 	Cog = 
@@ -66,13 +73,16 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 14.776, 47.7668],
+			Vec3 Translation = [0, 0, 50],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.149438, -1.10519e-008, -3.26607e-009, 0.988771],
+			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
 		Camera = 
 		{
-			ProjectionMode ProjectionMode = Perspective,
+			ProjectionMode ProjectionMode = Orthographic,
+			Facing Facing = NegativeZ,
+			SpriteSort SpriteSort = ViewDepth,
+			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
@@ -80,9 +90,9 @@ Level =
 		},
 		EditorCameraController = 
 		{
-			ControlMode ControlMode = Orbit,
+			ControlMode ControlMode = ZPlane,
 			float LookDistance = 50,
-			float VerticalAngle = 0.3,
+			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
 			Vec3 LookTarget = [0, 0, 0],
 		},
@@ -91,36 +101,98 @@ Level =
 			Vec4 ClearColor = [0.155, 0.155, 0.155, 1],
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "549361781f6586bc:arc_menuCamera",
 		LinkId = 
 		{
 			uint Id = 2,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 20],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
 		},
 		Named = 
 		{
 			string Name = "Camera",
 		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 4,
+		},
+		Named = 
+		{
+			string Name = "temp-scn-start",
+		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 14.776, 47.7668],
+			Vec3 Translation = [0, 0, -10],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.149438, -1.10519e-008, -3.26607e-009, 0.988771],
+			Quat Rotation = [0, 0, 0, 1],
 		},
-		Camera = 
+		Sprite = 
 		{
-			ProjectionMode ProjectionMode = Perspective,
-			Facing Facing = NegativeZ,
-			SpriteSort SpriteSort = ViewDepth,
-			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
-			float FieldOfView = 45,
-			float NearPlane = 0.5,
-			float FarPlane = 5000,
-			float Size = 20,
+			string SpriteSource = "548c87bcb8bf34d4:temp-scn-start",
+			bool FlipX = false,
+			bool FlipY = false,
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = true,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 		},
-		Microphone = 
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 5,
+		},
+		Named = 
+		{
+			string Name = "btn-game-start",
+		},
+		Archetyped = 
+		{
+			string Name = "549359035ea57e68:arc_menu_button",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, -6.8, 1],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			string SpriteSource = "54935a99b5560af9:temp-btn-start-inactive",
+			bool FlipX = false,
+			bool FlipY = false,
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = true,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		},
+		Reactive = 
 		{
 			bool Active = true,
+			bool CaptureMouse = true,
+		},
+		Z_UI_Button = 
+		{
 		},
 	},
 },

@@ -5,12 +5,8 @@
 //COPYRIGHT-© 2014 DigiPen, All Rights Reserved.
 //////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-class Z_SplashScreenLogic:ZilchComponent
+class Z_LevelLogic:ZilchComponent
 {
-    //PROPERTIES
-    [Property]
-    var SplashScreenDelayTimer:Real = 3;
-    
     //SPLASH
     var LvlSplashDigipen:Level = Level.Find("lvl_splash_digipen");
     

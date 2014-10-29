@@ -25,9 +25,7 @@ class Z_UI_Button:ZilchComponent
     var LvlGameoverWin:Level = Level.Find("lvl_gameover_win");
     
     //IN-GAME LEVELS
-    /*
-        Need level names here
-    */
+    var Lvl_01:Level = Level.Find("LevelSandbox");
     
     //CURRENT LEVEL
     var CurrentLevel:Level = null;
@@ -151,7 +149,7 @@ class Z_UI_Button:ZilchComponent
         //if button is "New Game"
         if(this.Owner.Name == "btn-game-new")
         {
-            //this.Space.LoadLevel(_NAME_OF_LEVEL_HERE_);
+            this.Space.LoadLevel(this.Lvl_01);
         }
         //if button is "Quit Game"
         if(this.Owner.Name == "btn-game-quit")

@@ -57,6 +57,11 @@ Level =
 			int HilightInterval = 10,
 			bool FollowEditorCamera = false,
 		},
+		Z_SplashScreenLogic = 
+		{
+			float SplashScreenDelayTimer = 3,
+			string NextLevel = "54682338de38e56b:lvl_splash_team_logo",
+		},
 	},
 	Cog = 
 	{
@@ -70,28 +75,28 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-4.43001, 31.8193, 89.5985],
+			Vec3 Translation = [0.41499, -0.530081, 93.8416],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.149438, -1.10519e-008, -3.26607e-009, 0.988771],
+			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
 		Camera = 
 		{
-			ProjectionMode ProjectionMode = Perspective,
+			ProjectionMode ProjectionMode = Orthographic,
 			Facing Facing = NegativeZ,
 			SpriteSort SpriteSort = ViewDepth,
 			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 20,
+			float Size = 22.1034,
 		},
 		EditorCameraController = 
 		{
-			ControlMode ControlMode = Orbit,
+			ControlMode ControlMode = ZPlane,
 			float LookDistance = 95,
-			float VerticalAngle = 0.3,
+			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-4.43001, 3.74492, -1.15844],
+			Vec3 LookTarget = [0.41499, -0.530081, -1.15844],
 		},
 		EditorRenderer = 
 		{
@@ -110,9 +115,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 27.9993, 20],
+			Vec3 Translation = [0, 0, 10],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.707107, 0, 0, 0.707107],
+			Quat Rotation = [0, 0, 0, 1],
 		},
 		Camera = 
 		{
@@ -123,7 +128,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 5000,
-			float Size = 20,
+			float Size = 16.75,
 		},
 		Microphone = 
 		{
@@ -149,9 +154,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, 20],
+			Vec3 Translation = [0, 0, 0],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.707107, 0, 0, 0.707107],
+			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
 		{
