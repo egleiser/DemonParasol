@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-90.454, -118.784, 50.3145],
+			Vec3 Translation = [-80.3228, -80.4911, 11.927],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.575425, 0.0228914, -0.0161153, 0.817375],
+			Quat Rotation = [0.660389, 0.00900934, -0.00792415, 0.750828],
 		},
 		Camera = 
 		{
@@ -96,9 +96,9 @@ Level =
 		{
 			ControlMode ControlMode = Orbit,
 			float LookDistance = 108.121,
-			float VerticalAngle = -1.2268,
-			float HorizontalAngle = -0.0559973,
-			Vec3 LookTarget = [-92.4949, -16.9969, 13.9074],
+			float VerticalAngle = -1.4428,
+			float HorizontalAngle = -0.0239973,
+			Vec3 LookTarget = [-80.654, 26.7454, -1.87028],
 		},
 		EditorRenderer = 
 		{
@@ -219,7 +219,7 @@ Level =
 		},
 		Camera = 
 		{
-			ProjectionMode ProjectionMode = Perspective,
+			ProjectionMode ProjectionMode = Orthographic,
 			Facing Facing = NegativeZ,
 			SpriteSort SpriteSort = ViewDepth,
 			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
@@ -2090,6 +2090,133 @@ Level =
 				},
 				IndicatorLock = 
 				{
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 50,
+		},
+		Named = 
+		{
+			string Name = "Bird_Root",
+		},
+		Archetyped = 
+		{
+			string Name = "54278ba398399929:Bird_Root",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-61.1705, 29.2175, -0.116497],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 51,
+				},
+				Named = 
+				{
+					string Name = "BirdAnchor",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [8.08374, -22.3619, 10.7701],
+					Vec3 Scale = [1.66882, 1.66882, 1.66882],
+					Quat Rotation = [-0, 0, 0.669129, -0.743146],
+				},
+				AnimationGraph = 
+				{
+					bool Active = true,
+					AnimPlayMode PlayMode = PlayOnce,
+					float TimeScale = 0.35,
+					string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+					uint64 DebugPreviewId = 5475feb22f89cacc,
+				},
+				SimpleAnimation = 
+				{
+					string AnimationName = "5475bfaa8c54a3bf:CirclePatrol",
+					AnimPlayMode PlayMode = Loop,
+				},
+				Model = 
+				{
+					string MaterialName = "4de020863e85bb61:DefaultMaterial",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 1],
+					bool Visible = false,
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 52,
+						},
+						Named = 
+						{
+							string Name = "Bird",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.85797, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5404506d3dd2a41e:mat_Light",
+							string MeshName = "4de0354322b376ae:Sphere",
+							Vec4 Color = [0.809991, 0.042075, 0.935, 1],
+							bool Visible = true,
+						},
+						BirdController = 
+						{
+							CogPath TargetObjectPath = ":/Player",
+							float AttackTriggerDistance = 1,
+							float AttackSpeed = 10,
+							Vec4 AttackColor = [0, 0, 0, 0],
+						},
+						Orientation = 
+						{
+							Vec3 GlobalUp = [0, 0, 1],
+							Vec3 UpVector = [0, 0, 1],
+							Vec3 ForwardVector = [0, 1, 0],
+							OrientationBases DefaultBases = ForwardYUpZ,
+						},
+						RigidBody = 
+						{
+							bool Static = false,
+							bool Asleep = false,
+							bool Kinematic = false,
+							bool RotationLocked = false,
+							bool Mode2D = false,
+							bool AllowSleep = false,
+							bool Inherit2DMode = true,
+							Vec3 Velocity = [0, 0, 0],
+							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						SphereCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							float Radius = 1,
+						},
+						Hierarchy = 
+						{
+						},
+					},
 				},
 			},
 		},

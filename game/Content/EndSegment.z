@@ -1,0 +1,22 @@
+class EndSegment : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var objectHit = event.OtherObject;
+        var player = this.Space.FindObjectByName("Player");
+        if(objectHit.Name == player.Name)
+        {
+            
+        }
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

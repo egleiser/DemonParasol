@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-113.951, -47.0876, 26.2939],
+			Vec3 Translation = [158.458, 74.8991, 14.4118],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.426396, -0.0556578, 0.0262979, 0.90244],
+			Quat Rotation = [0.657089, -0.024115, 0.0210397, 0.753133],
 		},
 		Camera = 
 		{
@@ -94,11 +94,11 @@ Level =
 		},
 		EditorCameraController = 
 		{
-			ControlMode ControlMode = Orbit,
+			ControlMode ControlMode = FirstPerson,
 			float LookDistance = 125.091,
-			float VerticalAngle = -0.8828,
-			float HorizontalAngle = -6.15999,
-			Vec3 LookTarget = [-104.19, 49.5477, -52.5357],
+			float VerticalAngle = -1.43479,
+			float HorizontalAngle = 0.0640172,
+			Vec3 LookTarget = [159.543, 198.835, -2.5137],
 		},
 		EditorRenderer = 
 		{
@@ -2781,7 +2781,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5476c53cce4b7bc8,
+					uint64 CachedGeometryId = 5476db54ef5a8d37,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -3550,7 +3550,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5476c53cce4b895a,
+					uint64 CachedGeometryId = 5476db54ef5a9afe,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -3677,7 +3677,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5476c53cce4bdc61,
+					uint64 CachedGeometryId = 5476db54ef5aeee9,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -31953,7 +31953,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-102.621, -22.423, 1.5],
+			Vec3 Translation = [-102.322, -22.423, 1.5],
 			Vec3 Scale = [3, 3, 3],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -32001,6 +32001,7 @@ Level =
 			CogPath TargetObjectPath = ":/Player",
 			float BarkTriggerDistance = 10,
 			Vec4 BarkColor = [0.033075, 0.124268, 0.945, 0.83],
+			Vec3 BarkScale = [3.3, 3.3, 3.3],
 			float RunAwayTriggerDistance = 5,
 			Vec4 RunAwayColor = [0.278526, 0.915, 0.0549, 0.815],
 			float MaxRunAwayDistance = 30,
@@ -32021,8 +32022,135 @@ Level =
 			bool PointForce = false,
 			bool Buoyancy = false,
 		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "5476de8d30847b2e:DogBark",
+			float Volume = 0.45,
+			float Pitch = 1,
+			bool Positional = true,
+		},
 		Hierarchy = 
 		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 1304,
+				},
+				Named = 
+				{
+					string Name = "Cube",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.517128, 0, 0],
+					Vec3 Scale = [1, 0.0333333, 1],
+					Quat Rotation = [0, 0, 0.707107, 0.707107],
+				},
+				Model = 
+				{
+					string MaterialName = "54279af7f5648866:mat_Dog",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 1],
+					bool Visible = true,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 1305,
+				},
+				Named = 
+				{
+					string Name = "Cube",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.489967, 0, 0],
+					Vec3 Scale = [1, 0.0333333, 1],
+					Quat Rotation = [0, 0, -0.707107, 0.707107],
+				},
+				Model = 
+				{
+					string MaterialName = "54279af7f5648866:mat_Dog",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 1],
+					bool Visible = true,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 1306,
+				},
+				Named = 
+				{
+					string Name = "Cube",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0.527616, 0],
+					Vec3 Scale = [1, 0.0333333, 1],
+					Quat Rotation = [-4.37114e-008, 1, -4.37114e-008, 1.91069e-015],
+				},
+				Model = 
+				{
+					string MaterialName = "54279af7f5648866:mat_Dog",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 1],
+					bool Visible = true,
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 1307,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [162.695, 96.3105, 13.2461],
+			Vec3 Scale = [7, 1, 10],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = false,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
 		},
 	},
 },

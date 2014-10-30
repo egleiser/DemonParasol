@@ -20,6 +20,9 @@ class DogController : ZilchComponent
     
     [Property]
     var BarkColor : Real4 = Real4(0,0,0,0);
+    
+    [Property]
+    var BarkScale : Real3 = Real3(0,0,0);
 
     [Property]
     var RunAwayTriggerDistance : Real = 2.0;
@@ -39,6 +42,7 @@ class DogController : ZilchComponent
     
     var BarkDirection : Real3 = Real3(0,0,0);
     var BarkRotation : Quaternion = Quaternion(0,0,0,0);
+    var BarkTimer : Integer = 0;
     
     var RunAwayDirection : Real3 = Real3(0,0,0);
     var RunAwayRotation : Quaternion = Quaternion(0,0,0,0);
@@ -187,9 +191,21 @@ class DogController : ZilchComponent
     rotate the dog to look at the player*/
     function BarkAtTarget(event : UpdateEvent)
     {
+        this.BarkTimer += 1;
         this.Owner.RigidBody.Velocity = Real3();
+        var startScale : Real3 = Real3(0,0,0);
+        startScale = this.Owner.Transform.Scale;
+        if(this.BarkTimer % 180 == 0)
+        {
+            this.Owner.SoundEmitter.Play();
+            var seq = Action.Sequence(this.Owner.Actions);
+            Action.Property(seq, @this.Owner.Transform.Scale, this.BarkScale, 0.05, Ease.Linear);
+            Action.Property(seq, @this.Owner.Transform.Scale, startScale, 0.3, Ease.Linear);
+        }
         //Changes model color to the user defined color for barking
         this.Owner.Model.Color = this.BarkColor;
+        
+        
         //Grabs the quaternion for the rotation towards the player, based on BarkDirection
         //which is defined in the Calculate function directly below
         this.BarkRotation = this.Orientation.GetLookAtDirectionWithUpRotation(-this.BarkDirection, Real3(0,0,1));
