@@ -20,7 +20,7 @@ Cog =
 	},
 	Model = 
 	{
-		string MaterialName = "54277e49b7c9fcc1:pasted__lambert8",
+		string MaterialName = "5481a16ac2bcf5d3:01___Default",
 		string MeshName = "54277e49b7c2af80:PathSegment2",
 		Vec4 Color = [1, 1, 1, 1],
 		bool Visible = true,
@@ -35,12 +35,12 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "group2",
+				string Name = "group1",
 			},
 			Transform = 
 			{
-				Vec3 Translation = [-807.053, -15.5326, -146.57],
-				Vec3 Scale = [1, 1, 1],
+				Vec3 Translation = [-505.171, -15.8995, 188.124],
+				Vec3 Scale = [0.393701, 0.393701, 0.393701],
 				Quat Rotation = [0, 0, 0, 1],
 			},
 			Hierarchy = 
@@ -57,7 +57,7 @@ Cog =
 					},
 					Transform = 
 					{
-						Vec3 Translation = [807.053, 17.1428, 146.57],
+						Vec3 Translation = [2098.34, 44.5712, 381.082],
 						Vec3 Scale = [1, 1, 1],
 						Quat Rotation = [0, 0, 0, 1],
 					},
@@ -82,6 +82,23 @@ Cog =
 						},
 					},
 				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "group2",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-826.117, -15.8995, -150.032],
+				Vec3 Scale = [0.393701, 0.393701, 0.393701],
+				Quat Rotation = [0, 0, 0, 1],
 			},
 		},
 	},

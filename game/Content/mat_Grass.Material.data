@@ -1,12 +1,15 @@
 Material = 
 {
-	Phong = 
-	{
-		float SpecularExponent = 16,
-		float SpecularScalar = 0.25,
-	},
 	DoubledSide = 
 	{
+	},
+	EmissiveMapping = 
+	{
+		float EmissiveScale = 0.6,
+		string EmissiveMapTexture = "5481a22f0141f89e:tex_Bamboo_gradient",
+		Vec2 EmissiveScroll = [0, 0],
+		Vec2 EmissiveTiling = [1, 1],
+		Vec2 EmissiveOffset = [0, 0],
 	},
 	ModulateModelColor = 
 	{
@@ -15,7 +18,7 @@ Material =
 	{
 		string DiffuseTexture = "549077307890dfed:Chrome1",
 		Vec2 DiffuseScroll = [0, 0],
-		Vec2 DiffuseTiling = [0.1, 0.1],
+		Vec2 DiffuseTiling = [0, 0.1],
 		Vec2 DiffuseOffset = [0, 0],
 	},
 },

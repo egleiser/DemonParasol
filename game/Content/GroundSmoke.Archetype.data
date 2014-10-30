@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [2.11916, -10.9911, -0.304352],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -28,7 +28,7 @@ Cog =
 		ParticleRenderMode RenderMode = Blended,
 		ParticleSortMode SortMode = Youngest,
 		ParticleAnimation ParticleAnimation = Single,
-		string Texture = "549077776ae2d105:tex_toon_explosion_Low_Contrast",
+		string Texture = "5481a3be505ac82a:wind-particles-gray-03",
 		Vec4 Tint = [1, 1, 1, 0.895],
 		float VelocityScale = 0.1,
 		float LengthScale = 1,
@@ -45,7 +45,7 @@ Cog =
 		float SizeVariance = 0.25,
 		float Lifetime = 0.8,
 		float LifetimeVariance = 0.2,
-		float Spin = 0,
+		float Spin = 200,
 		float SpinVariance = 50,
 		bool RandomSpin = true,
 		float Fill = 1,

@@ -1,0 +1,33 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 5481b3b22892839f,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [0.05, 0.05, 0.05],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "LanternPost.LanternPost_Body",
+				uint64 ResourceId = 5481b3b2289af798,
+			},
+			{
+				string Name = "LanternPost.LanternPost_Hook",
+				uint64 ResourceId = 5481b3b2289af79f,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},

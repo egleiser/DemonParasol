@@ -1,0 +1,181 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "ThornArm",
+	},
+	Archetyped = 
+	{
+		string Name = "5481552b371a264d:ThornArm",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SkinnedModel = 
+	{
+		string Material = "4de020863e85bb61:DefaultMaterial",
+		string Mesh = "5481552a36e3aa3a:ThornArm",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+	AnimationGraph = 
+	{
+		bool Active = true,
+		AnimPlayMode PlayMode = PlayOnce,
+		float TimeScale = 1,
+		string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+		uint64 DebugPreviewId = 74206574616c706d,
+	},
+	SimpleAnimation = 
+	{
+		string AnimationName = "5481552a36e0cddc:ThornArm.All",
+		AnimPlayMode PlayMode = PlayOnce,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Bone001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.00161852, 0.0110272, 4.82016e-010],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-3.04478e-006, -3.24612e-006, 0.712974, 0.70119],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "Bone002",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.503941, -2.17371e-007, -2.40279e-008],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [4.44859e-006, 1.72344e-007, -0.00833311, 0.999965],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 4,
+							},
+							Named = 
+							{
+								string Name = "Bone003",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0.579464, -7.00355e-008, -1.13687e-014],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [1.84855e-009, -3.30017e-011, -0.0178499, 0.999841],
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 5,
+									},
+									Named = 
+									{
+										string Name = "Bone004",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0.470583, 2.47359e-007, 4.87536e-008],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [9.47316e-015, 7.13107e-015, 0.00270387, 0.999996],
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 6,
+											},
+											Named = 
+											{
+												string Name = "Bone005",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0.554519, 2.71201e-007, 5.74486e-008],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [9.46637e-015, 3.76463e-015, 0.0222873, 0.999752],
+											},
+											Hierarchy = 
+											{
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 7,
+													},
+													Named = 
+													{
+														string Name = "Bone006",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0.587933, 1.07288e-007, 6.08334e-008],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [9.54792e-015, -1.89085e-018, -0.000198039, 1],
+													},
+													Hierarchy = 
+													{
+														Cog = 
+														{
+															LinkId = 
+															{
+																uint Id = 8,
+															},
+															Named = 
+															{
+																string Name = "Bone007",
+															},
+															Transform = 
+															{
+																Vec3 Translation = [0.60464, 3.57628e-008, 6.25725e-008],
+																Vec3 Scale = [1, 1, 1],
+																Quat Rotation = [-4.36469e-007, 3.03118e-009, -0.0069446, 0.999976],
+															},
+														},
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	},
+},
