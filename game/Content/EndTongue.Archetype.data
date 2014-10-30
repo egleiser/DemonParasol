@@ -1,0 +1,98 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "EndTongue",
+	},
+	Archetyped = 
+	{
+		string Name = "5490487a0f653cf4:EndTongue",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [4.47035e-008, 2.28174e-008, 9.31322e-009, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "54ff27758d4308c1:mat_Ghost",
+		string MeshName = "4de0354322b376ae:Sphere",
+		Vec4 Color = [1, 0, 0.000599861, 1],
+		bool Visible = true,
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = false,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	SphereCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "54ff0eb5b975b8c8:CG_Tongue",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 1,
+	},
+	DebugDrawLineToParent = 
+	{
+	},
+	MassOverride = 
+	{
+		bool Active = true,
+		float invMass = 10,
+		Vec3 invInertiaX = [624.999, 2.75647e-005, 7.47428e-005],
+		Vec3 invInertiaY = [3.71064e-005, 625, 4.4375e-012],
+		Vec3 invInertiaZ = [6.4141e-005, -3.39258e-005, 625],
+		Vec3 LocalCenterOfMass = [0, 0, 0],
+	},
+	Light = 
+	{
+		LightType LightType = Point,
+		bool Active = true,
+		float Range = 12,
+		float MinRange = 2,
+		float Angle = 45,
+		float Intensity = 0.27,
+		Vec4 Color = [1, 0, 0, 1],
+		float MinRange = 2,
+		float Size = 20,
+		bool Baked = false,
+	},
+	InputController = 
+	{
+		bool Active = true,
+		int GamepadIndex = 0,
+	},
+	Orientation = 
+	{
+		Vec3 GlobalUp = [0, 1, 0],
+		Vec3 UpVector = [0, 0, 1],
+		Vec3 ForwardVector = [0, 1, 0],
+		OrientationBases DefaultBases = ForwardYUpZ,
+	},
+	TongueController = 
+	{
+		float MovmentSpeed = 20,
+		float RotateSpeed = 25,
+		float MaxMoveForce = 100,
+		float Deceleration = 1.5,
+		CogPath CameraPath = ":/Camera",
+	},
+	Hierarchy = 
+	{
+	},
+},

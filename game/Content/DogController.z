@@ -1,0 +1,247 @@
+class DogController : ZilchComponent
+{
+    [Dependency]
+    var Orientation : Orientation = null;
+    
+    [Property]
+    var PaceDirection : Real3 = Real3(0,0,0);
+    
+    [Property]
+    var PaceSpeed : Real = 0.0;
+    
+    [Property]
+    var MaxMoveDistance : Real = 0.0;
+    
+    [Property]
+    var TargetObjectPath : CogPath = null;
+    
+    [Property]
+    var BarkTriggerDistance : Real = 5.0;
+    
+    [Property]
+    var BarkColor : Real4 = Real4(0,0,0,0);
+
+    [Property]
+    var RunAwayTriggerDistance : Real = 2.0;
+    
+    [Property]
+    var RunAwayColor : Real4 = Real4(0,0,0,0);
+    
+    [Property]
+    var MaxRunAwayDistance : Real = 0.0;
+    
+    [Property]
+    var RunAwaySpeed : Real = 0.0;
+    
+    var TargetObject : Cog = null;
+    
+    var PaceRotation : Quaternion = Quaternion(0,0,0,0);
+    
+    var BarkDirection : Real3 = Real3(0,0,0);
+    var BarkRotation : Quaternion = Quaternion(0,0,0,0);
+    
+    var RunAwayDirection : Real3 = Real3(0,0,0);
+    var RunAwayRotation : Quaternion = Quaternion(0,0,0,0);
+    var RunAwayStartPosition : Real3 = Real3(0,0,0);
+    var RunningAwayDistance : Real = 0;
+    var RunningAway : Boolean = false;
+    
+    var StartPosition : Real3 = Real3(0,0,0);
+    var OriginalColor : Real4 = Real4(0,0,0,0);
+    var BarkDistanceFromTarget : Real = 0.0;
+    var RunAwayDistanceFromTarget : Real = 0.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.TargetObject = this.TargetObjectPath.Cog;
+        this.OriginalColor = this.Owner.Model.Color;
+        //Start position of the object at the beginning of level loaded
+        //this.StartPosition = this.Owner.Transform.Translation;
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var targetIsWithinBarkRange : Boolean = false;
+        var targetIsWithinRunAwayRange : Boolean = false;
+        //If there is a target object...
+        if(this.TargetObject != null)
+        {
+            this.CalculateBarkDirectionAndDistance();
+            this.CalculateRunAwayDirectionAndDistance();
+            targetIsWithinBarkRange = (this.BarkDistanceFromTarget <= this.BarkTriggerDistance);
+            targetIsWithinRunAwayRange = (this.RunAwayDistanceFromTarget <= this.RunAwayTriggerDistance);
+        }
+        
+        if(targetIsWithinBarkRange && !targetIsWithinRunAwayRange)
+        {
+            if(!this.RunningAway )
+            {
+                this.BarkAtTarget();
+            }
+        }
+        else if(targetIsWithinBarkRange && targetIsWithinRunAwayRange)
+        {
+            if(!this.RunningAway)
+            {
+                this.RunningAway = true;
+            }
+        }
+        else if(this.RunningAway)
+        {
+            this.CalculateRunAwayDirectionAndDistance();
+            this.RunAwayFromTarget(event);
+            //If the distance that the dog has run away is greater than or equal to the
+            //MaxRunAwayDistance set in the properties...
+            if(this.RunningAwayDistance >= this.MaxRunAwayDistance)
+            {
+                Console.WriteLine("Dog Coming Home");
+                //Calls this function, which causes the dog to return to it original start position
+                this.ReturnToStart(event);
+            }
+        }
+        else if(!this.RunningAway)
+        {
+            this.PaceBackAndForth(event);
+        }
+        
+    }
+    
+    /*This function is the primary, "Base State" of the dog. It causes the dog to
+    pace in a back and forth motion, moving as far as defined by the MaxMoveDistance
+    variable, turning around and going the same distance the other way. It also
+    changes the rotation of the dog every time it changes direction to smoothly
+    illustrate how it is turning around*/
+    function PaceBackAndForth(event : UpdateEvent)
+    {
+        //Sets the model's color to the primary color set above.
+        this.Owner.Model.Color = this.OriginalColor;
+        
+        //Creats a displacement vector to get the length of the pace
+        var displacement : Real3 = Real3(0,0,0);
+        //Sets the displacement vector from the start position
+        displacement = this.Owner.Transform.Translation - this.StartPosition;
+        
+        //Variable to keep track of the distance from the start
+        var distanceFromStart : Real = 0.0;
+        //Sets this distance by getting the length from the displacement vector
+        distanceFromStart = Math.Length(displacement);
+        
+        //Checks if the dog has moved farther away from the start than the MaxMoveDistance
+        //set in the properties
+        if(distanceFromStart >= this.MaxMoveDistance)
+        {
+            //If so, sets the pace direction to the opposite of the displacement vector
+            this.PaceDirection = -displacement;
+        }
+        
+        //Normalizes the PaceDirection variable so it can be used as a direction
+        this.PaceDirection = Math.Normalize(this.PaceDirection);
+        
+        //Moves the dog according to its current PaceDirection, over time that is multiplied by
+        //a speed value set in the properties
+        this.Owner.Transform.Translation += this.PaceDirection * event.Dt * this.PaceSpeed;
+        
+        //Sets the PaceRotation variable, which is used to rotate teh dog towards the direction
+        //it's currently facing, using Orientation and the PaceDirection variabel
+        this.PaceRotation = this.Orientation.GetLookAtDirectionWithUpRotation(this.PaceDirection, Real3(0,0,1));
+        //Slerps the dog's rotation to reflect its new rotation
+        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.PaceRotation, 0.1);
+    }
+    
+    /*This function is called when the player gets within the BarkTriggerDistance.
+    It will chnage the model color to show that its in its barking state and then
+    rotate the dog to look at the player*/
+    function BarkAtTarget()
+    {
+        //Changes model color to the user defined color for barking
+        this.Owner.Model.Color = this.BarkColor;
+        //Grabs the quaternion for the rotation towards the player, based on BarkDirection
+        //which is defined in the Calculate function directly below
+        this.BarkRotation = this.Orientation.GetLookAtDirectionWithUpRotation(this.BarkDirection, Real3(0,0,1));
+        //Slerps the dogs rotation towards the player using the BarkRotation quaternion
+        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.BarkRotation, 0.1);
+        this.RunAwayStartPosition = this.Owner.Transform.Translation;
+        //Console.WriteLine("Bark, Bark");
+    }
+    
+    /*This function gets the direction vector towards the target this object is barking at
+    normalizes it, and also gets the length of that vector before its normalized*/
+    function CalculateBarkDirectionAndDistance()
+    {
+        var playerpos = this.TargetObject.Transform.Translation;
+        playerpos.Z = 0.0;
+        var dogpos = this.Owner.Transform.Translation;
+        dogpos.Z = 0.0;
+        //Grabs the vector from the dog towards the player
+        this.BarkDirection = dogpos - playerpos;
+        //Gets the length of this vector to be used in LogicUpdate
+        this.BarkDistanceFromTarget = Math.Length(this.BarkDirection);
+        //Normalizes the vector to be used when getting the rotation for the dog in the BarkAtTarget
+        //function above
+        this.BarkDirection = Math.Normalize(this.BarkDirection);
+    }
+    
+    /*This function does a few things: First, it changes the color of the model to show that running away
+    is now active. Second, it moves the dog in a direction directly opposite that of the player.
+    Finally, it checks to see how far the dog has run away from it's original start point. If it
+    reaches its MaxRunAwayDistance then a function is called that returns it back to its start spot.*/
+    function RunAwayFromTarget(event : UpdateEvent)
+    {
+        //Changes color to Green to show Running Away condition has been met
+        this.Owner.Model.Color = this.RunAwayColor;
+        Console.WriteLine(this.RunAwayDirection);
+        //Dog moves off in a direction opposite that of player as defined in calculate function below
+        this.Owner.RigidBody.Velocity = this.RunAwayDirection * this.RunAwaySpeed;
+        
+        /*These next few lines are to determine how far the Dog has
+        run away and what to do when it reaches its max running away
+        distance (it calls the ReturnToStart function)*/
+        
+        //Gets the displacement vector between the start position and where the dog currently is
+        var runAwayDisplacement : Real3 = this.Owner.Transform.Translation - this.RunAwayStartPosition;
+        //Constantly updates the distance variable with the length of the displacement vector
+        //In other words, it sees how far the dog has run each update
+        this.RunningAwayDistance = Math.Length(runAwayDisplacement);
+        Console.WriteLine("Running Away Distance = `this.RunningAwayDistance`");
+        
+    }
+    
+    function CalculateSegmentDirectionAndDistance()
+    {
+        
+    }
+    
+    function CalculateRunAwayDirectionAndDistance()
+    {
+        var playerpos = this.TargetObject.Transform.Translation;
+        playerpos.Z = 0.0;
+        var dogpos = this.Owner.Transform.Translation;
+        dogpos.Z = 0.0;
+        var reverseDirection : Real3 = Real3(0,0,0);
+        reverseDirection = playerpos - dogpos;
+        
+        this.RunAwayDirection = -reverseDirection;
+        this.RunAwayDistanceFromTarget = Math.Length(reverseDirection);
+        this.RunAwayDirection = Math.Normalize(this.RunAwayDirection);
+        
+    }
+    
+    function ReturnToStart(event : UpdateEvent)
+    {
+        var runAwayEndPosition : Real3 = this.Owner.Transform.Translation;
+        var ranAwayDisplacement : Real3 = this.StartPosition - runAwayEndPosition;
+        var distanceRan : Real = 0.0;
+        distanceRan = Math.Length(ranAwayDisplacement);
+        Console.WriteLine("Distance Running = `distanceRan`");
+        ranAwayDisplacement = Math.Normalize(ranAwayDisplacement);
+        this.Owner.RigidBody.Velocity = ranAwayDisplacement * this.RunAwaySpeed;
+        this.RunningAway = false;
+        //this.PaceBackAndForth(event);
+    }
+    
+    
+
+}

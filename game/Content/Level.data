@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.75377, -91.1423, 112.368],
+			Vec3 Translation = [1.77047, -43.3874, 23.2978],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.390702, -0.00368192, 0.00156276, 0.920508],
+			Quat Rotation = [0.634477, -0.00990409, 0.00813098, 0.772835],
 		},
 		Camera = 
 		{
@@ -94,11 +94,11 @@ Level =
 		},
 		EditorCameraController = 
 		{
-			ControlMode ControlMode = Orbit,
-			float LookDistance = 145.597,
-			float VerticalAngle = -0.802796,
-			float HorizontalAngle = 0.00799971,
-			Vec3 LookTarget = [3.5629, 13.5859, 11.225],
+			ControlMode ControlMode = FirstPerson,
+			float LookDistance = 60.7942,
+			float VerticalAngle = -1.3748,
+			float HorizontalAngle = 12.592,
+			Vec3 LookTarget = [2.07387, 16.2428, 11.4623],
 		},
 		EditorRenderer = 
 		{
@@ -733,7 +733,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [4.30445, 1.43169, 1.08815],
+			Vec3 Translation = [11.161, 5.48981, 2],
 			Vec3 Scale = [4, 4, 4],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -790,7 +790,7 @@ Level =
 			SpriteSort SpriteSort = ViewDepth,
 			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
 			float FieldOfView = 89,
-			float NearPlane = 0.5,
+			float NearPlane = 0.05,
 			float FarPlane = 200,
 			float Size = 50,
 		},
@@ -4462,7 +4462,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [-9.94461, 0.0237447, -25.3796],
+					Vec3 Translation = [-4.28693, 0.0237449, -52.9944],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [1.96695e-005, 0, 0, 1],
 				},
@@ -12035,6 +12035,267 @@ Level =
 			bool LocalSpaceDirection = false,
 			float Strength = 100,
 			Vec3 Direction = [0, 0, -1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 236,
+		},
+		Named = 
+		{
+			string Name = "PracticeDollyCube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [7.31758, 20.1781, 6.65024],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.2444, 0.65, 0.143, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 237,
+		},
+		Named = 
+		{
+			string Name = "TestPanCube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-8.71658, 14.0102, 3.83442],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "54385a97b1252648:TerrainMat",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.755, 0.071725, 0.071725, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 238,
+		},
+		Named = 
+		{
+			string Name = "Dog",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4.22173, -13.4175, 0],
+			Vec3 Scale = [3, 3, 3],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "54ff27758d4308c1:mat_Ghost",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.875, 0.02625, 0.02625, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 1, 0],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [0, 1, 0],
+			OrientationBases DefaultBases = ForwardYUpZ,
+		},
+		DogController = 
+		{
+			Vec3 PaceDirection = [1, 0, 0],
+			float PaceSpeed = 3,
+			float MaxMoveDistance = 10,
+			CogPath TargetObjectPath = ":/Player",
+			float BarkTriggerDistance = 9,
+			Vec4 BarkColor = [0.033075, 0.124268, 0.945, 0.83],
+			float RunAwayTriggerDistance = 5,
+			Vec4 RunAwayColor = [0.278526, 0.915, 0.0549, 0.815],
+			float MaxRunAwayDistance = 100,
+			float RunAwaySpeed = 10,
+		},
+		IgnoreSpaceEffects = 
+		{
+			bool Drag = true,
+			bool Flow = false,
+			bool Force = false,
+			bool Gravity = false,
+			bool Thrust = false,
+			bool Vortex = false,
+			bool Wind = false,
+			bool Invalid = false,
+			bool Torque = false,
+			bool PointGravity = false,
+			bool PointForce = false,
+			bool Buoyancy = false,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 239,
+		},
+		Named = 
+		{
+			string Name = "Root",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-4.63263, 35.9772, 6.45104],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 240,
+				},
+				Named = 
+				{
+					string Name = "BirdAnchor",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [8.08374, -22.3619, 10.7701],
+					Vec3 Scale = [1.66882, 1.66882, 1.66882],
+					Quat Rotation = [-0, 0, 0.669129, -0.743146],
+				},
+				AnimationGraph = 
+				{
+					bool Active = true,
+					AnimPlayMode PlayMode = PlayOnce,
+					float TimeScale = 0.35,
+					string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+					uint64 DebugPreviewId = 5475feb22f89cacc,
+				},
+				SimpleAnimation = 
+				{
+					string AnimationName = "5475bfaa8c54a3bf:CirclePatrol",
+					AnimPlayMode PlayMode = Loop,
+				},
+				Model = 
+				{
+					string MaterialName = "4de020863e85bb61:DefaultMaterial",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 1],
+					bool Visible = false,
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 241,
+						},
+						Named = 
+						{
+							string Name = "Bird",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.85797, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5404506d3dd2a41e:mat_Light",
+							string MeshName = "4de0354322b376ae:Sphere",
+							Vec4 Color = [0.809991, 0.042075, 0.935, 1],
+							bool Visible = true,
+						},
+						BirdController = 
+						{
+							CogPath TargetObjectPath = "",
+						},
+					},
+				},
+			},
 		},
 	},
 },

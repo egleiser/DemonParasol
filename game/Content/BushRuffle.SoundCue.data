@@ -4,7 +4,7 @@ SoundCue =
 	float Volume = 1,
 	float VolumeVariation = 0,
 	float Pitch = 0,
-	float PitchVariation = 0,
+	float PitchVariation = 0.2,
 	float MinDistance = 10,
 	float MaxDistance = 10000,
 	float PositionRandomization = 0,
@@ -13,5 +13,10 @@ SoundCue =
 	bool LinearRollOff = true,
 	Array Sounds = 
 	[
+		{
+			string SoundName = "54fc49437645f9ec:Hit_Bush_Leaves5",
+			float Weight = 1,
+		},
 	],
+	string RolloffCurveName = "",
 },

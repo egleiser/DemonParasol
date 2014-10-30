@@ -1,0 +1,53 @@
+class Utility
+{
+    // This is a basic String->Integer converter. 
+    // Do not pass the in negative signs, commas, spaces or decimals, etc. 
+
+    // Sample Usage
+    // ------------
+    //
+    // var number = Utility.ToInteger("1234"); // 'number' will be the Integer value 1234
+    //
+    //  ...
+    // var sum = 0;
+    // foreach (var string in list) 
+    // { 
+    //    sum += Utility.ToInteger(string);
+    // }
+    // Console.WriteLine(sum);
+    //  ...
+
+    [Static]
+    function ToInteger(value : String) : Integer
+    {
+        // The ascii value of 0
+        var asciiZero = 48;
+        
+        // Stores our resulting value
+        var finalValue = 0;
+        
+        // Read through each character
+        for (var i = 0; i < value.Count; ++i)
+        {
+            // Figure out what place this is (the 1s, 10s, etc)
+            var place = (value.Count - i) - 1;
+            
+            // Get the character as a single numeric digit (by subtracting off ascii of 0)
+            var character = value.Get(i);
+            var digit = character - asciiZero;
+            
+            // If the digit is out of range [0-9], then it's not a valid number
+            if (digit < 0 || digit > 9)
+            {
+                throw new Exception("The string passed in was not a valid number: `value`");
+            }
+            
+            // Take the place and turn it into a number, eg 1, 10, 100, etc
+            // Multiply the digit by the place
+            finalValue += (10 ^ place) * digit;
+        }
+        
+        return finalValue;
+    }
+    
+}

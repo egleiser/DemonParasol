@@ -1,0 +1,94 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "ThornTrigger",
+	},
+	Archetyped = 
+	{
+		string Name = "549acad12d225074:ThornTrigger",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-3.96748, 8.53322, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+		string MeshName = "4de0354322b376ae:Sphere",
+		Vec4 Color = [0.02, 0.0032, 0.0032, 1],
+		bool Visible = true,
+	},
+	PlayerProximityTrigger = 
+	{
+		float TriggerDistance = 6,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "ThornBarrier",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-9.53674e-007, 3.8147e-006, -21.3744],
+				Vec3 Scale = [1.5, 1.5, 40],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				string MaterialName = "54ff27758d4308c1:mat_Ghost",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [0.825, 0.235125, 0.30591, 1],
+				bool Visible = true,
+			},
+			RigidBody = 
+			{
+				bool Static = false,
+				bool Asleep = false,
+				bool Kinematic = true,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			BoxCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				Vec3 Size = [0.5, 0.5, 0.5],
+			},
+			SoundEmitter = 
+			{
+				bool StartPlaying = false,
+				int ExtraPriority = 0,
+				string CueName = "549acac421083877:ThornBurst",
+				float Volume = 1,
+				float Pitch = 1,
+				bool Positional = true,
+			},
+			GroundBurst = 
+			{
+				Vec3 Offset = [0, 0, 4],
+			},
+		},
+	},
+},

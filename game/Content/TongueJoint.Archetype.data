@@ -8,10 +8,14 @@ Cog =
 	{
 		string Name = "TongueJoint",
 	},
+	Archetyped = 
+	{
+		string Name = "54ff099f5dde53c9:TongueJoint",
+	},
 	ObjectLink = 
 	{
-		uint ObjectA = 2,
-		uint ObjectB = 3,
+		uint ObjectA = 4294967293,
+		uint ObjectB = 4294967293,
 		Vec3 BodyPointA = [0, 0, 0],
 		Vec3 BodyPointB = [0, 0, 0],
 	},
@@ -22,7 +26,7 @@ Cog =
 		bool AutoSnaps = false,
 		bool CollideConnected = true,
 		float MaxForce = 0,
-		float Length = 0.2,
+		float Length = 0.1,
 		Vec3 BodyPointA = [0, 0, 0],
 		Vec3 BodyPointB = [0, 0, 0],
 	},
@@ -31,6 +35,13 @@ Cog =
 		bool Active = true,
 		uint AtomIds = 1,
 		float LowerLimit = 0,
-		float UpperLimit = 0.2,
+		float UpperLimit = 0.171382,
+	},
+	JointSpring = 
+	{
+		bool Active = true,
+		uint AtomIds = 1,
+		float DampRatio = 0.9,
+		float FrequencyHz = 8,
 	},
 },

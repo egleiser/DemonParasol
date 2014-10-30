@@ -14,7 +14,6 @@ class CoolOrbitThingy : ZilchComponent
     
     [Property]
     var AngleOrigin : Real = 0.0;
-    
     var CamLerp: Real3 = Real3(0,0,30);
     var WantedcamLerp : Real3 = Real3(0,0,10);
     

@@ -1,0 +1,32 @@
+class PlayerProximityTrigger : ZilchComponent
+{
+    var Player:Cog = null;
+    [Property]
+    var TriggerDistance:Real = 6.0;
+    var Distance:Real = 0.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Distance = Math.Length(this.Player.Transform.Translation - this.Owner.Transform.WorldTranslation);
+        
+        if(this.Distance < this.TriggerDistance)
+        {
+            var triggerEvent = new TriggerEvent();
+            triggerEvent.Activate = true;
+            this.Owner.DispatchDown("triggerEvent", triggerEvent);
+        }
+        else
+        {
+            var triggerEvent = new TriggerEvent();
+            triggerEvent.Activate = false;
+            this.Owner.DispatchDown("triggerEvent", triggerEvent);
+        }
+        
+    }
+}

@@ -1,0 +1,46 @@
+class IndicatorLock : ZilchComponent
+{
+    var Target:Cog = null;
+    var Player:Cog = null;
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
+        this.Player.PlayerController.TargetIndicator = this.Owner;
+        //this.Target = this.Space.FindObjectByName("TestingSphere");
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.Target != null)
+        {
+            this.Owner.Model.Visible = true;
+            if(this.Target.Targetable != null)
+            {
+                var sinOffset = Math.Sin(event.RealTimePassed * 6);
+                this.Owner.Parent.Transform.Translation = this.Target.Transform.WorldTranslation + 
+                this.Target.Targetable.IndicatorOffset + Real3(0,0,sinOffset/4);
+                if(this.Target.Targetable.IndicatorType == TargetType.Information)
+                {
+                    this.Owner.Model.Color = Real4(0,0.2,1,1);
+                }
+                else if(this.Target.Targetable.IndicatorType == TargetType.Enemy)
+                {
+                    this.Owner.Model.Color = Real4(1,0,0,1);
+                }
+                else if(this.Target.Targetable.IndicatorType == TargetType.Friendly)
+                {
+                    this.Owner.Model.Color = Real4(0,1,0,1);
+                }
+                else
+                {
+                    this.Owner.Model.Color = Real4(1,0.7,0,1);
+                }
+            }
+        }
+        else
+        {
+            this.Owner.Model.Visible = false;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "FieldFenceRight",
+	},
+	Archetyped = 
+	{
+		string Name = "54277d9d8691ba55:FieldFenceRight",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "544380cb7820af93:lambert1",
+		string MeshName = "54277d9a869966b0:FieldFenceRight",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "group3",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-979.75, 10.1585, -321.33],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+		},
+	},
+},

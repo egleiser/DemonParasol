@@ -1,0 +1,68 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "GrassClump",
+	},
+	Archetyped = 
+	{
+		string Name = "5490712bd8c7fb92:GrassClump",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SkinnedModel = 
+	{
+		string Material = "54907628415a45d9:03___Default",
+		string Mesh = "5490712ad8abfdb8:GrassClump",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Base",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.000482774, -0.00220203, 2.14395e-019],
+				Vec3 Scale = [0.94761, 2.27692, 2.2771],
+				Quat Rotation = [-5.10458e-006, -5.43978e-006, 0.718809, 0.695207],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "Mid",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.483768, -2.53208e-007, -2.88349e-008],
+						Vec3 Scale = [1.00013, 1.44634, 1.44503],
+						Quat Rotation = [4.32582e-006, 8.41991e-008, 0.00425504, 0.999991],
+					},
+				},
+			},
+		},
+	},
+},
