@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0.0516014, 10.2423, 0],
+		Vec3 Translation = [3, 7.5, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -34,7 +34,7 @@ Cog =
 	FootstepDetector = 
 	{
 		int WalkRate = 15,
-		bool DebugDraw = true,
+		bool DebugDraw = false,
 		Vec4 DebugColor = [0, 1, 0, 0.7],
 	},
 	Orientation = 
@@ -92,6 +92,10 @@ Cog =
 	{
 		int SplashRate = 20,
 		float SplashIntensity = 1,
+	},
+	Z_Teleport = 
+	{
+		Vec3 TeleportToLocation = [3, 7.5, 0],
 	},
 	Hierarchy = 
 	{
@@ -153,9 +157,9 @@ Cog =
 					},
 					Model = 
 					{
-						string MaterialName = "544380cb7820af93:lambert1",
+						string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 						string MeshName = "53f50b788ef4a1b7:BoxMan.Stomach",
-						Vec4 Color = [1, 1, 1, 1],
+						Vec4 Color = [0.458824, 0.77647, 0.819608, 1],
 						bool Visible = true,
 					},
 					Hierarchy = 
@@ -178,9 +182,9 @@ Cog =
 							},
 							Model = 
 							{
-								string MaterialName = "544380cb7820af93:lambert1",
+								string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 								string MeshName = "53f50b788ef4a1bc:BoxMan.Chest",
-								Vec4 Color = [1, 1, 1, 1],
+								Vec4 Color = [0.458824, 0.776471, 0.819608, 1],
 								bool Visible = true,
 							},
 							Hierarchy = 
@@ -205,7 +209,7 @@ Cog =
 									{
 										string MaterialName = "544380cb7820af93:lambert1",
 										string MeshName = "53f50b788ef4a1bf:BoxMan.Head",
-										Vec4 Color = [1, 1, 1, 1],
+										Vec4 Color = [0.815, 0.678161, 0.517525, 1],
 										bool Visible = true,
 									},
 									Hierarchy = 
@@ -325,9 +329,9 @@ Cog =
 									},
 									Model = 
 									{
-										string MaterialName = "544380cb7820af93:lambert1",
+										string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 										string MeshName = "53f50b788ef4a1c0:BoxMan.LArm",
-										Vec4 Color = [1, 1, 1, 1],
+										Vec4 Color = [0.458824, 0.776471, 0.819608, 1],
 										bool Visible = true,
 									},
 									Hierarchy = 
@@ -350,9 +354,9 @@ Cog =
 											},
 											Model = 
 											{
-												string MaterialName = "544380cb7820af93:lambert1",
+												string MaterialName = "5481b84e008be766:mat_gradient",
 												string MeshName = "53f50b788ef4a1c2:BoxMan.LArm01",
-												Vec4 Color = [1, 1, 1, 1],
+												Vec4 Color = [0.815686, 0.678431, 0.517647, 1],
 												bool Visible = true,
 											},
 											Hierarchy = 
@@ -437,9 +441,9 @@ Cog =
 									},
 									Model = 
 									{
-										string MaterialName = "544380cb7820af93:lambert1",
+										string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 										string MeshName = "53f50b788ef4a1c4:BoxMan.RArm",
-										Vec4 Color = [1, 1, 1, 1],
+										Vec4 Color = [0.458824, 0.776471, 0.819608, 1],
 										bool Visible = true,
 									},
 									Hierarchy = 
@@ -462,9 +466,9 @@ Cog =
 											},
 											Model = 
 											{
-												string MaterialName = "544380cb7820af93:lambert1",
+												string MaterialName = "5481b84e008be766:mat_gradient",
 												string MeshName = "53f50b788ef4a1c6:BoxMan.RArm01",
-												Vec4 Color = [1, 1, 1, 1],
+												Vec4 Color = [0.815686, 0.678431, 0.517647, 1],
 												bool Visible = true,
 											},
 											Hierarchy = 
@@ -493,9 +497,9 @@ Cog =
 							},
 							Model = 
 							{
-								string MaterialName = "544380cb7820af93:lambert1",
+								string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 								string MeshName = "53f50b788ef4a1c7:BoxMan.LLeg",
-								Vec4 Color = [1, 1, 1, 1],
+								Vec4 Color = [0.4592, 0.776704, 0.82, 1],
 								bool Visible = true,
 							},
 							Hierarchy = 
@@ -518,9 +522,9 @@ Cog =
 									},
 									Model = 
 									{
-										string MaterialName = "544380cb7820af93:lambert1",
+										string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 										string MeshName = "53f50b788ef4a1c9:BoxMan.LLeg01",
-										Vec4 Color = [1, 1, 1, 1],
+										Vec4 Color = [0.0885, 0.27462, 0.3, 1],
 										bool Visible = true,
 									},
 								},
@@ -544,9 +548,9 @@ Cog =
 							},
 							Model = 
 							{
-								string MaterialName = "544380cb7820af93:lambert1",
+								string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 								string MeshName = "53f50b788ef4a1cb:BoxMan.RLeg",
-								Vec4 Color = [1, 1, 1, 1],
+								Vec4 Color = [0.4592, 0.776704, 0.82, 1],
 								bool Visible = true,
 							},
 							Hierarchy = 
@@ -569,9 +573,9 @@ Cog =
 									},
 									Model = 
 									{
-										string MaterialName = "544380cb7820af93:lambert1",
+										string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 										string MeshName = "53f50b788ef4a1cd:BoxMan.RLeg01",
-										Vec4 Color = [1, 1, 1, 1],
+										Vec4 Color = [0.0885, 0.27462, 0.3, 1],
 										bool Visible = true,
 									},
 								},
@@ -907,6 +911,7 @@ Cog =
 							},
 							TongueManager = 
 							{
+								bool Enable = false,
 							},
 						},
 					},
