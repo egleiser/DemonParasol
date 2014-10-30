@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [158.458, 74.8991, 14.4118],
+			Vec3 Translation = [-0.08196, -44.9351, 34.5298],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.657089, -0.024115, 0.0210397, 0.753133],
+			Quat Rotation = [0.553914, -0.026639, 0.0177361, 0.831959],
 		},
 		Camera = 
 		{
@@ -96,9 +96,9 @@ Level =
 		{
 			ControlMode ControlMode = FirstPerson,
 			float LookDistance = 125.091,
-			float VerticalAngle = -1.43479,
-			float HorizontalAngle = 0.0640172,
-			Vec3 LookTarget = [159.543, 198.835, -2.5137],
+			float VerticalAngle = -1.1748,
+			float HorizontalAngle = 0.0640173,
+			Vec3 LookTarget = [3.00485, 70.4754, -13.6227],
 		},
 		EditorRenderer = 
 		{
@@ -491,13 +491,45 @@ Level =
 					},
 				},
 			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 11,
+				},
+				Named = 
+				{
+					string Name = "FadeOutSprite",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, -1],
+					Vec3 Scale = [100, 100, 100],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					string SpriteSource = "5275aa4d802dd6dc:Square",
+					bool FlipX = false,
+					bool FlipY = false,
+					Vec4 Color = [0, 0, 0, 0],
+					bool Visible = false,
+					bool OnTop = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				},
+			},
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 11,
+			uint Id = 12,
 		},
 		Named = 
 		{
@@ -548,7 +580,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 12,
+			uint Id = 13,
 		},
 		Named = 
 		{
@@ -561,8 +593,8 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [8.52046, 23.1553, 2.62654],
-			Vec3 Scale = [22.6954, 15.5282, 10],
+			Vec3 Translation = [6.80195, 20.1106, 2.62654],
+			Vec3 Scale = [20, 10, 10],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Model = 
@@ -599,7 +631,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 13,
+			uint Id = 14,
 		},
 		Named = 
 		{
@@ -650,7 +682,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 14,
+			uint Id = 15,
 		},
 		Named = 
 		{
@@ -701,7 +733,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 15,
+			uint Id = 16,
 		},
 		Named = 
 		{
@@ -724,7 +756,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 16,
+					uint Id = 17,
 				},
 				Named = 
 				{
@@ -770,7 +802,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 17,
+					uint Id = 18,
 				},
 				Named = 
 				{
@@ -816,7 +848,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 18,
+					uint Id = 19,
 				},
 				Named = 
 				{
@@ -862,7 +894,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 19,
+					uint Id = 20,
 				},
 				Named = 
 				{
@@ -908,7 +940,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 20,
+					uint Id = 21,
 				},
 				Named = 
 				{
@@ -954,7 +986,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 21,
+					uint Id = 22,
 				},
 				Named = 
 				{
@@ -1000,7 +1032,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 22,
+					uint Id = 23,
 				},
 				Named = 
 				{
@@ -1048,7 +1080,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 23,
+			uint Id = 24,
 		},
 		Named = 
 		{
@@ -1066,7 +1098,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 24,
+					uint Id = 25,
 				},
 				Named = 
 				{
@@ -1112,7 +1144,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 25,
+					uint Id = 26,
 				},
 				Named = 
 				{
@@ -1158,7 +1190,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 26,
+					uint Id = 27,
 				},
 				Named = 
 				{
@@ -1204,7 +1236,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 27,
+					uint Id = 28,
 				},
 				Named = 
 				{
@@ -1250,7 +1282,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 28,
+					uint Id = 29,
 				},
 				Named = 
 				{
@@ -1296,7 +1328,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 29,
+					uint Id = 30,
 				},
 				Named = 
 				{
@@ -1342,7 +1374,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 30,
+					uint Id = 31,
 				},
 				Named = 
 				{
@@ -1388,7 +1420,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 31,
+					uint Id = 32,
 				},
 				Named = 
 				{
@@ -1434,7 +1466,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 32,
+					uint Id = 33,
 				},
 				Named = 
 				{
@@ -1480,7 +1512,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 33,
+					uint Id = 34,
 				},
 				Named = 
 				{
@@ -1526,7 +1558,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 34,
+					uint Id = 35,
 				},
 				Named = 
 				{
@@ -1572,7 +1604,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 35,
+					uint Id = 36,
 				},
 				Named = 
 				{
@@ -1618,7 +1650,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 36,
+					uint Id = 37,
 				},
 				Named = 
 				{
@@ -1664,7 +1696,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 37,
+					uint Id = 38,
 				},
 				Named = 
 				{
@@ -1710,7 +1742,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 38,
+					uint Id = 39,
 				},
 				Named = 
 				{
@@ -1756,7 +1788,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 39,
+					uint Id = 40,
 				},
 				Named = 
 				{
@@ -1802,7 +1834,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 40,
+					uint Id = 41,
 				},
 				Named = 
 				{
@@ -1848,7 +1880,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 41,
+					uint Id = 42,
 				},
 				Named = 
 				{
@@ -1894,7 +1926,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 42,
+					uint Id = 43,
 				},
 				Named = 
 				{
@@ -1940,7 +1972,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 43,
+					uint Id = 44,
 				},
 				Named = 
 				{
@@ -1986,7 +2018,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 44,
+					uint Id = 45,
 				},
 				Named = 
 				{
@@ -2032,7 +2064,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 45,
+					uint Id = 46,
 				},
 				Named = 
 				{
@@ -2078,7 +2110,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 46,
+					uint Id = 47,
 				},
 				Named = 
 				{
@@ -2124,7 +2156,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 47,
+					uint Id = 48,
 				},
 				Named = 
 				{
@@ -2170,7 +2202,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 48,
+					uint Id = 49,
 				},
 				Named = 
 				{
@@ -2216,7 +2248,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 49,
+					uint Id = 50,
 				},
 				Named = 
 				{
@@ -2262,7 +2294,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 50,
+					uint Id = 51,
 				},
 				Named = 
 				{
@@ -2308,7 +2340,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 51,
+					uint Id = 52,
 				},
 				Named = 
 				{
@@ -2354,7 +2386,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 52,
+					uint Id = 53,
 				},
 				Named = 
 				{
@@ -2400,7 +2432,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 53,
+					uint Id = 54,
 				},
 				Named = 
 				{
@@ -2448,7 +2480,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 54,
+			uint Id = 55,
 		},
 		Named = 
 		{
@@ -2465,30 +2497,6 @@ Level =
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "5426339b19a2d30c:HouseFence",
 			Vec4 Color = [0.37, 0.249935, 0.1517, 1],
-			bool Visible = true,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 55,
-		},
-		Named = 
-		{
-			string Name = "PlayerHouse",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [32.9106, -1.50167, -0.668602],
-			Vec3 Scale = [0.116655, 0.116655, 0.116655],
-			Quat Rotation = [0.707107, 0, 0, 0.707107],
-		},
-		Model = 
-		{
-			string MaterialName = "5481b84e008be766:mat_gradient",
-			string MeshName = "5439c8766b5ef558:PlayerHouse",
-			Vec4 Color = [0.78, 0.517608, 0.3276, 1],
 			bool Visible = true,
 		},
 	},
@@ -2781,7 +2789,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5476db54ef5a8d37,
+					uint64 CachedGeometryId = 54760ae83b223e42,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -3550,7 +3558,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5476db54ef5a9afe,
+					uint64 CachedGeometryId = 54760ae83b224c54,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -3677,7 +3685,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5476db54ef5aeee9,
+					uint64 CachedGeometryId = 54760ae83b229f4c,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -32151,6 +32159,169 @@ Level =
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		EndSegment = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 1308,
+		},
+		Named = 
+		{
+			string Name = "DollyEventCubeA",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [163.075, 75.0001, 10.0205],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = false,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 1309,
+		},
+		Named = 
+		{
+			string Name = "FamilyHouse",
+		},
+		Archetyped = 
+		{
+			string Name = "547600055becde69:FamilyHouse",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [8.01635, 19.1033, -0.512495],
+			Vec3 Scale = [6, 6, 6],
+			Quat Rotation = [0.5, -0.5, -0.5, 0.5],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 1310,
+				},
+				Named = 
+				{
+					string Name = "pCube1",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [9.8523, 9.8523, 19.9481],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 1311,
+						},
+						Named = 
+						{
+							string Name = "polySurface1",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0.08, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 1312,
+								},
+								Named = 
+								{
+									string Name = "polySurface4",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+									string MeshName = "547600055be4cd32:FamilyHouse.polySurface4",
+									Vec4 Color = [0.9, 0.678555, 0.3015, 1],
+									bool Visible = true,
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 1313,
+						},
+						Named = 
+						{
+							string Name = "polySurface2",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0.16, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+							string MeshName = "547600055be4cd36:FamilyHouse.polySurface2",
+							Vec4 Color = [0.62, 0.25327, 0.0961, 1],
+							bool Visible = true,
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 1314,
+				},
+				Named = 
+				{
+					string Name = "polySurface5",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+					string MeshName = "547600055be4cd38:FamilyHouse.polySurface5",
+					Vec4 Color = [0.79, 0.75054, 0.68335, 1],
+					bool Visible = true,
+				},
+			},
 		},
 	},
 },

@@ -10,10 +10,22 @@ class EndSegment : ZilchComponent
     {
         var objectHit = event.OtherObject;
         var player = this.Space.FindObjectByName("Player");
+        var dollyEventCubeA = this.Space.FindObjectByName("DollyEventCubeA");
+        var fadeOutSprite = this.Space.FindObjectByName("FadeOutSprite");
         if(objectHit.Name == player.Name)
         {
+            var dollyEvent = new CameraDollyEvent();
+            dollyEvent.IsActive = true;
+            dollyEvent.EasingCurve = Ease.QuadInOut;
+            dollyEvent.DollyTarget = dollyEventCubeA;
+            dollyEvent.DollyTime = 4.0;
+            this.LevelSettings.CameraViewport.Camera.DispatchEvent("dollyEvent", dollyEvent);
             
+            var seq = Action.Sequence(this.Owner.Actions);
+            Action.Property(seq, @fadeOutSprite.Sprite.Visible, true, 0.1, Ease.Linear);
+            Action.Property(seq, @fadeOutSprite.Sprite.Color, Real4(0,0,0,1), 3.5, Ease.Linear);
         }
+        
     }
 
     function OnLogicUpdate(event : UpdateEvent)
