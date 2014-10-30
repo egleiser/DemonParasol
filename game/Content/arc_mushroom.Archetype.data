@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-8.65637, -25.629, 0.332444],
+		Vec3 Translation = [-8.65637, -24.5266, 0.332444],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -56,5 +56,8 @@ Cog =
 	},
 	Z_EnemyController = 
 	{
+		CogPath TargetObjectPath = ":/Player",
+		float LungeDistance = 5,
+		float LungeSpeed = 10,
 	},
 },

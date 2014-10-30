@@ -11,20 +11,23 @@ class Z_EnemyController:ZilchComponent
     [Dependency]
     var Orientation : Orientation = null;
     
-    
-    
     //LUNGE PROPERTIES
     [Property]
     var TargetObjectPath:CogPath = null;
     [Property]
-    var LungeDistance:Real = 3.0;
+    var MaxLungeRange:Real = 5.0;
     [Property]
-    var LungeSpeed:Real = 5.0;
+    var LungeSpeed:Real = 10.0;
+    [Property]
+    var TargetDetectionRange:Real = 10.0;
     
     //non-settable properties
     var TargetObject:Cog = null;
-    var DirectionToTarget:Real3 = Real3();
+    var TargetDirection:Real3 = Real3();
+    var TargetDistance:Real = Real();
     var OriginalPosition:Real3 = Real3();
+    var LungeDistance:Real = Real();
+    var MushroomRotation:Quaternion = Quaternion();
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCTION-Initialize
@@ -45,13 +48,30 @@ class Z_EnemyController:ZilchComponent
     //FUNCTION-OnLogicUpdate
     //EXPLANATION-Update every frame, perform actions of the enemy
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    function OnLogicUpdate(event : UpdateEvent)
+    function OnLogicUpdate(event : UpdateEvent):Void
     {
-        //If there is a target object...
+        //do we have a target?
         if(this.TargetObject != null)
         {
-            this.GetDistanceToTarget();
-            Console.WriteLine(
+            //call function to get distance/direction
+            this.GetDistanceAndDirectionToTarget();
+            
+            //enemy in detection range?
+            if(this.TargetDistance <= this.TargetDetectionRange)
+            {
+                //rotate the enemy
+                this.RotateTowardsTarget(event);
+                //debug
+                Console.WriteLine("`this.TargetObject` in range");
+                
+                //enemy at lunge range?
+                if(this.TargetDistance <= this.MaxLungeRange)
+                {
+                    //lunge at the target
+                    this.Lunge(event);
+                    Console.WriteLine("Rawr!");
+                }
+            }
         }
     }
     
@@ -59,25 +79,39 @@ class Z_EnemyController:ZilchComponent
     //FUNCTION-Lunge
     //EXPLANATION-Moves the enemy back and forth based on property set values
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    function Lunge(event:UpdateEvent)
+    function Lunge(event:UpdateEvent):Void
     {
-        
+        this.Owner.RigidBody.Velocity = -this.TargetDirection * this.LungeSpeed;
+        var lungeDisplacement:Real3 = this.Owner.Transform.Translation + this.OriginalPosition;
+        this.LungeDistance = Math.Length(lungeDisplacement);
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCTION-DistanceToTarget
-    //EXPLANATION-Calculates the distance between this enemy and the target object
+    //EXPLANATION-Calculates the distance/direction between this enemy and the target object
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    function GetDistanceToTarget()
+    function GetDistanceAndDirectionToTarget():Void
     {
         var playerPos = this.TargetObject.Transform.Translation;
         var enemyPos = this.Owner.Transform.Translation;
         
         //enemy - player
-        this.DirectionToTarget = enemyPos - playerPos;
+        this.TargetDirection = enemyPos - playerPos;
         //length
-        this.DirectionToTarget = Math.Length(this.DirectionToTarget);
-        //normalizes
-        this.DirectionToTarget = Math.Normalize(this.DirectionToTarget);
+        this.TargetDistance = Math.Length(this.TargetDirection);
+        //normalize
+        this.TargetDirection = Math.Normalize(this.TargetDirection);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-DistanceToTarget
+    //EXPLANATION-Calculates the distance/direction between this enemy and the target object
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function RotateTowardsTarget(event:UpdateEvent):Void
+    {
+        //store rotation
+        this.MushroomRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.TargetDirection, Real3(0,0,1));
+        //perform rotation through slerping
+        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.MushroomRotation, 0.1);
     }
 }
