@@ -1,0 +1,33 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 5481bc4138eb5416,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [0.05, 0.05, 0.05],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "Flower2.Flower2_Petals",
+				uint64 ResourceId = 5481bc4138f0200a,
+			},
+			{
+				string Name = "Flower2.Flower2_Stem",
+				uint64 ResourceId = 5481bc4138f02011,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},

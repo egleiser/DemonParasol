@@ -1,0 +1,29 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 5481b3171ce3c4b4,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+		Vec3 Scale = [0.05, 0.05, 0.05],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "Rock1",
+				uint64 ResourceId = 5481b3171cf67800,
+			},
+		],
+		MeshMode MeshMode = Single,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},

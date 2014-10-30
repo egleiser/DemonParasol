@@ -1,0 +1,30 @@
+class Puzzle_Ball : ZilchComponent
+{
+    [Property]
+    var Ball:CogPath = null;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "DivinerSphere_Puzzle")
+        {
+            Console.WriteLine("PuzzleGET!");
+            var ball:Cog = this.Space.FindObjectByName("DivinerSphere_Puzzle");
+            ball.Transform.WorldTranslation = this.Owner.Transform.WorldTranslation;
+            ball.RigidBody.Kinematic = true;
+            this.Space.FindObjectByName("ThornAlpha").Destroy();
+
+            this.Space.SoundSpace.PlayCue(SoundCue.Find("Magic"));
+            this.Owner.Destroy();
+        }
+    }
+}

@@ -1,0 +1,52 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 5481552b371a264d,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+		Vec3 Scale = [0.05, 0.05, 0.05],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "ThornArm",
+				uint64 ResourceId = 5481552a36e3aa3a,
+			},
+		],
+		MeshMode MeshMode = Single,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+	SkeletonBuilder = 
+	{
+		string Name = "ThornArm",
+		uint64 ResourceId = 5481552b371a264b,
+	},
+	AnimationBuilder = 
+	{
+		string Name = "ThornArm",
+		uint64 ResourceId = 5481552b371a2645,
+		bool MakeAnimationSet = false,
+		ResourceCompression CompressAnimation = None,
+		string PreviewArchetype = "",
+		Array Clips = 
+		[
+			{
+				string Name = "All",
+				uint64 ResourceId = 5481552a36e0cddc,
+				int StartFrame = 0,
+				int EndFrame = 100,
+				LoopingMode LoopingMode = Default,
+			},
+		],
+	},
+},

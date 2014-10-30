@@ -1,0 +1,44 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "ToriiGate",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "pCube7",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0.106252],
+				Vec3 Scale = [0.709311, 1.0431, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				string MaterialName = "5481fffe3b52dd15:ToriiGatepCube7Multi",
+				string MeshName = "5481fffe3b4f9c65:ToriiGate.pCube7",
+				Vec4 Color = [1, 1, 1, 1],
+				bool Visible = true,
+			},
+		},
+	},
+},

@@ -1,5 +1,7 @@
 class TongueManager : ZilchComponent
 {
+    [Property]
+    var Enable:Boolean = false;
     [Dependency]
     var Transform: Transform = null;
     
@@ -11,9 +13,13 @@ class TongueManager : ZilchComponent
     var LastTongueJoint:Cog = null;
     function Initialize(init : CogInitializer)
     {
-        this.InitializeTongue();
+        if(this.Enable == true)
+        {
+            this.InitializeTongue();
+            this.ExtendTongue(10);
+        }
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-        this.ExtendTongue(10);
+        
 
     }
 
