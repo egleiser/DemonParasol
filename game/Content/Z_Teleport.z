@@ -29,6 +29,8 @@ class Z_Teleport:ZilchComponent
         {
             
             this.Owner.Transform.Translation = this.TeleportToLocation;
+            this.Space.FindObjectByName("TongueMount").TongueManager.InitializeTongue();
+            this.Space.FindObjectByName("TongueMount").TongueManager.ExtendTongue(10);
         }
     }
 }
