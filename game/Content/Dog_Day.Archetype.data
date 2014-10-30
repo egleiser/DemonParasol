@@ -1,0 +1,88 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Dog",
+	},
+	Archetyped = 
+	{
+		string Name = "54279869aa79a487:Dog_Day",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-104.3, -24.8709, 1.5],
+		Vec3 Scale = [3, 3, 3],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "54279af7f5648866:mat_Dog",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [0.875, 0.02625, 0.02625, 1],
+		bool Visible = true,
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = true,
+		bool Mode2D = false,
+		bool AllowSleep = false,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [0.5, 0.5, 0.5],
+	},
+	Orientation = 
+	{
+		Vec3 GlobalUp = [0, 0, 1],
+		Vec3 UpVector = [0, 0, 1],
+		Vec3 ForwardVector = [0, 1, 0],
+		OrientationBases DefaultBases = ForwardYUpZ,
+	},
+	DogController = 
+	{
+		Vec3 PaceDirection = [0, -1, 0],
+		float PaceSpeed = 3,
+		float MaxMoveDistance = 7,
+		CogPath TargetObjectPath = ":/Player",
+		float BarkTriggerDistance = 15,
+		Vec4 BarkColor = [0.033075, 0.124268, 0.945, 0.83],
+		float RunAwayTriggerDistance = 9,
+		Vec4 RunAwayColor = [0.278526, 0.915, 0.0549, 0.815],
+		float MaxRunAwayDistance = 30,
+		float RunAwaySpeed = 15,
+	},
+	IgnoreSpaceEffects = 
+	{
+		bool Drag = true,
+		bool Flow = false,
+		bool Force = false,
+		bool Gravity = false,
+		bool Thrust = false,
+		bool Vortex = false,
+		bool Wind = false,
+		bool Invalid = false,
+		bool Torque = false,
+		bool PointGravity = false,
+		bool PointForce = false,
+		bool Buoyancy = false,
+	},
+	Hierarchy = 
+	{
+	},
+},

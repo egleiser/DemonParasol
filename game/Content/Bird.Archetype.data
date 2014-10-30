@@ -1,0 +1,58 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Bird_Root",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-120.174, 55.4715, -3.1016],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "BirdAnchor",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [8.08374, -22.3619, 10.7701],
+				Vec3 Scale = [1.66882, 1.66882, 1.66882],
+				Quat Rotation = [-0, 0, 0.669129, -0.743146],
+			},
+			AnimationGraph = 
+			{
+				bool Active = true,
+				AnimPlayMode PlayMode = PlayOnce,
+				float TimeScale = 0.35,
+				string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+				uint64 DebugPreviewId = 5475feb22f89cacc,
+			},
+			SimpleAnimation = 
+			{
+				string AnimationName = "5475bfaa8c54a3bf:CirclePatrol",
+				AnimPlayMode PlayMode = Loop,
+			},
+			Model = 
+			{
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [1, 1, 1, 1],
+				bool Visible = false,
+			},
+
+		},
+	},
+},

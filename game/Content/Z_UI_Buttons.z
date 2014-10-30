@@ -148,7 +148,7 @@ class Z_UI_Button:ZilchComponent
         //if button is "Start Game"
         if(this.Owner.Name == "btn-game-start")
         {
-            this.Space.LoadLevel(this.LvlSplashStart);
+            this.Space.LoadLevel(this.LvlMenuMain);
         }
         //if button is "New Game"
         if(this.Owner.Name == "btn-game-new")
