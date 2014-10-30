@@ -1,0 +1,83 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//SCRIPT-Z_EnemyController.z
+//AUTHOR-Travis Moore
+//COURSE-GAM205
+//COPYRIGHT-© 2014 DigiPen, All Rights Reserved.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+class Z_EnemyController:ZilchComponent
+{
+    //DEPENDENCIES
+    [Dependency]
+    var Orientation : Orientation = null;
+    
+    
+    
+    //LUNGE PROPERTIES
+    [Property]
+    var TargetObjectPath:CogPath = null;
+    [Property]
+    var LungeDistance:Real = 3.0;
+    [Property]
+    var LungeSpeed:Real = 5.0;
+    
+    //non-settable properties
+    var TargetObject:Cog = null;
+    var DirectionToTarget:Real3 = Real3();
+    var OriginalPosition:Real3 = Real3();
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Initialize
+    //EXPLANATION-Initialize variables/functions so that we can use them
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Initialize(init : CogInitializer)
+    {
+        //set the target of the enemy
+        this.TargetObject = this.TargetObjectPath.Cog;
+        
+        //set the OriginalPosition of this object
+        this.OriginalPosition = this.Owner.Transform.Translation;
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-OnLogicUpdate
+    //EXPLANATION-Update every frame, perform actions of the enemy
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //If there is a target object...
+        if(this.TargetObject != null)
+        {
+            this.GetDistanceToTarget();
+            Console.WriteLine(
+        }
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Lunge
+    //EXPLANATION-Moves the enemy back and forth based on property set values
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Lunge(event:UpdateEvent)
+    {
+        
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-DistanceToTarget
+    //EXPLANATION-Calculates the distance between this enemy and the target object
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function GetDistanceToTarget()
+    {
+        var playerPos = this.TargetObject.Transform.Translation;
+        var enemyPos = this.Owner.Transform.Translation;
+        
+        //enemy - player
+        this.DirectionToTarget = enemyPos - playerPos;
+        //length
+        this.DirectionToTarget = Math.Length(this.DirectionToTarget);
+        //normalizes
+        this.DirectionToTarget = Math.Normalize(this.DirectionToTarget);
+    }
+}
