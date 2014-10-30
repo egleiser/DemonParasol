@@ -17,7 +17,7 @@ class DreamLighting : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(this.DreamWorld)
+        if(!this.DreamWorld)
         {
             this.Owner.Light.Color = Math.Lerp(this.Owner.Light.Color, this.DayLightColor, event.Dt * this.TransitionSpeed);
         }

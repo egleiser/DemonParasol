@@ -27,6 +27,7 @@ class Z_Teleport:ZilchComponent
     {
         if(Zero.Keyboard.KeyIsPressed(Keys.Home))
         {
+            
             this.Owner.Transform.Translation = this.TeleportToLocation;
         }
     }

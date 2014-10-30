@@ -15,9 +15,16 @@ class Puzzle_Ball : ZilchComponent
     
     function OnCollisionStarted(event : CollisionEvent)
     {
-        if(event.OtherObject == this.Ball.Cog)
+        if(event.OtherObject.Name == "DivinerSphere_Puzzle")
         {
             Console.WriteLine("PuzzleGET!");
+            var ball:Cog = this.Space.FindObjectByName("DivinerSphere_Puzzle");
+            ball.Transform.WorldTranslation = this.Owner.Transform.WorldTranslation;
+            ball.RigidBody.Kinematic = true;
+            this.Space.FindObjectByName("ThornAlpha").Destroy();
+
+            this.Space.SoundSpace.PlayCue(SoundCue.Find("Magic"));
+            this.Owner.Destroy();
         }
     }
 }

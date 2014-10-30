@@ -1,0 +1,29 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 5481ffff3b4426c7,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [0.1, 0.1, 0.1],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "ToriiGate.pCube7",
+				uint64 ResourceId = 5481fffe3b4f9c65,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},
