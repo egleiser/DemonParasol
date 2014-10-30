@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [177.878, 8.54532, 41.9274],
+			Vec3 Translation = [123.027, -142.509, 251.519],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.28917, 0.0153156, -0.00462712, 0.957144],
+			Quat Rotation = [0.25921, 0.0525184, -0.0141174, 0.964289],
 		},
 		Camera = 
 		{
@@ -95,39 +95,943 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 52.0913,
-			float VerticalAngle = -0.586797,
-			float HorizontalAngle = -0.032,
-			Vec3 LookTarget = [176.491, 37.3881, -1.42776],
+			float LookDistance = 356.091,
+			float VerticalAngle = -0.525203,
+			float HorizontalAngle = -6.392,
+			Vec3 LookTarget = [89.5657, 36.0315, -54.7564],
 		},
 		EditorRenderer = 
 		{
 			Vec4 ClearColor = [0.155, 0.155, 0.155, 1],
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "53765c31a01574f5:Player",
 		LinkId = 
 		{
 			uint Id = 4,
 		},
-		Transform = 
-		{
-			Vec3 Translation = [130.427, -22.5252, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
 		Named = 
 		{
 			string Name = "Player",
+		},
+		Archetyped = 
+		{
+			string Name = "53765c31a01574f5:Player",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.956688, 12.3792, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		InputController = 
+		{
+			bool Active = false,
+			int GamepadIndex = 0,
+		},
+		PlayerController = 
+		{
+			float MovmentSpeed = 700,
+			float RotateSpeed = 25,
+			float MaxMoveForce = 300,
+			float Deceleration = 1.5,
+			CogPath CameraPath = ":/Camera",
+		},
+		FootstepDetector = 
+		{
+			int WalkRate = 15,
+			bool DebugDraw = true,
+			Vec4 DebugColor = [0, 1, 0, 0.7],
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 1, 0],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [0, 1, 0],
+			OrientationBases DefaultBases = ForwardYUpZ,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CapsuleCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 1],
+			float Radius = 1,
+			float Height = 1,
+			uint Direction = 2,
+		},
+		DynamicMotor = 
+		{
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 100,
+			Vec3 Direction = [0, 0, -1],
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "4e1bd44008b4dc2a:DefaultCue",
+			float Volume = 2.5,
+			float Pitch = 1,
+			bool Positional = true,
+		},
+		WaterSplasher = 
+		{
+			int SplashRate = 20,
+			float SplashIntensity = 1,
+		},
+		Z_Teleport = 
+		{
+			Vec3 TeleportToLocation = [3, 7.5, 0],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 5,
+				},
+				Named = 
+				{
+					string Name = "PlayerModel",
+				},
+				Archetyped = 
+				{
+					string Name = "53f50b788ef864f3:BoxMan",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [2, 2, 2],
+					Quat Rotation = [-3.09086e-008, 0.707107, 0.707107, -3.09086e-008],
+				},
+				AnimationGraph = 
+				{
+					bool Active = true,
+					AnimPlayMode PlayMode = PlayOnce,
+					float TimeScale = 1,
+					string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+					uint64 DebugPreviewId = 03b11c3c086e7898,
+				},
+				SimpleAnimation = 
+				{
+					string AnimationName = "53f50b9fbfe71185:BoxManIdleBreathing.All",
+					AnimPlayMode PlayMode = Loop,
+				},
+				PlayerAnimator = 
+				{
+					string AniIdle = "53f50b9fbfe71185:BoxManIdleBreathing.All",
+					string AniWalk = "53f50ba0bfb0cbbd:BoxManWalk.All",
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 6,
+						},
+						Named = 
+						{
+							string Name = "Stomach",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0.622383, 1.19209e-007],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [-0.707107, 0, 0, 0.707107],
+						},
+						Model = 
+						{
+							string MaterialName = "544380cb7820af93:lambert1",
+							string MeshName = "53f50b788ef4a1b7:BoxMan.Stomach",
+							Vec4 Color = [1, 1, 1, 1],
+							bool Visible = true,
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 7,
+								},
+								Named = 
+								{
+									string Name = "Chest",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [1.79638e-016, -5.32755e-008, 0.104358],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [7.10543e-015, -7.52316e-037, 6.31088e-030, 1],
+								},
+								Model = 
+								{
+									string MaterialName = "544380cb7820af93:lambert1",
+									string MeshName = "53f50b788ef4a1bc:BoxMan.Chest",
+									Vec4 Color = [1, 1, 1, 1],
+									bool Visible = true,
+								},
+								Hierarchy = 
+								{
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 8,
+										},
+										Named = 
+										{
+											string Name = "Head",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [-6.01702e-018, -2.02938e-007, 0.473109],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [-8.23312e-019, 1.86265e-009, 4.42013e-010, 1],
+										},
+										Model = 
+										{
+											string MaterialName = "544380cb7820af93:lambert1",
+											string MeshName = "53f50b788ef4a1bf:BoxMan.Head",
+											Vec4 Color = [1, 1, 1, 1],
+											bool Visible = true,
+										},
+										Hierarchy = 
+										{
+											Cog = 
+											{
+												LinkId = 
+												{
+													uint Id = 9,
+												},
+												Named = 
+												{
+													string Name = "Hat",
+												},
+												Transform = 
+												{
+													Vec3 Translation = [0, -9.53674e-007, 0.353713],
+													Vec3 Scale = [0.499999, 0.5, 0.0879925],
+													Quat Rotation = [-1.86265e-009, 3.47047e-015, 1, 4.41533e-008],
+												},
+												Model = 
+												{
+													string MaterialName = "549a9f71f45ed652:mat_Fabric",
+													string MeshName = "4de0354322b376ae:Sphere",
+													Vec4 Color = [1, 0.59795, 0.065, 1],
+													bool Visible = true,
+												},
+												RigidBody = 
+												{
+													bool Static = false,
+													bool Asleep = false,
+													bool Kinematic = true,
+													bool RotationLocked = false,
+													bool Mode2D = false,
+													bool AllowSleep = true,
+													bool Inherit2DMode = true,
+													Vec3 Velocity = [0, 0, 0],
+													Vec3 AngularVelocity = [0, 0, 0],
+												},
+												SphereCollider = 
+												{
+													bool Ghost = false,
+													bool SendsMessages = true,
+													bool Seamless = true,
+													string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+													string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+													Vec3 Offset = [0, 0, 0],
+													float Radius = 1,
+												},
+												Hierarchy = 
+												{
+													Cog = 
+													{
+														LinkId = 
+														{
+															uint Id = 10,
+														},
+														Named = 
+														{
+															string Name = "HatB",
+														},
+														Transform = 
+														{
+															Vec3 Translation = [2.98023e-008, 3.43323e-005, 1.45729],
+															Vec3 Scale = [0.486087, 0.486087, 1.81245],
+															Quat Rotation = [0, 0, 0, 1],
+														},
+														Model = 
+														{
+															string MaterialName = "549a9f71f45ed652:mat_Fabric",
+															string MeshName = "4de0354322b376ae:Sphere",
+															Vec4 Color = [1, 0.59795, 0.065, 1],
+															bool Visible = true,
+														},
+														RigidBody = 
+														{
+															bool Static = false,
+															bool Asleep = false,
+															bool Kinematic = true,
+															bool RotationLocked = false,
+															bool Mode2D = false,
+															bool AllowSleep = true,
+															bool Inherit2DMode = true,
+															Vec3 Velocity = [0, 0, 0],
+															Vec3 AngularVelocity = [0, 0, 0],
+														},
+														SphereCollider = 
+														{
+															bool Ghost = false,
+															bool SendsMessages = true,
+															bool Seamless = true,
+															string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+															string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+															Vec3 Offset = [0, 0, 0],
+															float Radius = 1,
+														},
+													},
+												},
+											},
+										},
+									},
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 11,
+										},
+										Named = 
+										{
+											string Name = "LArm",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [0.337381, -1.75468e-007, 0.408789],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [0, 0, 0, 1],
+										},
+										Model = 
+										{
+											string MaterialName = "544380cb7820af93:lambert1",
+											string MeshName = "53f50b788ef4a1c0:BoxMan.LArm",
+											Vec4 Color = [1, 1, 1, 1],
+											bool Visible = true,
+										},
+										Hierarchy = 
+										{
+											Cog = 
+											{
+												LinkId = 
+												{
+													uint Id = 12,
+												},
+												Named = 
+												{
+													string Name = "LArm01",
+												},
+												Transform = 
+												{
+													Vec3 Translation = [2.98023e-008, 1.28688e-007, -0.299804],
+													Vec3 Scale = [1, 1, 1],
+													Quat Rotation = [0, 0, 0, 1],
+												},
+												Model = 
+												{
+													string MaterialName = "544380cb7820af93:lambert1",
+													string MeshName = "53f50b788ef4a1c2:BoxMan.LArm01",
+													Vec4 Color = [1, 1, 1, 1],
+													bool Visible = true,
+												},
+												Hierarchy = 
+												{
+													Cog = 
+													{
+														LinkId = 
+														{
+															uint Id = 13,
+														},
+														Named = 
+														{
+															string Name = "Lantern",
+														},
+														Archetyped = 
+														{
+															string Name = "54045e28b8fa15b8:Lantern",
+														},
+														Transform = 
+														{
+															Vec3 Translation = [0.0704139, -0.11324, -0.291466],
+															Vec3 Scale = [0.35, 0.35, 0.35],
+															Quat Rotation = [-0.214771, -0.0184185, 0.965249, -0.147744],
+														},
+														Model = 
+														{
+															string MaterialName = "5404506d3dd2a41e:mat_Light",
+															string MeshName = "4de0354322b345ae:Cube",
+															Vec4 Color = [1, 0.5712, 0.36, 1],
+															bool Visible = true,
+														},
+														Light = 
+														{
+															LightType LightType = Point,
+															bool Active = true,
+															float Range = 15,
+															float MinRange = 0.1,
+															float Angle = 45,
+															float Intensity = 1,
+															Vec4 Color = [0.99, 0.409613, 0.12375, 1],
+															float MinRange = 0.1,
+															float Size = 20,
+															bool Baked = false,
+														},
+														GodRayLight = 
+														{
+															GodRayLightType LightType = Point,
+															bool Active = true,
+															int Samples = 80,
+															Vec4 Color = [1, 0.4575, 0.225, 1],
+															float Intensity = 1,
+															float ScreenRadius = 0.11,
+															float OccluderClarity = 0.27,
+															bool ScreenEdgeFade = false,
+															float BeginFade = -0.1,
+															float EndFade = 0.1,
+															float DepthOffset = 0,
+														},
+														Hierarchy = 
+														{
+														},
+													},
+												},
+											},
+										},
+									},
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 14,
+										},
+										Named = 
+										{
+											string Name = "RArm",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [-0.337996, -1.75468e-007, 0.408789],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [0, 0, 0, 1],
+										},
+										Model = 
+										{
+											string MaterialName = "544380cb7820af93:lambert1",
+											string MeshName = "53f50b788ef4a1c4:BoxMan.RArm",
+											Vec4 Color = [1, 1, 1, 1],
+											bool Visible = true,
+										},
+										Hierarchy = 
+										{
+											Cog = 
+											{
+												LinkId = 
+												{
+													uint Id = 15,
+												},
+												Named = 
+												{
+													string Name = "RArm01",
+												},
+												Transform = 
+												{
+													Vec3 Translation = [-2.98023e-008, 1.28688e-007, -0.299804],
+													Vec3 Scale = [1, 1, 1],
+													Quat Rotation = [0, 0, 0, 1],
+												},
+												Model = 
+												{
+													string MaterialName = "544380cb7820af93:lambert1",
+													string MeshName = "53f50b788ef4a1c6:BoxMan.RArm01",
+													Vec4 Color = [1, 1, 1, 1],
+													bool Visible = true,
+												},
+												Hierarchy = 
+												{
+												},
+											},
+										},
+									},
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 16,
+								},
+								Named = 
+								{
+									string Name = "LLeg",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0.130405, -2.20144e-008, 0.028952],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [7.10543e-015, -7.52316e-037, 6.31088e-030, 1],
+								},
+								Model = 
+								{
+									string MaterialName = "544380cb7820af93:lambert1",
+									string MeshName = "53f50b788ef4a1c7:BoxMan.LLeg",
+									Vec4 Color = [1, 1, 1, 1],
+									bool Visible = true,
+								},
+								Hierarchy = 
+								{
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 17,
+										},
+										Named = 
+										{
+											string Name = "LLeg01",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [0, 1.28688e-007, -0.299807],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [0, 0, 0, 1],
+										},
+										Model = 
+										{
+											string MaterialName = "544380cb7820af93:lambert1",
+											string MeshName = "53f50b788ef4a1c9:BoxMan.LLeg01",
+											Vec4 Color = [1, 1, 1, 1],
+											bool Visible = true,
+										},
+									},
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 18,
+								},
+								Named = 
+								{
+									string Name = "RLeg",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-0.13, -1.67773e-008, 0.028952],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [7.10543e-015, -7.52316e-037, 6.31088e-030, 1],
+								},
+								Model = 
+								{
+									string MaterialName = "544380cb7820af93:lambert1",
+									string MeshName = "53f50b788ef4a1cb:BoxMan.RLeg",
+									Vec4 Color = [1, 1, 1, 1],
+									bool Visible = true,
+								},
+								Hierarchy = 
+								{
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 19,
+										},
+										Named = 
+										{
+											string Name = "RLeg01",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [0, 1.28688e-007, -0.299807],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [0, 0, 0, 1],
+										},
+										Model = 
+										{
+											string MaterialName = "544380cb7820af93:lambert1",
+											string MeshName = "53f50b788ef4a1cd:BoxMan.RLeg01",
+											Vec4 Color = [1, 1, 1, 1],
+											bool Visible = true,
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 20,
+				},
+				Named = 
+				{
+					string Name = "OnFire",
+				},
+				Archetyped = 
+				{
+					string Name = "549a983f28a95fba:OnFire",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.0153871, 0.459993, 0.334081],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteParticleSystem = 
+				{
+					SystemChildMode ChildMode = Independent,
+					SystemSpace SystemSpace = WorldSpace,
+					uint DrawOrder = 0,
+					float WarmUpTime = 0,
+					ParticleGeometry GeometryMode = Billboarded,
+					ParticleRenderMode RenderMode = Blended,
+					ParticleSortMode SortMode = Youngest,
+					ParticleAnimation ParticleAnimation = Single,
+					string Texture = "549077776ae53c06:tex_toon_explosion",
+					Vec4 Tint = [1, 1, 1, 0.87],
+					float VelocityScale = 1,
+					float LengthScale = 1,
+					float MaxParticleSize = 100,
+					Vec3 SystemSize = [4, 4, 4],
+				},
+				SphericalParticleEmitter = 
+				{
+					bool Active = false,
+					uint EmitCount = 0,
+					float EmitRate = 80,
+					float EmitVariance = 0,
+					float Size = 1,
+					float SizeVariance = 0.5,
+					float Lifetime = 1,
+					float LifetimeVariance = 0.2,
+					float Spin = 360,
+					float SpinVariance = 50,
+					bool RandomSpin = true,
+					float Fill = 1,
+					float EmitterVelocityPercent = 0,
+					Vec3 StartVelocity = [0, 0, 8],
+					Vec3 RandomVelocity = [1, 1, 1],
+					Vec3 TangentVelocity = [0, 0, 0],
+					Vec3 EmitterSize = [1, 1, 1],
+					bool FastMovingEmitter = true,
+				},
+				LinearParticleAnimator = 
+				{
+					Vec3 Force = [0, 0, 0],
+					Vec3 RandomForce = [0, 0, 0],
+					float Torque = 0,
+					float Growth = -1,
+					float Dampening = 0,
+					Vec3 Twist = [0, 0, 0],
+				},
+				ParticleColorAnimator = 
+				{
+					Vec4 Color0 = [1, 0.75, 0, 0],
+					Vec4 Color1 = [1, 0.69, 0, 1],
+					Vec4 Color2 = [0.985, 0.426209, 0.06895, 1],
+					Vec4 Color3 = [1, 0.15, 0, 1],
+					Vec4 Color4 = [1, 0.15, 0, 0],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 21,
+				},
+				Named = 
+				{
+					string Name = "Parasol",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.613419, 0.22648, 1.08852],
+					Vec3 Scale = [0.5, 0.5, 0.5],
+					Quat Rotation = [0.126604, 0.12717, 0.0260524, 0.983423],
+				},
+				Model = 
+				{
+					string MaterialName = "537644533dba9ae8:mat_Plain",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0.26, 0.135447, 0.0741, 1],
+					bool Visible = false,
+				},
+				SwordController = 
+				{
+					string GruntSound = "54fc772fa224f98d:PlayerAttackGrunt",
+					string SwishSound = "54fc4f740d467ada:Swish",
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				AnimationGraph = 
+				{
+					bool Active = true,
+					AnimPlayMode PlayMode = PlayOnce,
+					float TimeScale = 3,
+					string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+					uint64 DebugPreviewId = 5443d743ccc2e60d,
+				},
+				SimpleAnimation = 
+				{
+					string AnimationName = "549aeec1abd86258:Blocking",
+					AnimPlayMode PlayMode = PlayOnce,
+				},
+				SoundEmitter = 
+				{
+					bool StartPlaying = false,
+					int ExtraPriority = 0,
+					string CueName = "54fc4f740d467ada:Swish",
+					float Volume = 1,
+					float Pitch = 1,
+					bool Positional = true,
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 22,
+						},
+						Named = 
+						{
+							string Name = "Blade",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-0.00796628, 1.85248, 0],
+							Vec3 Scale = [0.3, 4, 0.3],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5404506d3dd2a41e:mat_Light",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [0.19, 0.0627, 0, 1],
+							bool Visible = true,
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.5, 0.5],
+						},
+						DynamicMesh = 
+						{
+							bool GenerateNormals = true,
+							bool GenerateUVs = false,
+							bool GenerateAdjacencyInfo = false,
+						},
+						Ribbon = 
+						{
+							bool Spawning = true,
+							Vec3 LocalSpawnPointA = [0, 0.6, 0],
+							Vec3 LocalSpawnPointB = [0, -0.6, -0],
+							uint MaxLength = 25,
+							float LengthBetweenSpawn = 0.01,
+							float TimeBetweenSpawn = 0.01,
+							CurveType CurveType = BSpline,
+							uint CurveResolution = 5,
+							Vec2 TextureScalar = [1, 1],
+							bool FlipTextureX = false,
+							bool FlipTextureY = false,
+							bool UseDecayCurve = true,
+							string DecayCurveName = "54fcfaaf9f68a225:BladeCurve",
+						},
+						DynamicMeshRenderer = 
+						{
+							string Material = "5404506d3dd2a41e:mat_Light",
+							Vec4 Color = [0.4375, 0.63875, 0.875, 1],
+							bool Visible = true,
+						},
+						Hierarchy = 
+						{
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 23,
+						},
+						Named = 
+						{
+							string Name = "EyeBall",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0.21215, 2.96657, 0.0114838],
+							Vec3 Scale = [0.3, 0.3, 0.2],
+							Quat Rotation = [-2.7319e-008, 0.571195, 3.98945e-008, 0.820815],
+						},
+						Model = 
+						{
+							string MaterialName = "54ff05a7f658ee25:mat_EyeBall",
+							string MeshName = "4de0354322b376ae:Sphere",
+							Vec4 Color = [1, 1, 1, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 24,
+						},
+						Named = 
+						{
+							string Name = "Ribs",
+						},
+						Archetyped = 
+						{
+							string Name = "549a958d188e088b:Ribs",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0.0594798, 4.03428, -0.0567631],
+							Vec3 Scale = [0.3, 4.5, 0.3],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "549a946bb9e88da4:mat_Parasol",
+							string MeshName = "549a90678d6bf01f:BaseParasol",
+							Vec4 Color = [0.660215, 0.378775, 0.695, 1],
+							bool Visible = true,
+						},
+						RibController = 
+						{
+							float WindSpeed = 20,
+						},
+						BoxCollider = 
+						{
+							bool Ghost = true,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, -0.5, 0],
+							Vec3 Size = [2.5, 0.5, 2.5],
+						},
+						RigidBody = 
+						{
+							bool Static = false,
+							bool Asleep = false,
+							bool Kinematic = true,
+							bool RotationLocked = false,
+							bool Mode2D = false,
+							bool AllowSleep = true,
+							bool Inherit2DMode = true,
+							Vec3 Velocity = [0, 0, 0],
+							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						SoundEmitter = 
+						{
+							bool StartPlaying = false,
+							int ExtraPriority = 0,
+							string CueName = "549afd4c3301db44:Whoosh_ParasolOpen",
+							float Volume = 1,
+							float Pitch = 1,
+							bool Positional = true,
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 25,
+								},
+								Named = 
+								{
+									string Name = "TongueMount",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [1.76814, -0.424878, 0.42237],
+									Vec3 Scale = [0.666667, 0.0444444, 0.666667],
+									Quat Rotation = [-3.35276e-007, 1.11759e-008, 3.747e-015, 1],
+								},
+								Model = 
+								{
+									string MaterialName = "54ff27758d4308c1:mat_Ghost",
+									string MeshName = "4de0354322b376ae:Sphere",
+									Vec4 Color = [1, 0, 0, 1],
+									bool Visible = false,
+								},
+								SphereCollider = 
+								{
+									bool Ghost = false,
+									bool SendsMessages = true,
+									bool Seamless = true,
+									string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+									string SerializedGroupName = "54ff0eb5b975b8c8:CG_Tongue",
+									Vec3 Offset = [0, 0, 0],
+									float Radius = 1,
+								},
+								TongueManager = 
+								{
+									bool Enable = false,
+								},
+							},
+						},
+					},
+				},
+			},
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 5,
+			uint Id = 26,
 		},
 		Named = 
 		{
@@ -166,7 +1070,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 6,
+			uint Id = 27,
 		},
 		Named = 
 		{
@@ -271,7 +1175,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 7,
+					uint Id = 28,
 				},
 				Named = 
 				{
@@ -300,7 +1204,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 8,
+							uint Id = 29,
 						},
 						Named = 
 						{
@@ -342,7 +1246,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 9,
+							uint Id = 30,
 						},
 						Named = 
 						{
@@ -428,7 +1332,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 10,
+							uint Id = 31,
 						},
 						Named = 
 						{
@@ -488,7 +1392,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 11,
+			uint Id = 32,
 		},
 		Named = 
 		{
@@ -539,7 +1443,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 12,
+			uint Id = 33,
 		},
 		Named = 
 		{
@@ -590,7 +1494,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 13,
+			uint Id = 34,
 		},
 		Named = 
 		{
@@ -641,7 +1545,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 14,
+			uint Id = 35,
 		},
 		Named = 
 		{
@@ -692,7 +1596,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 15,
+			uint Id = 36,
 		},
 		Named = 
 		{
@@ -715,7 +1619,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 16,
+					uint Id = 37,
 				},
 				Named = 
 				{
@@ -761,7 +1665,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 17,
+					uint Id = 38,
 				},
 				Named = 
 				{
@@ -807,7 +1711,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 18,
+					uint Id = 39,
 				},
 				Named = 
 				{
@@ -853,7 +1757,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 19,
+					uint Id = 40,
 				},
 				Named = 
 				{
@@ -899,7 +1803,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 20,
+					uint Id = 41,
 				},
 				Named = 
 				{
@@ -945,7 +1849,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 21,
+					uint Id = 42,
 				},
 				Named = 
 				{
@@ -991,7 +1895,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 22,
+					uint Id = 43,
 				},
 				Named = 
 				{
@@ -1039,7 +1943,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 23,
+			uint Id = 44,
 		},
 		Named = 
 		{
@@ -1057,7 +1961,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 24,
+					uint Id = 45,
 				},
 				Named = 
 				{
@@ -1103,7 +2007,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 25,
+					uint Id = 46,
 				},
 				Named = 
 				{
@@ -1149,7 +2053,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 26,
+					uint Id = 47,
 				},
 				Named = 
 				{
@@ -1195,7 +2099,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 27,
+					uint Id = 48,
 				},
 				Named = 
 				{
@@ -1241,7 +2145,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 28,
+					uint Id = 49,
 				},
 				Named = 
 				{
@@ -1287,7 +2191,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 29,
+					uint Id = 50,
 				},
 				Named = 
 				{
@@ -1333,7 +2237,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 30,
+					uint Id = 51,
 				},
 				Named = 
 				{
@@ -1379,7 +2283,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 31,
+					uint Id = 52,
 				},
 				Named = 
 				{
@@ -1425,7 +2329,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 32,
+					uint Id = 53,
 				},
 				Named = 
 				{
@@ -1471,7 +2375,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 33,
+					uint Id = 54,
 				},
 				Named = 
 				{
@@ -1517,7 +2421,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 34,
+					uint Id = 55,
 				},
 				Named = 
 				{
@@ -1563,7 +2467,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 35,
+					uint Id = 56,
 				},
 				Named = 
 				{
@@ -1609,7 +2513,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 36,
+					uint Id = 57,
 				},
 				Named = 
 				{
@@ -1655,7 +2559,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 37,
+					uint Id = 58,
 				},
 				Named = 
 				{
@@ -1701,7 +2605,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 38,
+					uint Id = 59,
 				},
 				Named = 
 				{
@@ -1747,7 +2651,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 39,
+					uint Id = 60,
 				},
 				Named = 
 				{
@@ -1793,7 +2697,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 40,
+					uint Id = 61,
 				},
 				Named = 
 				{
@@ -1839,7 +2743,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 41,
+					uint Id = 62,
 				},
 				Named = 
 				{
@@ -1885,7 +2789,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 42,
+					uint Id = 63,
 				},
 				Named = 
 				{
@@ -1931,7 +2835,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 43,
+					uint Id = 64,
 				},
 				Named = 
 				{
@@ -1977,7 +2881,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 44,
+					uint Id = 65,
 				},
 				Named = 
 				{
@@ -2023,7 +2927,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 45,
+					uint Id = 66,
 				},
 				Named = 
 				{
@@ -2069,7 +2973,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 46,
+					uint Id = 67,
 				},
 				Named = 
 				{
@@ -2115,7 +3019,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 47,
+					uint Id = 68,
 				},
 				Named = 
 				{
@@ -2161,7 +3065,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 48,
+					uint Id = 69,
 				},
 				Named = 
 				{
@@ -2207,7 +3111,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 49,
+					uint Id = 70,
 				},
 				Named = 
 				{
@@ -2253,7 +3157,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 50,
+					uint Id = 71,
 				},
 				Named = 
 				{
@@ -2299,7 +3203,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 51,
+					uint Id = 72,
 				},
 				Named = 
 				{
@@ -2345,7 +3249,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 52,
+					uint Id = 73,
 				},
 				Named = 
 				{
@@ -2391,7 +3295,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 53,
+					uint Id = 74,
 				},
 				Named = 
 				{
@@ -2439,7 +3343,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 54,
+			uint Id = 75,
 		},
 		Named = 
 		{
@@ -2463,7 +3367,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 55,
+			uint Id = 76,
 		},
 		Named = 
 		{
@@ -2487,7 +3391,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 56,
+			uint Id = 77,
 		},
 		Named = 
 		{
@@ -2511,7 +3415,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 57,
+			uint Id = 78,
 		},
 		Named = 
 		{
@@ -2535,7 +3439,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 58,
+			uint Id = 79,
 		},
 		Named = 
 		{
@@ -2559,7 +3463,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 59,
+			uint Id = 80,
 		},
 		Named = 
 		{
@@ -2583,7 +3487,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 60,
+			uint Id = 81,
 		},
 		Named = 
 		{
@@ -2607,7 +3511,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 61,
+			uint Id = 82,
 		},
 		Named = 
 		{
@@ -2631,7 +3535,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 62,
+			uint Id = 83,
 		},
 		Named = 
 		{
@@ -2656,7 +3560,7 @@ Level =
 		string Name = "5481a2f612bcc3ec:TargetLock",
 		LinkId = 
 		{
-			uint Id = 63,
+			uint Id = 84,
 		},
 		Transform = 
 		{
@@ -2673,7 +3577,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 64,
+			uint Id = 85,
 		},
 		Named = 
 		{
@@ -2697,7 +3601,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 65,
+			uint Id = 86,
 		},
 		Named = 
 		{
@@ -2734,7 +3638,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 66,
+			uint Id = 87,
 		},
 		Named = 
 		{
@@ -2760,7 +3664,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 67,
+					uint Id = 88,
 				},
 				Archetyped = 
 				{
@@ -2796,7 +3700,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5481b5f5ebdb0705,
+					uint64 CachedGeometryId = 548196d4d0072dff,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -3514,7 +4418,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 68,
+					uint Id = 89,
 				},
 				Archetyped = 
 				{
@@ -3550,7 +4454,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5481b5f5ebdb151c,
+					uint64 CachedGeometryId = 548196d4d0073d74,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -3641,7 +4545,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 69,
+					uint Id = 90,
 				},
 				Archetyped = 
 				{
@@ -3677,7 +4581,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54819a451363d348,
+					uint64 CachedGeometryId = 548196d4d0078f9a,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -4017,7 +4921,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 70,
+			uint Id = 91,
 		},
 		Named = 
 		{
@@ -4051,7 +4955,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 71,
+					uint Id = 92,
 				},
 				Named = 
 				{
@@ -4075,7 +4979,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 72,
+					uint Id = 93,
 				},
 				Named = 
 				{
@@ -4102,7 +5006,7 @@ Level =
 		string Name = "548181af93868c61:LanternPostRedDayDemo",
 		LinkId = 
 		{
-			uint Id = 73,
+			uint Id = 94,
 		},
 		Transform = 
 		{
@@ -4120,7 +5024,7 @@ Level =
 		string Name = "5481b45daca13312:FlowerA",
 		LinkId = 
 		{
-			uint Id = 74,
+			uint Id = 95,
 		},
 		Transform = 
 		{
@@ -4137,7 +5041,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 75,
+			uint Id = 96,
 		},
 		Named = 
 		{
@@ -4166,7 +5070,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 76,
+					uint Id = 97,
 				},
 				Named = 
 				{
@@ -4184,7 +5088,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 77,
+							uint Id = 98,
 						},
 						Named = 
 						{
@@ -4213,7 +5117,7 @@ Level =
 		string Name = "5481b9d252193e0d:Bamboo_HighPoly",
 		LinkId = 
 		{
-			uint Id = 78,
+			uint Id = 99,
 		},
 		Transform = 
 		{
@@ -4231,7 +5135,7 @@ Level =
 		string Name = "5481b890344032d1:Bamboo_LP1",
 		LinkId = 
 		{
-			uint Id = 79,
+			uint Id = 100,
 		},
 		Transform = 
 		{
@@ -4249,7 +5153,7 @@ Level =
 		string Name = "5481b97232710935:Bamboo_LP2",
 		LinkId = 
 		{
-			uint Id = 80,
+			uint Id = 101,
 		},
 		Transform = 
 		{
@@ -4267,7 +5171,7 @@ Level =
 		string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 		LinkId = 
 		{
-			uint Id = 81,
+			uint Id = 102,
 		},
 		Transform = 
 		{
@@ -4284,7 +5188,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 82,
+			uint Id = 103,
 		},
 		Named = 
 		{
@@ -4333,7 +5237,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 83,
+					uint Id = 104,
 				},
 				Transform = 
 				{
@@ -4351,7 +5255,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 84,
+					uint Id = 105,
 				},
 				Transform = 
 				{
@@ -4369,7 +5273,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 85,
+					uint Id = 106,
 				},
 				Transform = 
 				{
@@ -4387,7 +5291,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 86,
+					uint Id = 107,
 				},
 				Transform = 
 				{
@@ -4405,7 +5309,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 87,
+					uint Id = 108,
 				},
 				Transform = 
 				{
@@ -4423,7 +5327,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 88,
+					uint Id = 109,
 				},
 				Transform = 
 				{
@@ -4441,7 +5345,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 89,
+					uint Id = 110,
 				},
 				Transform = 
 				{
@@ -4459,7 +5363,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 90,
+					uint Id = 111,
 				},
 				Transform = 
 				{
@@ -4477,7 +5381,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 91,
+					uint Id = 112,
 				},
 				Transform = 
 				{
@@ -4495,7 +5399,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 92,
+					uint Id = 113,
 				},
 				Transform = 
 				{
@@ -4513,7 +5417,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 93,
+					uint Id = 114,
 				},
 				Transform = 
 				{
@@ -4531,7 +5435,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 94,
+					uint Id = 115,
 				},
 				Transform = 
 				{
@@ -4549,7 +5453,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 95,
+					uint Id = 116,
 				},
 				Transform = 
 				{
@@ -4567,7 +5471,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 96,
+					uint Id = 117,
 				},
 				Transform = 
 				{
@@ -4585,7 +5489,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 97,
+					uint Id = 118,
 				},
 				Transform = 
 				{
@@ -4603,7 +5507,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 98,
+					uint Id = 119,
 				},
 				Transform = 
 				{
@@ -4621,7 +5525,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 99,
+					uint Id = 120,
 				},
 				Transform = 
 				{
@@ -4639,7 +5543,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 100,
+					uint Id = 121,
 				},
 				Transform = 
 				{
@@ -4657,7 +5561,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 101,
+					uint Id = 122,
 				},
 				Transform = 
 				{
@@ -4675,7 +5579,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 102,
+					uint Id = 123,
 				},
 				Transform = 
 				{
@@ -4693,7 +5597,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 103,
+					uint Id = 124,
 				},
 				Transform = 
 				{
@@ -4711,7 +5615,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 104,
+					uint Id = 125,
 				},
 				Transform = 
 				{
@@ -4729,7 +5633,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 105,
+					uint Id = 126,
 				},
 				Transform = 
 				{
@@ -4747,7 +5651,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 106,
+					uint Id = 127,
 				},
 				Transform = 
 				{
@@ -4765,7 +5669,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 107,
+					uint Id = 128,
 				},
 				Transform = 
 				{
@@ -4783,7 +5687,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 108,
+					uint Id = 129,
 				},
 				Transform = 
 				{
@@ -4801,7 +5705,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 109,
+					uint Id = 130,
 				},
 				Transform = 
 				{
@@ -4819,7 +5723,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 110,
+					uint Id = 131,
 				},
 				Transform = 
 				{
@@ -4837,7 +5741,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 111,
+					uint Id = 132,
 				},
 				Transform = 
 				{
@@ -4855,7 +5759,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 112,
+					uint Id = 133,
 				},
 				Transform = 
 				{
@@ -4873,7 +5777,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 113,
+					uint Id = 134,
 				},
 				Transform = 
 				{
@@ -4891,7 +5795,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 114,
+					uint Id = 135,
 				},
 				Transform = 
 				{
@@ -4909,7 +5813,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 115,
+					uint Id = 136,
 				},
 				Transform = 
 				{
@@ -4927,7 +5831,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 116,
+					uint Id = 137,
 				},
 				Transform = 
 				{
@@ -4945,7 +5849,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 117,
+					uint Id = 138,
 				},
 				Transform = 
 				{
@@ -4963,7 +5867,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 118,
+					uint Id = 139,
 				},
 				Transform = 
 				{
@@ -4981,7 +5885,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 119,
+					uint Id = 140,
 				},
 				Transform = 
 				{
@@ -4999,7 +5903,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 120,
+					uint Id = 141,
 				},
 				Transform = 
 				{
@@ -5017,7 +5921,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 121,
+					uint Id = 142,
 				},
 				Transform = 
 				{
@@ -5035,7 +5939,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 122,
+					uint Id = 143,
 				},
 				Transform = 
 				{
@@ -5053,7 +5957,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 123,
+					uint Id = 144,
 				},
 				Transform = 
 				{
@@ -5071,7 +5975,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 124,
+					uint Id = 145,
 				},
 				Transform = 
 				{
@@ -5089,7 +5993,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 125,
+					uint Id = 146,
 				},
 				Transform = 
 				{
@@ -5107,7 +6011,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 126,
+					uint Id = 147,
 				},
 				Transform = 
 				{
@@ -5125,7 +6029,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 127,
+					uint Id = 148,
 				},
 				Transform = 
 				{
@@ -5143,7 +6047,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 128,
+					uint Id = 149,
 				},
 				Transform = 
 				{
@@ -5161,7 +6065,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 129,
+					uint Id = 150,
 				},
 				Transform = 
 				{
@@ -5179,7 +6083,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 130,
+					uint Id = 151,
 				},
 				Transform = 
 				{
@@ -5197,7 +6101,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 131,
+					uint Id = 152,
 				},
 				Transform = 
 				{
@@ -5215,7 +6119,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 132,
+					uint Id = 153,
 				},
 				Transform = 
 				{
@@ -5233,7 +6137,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 133,
+					uint Id = 154,
 				},
 				Transform = 
 				{
@@ -5251,7 +6155,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 134,
+					uint Id = 155,
 				},
 				Transform = 
 				{
@@ -5269,7 +6173,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 135,
+					uint Id = 156,
 				},
 				Transform = 
 				{
@@ -5287,7 +6191,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 136,
+					uint Id = 157,
 				},
 				Transform = 
 				{
@@ -5305,7 +6209,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 137,
+					uint Id = 158,
 				},
 				Transform = 
 				{
@@ -5323,7 +6227,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 138,
+					uint Id = 159,
 				},
 				Transform = 
 				{
@@ -5341,7 +6245,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 139,
+					uint Id = 160,
 				},
 				Transform = 
 				{
@@ -5359,7 +6263,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 140,
+					uint Id = 161,
 				},
 				Transform = 
 				{
@@ -5377,7 +6281,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 141,
+					uint Id = 162,
 				},
 				Transform = 
 				{
@@ -5395,7 +6299,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 142,
+					uint Id = 163,
 				},
 				Transform = 
 				{
@@ -5413,7 +6317,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 143,
+					uint Id = 164,
 				},
 				Transform = 
 				{
@@ -5431,7 +6335,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 144,
+					uint Id = 165,
 				},
 				Transform = 
 				{
@@ -5449,7 +6353,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 145,
+					uint Id = 166,
 				},
 				Transform = 
 				{
@@ -5467,7 +6371,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 146,
+					uint Id = 167,
 				},
 				Transform = 
 				{
@@ -5485,7 +6389,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 147,
+					uint Id = 168,
 				},
 				Transform = 
 				{
@@ -5503,7 +6407,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 148,
+					uint Id = 169,
 				},
 				Transform = 
 				{
@@ -5521,7 +6425,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 149,
+					uint Id = 170,
 				},
 				Transform = 
 				{
@@ -5539,7 +6443,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 150,
+					uint Id = 171,
 				},
 				Transform = 
 				{
@@ -5557,7 +6461,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 151,
+					uint Id = 172,
 				},
 				Transform = 
 				{
@@ -5575,7 +6479,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 152,
+					uint Id = 173,
 				},
 				Transform = 
 				{
@@ -5593,7 +6497,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 153,
+					uint Id = 174,
 				},
 				Transform = 
 				{
@@ -5611,7 +6515,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 154,
+					uint Id = 175,
 				},
 				Transform = 
 				{
@@ -5629,7 +6533,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 155,
+					uint Id = 176,
 				},
 				Transform = 
 				{
@@ -5647,7 +6551,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 156,
+					uint Id = 177,
 				},
 				Transform = 
 				{
@@ -5665,7 +6569,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 157,
+					uint Id = 178,
 				},
 				Transform = 
 				{
@@ -5683,7 +6587,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 158,
+					uint Id = 179,
 				},
 				Transform = 
 				{
@@ -5701,7 +6605,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 159,
+					uint Id = 180,
 				},
 				Transform = 
 				{
@@ -5719,7 +6623,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 160,
+					uint Id = 181,
 				},
 				Transform = 
 				{
@@ -5737,7 +6641,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 161,
+					uint Id = 182,
 				},
 				Transform = 
 				{
@@ -5755,7 +6659,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 162,
+					uint Id = 183,
 				},
 				Transform = 
 				{
@@ -5773,7 +6677,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 163,
+					uint Id = 184,
 				},
 				Transform = 
 				{
@@ -5791,7 +6695,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 164,
+					uint Id = 185,
 				},
 				Transform = 
 				{
@@ -5809,7 +6713,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 165,
+					uint Id = 186,
 				},
 				Transform = 
 				{
@@ -5827,7 +6731,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 166,
+					uint Id = 187,
 				},
 				Transform = 
 				{
@@ -5845,7 +6749,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 167,
+					uint Id = 188,
 				},
 				Transform = 
 				{
@@ -5863,7 +6767,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 168,
+					uint Id = 189,
 				},
 				Transform = 
 				{
@@ -5881,7 +6785,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 169,
+					uint Id = 190,
 				},
 				Transform = 
 				{
@@ -5899,7 +6803,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 170,
+					uint Id = 191,
 				},
 				Transform = 
 				{
@@ -5917,7 +6821,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 171,
+					uint Id = 192,
 				},
 				Transform = 
 				{
@@ -5935,7 +6839,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 172,
+					uint Id = 193,
 				},
 				Transform = 
 				{
@@ -5953,7 +6857,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 173,
+					uint Id = 194,
 				},
 				Transform = 
 				{
@@ -5971,7 +6875,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 174,
+					uint Id = 195,
 				},
 				Transform = 
 				{
@@ -5989,7 +6893,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 175,
+					uint Id = 196,
 				},
 				Transform = 
 				{
@@ -6007,7 +6911,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 176,
+					uint Id = 197,
 				},
 				Transform = 
 				{
@@ -6025,7 +6929,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 177,
+					uint Id = 198,
 				},
 				Transform = 
 				{
@@ -6043,7 +6947,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 178,
+					uint Id = 199,
 				},
 				Transform = 
 				{
@@ -6061,7 +6965,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 179,
+					uint Id = 200,
 				},
 				Transform = 
 				{
@@ -6081,7 +6985,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 180,
+			uint Id = 201,
 		},
 		Transform = 
 		{
@@ -6099,7 +7003,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 181,
+			uint Id = 202,
 		},
 		Transform = 
 		{
@@ -6117,7 +7021,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 182,
+			uint Id = 203,
 		},
 		Transform = 
 		{
@@ -6135,7 +7039,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 183,
+			uint Id = 204,
 		},
 		Transform = 
 		{
@@ -6153,7 +7057,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 184,
+			uint Id = 205,
 		},
 		Transform = 
 		{
@@ -6171,7 +7075,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 185,
+			uint Id = 206,
 		},
 		Transform = 
 		{
@@ -6189,7 +7093,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 186,
+			uint Id = 207,
 		},
 		Transform = 
 		{
@@ -6207,7 +7111,7 @@ Level =
 		string Name = "548181af93868c61:LanternPostRedDayDemo",
 		LinkId = 
 		{
-			uint Id = 187,
+			uint Id = 208,
 		},
 		Transform = 
 		{
@@ -6225,7 +7129,7 @@ Level =
 		string Name = "5481816e756701da:LightGrassGroup",
 		LinkId = 
 		{
-			uint Id = 188,
+			uint Id = 209,
 		},
 		Transform = 
 		{
@@ -6242,7 +7146,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 189,
+			uint Id = 210,
 		},
 		Named = 
 		{
@@ -6271,7 +7175,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 190,
+					uint Id = 211,
 				},
 				Named = 
 				{
@@ -6295,7 +7199,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 191,
+					uint Id = 212,
 				},
 				Named = 
 				{
@@ -6321,7 +7225,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 192,
+			uint Id = 213,
 		},
 		Named = 
 		{
@@ -6350,7 +7254,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 193,
+					uint Id = 214,
 				},
 				Named = 
 				{
@@ -6374,7 +7278,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 194,
+					uint Id = 215,
 				},
 				Named = 
 				{
@@ -6400,7 +7304,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 195,
+			uint Id = 216,
 		},
 		Named = 
 		{
@@ -6429,7 +7333,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 196,
+					uint Id = 217,
 				},
 				Named = 
 				{
@@ -6453,7 +7357,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 197,
+					uint Id = 218,
 				},
 				Named = 
 				{
@@ -6479,7 +7383,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 198,
+			uint Id = 219,
 		},
 		Named = 
 		{
@@ -6508,7 +7412,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 199,
+					uint Id = 220,
 				},
 				Named = 
 				{
@@ -6532,7 +7436,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 200,
+					uint Id = 221,
 				},
 				Named = 
 				{
@@ -6558,7 +7462,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 201,
+			uint Id = 222,
 		},
 		Named = 
 		{
@@ -6587,7 +7491,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 202,
+					uint Id = 223,
 				},
 				Named = 
 				{
@@ -6611,7 +7515,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 203,
+					uint Id = 224,
 				},
 				Named = 
 				{
@@ -6637,7 +7541,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 204,
+			uint Id = 225,
 		},
 		Named = 
 		{
@@ -6666,7 +7570,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 205,
+					uint Id = 226,
 				},
 				Named = 
 				{
@@ -6690,7 +7594,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 206,
+					uint Id = 227,
 				},
 				Named = 
 				{
@@ -6716,7 +7620,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 207,
+			uint Id = 228,
 		},
 		Named = 
 		{
@@ -6745,7 +7649,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 208,
+					uint Id = 229,
 				},
 				Named = 
 				{
@@ -6769,7 +7673,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 209,
+					uint Id = 230,
 				},
 				Named = 
 				{
@@ -6796,7 +7700,7 @@ Level =
 		string Name = "548180454340fc51:FieldFlowerLarge",
 		LinkId = 
 		{
-			uint Id = 210,
+			uint Id = 231,
 		},
 		Transform = 
 		{
@@ -6814,7 +7718,7 @@ Level =
 		string Name = "548180454340fc51:FieldFlowerLarge",
 		LinkId = 
 		{
-			uint Id = 211,
+			uint Id = 232,
 		},
 		Transform = 
 		{
@@ -6832,7 +7736,7 @@ Level =
 		string Name = "548180454340fc51:FieldFlowerLarge",
 		LinkId = 
 		{
-			uint Id = 212,
+			uint Id = 233,
 		},
 		Transform = 
 		{
@@ -6850,7 +7754,7 @@ Level =
 		string Name = "548180454340fc51:FieldFlowerLarge",
 		LinkId = 
 		{
-			uint Id = 213,
+			uint Id = 234,
 		},
 		Transform = 
 		{
@@ -6868,7 +7772,7 @@ Level =
 		string Name = "548180454340fc51:FieldFlowerLarge",
 		LinkId = 
 		{
-			uint Id = 214,
+			uint Id = 235,
 		},
 		Transform = 
 		{
@@ -6886,7 +7790,7 @@ Level =
 		string Name = "548180454340fc51:FieldFlowerLarge",
 		LinkId = 
 		{
-			uint Id = 215,
+			uint Id = 236,
 		},
 		Transform = 
 		{
@@ -6904,7 +7808,7 @@ Level =
 		string Name = "548180454340fc51:FieldFlowerLarge",
 		LinkId = 
 		{
-			uint Id = 216,
+			uint Id = 237,
 		},
 		Transform = 
 		{
@@ -6922,7 +7826,7 @@ Level =
 		string Name = "548180454340fc51:FieldFlowerLarge",
 		LinkId = 
 		{
-			uint Id = 217,
+			uint Id = 238,
 		},
 		Transform = 
 		{
@@ -6940,7 +7844,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 218,
+			uint Id = 239,
 		},
 		Transform = 
 		{
@@ -6958,7 +7862,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 219,
+			uint Id = 240,
 		},
 		Transform = 
 		{
@@ -6976,7 +7880,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 220,
+			uint Id = 241,
 		},
 		Transform = 
 		{
@@ -6994,7 +7898,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 221,
+			uint Id = 242,
 		},
 		Transform = 
 		{
@@ -7012,7 +7916,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 222,
+			uint Id = 243,
 		},
 		Transform = 
 		{
@@ -7030,7 +7934,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 223,
+			uint Id = 244,
 		},
 		Transform = 
 		{
@@ -7048,7 +7952,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 224,
+			uint Id = 245,
 		},
 		Transform = 
 		{
@@ -7066,7 +7970,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 225,
+			uint Id = 246,
 		},
 		Transform = 
 		{
@@ -7084,7 +7988,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 226,
+			uint Id = 247,
 		},
 		Transform = 
 		{
@@ -7102,7 +8006,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 227,
+			uint Id = 248,
 		},
 		Transform = 
 		{
@@ -7120,7 +8024,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 228,
+			uint Id = 249,
 		},
 		Transform = 
 		{
@@ -7138,7 +8042,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 229,
+			uint Id = 250,
 		},
 		Transform = 
 		{
@@ -7156,7 +8060,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 230,
+			uint Id = 251,
 		},
 		Transform = 
 		{
@@ -7174,7 +8078,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 231,
+			uint Id = 252,
 		},
 		Transform = 
 		{
@@ -7191,7 +8095,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 232,
+			uint Id = 253,
 		},
 		Named = 
 		{
@@ -7214,7 +8118,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 233,
+					uint Id = 254,
 				},
 				Transform = 
 				{
@@ -7232,7 +8136,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 234,
+					uint Id = 255,
 				},
 				Transform = 
 				{
@@ -7250,7 +8154,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 235,
+					uint Id = 256,
 				},
 				Transform = 
 				{
@@ -7268,7 +8172,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 236,
+					uint Id = 257,
 				},
 				Transform = 
 				{
@@ -7286,7 +8190,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 237,
+					uint Id = 258,
 				},
 				Transform = 
 				{
@@ -7304,7 +8208,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 238,
+					uint Id = 259,
 				},
 				Transform = 
 				{
@@ -7322,7 +8226,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 239,
+					uint Id = 260,
 				},
 				Transform = 
 				{
@@ -7340,7 +8244,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 240,
+					uint Id = 261,
 				},
 				Transform = 
 				{
@@ -7358,7 +8262,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 241,
+					uint Id = 262,
 				},
 				Transform = 
 				{
@@ -7376,7 +8280,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 242,
+					uint Id = 263,
 				},
 				Transform = 
 				{
@@ -7394,7 +8298,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 243,
+					uint Id = 264,
 				},
 				Transform = 
 				{
@@ -7412,7 +8316,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 244,
+					uint Id = 265,
 				},
 				Transform = 
 				{
@@ -7430,7 +8334,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 245,
+					uint Id = 266,
 				},
 				Transform = 
 				{
@@ -7448,7 +8352,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 246,
+					uint Id = 267,
 				},
 				Transform = 
 				{
@@ -7466,7 +8370,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 247,
+					uint Id = 268,
 				},
 				Transform = 
 				{
@@ -7484,7 +8388,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 248,
+					uint Id = 269,
 				},
 				Transform = 
 				{
@@ -7502,7 +8406,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 249,
+					uint Id = 270,
 				},
 				Transform = 
 				{
@@ -7520,7 +8424,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 250,
+					uint Id = 271,
 				},
 				Transform = 
 				{
@@ -7538,7 +8442,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 251,
+					uint Id = 272,
 				},
 				Transform = 
 				{
@@ -7556,7 +8460,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 252,
+					uint Id = 273,
 				},
 				Transform = 
 				{
@@ -7574,7 +8478,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 253,
+					uint Id = 274,
 				},
 				Transform = 
 				{
@@ -7592,7 +8496,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 254,
+					uint Id = 275,
 				},
 				Transform = 
 				{
@@ -7610,7 +8514,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 255,
+					uint Id = 276,
 				},
 				Transform = 
 				{
@@ -7628,7 +8532,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 256,
+					uint Id = 277,
 				},
 				Transform = 
 				{
@@ -7646,7 +8550,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 257,
+					uint Id = 278,
 				},
 				Transform = 
 				{
@@ -7664,7 +8568,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 258,
+					uint Id = 279,
 				},
 				Transform = 
 				{
@@ -7682,7 +8586,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 259,
+					uint Id = 280,
 				},
 				Transform = 
 				{
@@ -7700,7 +8604,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 260,
+					uint Id = 281,
 				},
 				Transform = 
 				{
@@ -7718,7 +8622,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 261,
+					uint Id = 282,
 				},
 				Transform = 
 				{
@@ -7736,7 +8640,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 262,
+					uint Id = 283,
 				},
 				Transform = 
 				{
@@ -7754,7 +8658,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 263,
+					uint Id = 284,
 				},
 				Transform = 
 				{
@@ -7772,7 +8676,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 264,
+					uint Id = 285,
 				},
 				Transform = 
 				{
@@ -7791,7 +8695,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 265,
+			uint Id = 286,
 		},
 		Named = 
 		{
@@ -7814,7 +8718,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 266,
+					uint Id = 287,
 				},
 				Transform = 
 				{
@@ -7832,7 +8736,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 267,
+					uint Id = 288,
 				},
 				Transform = 
 				{
@@ -7850,7 +8754,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 268,
+					uint Id = 289,
 				},
 				Transform = 
 				{
@@ -7868,7 +8772,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 269,
+					uint Id = 290,
 				},
 				Transform = 
 				{
@@ -7886,7 +8790,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 270,
+					uint Id = 291,
 				},
 				Transform = 
 				{
@@ -7904,7 +8808,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 271,
+					uint Id = 292,
 				},
 				Transform = 
 				{
@@ -7922,7 +8826,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 272,
+					uint Id = 293,
 				},
 				Transform = 
 				{
@@ -7940,7 +8844,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 273,
+					uint Id = 294,
 				},
 				Transform = 
 				{
@@ -7958,7 +8862,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 274,
+					uint Id = 295,
 				},
 				Transform = 
 				{
@@ -7976,7 +8880,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 275,
+					uint Id = 296,
 				},
 				Transform = 
 				{
@@ -7994,7 +8898,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 276,
+					uint Id = 297,
 				},
 				Transform = 
 				{
@@ -8012,7 +8916,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 277,
+					uint Id = 298,
 				},
 				Transform = 
 				{
@@ -8030,7 +8934,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 278,
+					uint Id = 299,
 				},
 				Transform = 
 				{
@@ -8048,7 +8952,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 279,
+					uint Id = 300,
 				},
 				Transform = 
 				{
@@ -8066,7 +8970,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 280,
+					uint Id = 301,
 				},
 				Transform = 
 				{
@@ -8084,7 +8988,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 281,
+					uint Id = 302,
 				},
 				Transform = 
 				{
@@ -8102,7 +9006,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 282,
+					uint Id = 303,
 				},
 				Transform = 
 				{
@@ -8120,7 +9024,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 283,
+					uint Id = 304,
 				},
 				Transform = 
 				{
@@ -8138,7 +9042,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 284,
+					uint Id = 305,
 				},
 				Transform = 
 				{
@@ -8156,7 +9060,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 285,
+					uint Id = 306,
 				},
 				Transform = 
 				{
@@ -8174,7 +9078,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 286,
+					uint Id = 307,
 				},
 				Transform = 
 				{
@@ -8192,7 +9096,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 287,
+					uint Id = 308,
 				},
 				Transform = 
 				{
@@ -8210,7 +9114,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 288,
+					uint Id = 309,
 				},
 				Transform = 
 				{
@@ -8228,7 +9132,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 289,
+					uint Id = 310,
 				},
 				Transform = 
 				{
@@ -8246,7 +9150,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 290,
+					uint Id = 311,
 				},
 				Transform = 
 				{
@@ -8264,7 +9168,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 291,
+					uint Id = 312,
 				},
 				Transform = 
 				{
@@ -8282,7 +9186,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 292,
+					uint Id = 313,
 				},
 				Transform = 
 				{
@@ -8300,7 +9204,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 293,
+					uint Id = 314,
 				},
 				Transform = 
 				{
@@ -8318,7 +9222,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 294,
+					uint Id = 315,
 				},
 				Transform = 
 				{
@@ -8336,7 +9240,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 295,
+					uint Id = 316,
 				},
 				Transform = 
 				{
@@ -8354,7 +9258,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 296,
+					uint Id = 317,
 				},
 				Transform = 
 				{
@@ -8372,7 +9276,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 297,
+					uint Id = 318,
 				},
 				Transform = 
 				{
@@ -8391,7 +9295,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 298,
+			uint Id = 319,
 		},
 		Named = 
 		{
@@ -8414,7 +9318,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 299,
+					uint Id = 320,
 				},
 				Transform = 
 				{
@@ -8432,7 +9336,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 300,
+					uint Id = 321,
 				},
 				Transform = 
 				{
@@ -8450,7 +9354,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 301,
+					uint Id = 322,
 				},
 				Transform = 
 				{
@@ -8468,7 +9372,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 302,
+					uint Id = 323,
 				},
 				Transform = 
 				{
@@ -8486,7 +9390,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 303,
+					uint Id = 324,
 				},
 				Transform = 
 				{
@@ -8504,7 +9408,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 304,
+					uint Id = 325,
 				},
 				Transform = 
 				{
@@ -8522,7 +9426,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 305,
+					uint Id = 326,
 				},
 				Transform = 
 				{
@@ -8540,7 +9444,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 306,
+					uint Id = 327,
 				},
 				Transform = 
 				{
@@ -8558,7 +9462,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 307,
+					uint Id = 328,
 				},
 				Transform = 
 				{
@@ -8576,7 +9480,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 308,
+					uint Id = 329,
 				},
 				Transform = 
 				{
@@ -8594,7 +9498,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 309,
+					uint Id = 330,
 				},
 				Transform = 
 				{
@@ -8612,7 +9516,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 310,
+					uint Id = 331,
 				},
 				Transform = 
 				{
@@ -8630,7 +9534,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 311,
+					uint Id = 332,
 				},
 				Transform = 
 				{
@@ -8648,7 +9552,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 312,
+					uint Id = 333,
 				},
 				Transform = 
 				{
@@ -8666,7 +9570,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 313,
+					uint Id = 334,
 				},
 				Transform = 
 				{
@@ -8684,7 +9588,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 314,
+					uint Id = 335,
 				},
 				Transform = 
 				{
@@ -8702,7 +9606,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 315,
+					uint Id = 336,
 				},
 				Transform = 
 				{
@@ -8720,7 +9624,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 316,
+					uint Id = 337,
 				},
 				Transform = 
 				{
@@ -8738,7 +9642,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 317,
+					uint Id = 338,
 				},
 				Transform = 
 				{
@@ -8756,7 +9660,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 318,
+					uint Id = 339,
 				},
 				Transform = 
 				{
@@ -8774,7 +9678,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 319,
+					uint Id = 340,
 				},
 				Transform = 
 				{
@@ -8792,7 +9696,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 320,
+					uint Id = 341,
 				},
 				Transform = 
 				{
@@ -8810,7 +9714,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 321,
+					uint Id = 342,
 				},
 				Transform = 
 				{
@@ -8828,7 +9732,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 322,
+					uint Id = 343,
 				},
 				Transform = 
 				{
@@ -8846,7 +9750,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 323,
+					uint Id = 344,
 				},
 				Transform = 
 				{
@@ -8864,7 +9768,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 324,
+					uint Id = 345,
 				},
 				Transform = 
 				{
@@ -8882,7 +9786,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 325,
+					uint Id = 346,
 				},
 				Transform = 
 				{
@@ -8900,7 +9804,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 326,
+					uint Id = 347,
 				},
 				Transform = 
 				{
@@ -8918,7 +9822,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 327,
+					uint Id = 348,
 				},
 				Transform = 
 				{
@@ -8936,7 +9840,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 328,
+					uint Id = 349,
 				},
 				Transform = 
 				{
@@ -8954,7 +9858,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 329,
+					uint Id = 350,
 				},
 				Transform = 
 				{
@@ -8972,7 +9876,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 330,
+					uint Id = 351,
 				},
 				Transform = 
 				{
@@ -8991,7 +9895,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 331,
+			uint Id = 352,
 		},
 		Named = 
 		{
@@ -9014,7 +9918,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 332,
+					uint Id = 353,
 				},
 				Transform = 
 				{
@@ -9032,7 +9936,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 333,
+					uint Id = 354,
 				},
 				Transform = 
 				{
@@ -9050,7 +9954,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 334,
+					uint Id = 355,
 				},
 				Transform = 
 				{
@@ -9068,7 +9972,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 335,
+					uint Id = 356,
 				},
 				Transform = 
 				{
@@ -9086,7 +9990,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 336,
+					uint Id = 357,
 				},
 				Transform = 
 				{
@@ -9104,7 +10008,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 337,
+					uint Id = 358,
 				},
 				Transform = 
 				{
@@ -9122,7 +10026,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 338,
+					uint Id = 359,
 				},
 				Transform = 
 				{
@@ -9140,7 +10044,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 339,
+					uint Id = 360,
 				},
 				Transform = 
 				{
@@ -9158,7 +10062,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 340,
+					uint Id = 361,
 				},
 				Transform = 
 				{
@@ -9176,7 +10080,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 341,
+					uint Id = 362,
 				},
 				Transform = 
 				{
@@ -9194,7 +10098,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 342,
+					uint Id = 363,
 				},
 				Transform = 
 				{
@@ -9212,7 +10116,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 343,
+					uint Id = 364,
 				},
 				Transform = 
 				{
@@ -9230,7 +10134,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 344,
+					uint Id = 365,
 				},
 				Transform = 
 				{
@@ -9248,7 +10152,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 345,
+					uint Id = 366,
 				},
 				Transform = 
 				{
@@ -9266,7 +10170,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 346,
+					uint Id = 367,
 				},
 				Transform = 
 				{
@@ -9284,7 +10188,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 347,
+					uint Id = 368,
 				},
 				Transform = 
 				{
@@ -9302,7 +10206,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 348,
+					uint Id = 369,
 				},
 				Transform = 
 				{
@@ -9320,7 +10224,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 349,
+					uint Id = 370,
 				},
 				Transform = 
 				{
@@ -9338,7 +10242,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 350,
+					uint Id = 371,
 				},
 				Transform = 
 				{
@@ -9356,7 +10260,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 351,
+					uint Id = 372,
 				},
 				Transform = 
 				{
@@ -9374,7 +10278,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 352,
+					uint Id = 373,
 				},
 				Transform = 
 				{
@@ -9392,7 +10296,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 353,
+					uint Id = 374,
 				},
 				Transform = 
 				{
@@ -9410,7 +10314,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 354,
+					uint Id = 375,
 				},
 				Transform = 
 				{
@@ -9428,7 +10332,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 355,
+					uint Id = 376,
 				},
 				Transform = 
 				{
@@ -9446,7 +10350,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 356,
+					uint Id = 377,
 				},
 				Transform = 
 				{
@@ -9464,7 +10368,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 357,
+					uint Id = 378,
 				},
 				Transform = 
 				{
@@ -9482,7 +10386,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 358,
+					uint Id = 379,
 				},
 				Transform = 
 				{
@@ -9500,7 +10404,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 359,
+					uint Id = 380,
 				},
 				Transform = 
 				{
@@ -9518,7 +10422,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 360,
+					uint Id = 381,
 				},
 				Transform = 
 				{
@@ -9536,7 +10440,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 361,
+					uint Id = 382,
 				},
 				Transform = 
 				{
@@ -9554,7 +10458,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 362,
+					uint Id = 383,
 				},
 				Transform = 
 				{
@@ -9572,7 +10476,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 363,
+					uint Id = 384,
 				},
 				Transform = 
 				{
@@ -9590,7 +10494,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 364,
+					uint Id = 385,
 				},
 				Transform = 
 				{
@@ -9608,7 +10512,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 365,
+					uint Id = 386,
 				},
 				Transform = 
 				{
@@ -9627,7 +10531,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 366,
+			uint Id = 387,
 		},
 		Named = 
 		{
@@ -9650,7 +10554,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 367,
+					uint Id = 388,
 				},
 				Transform = 
 				{
@@ -9668,7 +10572,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 368,
+					uint Id = 389,
 				},
 				Transform = 
 				{
@@ -9686,7 +10590,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 369,
+					uint Id = 390,
 				},
 				Transform = 
 				{
@@ -9704,7 +10608,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 370,
+					uint Id = 391,
 				},
 				Transform = 
 				{
@@ -9722,7 +10626,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 371,
+					uint Id = 392,
 				},
 				Transform = 
 				{
@@ -9740,7 +10644,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 372,
+					uint Id = 393,
 				},
 				Transform = 
 				{
@@ -9758,7 +10662,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 373,
+					uint Id = 394,
 				},
 				Transform = 
 				{
@@ -9776,7 +10680,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 374,
+					uint Id = 395,
 				},
 				Transform = 
 				{
@@ -9794,7 +10698,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 375,
+					uint Id = 396,
 				},
 				Transform = 
 				{
@@ -9812,7 +10716,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 376,
+					uint Id = 397,
 				},
 				Transform = 
 				{
@@ -9830,7 +10734,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 377,
+					uint Id = 398,
 				},
 				Transform = 
 				{
@@ -9848,7 +10752,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 378,
+					uint Id = 399,
 				},
 				Transform = 
 				{
@@ -9866,7 +10770,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 379,
+					uint Id = 400,
 				},
 				Transform = 
 				{
@@ -9884,7 +10788,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 380,
+					uint Id = 401,
 				},
 				Transform = 
 				{
@@ -9902,7 +10806,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 381,
+					uint Id = 402,
 				},
 				Transform = 
 				{
@@ -9920,7 +10824,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 382,
+					uint Id = 403,
 				},
 				Transform = 
 				{
@@ -9938,7 +10842,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 383,
+					uint Id = 404,
 				},
 				Transform = 
 				{
@@ -9956,7 +10860,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 384,
+					uint Id = 405,
 				},
 				Transform = 
 				{
@@ -9974,7 +10878,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 385,
+					uint Id = 406,
 				},
 				Transform = 
 				{
@@ -9992,7 +10896,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 386,
+					uint Id = 407,
 				},
 				Transform = 
 				{
@@ -10010,7 +10914,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 387,
+					uint Id = 408,
 				},
 				Transform = 
 				{
@@ -10028,7 +10932,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 388,
+					uint Id = 409,
 				},
 				Transform = 
 				{
@@ -10046,7 +10950,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 389,
+					uint Id = 410,
 				},
 				Transform = 
 				{
@@ -10064,7 +10968,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 390,
+					uint Id = 411,
 				},
 				Transform = 
 				{
@@ -10082,7 +10986,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 391,
+					uint Id = 412,
 				},
 				Transform = 
 				{
@@ -10100,7 +11004,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 392,
+					uint Id = 413,
 				},
 				Transform = 
 				{
@@ -10118,7 +11022,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 393,
+					uint Id = 414,
 				},
 				Transform = 
 				{
@@ -10136,7 +11040,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 394,
+					uint Id = 415,
 				},
 				Transform = 
 				{
@@ -10154,7 +11058,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 395,
+					uint Id = 416,
 				},
 				Transform = 
 				{
@@ -10172,7 +11076,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 396,
+					uint Id = 417,
 				},
 				Transform = 
 				{
@@ -10190,7 +11094,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 397,
+					uint Id = 418,
 				},
 				Transform = 
 				{
@@ -10208,7 +11112,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 398,
+					uint Id = 419,
 				},
 				Transform = 
 				{
@@ -10227,7 +11131,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 399,
+			uint Id = 420,
 		},
 		Named = 
 		{
@@ -10261,7 +11165,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 400,
+					uint Id = 421,
 				},
 				Named = 
 				{
@@ -10285,7 +11189,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 401,
+					uint Id = 422,
 				},
 				Named = 
 				{
@@ -10311,7 +11215,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 402,
+			uint Id = 423,
 		},
 		Named = 
 		{
@@ -10345,7 +11249,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 403,
+					uint Id = 424,
 				},
 				Named = 
 				{
@@ -10369,7 +11273,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 404,
+					uint Id = 425,
 				},
 				Named = 
 				{
@@ -10395,7 +11299,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 405,
+			uint Id = 426,
 		},
 		Named = 
 		{
@@ -10418,7 +11322,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 406,
+					uint Id = 427,
 				},
 				Transform = 
 				{
@@ -10436,7 +11340,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 407,
+					uint Id = 428,
 				},
 				Transform = 
 				{
@@ -10454,7 +11358,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 408,
+					uint Id = 429,
 				},
 				Transform = 
 				{
@@ -10472,7 +11376,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 409,
+					uint Id = 430,
 				},
 				Transform = 
 				{
@@ -10490,7 +11394,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 410,
+					uint Id = 431,
 				},
 				Transform = 
 				{
@@ -10508,7 +11412,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 411,
+					uint Id = 432,
 				},
 				Transform = 
 				{
@@ -10526,7 +11430,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 412,
+					uint Id = 433,
 				},
 				Transform = 
 				{
@@ -10544,7 +11448,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 413,
+					uint Id = 434,
 				},
 				Transform = 
 				{
@@ -10562,7 +11466,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 414,
+					uint Id = 435,
 				},
 				Transform = 
 				{
@@ -10580,7 +11484,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 415,
+					uint Id = 436,
 				},
 				Transform = 
 				{
@@ -10598,7 +11502,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 416,
+					uint Id = 437,
 				},
 				Transform = 
 				{
@@ -10616,7 +11520,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 417,
+					uint Id = 438,
 				},
 				Transform = 
 				{
@@ -10634,7 +11538,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 418,
+					uint Id = 439,
 				},
 				Transform = 
 				{
@@ -10652,7 +11556,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 419,
+					uint Id = 440,
 				},
 				Transform = 
 				{
@@ -10670,7 +11574,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 420,
+					uint Id = 441,
 				},
 				Transform = 
 				{
@@ -10688,7 +11592,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 421,
+					uint Id = 442,
 				},
 				Transform = 
 				{
@@ -10706,7 +11610,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 422,
+					uint Id = 443,
 				},
 				Transform = 
 				{
@@ -10724,7 +11628,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 423,
+					uint Id = 444,
 				},
 				Transform = 
 				{
@@ -10742,7 +11646,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 424,
+					uint Id = 445,
 				},
 				Transform = 
 				{
@@ -10760,7 +11664,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 425,
+					uint Id = 446,
 				},
 				Transform = 
 				{
@@ -10778,7 +11682,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 426,
+					uint Id = 447,
 				},
 				Transform = 
 				{
@@ -10796,7 +11700,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 427,
+					uint Id = 448,
 				},
 				Transform = 
 				{
@@ -10814,7 +11718,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 428,
+					uint Id = 449,
 				},
 				Transform = 
 				{
@@ -10832,7 +11736,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 429,
+					uint Id = 450,
 				},
 				Transform = 
 				{
@@ -10850,7 +11754,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 430,
+					uint Id = 451,
 				},
 				Transform = 
 				{
@@ -10868,7 +11772,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 431,
+					uint Id = 452,
 				},
 				Transform = 
 				{
@@ -10886,7 +11790,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 432,
+					uint Id = 453,
 				},
 				Transform = 
 				{
@@ -10904,7 +11808,7 @@ Level =
 				string Name = "5481b890344032d1:Bamboo_LP1",
 				LinkId = 
 				{
-					uint Id = 433,
+					uint Id = 454,
 				},
 				Transform = 
 				{
@@ -10922,7 +11826,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 434,
+					uint Id = 455,
 				},
 				Transform = 
 				{
@@ -10940,7 +11844,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 435,
+					uint Id = 456,
 				},
 				Transform = 
 				{
@@ -10958,7 +11862,7 @@ Level =
 				string Name = "5481b97232710935:Bamboo_LP2",
 				LinkId = 
 				{
-					uint Id = 436,
+					uint Id = 457,
 				},
 				Transform = 
 				{
@@ -10976,7 +11880,7 @@ Level =
 				string Name = "5481b9fe495f0407:BambooStock_LowPoly",
 				LinkId = 
 				{
-					uint Id = 437,
+					uint Id = 458,
 				},
 				Transform = 
 				{
@@ -10996,7 +11900,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 438,
+			uint Id = 459,
 		},
 		Transform = 
 		{
@@ -11014,7 +11918,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 439,
+			uint Id = 460,
 		},
 		Transform = 
 		{
@@ -11032,7 +11936,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 440,
+			uint Id = 461,
 		},
 		Transform = 
 		{
@@ -11050,7 +11954,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 441,
+			uint Id = 462,
 		},
 		Transform = 
 		{
@@ -11068,7 +11972,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 442,
+			uint Id = 463,
 		},
 		Transform = 
 		{
@@ -11086,7 +11990,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 443,
+			uint Id = 464,
 		},
 		Transform = 
 		{
@@ -11104,7 +12008,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 444,
+			uint Id = 465,
 		},
 		Transform = 
 		{
@@ -11122,7 +12026,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 445,
+			uint Id = 466,
 		},
 		Transform = 
 		{
@@ -11140,7 +12044,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 446,
+			uint Id = 467,
 		},
 		Transform = 
 		{
@@ -11158,7 +12062,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 447,
+			uint Id = 468,
 		},
 		Transform = 
 		{
@@ -11176,7 +12080,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 448,
+			uint Id = 469,
 		},
 		Transform = 
 		{
@@ -11194,7 +12098,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 449,
+			uint Id = 470,
 		},
 		Transform = 
 		{
@@ -11212,7 +12116,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 450,
+			uint Id = 471,
 		},
 		Transform = 
 		{
@@ -11230,7 +12134,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 451,
+			uint Id = 472,
 		},
 		Transform = 
 		{
@@ -11248,7 +12152,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 452,
+			uint Id = 473,
 		},
 		Transform = 
 		{
@@ -11266,7 +12170,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 453,
+			uint Id = 474,
 		},
 		Transform = 
 		{
@@ -11284,7 +12188,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 454,
+			uint Id = 475,
 		},
 		Transform = 
 		{
@@ -11302,7 +12206,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 455,
+			uint Id = 476,
 		},
 		Transform = 
 		{
@@ -11320,7 +12224,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 456,
+			uint Id = 477,
 		},
 		Transform = 
 		{
@@ -11338,7 +12242,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 457,
+			uint Id = 478,
 		},
 		Transform = 
 		{
@@ -11356,7 +12260,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 458,
+			uint Id = 479,
 		},
 		Transform = 
 		{
@@ -11374,7 +12278,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 459,
+			uint Id = 480,
 		},
 		Transform = 
 		{
@@ -11392,7 +12296,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 460,
+			uint Id = 481,
 		},
 		Transform = 
 		{
@@ -11410,7 +12314,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 461,
+			uint Id = 482,
 		},
 		Transform = 
 		{
@@ -11428,7 +12332,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 462,
+			uint Id = 483,
 		},
 		Transform = 
 		{
@@ -11446,7 +12350,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 463,
+			uint Id = 484,
 		},
 		Transform = 
 		{
@@ -11464,7 +12368,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 464,
+			uint Id = 485,
 		},
 		Transform = 
 		{
@@ -11482,7 +12386,7 @@ Level =
 		string Name = "5481821cbea8785c:GrassGroupA",
 		LinkId = 
 		{
-			uint Id = 465,
+			uint Id = 486,
 		},
 		Transform = 
 		{
@@ -11500,7 +12404,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 466,
+			uint Id = 487,
 		},
 		Transform = 
 		{
@@ -11518,7 +12422,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 467,
+			uint Id = 488,
 		},
 		Transform = 
 		{
@@ -11536,7 +12440,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 468,
+			uint Id = 489,
 		},
 		Transform = 
 		{
@@ -11554,7 +12458,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 469,
+			uint Id = 490,
 		},
 		Transform = 
 		{
@@ -11572,7 +12476,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 470,
+			uint Id = 491,
 		},
 		Transform = 
 		{
@@ -11590,7 +12494,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 471,
+			uint Id = 492,
 		},
 		Transform = 
 		{
@@ -11608,7 +12512,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 472,
+			uint Id = 493,
 		},
 		Transform = 
 		{
@@ -11626,7 +12530,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 473,
+			uint Id = 494,
 		},
 		Transform = 
 		{
@@ -11644,7 +12548,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 474,
+			uint Id = 495,
 		},
 		Transform = 
 		{
@@ -11662,7 +12566,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 475,
+			uint Id = 496,
 		},
 		Transform = 
 		{
@@ -11680,7 +12584,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 476,
+			uint Id = 497,
 		},
 		Transform = 
 		{
@@ -11698,7 +12602,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 477,
+			uint Id = 498,
 		},
 		Transform = 
 		{
@@ -11716,7 +12620,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 478,
+			uint Id = 499,
 		},
 		Transform = 
 		{
@@ -11734,7 +12638,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 479,
+			uint Id = 500,
 		},
 		Transform = 
 		{
@@ -11752,7 +12656,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 480,
+			uint Id = 501,
 		},
 		Transform = 
 		{
@@ -11770,7 +12674,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 481,
+			uint Id = 502,
 		},
 		Transform = 
 		{
@@ -11788,7 +12692,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 482,
+			uint Id = 503,
 		},
 		Transform = 
 		{
@@ -11806,7 +12710,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 483,
+			uint Id = 504,
 		},
 		Transform = 
 		{
@@ -11824,7 +12728,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 484,
+			uint Id = 505,
 		},
 		Transform = 
 		{
@@ -11842,7 +12746,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 485,
+			uint Id = 506,
 		},
 		Transform = 
 		{
@@ -11860,7 +12764,7 @@ Level =
 		string Name = "5481980fb8e3a0eb:GrassGroupDarkA",
 		LinkId = 
 		{
-			uint Id = 486,
+			uint Id = 507,
 		},
 		Transform = 
 		{
@@ -11877,7 +12781,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 487,
+			uint Id = 508,
 		},
 		Named = 
 		{
@@ -11901,7 +12805,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 488,
+			uint Id = 509,
 		},
 		Named = 
 		{
@@ -11975,7 +12879,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 489,
+			uint Id = 510,
 		},
 		Named = 
 		{
@@ -12022,7 +12926,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 490,
+			uint Id = 511,
 		},
 		Named = 
 		{
@@ -12065,7 +12969,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 491,
+			uint Id = 512,
 		},
 		Named = 
 		{
@@ -12108,7 +13012,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 492,
+			uint Id = 513,
 		},
 		Named = 
 		{
@@ -12151,7 +13055,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 493,
+			uint Id = 514,
 		},
 		Named = 
 		{
@@ -12194,7 +13098,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 494,
+			uint Id = 515,
 		},
 		Named = 
 		{
@@ -12226,7 +13130,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 495,
+					uint Id = 516,
 				},
 				Named = 
 				{
@@ -12250,7 +13154,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 496,
+					uint Id = 517,
 				},
 				Named = 
 				{
@@ -12274,7 +13178,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 497,
+					uint Id = 518,
 				},
 				Named = 
 				{
@@ -12313,7 +13217,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 498,
+					uint Id = 519,
 				},
 				Named = 
 				{
@@ -12387,7 +13291,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 499,
+							uint Id = 520,
 						},
 						Named = 
 						{
@@ -12411,7 +13315,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 500,
+							uint Id = 521,
 						},
 						Named = 
 						{
@@ -12445,7 +13349,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 501,
+							uint Id = 522,
 						},
 						Named = 
 						{
@@ -12469,7 +13373,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 502,
+							uint Id = 523,
 						},
 						Named = 
 						{
@@ -12500,7 +13404,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 503,
+			uint Id = 524,
 		},
 		Named = 
 		{
@@ -12532,7 +13436,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 504,
+					uint Id = 525,
 				},
 				Named = 
 				{
@@ -12556,7 +13460,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 505,
+					uint Id = 526,
 				},
 				Named = 
 				{
@@ -12580,7 +13484,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 506,
+					uint Id = 527,
 				},
 				Named = 
 				{
@@ -12619,7 +13523,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 507,
+					uint Id = 528,
 				},
 				Named = 
 				{
@@ -12693,7 +13597,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 508,
+							uint Id = 529,
 						},
 						Named = 
 						{
@@ -12717,7 +13621,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 509,
+							uint Id = 530,
 						},
 						Named = 
 						{
@@ -12751,7 +13655,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 510,
+							uint Id = 531,
 						},
 						Named = 
 						{
@@ -12775,7 +13679,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 511,
+							uint Id = 532,
 						},
 						Named = 
 						{
@@ -12807,7 +13711,7 @@ Level =
 		string Name = "5481ae83f61e56c6:ThornTriggerCircle",
 		LinkId = 
 		{
-			uint Id = 512,
+			uint Id = 533,
 		},
 		Transform = 
 		{
@@ -12818,6 +13722,3051 @@ Level =
 		Named = 
 		{
 			string Name = "ThornTriggerCircle",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 534,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		EditorFlags = 
+		{
+			bool Locked = true,
+			bool Hidden = false,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [162.856, 87.5232, 3.79677],
+			Vec3 Scale = [10, 20, 1],
+			Quat Rotation = [0.203686, 0, 0, 0.979036],
+		},
+		Model = 
+		{
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+			bool Visible = false,
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 535,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [162.856, 111.131, 7.78792],
+			Vec3 Scale = [30.9024, 30.2801, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = false,
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 536,
+		},
+		Named = 
+		{
+			string Name = "DivinerCastle",
+		},
+		Archetyped = 
+		{
+			string Name = "548194c86ee4e651:DivinerCastle",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [190.751, 107.105, 0.296154],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 537,
+				},
+				Named = 
+				{
+					string Name = "polySurface1",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-27.666, -3.13968, 0],
+					Vec3 Scale = [1.2, 1.2, 1.2],
+					Quat Rotation = [0.707107, 0, 0, 0.707107],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 538,
+						},
+						Named = 
+						{
+							string Name = "polySurface122",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf826:DivinerCastle.polySurface122",
+							Vec4 Color = [0.46, 0.224296, 0.0736, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 539,
+						},
+						Named = 
+						{
+							string Name = "polySurface123",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf82b:DivinerCastle.polySurface123",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 540,
+						},
+						Named = 
+						{
+							string Name = "polySurface124",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf82d:DivinerCastle.polySurface124",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 541,
+						},
+						Named = 
+						{
+							string Name = "polySurface125",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf82f:DivinerCastle.polySurface125",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 542,
+						},
+						Named = 
+						{
+							string Name = "polySurface126",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf830:DivinerCastle.polySurface126",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 543,
+						},
+						Named = 
+						{
+							string Name = "polySurface127",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf832:DivinerCastle.polySurface127",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 544,
+						},
+						Named = 
+						{
+							string Name = "polySurface128",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf834:DivinerCastle.polySurface128",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 545,
+						},
+						Named = 
+						{
+							string Name = "polySurface129",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf836:DivinerCastle.polySurface129",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 546,
+						},
+						Named = 
+						{
+							string Name = "polySurface130",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf837:DivinerCastle.polySurface130",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 547,
+						},
+						Named = 
+						{
+							string Name = "polySurface131",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf839:DivinerCastle.polySurface131",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 548,
+						},
+						Named = 
+						{
+							string Name = "polySurface132",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf83b:DivinerCastle.polySurface132",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 549,
+						},
+						Named = 
+						{
+							string Name = "polySurface133",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf83d:DivinerCastle.polySurface133",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 550,
+						},
+						Named = 
+						{
+							string Name = "polySurface134",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf83e:DivinerCastle.polySurface134",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 551,
+						},
+						Named = 
+						{
+							string Name = "polySurface135",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf844:DivinerCastle.polySurface135",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 552,
+						},
+						Named = 
+						{
+							string Name = "polySurface136",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf845:DivinerCastle.polySurface136",
+							Vec4 Color = [0.57, 0.292552, 0.06555, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 553,
+						},
+						Named = 
+						{
+							string Name = "polySurface137",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf847:DivinerCastle.polySurface137",
+							Vec4 Color = [0.57, 0.292552, 0.06555, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 554,
+						},
+						Named = 
+						{
+							string Name = "polySurface138",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf849:DivinerCastle.polySurface138",
+							Vec4 Color = [0.57, 0.292552, 0.06555, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 555,
+						},
+						Named = 
+						{
+							string Name = "polySurface139",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf84a:DivinerCastle.polySurface139",
+							Vec4 Color = [0.57, 0.292552, 0.06555, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 556,
+						},
+						Named = 
+						{
+							string Name = "polySurface140",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf84c:DivinerCastle.polySurface140",
+							Vec4 Color = [0.57, 0.292552, 0.06555, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 557,
+						},
+						Named = 
+						{
+							string Name = "polySurface141",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf84e:DivinerCastle.polySurface141",
+							Vec4 Color = [0.15, 0.03192, 0.006, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 558,
+						},
+						Named = 
+						{
+							string Name = "polySurface142",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf84f:DivinerCastle.polySurface142",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 559,
+						},
+						Named = 
+						{
+							string Name = "polySurface143",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf851:DivinerCastle.polySurface143",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 560,
+						},
+						Named = 
+						{
+							string Name = "polySurface144",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf853:DivinerCastle.polySurface144",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 561,
+						},
+						Named = 
+						{
+							string Name = "polySurface145",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf854:DivinerCastle.polySurface145",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 562,
+						},
+						Named = 
+						{
+							string Name = "polySurface146",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf856:DivinerCastle.polySurface146",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 563,
+						},
+						Named = 
+						{
+							string Name = "polySurface147",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf858:DivinerCastle.polySurface147",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 564,
+						},
+						Named = 
+						{
+							string Name = "polySurface148",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf85a:DivinerCastle.polySurface148",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 565,
+						},
+						Named = 
+						{
+							string Name = "polySurface149",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf85b:DivinerCastle.polySurface149",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 566,
+						},
+						Named = 
+						{
+							string Name = "polySurface150",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf85d:DivinerCastle.polySurface150",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 567,
+						},
+						Named = 
+						{
+							string Name = "polySurface151",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf85e:DivinerCastle.polySurface151",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 568,
+						},
+						Named = 
+						{
+							string Name = "polySurface152",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf860:DivinerCastle.polySurface152",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 569,
+						},
+						Named = 
+						{
+							string Name = "polySurface153",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf862:DivinerCastle.polySurface153",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 570,
+						},
+						Named = 
+						{
+							string Name = "polySurface154",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf863:DivinerCastle.polySurface154",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 571,
+						},
+						Named = 
+						{
+							string Name = "polySurface155",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf865:DivinerCastle.polySurface155",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 572,
+						},
+						Named = 
+						{
+							string Name = "polySurface156",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf867:DivinerCastle.polySurface156",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 573,
+						},
+						Named = 
+						{
+							string Name = "polySurface157",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf869:DivinerCastle.polySurface157",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 574,
+						},
+						Named = 
+						{
+							string Name = "polySurface158",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf86a:DivinerCastle.polySurface158",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 575,
+						},
+						Named = 
+						{
+							string Name = "polySurface159",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf86c:DivinerCastle.polySurface159",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 576,
+						},
+						Named = 
+						{
+							string Name = "polySurface160",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf86d:DivinerCastle.polySurface160",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 577,
+						},
+						Named = 
+						{
+							string Name = "polySurface161",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf86f:DivinerCastle.polySurface161",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 578,
+						},
+						Named = 
+						{
+							string Name = "polySurface162",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf871:DivinerCastle.polySurface162",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 579,
+						},
+						Named = 
+						{
+							string Name = "polySurface163",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf873:DivinerCastle.polySurface163",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 580,
+						},
+						Named = 
+						{
+							string Name = "polySurface164",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf874:DivinerCastle.polySurface164",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 581,
+						},
+						Named = 
+						{
+							string Name = "polySurface165",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf876:DivinerCastle.polySurface165",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 582,
+						},
+						Named = 
+						{
+							string Name = "polySurface166",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf878:DivinerCastle.polySurface166",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 583,
+						},
+						Named = 
+						{
+							string Name = "polySurface167",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf87a:DivinerCastle.polySurface167",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 584,
+						},
+						Named = 
+						{
+							string Name = "polySurface168",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf87b:DivinerCastle.polySurface168",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 585,
+						},
+						Named = 
+						{
+							string Name = "polySurface169",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf87d:DivinerCastle.polySurface169",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 586,
+						},
+						Named = 
+						{
+							string Name = "polySurface170",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf87f:DivinerCastle.polySurface170",
+							Vec4 Color = [0.415, 0.162265, 0.05395, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 587,
+						},
+						Named = 
+						{
+							string Name = "polySurface171",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf883:DivinerCastle.polySurface171",
+							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 588,
+						},
+						Named = 
+						{
+							string Name = "polySurface172",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf885:DivinerCastle.polySurface172",
+							Vec4 Color = [0.7, 0.35238, 0.0315, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 589,
+						},
+						Named = 
+						{
+							string Name = "polySurface173",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf886:DivinerCastle.polySurface173",
+							Vec4 Color = [0.7, 0.35238, 0.0315, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 590,
+						},
+						Named = 
+						{
+							string Name = "polySurface174",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf888:DivinerCastle.polySurface174",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 591,
+						},
+						Named = 
+						{
+							string Name = "polySurface175",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf889:DivinerCastle.polySurface175",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 592,
+						},
+						Named = 
+						{
+							string Name = "polySurface176",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf88b:DivinerCastle.polySurface176",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 593,
+						},
+						Named = 
+						{
+							string Name = "polySurface177",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf88d:DivinerCastle.polySurface177",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 594,
+						},
+						Named = 
+						{
+							string Name = "polySurface178",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf88e:DivinerCastle.polySurface178",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 595,
+						},
+						Named = 
+						{
+							string Name = "polySurface179",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf890:DivinerCastle.polySurface179",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 596,
+						},
+						Named = 
+						{
+							string Name = "polySurface180",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf892:DivinerCastle.polySurface180",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 597,
+						},
+						Named = 
+						{
+							string Name = "polySurface181",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf893:DivinerCastle.polySurface181",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 598,
+						},
+						Named = 
+						{
+							string Name = "polySurface182",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf895:DivinerCastle.polySurface182",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 599,
+						},
+						Named = 
+						{
+							string Name = "polySurface183",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf897:DivinerCastle.polySurface183",
+							Vec4 Color = [0.084375, 0.148313, 0.375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 600,
+						},
+						Named = 
+						{
+							string Name = "polySurface184",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf898:DivinerCastle.polySurface184",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 601,
+						},
+						Named = 
+						{
+							string Name = "polySurface185",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf89a:DivinerCastle.polySurface185",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 602,
+						},
+						Named = 
+						{
+							string Name = "polySurface186",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf89b:DivinerCastle.polySurface186",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 603,
+						},
+						Named = 
+						{
+							string Name = "polySurface187",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf89d:DivinerCastle.polySurface187",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 604,
+						},
+						Named = 
+						{
+							string Name = "polySurface188",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf89f:DivinerCastle.polySurface188",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 605,
+						},
+						Named = 
+						{
+							string Name = "polySurface189",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8a1:DivinerCastle.polySurface189",
+							Vec4 Color = [0.8, 0.25552, 0.136, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 606,
+						},
+						Named = 
+						{
+							string Name = "polySurface190",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8a2:DivinerCastle.polySurface190",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 607,
+						},
+						Named = 
+						{
+							string Name = "polySurface191",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8a4:DivinerCastle.polySurface191",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 608,
+						},
+						Named = 
+						{
+							string Name = "polySurface192",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8a5:DivinerCastle.polySurface192",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 609,
+						},
+						Named = 
+						{
+							string Name = "polySurface193",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8a7:DivinerCastle.polySurface193",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 610,
+						},
+						Named = 
+						{
+							string Name = "polySurface194",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8a9:DivinerCastle.polySurface194",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 611,
+						},
+						Named = 
+						{
+							string Name = "polySurface195",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8aa:DivinerCastle.polySurface195",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 612,
+						},
+						Named = 
+						{
+							string Name = "polySurface196",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8ac:DivinerCastle.polySurface196",
+							Vec4 Color = [0.0862745, 0.14902, 0.376471, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 613,
+						},
+						Named = 
+						{
+							string Name = "polySurface197",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, -3.73423e-009, -0.031325],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8ae:DivinerCastle.polySurface197",
+							Vec4 Color = [0.86, 0.729538, 0.7009, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 614,
+						},
+						Named = 
+						{
+							string Name = "polySurface198",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8b0:DivinerCastle.polySurface198",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 615,
+						},
+						Named = 
+						{
+							string Name = "polySurface199",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8b1:DivinerCastle.polySurface199",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 616,
+						},
+						Named = 
+						{
+							string Name = "polySurface200",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8b3:DivinerCastle.polySurface200",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 617,
+						},
+						Named = 
+						{
+							string Name = "polySurface201",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8b4:DivinerCastle.polySurface201",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 618,
+						},
+						Named = 
+						{
+							string Name = "polySurface202",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8b6:DivinerCastle.polySurface202",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 619,
+						},
+						Named = 
+						{
+							string Name = "polySurface203",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8b8:DivinerCastle.polySurface203",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 620,
+						},
+						Named = 
+						{
+							string Name = "polySurface204",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8b9:DivinerCastle.polySurface204",
+							Vec4 Color = [0.875, 0.596838, 0.056875, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 621,
+						},
+						Named = 
+						{
+							string Name = "polySurface205",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8bb:DivinerCastle.polySurface205",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 622,
+						},
+						Named = 
+						{
+							string Name = "polySurface206",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8bd:DivinerCastle.polySurface206",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 623,
+						},
+						Named = 
+						{
+							string Name = "polySurface207",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8c0:DivinerCastle.polySurface207",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 624,
+						},
+						Named = 
+						{
+							string Name = "polySurface208",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8c2:DivinerCastle.polySurface208",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 625,
+						},
+						Named = 
+						{
+							string Name = "polySurface209",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8c4:DivinerCastle.polySurface209",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 626,
+						},
+						Named = 
+						{
+							string Name = "polySurface210",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8c6:DivinerCastle.polySurface210",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 627,
+						},
+						Named = 
+						{
+							string Name = "polySurface211",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8c7:DivinerCastle.polySurface211",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 628,
+						},
+						Named = 
+						{
+							string Name = "polySurface212",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8c9:DivinerCastle.polySurface212",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 629,
+						},
+						Named = 
+						{
+							string Name = "polySurface213",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8cb:DivinerCastle.polySurface213",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 630,
+						},
+						Named = 
+						{
+							string Name = "polySurface214",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8cd:DivinerCastle.polySurface214",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 631,
+						},
+						Named = 
+						{
+							string Name = "polySurface215",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8cf:DivinerCastle.polySurface215",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 632,
+						},
+						Named = 
+						{
+							string Name = "polySurface216",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8d0:DivinerCastle.polySurface216",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 633,
+						},
+						Named = 
+						{
+							string Name = "polySurface217",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8d2:DivinerCastle.polySurface217",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 634,
+						},
+						Named = 
+						{
+							string Name = "polySurface218",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8d4:DivinerCastle.polySurface218",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 635,
+						},
+						Named = 
+						{
+							string Name = "polySurface219",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8d5:DivinerCastle.polySurface219",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 636,
+						},
+						Named = 
+						{
+							string Name = "polySurface220",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8d7:DivinerCastle.polySurface220",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 637,
+						},
+						Named = 
+						{
+							string Name = "polySurface221",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8d9:DivinerCastle.polySurface221",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 638,
+						},
+						Named = 
+						{
+							string Name = "polySurface222",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8db:DivinerCastle.polySurface222",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 639,
+						},
+						Named = 
+						{
+							string Name = "polySurface223",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8dd:DivinerCastle.polySurface223",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 640,
+						},
+						Named = 
+						{
+							string Name = "polySurface224",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8de:DivinerCastle.polySurface224",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 641,
+						},
+						Named = 
+						{
+							string Name = "polySurface225",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8e0:DivinerCastle.polySurface225",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 642,
+						},
+						Named = 
+						{
+							string Name = "polySurface226",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8e2:DivinerCastle.polySurface226",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 643,
+						},
+						Named = 
+						{
+							string Name = "polySurface227",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8e4:DivinerCastle.polySurface227",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 644,
+						},
+						Named = 
+						{
+							string Name = "polySurface228",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8e5:DivinerCastle.polySurface228",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 645,
+						},
+						Named = 
+						{
+							string Name = "polySurface229",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8e7:DivinerCastle.polySurface229",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 646,
+						},
+						Named = 
+						{
+							string Name = "polySurface230",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8e9:DivinerCastle.polySurface230",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 647,
+						},
+						Named = 
+						{
+							string Name = "polySurface231",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8ea:DivinerCastle.polySurface231",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 648,
+						},
+						Named = 
+						{
+							string Name = "polySurface232",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8ec:DivinerCastle.polySurface232",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 649,
+						},
+						Named = 
+						{
+							string Name = "polySurface233",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8ee:DivinerCastle.polySurface233",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 650,
+						},
+						Named = 
+						{
+							string Name = "polySurface234",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8ef:DivinerCastle.polySurface234",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 651,
+						},
+						Named = 
+						{
+							string Name = "polySurface235",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8f1:DivinerCastle.polySurface235",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 652,
+						},
+						Named = 
+						{
+							string Name = "polySurface236",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8f3:DivinerCastle.polySurface236",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 653,
+						},
+						Named = 
+						{
+							string Name = "polySurface237",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8f4:DivinerCastle.polySurface237",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 654,
+						},
+						Named = 
+						{
+							string Name = "polySurface238",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8f6:DivinerCastle.polySurface238",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 655,
+						},
+						Named = 
+						{
+							string Name = "polySurface239",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8f8:DivinerCastle.polySurface239",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 656,
+						},
+						Named = 
+						{
+							string Name = "polySurface240",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8f9:DivinerCastle.polySurface240",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 657,
+						},
+						Named = 
+						{
+							string Name = "polySurface241",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8fb:DivinerCastle.polySurface241",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 658,
+						},
+						Named = 
+						{
+							string Name = "polySurface242",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "548194c86eeaf8fd:DivinerCastle.polySurface242",
+							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
+							bool Visible = true,
+						},
+					},
+				},
+			},
 		},
 	},
 },
