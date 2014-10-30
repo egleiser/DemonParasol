@@ -7,7 +7,7 @@ class DreamLighting : ZilchComponent
     [Property]
     var DreamLightColor:Real4 = Real4(0.588,0.251,0.784,1);
     [Property]
-    var TransitionSpeed:Real = 0.4;
+    var TransitionSpeed:Real = 0.6;
     
     
     function Initialize(init : CogInitializer)

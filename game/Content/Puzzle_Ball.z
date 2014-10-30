@@ -1,0 +1,23 @@
+class Puzzle_Ball : ZilchComponent
+{
+    [Property]
+    var Ball:CogPath = null;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject == this.Ball.Cog)
+        {
+            Console.WriteLine("PuzzleGET!");
+        }
+    }
+}
