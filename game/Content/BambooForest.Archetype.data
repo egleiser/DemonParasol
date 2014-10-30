@@ -1,0 +1,626 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BambooForest",
+	},
+	Archetyped = 
+	{
+		string Name = "5481b890344032d1:Bamboo_LP1",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [284.292, -4.19889, 0],
+		Vec3 Scale = [2, 2, 2],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "5481b9d551fba80f:mat_Bamboo",
+		string MeshName = "5481b9c05751e401:Bamboo_LowPoly",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+	SinRotate = 
+	{
+		float SinSpeedX = 2,
+		float SinSpeedY = 3,
+		float Intensity = 0.005,
+		bool UseInitialRot = true,
+	},
+	CylinderCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 4],
+		float Radius = 0.2,
+		float Height = 8,
+		uint Direction = 2,
+	},
+	Hierarchy = 
+	{
+		ArchetypeInstance = 
+		{
+			string Name = "5481b9fe495f0407:BambooStock_LowPoly",
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [3.5111, -4.45136, -0.667391],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0.382683, 0.92388],
+			},
+			Named = 
+			{
+				string Name = "BambooStock_LowPoly",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b890344032d1:Bamboo_LP1",
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.2842, -4.06415, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP1",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b97232710935:Bamboo_LP2",
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-3.2038, 1.81687, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP2",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b890344032d1:Bamboo_LP1",
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [5.365, 2.88379, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0.382683, 0.92388],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP1",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b97232710935:Bamboo_LP2",
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.2833, 7.22489, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP2",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b890344032d1:Bamboo_LP1",
+			LinkId = 
+			{
+				uint Id = 7,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [4.2989, -3.10436, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0.382683, 0.92388],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP1",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b890344032d1:Bamboo_LP1",
+			LinkId = 
+			{
+				uint Id = 8,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [2.614, -5.0405, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP1",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b97232710935:Bamboo_LP2",
+			LinkId = 
+			{
+				uint Id = 9,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [1.0438, 2.27438, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0.382683, 0.92388],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP2",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b890344032d1:Bamboo_LP1",
+			LinkId = 
+			{
+				uint Id = 10,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-4.6023, 6.27346, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0.382683, 0.92388],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP1",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b97232710935:Bamboo_LP2",
+			LinkId = 
+			{
+				uint Id = 11,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [4.6406, 9.47794, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0.382683, 0.92388],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP2",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b890344032d1:Bamboo_LP1",
+			LinkId = 
+			{
+				uint Id = 12,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-8.0245, 1.36182, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0.382683, 0.92388],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP1",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b9fe495f0407:BambooStock_LowPoly",
+			LinkId = 
+			{
+				uint Id = 13,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.499802, 4.17957, -1.00393],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "BambooStock_LowPoly",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b97232710935:Bamboo_LP2",
+			LinkId = 
+			{
+				uint Id = 14,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [3.6827, 3.64429, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP2",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b890344032d1:Bamboo_LP1",
+			LinkId = 
+			{
+				uint Id = 15,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.838902, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP1",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b97232710935:Bamboo_LP2",
+			LinkId = 
+			{
+				uint Id = 16,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.504702, -2.10047, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP2",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b890344032d1:Bamboo_LP1",
+			LinkId = 
+			{
+				uint Id = 17,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [2.5214, 6.27345, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP1",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b97232710935:Bamboo_LP2",
+			LinkId = 
+			{
+				uint Id = 18,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-5.5609, 3.64429, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0.382683, 0.92388],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP2",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b9fe495f0407:BambooStock_LowPoly",
+			LinkId = 
+			{
+				uint Id = 19,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-7.6726, 2.2722, -1.5174],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0.382683, 0.92388],
+			},
+			Named = 
+			{
+				string Name = "BambooStock_LowPoly",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b9fe495f0407:BambooStock_LowPoly",
+			LinkId = 
+			{
+				uint Id = 20,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-4.8306, 4.08419, -0.997864],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0.382683, 0.92388],
+			},
+			Named = 
+			{
+				string Name = "BambooStock_LowPoly",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b890344032d1:Bamboo_LP1",
+			LinkId = 
+			{
+				uint Id = 21,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [4.2989, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP1",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b890344032d1:Bamboo_LP1",
+			LinkId = 
+			{
+				uint Id = 22,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [1.3953, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP1",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b97232710935:Bamboo_LP2",
+			LinkId = 
+			{
+				uint Id = 23,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.0907974, 8.7346, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP2",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b890344032d1:Bamboo_LP1",
+			LinkId = 
+			{
+				uint Id = 24,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [5.9683, 0.720275, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP1",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b890344032d1:Bamboo_LP1",
+			LinkId = 
+			{
+				uint Id = 25,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-4.6024, -1.08789, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP1",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b890344032d1:Bamboo_LP1",
+			LinkId = 
+			{
+				uint Id = 26,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [5.3652, 6.73677, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0.382683, 0.92388],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP1",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b97232710935:Bamboo_LP2",
+			LinkId = 
+			{
+				uint Id = 27,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-6.5313, -2.10047, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP2",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b890344032d1:Bamboo_LP1",
+			LinkId = 
+			{
+				uint Id = 28,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [2.5212, 8.92398, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0.382683, 0.92388],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP1",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b890344032d1:Bamboo_LP1",
+			LinkId = 
+			{
+				uint Id = 29,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [1.3953, -4.06415, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP1",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b97232710935:Bamboo_LP2",
+			LinkId = 
+			{
+				uint Id = 30,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-8.3253, 4.99325, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP2",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b97232710935:Bamboo_LP2",
+			LinkId = 
+			{
+				uint Id = 31,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.0907974, 6.11488, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP2",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b97232710935:Bamboo_LP2",
+			LinkId = 
+			{
+				uint Id = 32,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.6406, 3.64429, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Bamboo_LP2",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b9fe495f0407:BambooStock_LowPoly",
+			LinkId = 
+			{
+				uint Id = 33,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [2.8794, 1.93849, -1.70174],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "BambooStock_LowPoly",
+			},
+		},
+	},
+},

@@ -55,21 +55,41 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		SoundEmitter = 
+		Hierarchy = 
 		{
-			bool StartPlaying = true,
-			int ExtraPriority = 0,
-			string CueName = "54fc7096f93b9e50:DreamWorld_Forest_MainLoop",
-			float Volume = 1,
-			float Pitch = 1,
-			bool Positional = false,
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 3,
+				},
+				Named = 
+				{
+					string Name = "BGM",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-5.47711, -9.31506, 1.13162],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SoundEmitter = 
+				{
+					bool StartPlaying = true,
+					int ExtraPriority = 0,
+					string CueName = "5481ac82888ddb24:Setsuko_Theme",
+					float Volume = 0.6,
+					float Pitch = 1,
+					bool Positional = false,
+				},
+			},
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 3,
+			uint Id = 4,
 		},
 		Named = 
 		{
@@ -77,9 +97,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-7.65614, -42.0564, 24.9798],
+			Vec3 Translation = [-4.01156, -25.8748, 15.7759],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.504858, 0.0214257, -0.0125364, 0.862845],
+			Quat Rotation = [0.401722, -0.00217534, 0.000954322, 0.915758],
 		},
 		Camera = 
 		{
@@ -95,10 +115,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 45.1,
-			float VerticalAngle = -1.0588,
-			float HorizontalAngle = -12.616,
-			Vec3 LookTarget = [-8.75278, -2.73974, 2.91152],
+			float LookDistance = 22.1,
+			float VerticalAngle = -0.826796,
+			float HorizontalAngle = -25.128,
+			Vec3 LookTarget = [-3.94046, -9.61443, 0.809131],
 		},
 		EditorRenderer = 
 		{
@@ -109,7 +129,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 4,
+			uint Id = 5,
 		},
 		Named = 
 		{
@@ -206,7 +226,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 5,
+					uint Id = 6,
 				},
 				Named = 
 				{
@@ -246,7 +266,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 6,
+							uint Id = 7,
 						},
 						Named = 
 						{
@@ -271,7 +291,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 7,
+									uint Id = 8,
 								},
 								Named = 
 								{
@@ -296,7 +316,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 8,
+											uint Id = 9,
 										},
 										Named = 
 										{
@@ -321,7 +341,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 9,
+													uint Id = 10,
 												},
 												Named = 
 												{
@@ -368,7 +388,7 @@ Level =
 													{
 														LinkId = 
 														{
-															uint Id = 10,
+															uint Id = 11,
 														},
 														Named = 
 														{
@@ -418,7 +438,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 11,
+											uint Id = 12,
 										},
 										Named = 
 										{
@@ -443,7 +463,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 12,
+													uint Id = 13,
 												},
 												Named = 
 												{
@@ -468,7 +488,7 @@ Level =
 													{
 														LinkId = 
 														{
-															uint Id = 13,
+															uint Id = 14,
 														},
 														Named = 
 														{
@@ -530,7 +550,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 14,
+											uint Id = 15,
 										},
 										Named = 
 										{
@@ -555,7 +575,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 15,
+													uint Id = 16,
 												},
 												Named = 
 												{
@@ -586,7 +606,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 16,
+									uint Id = 17,
 								},
 								Named = 
 								{
@@ -611,7 +631,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 17,
+											uint Id = 18,
 										},
 										Named = 
 										{
@@ -637,7 +657,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 18,
+									uint Id = 19,
 								},
 								Named = 
 								{
@@ -662,7 +682,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 19,
+											uint Id = 20,
 										},
 										Named = 
 										{
@@ -692,7 +712,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 20,
+					uint Id = 21,
 				},
 				Named = 
 				{
@@ -768,7 +788,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 21,
+					uint Id = 22,
 				},
 				Named = 
 				{
@@ -830,7 +850,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 22,
+							uint Id = 23,
 						},
 						Named = 
 						{
@@ -895,7 +915,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 23,
+							uint Id = 24,
 						},
 						Named = 
 						{
@@ -919,7 +939,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 24,
+							uint Id = 25,
 						},
 						Named = 
 						{
@@ -983,7 +1003,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 25,
+									uint Id = 26,
 								},
 								Named = 
 								{
@@ -1097,7 +1117,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 26,
+					uint Id = 27,
 				},
 				Named = 
 				{
@@ -1126,7 +1146,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 27,
+							uint Id = 28,
 						},
 						Named = 
 						{
@@ -1168,7 +1188,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 28,
+							uint Id = 29,
 						},
 						Named = 
 						{
@@ -1249,7 +1269,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 29,
+							uint Id = 30,
 						},
 						Named = 
 						{
@@ -1297,7 +1317,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 30,
+			uint Id = 31,
 		},
 		Named = 
 		{
@@ -1336,7 +1356,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 31,
+			uint Id = 32,
 		},
 		Named = 
 		{
@@ -1408,7 +1428,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 32,
+			uint Id = 33,
 		},
 		Named = 
 		{
@@ -1468,7 +1488,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 33,
+			uint Id = 34,
 		},
 		Named = 
 		{
@@ -1494,7 +1514,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 34,
+					uint Id = 35,
 				},
 				Archetyped = 
 				{
@@ -1530,7 +1550,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 549ab1c82b463379,
+					uint64 CachedGeometryId = 5481af3503dffda4,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1597,7 +1617,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 35,
+					uint Id = 36,
 				},
 				Archetyped = 
 				{
@@ -1633,7 +1653,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 549ab1c82b463d21,
+					uint64 CachedGeometryId = 5481af3503dc084d,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1713,7 +1733,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 36,
+					uint Id = 37,
 				},
 				Archetyped = 
 				{
@@ -1749,7 +1769,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 549ab1c82b464755,
+					uint64 CachedGeometryId = 5481af3503dc1274,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1829,7 +1849,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 37,
+					uint Id = 38,
 				},
 				Archetyped = 
 				{
@@ -1865,7 +1885,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 549ab1c82b465479,
+					uint64 CachedGeometryId = 5481af3503dc1d1f,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1946,7 +1966,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 38,
+					uint Id = 39,
 				},
 				Archetyped = 
 				{
@@ -1982,7 +2002,7 @@ Level =
 				{
 					int Layer = -2,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 549ab1c82b465bd9,
+					uint64 CachedGeometryId = 5481af3503dc250e,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2048,7 +2068,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 39,
+					uint Id = 40,
 				},
 				Archetyped = 
 				{
@@ -2084,7 +2104,7 @@ Level =
 				{
 					int Layer = -2,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 549ab1c82b466675,
+					uint64 CachedGeometryId = 5481af3503dc3041,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2165,7 +2185,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 40,
+					uint Id = 41,
 				},
 				Archetyped = 
 				{
@@ -2201,7 +2221,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 549ab1c82b467f57,
+					uint64 CachedGeometryId = 5481af3503dc4a46,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2341,7 +2361,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 41,
+					uint Id = 42,
 				},
 				Archetyped = 
 				{
@@ -2377,7 +2397,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 549ab1c82b469dde,
+					uint64 CachedGeometryId = 5481af3503dc6ad5,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2538,7 +2558,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 42,
+			uint Id = 43,
 		},
 		Named = 
 		{
@@ -2556,7 +2576,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 43,
+					uint Id = 44,
 				},
 				Named = 
 				{
@@ -2619,7 +2639,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 44,
+					uint Id = 45,
 				},
 				Named = 
 				{
@@ -2686,7 +2706,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 45,
+					uint Id = 46,
 				},
 				Named = 
 				{
@@ -2744,7 +2764,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 46,
+			uint Id = 47,
 		},
 		Named = 
 		{
@@ -2773,7 +2793,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 47,
+					uint Id = 48,
 				},
 				Named = 
 				{
@@ -2791,7 +2811,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 48,
+							uint Id = 49,
 						},
 						Named = 
 						{
@@ -2822,7 +2842,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 49,
+			uint Id = 50,
 		},
 		Archetyped = 
 		{
@@ -2868,7 +2888,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 50,
+			uint Id = 51,
 		},
 		Named = 
 		{
@@ -2940,7 +2960,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 51,
+			uint Id = 52,
 		},
 		Named = 
 		{
@@ -3012,7 +3032,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 52,
+			uint Id = 53,
 		},
 		Named = 
 		{
@@ -3084,12 +3104,12 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 53,
+			uint Id = 54,
 		},
 		ObjectLink = 
 		{
-			uint ObjectA = 51,
-			uint ObjectB = 52,
+			uint ObjectA = 52,
+			uint ObjectB = 53,
 			Vec3 BodyPointA = [-0.5, -0.165648, 0.178016],
 			Vec3 BodyPointB = [0.5, -0.0919008, 0.155611],
 		},
@@ -3109,12 +3129,12 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 54,
+			uint Id = 55,
 		},
 		ObjectLink = 
 		{
-			uint ObjectA = 50,
-			uint ObjectB = 51,
+			uint ObjectA = 51,
+			uint ObjectB = 52,
 			Vec3 BodyPointA = [-0.5, -0.0351086, 0.113756],
 			Vec3 BodyPointB = [0.5, -0.0503874, 0.205837],
 		},
@@ -3130,19 +3150,12 @@ Level =
 			Vec3 BodyPointB = [0.5, -0.0503874, 0.205837],
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "5481ae83f61e56c6:ThornTriggerCircle",
 		LinkId = 
 		{
-			uint Id = 55,
-		},
-		Named = 
-		{
-			string Name = "ThornTriggerCircle",
-		},
-		Archetyped = 
-		{
-			string Name = "549acad12d225074:ThornTrigger",
+			uint Id = 56,
 		},
 		Transform = 
 		{
@@ -3150,296 +3163,9 @@ Level =
 			Vec3 Scale = [0.5, 0.5, 0.1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Hierarchy = 
+		Named = 
 		{
-			ArchetypeInstance = 
-			{
-				string Name = "549acad12d225074:ThornTrigger",
-				LinkId = 
-				{
-					uint Id = 56,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-3.96748, 8.53322, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "ThornTrigger",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "549acad12d225074:ThornTrigger",
-				LinkId = 
-				{
-					uint Id = 57,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [3.07249, 8.10928, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "ThornTrigger",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "549acad12d225074:ThornTrigger",
-				LinkId = 
-				{
-					uint Id = 58,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-6.78479, -6.51068, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "ThornTrigger",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "549acad12d225074:ThornTrigger",
-				LinkId = 
-				{
-					uint Id = 59,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-10.0618, 0.216478, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "ThornTrigger",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "549acad12d225074:ThornTrigger",
-				LinkId = 
-				{
-					uint Id = 60,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-9.00007, 3.60675, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "ThornTrigger",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "549acad12d225074:ThornTrigger",
-				LinkId = 
-				{
-					uint Id = 61,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [7.82727, -3.75622, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "ThornTrigger",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "549acad12d225074:ThornTrigger",
-				LinkId = 
-				{
-					uint Id = 62,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [9.53674e-007, -9.84735, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "ThornTrigger",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "549acad12d225074:ThornTrigger",
-				LinkId = 
-				{
-					uint Id = 63,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [6.60721, -7.14628, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "ThornTrigger",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "549acad12d225074:ThornTrigger",
-				LinkId = 
-				{
-					uint Id = 64,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [7.72682, 3.13008, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "ThornTrigger",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "549acad12d225074:ThornTrigger",
-				LinkId = 
-				{
-					uint Id = 65,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [8.30685, 0.216572, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "ThornTrigger",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "549acad12d225074:ThornTrigger",
-				LinkId = 
-				{
-					uint Id = 66,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [3.48243, -9.15926, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "ThornTrigger",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "549acad12d225074:ThornTrigger",
-				LinkId = 
-				{
-					uint Id = 67,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-3.7162, -8.57648, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "ThornTrigger",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "549acad12d225074:ThornTrigger",
-				LinkId = 
-				{
-					uint Id = 68,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [5.71765, 6.04348, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "ThornTrigger",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "549acad12d225074:ThornTrigger",
-				LinkId = 
-				{
-					uint Id = 69,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [3.8147e-006, 8.72306, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "ThornTrigger",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "549acad12d225074:ThornTrigger",
-				LinkId = 
-				{
-					uint Id = 70,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-8.84665, -3.27935, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "ThornTrigger",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "549acad12d225074:ThornTrigger",
-				LinkId = 
-				{
-					uint Id = 71,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-6.9863, 6.57327, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "ThornTrigger",
-				},
-			},
+			string Name = "ThornTriggerCircle",
 		},
 	},
 	ArchetypeInstance = 
@@ -3447,7 +3173,7 @@ Level =
 		string Name = "549ace0b48a4b8aa:GroundSmoke",
 		LinkId = 
 		{
-			uint Id = 72,
+			uint Id = 57,
 		},
 		Transform = 
 		{
@@ -3464,7 +3190,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 73,
+			uint Id = 58,
 		},
 		Named = 
 		{
@@ -3481,7 +3207,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 74,
+			uint Id = 59,
 		},
 		Named = 
 		{
@@ -3499,7 +3225,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 75,
+					uint Id = 60,
 				},
 				Named = 
 				{
@@ -3528,7 +3254,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 76,
+			uint Id = 61,
 		},
 		Named = 
 		{
@@ -3588,7 +3314,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 77,
+			uint Id = 62,
 		},
 		Named = 
 		{
@@ -3648,7 +3374,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 78,
+			uint Id = 63,
 		},
 		Named = 
 		{
@@ -3708,7 +3434,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 79,
+			uint Id = 64,
 		},
 		Named = 
 		{

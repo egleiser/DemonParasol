@@ -1,0 +1,72 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "FieldFlower",
+	},
+	Archetyped = 
+	{
+		string Name = "5481bc2945a15e20:FieldFlower1",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [11.3676, -8.47051, 0],
+		Vec3 Scale = [2, 2, 2],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "FieldFlower_Petals001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.00168873, 1.41687, -0.00280117],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.707107, -6.18172e-008, -6.18172e-008, 0.707107],
+			},
+			Model = 
+			{
+				string MaterialName = "5481b4ceba3fc9ad:mat_plant",
+				string MeshName = "5481bc2945b689a4:FieldFlower1.FieldFlower_Petals001",
+				Vec4 Color = [0.68448, 0.372, 0.93, 1],
+				bool Visible = true,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "FieldFlower_Stem",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.00168873, 1.04721, -0.00280117],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.707107, -6.18172e-008, -6.18172e-008, 0.707107],
+			},
+			Model = 
+			{
+				string MaterialName = "5481b4ceba3fc9ad:mat_plant",
+				string MeshName = "5481bc2945b689a8:FieldFlower1.FieldFlower_Stem",
+				Vec4 Color = [0.54696, 0.795, 0.019875, 1],
+				bool Visible = true,
+			},
+		},
+	},
+},

@@ -1,0 +1,28 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Bird_Proto",
+	},
+	Archetyped = 
+	{
+		string Name = "5481bc37412c89bf:Bird_Proto",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
+		string MeshName = "5481bc37413298fd:Bird_Proto",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+},

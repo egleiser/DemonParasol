@@ -23,7 +23,7 @@ Cog =
 		string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 		string MeshName = "4de0354322b376ae:Sphere",
 		Vec4 Color = [0.02, 0.0032, 0.0032, 1],
-		bool Visible = true,
+		bool Visible = false,
 	},
 	PlayerProximityTrigger = 
 	{
@@ -52,7 +52,7 @@ Cog =
 				string MaterialName = "54ff27758d4308c1:mat_Ghost",
 				string MeshName = "4de0354322b345ae:Cube",
 				Vec4 Color = [0.825, 0.235125, 0.30591, 1],
-				bool Visible = true,
+				bool Visible = false,
 			},
 			RigidBody = 
 			{
@@ -74,7 +74,7 @@ Cog =
 				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 				Vec3 Offset = [0, 0, 0],
-				Vec3 Size = [0.5, 0.5, 0.5],
+				Vec3 Size = [1, 1, 0.5],
 			},
 			SoundEmitter = 
 			{
@@ -88,6 +88,226 @@ Cog =
 			GroundBurst = 
 			{
 				Vec3 Offset = [0, 0, 4],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "ThornArmBlocker",
+					},
+					Archetyped = 
+					{
+						string Name = "5481aab6bc2f2a6e:ThornArmBlocker",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, -0.502327],
+						Vec3 Scale = [1.33333, 1.33333, 0.25],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					SkinnedModel = 
+					{
+						string Material = "5481bef9b2f955f1:mat_ThornTentacle",
+						string Mesh = "5481552a36e3aa3a:ThornArm",
+						Vec4 Color = [0.25, 0.102, 0.01875, 1],
+						bool Visible = true,
+					},
+					AnimationGraph = 
+					{
+						bool Active = true,
+						AnimPlayMode PlayMode = PlayOnce,
+						float TimeScale = 1,
+						string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+						uint64 DebugPreviewId = 2072657463617261,
+					},
+					SimpleAnimation = 
+					{
+						string AnimationName = "5481552a36e0cddc:ThornArm.All",
+						AnimPlayMode PlayMode = PlayOnce,
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 4,
+							},
+							Named = 
+							{
+								string Name = "Bone001",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [-0.00161852, 0.0110272, 4.82016e-010],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [-3.04478e-006, -3.24612e-006, 0.712974, 0.70119],
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 5,
+									},
+									Named = 
+									{
+										string Name = "Bone002",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0.503941, -2.17371e-007, -2.40279e-008],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [4.44859e-006, 1.72344e-007, -0.00833311, 0.999965],
+									},
+									SinRotate = 
+									{
+										float SinSpeedX = 3,
+										float SinSpeedY = 3,
+										float Intensity = 0.05,
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 6,
+											},
+											Named = 
+											{
+												string Name = "Bone003",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0.579464, -7.00355e-008, -1.13687e-014],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [1.84855e-009, -3.30017e-011, -0.0178499, 0.999841],
+											},
+											SinRotate = 
+											{
+												float SinSpeedX = 2,
+												float SinSpeedY = 2,
+												float Intensity = 0.07,
+											},
+											Hierarchy = 
+											{
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 7,
+													},
+													Named = 
+													{
+														string Name = "Bone004",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0.470583, 2.47359e-007, 4.87536e-008],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [9.47316e-015, 7.13107e-015, 0.00270387, 0.999996],
+													},
+													SinRotate = 
+													{
+														float SinSpeedX = 5,
+														float SinSpeedY = 5,
+														float Intensity = 0.1,
+													},
+													Hierarchy = 
+													{
+														Cog = 
+														{
+															LinkId = 
+															{
+																uint Id = 8,
+															},
+															Named = 
+															{
+																string Name = "Bone005",
+															},
+															Transform = 
+															{
+																Vec3 Translation = [0.554519, 2.71201e-007, 5.74486e-008],
+																Vec3 Scale = [1, 1, 1],
+																Quat Rotation = [9.46637e-015, 3.76463e-015, 0.0222873, 0.999752],
+															},
+															SinRotate = 
+															{
+																float SinSpeedX = 3,
+																float SinSpeedY = 3,
+																float Intensity = 0.05,
+															},
+															Hierarchy = 
+															{
+																Cog = 
+																{
+																	LinkId = 
+																	{
+																		uint Id = 9,
+																	},
+																	Named = 
+																	{
+																		string Name = "Bone006",
+																	},
+																	Transform = 
+																	{
+																		Vec3 Translation = [0.587933, 1.07288e-007, 6.08334e-008],
+																		Vec3 Scale = [1, 1, 1],
+																		Quat Rotation = [9.54792e-015, -1.89085e-018, -0.000198039, 1],
+																	},
+																	SinRotate = 
+																	{
+																		float SinSpeedX = 5,
+																		float SinSpeedY = 5,
+																		float Intensity = 0.07,
+																	},
+																	Hierarchy = 
+																	{
+																		Cog = 
+																		{
+																			LinkId = 
+																			{
+																				uint Id = 10,
+																			},
+																			Named = 
+																			{
+																				string Name = "Bone007",
+																			},
+																			Transform = 
+																			{
+																				Vec3 Translation = [0.60464, 3.57628e-008, 6.25725e-008],
+																				Vec3 Scale = [1, 1, 1],
+																				Quat Rotation = [-4.36469e-007, 3.03118e-009, -0.0069446, 0.999976],
+																			},
+																			SinRotate = 
+																			{
+																				float SinSpeedX = 6,
+																				float SinSpeedY = 6,
+																				float Intensity = 0.05,
+																			},
+																		},
+																	},
+																},
+															},
+														},
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+				},
 			},
 		},
 	},
