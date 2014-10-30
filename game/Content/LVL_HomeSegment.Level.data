@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [19.5802, -34.9016, 29.2606],
+			Vec3 Translation = [-113.951, -47.0876, 26.2939],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.511901, 0.00206494, -0.00123048, 0.859041],
+			Quat Rotation = [0.426396, -0.0556578, 0.0262979, 0.90244],
 		},
 		Camera = 
 		{
@@ -95,10 +95,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 190.091,
-			float VerticalAngle = -1.0748,
-			float HorizontalAngle = -6.28799,
-			Vec3 LookTarget = [19.1453, 132.282, -61.2048],
+			float LookDistance = 125.091,
+			float VerticalAngle = -0.8828,
+			float HorizontalAngle = -6.15999,
+			Vec3 LookTarget = [-104.19, 49.5477, -52.5357],
 		},
 		EditorRenderer = 
 		{
@@ -2781,7 +2781,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 548248a5062d5a07,
+					uint64 CachedGeometryId = 5476c53cce4b7bc8,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -3550,7 +3550,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 548248a5062d6995,
+					uint64 CachedGeometryId = 5476c53cce4b895a,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -3677,7 +3677,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 548248a5062dc107,
+					uint64 CachedGeometryId = 5476c53cce4bdc61,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -31939,6 +31939,90 @@ Level =
 		Named = 
 		{
 			string Name = "LanternPostRedDayDemo",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 1303,
+		},
+		Named = 
+		{
+			string Name = "Dog",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-102.621, -22.423, 1.5],
+			Vec3 Scale = [3, 3, 3],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "54279af7f5648866:mat_Dog",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.875, 0.02625, 0.02625, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = false,
+			bool AllowSleep = false,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 0, 1],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [0, 1, 0],
+			OrientationBases DefaultBases = ForwardYUpZ,
+		},
+		DogController = 
+		{
+			Vec3 PaceDirection = [-1, 0, 0],
+			float PaceSpeed = 5,
+			float MaxMoveDistance = 9,
+			CogPath TargetObjectPath = ":/Player",
+			float BarkTriggerDistance = 10,
+			Vec4 BarkColor = [0.033075, 0.124268, 0.945, 0.83],
+			float RunAwayTriggerDistance = 5,
+			Vec4 RunAwayColor = [0.278526, 0.915, 0.0549, 0.815],
+			float MaxRunAwayDistance = 30,
+			float RunAwaySpeed = 15,
+		},
+		IgnoreSpaceEffects = 
+		{
+			bool Drag = true,
+			bool Flow = false,
+			bool Force = false,
+			bool Gravity = false,
+			bool Thrust = false,
+			bool Vortex = false,
+			bool Wind = false,
+			bool Invalid = false,
+			bool Torque = false,
+			bool PointGravity = false,
+			bool PointForce = false,
+			bool Buoyancy = false,
+		},
+		Hierarchy = 
+		{
 		},
 	},
 },

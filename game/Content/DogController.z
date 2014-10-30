@@ -52,6 +52,9 @@ class DogController : ZilchComponent
     var SegmentRunDistance : Real = 0;
     var SegmentGoAwayDog : Boolean = false;
     
+    var ReturnDirection : Real3 = Real3(0,0,0);
+    var ReturnRotation : Quaternion = Quaternion(0,0,0,0);
+    
     var StartPosition : Real3 = Real3(0,0,0);
     var OriginalColor : Real4 = Real4(0,0,0,0);
     var BarkDistanceFromTarget : Real = 0.0;
@@ -86,7 +89,7 @@ class DogController : ZilchComponent
         if(targetIsWithinBarkRange && !targetIsWithinRunAwayRange && !this.RunningAway)
         {
             //Console.WriteLine("target within bark");
-            this.BarkAtTarget();
+            this.BarkAtTarget(event);
         }
         else if(targetIsWithinBarkRange && targetIsWithinRunAwayRange && !this.RunningAway)
         {
@@ -176,13 +179,13 @@ class DogController : ZilchComponent
         //it's currently facing, using Orientation and the PaceDirection variabel
         this.PaceRotation = this.Orientation.GetLookAtDirectionWithUpRotation(this.PaceDirection, Real3(0,0,1));
         //Slerps the dog's rotation to reflect its new rotation
-        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.PaceRotation, 0.1);
+        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.PaceRotation, 3.5 * event.Dt);
     }
     
     /*This function is called when the player gets within the BarkTriggerDistance.
     It will chnage the model color to show that its in its barking state and then
     rotate the dog to look at the player*/
-    function BarkAtTarget()
+    function BarkAtTarget(event : UpdateEvent)
     {
         this.Owner.RigidBody.Velocity = Real3();
         //Changes model color to the user defined color for barking
@@ -191,7 +194,7 @@ class DogController : ZilchComponent
         //which is defined in the Calculate function directly below
         this.BarkRotation = this.Orientation.GetLookAtDirectionWithUpRotation(-this.BarkDirection, Real3(0,0,1));
         //Slerps the dogs rotation towards the player using the BarkRotation quaternion
-        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.BarkRotation, 0.1);
+        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.BarkRotation, 3.5 * event.Dt);
         this.RunAwayStartPosition = this.Owner.Transform.Translation;
         //Console.WriteLine("Bark, Bark");
     }
@@ -221,6 +224,7 @@ class DogController : ZilchComponent
     {
         //Changes color to Green to show Running Away condition has been met
         this.Owner.Model.Color = this.RunAwayColor;
+        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.RunAwayRotation, 3.5 * event.Dt);
         //Console.WriteLine(this.RunAwayDirection);
         //Dog moves off in a direction opposite that of player as defined in calculate function below
         this.Owner.RigidBody.Velocity = this.RunAwayDirection * this.RunAwaySpeed;
@@ -244,6 +248,7 @@ class DogController : ZilchComponent
         this.Owner.RigidBody.Velocity = this.SegmentRunDirection * this.RunAwaySpeed;
         var runAwayDisplacement : Real3 = this.Owner.Transform.Translation - this.RunAwayStartPosition;
         this.RunningAwayDistance = Math.Length(runAwayDisplacement);
+        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.SegmentRotation, 3.5 * event.Dt);
     }
     
     function CalculateSegmentDirectionAndDistance()
@@ -265,6 +270,7 @@ class DogController : ZilchComponent
         
         this.RunAwayDirection = -reverseDirection;
         this.RunAwayDistanceFromTarget = Math.Length(reverseDirection);
+        this.RunAwayRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.RunAwayDirection, Real3(0,0,1));
         this.RunAwayDirection = Math.Normalize(this.RunAwayDirection);
         
     }
@@ -272,12 +278,15 @@ class DogController : ZilchComponent
     function ReturnToStart(event : UpdateEvent)
     {
         var runAwayEndPosition : Real3 = this.Owner.Transform.Translation;
-        var ranAwayDisplacement : Real3 = this.StartPosition - runAwayEndPosition;
+        this.ReturnDirection = this.StartPosition - runAwayEndPosition;
         var distanceRan : Real = 0.0;
-        distanceRan = Math.Length(ranAwayDisplacement);
+        distanceRan = Math.Length(this.ReturnDirection);
         Console.WriteLine("Distance Running = `distanceRan`");
-        ranAwayDisplacement = Math.Normalize(ranAwayDisplacement);
-        this.Owner.RigidBody.Velocity = ranAwayDisplacement * this.RunAwaySpeed;
+        this.ReturnDirection = Math.Normalize(this.ReturnDirection);
+        this.ReturnRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.ReturnDirection, Real3(0,0,1));
+        this.Owner.RigidBody.Velocity = this.ReturnDirection * this.RunAwaySpeed;
+        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.ReturnRotation, 3.5 * event.Dt);
+        
         this.RunningAway = false;
         //this.PaceBackAndForth(event);
     }
