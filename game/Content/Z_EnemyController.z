@@ -15,11 +15,17 @@ class Z_EnemyController:ZilchComponent
     [Property]
     var TargetObjectPath:CogPath = null;
     [Property]
-    var MaxLungeRange:Real = 5.0;
+    var MaxAttackRange:Real = 5.0;
     [Property]
     var LungeSpeed:Real = 10.0;
     [Property]
     var TargetDetectionRange:Real = 10.0;
+    [Property]
+    var AttackTimeout:Real = 300.0;
+    [Property]
+    var MaxAttacks:Integer = 1;
+    [Property]
+    var HeadbuttAttackPercentage:Real = 0.5;
     
     //non-settable properties
     var TargetObject:Cog = null;
@@ -28,6 +34,7 @@ class Z_EnemyController:ZilchComponent
     var OriginalPosition:Real3 = Real3();
     var LungeDistance:Real = Real();
     var MushroomRotation:Quaternion = Quaternion();
+    var AttackTimer:Real = 0.0;
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCTION-Initialize
@@ -61,17 +68,30 @@ class Z_EnemyController:ZilchComponent
             {
                 //rotate the enemy
                 this.RotateTowardsTarget(event);
-                //debug
-                Console.WriteLine("`this.TargetObject` in range");
+                //DEBUG
+                //Console.WriteLine("`this.TargetObject` in range");
                 
-                //enemy at lunge range?
-                if(this.TargetDistance <= this.MaxLungeRange)
+                //can we attack yet?
+                if(this.AttackTimer >= this.AttackTimeout)
                 {
-                    //lunge at the target
-                    this.Lunge(event);
-                    Console.WriteLine("Rawr!");
+                    //DEBUG
+                    Console.WriteLine("I can attack!");
+                    //enemy at lunge range?
+                    if(this.TargetDistance <= this.MaxAttackRange)
+                    {
+                        //choose an attack
+                        this.ChooseAttackType(event);
+                        //DEBUG
+                        Console.WriteLine("Attacking!");
+                        
+                        //reset LungeTimer
+                        this.AttackTimer = 0.0;
+                    }
                 }
+                
             }
+            //increment LungeTimer
+            ++this.AttackTimer;
         }
     }
     
@@ -84,6 +104,27 @@ class Z_EnemyController:ZilchComponent
         this.Owner.RigidBody.Velocity = -this.TargetDirection * this.LungeSpeed;
         var lungeDisplacement:Real3 = this.Owner.Transform.Translation + this.OriginalPosition;
         this.LungeDistance = Math.Length(lungeDisplacement);
+    }
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-ChooseAttackType
+    //EXPLANATION-Chooses between lunging attacks and headbutt attacks
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function ChooseAttackType(event:UpdateEvent):Void
+    {
+        //pick a number between 0.0 and 1.0
+        var random:Real = Random().Range(0.0, 1.0);
+        
+        //if random is less than or equal to the percentage chance of the HeadbuttAttackPercentage
+        if(random <= this.HeadbuttAttackPercentage)
+        {
+            Console.WriteLine("Headbutt!");
+        }
+        //the rest of the attacks are normal lunges
+        else
+        {
+            this.Lunge(event);
+        }
+        
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -110,7 +151,7 @@ class Z_EnemyController:ZilchComponent
     function RotateTowardsTarget(event:UpdateEvent):Void
     {
         //store rotation
-        this.MushroomRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.TargetDirection, Real3(0,0,1));
+        this.MushroomRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.TargetDirection, Real3(0,0,0.5));
         //perform rotation through slerping
         this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.MushroomRotation, 0.1);
     }

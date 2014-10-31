@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-5.27469, -46.2839, 29.2718],
+			Vec3 Translation = [-5.27473, -46.2839, 29.2718],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.349695, 0.0269905, -0.0100793, 0.936421],
+			Quat Rotation = [0.349695, 0.02699, -0.0100791, 0.936421],
 		},
 		Camera = 
 		{
@@ -1470,7 +1470,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54d91b00caa719e7,
+					uint64 CachedGeometryId = 5474106cbc78924e,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1573,7 +1573,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54d91b00caa72378,
+					uint64 CachedGeometryId = 5474106cbc789d4b,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1689,7 +1689,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54d91b00caa72d9f,
+					uint64 CachedGeometryId = 5474106cbc78a7e2,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1805,7 +1805,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54d91b00caa73826,
+					uint64 CachedGeometryId = 5474106cbc78b2b7,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1922,7 +1922,7 @@ Level =
 				{
 					int Layer = -2,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54d91b00caa73edb,
+					uint64 CachedGeometryId = 5474106cbc78ba5d,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2024,7 +2024,7 @@ Level =
 				{
 					int Layer = -2,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54d91b00caa748f5,
+					uint64 CachedGeometryId = 5474106cbc78c584,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2141,7 +2141,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54d91b00caa760e9,
+					uint64 CachedGeometryId = 5474106cbc78e00c,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2317,7 +2317,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54d91b00caa77e09,
+					uint64 CachedGeometryId = 5474106cbc78fd95,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -3271,8 +3271,12 @@ Level =
 		Z_EnemyController = 
 		{
 			CogPath TargetObjectPath = ":/Player",
-			float LungeDistance = 5,
-			float LungeSpeed = 10,
+			float MaxAttackRange = 5,
+			float LungeSpeed = 5,
+			float TargetDetectionRange = 30,
+			float AttackTimeout = 300,
+			int MaxAttacks = 1,
+			float HeadbuttAttackPercentage = 0.5,
 		},
 	},
 },
