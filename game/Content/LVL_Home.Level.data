@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-80.3228, -80.4911, 11.927],
+			Vec3 Translation = [-47.8958, -64.2837, 40.897],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.660389, 0.00900934, -0.00792415, 0.750828],
+			Quat Rotation = [0.288976, -0.0382819, 0.0115656, 0.956501],
 		},
 		Camera = 
 		{
@@ -95,10 +95,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 108.121,
-			float VerticalAngle = -1.4428,
-			float HorizontalAngle = -0.0239973,
-			Vec3 LookTarget = [-80.654, 26.7454, -1.87028],
+			float LookDistance = 98.121,
+			float VerticalAngle = -0.586797,
+			float HorizontalAngle = 0.0800029,
+			Vec3 LookTarget = [-41.3659, -9.95444, -40.5489],
 		},
 		EditorRenderer = 
 		{
@@ -2023,6 +2023,7 @@ Level =
 			CogPath TargetObjectPath = ":/Player",
 			float BarkTriggerDistance = 15,
 			Vec4 BarkColor = [0.033075, 0.124268, 0.945, 0.83],
+			Vec3 BarkScale = [0, 0, 0],
 			float RunAwayTriggerDistance = 9,
 			Vec4 RunAwayColor = [0.278526, 0.915, 0.0549, 0.815],
 			float MaxRunAwayDistance = 30,
@@ -2110,7 +2111,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-61.1705, 29.2175, -0.116497],
+			Vec3 Translation = [-61.1705, -26.3722, -0.116497],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2128,9 +2129,9 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [8.08374, -22.3619, 10.7701],
-					Vec3 Scale = [1.66882, 1.66882, 1.66882],
-					Quat Rotation = [-0, 0, 0.669129, -0.743146],
+					Vec3 Translation = [8.08374, -22.3619, 8],
+					Vec3 Scale = [1.5, 1.5, 1.5],
+					Quat Rotation = [0, 0, 0, 1],
 				},
 				AnimationGraph = 
 				{
