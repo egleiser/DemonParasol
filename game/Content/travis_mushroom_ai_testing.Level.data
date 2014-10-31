@@ -77,9 +77,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-5.557, -44.3223, 16.2237],
+			Vec3 Translation = [-7.67033, -45.5031, 14.876],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.454707, 0.0647512, -0.0331689, 0.887665],
+			Quat Rotation = [0.454707, 0.0647495, -0.0331681, 0.887665],
 		},
 		Camera = 
 		{
@@ -98,7 +98,7 @@ Level =
 			float LookDistance = 40.1,
 			float VerticalAngle = -0.946801,
 			float HorizontalAngle = -12.712,
-			Vec3 LookTarget = [-8.9571, -11.7791, -6.95799],
+			Vec3 LookTarget = [-11.0703, -12.9599, -8.30574],
 		},
 		EditorRenderer = 
 		{
@@ -1470,7 +1470,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5490bc9980854fb1,
+					uint64 CachedGeometryId = 54909cc1de099a29,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1573,7 +1573,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5490bc9980855a37,
+					uint64 CachedGeometryId = 54909cc1de09a4f5,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1689,7 +1689,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5490bc9980856498,
+					uint64 CachedGeometryId = 54909cc1de09af61,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1805,7 +1805,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5490bc9980856f0e,
+					uint64 CachedGeometryId = 54909cc1de09b9e4,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1922,7 +1922,7 @@ Level =
 				{
 					int Layer = -2,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5490bc998085768b,
+					uint64 CachedGeometryId = 54909cc1de09c14b,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2024,7 +2024,7 @@ Level =
 				{
 					int Layer = -2,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5490bc9980858130,
+					uint64 CachedGeometryId = 54909cc1de09cc2b,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2141,7 +2141,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5490bc9980859ae8,
+					uint64 CachedGeometryId = 54909cc1de09e59e,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2317,7 +2317,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5490bc998085b91c,
+					uint64 CachedGeometryId = 54909cc1de08042c,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -3277,12 +3277,85 @@ Level =
 			float AttackTimeout = 300,
 			float LungeSpeed = 5,
 			float HeadbuttAttackPercentage = 0.9,
-			float JumpHeight = 1.5,
-			float JumpSpeed = 5,
-			float FallingHeadbuttSpeed = 30,
+			float JumpHeight = 6,
+			float JumpTime = 0.5,
+			float HangTime = 1,
+			float CrashDownTime = 0.25,
 		},
 		Hierarchy = 
 		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 60,
+				},
+				Named = 
+				{
+					string Name = "mushroom-crash-particle-system",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.0194893, -0.530666, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteParticleSystem = 
+				{
+					SystemChildMode ChildMode = Independent,
+					SystemSpace SystemSpace = WorldSpace,
+					uint DrawOrder = 0,
+					float WarmUpTime = 0,
+					ParticleGeometry GeometryMode = Billboarded,
+					ParticleRenderMode RenderMode = Blended,
+					ParticleSortMode SortMode = Youngest,
+					ParticleAnimation ParticleAnimation = Single,
+					string Texture = "549077776ae2d105:tex_toon_explosion_Low_Contrast",
+					Vec4 Tint = [0.3, 0.17799, 0.051, 1],
+					float VelocityScale = 1,
+					float LengthScale = 1,
+					float MaxParticleSize = 1,
+					Vec3 SystemSize = [6, 6, 3],
+				},
+				LinearParticleAnimator = 
+				{
+					Vec3 Force = [0, 0, 0],
+					Vec3 RandomForce = [0, 0, 0],
+					float Torque = 0,
+					float Growth = 0,
+					float Dampening = 0.5,
+					Vec3 Twist = [0, 0, 0],
+				},
+				ParticleColorAnimator = 
+				{
+					Vec4 Color0 = [1, 1, 1, 0],
+					Vec4 Color1 = [1, 1, 1, 1],
+					Vec4 Color2 = [1, 1, 1, 1],
+					Vec4 Color3 = [1, 1, 1, 1],
+					Vec4 Color4 = [1, 1, 1, 0],
+				},
+				BoxParticleEmitter = 
+				{
+					bool Active = false,
+					uint EmitCount = 0,
+					float EmitRate = 10,
+					float EmitVariance = 0,
+					float Size = 1,
+					float SizeVariance = 0.5,
+					float Lifetime = 1,
+					float LifetimeVariance = 0.2,
+					float Spin = 0,
+					float SpinVariance = 50,
+					bool RandomSpin = true,
+					float Fill = 1,
+					float EmitterVelocityPercent = 0,
+					Vec3 StartVelocity = [0, 0, 0],
+					Vec3 RandomVelocity = [2, 2, 2],
+					Vec3 TangentVelocity = [0, 0, 0],
+					Vec3 EmitterSize = [0, 0, 0],
+					bool FastMovingEmitter = false,
+				},
+			},
 		},
 	},
 },

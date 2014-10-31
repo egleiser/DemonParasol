@@ -40,11 +40,13 @@ class Z_EnemyController:ZilchComponent
     [Property]
     var HeadbuttAttackPercentage:Real = 0.5;
     [Property]
-    var JumpHeight:Real = 1.0;
+    var JumpHeight:Real = 6.0;
     [Property]
-    var JumpSpeed:Real = 10.0;
+    var JumpTime:Real = 0.5;
     [Property]
-    var FallingHeadbuttSpeed:Real = 30.0;
+    var HangTime:Real = 1.0;
+    [Property]
+    var CrashDownTime:Real = 0.25;
     //non-settable properies
     var UpsideDownRotation:Quaternion = Quaternion();
     
@@ -69,11 +71,14 @@ class Z_EnemyController:ZilchComponent
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
     function OnCollisionStarted(event:CollisionEvent)
     {
-        /*THIS DOES NOT WORK PROPERLY*********************************************************************************/
+        //DEBUG
         //Console.WriteLine(event.OtherObject.Parent.Parent);
         if(event.OtherObject.Parent == this.TargetObject)
         {
-            Console.WriteLine("boo");
+            //send damage event to player
+            //***SEND DAMAGE TO PLAYER event.OtherObject.Health.ApplyDamage(SOME AMOUNT OF DAMAGE);
+            //destroy self
+            event.Object.Destroy();
         }
     }
     
@@ -178,26 +183,34 @@ class Z_EnemyController:ZilchComponent
         
         //apply velocity on enemy towards target
         Action.Property(aHeadbuttSequence,
-                        @this.Owner.RigidBody.Velocity,
-                        (-this.TargetDirection + Real3(0,0,this.JumpHeight)) * this.JumpSpeed,
-                        0.25,
+                        @this.Owner.Transform.Translation,
+                        (this.TargetObject.Transform.Translation + Real3(0,0,this.JumpHeight)),
+                        this.JumpTime,
                         Ease.QuadOut);
-        
         //rotate upside-down?
         Action.Property(aHeadbuttSequence,
                         @this.Owner.Transform.Rotation,
                         Math.Slerp(this.Owner.Transform.Rotation, this.MushroomRotation, 180),
-                        1.0,
-                        Ease.QuadOut);
-        
+                        this.HangTime,
+                        Ease.QuadInOut);
         //crash down!
         Action.Property(aHeadbuttSequence,
-                        @this.Owner.RigidBody.Velocity,
-                        (Real3(0,0,-this.JumpHeight) * this.FallingHeadbuttSpeed),
+                        @this.Owner.Transform.Translation,
+                        (this.TargetObject.Transform.Translation),
+                        this.CrashDownTime,
+                        Ease.QuadOut);
+        //particles on
+        Action.Property(aHeadbuttSequence,
+                        @this.Owner.FindChildByName("mushroom-crash-particle-system").BoxParticleEmitter.Active,
+                        true,
+                        0.5,
+                        Ease.QuadOut);
+        //particles off
+        Action.Property(aHeadbuttSequence,
+                        @this.Owner.FindChildByName("mushroom-crash-particle-system").BoxParticleEmitter.Active,
+                        false,
                         0.25,
                         Ease.QuadOut);
-                        
-        //particles
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
