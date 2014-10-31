@@ -82,7 +82,7 @@ class Z_EnemyController:ZilchComponent
                         //choose an attack
                         this.ChooseAttackType(event);
                         //DEBUG
-                        Console.WriteLine("Attacking!");
+                        //Console.WriteLine("Attacking!");
                         
                         //reset LungeTimer
                         this.AttackTimer = 0.0;
@@ -123,6 +123,7 @@ class Z_EnemyController:ZilchComponent
         else
         {
             this.Lunge(event);
+            Console.WriteLine("Lunging!");
         }
         
     }
