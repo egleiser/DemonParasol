@@ -11,36 +11,48 @@ class Z_EnemyController:ZilchComponent
     [Dependency]
     var Orientation : Orientation = null;
     
-    //LUNGE PROPERTIES
+    //ATTACK PROPERTIES
     [Property]
     var TargetObjectPath:CogPath = null;
     [Property]
-    var MaxAttackRange:Real = 5.0;
+    var TargetDetectionRange:Real = 30.0;
     [Property]
-    var LungeSpeed:Real = 10.0;
-    [Property]
-    var TargetDetectionRange:Real = 10.0;
-    [Property]
-    var AttackTimeout:Real = 300.0;
+    var MaxAttackRange:Real = 15.0;
     [Property]
     var MaxAttacks:Integer = 1;
     [Property]
-    var HeadbuttAttackPercentage:Real = 0.5;
-    
+    var AttackTimeout:Real = 300.0; //miliseconds
     //non-settable properties
     var TargetObject:Cog = null;
     var TargetDirection:Real3 = Real3();
     var TargetDistance:Real = Real();
     var OriginalPosition:Real3 = Real3();
-    var LungeDistance:Real = Real();
     var MushroomRotation:Quaternion = Quaternion();
     var AttackTimer:Real = 0.0;
+    
+    //LUNGE PROPERTIES
+    [Property]
+    var LungeSpeed:Real = 10.0;
+    //non-settable properties
+    var LungeDistance:Real = Real();
+    
+    //HEADBUTT PROPERTIES
+    [Property]
+    var HeadbuttAttackPercentage:Real = 0.5;
+    [Property]
+    var JumpHeight:Real = 1.0;
+    [Property]
+    var JumpSpeed:Real = 10.0;
+    [Property]
+    var FallingHeadbuttSpeed:Real = 30.0;
+    //non-settable properies
+    var UpsideDownRotation:Quaternion = Quaternion();
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCTION-Initialize
     //EXPLANATION-Initialize variables/functions so that we can use them
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    function Initialize(init : CogInitializer)
+    function Initialize(init:CogInitializer)
     {
         //set the target of the enemy
         this.TargetObject = this.TargetObjectPath.Cog;
@@ -49,13 +61,27 @@ class Z_EnemyController:ZilchComponent
         this.OriginalPosition = this.Owner.Transform.Translation;
         
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-OnCollisionStarted
+    //EXPLANATION-Initialize variables/functions so that we can use them
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function OnCollisionStarted(event:CollisionEvent)
+    {
+        /*THIS DOES NOT WORK PROPERLY*********************************************************************************/
+        //Console.WriteLine(event.OtherObject.Parent.Parent);
+        if(event.OtherObject.Parent == this.TargetObject)
+        {
+            Console.WriteLine("boo");
+        }
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCTION-OnLogicUpdate
     //EXPLANATION-Update every frame, perform actions of the enemy
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    function OnLogicUpdate(event : UpdateEvent):Void
+    function OnLogicUpdate(event:UpdateEvent):Void
     {
         //do we have a target?
         if(this.TargetObject != null)
@@ -75,36 +101,30 @@ class Z_EnemyController:ZilchComponent
                 if(this.AttackTimer >= this.AttackTimeout)
                 {
                     //DEBUG
-                    Console.WriteLine("I can attack!");
+                    //Console.WriteLine("I can attack!");
+                    
                     //enemy at lunge range?
                     if(this.TargetDistance <= this.MaxAttackRange)
                     {
                         //choose an attack
                         this.ChooseAttackType(event);
+                        
                         //DEBUG
                         //Console.WriteLine("Attacking!");
                         
-                        //reset LungeTimer
+                        //reset AttackTimer
                         this.AttackTimer = 0.0;
                     }
                 }
                 
             }
-            //increment LungeTimer
+            //increment AttackTimer
             ++this.AttackTimer;
+            //DEBUG FOR LOCATION IN WORLD SPACE
+            //Console.WriteLine("Where we are: `this.Owner.Transform.Translation`");
         }
     }
     
-    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCTION-Lunge
-    //EXPLANATION-Moves the enemy back and forth based on property set values
-    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    function Lunge(event:UpdateEvent):Void
-    {
-        this.Owner.RigidBody.Velocity = -this.TargetDirection * this.LungeSpeed;
-        var lungeDisplacement:Real3 = this.Owner.Transform.Translation + this.OriginalPosition;
-        this.LungeDistance = Math.Length(lungeDisplacement);
-    }
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCTION-ChooseAttackType
     //EXPLANATION-Chooses between lunging attacks and headbutt attacks
@@ -117,15 +137,67 @@ class Z_EnemyController:ZilchComponent
         //if random is less than or equal to the percentage chance of the HeadbuttAttackPercentage
         if(random <= this.HeadbuttAttackPercentage)
         {
-            Console.WriteLine("Headbutt!");
+            //DEBUG
+            //Console.WriteLine("Headbutt!");
+            this.Headbutt(event);
         }
+        
         //the rest of the attacks are normal lunges
         else
         {
+            //DEBUG
+            //Console.WriteLine("Lunging!");
             this.Lunge(event);
-            Console.WriteLine("Lunging!");
         }
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Lunge
+    //EXPLANATION-applies a short term velocity on the enemy towards the target
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Lunge(event:UpdateEvent):Void
+    {
+        //apply velocity on enemy towards target
+        this.Owner.RigidBody.Velocity = -this.TargetDirection * this.LungeSpeed;
         
+        //var lungeDisplacement:Real3 = this.Owner.Transform.Translation + this.OriginalPosition;
+        //this.LungeDistance = Math.Length(lungeDisplacement);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Headbutt
+    //EXPLANATION-applies a jump on the enemy, rotates in air, falls down on target
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Headbutt(event:UpdateEvent):Void
+    {
+        //store rotation
+        this.UpsideDownRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.TargetDirection, Real3(0,0,1));
+        
+        //create an action sequence for headbutting
+        var aHeadbuttSequence = Action.Sequence(this.Owner.Actions);
+        
+        //apply velocity on enemy towards target
+        Action.Property(aHeadbuttSequence,
+                        @this.Owner.RigidBody.Velocity,
+                        (-this.TargetDirection + Real3(0,0,this.JumpHeight)) * this.JumpSpeed,
+                        0.25,
+                        Ease.QuadOut);
+        
+        //rotate upside-down?
+        Action.Property(aHeadbuttSequence,
+                        @this.Owner.Transform.Rotation,
+                        Math.Slerp(this.Owner.Transform.Rotation, this.MushroomRotation, 180),
+                        1.0,
+                        Ease.QuadOut);
+        
+        //crash down!
+        Action.Property(aHeadbuttSequence,
+                        @this.Owner.RigidBody.Velocity,
+                        (Real3(0,0,-this.JumpHeight) * this.FallingHeadbuttSpeed),
+                        0.25,
+                        Ease.QuadOut);
+                        
+        //particles
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -146,13 +218,13 @@ class Z_EnemyController:ZilchComponent
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCTION-DistanceToTarget
+    //FUNCTION-RotateTowardsTarget
     //EXPLANATION-Calculates the distance/direction between this enemy and the target object
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
     function RotateTowardsTarget(event:UpdateEvent):Void
     {
         //store rotation
-        this.MushroomRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.TargetDirection, Real3(0,0,0.5));
+        this.MushroomRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.TargetDirection, Real3(0,0,1));
         //perform rotation through slerping
         this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.MushroomRotation, 0.1);
     }
