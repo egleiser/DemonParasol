@@ -176,9 +176,6 @@ class DogController : ZilchComponent
         //a speed value set in the properties
         this.Owner.RigidBody.Velocity = this.PaceDirection * this.PaceSpeed;
         
-        //Console.WriteLine("Dog Position = `this.Owner.Transform.Translation`");
-        //Console.WriteLine("Dog pacedir: `this.PaceDirection`");
-        
         //Sets the PaceRotation variable, which is used to rotate teh dog towards the direction
         //it's currently facing, using Orientation and the PaceDirection variabel
         this.PaceRotation = this.Orientation.GetLookAtDirectionWithUpRotation(this.PaceDirection, Real3(0,0,1));
