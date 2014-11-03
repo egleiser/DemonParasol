@@ -45,10 +45,6 @@ class BasicRaycaster : ZilchComponent
             {
                 break;
             }
-            if(distance <= this.CastDistance)
-            {
-                Console.WriteLine("boo");
-            }
             
             // Draw to the raycast point
             var endPos = ray.Start + ray.Direction * distance;
