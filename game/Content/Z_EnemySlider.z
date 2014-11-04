@@ -1,0 +1,216 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//SCRIPT-Z_EnemySlider.z
+//AUTHOR-Travis Moore
+//COURSE-GAM205
+//COPYRIGHT-© 2014 DigiPen, All Rights Reserved.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+class Z_EnemySlider:ZilchComponent
+{
+    //DEPENDENCIES
+    [Dependency]
+    var Orientation : Orientation = null;
+    
+    //RAYCASTING PROPERTIES
+    [Property]
+    var RayCastVector:Real3 = Real3(0.0, 1.0, 0.0);    //the local space vector that we use to raycast
+    [Property]
+    var CastDistance:Real = 10.0;                      //the maximum distance the raycast will go
+    [Property]
+    var RayColor:Real4 = Real4(1.0, 1.0, 1.0, 1.0);    //color to draw the ray and arrow head
+    [Property]
+    var ArrowSize:Real = 0.25;                         //size of the arrow head to draw
+    [Property]
+    var OnTop:Boolean = true;                          //if the ray is always drawn on top of everything
+    
+    //TARGET PROPERTIES
+    [Property]
+    var TargetCogPath:CogPath = null;
+    
+    //SLIDE PROPERTIES
+    [Property]
+    var SlideCompletionTime:Real = 3.0;                //how long it takes to slide across a path
+    [Property]
+    var SlideReturnTime:Real = 6.0;                    //how long it takes to return back to starting pos
+    [Property]
+    var SlideDistance:Real = 10.0;
+    [Property]
+    var SlideDelay:Real = 2.0;
+    
+    //non-settables
+    var EnemyPos:Real3 = Real3();
+    var EnemyOriginalPos:Real3 = Real3();
+    var EnemyRotation:Quaternion = Quaternion();
+    var Target:Cog = null;
+    var TargetPos:Real3 = Real3();
+    var SlideComplete:Boolean = true;
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Initialize
+    //EXPLANATION-Initialize variables/functions so that we can use them
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Initialize(init : CogInitializer):Void
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        //set EnemyPos
+        this.EnemyPos = this.Owner.Transform.Translation;
+        this.EnemyOriginalPos = Real3(this.EnemyPos.X, this.EnemyPos.Y, 0);
+        this.EnemyRotation = this.Owner.Orientation.GetLookAtPointRotation(this.RayCastVector);
+        
+        //set TargetPos if Target is not null
+        if(this.TargetCogPath != null)
+        {
+            this.Target = this.TargetCogPath.Cog;
+            this.TargetPos = this.TargetCogPath.Cog.Transform.Translation;
+        }
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-OnLogicUpdate
+    //EXPLANATION-Update every frame, perform actions of the enemy
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function OnLogicUpdate(event:UpdateEvent):Void
+    {
+        //does enemy have a target?
+        if(this.Target != null)
+        {
+            //draw a ray
+            if(this.PerformRayCast() && this.SlideComplete)
+            {
+                //perform a new slide
+                this.Slide();
+            }
+        }
+        //slide back and forth along a direction automatically
+        else
+        {
+            //if we are not already sliding
+            if(this.SlideComplete)
+            {
+                //perform a new slide
+                this.Slide();
+            }
+        }
+        //DEBUG
+        Console.WriteLine(this.Owner.Transform.Translation);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-OnLogicUpdate
+    //EXPLANATION-Update every frame, perform actions of the enemy
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function PerformRayCast():Boolean
+    {
+        //create ray
+        var ray = Ray();
+        ray.Start = this.EnemyPos;
+        ray.Direction = this.Owner.Transform.TransformNormal(this.RayCastVector);
+        ray.Direction = Math.Normalize(ray.Direction);
+        
+        //do a raycast for only 1 result
+        var castResultRange = this.Space.PhysicsSpace.CastRayResults(ray, 1);
+        
+        //iterate through all results
+        foreach(var castResult in castResultRange)
+        {
+            //get how far away the object was that we hit
+            var distance = castResult.Distance;
+            
+            //ignore objects beyond our cast distance
+            if(distance >= this.CastDistance)
+            {
+                //break out of loop
+                break;
+            }
+            
+            if(castResult.ObjectHit == this.Target)
+            {
+                //slide to try to hit target
+                return true;
+            }
+            
+            //draw to the raycast point
+            var endPos = ray.Start + ray.Direction * distance;
+            //dra debug arrow
+            this.DrawArrow(ray.Start, endPos);
+            
+            //hit nothing, return false
+            return false;
+        }
+        
+        //we didn't hit anything, draw to our max distance
+        var endPos = ray.Start + ray.Direction * this.CastDistance;
+        //draw debug arrow
+        this.DrawArrow(ray.Start, endPos);
+        
+        //hit nothing, return false
+        return false;
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Slide
+    //EXPLANATION-Slide in the direction of the casted ray if target or every x seconds
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Slide():Void
+    {
+        //create ray
+        var ray = Ray();
+        ray.Start = this.EnemyPos;
+        ray.Direction = this.Owner.Transform.TransformNormal(this.RayCastVector);
+        ray.Direction = Math.Normalize(ray.Direction);
+        
+        //create action sequence
+        var aAutoSlide = Action.Sequence(this.Owner.Actions);
+        
+        //set bool to false so we can complete slide
+        Action.Property(aAutoSlide,
+                        @this.SlideComplete,
+                        false,
+                        0.25,
+                        Ease.Linear);
+                        
+        //slide x distance over x time
+        Action.Property(aAutoSlide,
+                        @this.Owner.Transform.Translation,
+                        this.EnemyPos + (this.RayCastVector * this.SlideDistance),
+                        this.SlideCompletionTime,
+                        Ease.QuadOut);
+        
+        //delay actions for x seconds
+        Action.Delay(aAutoSlide, this.SlideDelay);
+        
+        //return back to start position over x time
+        Action.Property(aAutoSlide,
+                        @this.Owner.Transform.Translation,
+                        this.EnemyOriginalPos,
+                        this.SlideReturnTime,
+                        Ease.Linear);
+        
+        //reorient ourselves
+        Action.Property(aAutoSlide,
+                        @this.Owner.Transform.Rotation,
+                        Math.Slerp(this.Owner.Transform.Rotation, this.EnemyRotation, 0),
+                        0.25,
+                        Ease.QuadInOut);
+        
+        //flip bool to true so we can slide again
+        Action.Property(aAutoSlide,
+                        @this.SlideComplete,
+                        true,
+                        0.25,
+                        Ease.Linear);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-DrawArrow
+    //EXPLANATION-Draws a ray cast line for debugging purposes
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function DrawArrow(start_:Real3, end_:Real3)
+    {
+        //draw dat line, yo
+        var line = DebugLine();
+        line.Start(start_).End(end_).HeadSize(this.ArrowSize).Float4Color(this.RayColor).OnTop(this.OnTop);
+        line.Draw();
+    }
+}
