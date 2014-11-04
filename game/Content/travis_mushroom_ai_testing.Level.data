@@ -1470,7 +1470,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5470c4e7d51b400d,
+					uint64 CachedGeometryId = 547f3f3a63b096c2,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1573,7 +1573,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5470c4e7d51b4aa5,
+					uint64 CachedGeometryId = 547f3f3a63b0a1bc,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1689,7 +1689,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5470c4e7d51b5514,
+					uint64 CachedGeometryId = 547f3f3a63b0adea,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1805,7 +1805,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5470c4e7d51b5fc7,
+					uint64 CachedGeometryId = 547f3f3a63b0b8ed,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -1922,7 +1922,7 @@ Level =
 				{
 					int Layer = -2,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5470c4e7d51b6a28,
+					uint64 CachedGeometryId = 547f3f3a63b0c08a,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2024,7 +2024,7 @@ Level =
 				{
 					int Layer = -2,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5470c4e7d51b7520,
+					uint64 CachedGeometryId = 547f3f3a63b0cbe4,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2141,7 +2141,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5470c4e7d51b8e13,
+					uint64 CachedGeometryId = 547f3f3a63b0e584,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -2317,7 +2317,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5470c4e7d51babfb,
+					uint64 CachedGeometryId = 547f3f3a63b103b5,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -3358,15 +3358,12 @@ Level =
 			},
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "547f372542dfb8ac:enemy_bladetrap",
 		LinkId = 
 		{
 			uint Id = 61,
-		},
-		Named = 
-		{
-			string Name = "Sphere",
 		},
 		Transform = 
 		{
@@ -3374,45 +3371,9 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Model = 
+		Named = 
 		{
-			string MaterialName = "4de020863e85bb61:DefaultMaterial",
-			string MeshName = "4de0354322b376ae:Sphere",
-			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		SphereCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			float Radius = 1,
-		},
-		Z_EnemySlider = 
-		{
-			Vec3 RayCastVector = [0, 1, 0],
-			float CastDistance = 10,
-			Vec4 RayColor = [1, 1, 1, 1],
-			float ArrowSize = 0.25,
-			bool OnTop = true,
-			float SlideCompletionTime = 1,
-			float SlideDistance = 10,
-			float SlideDelay = 2,
+			string Name = "enemy_bladetrap",
 		},
 	},
 },
