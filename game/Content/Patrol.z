@@ -18,19 +18,52 @@ class Patrol : ZilchComponent
     var PaceRotation : Quaternion = Quaternion(0,0,0,0);
     
     var StartPosition : Real3 = Real3(0,0,0);
+    
+    var IsRunning : Boolean = false;
+    
+    var RunRange : Boolean = false;
 
     
     function Initialize(init : CogInitializer)
     {
         this.StartPosition = this.Owner.Transform.Translation;
-
-
+        
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        this.PaceBackAndForth(event);
+        var isWarning : Boolean = false;
+        var hasRunning : Boolean = false;
+        var runRange : Boolean = false;
+        
+        if(this.Owner != null)
+        {
+            if(this.Owner.WarnTarget != null)
+            {
+                isWarning = true;
+            }
+            if(this.Owner.RunAwayFromTarget != null)
+            {
+                hasRunning = true;
+            }
+            this.RunRange = this.Owner.RunAwayFromTarget.CheckRunAwayRange();
+            //Console.WriteLine("`this.Owner.RunAwayFromTarget.CheckRunAwayRange()`");
+        }
+        
+        if(this.RunRange)/* && !isWarning && !this.IsRunning)*/
+        {
+            //this.IsRunning = true;
+            this.Owner.RunAwayFromTarget.RunningAway = true;
+        }
+        //else if(this.IsRunning)
+        //{
+        //    this.Owner.RunAwayFromTarget.RunningAway = true;
+        //}
+        else if(!this.Owner.RunAwayFromTarget.RunningAway)
+        {
+            this.PaceBackAndForth(event);
+        }
     }
     
     function PaceBackAndForth(event : UpdateEvent)

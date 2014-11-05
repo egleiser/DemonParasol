@@ -67,7 +67,7 @@ class BirdController : ZilchComponent
         this.AttackDirection = this.TargetObject.Transform.Translation - this.Owner.Transform.WorldTranslation;
         this.AttackRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.AttackDirection, Real3(0,0,1));
         this.AttackDistanceFromTarget = Math.Length(this.AttackDirection);
-        Console.WriteLine("Distance From Target = `this.AttackDistanceFromTarget`");
+        //Console.WriteLine("Distance From Target = `this.AttackDistanceFromTarget`");
         this.AttackDirection = Math.Normalize(this.AttackDirection);
     }
     

@@ -4,6 +4,9 @@ class WarnTarget : ZilchComponent
     var Orientation : Orientation = null;
     
     [Property]
+    var TargetIsWithinWarnRange : Boolean = false;
+    
+    [Property]
     var TargetObjectPath : CogPath = null;
     
     [Property]
@@ -17,7 +20,9 @@ class WarnTarget : ZilchComponent
     
     var TargetObject : Cog = null;
     
-    var TargetIsWithinWarnRange : Boolean = false;
+    var IsRunning : Boolean = false;
+    
+    
     var WarnDirection : Real3 = Real3(0,0,0);
     var WarnRotation : Quaternion = Quaternion(0,0,0,0);
     var WarnTimer : Integer = 0;
@@ -32,8 +37,41 @@ class WarnTarget : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        this.CalculateWarnDirectionAndDistance();
-        this.WarnTarget(event);
+        var isPatrolling : Boolean = false;
+        var hasRunning : Boolean = false;
+        var isWarning : Boolean = false;
+        var runRange : Boolean = false;
+        
+        if(this.Owner != null)
+        {
+            if(this.Owner.Patrol != null)
+            {
+                isPatrolling = true;
+            }
+            if(this.Owner.RunAwayFromTarget != null)
+            {
+                hasRunning = true;
+            }
+            runRange = this.Owner.RunAwayFromTarget.CheckRunAwayRange();
+            this.CalculateWarnDirectionAndDistance();
+            this.CheckWarnRange();
+        }
+        if(this.TargetIsWithinWarnRange && !hasRunning)
+        {
+            this.WarnTarget(event);
+        }
+        if(this.TargetIsWithinWarnRange && hasRunning && !this.IsRunning)
+        {
+            this.WarnTarget(event);
+        }
+        if(this.TargetIsWithinWarnRange && runRange && !this.IsRunning)
+        {
+            this.IsRunning = true;
+        }
+        else if(this.IsRunning)
+        {
+            this.Owner.RunAwayFromTarget.RunningAway = true;
+        }
     }
     
     /*This function is called when the player gets within the BarkTriggerDistance.
@@ -45,16 +83,18 @@ class WarnTarget : ZilchComponent
         this.Owner.RigidBody.Velocity = Real3();
         var startScale : Real3 = Real3(0,0,0);
         startScale = this.Owner.Transform.Scale;
-        if(this.WarnTimer % 180 == 0)
+        if(this.Owner.SoundEmitter != null)
         {
-            this.Owner.SoundEmitter.Play();
-            var seq = Action.Sequence(this.Owner.Actions);
-            Action.Property(seq, @this.Owner.Transform.Scale, this.WarnScale, 0.05, Ease.Linear);
-            Action.Property(seq, @this.Owner.Transform.Scale, startScale, 0.3, Ease.Linear);
+            if(this.WarnTimer % 180 == 0)
+            {
+                this.Owner.SoundEmitter.Play();
+                var seq = Action.Sequence(this.Owner.Actions);
+                Action.Property(seq, @this.Owner.Transform.Scale, this.WarnScale, 0.05, Ease.Linear);
+                Action.Property(seq, @this.Owner.Transform.Scale, startScale, 0.3, Ease.Linear);
+            }
         }
         //Changes model color to the user defined color for barking
         this.Owner.Model.Color = this.WarnColor; 
-        
         
         //Grabs the quaternion for the rotation towards the player, based on BarkDirection
         //which is defined in the Calculate function directly below
@@ -76,10 +116,16 @@ class WarnTarget : ZilchComponent
         //Grabs the vector from the dog towards the player
         this.WarnDirection = enemypos - playerpos;
         //Gets the length of this vector to be used in LogicUpdate
-        this.WarnDistanceFromTarget = Math.Length(this.WarnDirection);
+        this.WarnDistanceFromTarget = Math.Distance(playerpos, enemypos);
         //Normalizes the vector to be used when getting the rotation for the dog in the BarkAtTarget
         //function above
         this.WarnDirection = Math.Normalize(this.WarnDirection);
+    }
+    
+    function CheckWarnRange() : Boolean
+    {
+        this.TargetIsWithinWarnRange = (this.WarnDistanceFromTarget <= this.WarnTriggerDistance);
+        return this.TargetIsWithinWarnRange;
     }
 
 }

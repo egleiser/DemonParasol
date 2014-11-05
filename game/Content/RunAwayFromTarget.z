@@ -21,6 +21,7 @@ class RunAwayFromTarget : ZilchComponent
     var TargetObject : Cog = null;
     
     var TargetIsWithinRunAwayRange : Boolean = false;
+    
     var RunAwayDirection : Real3 = Real3(0,0,0);
     var RunAwayRotation : Quaternion = Quaternion(0,0,0,0);
     var RunAwayStartPosition : Real3 = Real3(0,0,0);
@@ -30,28 +31,41 @@ class RunAwayFromTarget : ZilchComponent
     
     function Initialize(init : CogInitializer)
     {
+        
         this.TargetObject = this.TargetObjectPath.Cog;
+        this.RunAwayDistanceFromTarget = Math.Distance(this.TargetObject.Transform.Translation, this.Owner.Transform.Translation);
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        var targetIsWithinRunAwayRange : Boolean = false;
+        var isWarning : Boolean = false;
+        var isPatrolling : Boolean = false;
+        var isRunning : Boolean = false;
         
         if(this.TargetObject != null)
         {
+            if(this.Owner.Patrol != null)
+            {
+                isPatrolling = true;
+            }
+            
+            if(this.Owner.WarnTarget != null)
+            {
+                isWarning = true;
+            }
             this.CalculateRunAwayDirectionAndDistance();
+            this.CheckRunAwayRange();
         }
         
-        if(this.Owner.WarnTarget != null)
+        if(this.TargetIsWithinRunAwayRange && !isWarning && !isPatrolling)
         {
-            //if(this.Owner.WarnTarget.TargetIsWithinWarnRange && /*this.Target*/)
-            //{
-            //    this.RunningAwayFromTarget(event);
-            //}
+            Console.WriteLine("Running Event 1");
+            this.RunningAwayFromTarget(event);
         }
-        else
+        if(this.RunningAway)
         {
+            //Console.WriteLine("Running Event 2");
             this.RunningAwayFromTarget(event);
         }
     }
@@ -86,15 +100,22 @@ class RunAwayFromTarget : ZilchComponent
     {
         var playerpos = this.TargetObject.Transform.Translation;
         playerpos.Z = 0.0;
-        var dogpos = this.Owner.Transform.Translation;
-        dogpos.Z = 0.0;
+        var enemypos = this.Owner.Transform.Translation;
+        enemypos.Z = 0.0;
         var reverseDirection : Real3 = Real3(0,0,0);
-        reverseDirection = playerpos - dogpos;
+        reverseDirection = playerpos - enemypos;
         
         this.RunAwayDirection = -reverseDirection;
-        this.RunAwayDistanceFromTarget = Math.Length(reverseDirection);
+        this.RunAwayDistanceFromTarget = Math.Distance(playerpos, enemypos);
         this.RunAwayRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.RunAwayDirection, Real3(0,0,1));
         this.RunAwayDirection = Math.Normalize(this.RunAwayDirection);
         
+    }
+    
+    function CheckRunAwayRange() : Boolean
+    {
+        Console.WriteLine("`this.RunAwayDistanceFromTarget`");
+        this.TargetIsWithinRunAwayRange = (this.RunAwayDistanceFromTarget <= this.RunAwayTriggerDistance);
+        return this.TargetIsWithinRunAwayRange;
     }
 }
