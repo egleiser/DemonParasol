@@ -14,16 +14,17 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [38.1133, -4.89191, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [2, 2, 2],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Model = 
 	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
 		string MaterialName = "5481b9d551fba80f:mat_Bamboo",
 		string MeshName = "5481b9cc54c54b27:Bamboo_LowPoly2",
 		Vec4 Color = [1, 1, 1, 1],
-		bool Visible = true,
 	},
 	SinRotate = 
 	{
@@ -43,5 +44,17 @@ Cog =
 		float Radius = 0.2,
 		float Height = 8,
 		uint Direction = 2,
+	},
+	RigidBody = 
+	{
+		bool Static = true,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
 	},
 },
