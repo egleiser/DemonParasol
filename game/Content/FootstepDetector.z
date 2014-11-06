@@ -65,7 +65,7 @@ class FootstepDetector : ZilchComponent
         rayCast.Start = this.Transform.WorldTranslation + Real3(0,0,2);
         rayCast.Direction = -this.Orientation.LocalUp;
         var rayDistance = 10.0;
-        var objectHit = this.Space.PhysicsSpace.CastRayFirst(rayCast);
+        var objectHit = this.Space.PhysicsSpace.CastRayFirst(rayCast).ObjectHit;
         if(objectHit != null && objectHit.FootstepSurface != null)
         {
             this.CurrentSurface = objectHit.FootstepSurface.SurfaceType;

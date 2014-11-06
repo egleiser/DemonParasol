@@ -36,7 +36,10 @@ class Z_EnemySlider:ZilchComponent
     var SlideDistance:Real = 10.0;
     [Property]
     var SlideDelay:Real = 2.0;
-    
+    [Property]
+    var SlideEase:Ease = Ease.QuadIn;
+    [Property]
+    var ReturnEase:Ease = Ease.Linear;
     //non-settables
     var EnemyPos:Real3 = Real3();
     var EnemyOriginalPos:Real3 = Real3();
@@ -173,9 +176,9 @@ class Z_EnemySlider:ZilchComponent
         //slide x distance over x time
         Action.Property(aAutoSlide,
                         @this.Owner.Transform.Translation,
-                        this.EnemyPos + (this.RayCastVector * this.SlideDistance),
+                        this.EnemyPos + (ray.Direction * this.SlideDistance),
                         this.SlideCompletionTime,
-                        Ease.QuadOut);
+                        this.SlideEase);
         
         //delay actions for x seconds
         Action.Delay(aAutoSlide, this.SlideDelay);
@@ -185,7 +188,7 @@ class Z_EnemySlider:ZilchComponent
                         @this.Owner.Transform.Translation,
                         this.EnemyOriginalPos,
                         this.SlideReturnTime,
-                        Ease.Linear);
+                        this.ReturnEase);
         
         //reorient ourselves
         Action.Property(aAutoSlide,
