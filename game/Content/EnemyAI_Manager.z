@@ -1,0 +1,101 @@
+class EnemyAI_Manager : ZilchComponent
+{
+    [Dependency]
+    var Orientation : Orientation = null;
+    
+    //Set target for Enemy (usually Player)
+    [Property]
+    var TargetObjectPath : CogPath = null;
+    
+    //Properties for Trigger Distances
+    [Property]
+    var WarningDistanceTrigger : Real = 0.0;
+    [Property]
+    var RunningAwayDistanceTrigger : Real = 0.0;
+    [Property]
+    var AttackDistanceTrigger : Real = 0.0;
+    [Property]
+    var DiveBombDistanceTrigger : Real = 0.0;
+    
+    
+    var TargetObject : Cog = null;
+    
+    //Variables used in calculation functions
+    var DirectionVector : Real3 = Real3(0,0,0);
+    var NormalizedDirectionVector : Real3 = Real3(0,0,0);
+    var DistanceBetweenEnemyAndPlayer : Real = 0.0;
+    var EnemyRotationTowardsPlayer : Quaternion = Quaternion(0,0,0,0);
+    
+    
+    //Booleans for checking AI components
+    var HasPatrol : Boolean = false;
+    var HasWarning : Boolean = false;
+    var HasRunAway : Boolean = false;
+    var HasAttack : Boolean = false;
+    var HasLunge : Boolean = false;
+    var HasHeadButt: Boolean = false;
+    var HasDiveBomb : Boolean = false;
+    
+    //Booleans for checking is target has breached trigger distances
+    var TargetIsWithinWarnRange : Boolean = false;
+    var TargetIsWithinRunAwayRange : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.TargetObject = this.TargetObjectPath.Cog;
+        
+        if(this.TargetObject != null)
+        {
+            if(this.Owner.Patrol != null)
+            {
+                this.HasPatrol = true;
+            }
+            if(this.Owner.WarnTarget != null)
+            {
+                this.HasWarning = true;
+            }
+            if(this.Owner.RunAwayFromTarget != null)
+            {
+                this.HasRunAway = true;
+            }
+        }
+            
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.HasWarning && this.TargetIsWithinWarnRange)
+        {
+            this.Owner.WarnTarget.WarnTarget(event);
+        }
+    }
+    
+    function CalculateDirectionVectorBetweenEnemyAndTarget() : Real3
+    {
+        this.DirectionVector = this.TargetObject.Transform.Translation - this.Owner.Transform.Translation;
+        return this.DirectionVector;
+    }
+    
+    function CalculateNormalizedDirectionVectorBetweenEnemyAndTarget() : Real3
+    {
+        this.NormalizedDirectionVector = this.TargetObject.Transform.Translation - this.Owner.Transform.Translation;
+        this.NormalizedDirectionVector = Math.Normalize(this.NormalizedDirectionVector);
+        return this.NormalizedDirectionVector;
+    }
+    
+    function CalculateDistanceBetweenEnemyAndTarget() : Real
+    {
+        var directionVector : Real3 = this.CalculateDirectionVectorBetweenEnemyAndTarget();
+        this.DistanceBetweenEnemyAndPlayer = Math.Length(directionVector);
+        return this.DistanceBetweenEnemyAndPlayer;
+    }
+    
+    function CalculateEnemyRotationTowardsPlayer() : Quaternion
+    {
+        var directionVector : Real3 = this.CalculateDirectionVectorBetweenEnemyAndTarget();
+        this.EnemyRotationTowardsPlayer = this.Orientation.GetLookAtDirectionWithUpRotation(directionVector, Real3(0,0,1));
+        return this.EnemyRotationTowardsPlayer;
+        
+    }
+}
