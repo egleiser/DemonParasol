@@ -29,6 +29,10 @@ class Z_Teleport:ZilchComponent
         {
             
             this.Owner.Transform.Translation = this.TeleportToLocation;
+
+        }
+        if(Zero.Keyboard.KeyIsPressed(Keys.End))
+        {
             this.Space.FindObjectByName("TongueMount").TongueManager.InitializeTongue();
             this.Space.FindObjectByName("TongueMount").TongueManager.ExtendTongue(10);
         }

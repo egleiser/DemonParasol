@@ -1,0 +1,60 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BasicTreeDead",
+	},
+	Archetyped = 
+	{
+		string Name = "5481b8fc1f17aab8:BasicTree",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [38.7351, -6.19706, -0.674732],
+		Vec3 Scale = [2, 2, 2],
+		Quat Rotation = [0.62884, -0.323357, -0.323357, 0.62884],
+	},
+	CylinderCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 3, 0],
+		float Radius = 1,
+		float Height = 6,
+		uint Direction = 1,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "BasicTree_Trunk",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.0147907, 0, -0.00318909],
+				Vec3 Scale = [1, 1, 1.32252],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "5481b8fc1f1fcd88:BasicTree.BasicTree_Trunk",
+				Vec4 Color = [0.27, 0.10719, 0.027, 1],
+				bool Visible = true,
+			},
+		},
+	},
+},
