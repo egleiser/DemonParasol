@@ -4,6 +4,12 @@ class PlayerAnimator : ZilchComponent
     var AniIdle:Animation = null;
     [Property]
     var AniWalk:Animation = null;
+    [Property]
+    var AniJump:Animation = null;
+    [Property]
+    var AniFall:Animation = null;
+    [Property]
+    var AniAttack:Animation = null;
     var AniState:Integer = 0;
     var PrevAniState:Integer = 0;
     function Initialize(init : CogInitializer)
@@ -14,13 +20,23 @@ class PlayerAnimator : ZilchComponent
     function OnLogicUpdate(event : UpdateEvent)
     {
         this.Owner.AnimationGraph.TimeScale = 1 + (Math.Length(this.Owner.Parent.RigidBody.Velocity) /10);
-        if(Math.Length(this.Owner.Parent.InputController.GetMovement()) > 0)
+        if((Math.Length(this.Owner.Parent.InputController.GetMovement()) > 0) && this.Owner.Parent.PlayerController.Active )
         {
             if(this.AniState != 0)
             {
                 this.AniState = 0;
                 this.Owner.SimpleAnimation.CrossBlend(this.AniWalk,1.0,1);
             }
+        }
+        else if(!this.Owner.Parent.PlayerController.Active)
+        {
+                this.AniState = 2;
+                this.Owner.SimpleAnimation.CrossBlend(this.AniFall,0.8,1);
+        }
+        else if(this.Owner.Parent.FindChildByName("Parasol").SwordController.SlashCount > 0)
+        {
+                //this.AniState = 3;
+                //this.Owner.SimpleAnimation.CrossBlend(this.AniAttack,0.8,1);
         }
         else
         {

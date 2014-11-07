@@ -1,5 +1,6 @@
 class PlayerController : ZilchComponent
 {
+    var Active:Boolean = true;
     [Dependency]
     var Orientation: Orientation = null;
     
@@ -21,6 +22,9 @@ class PlayerController : ZilchComponent
     var CameraPath:CogPath = null;
     var MoveAngle:Real = 0;
     var Camera:Cog = null;
+    
+    
+    
     var TargetList:Array[Cog] = new Array[Cog]();
     var TargetProximity:Array[Cog] = new Array[Cog]();
     var TargetIndex:Integer = 0;
@@ -37,9 +41,12 @@ class PlayerController : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        this.MovementUpdate(event);
-        this.AttackUpdate(event);
-        this.BlockUpdate(event);
+        if(this.Active)
+        {
+            this.MovementUpdate(event);
+            this.AttackUpdate(event);
+            this.BlockUpdate(event);
+        }
         this.ZTargetingUpdate(event);
         this.SwitchTargetUpdate(event);
     }
