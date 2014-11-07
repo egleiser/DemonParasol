@@ -43,6 +43,7 @@ Level =
 			Vec4 ClearColor = [0.12, 0.12, 0.12, 1],
 			bool Hdr = true,
 			bool Glow = true,
+			bool RenderMasks = false,
 			bool ToneMapping = false,
 			float BrightThreshold = 0.4,
 			float Exposure = 0.5,
@@ -77,16 +78,15 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [57.1313, -136.414, 56.8598],
+			Vec3 Translation = [34.7321, 3.25426, 19.0135],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.51956, -0.0252687, 0.0153745, 0.853922],
+			Quat Rotation = [0.179655, 0.00695666, -0.00127049, 0.983704],
 		},
 		Camera = 
 		{
 			ProjectionMode ProjectionMode = Perspective,
 			Facing Facing = NegativeZ,
-			SpriteSort SpriteSort = ViewDepth,
-			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
+			CameraTransparentSort TransparentSort = InheritFromSpace,
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 1000,
@@ -95,10 +95,11 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 141.091,
-			float VerticalAngle = -1.0932,
-			float HorizontalAngle = -6.22402,
-			Vec3 LookTarget = [60.966, -11.1104, -7.87819],
+			float LookDistance = 19.4483,
+			float VerticalAngle = -0.36128,
+			float HorizontalAngle = -6.29733,
+			Vec3 LookTarget = [34.4748, 10.1287, 0.822568],
+			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
 		{
@@ -264,10 +265,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 							string MeshName = "53f50b788ef4a1b7:BoxMan.Stomach",
 							Vec4 Color = [0.458824, 0.77647, 0.819608, 1],
-							bool Visible = true,
 						},
 						Hierarchy = 
 						{
@@ -289,10 +291,11 @@ Level =
 								},
 								Model = 
 								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
 									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 									string MeshName = "53f50b788ef4a1bc:BoxMan.Chest",
 									Vec4 Color = [0.458824, 0.776471, 0.819608, 1],
-									bool Visible = true,
 								},
 								Hierarchy = 
 								{
@@ -314,10 +317,11 @@ Level =
 										},
 										Model = 
 										{
+											bool Visible = true,
+											bool VisibilityCulling = true,
 											string MaterialName = "544380cb7820af93:lambert1",
 											string MeshName = "53f50b788ef4a1bf:BoxMan.Head",
 											Vec4 Color = [0.815, 0.678161, 0.517525, 1],
-											bool Visible = true,
 										},
 										Hierarchy = 
 										{
@@ -339,10 +343,11 @@ Level =
 												},
 												Model = 
 												{
+													bool Visible = true,
+													bool VisibilityCulling = true,
 													string MaterialName = "549a9f71f45ed652:mat_Fabric",
 													string MeshName = "4de0354322b376ae:Sphere",
 													Vec4 Color = [1, 0.59795, 0.065, 1],
-													bool Visible = true,
 												},
 												RigidBody = 
 												{
@@ -386,10 +391,11 @@ Level =
 														},
 														Model = 
 														{
+															bool Visible = true,
+															bool VisibilityCulling = true,
 															string MaterialName = "549a9f71f45ed652:mat_Fabric",
 															string MeshName = "4de0354322b376ae:Sphere",
 															Vec4 Color = [1, 0.59795, 0.065, 1],
-															bool Visible = true,
 														},
 														RigidBody = 
 														{
@@ -436,10 +442,11 @@ Level =
 										},
 										Model = 
 										{
+											bool Visible = true,
+											bool VisibilityCulling = true,
 											string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 											string MeshName = "53f50b788ef4a1c0:BoxMan.LArm",
 											Vec4 Color = [0.458824, 0.776471, 0.819608, 1],
-											bool Visible = true,
 										},
 										Hierarchy = 
 										{
@@ -461,10 +468,11 @@ Level =
 												},
 												Model = 
 												{
+													bool Visible = true,
+													bool VisibilityCulling = true,
 													string MaterialName = "5481b84e008be766:mat_gradient",
 													string MeshName = "53f50b788ef4a1c2:BoxMan.LArm01",
 													Vec4 Color = [0.815686, 0.678431, 0.517647, 1],
-													bool Visible = true,
 												},
 												Hierarchy = 
 												{
@@ -490,15 +498,17 @@ Level =
 														},
 														Model = 
 														{
+															bool Visible = true,
+															bool VisibilityCulling = true,
 															string MaterialName = "5404506d3dd2a41e:mat_Light",
 															string MeshName = "4de0354322b345ae:Cube",
 															Vec4 Color = [1, 0.5712, 0.36, 1],
-															bool Visible = true,
 														},
 														Light = 
 														{
+															bool Visible = true,
+															bool VisibilityCulling = true,
 															LightType LightType = Point,
-															bool Active = true,
 															float Range = 15,
 															float MinRange = 0.1,
 															float Angle = 45,
@@ -548,10 +558,11 @@ Level =
 										},
 										Model = 
 										{
+											bool Visible = true,
+											bool VisibilityCulling = true,
 											string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 											string MeshName = "53f50b788ef4a1c4:BoxMan.RArm",
 											Vec4 Color = [0.458824, 0.776471, 0.819608, 1],
-											bool Visible = true,
 										},
 										Hierarchy = 
 										{
@@ -573,10 +584,11 @@ Level =
 												},
 												Model = 
 												{
+													bool Visible = true,
+													bool VisibilityCulling = true,
 													string MaterialName = "5481b84e008be766:mat_gradient",
 													string MeshName = "53f50b788ef4a1c6:BoxMan.RArm01",
 													Vec4 Color = [0.815686, 0.678431, 0.517647, 1],
-													bool Visible = true,
 												},
 												Hierarchy = 
 												{
@@ -604,10 +616,11 @@ Level =
 								},
 								Model = 
 								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
 									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 									string MeshName = "53f50b788ef4a1c7:BoxMan.LLeg",
 									Vec4 Color = [0.4592, 0.776704, 0.82, 1],
-									bool Visible = true,
 								},
 								Hierarchy = 
 								{
@@ -629,10 +642,11 @@ Level =
 										},
 										Model = 
 										{
+											bool Visible = true,
+											bool VisibilityCulling = true,
 											string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 											string MeshName = "53f50b788ef4a1c9:BoxMan.LLeg01",
 											Vec4 Color = [0.0885, 0.27462, 0.3, 1],
-											bool Visible = true,
 										},
 									},
 								},
@@ -655,10 +669,11 @@ Level =
 								},
 								Model = 
 								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
 									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 									string MeshName = "53f50b788ef4a1cb:BoxMan.RLeg",
 									Vec4 Color = [0.4592, 0.776704, 0.82, 1],
-									bool Visible = true,
 								},
 								Hierarchy = 
 								{
@@ -680,10 +695,11 @@ Level =
 										},
 										Model = 
 										{
+											bool Visible = true,
+											bool VisibilityCulling = true,
 											string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 											string MeshName = "53f50b788ef4a1cd:BoxMan.RLeg01",
 											Vec4 Color = [0.0885, 0.27462, 0.3, 1],
-											bool Visible = true,
 										},
 									},
 								},
@@ -714,6 +730,8 @@ Level =
 				},
 				SpriteParticleSystem = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					SystemChildMode ChildMode = Independent,
 					SystemSpace SystemSpace = WorldSpace,
 					uint DrawOrder = 0,
@@ -786,10 +804,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "537644533dba9ae8:mat_Plain",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [0.26, 0.135447, 0.0741, 1],
-					bool Visible = false,
 				},
 				SwordController = 
 				{
@@ -848,10 +867,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5404506d3dd2a41e:mat_Light",
 							string MeshName = "4de0354322b345ae:Cube",
 							Vec4 Color = [0.19, 0.0627, 0, 1],
-							bool Visible = true,
 						},
 						BoxCollider = 
 						{
@@ -913,10 +933,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "54ff05a7f658ee25:mat_EyeBall",
 							string MeshName = "4de0354322b376ae:Sphere",
 							Vec4 Color = [1, 1, 1, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -941,10 +962,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "549a946bb9e88da4:mat_Parasol",
 							string MeshName = "549a90678d6bf01f:BaseParasol",
 							Vec4 Color = [0.660215, 0.378775, 0.695, 1],
-							bool Visible = true,
 						},
 						RibController = 
 						{
@@ -1001,10 +1023,11 @@ Level =
 								},
 								Model = 
 								{
+									bool Visible = false,
+									bool VisibilityCulling = true,
 									string MaterialName = "54ff27758d4308c1:mat_Ghost",
 									string MeshName = "4de0354322b376ae:Sphere",
 									Vec4 Color = [1, 0, 0, 1],
-									bool Visible = false,
 								},
 								SphereCollider = 
 								{
@@ -1089,12 +1112,13 @@ Level =
 		},
 		SpriteText = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			TextPositionMode Position = UpperLeft,
 			string FontName = "4e7bac697bec55c5:Verdana",
 			uint FontSize = 150,
 			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
 			string Text = "Home",
 			bool OnTop = false,
 			BlendMode BlendMode = Alpha,
@@ -1125,8 +1149,7 @@ Level =
 		{
 			ProjectionMode ProjectionMode = Orthographic,
 			Facing Facing = NegativeZ,
-			SpriteSort SpriteSort = ViewDepth,
-			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
+			CameraTransparentSort TransparentSort = InheritFromSpace,
 			float FieldOfView = 39,
 			float NearPlane = 0.5,
 			float FarPlane = 200,
@@ -1236,10 +1259,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = false,
+							bool VisibilityCulling = true,
 							string MaterialName = "543828feeb5b6cf5:DreamFog",
 							string MeshName = "4de0354322b345ae:Cube",
 							Vec4 Color = [0.586881, 0.169275, 0.915, 0.045],
-							bool Visible = false,
 						},
 						SoundEmitter = 
 						{
@@ -1274,6 +1298,8 @@ Level =
 						},
 						SpriteParticleSystem = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							SystemChildMode ChildMode = Independent,
 							SystemSpace SystemSpace = WorldSpace,
 							uint DrawOrder = 0,
@@ -1360,8 +1386,9 @@ Level =
 						},
 						Light = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							LightType LightType = Directional,
-							bool Active = true,
 							float Range = 50,
 							float MinRange = 2,
 							float Angle = 107,
@@ -1420,10 +1447,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "54828a09aef2b289:TerrainMat3",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.184149, 0.395, 0.084925, 1],
-			bool Visible = true,
 		},
 		RigidBody = 
 		{
@@ -1471,10 +1499,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "5404506d3dd2a41e:mat_Light",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 0.8801, 0.455, 1],
-			bool Visible = true,
 		},
 		RigidBody = 
 		{
@@ -1522,10 +1551,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
 			string MaterialName = "54354a3358ccba15:blinn1",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = false,
 		},
 		RigidBody = 
 		{
@@ -1573,10 +1603,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
 			string MaterialName = "54354a3358ccba15:blinn1",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = false,
 		},
 		RigidBody = 
 		{
@@ -1642,10 +1673,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -1688,10 +1720,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -1734,10 +1767,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -1780,10 +1814,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -1826,10 +1861,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -1872,10 +1908,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -1918,10 +1955,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -1984,10 +2022,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2030,10 +2069,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2076,10 +2116,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2122,10 +2163,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2168,10 +2210,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2214,10 +2257,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2260,10 +2304,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2306,10 +2351,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2352,10 +2398,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2398,10 +2445,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2444,10 +2492,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2490,10 +2539,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2536,10 +2586,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2582,10 +2633,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2628,10 +2680,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2674,10 +2727,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2720,10 +2774,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2766,10 +2821,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2812,10 +2868,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2858,10 +2915,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2904,10 +2962,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2950,10 +3009,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -2996,10 +3056,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -3042,10 +3103,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -3088,10 +3150,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -3134,10 +3197,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -3180,10 +3244,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -3226,10 +3291,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -3272,10 +3338,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -3318,10 +3385,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "54354a3358ccba15:blinn1",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -3366,10 +3434,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "5426339b19a2d30c:HouseFence",
 			Vec4 Color = [0.37, 0.249935, 0.1517, 1],
-			bool Visible = true,
 		},
 	},
 	Cog = 
@@ -3390,10 +3459,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "5481b84e008be766:mat_gradient",
 			string MeshName = "5439c8766b5ef558:PlayerHouse",
 			Vec4 Color = [0.78, 0.517608, 0.3276, 1],
-			bool Visible = true,
 		},
 	},
 	Cog = 
@@ -3414,10 +3484,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "54262cf3f0ff3f56:PlanterBox",
 			Vec4 Color = [0.1031, 0.2, 0.098, 1],
-			bool Visible = true,
 		},
 	},
 	Cog = 
@@ -3438,10 +3509,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "54262cf3f0ff3f56:PlanterBox",
 			Vec4 Color = [0.0680985, 0.185, 0.05365, 1],
-			bool Visible = true,
 		},
 	},
 	Cog = 
@@ -3462,10 +3534,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "54277e49b7c2af80:PathSegment2",
 			Vec4 Color = [0.195114, 0.31, 0.14105, 1],
-			bool Visible = true,
 		},
 	},
 	Cog = 
@@ -3486,10 +3559,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "54277d9a869966b0:FieldFenceRight",
 			Vec4 Color = [0.275, 0.231949, 0.136125, 1],
-			bool Visible = true,
 		},
 	},
 	Cog = 
@@ -3510,10 +3584,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "542776cf5b89dabf:FieldFenceLeft",
 			Vec4 Color = [0.175, 0.120977, 0.06475, 1],
-			bool Visible = true,
 		},
 	},
 	Cog = 
@@ -3534,10 +3609,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "542772a2c6e89290:PathSegment1",
 			Vec4 Color = [0.1994, 0.25, 0.135, 1],
-			bool Visible = true,
 		},
 	},
 	ArchetypeInstance = 
@@ -3576,10 +3652,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "542632d0eeae4587:HousePatio",
 			Vec4 Color = [0.29, 0.251401, 0.11455, 1],
-			bool Visible = true,
 		},
 	},
 	Cog = 
@@ -3603,8 +3680,10 @@ Level =
 			float UnitsPerPatch = 32,
 			string SourceName = "",
 		},
-		HeightMapRenderer = 
+		HeightMapModel = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "4de020863e85bb61:DefaultMaterial",
 			bool CastShadows = false,
 		},
@@ -3663,10 +3742,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "54ff3eb4e39fd7b0:GeoDefaultGroundMulti",
 					string MeshName = "",
 					Vec4 Color = [0.505, 0.358651, 0.18685, 1],
-					bool Visible = true,
 				},
 				MeshCollider = 
 				{
@@ -3685,7 +3765,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 544fcb65af7c24f7,
+					uint64 CachedGeometryId = 542a29d516932aff,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -4432,10 +4512,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "54ff3eb4e39fd7b0:GeoDefaultGroundMulti",
 					string MeshName = "",
 					Vec4 Color = [0.21, 0.117264, 0.0651, 1],
-					bool Visible = true,
 				},
 				MeshCollider = 
 				{
@@ -4454,7 +4535,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 544fcb65af7c83a2,
+					uint64 CachedGeometryId = 542a29d516933820,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -4559,10 +4640,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "54ff3eb4e39fd7b0:GeoDefaultGroundMulti",
 					string MeshName = "",
 					Vec4 Color = [0.255, 0.09231, 0.070125, 1],
-					bool Visible = true,
 				},
 				MeshCollider = 
 				{
@@ -4581,7 +4663,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 544fcb65af7ead60,
+					uint64 CachedGeometryId = 542a29d516938327,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -4969,10 +5051,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b8fc1f1fcd88:BasicTree.BasicTree_Trunk",
 					Vec4 Color = [0.27, 0.10719, 0.027, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -4993,10 +5076,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b8fc1f1fcd8d:BasicTree.BasicTree_Leaves",
 					Vec4 Color = [0.88, 0.4928, 0.7832, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -5059,10 +5143,11 @@ Level =
 		},
 		SkinnedModel = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string Material = "5490712ad8b3fc25:mat_Grass",
 			string Mesh = "5490712ad8abfdb8:GrassClump",
 			Vec4 Color = [0.36904, 0.56, 0.126, 1],
-			bool Visible = true,
 		},
 		Hierarchy = 
 		{
@@ -5188,10 +5273,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "5481b9d551fba80f:mat_Bamboo",
 			string MeshName = "5481b9c05751e401:Bamboo_LowPoly",
 			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
 		},
 		CylinderCollider = 
 		{
@@ -7125,10 +7211,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -7200,10 +7287,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -7275,10 +7363,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -7350,10 +7439,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -7425,10 +7515,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -7527,10 +7618,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.85, 0.068, 0.068, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -7551,10 +7643,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -7606,10 +7699,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.85, 0.068, 0.068, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -7630,10 +7724,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -7685,10 +7780,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.85, 0.068, 0.068, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -7709,10 +7805,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -7764,10 +7861,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc4138f0200a:Flower2.Flower2_Petals",
 					Vec4 Color = [0.759859, 0.246525, 0.865, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -7788,10 +7886,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc4138f02011:Flower2.Flower2_Stem",
 					Vec4 Color = [0.0775751, 0.725, 0.0435, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -7843,10 +7942,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc4138f0200a:Flower2.Flower2_Petals",
 					Vec4 Color = [0.759859, 0.246525, 0.865, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -7867,10 +7967,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc4138f02011:Flower2.Flower2_Stem",
 					Vec4 Color = [0.0775751, 0.725, 0.0435, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -7922,10 +8023,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc4138f0200a:Flower2.Flower2_Petals",
 					Vec4 Color = [0.759859, 0.246525, 0.865, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -7946,10 +8048,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc4138f02011:Flower2.Flower2_Stem",
 					Vec4 Color = [0.0775751, 0.725, 0.0435, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -8001,10 +8104,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc4138f0200a:Flower2.Flower2_Petals",
 					Vec4 Color = [0.759859, 0.246525, 0.865, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -8025,10 +8129,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc4138f02011:Flower2.Flower2_Stem",
 					Vec4 Color = [0.0775751, 0.725, 0.0435, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -9511,10 +9616,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b9d551fba80f:mat_Bamboo",
 					string MeshName = "5481b9c05751e401:Bamboo_LowPoly",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = true,
 				},
 				SinRotate = 
 				{
@@ -11366,10 +11472,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b8fc1f1fcd88:BasicTree.BasicTree_Trunk",
 					Vec4 Color = [0.27, 0.10719, 0.027, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -11390,10 +11497,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b8fc1f1fcd8d:BasicTree.BasicTree_Leaves",
 					Vec4 Color = [0.88, 0.4928, 0.7832, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -11450,10 +11558,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b8fc1f1fcd88:BasicTree.BasicTree_Trunk",
 					Vec4 Color = [0.27, 0.10719, 0.027, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -11474,10 +11583,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b8fc1f1fcd8d:BasicTree.BasicTree_Leaves",
 					Vec4 Color = [0.88, 0.4928, 0.7832, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -12270,10 +12380,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -12345,10 +12456,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -12420,10 +12532,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -12495,10 +12608,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -12570,10 +12684,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -12645,10 +12760,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -12720,10 +12836,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -12795,10 +12912,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -12870,10 +12988,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -12945,10 +13064,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -13020,10 +13140,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -13095,10 +13216,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -13170,10 +13292,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -13245,10 +13368,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -13320,10 +13444,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -13987,10 +14112,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "54819fe496791aa4:mat_DecalPentaStar",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.765, 0.4896, 0.4896, 0.725],
-			bool Visible = true,
 		},
 	},
 	Cog = 
@@ -14011,10 +14137,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "54ff27758d4308c1:mat_Ghost",
 			string MeshName = "4de0354322b376ae:Sphere",
 			Vec4 Color = [0.97, 0.13095, 0.13095, 1],
-			bool Visible = true,
 		},
 		RigidBody = 
 		{
@@ -14055,8 +14182,9 @@ Level =
 		},
 		Light = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			LightType LightType = Point,
-			bool Active = true,
 			float Range = 10,
 			float MinRange = 2,
 			float Angle = 45,
@@ -14093,15 +14221,17 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "54ff27758d4308c1:mat_Ghost",
 			string MeshName = "4de0354322b376ae:Sphere",
 			Vec4 Color = [0, 0, 0, 0.19],
-			bool Visible = true,
 		},
 		Light = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			LightType LightType = Point,
-			bool Active = true,
 			float Range = 10,
 			float MinRange = 2,
 			float Angle = 45,
@@ -14144,10 +14274,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "54ff27758d4308c1:mat_Ghost",
 			string MeshName = "4de0354322b376ae:Sphere",
 			Vec4 Color = [0.114075, 0.318734, 0.845, 1],
-			bool Visible = true,
 		},
 		Targetable = 
 		{
@@ -14157,8 +14288,9 @@ Level =
 		},
 		Light = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			LightType LightType = Point,
-			bool Active = true,
 			float Range = 10,
 			float MinRange = 2,
 			float Angle = 45,
@@ -14187,10 +14319,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "54ff27758d4308c1:mat_Ghost",
 			string MeshName = "4de0354322b376ae:Sphere",
 			Vec4 Color = [0.217227, 0.74, 0.00370002, 1],
-			bool Visible = true,
 		},
 		Targetable = 
 		{
@@ -14200,8 +14333,9 @@ Level =
 		},
 		Light = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			LightType LightType = Point,
-			bool Active = true,
 			float Range = 10,
 			float MinRange = 2,
 			float Angle = 45,
@@ -14230,10 +14364,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "54ff27758d4308c1:mat_Ghost",
 			string MeshName = "4de0354322b376ae:Sphere",
 			Vec4 Color = [0.633032, 0.114075, 0.845, 1],
-			bool Visible = true,
 		},
 		Targetable = 
 		{
@@ -14243,8 +14378,9 @@ Level =
 		},
 		Light = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			LightType LightType = Point,
-			bool Active = true,
 			float Range = 10,
 			float MinRange = 2,
 			float Angle = 45,
@@ -14273,10 +14409,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string MaterialName = "54ff27758d4308c1:mat_Ghost",
 			string MeshName = "4de0354322b376ae:Sphere",
 			Vec4 Color = [0.845, 0.815763, 0.114075, 1],
-			bool Visible = true,
 		},
 		Targetable = 
 		{
@@ -14286,8 +14423,9 @@ Level =
 		},
 		Light = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			LightType LightType = Point,
-			bool Active = true,
 			float Range = 10,
 			float MinRange = 2,
 			float Angle = 45,
@@ -14348,10 +14486,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3b2289af798:LanternPost.LanternPost_Body",
 					Vec4 Color = [0.75, 0.195, 0.195, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -14372,10 +14511,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3b2289af79f:LanternPost.LanternPost_Hook",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -14478,8 +14618,9 @@ Level =
 				},
 				Light = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					LightType LightType = Point,
-					bool Active = true,
 					float Range = 10,
 					float MinRange = 2,
 					float Angle = 45,
@@ -14509,10 +14650,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5404506d3dd2a41e:mat_Light",
 							string MeshName = "5481b3bc2e648605:LanternSymbol.LanternPaper",
 							Vec4 Color = [0.945, 0.829899, 0.533925, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -14533,10 +14675,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 							string MeshName = "5481b3bc2e64860a:LanternSymbol.LanternMetal",
 							Vec4 Color = [0.48, 0.48, 0.48, 1],
-							bool Visible = true,
 						},
 						SphereCollider = 
 						{
@@ -14567,10 +14710,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481bc7b33d5a109:Material__5",
 							string MeshName = "5481b3bc2e64860c:LanternSymbol.Lantern_Symbol",
 							Vec4 Color = [1, 1, 1, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -14654,10 +14798,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3b2289af798:LanternPost.LanternPost_Body",
 					Vec4 Color = [0.75, 0.195, 0.195, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -14678,10 +14823,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3b2289af79f:LanternPost.LanternPost_Hook",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -14784,8 +14930,9 @@ Level =
 				},
 				Light = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					LightType LightType = Point,
-					bool Active = true,
 					float Range = 10,
 					float MinRange = 2,
 					float Angle = 45,
@@ -14815,10 +14962,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5404506d3dd2a41e:mat_Light",
 							string MeshName = "5481b3bc2e648605:LanternSymbol.LanternPaper",
 							Vec4 Color = [0.945, 0.829899, 0.533925, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -14839,10 +14987,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 							string MeshName = "5481b3bc2e64860a:LanternSymbol.LanternMetal",
 							Vec4 Color = [0.48, 0.48, 0.48, 1],
-							bool Visible = true,
 						},
 						SphereCollider = 
 						{
@@ -14873,10 +15022,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481bc7b33d5a109:Material__5",
 							string MeshName = "5481b3bc2e64860c:LanternSymbol.Lantern_Symbol",
 							Vec4 Color = [1, 1, 1, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -14951,10 +15101,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
 			string MaterialName = "4de020863e85bb61:DefaultMaterial",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-			bool Visible = false,
 		},
 		RigidBody = 
 		{
@@ -14997,10 +15148,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
 			string MaterialName = "4de020863e85bb61:DefaultMaterial",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = false,
 		},
 		RigidBody = 
 		{
@@ -15083,10 +15235,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf826:DivinerCastle.polySurface122",
 							Vec4 Color = [0.46, 0.224296, 0.0736, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15107,10 +15260,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf82b:DivinerCastle.polySurface123",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15131,10 +15285,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf82d:DivinerCastle.polySurface124",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15155,10 +15310,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf82f:DivinerCastle.polySurface125",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15179,10 +15335,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf830:DivinerCastle.polySurface126",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15203,10 +15360,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf832:DivinerCastle.polySurface127",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15227,10 +15385,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf834:DivinerCastle.polySurface128",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15251,10 +15410,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf836:DivinerCastle.polySurface129",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15275,10 +15435,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf837:DivinerCastle.polySurface130",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15299,10 +15460,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf839:DivinerCastle.polySurface131",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15323,10 +15485,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf83b:DivinerCastle.polySurface132",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15347,10 +15510,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf83d:DivinerCastle.polySurface133",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15371,10 +15535,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf83e:DivinerCastle.polySurface134",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15395,10 +15560,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf844:DivinerCastle.polySurface135",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15419,10 +15585,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf845:DivinerCastle.polySurface136",
 							Vec4 Color = [0.57, 0.292552, 0.06555, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15443,10 +15610,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf847:DivinerCastle.polySurface137",
 							Vec4 Color = [0.57, 0.292552, 0.06555, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15467,10 +15635,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf849:DivinerCastle.polySurface138",
 							Vec4 Color = [0.57, 0.292552, 0.06555, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15491,10 +15660,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf84a:DivinerCastle.polySurface139",
 							Vec4 Color = [0.57, 0.292552, 0.06555, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15515,10 +15685,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf84c:DivinerCastle.polySurface140",
 							Vec4 Color = [0.57, 0.292552, 0.06555, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15539,10 +15710,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf84e:DivinerCastle.polySurface141",
 							Vec4 Color = [0.15, 0.03192, 0.006, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15563,10 +15735,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf84f:DivinerCastle.polySurface142",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15587,10 +15760,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf851:DivinerCastle.polySurface143",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15611,10 +15785,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf853:DivinerCastle.polySurface144",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15635,10 +15810,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf854:DivinerCastle.polySurface145",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15659,10 +15835,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf856:DivinerCastle.polySurface146",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15683,10 +15860,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf858:DivinerCastle.polySurface147",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15707,10 +15885,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf85a:DivinerCastle.polySurface148",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15731,10 +15910,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf85b:DivinerCastle.polySurface149",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15755,10 +15935,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf85d:DivinerCastle.polySurface150",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15779,10 +15960,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf85e:DivinerCastle.polySurface151",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15803,10 +15985,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf860:DivinerCastle.polySurface152",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15827,10 +16010,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf862:DivinerCastle.polySurface153",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15851,10 +16035,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf863:DivinerCastle.polySurface154",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15875,10 +16060,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf865:DivinerCastle.polySurface155",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15899,10 +16085,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf867:DivinerCastle.polySurface156",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15923,10 +16110,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf869:DivinerCastle.polySurface157",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15947,10 +16135,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf86a:DivinerCastle.polySurface158",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15971,10 +16160,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf86c:DivinerCastle.polySurface159",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -15995,10 +16185,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf86d:DivinerCastle.polySurface160",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16019,10 +16210,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf86f:DivinerCastle.polySurface161",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16043,10 +16235,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf871:DivinerCastle.polySurface162",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16067,10 +16260,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf873:DivinerCastle.polySurface163",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16091,10 +16285,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf874:DivinerCastle.polySurface164",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16115,10 +16310,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf876:DivinerCastle.polySurface165",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16139,10 +16335,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf878:DivinerCastle.polySurface166",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16163,10 +16360,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf87a:DivinerCastle.polySurface167",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16187,10 +16385,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf87b:DivinerCastle.polySurface168",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16211,10 +16410,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf87d:DivinerCastle.polySurface169",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16235,10 +16435,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf87f:DivinerCastle.polySurface170",
 							Vec4 Color = [0.415, 0.162265, 0.05395, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16259,10 +16460,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf883:DivinerCastle.polySurface171",
 							Vec4 Color = [0.615, 0.01845, 0.01845, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16283,10 +16485,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf885:DivinerCastle.polySurface172",
 							Vec4 Color = [0.7, 0.35238, 0.0315, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16307,10 +16510,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf886:DivinerCastle.polySurface173",
 							Vec4 Color = [0.7, 0.35238, 0.0315, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16331,10 +16535,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf888:DivinerCastle.polySurface174",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16355,10 +16560,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf889:DivinerCastle.polySurface175",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16379,10 +16585,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf88b:DivinerCastle.polySurface176",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16403,10 +16610,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf88d:DivinerCastle.polySurface177",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16427,10 +16635,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf88e:DivinerCastle.polySurface178",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16451,10 +16660,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf890:DivinerCastle.polySurface179",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16475,10 +16685,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf892:DivinerCastle.polySurface180",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16499,10 +16710,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf893:DivinerCastle.polySurface181",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16523,10 +16735,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf895:DivinerCastle.polySurface182",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16547,10 +16760,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf897:DivinerCastle.polySurface183",
 							Vec4 Color = [0.084375, 0.148313, 0.375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16571,10 +16785,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf898:DivinerCastle.polySurface184",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16595,10 +16810,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf89a:DivinerCastle.polySurface185",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16619,10 +16835,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf89b:DivinerCastle.polySurface186",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16643,10 +16860,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf89d:DivinerCastle.polySurface187",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16667,10 +16885,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf89f:DivinerCastle.polySurface188",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16691,10 +16910,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5404506d3dd2a41e:mat_Light",
 							string MeshName = "548194c86eeaf8a1:DivinerCastle.polySurface189",
 							Vec4 Color = [0.8, 0.25552, 0.136, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16715,10 +16935,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8a2:DivinerCastle.polySurface190",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16739,10 +16960,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8a4:DivinerCastle.polySurface191",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16763,10 +16985,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8a5:DivinerCastle.polySurface192",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16787,10 +17010,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8a7:DivinerCastle.polySurface193",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16811,10 +17035,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8a9:DivinerCastle.polySurface194",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16835,10 +17060,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8aa:DivinerCastle.polySurface195",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16859,10 +17085,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8ac:DivinerCastle.polySurface196",
 							Vec4 Color = [0.0862745, 0.14902, 0.376471, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16883,10 +17110,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8ae:DivinerCastle.polySurface197",
 							Vec4 Color = [0.86, 0.729538, 0.7009, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16907,10 +17135,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8b0:DivinerCastle.polySurface198",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16931,10 +17160,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8b1:DivinerCastle.polySurface199",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16955,10 +17185,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8b3:DivinerCastle.polySurface200",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -16979,10 +17210,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8b4:DivinerCastle.polySurface201",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17003,10 +17235,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8b6:DivinerCastle.polySurface202",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17027,10 +17260,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8b8:DivinerCastle.polySurface203",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17051,10 +17285,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8b9:DivinerCastle.polySurface204",
 							Vec4 Color = [0.875, 0.596838, 0.056875, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17075,10 +17310,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8bb:DivinerCastle.polySurface205",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17099,10 +17335,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8bd:DivinerCastle.polySurface206",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17123,10 +17360,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8c0:DivinerCastle.polySurface207",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17147,10 +17385,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8c2:DivinerCastle.polySurface208",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17171,10 +17410,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8c4:DivinerCastle.polySurface209",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17195,10 +17435,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8c6:DivinerCastle.polySurface210",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17219,10 +17460,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8c7:DivinerCastle.polySurface211",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17243,10 +17485,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8c9:DivinerCastle.polySurface212",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17267,10 +17510,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8cb:DivinerCastle.polySurface213",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17291,10 +17535,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8cd:DivinerCastle.polySurface214",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17315,10 +17560,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8cf:DivinerCastle.polySurface215",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17339,10 +17585,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8d0:DivinerCastle.polySurface216",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17363,10 +17610,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8d2:DivinerCastle.polySurface217",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17387,10 +17635,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8d4:DivinerCastle.polySurface218",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17411,10 +17660,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8d5:DivinerCastle.polySurface219",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17435,10 +17685,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8d7:DivinerCastle.polySurface220",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17459,10 +17710,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8d9:DivinerCastle.polySurface221",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17483,10 +17735,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8db:DivinerCastle.polySurface222",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17507,10 +17760,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8dd:DivinerCastle.polySurface223",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17531,10 +17785,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8de:DivinerCastle.polySurface224",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17555,10 +17810,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8e0:DivinerCastle.polySurface225",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17579,10 +17835,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8e2:DivinerCastle.polySurface226",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17603,10 +17860,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8e4:DivinerCastle.polySurface227",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17627,10 +17885,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8e5:DivinerCastle.polySurface228",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17651,10 +17910,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8e7:DivinerCastle.polySurface229",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17675,10 +17935,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8e9:DivinerCastle.polySurface230",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17699,10 +17960,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8ea:DivinerCastle.polySurface231",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17723,10 +17985,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8ec:DivinerCastle.polySurface232",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17747,10 +18010,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8ee:DivinerCastle.polySurface233",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17771,10 +18035,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8ef:DivinerCastle.polySurface234",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17795,10 +18060,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8f1:DivinerCastle.polySurface235",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17819,10 +18085,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8f3:DivinerCastle.polySurface236",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17843,10 +18110,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8f4:DivinerCastle.polySurface237",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17867,10 +18135,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8f6:DivinerCastle.polySurface238",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17891,10 +18160,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8f8:DivinerCastle.polySurface239",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17915,10 +18185,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8f9:DivinerCastle.polySurface240",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17939,10 +18210,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8fb:DivinerCastle.polySurface241",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -17963,10 +18235,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481b84e008be766:mat_gradient",
 							string MeshName = "548194c86eeaf8fd:DivinerCastle.polySurface242",
 							Vec4 Color = [0.375, 0.136687, 0.084375, 1],
-							bool Visible = true,
 						},
 					},
 				},
@@ -18113,10 +18386,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3b2289af798:LanternPost.LanternPost_Body",
 					Vec4 Color = [0.75, 0.195, 0.195, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -18137,10 +18411,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3b2289af79f:LanternPost.LanternPost_Hook",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -18243,8 +18518,9 @@ Level =
 				},
 				Light = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					LightType LightType = Point,
-					bool Active = true,
 					float Range = 10,
 					float MinRange = 2,
 					float Angle = 45,
@@ -18274,10 +18550,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5404506d3dd2a41e:mat_Light",
 							string MeshName = "5481b3bc2e648605:LanternSymbol.LanternPaper",
 							Vec4 Color = [0.945, 0.829899, 0.533925, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -18298,10 +18575,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 							string MeshName = "5481b3bc2e64860a:LanternSymbol.LanternMetal",
 							Vec4 Color = [0.48, 0.48, 0.48, 1],
-							bool Visible = true,
 						},
 						SphereCollider = 
 						{
@@ -18332,10 +18610,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481bc7b33d5a109:Material__5",
 							string MeshName = "5481b3bc2e64860c:LanternSymbol.Lantern_Symbol",
 							Vec4 Color = [1, 1, 1, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -18419,10 +18698,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3b2289af798:LanternPost.LanternPost_Body",
 					Vec4 Color = [0.75, 0.195, 0.195, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -18443,10 +18723,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3b2289af79f:LanternPost.LanternPost_Hook",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -18549,8 +18830,9 @@ Level =
 				},
 				Light = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					LightType LightType = Point,
-					bool Active = true,
 					float Range = 10,
 					float MinRange = 2,
 					float Angle = 45,
@@ -18580,10 +18862,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5404506d3dd2a41e:mat_Light",
 							string MeshName = "5481b3bc2e648605:LanternSymbol.LanternPaper",
 							Vec4 Color = [0.945, 0.829899, 0.533925, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -18604,10 +18887,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 							string MeshName = "5481b3bc2e64860a:LanternSymbol.LanternMetal",
 							Vec4 Color = [0.48, 0.48, 0.48, 1],
-							bool Visible = true,
 						},
 						SphereCollider = 
 						{
@@ -18638,10 +18922,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481bc7b33d5a109:Material__5",
 							string MeshName = "5481b3bc2e64860c:LanternSymbol.Lantern_Symbol",
 							Vec4 Color = [1, 1, 1, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -18725,10 +19010,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3b2289af798:LanternPost.LanternPost_Body",
 					Vec4 Color = [0.75, 0.195, 0.195, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -18749,10 +19035,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3b2289af79f:LanternPost.LanternPost_Hook",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -18855,8 +19142,9 @@ Level =
 				},
 				Light = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					LightType LightType = Point,
-					bool Active = true,
 					float Range = 10,
 					float MinRange = 2,
 					float Angle = 45,
@@ -18886,10 +19174,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5404506d3dd2a41e:mat_Light",
 							string MeshName = "5481b3bc2e648605:LanternSymbol.LanternPaper",
 							Vec4 Color = [0.945, 0.829899, 0.533925, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -18910,10 +19199,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 							string MeshName = "5481b3bc2e64860a:LanternSymbol.LanternMetal",
 							Vec4 Color = [0.48, 0.48, 0.48, 1],
-							bool Visible = true,
 						},
 						SphereCollider = 
 						{
@@ -18944,10 +19234,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481bc7b33d5a109:Material__5",
 							string MeshName = "5481b3bc2e64860c:LanternSymbol.Lantern_Symbol",
 							Vec4 Color = [1, 1, 1, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -19031,10 +19322,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3b2289af798:LanternPost.LanternPost_Body",
 					Vec4 Color = [0.75, 0.195, 0.195, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -19055,10 +19347,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3b2289af79f:LanternPost.LanternPost_Hook",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -19161,8 +19454,9 @@ Level =
 				},
 				Light = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					LightType LightType = Point,
-					bool Active = true,
 					float Range = 10,
 					float MinRange = 2,
 					float Angle = 45,
@@ -19192,10 +19486,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5404506d3dd2a41e:mat_Light",
 							string MeshName = "5481b3bc2e648605:LanternSymbol.LanternPaper",
 							Vec4 Color = [0.945, 0.829899, 0.533925, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -19216,10 +19511,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 							string MeshName = "5481b3bc2e64860a:LanternSymbol.LanternMetal",
 							Vec4 Color = [0.48, 0.48, 0.48, 1],
-							bool Visible = true,
 						},
 						SphereCollider = 
 						{
@@ -19250,10 +19546,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481bc7b33d5a109:Material__5",
 							string MeshName = "5481b3bc2e64860c:LanternSymbol.Lantern_Symbol",
 							Vec4 Color = [1, 1, 1, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -19337,10 +19634,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3b2289af798:LanternPost.LanternPost_Body",
 					Vec4 Color = [0.75, 0.195, 0.195, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -19361,10 +19659,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3b2289af79f:LanternPost.LanternPost_Hook",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -19467,8 +19766,9 @@ Level =
 				},
 				Light = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					LightType LightType = Point,
-					bool Active = true,
 					float Range = 10,
 					float MinRange = 2,
 					float Angle = 45,
@@ -19498,10 +19798,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5404506d3dd2a41e:mat_Light",
 							string MeshName = "5481b3bc2e648605:LanternSymbol.LanternPaper",
 							Vec4 Color = [0.945, 0.829899, 0.533925, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -19522,10 +19823,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 							string MeshName = "5481b3bc2e64860a:LanternSymbol.LanternMetal",
 							Vec4 Color = [0.48, 0.48, 0.48, 1],
-							bool Visible = true,
 						},
 						SphereCollider = 
 						{
@@ -19556,10 +19858,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481bc7b33d5a109:Material__5",
 							string MeshName = "5481b3bc2e64860c:LanternSymbol.Lantern_Symbol",
 							Vec4 Color = [1, 1, 1, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -19643,10 +19946,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3b2289af798:LanternPost.LanternPost_Body",
 					Vec4 Color = [0.75, 0.195, 0.195, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -19667,10 +19971,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3b2289af79f:LanternPost.LanternPost_Hook",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -19773,8 +20078,9 @@ Level =
 				},
 				Light = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					LightType LightType = Point,
-					bool Active = true,
 					float Range = 10,
 					float MinRange = 2,
 					float Angle = 45,
@@ -19804,10 +20110,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5404506d3dd2a41e:mat_Light",
 							string MeshName = "5481b3bc2e648605:LanternSymbol.LanternPaper",
 							Vec4 Color = [0.945, 0.829899, 0.533925, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -19828,10 +20135,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 							string MeshName = "5481b3bc2e64860a:LanternSymbol.LanternMetal",
 							Vec4 Color = [0.48, 0.48, 0.48, 1],
-							bool Visible = true,
 						},
 						SphereCollider = 
 						{
@@ -19862,10 +20170,11 @@ Level =
 						},
 						Model = 
 						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
 							string MaterialName = "5481bc7b33d5a109:Material__5",
 							string MeshName = "5481b3bc2e64860c:LanternSymbol.Lantern_Symbol",
 							Vec4 Color = [1, 1, 1, 1],
-							bool Visible = true,
 						},
 					},
 					Cog = 
@@ -19939,10 +20248,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b84e008be766:mat_gradient",
 					string MeshName = "5481fffe3b4f9c65:ToriiGate.pCube7",
 					Vec4 Color = [0.595, 0.121975, 0.121975, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -19963,10 +20273,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b84e008be766:mat_gradient",
 					string MeshName = "5481fffe3b4f9c65:ToriiGate.pCube7",
 					Vec4 Color = [0.595, 0.121975, 0.121975, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -20018,10 +20329,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.515, 0.095275, 0.095275, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -20042,10 +20354,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -20097,10 +20410,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.515, 0.095275, 0.095275, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -20121,10 +20435,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -20176,10 +20491,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.515, 0.095275, 0.095275, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -20200,10 +20516,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -20255,10 +20572,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.515, 0.095275, 0.095275, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -20279,10 +20597,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -20334,10 +20653,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.515, 0.095275, 0.095275, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -20358,10 +20678,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -20413,10 +20734,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.515, 0.095275, 0.095275, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -20437,10 +20759,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -20492,10 +20815,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.515, 0.095275, 0.095275, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -20516,10 +20840,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -20571,10 +20896,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.515, 0.095275, 0.095275, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -20595,10 +20921,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -20650,10 +20977,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.515, 0.095275, 0.095275, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -20674,10 +21002,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -20729,10 +21058,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.515, 0.095275, 0.095275, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -20753,10 +21083,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -20808,10 +21139,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.515, 0.095275, 0.095275, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -20832,10 +21164,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -20887,10 +21220,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.515, 0.095275, 0.095275, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -20911,10 +21245,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -20966,10 +21301,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.515, 0.095275, 0.095275, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -20990,10 +21326,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -21045,10 +21382,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.515, 0.095275, 0.095275, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -21069,10 +21407,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -21124,10 +21463,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.515, 0.095275, 0.095275, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -21148,10 +21488,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -21203,10 +21544,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
 					Vec4 Color = [0.515, 0.095275, 0.095275, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -21227,10 +21569,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481b4ceba3fc9ad:mat_plant",
 					string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
 					Vec4 Color = [0.049, 0.35, 0, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -24941,10 +25284,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b8fc1f1fcd88:BasicTree.BasicTree_Trunk",
 					Vec4 Color = [0.27, 0.10719, 0.027, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -24965,10 +25309,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b8fc1f1fcd8d:BasicTree.BasicTree_Leaves",
 					Vec4 Color = [0.88, 0.4928, 0.7832, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -25025,10 +25370,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b8fc1f1fcd88:BasicTree.BasicTree_Trunk",
 					Vec4 Color = [0.27, 0.10719, 0.027, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -25049,10 +25395,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b8fc1f1fcd8d:BasicTree.BasicTree_Leaves",
 					Vec4 Color = [0.88, 0.4928, 0.7832, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -25109,10 +25456,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b8fc1f1fcd88:BasicTree.BasicTree_Trunk",
 					Vec4 Color = [0.27, 0.10719, 0.027, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -25133,10 +25481,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b8fc1f1fcd8d:BasicTree.BasicTree_Leaves",
 					Vec4 Color = [0.88, 0.4928, 0.7832, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -25163,10 +25512,11 @@ Level =
 		},
 		SkinnedModel = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			string Material = "5481bef9b2f955f1:mat_ThornTentacle",
 			string Mesh = "5481552a36e3aa3a:ThornArm",
 			Vec4 Color = [0.25, 0.102, 0.01875, 1],
-			bool Visible = true,
 		},
 		AnimationGraph = 
 		{
@@ -25543,8 +25893,9 @@ Level =
 		},
 		Light = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			LightType LightType = Point,
-			bool Active = true,
 			float Range = 10,
 			float MinRange = 2,
 			float Angle = 45,
@@ -25588,10 +25939,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bc7b33d5a109:Material__5",
 					string MeshName = "5481b3bc2e64860c:LanternSymbol.Lantern_Symbol",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -25612,10 +25964,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5404506d3dd2a41e:mat_Light",
 					string MeshName = "5481b3bc2e648605:LanternSymbol.LanternPaper",
 					Vec4 Color = [0.945, 0.829899, 0.533925, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -25663,10 +26016,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3bc2e64860a:LanternSymbol.LanternMetal",
 					Vec4 Color = [0.48, 0.48, 0.48, 1],
-					bool Visible = true,
 				},
 				SphereCollider = 
 				{
@@ -25742,8 +26096,9 @@ Level =
 		},
 		Light = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
 			LightType LightType = Point,
-			bool Active = true,
 			float Range = 10,
 			float MinRange = 2,
 			float Angle = 45,
@@ -25787,10 +26142,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bc7b33d5a109:Material__5",
 					string MeshName = "5481b3bc2e64860c:LanternSymbol.Lantern_Symbol",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -25811,10 +26167,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5404506d3dd2a41e:mat_Light",
 					string MeshName = "5481b3bc2e648605:LanternSymbol.LanternPaper",
 					Vec4 Color = [0.945, 0.829899, 0.533925, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -25862,10 +26219,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3bc2e64860a:LanternSymbol.LanternMetal",
 					Vec4 Color = [0.48, 0.48, 0.48, 1],
-					bool Visible = true,
 				},
 				SphereCollider = 
 				{
@@ -25924,10 +26282,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -25999,10 +26358,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -26074,10 +26434,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -26149,10 +26510,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -26224,10 +26586,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -26299,10 +26662,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -26374,10 +26738,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -26449,10 +26814,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -26524,10 +26890,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -26599,10 +26966,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -26674,10 +27042,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -26749,10 +27118,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -26824,10 +27194,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -26899,10 +27270,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -26974,10 +27346,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -27073,10 +27446,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -27148,10 +27522,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -27223,10 +27598,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -27298,10 +27674,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -27373,10 +27750,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -27448,10 +27826,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -27523,10 +27902,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -27598,10 +27978,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -27673,10 +28054,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -27748,10 +28130,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -27823,10 +28206,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -27898,10 +28282,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -27973,10 +28358,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -28048,10 +28434,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -28123,10 +28510,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -28222,10 +28610,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -28297,10 +28686,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -28372,10 +28762,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -28447,10 +28838,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -28522,10 +28914,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -28597,10 +28990,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -28672,10 +29066,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -28747,10 +29142,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -28822,10 +29218,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -28897,10 +29294,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -28972,10 +29370,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -29047,10 +29446,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -29122,10 +29522,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -29197,10 +29598,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -29272,10 +29674,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -29371,10 +29774,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -29446,10 +29850,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -29521,10 +29926,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -29596,10 +30002,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -29671,10 +30078,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -29746,10 +30154,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -29821,10 +30230,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -29896,10 +30306,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -29971,10 +30382,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -30046,10 +30458,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -30121,10 +30534,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -30196,10 +30610,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -30271,10 +30686,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -30346,10 +30762,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -30421,10 +30838,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -30520,10 +30938,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -30595,10 +31014,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -30670,10 +31090,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -30745,10 +31166,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -30820,10 +31242,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -30895,10 +31318,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -30970,10 +31394,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -31045,10 +31470,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -31120,10 +31546,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -31195,10 +31622,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -31270,10 +31698,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -31345,10 +31774,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -31420,10 +31850,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -31495,10 +31926,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -31570,10 +32002,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -31669,10 +32102,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -31744,10 +32178,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -31819,10 +32254,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -31894,10 +32330,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -31969,10 +32406,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -32044,10 +32482,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -32119,10 +32558,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -32194,10 +32634,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -32269,10 +32710,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -32344,10 +32786,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -32419,10 +32862,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -32494,10 +32938,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -32569,10 +33014,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -32644,10 +33090,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -32719,10 +33166,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -32818,10 +33266,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -32893,10 +33342,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -32968,10 +33418,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -33043,10 +33494,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -33118,10 +33570,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -33193,10 +33646,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -33268,10 +33722,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -33343,10 +33798,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -33418,10 +33874,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -33493,10 +33950,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -33568,10 +34026,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -33643,10 +34102,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -33718,10 +34178,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -33793,10 +34254,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -33868,10 +34330,11 @@ Level =
 				},
 				SkinnedModel = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string Material = "5490712ad8b3fc25:mat_Grass",
 					string Mesh = "5490712ad8abfdb8:GrassClump",
 					Vec4 Color = [0.36904, 0.56, 0.126, 1],
-					bool Visible = true,
 				},
 				Hierarchy = 
 				{
@@ -33975,10 +34438,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b8fc1f1fcd88:BasicTree.BasicTree_Trunk",
 					Vec4 Color = [0.27, 0.10719, 0.027, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -33999,10 +34463,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b8fc1f1fcd8d:BasicTree.BasicTree_Leaves",
 					Vec4 Color = [0.88, 0.4928, 0.7832, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -34149,10 +34614,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b8fc1f1fcd88:BasicTree.BasicTree_Trunk",
 					Vec4 Color = [0.27, 0.10719, 0.027, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -34173,10 +34639,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b8fc1f1fcd8d:BasicTree.BasicTree_Leaves",
 					Vec4 Color = [0.88, 0.4928, 0.7832, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -34233,10 +34700,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b8fc1f1fcd88:BasicTree.BasicTree_Trunk",
 					Vec4 Color = [0.27, 0.10719, 0.027, 1],
-					bool Visible = true,
 				},
 			},
 			Cog = 
@@ -34257,10 +34725,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b8fc1f1fcd8d:BasicTree.BasicTree_Leaves",
 					Vec4 Color = [0.88, 0.4928, 0.7832, 1],
-					bool Visible = true,
 				},
 			},
 		},
@@ -34355,10 +34824,11 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
 			string MaterialName = "4de020863e85bb61:DefaultMaterial",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = false,
 		},
 		RigidBody = 
 		{
@@ -34406,10 +34876,11 @@ Level =
 				},
 				Model = 
 				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
 					string MaterialName = "4de020863e85bb61:DefaultMaterial",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = false,
 				},
 				RigidBody = 
 				{
@@ -34456,6 +34927,31 @@ Level =
 		Named = 
 		{
 			string Name = "BasicTreeDead",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 1386,
+		},
+		Named = 
+		{
+			string Name = "DogFirstPass",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [38.8441, 10.3609, 4.36564],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = false,
+			string MaterialName = "4de020863e816dde:Grid",
+			string MeshName = "542a2a744e0a9a34:DogFirstPass",
+			Vec4 Color = [1, 1, 1, 1],
 		},
 	},
 },
