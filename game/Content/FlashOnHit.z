@@ -29,6 +29,7 @@ class FlashOnHit : ZilchComponent
         if(this.PlaySound)
         {
             this.Space.SoundSpace.PlayCueAt(SoundCue.Find("HitSound"),this.Owner.Transform.WorldTranslation);
+            
         }
         //create action sequence
         var aFlashHit = Action.Sequence(this.Owner.Actions);

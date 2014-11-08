@@ -78,9 +78,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.44933, 7.21057, 16.0639],
+			Vec3 Translation = [-7.07067, -0.475501, 21.1541],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.0104661, -0.0322046, 0.000337249, 0.999426],
+			Quat Rotation = [0.0282652, -0.190656, 0.00549198, 0.981234],
 		},
 		Camera = 
 		{
@@ -95,10 +95,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 9.48225,
-			float VerticalAngle = -0.0209434,
-			float HorizontalAngle = -6.21876,
-			Vec3 LookTarget = [3.05966, 7.40914, 6.60339],
+			float LookDistance = 19.0949,
+			float VerticalAngle = -0.0575955,
+			float HorizontalAngle = -5.89936,
+			Vec3 LookTarget = [0.0678784, 0.623671, 3.47788],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -520,12 +520,14 @@ Level =
 															bool Visible = true,
 															bool VisibilityCulling = true,
 															LightType LightType = Point,
-															Vec4 Color = [0.99, 0.409613, 0.12375, 1],
-															float Intensity = 1,
 															float Range = 15,
-															float Falloff = 1,
+															float MinRange = 2,
 															float Angle = 45,
+															float Intensity = 1,
+															Vec4 Color = [0.99, 0.409613, 0.12375, 1],
+															float MinRange = 2,
 															float Size = 20,
+															bool Baked = false,
 														},
 														GodRayLight = 
 														{
@@ -1371,12 +1373,14 @@ Level =
 							bool Visible = true,
 							bool VisibilityCulling = true,
 							LightType LightType = Directional,
-							Vec4 Color = [0.925, 0.888832, 0.846375, 1],
-							float Intensity = 1.5,
 							float Range = 50,
-							float Falloff = 1,
+							float MinRange = 2,
 							float Angle = 107,
+							float Intensity = 1.5,
+							Vec4 Color = [0.925, 0.888832, 0.846375, 1],
+							float MinRange = 2,
 							float Size = 128,
+							bool Baked = false,
 						},
 						GodRayLight = 
 						{
@@ -4338,12 +4342,14 @@ Level =
 					bool Visible = true,
 					bool VisibilityCulling = true,
 					LightType LightType = Point,
-					Vec4 Color = [1, 0.2333, 0.065, 1],
-					float Intensity = 1,
 					float Range = 10,
-					float Falloff = 1,
+					float MinRange = 2,
 					float Angle = 45,
+					float Intensity = 1,
+					Vec4 Color = [1, 0.2333, 0.065, 1],
+					float MinRange = 2,
 					float Size = 20,
+					bool Baked = false,
 				},
 				GodRayLight = 
 				{
@@ -4563,7 +4569,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-3.80699, 2.25534, 1],
+			Vec3 Translation = [44.5899, -1.73165, 1],
 			Vec3 Scale = [0.5, 0.5, 0.5],
 			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
@@ -5114,12 +5120,14 @@ Level =
 					bool Visible = true,
 					bool VisibilityCulling = true,
 					LightType LightType = Point,
-					Vec4 Color = [1, 0.2333, 0.065, 1],
-					float Intensity = 1,
 					float Range = 10,
-					float Falloff = 1,
+					float MinRange = 2,
 					float Angle = 45,
+					float Intensity = 1,
+					Vec4 Color = [1, 0.2333, 0.065, 1],
+					float MinRange = 2,
 					float Size = 20,
+					bool Baked = false,
 				},
 				GodRayLight = 
 				{
@@ -5323,11 +5331,29 @@ Level =
 			},
 		},
 	},
+	ArchetypeInstance = 
+	{
+		string Name = "548d61033e57e7c9:WaterBlock",
+		LinkId = 
+		{
+			uint Id = 138,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-15.5688, -17.8188, -1.04295],
+			Vec3 Scale = [1, 1, 0.5],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "WaterBlock",
+		},
+	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 138,
+			uint Id = 139,
 		},
 		Named = 
 		{
@@ -5339,9 +5365,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-7.18056, 0.755441, 1],
+			Vec3 Translation = [-6.97167, 1.74616, 1.42718],
 			Vec3 Scale = [0.5, 0.5, 0.5],
-			Quat Rotation = [0.707107, 0, 0, 0.707107],
+			Quat Rotation = [0.622154, 0.336041, 0.336041, 0.622154],
 		},
 		AnimationGraph = 
 		{
@@ -5427,7 +5453,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 139,
+					uint Id = 140,
 				},
 				Named = 
 				{
@@ -5459,7 +5485,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 140,
+					uint Id = 141,
 				},
 				Named = 
 				{
@@ -5484,7 +5510,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 141,
+					uint Id = 142,
 				},
 				Named = 
 				{
@@ -5509,7 +5535,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 142,
+					uint Id = 143,
 				},
 				Named = 
 				{
@@ -5534,7 +5560,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 143,
+					uint Id = 144,
 				},
 				Named = 
 				{
@@ -5559,7 +5585,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 144,
+					uint Id = 145,
 				},
 				Named = 
 				{
@@ -5584,7 +5610,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 145,
+					uint Id = 146,
 				},
 				Named = 
 				{
@@ -5609,7 +5635,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 146,
+					uint Id = 147,
 				},
 				Named = 
 				{
@@ -5634,7 +5660,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 147,
+					uint Id = 148,
 				},
 				Named = 
 				{
@@ -5652,7 +5678,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 148,
+							uint Id = 149,
 						},
 						Named = 
 						{
@@ -5677,7 +5703,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 149,
+									uint Id = 150,
 								},
 								Named = 
 								{
@@ -5705,7 +5731,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 150,
+					uint Id = 151,
 				},
 				Named = 
 				{
@@ -5723,7 +5749,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 151,
+							uint Id = 152,
 						},
 						Named = 
 						{
@@ -5742,7 +5768,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 152,
+					uint Id = 153,
 				},
 				Named = 
 				{
@@ -5816,7 +5842,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 153,
+					uint Id = 154,
 				},
 				Named = 
 				{
@@ -5890,12 +5916,14 @@ Level =
 					bool Visible = true,
 					bool VisibilityCulling = true,
 					LightType LightType = Point,
-					Vec4 Color = [1, 0.2333, 0.065, 1],
-					float Intensity = 1,
 					float Range = 10,
-					float Falloff = 1,
+					float MinRange = 2,
 					float Angle = 45,
+					float Intensity = 1,
+					Vec4 Color = [1, 0.2333, 0.065, 1],
+					float MinRange = 2,
 					float Size = 20,
+					bool Baked = false,
 				},
 				GodRayLight = 
 				{
@@ -5917,7 +5945,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 154,
+							uint Id = 155,
 						},
 						Named = 
 						{
@@ -5991,7 +6019,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 155,
+							uint Id = 156,
 						},
 						Named = 
 						{
@@ -6076,7 +6104,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 156,
+					uint Id = 157,
 				},
 				Named = 
 				{
@@ -6099,22 +6127,127 @@ Level =
 			},
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "548d61033e57e7c9:WaterBlock",
 		LinkId = 
 		{
-			uint Id = 157,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-15.5688, -17.8188, -1.04295],
-			Vec3 Scale = [1, 1, 0.5],
-			Quat Rotation = [0, 0, 0, 1],
+			uint Id = 158,
 		},
 		Named = 
 		{
-			string Name = "WaterBlock",
+			string Name = "LanternPostRedDayDemo",
+		},
+		Archetyped = 
+		{
+			string Name = "548181af93868c61:LanternPostRedDayDemo",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-8.95234, 3.1565, -3.34112],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.677547, -0.202312, -0.202312, 0.677547],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 4, 0],
+			Vec3 Size = [0.5, 4, 0.5],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 159,
+				},
+				Named = 
+				{
+					string Name = "LanternPost_Body",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [0.890963, 0.890963, 2.32696],
+					Quat Rotation = [-0.707107, -0, 0, 0.707107],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+					string MeshName = "5481b3b2289af798:LanternPost.LanternPost_Body",
+					Vec4 Color = [0.75, 0.195, 0.195, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 160,
+				},
+				Named = 
+				{
+					string Name = "LanternPost_Hook",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [2.44297, 7.77209, 2.50177e-007],
+					Vec3 Scale = [1.44999, 1.44999, 1],
+					Quat Rotation = [8.14603e-008, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+					string MeshName = "5481b3b2289af79f:LanternPost.LanternPost_Hook",
+					Vec4 Color = [1, 1, 1, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 161,
+				},
+				Named = 
+				{
+					string Name = "LanternPost_HookPoint",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [2.44297, 7.46766, 2.86467e-007],
+					Vec3 Scale = [1.44999, 1.44999, 1],
+					Quat Rotation = [8.14603e-008, 0, 0, 1],
+				},
+				SphereCollider = 
+				{
+					bool Ghost = true,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					float Radius = 0.3,
+				},
+				RigidBody = 
+				{
+					bool Static = false,
+					bool Asleep = false,
+					bool Kinematic = true,
+					bool RotationLocked = false,
+					bool Mode2D = false,
+					bool AllowSleep = true,
+					bool Inherit2DMode = false,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+			},
 		},
 	},
 },
