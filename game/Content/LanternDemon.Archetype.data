@@ -79,7 +79,7 @@ Cog =
 	},
 	Ai_LanternEnemy = 
 	{
-		Enum AiState = Wander,
+		Enum AiState = Fire,
 	},
 	Targetable = 
 	{
@@ -520,7 +520,7 @@ Cog =
 				float VelocityScale = 1,
 				float LengthScale = 1,
 				float MaxParticleSize = 100,
-				Vec3 SystemSize = [4, 4, 4],
+				Vec3 SystemSize = [20, 20, 20],
 			},
 			SphericalParticleEmitter = 
 			{
