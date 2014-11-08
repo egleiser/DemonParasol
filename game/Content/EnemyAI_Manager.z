@@ -3,6 +3,9 @@ class EnemyAI_Manager : ZilchComponent
     [Dependency]
     var Orientation : Orientation = null;
     
+    //[Dependency]
+    //var 
+    
     //Set target for Enemy (usually Player)
     [Property]
     var TargetObjectPath : CogPath = null;
@@ -69,31 +72,39 @@ class EnemyAI_Manager : ZilchComponent
         {
             this.Owner.WarnTarget.WarnTarget(event);
         }
+        if(this.HasRunAway && this.TargetIsWithinRunAwayRange)
+        {
+            this.Owner.RunAwayFromTarget.RunningAwayFromTarget(event);
+        }
+        else
+        {
+            this.Owner.Patrol.PaceBackAndForth(event);
+        }
     }
     
-    function CalculateDirectionVectorBetweenEnemyAndTarget() : Real3
+    function DirectionVectorBetweenEnemyAndTarget() : Real3
     {
         this.DirectionVector = this.TargetObject.Transform.Translation - this.Owner.Transform.Translation;
         return this.DirectionVector;
     }
     
-    function CalculateNormalizedDirectionVectorBetweenEnemyAndTarget() : Real3
+    function NormalizedDirectionVectorBetweenEnemyAndTarget() : Real3
     {
         this.NormalizedDirectionVector = this.TargetObject.Transform.Translation - this.Owner.Transform.Translation;
         this.NormalizedDirectionVector = Math.Normalize(this.NormalizedDirectionVector);
         return this.NormalizedDirectionVector;
     }
     
-    function CalculateDistanceBetweenEnemyAndTarget() : Real
+    function DistanceBetweenEnemyAndTarget() : Real
     {
-        var directionVector : Real3 = this.CalculateDirectionVectorBetweenEnemyAndTarget();
+        var directionVector : Real3 = this.DirectionVectorBetweenEnemyAndTarget();
         this.DistanceBetweenEnemyAndPlayer = Math.Length(directionVector);
         return this.DistanceBetweenEnemyAndPlayer;
     }
     
-    function CalculateEnemyRotationTowardsPlayer() : Quaternion
+    function EnemyRotationTowardsPlayer() : Quaternion
     {
-        var directionVector : Real3 = this.CalculateDirectionVectorBetweenEnemyAndTarget();
+        var directionVector : Real3 = this.DirectionVectorBetweenEnemyAndTarget();
         this.EnemyRotationTowardsPlayer = this.Orientation.GetLookAtDirectionWithUpRotation(directionVector, Real3(0,0,1));
         return this.EnemyRotationTowardsPlayer;
         

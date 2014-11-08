@@ -7,6 +7,9 @@ class RunAwayFromTarget : ZilchComponent
     var TargetObjectPath : CogPath = null;
     
     [Property]
+    var RunToObjectPath : CogPath = null;
+    
+    [Property]
     var RunAwayTriggerDistance : Real = 2.0;
     
     [Property]
@@ -19,6 +22,7 @@ class RunAwayFromTarget : ZilchComponent
     var RunAwaySpeed : Real = 0.0;
     
     var TargetObject : Cog = null;
+    var RunToObject : Cog = null;
     
     var TargetIsWithinRunAwayRange : Boolean = false;
     
@@ -33,41 +37,41 @@ class RunAwayFromTarget : ZilchComponent
     {
         
         this.TargetObject = this.TargetObjectPath.Cog;
+        this.RunToObject = this.RunToObjectPath.Cog;
         this.RunAwayDistanceFromTarget = Math.Distance(this.TargetObject.Transform.Translation, this.Owner.Transform.Translation);
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        var isWarning : Boolean = false;
-        var isPatrolling : Boolean = false;
-        var isRunning : Boolean = false;
+        this.CalculateRunAwayDirectionAndDistance();
+        //var isWarning : Boolean = false;
+        //var isPatrolling : Boolean = false;
+        //var isRunning : Boolean = false;
         
-        if(this.TargetObject != null)
-        {
-            if(this.Owner.Patrol != null)
-            {
-                isPatrolling = true;
-            }
+        //if(this.TargetObject != null)
+        //{
+        //    if(this.Owner.Patrol != null)
+        //    {
+        //        isPatrolling = true;
+        //    }
             
-            if(this.Owner.WarnTarget != null)
-            {
-                isWarning = true;
-            }
-            this.CalculateRunAwayDirectionAndDistance();
-            this.CheckRunAwayRange();
-        }
+        //    if(this.Owner.WarnTarget != null)
+        //    {
+        //        isWarning = true;
+        //    }
+        //    this.CalculateRunAwayDirectionAndDistance();
+        //    this.CheckRunAwayRange();
+        //}
         
-        if(this.TargetIsWithinRunAwayRange && !isWarning && !isPatrolling)
-        {
-            Console.WriteLine("Running Event 1");
-            this.RunningAwayFromTarget(event);
-        }
-        if(this.RunningAway)
-        {
-            //Console.WriteLine("Running Event 2");
-            this.RunningAwayFromTarget(event);
-        }
+        //if(this.TargetIsWithinRunAwayRange && !isWarning && !isPatrolling)
+        //{
+        //    this.RunningAwayFromTarget(event);
+        //}
+        //if(this.RunningAway)
+        //{
+        //    this.RunningAwayFromTarget(event);
+        //}
     }
     
     /*This function does a few things: First, it changes the color of the model to show that running away
@@ -92,21 +96,14 @@ class RunAwayFromTarget : ZilchComponent
         //Constantly updates the distance variable with the length of the displacement vector
         //In other words, it sees how far the dog has run each update
         this.RunningAwayDistance = Math.Length(runAwayDisplacement);
-        //Console.WriteLine("Running Away Distance = `this.RunningAwayDistance`");
         
     }
     
     function CalculateRunAwayDirectionAndDistance()
     {
-        var playerpos = this.TargetObject.Transform.Translation;
-        playerpos.Z = 0.0;
-        var enemypos = this.Owner.Transform.Translation;
-        enemypos.Z = 0.0;
-        var reverseDirection : Real3 = Real3(0,0,0);
-        reverseDirection = playerpos - enemypos;
         
-        this.RunAwayDirection = -reverseDirection;
-        this.RunAwayDistanceFromTarget = Math.Distance(playerpos, enemypos);
+        this.RunAwayDirection = this.RunToObject.Transform.Translation - this.Owner.Transform.Translation;
+        this.RunAwayDistanceFromTarget = Math.Length(this.RunAwayDirection);
         this.RunAwayRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.RunAwayDirection, Real3(0,0,1));
         this.RunAwayDirection = Math.Normalize(this.RunAwayDirection);
         

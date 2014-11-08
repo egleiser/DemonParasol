@@ -130,13 +130,13 @@ class OrbitCameraController : ZilchComponent
         {
             Console.WriteLine("Zoom Event Started");
             var seq = Action.Sequence(this.Owner.Actions);
-            Action.Property(seq, @this.Owner.Camera.Size, event.CamSize, event.ZoomInTime, event.EasingCurve);
+            Action.Property(seq, @this.Owner.Camera.Size, event.CamSize, event.ZoomTime, event.EasingCurve);
         }
         //If wanting to zoom back out to regular size (set at CamLerp.z, which is 30 right now)
         else
         {
             var seq = Action.Sequence(this.Owner.Actions);
-            Action.Property(seq, @this.Owner.Camera.Size, this.CamLerp.Z, event.ZoomOutTime, event.EasingCurve);
+            Action.Property(seq, @this.Owner.Camera.Size, this.CamLerp.Z, event.ZoomTime, event.EasingCurve);
         }
     }
     

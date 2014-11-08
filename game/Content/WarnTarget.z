@@ -37,41 +37,44 @@ class WarnTarget : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        var isPatrolling : Boolean = false;
-        var hasRunning : Boolean = false;
-        var isWarning : Boolean = false;
-        var runRange : Boolean = false;
+        this.CalculateWarnDirectionAndDistance();
         
-        if(this.Owner != null)
-        {
-            if(this.Owner.Patrol != null)
-            {
-                isPatrolling = true;
-            }
-            if(this.Owner.RunAwayFromTarget != null)
-            {
-                hasRunning = true;
-            }
-            runRange = this.Owner.RunAwayFromTarget.CheckRunAwayRange();
-            this.CalculateWarnDirectionAndDistance();
-            this.CheckWarnRange();
-        }
-        if(this.TargetIsWithinWarnRange && !hasRunning)
-        {
-            this.WarnTarget(event);
-        }
-        if(this.TargetIsWithinWarnRange && hasRunning && !this.IsRunning)
-        {
-            this.WarnTarget(event);
-        }
-        if(this.TargetIsWithinWarnRange && runRange && !this.IsRunning)
-        {
-            this.IsRunning = true;
-        }
-        else if(this.IsRunning)
-        {
-            this.Owner.RunAwayFromTarget.RunningAway = true;
-        }
+        
+        //var isPatrolling : Boolean = false;
+        //var hasRunning : Boolean = false;
+        //var isWarning : Boolean = false;
+        //var runRange : Boolean = false;
+        
+        //if(this.Owner != null)
+        //{
+        //    if(this.Owner.Patrol != null)
+        //    {
+        //        isPatrolling = true;
+        //    }
+        //    if(this.Owner.RunAwayFromTarget != null)
+        //    {
+        //        hasRunning = true;
+        //    }
+        //    runRange = this.Owner.RunAwayFromTarget.CheckRunAwayRange();
+        //    this.CalculateWarnDirectionAndDistance();
+        //    this.CheckWarnRange();
+        //}
+        //if(this.TargetIsWithinWarnRange && !hasRunning)
+        //{
+        //    this.WarnTarget(event);
+        //}
+        //if(this.TargetIsWithinWarnRange && hasRunning && !this.IsRunning)
+        //{
+        //    this.WarnTarget(event);
+        //}
+        //if(this.TargetIsWithinWarnRange && runRange && !this.IsRunning)
+        //{
+        //    this.IsRunning = true;
+        //}
+        //else if(this.IsRunning)
+        //{
+        //    this.Owner.RunAwayFromTarget.RunningAway = true;
+        //}
     }
     
     /*This function is called when the player gets within the BarkTriggerDistance.
