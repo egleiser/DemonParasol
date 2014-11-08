@@ -1,0 +1,30 @@
+SoundCue = 
+{
+	SoundPlayMode PlayMode = Single,
+	float Volume = 0.39,
+	float VolumeVariation = 0,
+	float Pitch = 0,
+	float PitchVariation = 0.2,
+	float MinDistance = 10,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 128,
+	bool LinearRollOff = true,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "548d67c4e5144d94:Punch_Boxing_FaceHit1",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "548d67c4e515392f:Punch_Boxing_FaceHit2",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "548d67c4e515483f:Punch_Boxing_FaceHit3",
+			float Weight = 1,
+		},
+	],
+	string RolloffCurveName = "",
+},

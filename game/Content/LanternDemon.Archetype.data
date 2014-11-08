@@ -1,0 +1,776 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "LanternDemon",
+	},
+	Archetyped = 
+	{
+		string Name = "548d36600a3d3fe2:LanternDemon",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [3.64786, 2.25534, 1],
+		Vec3 Scale = [0.5, 0.5, 0.5],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+	},
+	AnimationGraph = 
+	{
+		bool Active = true,
+		AnimPlayMode PlayMode = PlayOnce,
+		float TimeScale = 0.75,
+		string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+		uint64 DebugPreviewId = 548d0ede9d0812ca,
+	},
+	SimpleAnimation = 
+	{
+		string AnimationName = "548d09e72d5c5972:DemonLantern_Laugh",
+		AnimPlayMode PlayMode = Loop,
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = true,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	CapsuleCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 2.5, 0],
+		float Radius = 2,
+		float Height = 4,
+		uint Direction = 1,
+	},
+	Orientation = 
+	{
+		Vec3 GlobalUp = [0, 1, 0],
+		Vec3 UpVector = [0, 1, 0],
+		Vec3 ForwardVector = [0, 0, 1],
+		OrientationBases DefaultBases = ForwardZUpY,
+	},
+	IgnoreSpaceEffects = 
+	{
+		bool Drag = true,
+		bool Flow = false,
+		bool Force = false,
+		bool Gravity = false,
+		bool Thrust = false,
+		bool Vortex = false,
+		bool Wind = false,
+		bool Invalid = false,
+		bool Torque = false,
+		bool PointGravity = false,
+		bool PointForce = false,
+		bool Buoyancy = false,
+	},
+	Ai_LanternEnemy = 
+	{
+		Enum AiState = Wander,
+	},
+	Targetable = 
+	{
+		Enum IndicatorType = Enemy,
+		Vec3 IndicatorOffset = [0, 0, 0],
+		float Range = 20,
+	},
+	SoundEmitter = 
+	{
+		bool StartPlaying = true,
+		int ExtraPriority = 0,
+		string CueName = "548d7c5a98a230e2:Magic_AuraLoop03",
+		float Volume = 1,
+		float Pitch = 1,
+		bool Positional = true,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "ChamferCyl001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.0598526, 0, 0.0480942],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SkinnedModel = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string Material = "548d6afe0d0f20a4:mat_Lantern",
+				string Mesh = "548d36630a005b5c:LanternDemon.ChamferCyl001",
+				Vec4 Color = [0.835, 0.782645, 0.597025, 1],
+			},
+			FlashOnHit = 
+			{
+				Vec4 HitColor = [1, 0.28, 0.280432, 1],
+				float HitTime = 0.1,
+				int HitCount = 5,
+				bool PlaySound = true,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "GeoSphere001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-7.84737e-008, 3.92513, 1.79527],
+				Vec3 Scale = [0.725462, 1.25368, 1.25368],
+				Quat Rotation = [0.5, -0.5, 0.5, 0.5],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "54ff27758d4308c1:mat_Ghost",
+				string MeshName = "548d36630a005b61:LanternDemon.GeoSphere001",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "Pyramid001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.645406, 2.71554, 1.43149],
+				Vec3 Scale = [0.48623, 0.587083, 0.240644],
+				Quat Rotation = [-0, 6.12323e-017, -0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "548d36630a005b64:LanternDemon.Pyramid001",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "Pyramid002",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.488479, 2.71554, 1.43149],
+				Vec3 Scale = [0.48623, 0.587083, 0.240644],
+				Quat Rotation = [-0, 6.12323e-017, -0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "548d36630a005b66:LanternDemon.Pyramid002",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "Pupil",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-7.84737e-008, 3.92513, 1.79527],
+				Vec3 Scale = [0.725462, 1.25368, 1.25368],
+				Quat Rotation = [0.5, -0.5, 0.5, 0.5],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5404506d3dd2a41e:mat_Light",
+				string MeshName = "548d36630a005b68:LanternDemon.Pupil",
+				Vec4 Color = [1, 0, 0, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 7,
+			},
+			Named = 
+			{
+				string Name = "MouthBlack",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.0598526, 0, 0.0480942],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "548d36630a005b6a:LanternDemon.MouthBlack",
+				Vec4 Color = [0.13, 0.13, 0.13, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 8,
+			},
+			Named = 
+			{
+				string Name = "Box001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.0727778, 1.78546, 0.886495],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0.707107, 0, 0, 0.707107],
+			},
+			SkinnedModel = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string Material = "548d6afe0d0f20a4:mat_Lantern",
+				string Mesh = "548d36630a005b6c:LanternDemon.Box001",
+				Vec4 Color = [0.705, 0.1833, 0.292857, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 9,
+			},
+			Named = 
+			{
+				string Name = "Base",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.0598526, 0, 0.0480942],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "548d36630a005b6e:LanternDemon.Base",
+				Vec4 Color = [1, 0.616, 0.4, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 10,
+			},
+			Named = 
+			{
+				string Name = "Bone001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-4.51288e-008, 1.77155, 1.03243],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0.510387, -0.510387, 0.489393, 0.489393],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 11,
+					},
+					Named = 
+					{
+						string Name = "Bone002",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.708946, 3.94092e-008, -5.14984e-006],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [5.84252e-017, -0.131562, -4.40229e-016, 0.991308],
+					},
+					AniEnemyTongue = 
+					{
+						float SinSpeedX = 5,
+						float SinSpeedY = 5,
+						float Intensity = 0.5,
+						bool UseInitialRot = true,
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 12,
+							},
+							Named = 
+							{
+								string Name = "Bone003",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0.830216, 5.35108e-008, 1.90735e-007],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [9.23964e-009, -0.324907, 3.17424e-009, 0.945746],
+							},
+							AniEnemyTongue = 
+							{
+								float SinSpeedX = 5,
+								float SinSpeedY = 5,
+								float Intensity = 1,
+								bool UseInitialRot = true,
+							},
+						},
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 13,
+			},
+			Named = 
+			{
+				string Name = "MouthBone001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-7.41616e-008, 0.982347, 1.69662],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.0326318, 0.0326318, 0.706353, 0.706353],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 14,
+					},
+					Named = 
+					{
+						string Name = "MouthBone002",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.96841, -7.8045e-009, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [1.6427e-011, -0.00459375, -3.57596e-009, 0.999989],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 15,
+			},
+			Named = 
+			{
+				string Name = "smokeghostparticle",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 2.08022, -1.4381],
+				Vec3 Scale = [2, 2, 2],
+				Quat Rotation = [-0.707107, 0, 0, 0.707107],
+			},
+			SpriteParticleSystem = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				SystemChildMode ChildMode = Independent,
+				SystemSpace SystemSpace = WorldSpace,
+				uint DrawOrder = 0,
+				float WarmUpTime = 0,
+				ParticleGeometry GeometryMode = Billboarded,
+				ParticleRenderMode RenderMode = Blended,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Single,
+				string Texture = "5481a3be505a7495:wind-particles-glow-03",
+				Vec4 Tint = [1, 1, 1, 0.54],
+				float VelocityScale = 1,
+				float LengthScale = 1,
+				float MaxParticleSize = 100,
+				Vec3 SystemSize = [4, 4, 4],
+			},
+			SphericalParticleEmitter = 
+			{
+				bool Active = true,
+				uint EmitCount = 0,
+				float EmitRate = 20,
+				float EmitVariance = 0,
+				float Size = 1,
+				float SizeVariance = 0.5,
+				float Lifetime = 1,
+				float LifetimeVariance = 0.2,
+				float Spin = 200,
+				float SpinVariance = 50,
+				bool RandomSpin = true,
+				float Fill = 1,
+				float EmitterVelocityPercent = 0,
+				Vec3 StartVelocity = [0, 0, 0],
+				Vec3 RandomVelocity = [2, 0, 2],
+				Vec3 TangentVelocity = [0, 0, 0],
+				Vec3 EmitterSize = [0, 0, 0],
+				bool FastMovingEmitter = false,
+			},
+			LinearParticleAnimator = 
+			{
+				Vec3 Force = [0, 0, 0],
+				Vec3 RandomForce = [0, 0, 0],
+				float Torque = 0,
+				float Growth = 0,
+				float Dampening = 0,
+				Vec3 Twist = [0, 0, 0],
+			},
+			ParticleColorAnimator = 
+			{
+				Vec4 Color0 = [0.86, 0, 1, 0],
+				Vec4 Color1 = [0.56, 0, 1, 1],
+				Vec4 Color2 = [0.71, 0, 1, 1],
+				Vec4 Color3 = [0.495, 0, 0.99, 1],
+				Vec4 Color4 = [1, 0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 16,
+			},
+			Named = 
+			{
+				string Name = "FireBreath",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 2.08022, 1.72043],
+				Vec3 Scale = [2, 2, 2],
+				Quat Rotation = [-0.707107, 0, 0, 0.707107],
+			},
+			SpriteParticleSystem = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				SystemChildMode ChildMode = Independent,
+				SystemSpace SystemSpace = WorldSpace,
+				uint DrawOrder = 0,
+				float WarmUpTime = 0,
+				ParticleGeometry GeometryMode = Billboarded,
+				ParticleRenderMode RenderMode = Additive,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Single,
+				string Texture = "5481a3be505a50f6:wind-particles-glow-02",
+				Vec4 Tint = [1, 1, 1, 1],
+				float VelocityScale = 1,
+				float LengthScale = 1,
+				float MaxParticleSize = 100,
+				Vec3 SystemSize = [4, 4, 4],
+			},
+			SphericalParticleEmitter = 
+			{
+				bool Active = true,
+				uint EmitCount = 0,
+				float EmitRate = 80,
+				float EmitVariance = 0,
+				float Size = 0.5,
+				float SizeVariance = 0.2,
+				float Lifetime = 1,
+				float LifetimeVariance = 0.2,
+				float Spin = 200,
+				float SpinVariance = 50,
+				bool RandomSpin = true,
+				float Fill = 1,
+				float EmitterVelocityPercent = 0,
+				Vec3 StartVelocity = [0, -8, 0],
+				Vec3 RandomVelocity = [1, 1, 1],
+				Vec3 TangentVelocity = [0, 0, 0],
+				Vec3 EmitterSize = [0, 0, 0],
+				bool FastMovingEmitter = false,
+			},
+			LinearParticleAnimator = 
+			{
+				Vec3 Force = [0, 0, 0],
+				Vec3 RandomForce = [0, 0, 0],
+				float Torque = 0,
+				float Growth = 1,
+				float Dampening = 0,
+				Vec3 Twist = [0, 0, 0],
+			},
+			ParticleColorAnimator = 
+			{
+				Vec4 Color0 = [1, 0.87, 0, 0],
+				Vec4 Color1 = [1, 0.54, 0, 1],
+				Vec4 Color2 = [1, 0.33, 0, 1],
+				Vec4 Color3 = [0.99, 0.1188, 0, 0.495],
+				Vec4 Color4 = [1, 0, 0, 0],
+			},
+			Light = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				LightType LightType = Point,
+				Vec4 Color = [1, 0.2333, 0.065, 1],
+				float Intensity = 1,
+				float Range = 10,
+				float Falloff = 1,
+				float Angle = 45,
+				float Size = 20,
+			},
+			GodRayLight = 
+			{
+				GodRayLightType LightType = Point,
+				bool Active = true,
+				int Samples = 80,
+				Vec4 Color = [1, 0.5511, 0.33, 1],
+				float Intensity = 0.5,
+				float ScreenRadius = 0.26,
+				float OccluderClarity = 0.1,
+				bool ScreenEdgeFade = false,
+				float BeginFade = -0.1,
+				float EndFade = 0.1,
+				float DepthOffset = 0,
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 17,
+					},
+					Named = 
+					{
+						string Name = "FireBreath_Sparks",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [2.38419e-007, -1.3113e-006, 4.76837e-007],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					SpriteParticleSystem = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						SystemChildMode ChildMode = Independent,
+						SystemSpace SystemSpace = WorldSpace,
+						uint DrawOrder = 0,
+						float WarmUpTime = 0,
+						ParticleGeometry GeometryMode = Beam,
+						ParticleRenderMode RenderMode = Additive,
+						ParticleSortMode SortMode = Youngest,
+						ParticleAnimation ParticleAnimation = Single,
+						string Texture = "5481a3be505aea94:wind-particles-simple-01",
+						Vec4 Tint = [1, 1, 1, 1],
+						float VelocityScale = 0.5,
+						float LengthScale = 0.5,
+						float MaxParticleSize = 100,
+						Vec3 SystemSize = [4, 4, 4],
+					},
+					SphericalParticleEmitter = 
+					{
+						bool Active = true,
+						uint EmitCount = 0,
+						float EmitRate = 50,
+						float EmitVariance = 0,
+						float Size = 0.2,
+						float SizeVariance = 0.05,
+						float Lifetime = 0.5,
+						float LifetimeVariance = 0.05,
+						float Spin = 200,
+						float SpinVariance = 50,
+						bool RandomSpin = true,
+						float Fill = 1,
+						float EmitterVelocityPercent = 0,
+						Vec3 StartVelocity = [0, -8, 0],
+						Vec3 RandomVelocity = [3, 3, 3],
+						Vec3 TangentVelocity = [0, 0, 0],
+						Vec3 EmitterSize = [0, 0, 0],
+						bool FastMovingEmitter = false,
+					},
+					LinearParticleAnimator = 
+					{
+						Vec3 Force = [0, 0, 0],
+						Vec3 RandomForce = [0, 0, 0],
+						float Torque = 0,
+						float Growth = 0,
+						float Dampening = 0,
+						Vec3 Twist = [0, 0, 0],
+					},
+					ParticleColorAnimator = 
+					{
+						Vec4 Color0 = [1, 0.87, 0, 0],
+						Vec4 Color1 = [1, 0.54, 0, 1],
+						Vec4 Color2 = [1, 0.33, 0, 1],
+						Vec4 Color3 = [0.99, 0.1188, 0, 1],
+						Vec4 Color4 = [1, 0, 0, 0],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 18,
+					},
+					Named = 
+					{
+						string Name = "FireBreath_Inhale",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [2.38419e-007, -1.3113e-006, 4.76837e-007],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					SpriteParticleSystem = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						SystemChildMode ChildMode = Independent,
+						SystemSpace SystemSpace = WorldSpace,
+						uint DrawOrder = 0,
+						float WarmUpTime = 0,
+						ParticleGeometry GeometryMode = Beam,
+						ParticleRenderMode RenderMode = Additive,
+						ParticleSortMode SortMode = Youngest,
+						ParticleAnimation ParticleAnimation = Single,
+						string Texture = "5481a3be505b232b:wind-particles-simple-03",
+						Vec4 Tint = [1, 1, 1, 1],
+						float VelocityScale = 0.5,
+						float LengthScale = 0.5,
+						float MaxParticleSize = 100,
+						Vec3 SystemSize = [4, 4, 4],
+					},
+					LinearParticleAnimator = 
+					{
+						Vec3 Force = [0, 0, 0],
+						Vec3 RandomForce = [0, 0, 0],
+						float Torque = 0,
+						float Growth = 0,
+						float Dampening = 0,
+						Vec3 Twist = [0, 0, 0],
+					},
+					ParticleColorAnimator = 
+					{
+						Vec4 Color0 = [1, 0, 0, 0],
+						Vec4 Color1 = [1, 0.18, 0, 1],
+						Vec4 Color2 = [1, 0.33, 0, 1],
+						Vec4 Color3 = [0.99, 0.7425, 0, 0.505],
+						Vec4 Color4 = [1, 0.9, 0, 0],
+					},
+					ParticleAttractor = 
+					{
+						float Strength = 15,
+						float MinDistance = 5,
+						float MaxDistance = 100,
+					},
+					MeshParticleEmitter = 
+					{
+						bool Active = false,
+						uint EmitCount = 0,
+						float EmitRate = 50,
+						float EmitVariance = 0,
+						float Size = 0.5,
+						float SizeVariance = 0,
+						float Lifetime = 0.5,
+						float LifetimeVariance = 0,
+						float Spin = 0,
+						float SpinVariance = 50,
+						bool RandomSpin = true,
+						float Fill = 1,
+						float EmitterVelocityPercent = 0,
+						Vec3 StartVelocity = [0, 0, 0],
+						Vec3 RandomVelocity = [0, 0, 0],
+						Vec3 TangentVelocity = [0, 0, 0],
+						Vec3 EmitterSize = [0, 0, 0],
+						bool FastMovingEmitter = false,
+						string MeshName = "4de0354322b376ae:Sphere",
+						MeshEmitMode MeshEmitMode = Points,
+						bool UseModelComponent = true,
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 19,
+			},
+			Named = 
+			{
+				string Name = "GeoSphere001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-7.84737e-008, 3.87803, 1.74305],
+				Vec3 Scale = [0.4, 1.5, 1.5],
+				Quat Rotation = [0.5, -0.5, 0.5, 0.5],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "548d36630a005b61:LanternDemon.GeoSphere001",
+				Vec4 Color = [0, 0, 0, 1],
+			},
+		},
+	},
+},

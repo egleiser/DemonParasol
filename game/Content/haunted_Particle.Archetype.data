@@ -1,0 +1,84 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "haunted_Particle",
+	},
+	Archetyped = 
+	{
+		string Name = "548d111662b8afd0:haunted_Particle",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-18.1505, 1.39513, 2.04011],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [-3.8743e-007, 0, 0, 1],
+	},
+	SpriteParticleSystem = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		SystemChildMode ChildMode = Independent,
+		SystemSpace SystemSpace = WorldSpace,
+		uint DrawOrder = 0,
+		float WarmUpTime = 0,
+		ParticleGeometry GeometryMode = Beam,
+		ParticleRenderMode RenderMode = Additive,
+		ParticleSortMode SortMode = Youngest,
+		ParticleAnimation ParticleAnimation = Single,
+		string Texture = "548d1187793ce53e:GhostParticle-01",
+		Vec4 Tint = [1, 1, 1, 1],
+		float VelocityScale = 0.3,
+		float LengthScale = 0.2,
+		float MaxParticleSize = 100,
+		Vec3 SystemSize = [4, 4, 4],
+	},
+	LinearParticleAnimator = 
+	{
+		Vec3 Force = [0, 0, 0],
+		Vec3 RandomForce = [0, 0, 0],
+		float Torque = 0,
+		float Growth = 0,
+		float Dampening = 0,
+		Vec3 Twist = [0, 0, 0],
+	},
+	ParticleColorAnimator = 
+	{
+		Vec4 Color0 = [0.56, 0, 1, 0],
+		Vec4 Color1 = [0, 0.76, 1, 1],
+		Vec4 Color2 = [0.65, 0, 1, 1],
+		Vec4 Color3 = [0, 0.76, 1, 0],
+		Vec4 Color4 = [0.41, 0, 1, 0],
+	},
+	BoxParticleEmitter = 
+	{
+		bool Active = true,
+		uint EmitCount = 0,
+		float EmitRate = 20,
+		float EmitVariance = 0,
+		float Size = 0.8,
+		float SizeVariance = 0.2,
+		float Lifetime = 1,
+		float LifetimeVariance = 0.2,
+		float Spin = 0,
+		float SpinVariance = 50,
+		bool RandomSpin = true,
+		float Fill = 1,
+		float EmitterVelocityPercent = 0,
+		Vec3 StartVelocity = [0, 0, 0],
+		Vec3 RandomVelocity = [1, 1, 1],
+		Vec3 TangentVelocity = [0, 0, 0],
+		Vec3 EmitterSize = [4, 4, 4],
+		bool FastMovingEmitter = false,
+	},
+	ParticleAttractor = 
+	{
+		float Strength = 15,
+		float MinDistance = 0,
+		float MaxDistance = 100,
+	},
+},

@@ -1,0 +1,80 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 548d36600a3d3fe2,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [0.1, 0.1, 0.1],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "LanternDemon.ChamferCyl001",
+				uint64 ResourceId = 548d36630a005b5c,
+			},
+			{
+				string Name = "LanternDemon.GeoSphere001",
+				uint64 ResourceId = 548d36630a005b61,
+			},
+			{
+				string Name = "LanternDemon.Pyramid001",
+				uint64 ResourceId = 548d36630a005b64,
+			},
+			{
+				string Name = "LanternDemon.Pyramid002",
+				uint64 ResourceId = 548d36630a005b66,
+			},
+			{
+				string Name = "LanternDemon.Pupil",
+				uint64 ResourceId = 548d36630a005b68,
+			},
+			{
+				string Name = "LanternDemon.MouthBlack",
+				uint64 ResourceId = 548d36630a005b6a,
+			},
+			{
+				string Name = "LanternDemon.Box001",
+				uint64 ResourceId = 548d36630a005b6c,
+			},
+			{
+				string Name = "LanternDemon.Base",
+				uint64 ResourceId = 548d36630a005b6e,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+	SkeletonBuilder = 
+	{
+		string Name = "LanternDemon",
+		uint64 ResourceId = 548d36600a3d3fdf,
+	},
+	AnimationBuilder = 
+	{
+		string Name = "LanternDemon",
+		uint64 ResourceId = 548d36600a3d3fd9,
+		bool MakeAnimationSet = false,
+		ResourceCompression CompressAnimation = None,
+		string PreviewArchetype = "",
+		Array Clips = 
+		[
+			{
+				string Name = "All",
+				uint64 ResourceId = 548d36630a00cae8,
+				int StartFrame = 0,
+				int EndFrame = 100,
+				LoopingMode LoopingMode = Default,
+			},
+		],
+	},
+},

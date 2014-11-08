@@ -1,0 +1,73 @@
+enum DemonLanternState{Wander, Spoted, MoveTowards, Inhale, Fire}
+class Ai_LanternEnemy : ZilchComponent
+{
+    [Property]
+    var AiState:DemonLanternState = DemonLanternState.Wander;
+    var Player:Cog = null;
+    var FireBreath:Cog = null;
+    var FireBreathSparks:Cog = null;
+    var FireBreathInhale:Cog = null;
+    var Distance:Real = 0.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
+        this.FireBreath = this.Owner.FindChildByName("FireBreath");
+        this.FireBreathSparks = this.Owner.FindChildByName("FireBreath_Sparks");
+        this.FireBreathInhale = this.Owner.FindChildByName("FireBreath_Inhale");
+        Zero.Connect(this.Owner, "hitEvent", this.OnHit);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.Space.SoundSpace.PlayCueAt(SoundCue.Find("Demon_Roar"),this.Owner.Transform.WorldTranslation);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Distance = Math.Length(this.Player.Transform.Translation - this.Owner.Transform.WorldTranslation);
+        this.LookatPlayer(event);
+        this.UpdateLights(event);
+    }
+    
+    function OnHit(event : HitEvent)
+    {
+        this.Space.SoundSpace.PlayCueAt(SoundCue.Find("Demon_Hurt"),this.Owner.Transform.WorldTranslation);
+        this.OnDeath();
+    }
+    
+    function LookatPlayer(event : UpdateEvent)
+    {
+        this.Owner.Transform.WorldRotation = this.Owner.Orientation.GetLookAtPointWithUpRotation(
+            Real3(this.Player.Transform.WorldTranslation.X,this.Player.Transform.WorldTranslation.Y,this.Owner.Transform.WorldTranslation.Z),this.Owner.Orientation.WorldUp);
+    }
+    
+    function UpdateLights(event : UpdateEvent)
+    {
+        if(this.AiState == DemonLanternState.Fire)
+        {
+            this.FireBreath.Light.Visible = true;
+            this.FireBreath.GodRayLight.Active = true;
+            this.FireBreath.SphericalParticleEmitter.Active = true;
+            this.FireBreathSparks.SphericalParticleEmitter.Active = true;
+        }
+        else
+        {
+            this.FireBreath.Light.Visible = false;
+            this.FireBreath.GodRayLight.Active = false;
+            this.FireBreath.SphericalParticleEmitter.Active = false;
+            this.FireBreathSparks.SphericalParticleEmitter.Active = false;
+        }
+        if(this.AiState == DemonLanternState.Inhale)
+        {
+            this.FireBreathInhale.MeshParticleEmitter.Active = true;
+        }
+        else
+        {
+            this.FireBreathInhale.MeshParticleEmitter.Active = false;
+        }
+    }
+    
+    function OnDeath()
+    {
+       this.Space.CreateAtPosition(Archetype.Find("DeathSmoke"), this.Owner.Transform.WorldTranslation);
+       this.Owner.Destroy();
+    }
+}

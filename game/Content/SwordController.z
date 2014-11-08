@@ -12,7 +12,7 @@ class SwordController : ZilchComponent
         this.Ribs = this.Owner.FindChildByName("Ribs");
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, "attackEvent", this.OnAttack);
-        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        Zero.Connect(this.Owner.FindChildByName("Blade"), Events.CollisionStarted, this.OnCollisionStarted);
         
     }
 
@@ -79,10 +79,13 @@ class SwordController : ZilchComponent
     {
          // Get the object we collided with:
         var otherObject = event.OtherObject;
-        if(this.Owner.FindChildByName("Blade").BoxCollider.Ghost == true)
+        if(this.Owner.FindChildByName("Blade").BoxCollider.Ghost == false)
         {
             var hitEvent = new HitEvent();
             otherObject.DispatchDown("hitEvent", hitEvent);
+            otherObject.DispatchEvent("hitEvent", hitEvent);
+            this.Space.CreateAtPosition(Archetype.Find("HitSparks"), event.FirstPoint.WorldPoint);
+            
         }
     }
 }
