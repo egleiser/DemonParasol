@@ -41,6 +41,7 @@ class CameraZoomEvent : Event
 }
 class CameraPanEvent : Event
 {
+    //Indicates whether the initial pan has occurred
     var IsActive : Boolean = false;
     //Use if you want to rotate TOWARDS another object besides the player
     var PanTarget : Cog = null;
@@ -48,17 +49,23 @@ class CameraPanEvent : Event
     var EndRotation : Quaternion = Quaternion(0,0,0,0);
     //The start rotation before panning
     var StartRotation : Quaternion = Quaternion(0,0,0,0);
+    //The time it takes to perform the pan
     var PanTime : Real = 0.0;
     //Hopefully this will be for a custom ease later on
     var EasingCurve : Ease = Ease.Linear;
 }
 class CameraDollyEvent : Event
 {
-    //
+    //Indicates whether the initial dolly has occurred
     var IsActive : Boolean = false;
+    //Boolean for checking whether the target should stay the focus of the camera
+    //during the dolly or not
+    var TargetFocus : Boolean = false;
     //Use if you want to dolly to an object (either pre-set object or one created at runtime)
     var DollyTarget : Cog = null;
+    //If there is no target object, just set your own translation
     var EndPosition: Real3  = Real3(0.0,0.0,0.0);
+    //The time it takes to perform the dolly
     var DollyTime : Real = 0.0;
     //Hopefully this will be for a custom ease later on
     var EasingCurve : Ease = Ease.QuadInOut;
