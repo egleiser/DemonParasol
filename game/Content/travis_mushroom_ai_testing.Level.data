@@ -1,0 +1,3483 @@
+Level = 
+{
+	LevelSettings = 
+	{
+		LinkId = 
+		{
+			uint Id = 1,
+		},
+		Named = 
+		{
+			string Name = "LevelSettings",
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = false,
+			bool LocalSpaceDirection = true,
+			float Strength = 0,
+			Vec3 Direction = [0, 0, -1],
+		},
+		DragEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = false,
+			float Drag = 0.7,
+		},
+		CameraViewport = 
+		{
+			bool Background = true,
+			Vec2 Offset = [0, 0],
+			Vec2 Size = [1, 1],
+			int Layer = 0,
+			bool Active = true,
+			bool Blocking = true,
+			uint Renderer = 1,
+			uint Camera = 2,
+			ViewportScaling Scaling = Letterbox,
+			Vec2 Resolution = [1280, 720],
+			Vec4 MarginColor = [0, 0, 0, 1],
+		},
+		DeferredRenderer = 
+		{
+			Vec4 ClearColor = [0.12, 0.12, 0.12, 1],
+			bool Hdr = true,
+			bool Glow = true,
+			bool RenderMasks = false,
+			bool ToneMapping = false,
+			float BrightThreshold = 0.4,
+			float Exposure = 0.5,
+			bool Refraction = true,
+			bool Shadows = true,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = true,
+			int ExtraPriority = 0,
+			string CueName = "54fc7096f93b9e50:DreamWorld_Forest_MainLoop",
+			float Volume = 1,
+			float Pitch = 1,
+			bool Positional = false,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 3,
+		},
+		Named = 
+		{
+			string Name = "EditorCamera",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-15.1262, -36.6575, 31.4515],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.306081, -0.00794197, 0.00255351, 0.951969],
+		},
+		Camera = 
+		{
+			ProjectionMode ProjectionMode = Perspective,
+			Facing Facing = NegativeZ,
+			CameraTransparentSort TransparentSort = InheritFromSpace,
+			float FieldOfView = 45,
+			float NearPlane = 0.5,
+			float FarPlane = 500,
+			float Size = 20,
+		},
+		EditorCameraController = 
+		{
+			ControlMode ControlMode = Orbit,
+			float LookDistance = 43.1,
+			float VerticalAngle = -0.62217,
+			float HorizontalAngle = -12.5497,
+			Vec3 LookTarget = [-14.5418, -11.5388, -3.56736],
+			float MoveSensitivity = 1,
+		},
+		EditorRenderer = 
+		{
+			Vec4 ClearColor = [0.155, 0.155, 0.155, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 4,
+		},
+		Named = 
+		{
+			string Name = "Player",
+		},
+		Archetyped = 
+		{
+			string Name = "53765c31a01574f5:Player",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-3.12876, -15.6475, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		InputController = 
+		{
+			bool Active = false,
+			int GamepadIndex = 0,
+		},
+		PlayerController = 
+		{
+			float MovmentSpeed = 700,
+			float RotateSpeed = 25,
+			float MaxMoveForce = 300,
+			float Deceleration = 1.5,
+			CogPath CameraPath = ":/Camera",
+		},
+		FootstepDetector = 
+		{
+			int WalkRate = 15,
+			bool DebugDraw = true,
+			Vec4 DebugColor = [0, 1, 0, 0.7],
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 1, 0],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [0, 1, 0],
+			OrientationBases DefaultBases = ForwardYUpZ,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CapsuleCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 1],
+			float Radius = 1,
+			float Height = 1,
+			uint Direction = 2,
+		},
+		DynamicMotor = 
+		{
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 100,
+			Vec3 Direction = [0, 0, -1],
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "4e1bd44008b4dc2a:DefaultCue",
+			float Volume = 2.5,
+			float Pitch = 1,
+			bool Positional = true,
+		},
+		WaterSplasher = 
+		{
+			int SplashRate = 20,
+			float SplashIntensity = 1,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 5,
+				},
+				Named = 
+				{
+					string Name = "PlayerModel",
+				},
+				Archetyped = 
+				{
+					string Name = "53f50b788ef864f3:BoxMan",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [2, 2, 2],
+					Quat Rotation = [-3.09086e-008, 0.707107, 0.707107, -3.09086e-008],
+				},
+				AnimationGraph = 
+				{
+					bool Active = true,
+					AnimPlayMode PlayMode = PlayOnce,
+					float TimeScale = 1,
+					string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+					uint64 DebugPreviewId = 03b11c3c086e7898,
+				},
+				SimpleAnimation = 
+				{
+					string AnimationName = "53f50b9fbfe71185:BoxManIdleBreathing.All",
+					AnimPlayMode PlayMode = Loop,
+				},
+				PlayerAnimator = 
+				{
+					string AniIdle = "53f50b9fbfe71185:BoxManIdleBreathing.All",
+					string AniWalk = "53f50ba0bfb0cbbd:BoxManWalk.All",
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 6,
+						},
+						Named = 
+						{
+							string Name = "Stomach",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0.622383, 1.19209e-007],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [-0.707107, 0, 0, 0.707107],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							string MaterialName = "544380cb7820af93:lambert1",
+							string MeshName = "53f50b788ef4a1b7:BoxMan.Stomach",
+							Vec4 Color = [1, 1, 1, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 7,
+								},
+								Named = 
+								{
+									string Name = "Chest",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [1.79638e-016, -5.32755e-008, 0.104358],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [7.10543e-015, -7.52316e-037, 6.31088e-030, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									string MaterialName = "544380cb7820af93:lambert1",
+									string MeshName = "53f50b788ef4a1bc:BoxMan.Chest",
+									Vec4 Color = [1, 1, 1, 1],
+								},
+								Hierarchy = 
+								{
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 8,
+										},
+										Named = 
+										{
+											string Name = "Head",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [-6.01702e-018, -2.02938e-007, 0.473109],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [-8.23312e-019, 1.86265e-009, 4.42013e-010, 1],
+										},
+										Model = 
+										{
+											bool Visible = true,
+											bool VisibilityCulling = true,
+											string MaterialName = "544380cb7820af93:lambert1",
+											string MeshName = "53f50b788ef4a1bf:BoxMan.Head",
+											Vec4 Color = [1, 1, 1, 1],
+										},
+										Hierarchy = 
+										{
+											Cog = 
+											{
+												LinkId = 
+												{
+													uint Id = 9,
+												},
+												Named = 
+												{
+													string Name = "Hat",
+												},
+												Transform = 
+												{
+													Vec3 Translation = [0, -9.53674e-007, 0.353713],
+													Vec3 Scale = [0.499999, 0.5, 0.0879925],
+													Quat Rotation = [-1.86265e-009, 3.47047e-015, 1, 4.41533e-008],
+												},
+												Model = 
+												{
+													bool Visible = true,
+													bool VisibilityCulling = true,
+													string MaterialName = "549a9f71f45ed652:mat_Fabric",
+													string MeshName = "4de0354322b376ae:Sphere",
+													Vec4 Color = [1, 0.59795, 0.065, 1],
+												},
+												RigidBody = 
+												{
+													bool Static = false,
+													bool Asleep = false,
+													bool Kinematic = true,
+													bool RotationLocked = false,
+													bool Mode2D = false,
+													bool AllowSleep = true,
+													bool Inherit2DMode = true,
+													Vec3 Velocity = [0, 0, 0],
+													Vec3 AngularVelocity = [0, 0, 0],
+												},
+												SphereCollider = 
+												{
+													bool Ghost = false,
+													bool SendsMessages = true,
+													bool Seamless = true,
+													string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+													string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+													Vec3 Offset = [0, 0, 0],
+													float Radius = 1,
+												},
+												Hierarchy = 
+												{
+													Cog = 
+													{
+														LinkId = 
+														{
+															uint Id = 10,
+														},
+														Named = 
+														{
+															string Name = "HatB",
+														},
+														Transform = 
+														{
+															Vec3 Translation = [2.98023e-008, 3.43323e-005, 1.45729],
+															Vec3 Scale = [0.486087, 0.486087, 1.81245],
+															Quat Rotation = [0, 0, 0, 1],
+														},
+														Model = 
+														{
+															bool Visible = true,
+															bool VisibilityCulling = true,
+															string MaterialName = "549a9f71f45ed652:mat_Fabric",
+															string MeshName = "4de0354322b376ae:Sphere",
+															Vec4 Color = [1, 0.59795, 0.065, 1],
+														},
+														RigidBody = 
+														{
+															bool Static = false,
+															bool Asleep = false,
+															bool Kinematic = true,
+															bool RotationLocked = false,
+															bool Mode2D = false,
+															bool AllowSleep = true,
+															bool Inherit2DMode = true,
+															Vec3 Velocity = [0, 0, 0],
+															Vec3 AngularVelocity = [0, 0, 0],
+														},
+														SphereCollider = 
+														{
+															bool Ghost = false,
+															bool SendsMessages = true,
+															bool Seamless = true,
+															string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+															string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+															Vec3 Offset = [0, 0, 0],
+															float Radius = 1,
+														},
+													},
+												},
+											},
+										},
+									},
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 11,
+										},
+										Named = 
+										{
+											string Name = "LArm",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [0.337381, -1.75468e-007, 0.408789],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [0, 0, 0, 1],
+										},
+										Model = 
+										{
+											bool Visible = true,
+											bool VisibilityCulling = true,
+											string MaterialName = "544380cb7820af93:lambert1",
+											string MeshName = "53f50b788ef4a1c0:BoxMan.LArm",
+											Vec4 Color = [1, 1, 1, 1],
+										},
+										Hierarchy = 
+										{
+											Cog = 
+											{
+												LinkId = 
+												{
+													uint Id = 12,
+												},
+												Named = 
+												{
+													string Name = "LArm01",
+												},
+												Transform = 
+												{
+													Vec3 Translation = [2.98023e-008, 1.28688e-007, -0.299804],
+													Vec3 Scale = [1, 1, 1],
+													Quat Rotation = [0, 0, 0, 1],
+												},
+												Model = 
+												{
+													bool Visible = true,
+													bool VisibilityCulling = true,
+													string MaterialName = "544380cb7820af93:lambert1",
+													string MeshName = "53f50b788ef4a1c2:BoxMan.LArm01",
+													Vec4 Color = [1, 1, 1, 1],
+												},
+												Hierarchy = 
+												{
+													Cog = 
+													{
+														LinkId = 
+														{
+															uint Id = 13,
+														},
+														Named = 
+														{
+															string Name = "Lantern",
+														},
+														Archetyped = 
+														{
+															string Name = "54045e28b8fa15b8:Lantern",
+														},
+														Transform = 
+														{
+															Vec3 Translation = [0.0704139, -0.11324, -0.291466],
+															Vec3 Scale = [0.35, 0.35, 0.35],
+															Quat Rotation = [-0.214771, -0.0184185, 0.965249, -0.147744],
+														},
+														Model = 
+														{
+															bool Visible = true,
+															bool VisibilityCulling = true,
+															string MaterialName = "5404506d3dd2a41e:mat_Light",
+															string MeshName = "4de0354322b345ae:Cube",
+															Vec4 Color = [1, 0.5712, 0.36, 1],
+														},
+														Light = 
+														{
+															bool Visible = true,
+															bool VisibilityCulling = true,
+															LightType LightType = Point,
+															float Range = 15,
+															float MinRange = 0.1,
+															float Angle = 45,
+															float Intensity = 1,
+															Vec4 Color = [0.99, 0.409613, 0.12375, 1],
+															float MinRange = 0.1,
+															float Size = 20,
+															bool Baked = false,
+														},
+														GodRayLight = 
+														{
+															GodRayLightType LightType = Point,
+															bool Active = true,
+															int Samples = 80,
+															Vec4 Color = [1, 0.4575, 0.225, 1],
+															float Intensity = 1,
+															float ScreenRadius = 0.11,
+															float OccluderClarity = 0.27,
+															bool ScreenEdgeFade = false,
+															float BeginFade = -0.1,
+															float EndFade = 0.1,
+															float DepthOffset = 0,
+														},
+														Hierarchy = 
+														{
+														},
+													},
+												},
+											},
+										},
+									},
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 14,
+										},
+										Named = 
+										{
+											string Name = "RArm",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [-0.337996, -1.75468e-007, 0.408789],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [0, 0, 0, 1],
+										},
+										Model = 
+										{
+											bool Visible = true,
+											bool VisibilityCulling = true,
+											string MaterialName = "544380cb7820af93:lambert1",
+											string MeshName = "53f50b788ef4a1c4:BoxMan.RArm",
+											Vec4 Color = [1, 1, 1, 1],
+										},
+										Hierarchy = 
+										{
+											Cog = 
+											{
+												LinkId = 
+												{
+													uint Id = 15,
+												},
+												Named = 
+												{
+													string Name = "RArm01",
+												},
+												Transform = 
+												{
+													Vec3 Translation = [-2.98023e-008, 1.28688e-007, -0.299804],
+													Vec3 Scale = [1, 1, 1],
+													Quat Rotation = [0, 0, 0, 1],
+												},
+												Model = 
+												{
+													bool Visible = true,
+													bool VisibilityCulling = true,
+													string MaterialName = "544380cb7820af93:lambert1",
+													string MeshName = "53f50b788ef4a1c6:BoxMan.RArm01",
+													Vec4 Color = [1, 1, 1, 1],
+												},
+												Hierarchy = 
+												{
+												},
+											},
+										},
+									},
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 16,
+								},
+								Named = 
+								{
+									string Name = "LLeg",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0.130405, -2.20144e-008, 0.028952],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [7.10543e-015, -7.52316e-037, 6.31088e-030, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									string MaterialName = "544380cb7820af93:lambert1",
+									string MeshName = "53f50b788ef4a1c7:BoxMan.LLeg",
+									Vec4 Color = [1, 1, 1, 1],
+								},
+								Hierarchy = 
+								{
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 17,
+										},
+										Named = 
+										{
+											string Name = "LLeg01",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [0, 1.28688e-007, -0.299807],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [0, 0, 0, 1],
+										},
+										Model = 
+										{
+											bool Visible = true,
+											bool VisibilityCulling = true,
+											string MaterialName = "544380cb7820af93:lambert1",
+											string MeshName = "53f50b788ef4a1c9:BoxMan.LLeg01",
+											Vec4 Color = [1, 1, 1, 1],
+										},
+									},
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 18,
+								},
+								Named = 
+								{
+									string Name = "RLeg",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-0.13, -1.67773e-008, 0.028952],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [7.10543e-015, -7.52316e-037, 6.31088e-030, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									string MaterialName = "544380cb7820af93:lambert1",
+									string MeshName = "53f50b788ef4a1cb:BoxMan.RLeg",
+									Vec4 Color = [1, 1, 1, 1],
+								},
+								Hierarchy = 
+								{
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 19,
+										},
+										Named = 
+										{
+											string Name = "RLeg01",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [0, 1.28688e-007, -0.299807],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [0, 0, 0, 1],
+										},
+										Model = 
+										{
+											bool Visible = true,
+											bool VisibilityCulling = true,
+											string MaterialName = "544380cb7820af93:lambert1",
+											string MeshName = "53f50b788ef4a1cd:BoxMan.RLeg01",
+											Vec4 Color = [1, 1, 1, 1],
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 20,
+				},
+				Named = 
+				{
+					string Name = "OnFire",
+				},
+				Archetyped = 
+				{
+					string Name = "549a983f28a95fba:OnFire",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.0153871, 0.459993, 0.334081],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteParticleSystem = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					SystemChildMode ChildMode = Independent,
+					SystemSpace SystemSpace = WorldSpace,
+					uint DrawOrder = 0,
+					float WarmUpTime = 0,
+					ParticleGeometry GeometryMode = Billboarded,
+					ParticleRenderMode RenderMode = Blended,
+					ParticleSortMode SortMode = Youngest,
+					ParticleAnimation ParticleAnimation = Single,
+					string Texture = "549077776ae53c06:tex_toon_explosion",
+					Vec4 Tint = [1, 1, 1, 0.87],
+					float VelocityScale = 1,
+					float LengthScale = 1,
+					float MaxParticleSize = 100,
+					Vec3 SystemSize = [4, 4, 4],
+				},
+				SphericalParticleEmitter = 
+				{
+					bool Active = false,
+					uint EmitCount = 0,
+					float EmitRate = 80,
+					float EmitVariance = 0,
+					float Size = 1,
+					float SizeVariance = 0.5,
+					float Lifetime = 1,
+					float LifetimeVariance = 0.2,
+					float Spin = 360,
+					float SpinVariance = 50,
+					bool RandomSpin = true,
+					float Fill = 1,
+					float EmitterVelocityPercent = 0,
+					Vec3 StartVelocity = [0, 0, 8],
+					Vec3 RandomVelocity = [1, 1, 1],
+					Vec3 TangentVelocity = [0, 0, 0],
+					Vec3 EmitterSize = [1, 1, 1],
+					bool FastMovingEmitter = true,
+				},
+				LinearParticleAnimator = 
+				{
+					Vec3 Force = [0, 0, 0],
+					Vec3 RandomForce = [0, 0, 0],
+					float Torque = 0,
+					float Growth = -1,
+					float Dampening = 0,
+					Vec3 Twist = [0, 0, 0],
+				},
+				ParticleColorAnimator = 
+				{
+					Vec4 Color0 = [1, 0.75, 0, 0],
+					Vec4 Color1 = [1, 0.69, 0, 1],
+					Vec4 Color2 = [0.985, 0.426209, 0.06895, 1],
+					Vec4 Color3 = [1, 0.15, 0, 1],
+					Vec4 Color4 = [1, 0.15, 0, 0],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 21,
+				},
+				Named = 
+				{
+					string Name = "Parasol",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.613419, 0.22648, 1.08852],
+					Vec3 Scale = [0.5, 0.5, 0.5],
+					Quat Rotation = [0.126604, 0.12717, 0.0260524, 0.983423],
+				},
+				Model = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					string MaterialName = "537644533dba9ae8:mat_Plain",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0.26, 0.135447, 0.0741, 1],
+				},
+				SwordController = 
+				{
+					string GruntSound = "54fc772fa224f98d:PlayerAttackGrunt",
+					string SwishSound = "54fc4f740d467ada:Swish",
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				AnimationGraph = 
+				{
+					bool Active = true,
+					AnimPlayMode PlayMode = PlayOnce,
+					float TimeScale = 3,
+					string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+					uint64 DebugPreviewId = 5443d743ccc2e60d,
+				},
+				SimpleAnimation = 
+				{
+					string AnimationName = "549aeec1abd86258:Blocking",
+					AnimPlayMode PlayMode = PlayOnce,
+				},
+				SoundEmitter = 
+				{
+					bool StartPlaying = false,
+					int ExtraPriority = 0,
+					string CueName = "54fc4f740d467ada:Swish",
+					float Volume = 1,
+					float Pitch = 1,
+					bool Positional = true,
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 22,
+						},
+						Named = 
+						{
+							string Name = "Blade",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-0.00796628, 1.85248, 0],
+							Vec3 Scale = [0.3, 4, 0.3],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							string MaterialName = "5404506d3dd2a41e:mat_Light",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [0.19, 0.0627, 0, 1],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.5, 0.5],
+						},
+						DynamicMesh = 
+						{
+							bool GenerateNormals = true,
+							bool GenerateUVs = false,
+							bool GenerateAdjacencyInfo = false,
+						},
+						Ribbon = 
+						{
+							bool Spawning = true,
+							Vec3 LocalSpawnPointA = [0, 0.6, 0],
+							Vec3 LocalSpawnPointB = [0, -0.6, -0],
+							uint MaxLength = 25,
+							float LengthBetweenSpawn = 0.01,
+							float TimeBetweenSpawn = 0.01,
+							CurveType CurveType = BSpline,
+							uint CurveResolution = 5,
+							Vec2 TextureScalar = [1, 1],
+							bool FlipTextureX = false,
+							bool FlipTextureY = false,
+							bool UseDecayCurve = true,
+							string DecayCurveName = "54fcfaaf9f68a225:BladeCurve",
+						},
+						DynamicMeshRenderer = 
+						{
+							string Material = "5404506d3dd2a41e:mat_Light",
+							Vec4 Color = [0.4375, 0.63875, 0.875, 1],
+							bool Visible = true,
+						},
+						Hierarchy = 
+						{
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 23,
+						},
+						Named = 
+						{
+							string Name = "EyeBall",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0.21215, 2.96657, 0.0114838],
+							Vec3 Scale = [0.3, 0.3, 0.2],
+							Quat Rotation = [-2.7319e-008, 0.571195, 3.98945e-008, 0.820815],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							string MaterialName = "54ff05a7f658ee25:mat_EyeBall",
+							string MeshName = "4de0354322b376ae:Sphere",
+							Vec4 Color = [1, 1, 1, 1],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 24,
+						},
+						Named = 
+						{
+							string Name = "Ribs",
+						},
+						Archetyped = 
+						{
+							string Name = "549a958d188e088b:Ribs",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0.0594798, 4.03428, -0.0567631],
+							Vec3 Scale = [0.3, 4.5, 0.3],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							string MaterialName = "549a946bb9e88da4:mat_Parasol",
+							string MeshName = "549a90678d6bf01f:BaseParasol",
+							Vec4 Color = [0.660215, 0.378775, 0.695, 1],
+						},
+						RibController = 
+						{
+							float WindSpeed = 20,
+						},
+						BoxCollider = 
+						{
+							bool Ghost = true,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, -0.5, 0],
+							Vec3 Size = [2.5, 0.5, 2.5],
+						},
+						RigidBody = 
+						{
+							bool Static = false,
+							bool Asleep = false,
+							bool Kinematic = true,
+							bool RotationLocked = false,
+							bool Mode2D = false,
+							bool AllowSleep = true,
+							bool Inherit2DMode = true,
+							Vec3 Velocity = [0, 0, 0],
+							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						SoundEmitter = 
+						{
+							bool StartPlaying = false,
+							int ExtraPriority = 0,
+							string CueName = "549afd4c3301db44:Whoosh_ParasolOpen",
+							float Volume = 1,
+							float Pitch = 1,
+							bool Positional = true,
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 25,
+								},
+								Named = 
+								{
+									string Name = "TongueMount",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [1.76814, -0.424878, 0.42237],
+									Vec3 Scale = [0.666667, 0.0444444, 0.666667],
+									Quat Rotation = [-3.35276e-007, 1.11759e-008, 3.747e-015, 1],
+								},
+								Model = 
+								{
+									bool Visible = false,
+									bool VisibilityCulling = true,
+									string MaterialName = "54ff27758d4308c1:mat_Ghost",
+									string MeshName = "4de0354322b376ae:Sphere",
+									Vec4 Color = [1, 0, 0, 1],
+								},
+								SphereCollider = 
+								{
+									bool Ghost = false,
+									bool SendsMessages = true,
+									bool Seamless = true,
+									string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+									string SerializedGroupName = "54ff0eb5b975b8c8:CG_Tongue",
+									Vec3 Offset = [0, 0, 0],
+									float Radius = 1,
+								},
+								TongueManager = 
+								{
+									bool Enable = false,
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2,
+		},
+		Named = 
+		{
+			string Name = "Camera",
+		},
+		EditorFlags = 
+		{
+			bool Locked = true,
+			bool Hidden = false,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, -14.3137, 11.028],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.258819, 0, 0, 0.965926],
+		},
+		Camera = 
+		{
+			ProjectionMode ProjectionMode = Orthographic,
+			Facing Facing = NegativeZ,
+			CameraTransparentSort TransparentSort = InheritFromSpace,
+			float FieldOfView = 39,
+			float NearPlane = 0.5,
+			float FarPlane = 200,
+			float Size = 50,
+		},
+		MotionBlur = 
+		{
+			int Samples = 20,
+			float Density = 2,
+			bool RadialOnly = true,
+		},
+		Fog = 
+		{
+			FogType FogType = Linear,
+			float BeginDepth = 0.1,
+			float EndDepth = 100,
+			float BeginDensity = 0,
+			float EndDensity = 1,
+			Vec4 Color = [0.100281, 0.054375, 0.125, 1],
+			float FogDensity = 0.293,
+			float FogStart = 0,
+		},
+		OrbitCameraController = 
+		{
+			CogPath OrbitTarget = ":/Player",
+			float Height = 30,
+			float Radius = 20,
+			float AngleChange = 90,
+			float AngleOrigin = 0,
+			Vec3 CamLerp = [0, 0, 20],
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 1, 0],
+			Vec3 UpVector = [0, 1, 0],
+			Vec3 ForwardVector = [0, 0, 1],
+			OrientationBases DefaultBases = ForwardZUpY,
+		},
+		Microphone = 
+		{
+			bool Active = true,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 26,
+				},
+				Named = 
+				{
+					string Name = "AmbienceManager",
+				},
+				Archetyped = 
+				{
+					string Name = "54fd940c712168ab:AmbienceManager",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [-0.258819, 0, 0, 0.965926],
+				},
+				Thunderstorm = 
+				{
+					bool Active = false,
+					string LightningArchetype = "54fdef646265a31e:LightningStrike",
+					int DiceSize = 8,
+					int StrikeFreq = 60,
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 27,
+						},
+						Named = 
+						{
+							string Name = "DreamFogger",
+						},
+						Archetyped = 
+						{
+							string Name = "4faa6050b86884ec:DefaultArchetype",
+						},
+						EditorFlags = 
+						{
+							bool Locked = true,
+							bool Hidden = false,
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 14.3137, -7.81046],
+							Vec3 Scale = [100, 100, 1],
+							Quat Rotation = [1.49012e-008, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = false,
+							bool VisibilityCulling = true,
+							string MaterialName = "543828feeb5b6cf5:DreamFog",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [0.3087, 0, 0.315, 0.12],
+						},
+						SoundEmitter = 
+						{
+							bool StartPlaying = true,
+							int ExtraPriority = 0,
+							string CueName = "54fdee753324d46c:Wind_BlowingLoop2",
+							float Volume = 1,
+							float Pitch = 1,
+							bool Positional = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 28,
+						},
+						Named = 
+						{
+							string Name = "Rain",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 11.8976, -1.65058],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						SpriteParticleSystem = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							SystemChildMode ChildMode = Independent,
+							SystemSpace SystemSpace = WorldSpace,
+							uint DrawOrder = 0,
+							float WarmUpTime = 0,
+							ParticleGeometry GeometryMode = Beam,
+							ParticleRenderMode RenderMode = Additive,
+							ParticleSortMode SortMode = Youngest,
+							ParticleAnimation ParticleAnimation = Single,
+							string Texture = "54382d46a1e2190e:soft",
+							Vec4 Tint = [1, 1, 1, 0.225],
+							float VelocityScale = 0.2,
+							float LengthScale = 0.2,
+							float MaxParticleSize = 100,
+							Vec3 SystemSize = [20, 20, 5],
+						},
+						LinearParticleAnimator = 
+						{
+							Vec3 Force = [0, 0, 0],
+							Vec3 RandomForce = [0, 0, 0],
+							float Torque = 0,
+							float Growth = 0,
+							float Dampening = 0,
+							Vec3 Twist = [0, 0, 0],
+						},
+						ParticleColorAnimator = 
+						{
+							Vec4 Color0 = [0, 0.46, 1, 0],
+							Vec4 Color1 = [1, 1, 1, 1],
+							Vec4 Color2 = [0.404625, 0.803887, 0.975, 0.9999],
+							Vec4 Color3 = [1, 1, 1, 1],
+							Vec4 Color4 = [0, 0.5808, 0.66, 0],
+						},
+						BoxParticleEmitter = 
+						{
+							bool Active = false,
+							uint EmitCount = 0,
+							float EmitRate = 5000,
+							float EmitVariance = 0,
+							float Size = 0.25,
+							float SizeVariance = 0.1,
+							float Lifetime = 0.2,
+							float LifetimeVariance = 0.1,
+							float Spin = 0,
+							float SpinVariance = 50,
+							bool RandomSpin = true,
+							float Fill = 1,
+							float EmitterVelocityPercent = 0,
+							Vec3 StartVelocity = [-4, 0, -30],
+							Vec3 RandomVelocity = [2, 0, 2],
+							Vec3 TangentVelocity = [1, 0, 0],
+							Vec3 EmitterSize = [50, 40, 5],
+							bool FastMovingEmitter = true,
+						},
+						SoundEmitter = 
+						{
+							bool StartPlaying = false,
+							int ExtraPriority = 0,
+							string CueName = "54fdeee4493c2c1a:Rain_Loop10",
+							float Volume = 1,
+							float Pitch = 1,
+							bool Positional = false,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 29,
+						},
+						Named = 
+						{
+							string Name = "Light",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 25.9835, -21.3908],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0.204158, 0.253013, 0.0547137, 0.944092],
+						},
+						Light = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							LightType LightType = Directional,
+							float Range = 50,
+							float MinRange = 2,
+							float Angle = 107,
+							float Intensity = 0.37,
+							Vec4 Color = [0.865361, 0.773175, 0.915, 1],
+							float MinRange = 2,
+							float Size = 128,
+							bool Baked = false,
+						},
+						GodRayLight = 
+						{
+							GodRayLightType LightType = Point,
+							bool Active = true,
+							int Samples = 80,
+							Vec4 Color = [0.2726, 0, 0.58, 1],
+							float Intensity = 0.23,
+							float ScreenRadius = 1,
+							float OccluderClarity = 0.1,
+							bool ScreenEdgeFade = false,
+							float BeginFade = -0.1,
+							float EndFade = 0.1,
+							float DepthOffset = 0,
+						},
+					},
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 30,
+		},
+		Named = 
+		{
+			string Name = "Grid",
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, -0.375614],
+			Vec3 Scale = [100, 100, 10],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		GridDraw = 
+		{
+			bool Active = true,
+			bool HalfCellOffset = false,
+			float CellSize = 0.05,
+			GridAxis Axis = ZAxis,
+			int Lines = 100,
+			bool DrawAxisOrigins = true,
+			bool AlwaysDrawInEditor = true,
+			bool DrawInGame = false,
+			Vec4 GridColor = [0.5, 0.5, 0.5, 0.4],
+			Vec4 GridHiLight = [0.97, 0.47045, 0.47045, 0.4],
+			int HilightInterval = 2,
+			bool FollowEditorCamera = false,
+		},
+		Hierarchy = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 31,
+		},
+		Named = 
+		{
+			string Name = "DreamWater",
+		},
+		Archetyped = 
+		{
+			string Name = "54fc5510fcafdb57:DreamWater",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 78.6802, -10.0538],
+			Vec3 Scale = [1000, 1000, 10],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			string MaterialName = "54f4a2d723452ed1:DreamWater",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 0.54],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		FootstepSurface = 
+		{
+			Enum SurfaceType = Water,
+		},
+		Region = 
+		{
+			bool WakeUpOnEffectChange = false,
+		},
+		BuoyancyEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			float Density = 10,
+			Vec3 Gravity = [0, 0, -9.81],
+			uint Detail = 5,
+			bool DebugDraw = true,
+		},
+		FlowEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalForce = false,
+			bool AttractToFlowCenter = false,
+			float FlowSpeed = 10,
+			float MaxFlowForce = 10000,
+			Vec3 FlowDirection = [-1, 0, 0],
+			float AttractSpeed = 5,
+			float MaxAttractForce = 50,
+		},
+		WaterSplasher = 
+		{
+			int SplashRate = 20,
+			float SplashIntensity = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 32,
+		},
+		Named = 
+		{
+			string Name = "LevelGeometry",
+		},
+		Archetyped = 
+		{
+			string Name = "4de020863e84941e:Transform",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		LevelGeometry = 
+		{
+			float LayerDepth = 1,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 33,
+				},
+				Archetyped = 
+				{
+					string Name = "54ff3eb4e390b3ac:GeoDefaultGroundArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [18.0325, 26.9186, -0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "54ff3eb4e39fd7b0:GeoDefaultGroundMulti",
+					string MeshName = "",
+					Vec4 Color = [0.38, 0.219868, 0.0532, 1],
+				},
+				MeshCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = false,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					string PhysicsMeshName = "",
+					bool DrawEdges = true,
+					bool DrawFaces = false,
+					bool DrawFaceNormals = false,
+				},
+				GeometryMesh = 
+				{
+					int Layer = 0,
+					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
+					uint64 CachedGeometryId = 548bc7de8630e57c,
+					Shape2D Shape = 
+					{
+						Array Contours = 
+						[
+							{
+								Array Data = 
+								[
+[6.4, -18.225],
+[6.962, -17.32],
+[9.582, -12.09],
+[9.776, -10.71],
+[7.524, -6.206],
+[7.991, -4.771],
+[8.509, -3.594],
+[9.298, -1.275],
+[12.814, 5.811],
+[13.349, 7.359],
+[13.866, 9.426],
+[14.977, 13.246],
+[15.056, 13.758],
+[12.556, 18.758],
+[8.263, 18.758],
+[8.157, 18.969],
+[5, 18.969],
+[3.567, 19.516],
+[-2.628, 19.479],
+[-5.183, 18.374],
+[-6.614, 17.656],
+[-7.499, 16.961],
+[-7.727, 16.622],
+[-10.227, 11.622],
+[-10.278, 10.47],
+[-9.693, 9.266],
+[-9.677, 7.775],
+[-8.492, 5.339],
+[-9.074, 3.847],
+[-9.247, 2.53],
+[-9.717, -5.967],
+[-10.139, -6.973],
+[-10.438, -9.284],
+[-10.754, -10.232],
+[-11.28, -13.974],
+[-11.448, -15.807],
+[-8.948, -20.806],
+[-5.727, -20.806],
+[-5.083, -22.093],
+[-4.281, -22.492],
+[1.974, -22.47],
+[3.539, -21.195],
+[4.996, -18.227],
+								],
+							},
+						],
+					},
+					bool Dynamic = false,
+					float MinEdgeLength = 0,
+				},
+				FootstepSurface = 
+				{
+					Enum SurfaceType = Dirt,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 34,
+				},
+				Archetyped = 
+				{
+					string Name = "54ff3eb4e390b3ac:GeoDefaultGroundArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-9.58244, 23.4251, -0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "54ff3eb4e39fd7b0:GeoDefaultGroundMulti",
+					string MeshName = "",
+					Vec4 Color = [0.38, 0.219868, 0.0532, 1],
+				},
+				MeshCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = false,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					string PhysicsMeshName = "",
+					bool DrawEdges = true,
+					bool DrawFaces = false,
+					bool DrawFaceNormals = false,
+				},
+				GeometryMesh = 
+				{
+					int Layer = 0,
+					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
+					uint64 CachedGeometryId = 548bc7de8630efa0,
+					Shape2D Shape = 
+					{
+						Array Contours = 
+						[
+							{
+								Array Data = 
+								[
+[2.237, -18.79],
+[2.234, -16.653],
+[2.359, -16.302],
+[2.356, -14.583],
+[2.991, -13.948],
+[6.258, -13.939],
+[7.508, -12.689],
+[7.508, -11],
+[8.366, -9.284],
+[8.192, -7.009],
+[8.006, -5.759],
+[9.379, -3.011],
+[9.278, -2.01],
+[6.438, 3.619],
+[5.885, 4.147],
+[6.323, 5.168],
+[6.269, 5.626],
+[7.891, 8.872],
+[8.201, 9.792],
+[8.078, 11.023],
+[7.945, 11.331],
+[5.445, 16.331],
+[5.282, 16.331],
+[4.546, 17.434],
+[3.441, 19.643],
+[3.195, 19.965],
+[2.794, 19.992],
+[1.655, 22.271],
+[0.734, 23.624],
+[-5.121, 23.597],
+[-7.621, 18.597],
+[-7.507, 18.369],
+[-7.742, 17.9],
+[-7.85, 16.362],
+[-7.71, 15.359],
+[-7.655, 14.209],
+[-7.726, 13.234],
+[-7.443, 9.793],
+[-7.605, 8.124],
+[-7.473, 5.21],
+[-7.896, 1.068],
+[-8.04, -1.543],
+[-7.913, -2.443],
+[-10.284, -7.185],
+[-10.219, -7.53],
+[-8.286, -11.398],
+[-9.343, -13.511],
+[-9.016, -15.235],
+[-6.516, -20.236],
+[-6.099, -20.726],
+[-1.817, -20.723],
+[-1.817, -22.292],
+[-0.567, -23.542],
+[1.991, -23.543],
+[3.241, -22.293],
+[3.241, -19.793],
+								],
+							},
+						],
+					},
+					bool Dynamic = false,
+					float MinEdgeLength = 0,
+				},
+				FootstepSurface = 
+				{
+					Enum SurfaceType = Dirt,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 35,
+				},
+				Archetyped = 
+				{
+					string Name = "54ff3eb4e390b3ac:GeoDefaultGroundArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-10.4668, 21.9214, 1],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "54ff3eb4e39fd7b0:GeoDefaultGroundMulti",
+					string MeshName = "",
+					Vec4 Color = [0.05508, 0.255, 0.051, 1],
+				},
+				MeshCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = false,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					string PhysicsMeshName = "",
+					bool DrawEdges = true,
+					bool DrawFaces = false,
+					bool DrawFaceNormals = false,
+				},
+				GeometryMesh = 
+				{
+					int Layer = -1,
+					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
+					uint64 CachedGeometryId = 548bc7de8630f9ab,
+					Shape2D Shape = 
+					{
+						Array Contours = 
+						[
+							{
+								Array Data = 
+								[
+[-5.844, -4.067],
+[-6.659, -4.067],
+[-8.022, -5.383],
+[-8.022, -7.883],
+[-6.772, -9.133],
+[-6.674, -9.133],
+[-6.775, -10.774],
+[-6.653, -14.918],
+[-5.956, -15.906],
+[-5.951, -17.036],
+[-4.701, -18.286],
+[-3.678, -18.286],
+[-3.019, -18.889],
+[-0.46, -18.891],
+[0.79, -17.641],
+[1.35, -17.507],
+[2.648, -16.2],
+[2.648, -14.361],
+[3.227, -13.782],
+[3.227, -12.019],
+[5.467, -11.805],
+[5.87, -11.624],
+[7.226, -10.246],
+[7.419, -8.413],
+[7.657, -7.583],
+[7.776, -6.405],
+[7.953, -5.703],
+[8.11, -2.929],
+[8.11, -0.429],
+[7.797, 2.602],
+[7.662, 3.249],
+[6.898, 4.666],
+[6.316, 6.533],
+[6.953, 7.541],
+[7.04, 8.084],
+[6.867, 12.266],
+[5.91, 16.427],
+[5.259, 18.217],
+[3.519, 21.069],
+[2.563, 22.394],
+[1.238, 23.644],
+[0.019, 23.742],
+[-2.481, 23.744],
+[-3.731, 22.492],
+[-4.267, 21.21],
+[-4.446, 19.957],
+[-5.068, 17.657],
+[-5.188, 16.947],
+[-5.118, 13.028],
+[-4.72, 10.25],
+[-5.368, 6.823],
+[-5.443, 5.633],
+[-5.451, 3.317],
+[-5.573, 1.725],
+[-5.66, -1.406],
+[-5.844, -2.5],
+								],
+							},
+						],
+					},
+					bool Dynamic = false,
+					float MinEdgeLength = 0,
+				},
+				FootstepSurface = 
+				{
+					Enum SurfaceType = Dirt,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 36,
+				},
+				Archetyped = 
+				{
+					string Name = "54ff3eb4e390b3ac:GeoDefaultGroundArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [17.8003, 24.7333, 1],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "54ff3eb4e39fd7b0:GeoDefaultGroundMulti",
+					string MeshName = "",
+					Vec4 Color = [0.05508, 0.255, 0.051, 1],
+				},
+				MeshCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = false,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					string PhysicsMeshName = "",
+					bool DrawEdges = true,
+					bool DrawFaces = false,
+					bool DrawFaceNormals = false,
+				},
+				GeometryMesh = 
+				{
+					int Layer = -1,
+					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
+					uint64 CachedGeometryId = 548bc7de863103e5,
+					Shape2D Shape = 
+					{
+						Array Contours = 
+						[
+							{
+								Array Data = 
+								[
+[12.763, 11.963],
+[13.109, 13.891],
+[13.074, 16.602],
+[11.52, 18.19],
+[8.732, 18.213],
+[8.007, 17.936],
+[7.322, 17.989],
+[4.174, 18.761],
+[1.438, 18.973],
+[-1.062, 18.973],
+[-2.752, 18.461],
+[-3.693, 17.899],
+[-4.736, 17.019],
+[-6.359, 15.501],
+[-7.807, 13.369],
+[-7.827, 10.473],
+[-7.612, 9.609],
+[-7.612, 7.833],
+[-7.412, 6.413],
+[-7.294, 6.237],
+[-7.313, 3.765],
+[-7.7, 1.795],
+[-8.003, -1.132],
+[-8.374, -3.164],
+[-9.017, -4.677],
+[-9.101, -5.106],
+[-9.157, -7.441],
+[-9.484, -9.16],
+[-10.171, -9.924],
+[-10.423, -10.37],
+[-10.646, -11.575],
+[-10.672, -14.763],
+[-9.367, -16.077],
+[-8.579, -16.389],
+[-7.701, -17.293],
+[-4.919, -17.3],
+[-4.57, -17.762],
+[-3.119, -19.192],
+[-0.18, -19.203],
+[0.605, -19.05],
+[2.157, -18.918],
+[3.223, -18.366],
+[4.6, -17.001],
+[5.178, -15.276],
+[8.159, -12.373],
+[8.273, -12.052],
+[8.306, -9.355],
+[7.53, -6.707],
+[6.794, -5.903],
+[7.08, -4.042],
+[7.202, -1.146],
+[7.666, 1.049],
+[9.515, 3.955],
+[10.487, 6.142],
+[11.462, 8.611],
+[12.041, 9.922],
+[12.266, 11.191],
+								],
+							},
+						],
+					},
+					bool Dynamic = false,
+					float MinEdgeLength = 0,
+				},
+				FootstepSurface = 
+				{
+					Enum SurfaceType = Dirt,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 37,
+				},
+				Archetyped = 
+				{
+					string Name = "54ff3eb4e390b3ac:GeoDefaultGroundArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-11.3185, 21.1716, 2],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "54ff3eb4e39fd7b0:GeoDefaultGroundMulti",
+					string MeshName = "",
+					Vec4 Color = [0.25, 0.162388, 0.04625, 1],
+				},
+				MeshCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = false,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					string PhysicsMeshName = "",
+					bool DrawEdges = true,
+					bool DrawFaces = false,
+					bool DrawFaceNormals = false,
+				},
+				GeometryMesh = 
+				{
+					int Layer = -2,
+					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
+					uint64 CachedGeometryId = 548bc7de86310b1a,
+					Shape2D Shape = 
+					{
+						Array Contours = 
+						[
+							{
+								Array Data = 
+								[
+[-3.955, -11.318],
+[-4.448, -11.942],
+[-4.563, -12.751],
+[-4.389, -16.053],
+[-2.885, -17.422],
+[0.586, -17.444],
+[0.745, -17.39],
+[2.133, -15.974],
+[2.38, -14.744],
+[2.411, -13.244],
+[2.547, -12.968],
+[3.669, -11.761],
+[4.292, -10.928],
+[4.464, -10.869],
+[5.918, -9.367],
+[6.745, -6.531],
+[7.801, -3.974],
+[7.971, -2.148],
+[7.537, 5.872],
+[7.047, 9.135],
+[6.41, 16.455],
+[3.856, 20.65],
+[3.114, 21.543],
+[1.643, 22.813],
+[-1.031, 22.843],
+[-2.281, 21.593],
+[-2.423, 19.598],
+[-2.498, 19.273],
+[-2.513, 15.733],
+[-2.59, 15.248],
+[-2.6, 13.327],
+[-3.088, 9.517],
+[-3.13, 7.607],
+[-3.13, 5.107],
+[-2.955, 3.237],
+[-3.355, 0.182],
+[-3.315, -2.138],
+[-3.709, -2.322],
+[-5.711, -4.508],
+[-6.006, -5.177],
+[-5.877, -8.284],
+[-4.805, -10.468],
+								],
+							},
+						],
+					},
+					bool Dynamic = false,
+					float MinEdgeLength = 0,
+				},
+				FootstepSurface = 
+				{
+					Enum SurfaceType = Dirt,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 38,
+				},
+				Archetyped = 
+				{
+					string Name = "54ff3eb4e390b3ac:GeoDefaultGroundArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [17.8014, 23.7459, 2],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "54ff3eb4e39fd7b0:GeoDefaultGroundMulti",
+					string MeshName = "",
+					Vec4 Color = [0.25, 0.162388, 0.04625, 1],
+				},
+				MeshCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = false,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					string PhysicsMeshName = "",
+					bool DrawEdges = true,
+					bool DrawFaces = false,
+					bool DrawFaceNormals = false,
+				},
+				GeometryMesh = 
+				{
+					int Layer = -2,
+					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
+					uint64 CachedGeometryId = 548bc7de86311573,
+					Shape2D Shape = 
+					{
+						Array Contours = 
+						[
+							{
+								Array Data = 
+								[
+[-7.036, -4.779],
+[-7.169, -6.64],
+[-8.394, -8.319],
+[-8.449, -9.24],
+[-9.602, -10.505],
+[-9.866, -11.121],
+[-9.869, -13.683],
+[-8.619, -14.933],
+[-6.12, -14.933],
+[-5.927, -15.015],
+[-5.349, -15.916],
+[-4.099, -17.166],
+[-3.73, -17.293],
+[-1.829, -17.346],
+[0.671, -17.346],
+[1.774, -17.203],
+[2.424, -16.815],
+[3.862, -15.394],
+[4.762, -14.109],
+[6.477, -10.985],
+[6.77, -9.887],
+[6.79, -7.253],
+[6.04, -5.889],
+[6.541, -4.22],
+[6.907, -1.816],
+[6.964, 1.07],
+[6.922, 1.624],
+[6.272, 2.881],
+[6.665, 4.44],
+[7.604, 6.329],
+[9.075, 8.463],
+[9.735, 9.139],
+[10.532, 10.231],
+[10.682, 10.779],
+[10.676, 13.589],
+[10.551, 15.384],
+[10.136, 16.33],
+[8.886, 17.58],
+[4.336, 17.736],
+[3.169, 17.62],
+[1.767, 17.318],
+[0.462, 17.212],
+[-0.927, 17.01],
+[-1.232, 16.83],
+[-2.415, 16.509],
+[-3.635, 15.601],
+[-5.043, 14.164],
+[-5.363, 13.695],
+[-5.948, 12.471],
+[-6.473, 5.96],
+[-6.808, 3.956],
+[-7.255, 2.109],
+[-7.638, 0.087],
+[-7.701, -0.992],
+[-6.451, -1.015],
+[-7.258, -1.891],
+[-7.263, -4.395],
+								],
+							},
+						],
+					},
+					bool Dynamic = false,
+					float MinEdgeLength = 0,
+				},
+				FootstepSurface = 
+				{
+					Enum SurfaceType = Dirt,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 39,
+				},
+				Archetyped = 
+				{
+					string Name = "54ff3eb4e390b3ac:GeoDefaultGroundArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [9.86723, 102.579, -1],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "54ff3eb4e39fd7b0:GeoDefaultGroundMulti",
+					string MeshName = "",
+					Vec4 Color = [0.544608, 0.72, 0.4068, 1],
+				},
+				MeshCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = false,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					string PhysicsMeshName = "",
+					bool DrawEdges = true,
+					bool DrawFaces = false,
+					bool DrawFaceNormals = false,
+				},
+				GeometryMesh = 
+				{
+					int Layer = 1,
+					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
+					uint64 CachedGeometryId = 548bc7de86312e05,
+					Shape2D Shape = 
+					{
+						Array Contours = 
+						[
+							{
+								Array Data = 
+								[
+[26.412, 34.27],
+[19.671, 41.011],
+[-5.728, 40.802],
+[-10.058, 36.471],
+[-13.018, 36.471],
+[-19.159, 42.556],
+[-44.321, 42.394],
+[-51.282, 49.253],
+[-67.44, 49.253],
+[-67.44, 51.694],
+[-79.94, 64.193],
+[-80.577, 64.232],
+[-105.577, 64.232],
+[-112.43, 57.379],
+[-122.388, 67.337],
+[-147.388, 67.337],
+[-159.888, 54.837],
+[-159.811, 29.557],
+[-147.311, 17.057],
+[-145.094, 17.057],
+[-148.145, 14.006],
+[-148.064, 3.76],
+[-142.778, -1.5],
+[-132.778, -1.5],
+[-127.778, 3.5],
+[-127.778, 3.833],
+[-123.258, -0.687],
+[-113.06, -0.697],
+[-108.06, 4.303],
+[-108.06, 9.115],
+[-107.764, 9.115],
+[-104.508, 5.859],
+[-103.815, 5.859],
+[-103.815, -0.199],
+[-98.815, -5.199],
+[-88.815, -5.199],
+[-85.616, -1.949],
+[-85.027, -2.538],
+[-85.027, -4.159],
+[-79.778, -9.399],
+[-69.778, -9.399],
+[-69.588, -9.209],
+[-69.588, -11.156],
+[-64.588, -16.156],
+[-54.406, -16.164],
+[-52.866, -14.624],
+[-52.866, -15.792],
+[-47.866, -20.792],
+[-47.511, -20.81],
+[-37.511, -20.81],
+[-34.887, -18.186],
+[-26.928, -18.186],
+[-24.369, -15.627],
+[-23.031, -16.417],
+[-23.03, -17.64],
+[-18.03, -22.64],
+[-8.03, -22.64],
+[-4.549, -19.159],
+[-0.891, -19.159],
+[-0.346, -18.981],
+[1.288, -18.981],
+[1.565, -18.704],
+[2.015, -18.704],
+[3.603, -17.829],
+[4.468, -17.063],
+[5.344, -16.442],
+[5.895, -16.993],
+[6.236, -17.012],
+[16.236, -17.012],
+[18.001, -15.247],
+[20.29, -17.535],
+[30.29, -17.535],
+[35.736, -11.979],
+[35.736, -15.247],
+[40.736, -20.247],
+[50.736, -20.247],
+[53.776, -17.207],
+[53.776, -20.942],
+[58.776, -25.942],
+[59.642, -25.943],
+[60.688, -24.897],
+[69.985, -24.897],
+[72.715, -22.167],
+[74.098, -23.549],
+[84.098, -23.549],
+[87.382, -20.265],
+[93.836, -20.265],
+[93.836, -23.749],
+[98.836, -28.749],
+[108.836, -28.749],
+[109.189, -28.396],
+[111.485, -27.316],
+[112.997, -25.804],
+[117.519, -30.325],
+[126.875, -30.325],
+[126.875, -35.645],
+[131.875, -40.645],
+[141.875, -40.645],
+[146.875, -35.645],
+[147.099, -35.301],
+[147.099, -25.301],
+[144.532, -22.734],
+[156.589, -22.734],
+[169.089, -10.234],
+[169.089, 14.766],
+[156.288, 27.491],
+[143.245, 27.491],
+[133.649, 36.96],
+[108.649, 36.96],
+[97.844, 26.155],
+[97.844, 28.659],
+[84.941, 41.414],
+[61.514, 41.414],
+[60.54, 42.388],
+[59.584, 42.442],
+[34.584, 42.442],
+								],
+							},
+						],
+					},
+					bool Dynamic = false,
+					float MinEdgeLength = 0,
+				},
+				FootstepSurface = 
+				{
+					Enum SurfaceType = Dirt,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 40,
+				},
+				Archetyped = 
+				{
+					string Name = "54ff3eb4e390b3ac:GeoDefaultGroundArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [19.9467, 39.2139, -1],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "54ff3eb4e39fd7b0:GeoDefaultGroundMulti",
+					string MeshName = "",
+					Vec4 Color = [0.544608, 0.72, 0.4068, 1],
+				},
+				MeshCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = false,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					string PhysicsMeshName = "",
+					bool DrawEdges = true,
+					bool DrawFaces = false,
+					bool DrawFaceNormals = false,
+				},
+				GeometryMesh = 
+				{
+					int Layer = 1,
+					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
+					uint64 CachedGeometryId = 548bc7de86314b65,
+					Shape2D Shape = 
+					{
+						Array Contours = 
+						[
+							{
+								Array Data = 
+								[
+[54.973, -29.613],
+[53.766, -28.064],
+[51.853, -25.219],
+[50.436, -23.448],
+[51.166, -22.717],
+[51.162, -19.495],
+[60.438, -19.495],
+[65.438, -14.495],
+[65.572, -14.219],
+[65.572, -8.997],
+[67.253, -8.997],
+[72.077, -13.821],
+[82.077, -13.821],
+[87.077, -8.821],
+[87.101, -7.485],
+[96.847, -7.485],
+[101.847, -2.485],
+[101.847, -0.642],
+[104.373, -0.642],
+[109.373, 4.358],
+[109.309, 14.69],
+[104.309, 19.69],
+[94.309, 19.69],
+[89.309, 14.69],
+[89.322, 12.521],
+[86.718, 12.521],
+[83.901, 9.704],
+[74.888, 9.704],
+[73.657, 10.134],
+[73.234, 10.158],
+[70.176, 13.214],
+[64.586, 13.232],
+[63.874, 13.46],
+[59.263, 18.071],
+[50.598, 18.071],
+[50.274, 18.395],
+[49.273, 17.392],
+[39.12, 17.4],
+[38.931, 17.589],
+[34.247, 12.906],
+[23.643, 12.941],
+[20.158, 16.426],
+[14.048, 16.431],
+[12.144, 14.528],
+[2.144, 14.528],
+[-1.975, 18.647],
+[-3.3, 17.935],
+[-4.062, 17.404],
+[-4.171, 17.171],
+[-6.171, 15.169],
+[-9.41, 15.169],
+[-9.398, 12.41],
+[-9.464, 12.344],
+[-9.464, 9.005],
+[-11.561, 6.899],
+[-11.756, 6.8],
+[-12.922, 6.807],
+[-13.617, 6.11],
+[-17.617, 6.11],
+[-19.619, 8.11],
+[-19.732, 8.757],
+[-19.749, 12.222],
+[-20.338, 12.97],
+[-20.578, 14.459],
+[-22.611, 16.535],
+[-23.058, 17.266],
+[-24.092, 19.24],
+[-24.631, 20.815],
+[-25.89, 19.941],
+[-28.188, 19.949],
+[-28.188, 21.24],
+[-30.973, 18.455],
+[-40.973, 18.455],
+[-43.673, 21.155],
+[-46.628, 18.201],
+[-53.567, 18.206],
+[-53.646, 18.128],
+[-63.969, 18.142],
+[-67.293, 21.468],
+[-72.528, 21.468],
+[-76.791, 25.731],
+[-79.222, 25.731],
+[-80.783, 24.169],
+[-90.783, 24.169],
+[-91.156, 24.379],
+[-93.157, 26.38],
+[-94.748, 24.789],
+[-104.748, 24.789],
+[-106.541, 26.577],
+[-110.535, 22.582],
+[-120.034, 22.582],
+[-123.515, 19.101],
+[-123.515, 9.101],
+[-123.413, 8.765],
+[-118.414, 3.765],
+[-115.785, 3.765],
+[-111.497, -0.524],
+[-105.669, -0.529],
+[-105.669, -3.102],
+[-100.669, -8.102],
+[-90.368, -8.11],
+[-85.368, -3.11],
+[-85.285, -2.527],
+[-84.875, -2.116],
+[-84.875, -4.66],
+[-82.875, -6.66],
+[-82.532, -6.786],
+[-79.57, -6.786],
+[-79.57, -12.574],
+[-74.57, -17.574],
+[-66.338, -17.574],
+[-66.338, -75.782],
+[33.709, -75.782],
+[35.856, -44.735],
+[34.498, -43.377],
+[34.495, -39.316],
+[35.259, -38.552],
+[35.257, -34.975],
+[36.625, -33.607],
+[37.032, -27.717],
+[39.68, -27.717],
+[40.59, -26.807],
+[41.944, -26.808],
+[43.853, -29.219],
+[44.469, -30.134],
+[44.494, -30.12],
+[44.495, -30.12],
+[45.302, -29.865],
+[45.632, -29.815],
+[46.443, -29.558],
+[46.976, -29.555],
+[46.999, -29.531],
+[47.443, -29.492],
+[48.663, -29.364],
+[52.663, -29.364],
+								],
+							},
+						],
+					},
+					bool Dynamic = false,
+					float MinEdgeLength = 0,
+				},
+				FootstepSurface = 
+				{
+					Enum SurfaceType = Dirt,
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 41,
+		},
+		Named = 
+		{
+			string Name = "MyArea",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [1.51041, 15.8117, -2.94194],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 42,
+				},
+				Named = 
+				{
+					string Name = "PushBlock",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [10.124, 48.3166, 4.25611],
+					Vec3 Scale = [4, 4, 4],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "537644533dba9ae8:mat_Plain",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0.82, 0.82, 0.82, 1],
+				},
+				RigidBody = 
+				{
+					bool Static = false,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = false,
+					bool Mode2D = false,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				GravityEffect = 
+				{
+					bool Active = true,
+					bool WakeUpOnChange = true,
+					bool LocalSpaceDirection = false,
+					float Strength = 100,
+					Vec3 Direction = [0, 0, -1],
+				},
+				WaterSplasher = 
+				{
+					int SplashRate = 20,
+					float SplashIntensity = 1,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 43,
+				},
+				Named = 
+				{
+					string Name = "PushBlock",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [10.124, -14.38, 4.25611],
+					Vec3 Scale = [4, 4, 4],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "537644533dba9ae8:mat_Plain",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0.82, 0.82, 0.82, 1],
+				},
+				RigidBody = 
+				{
+					bool Static = false,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = true,
+					bool Mode2D = false,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				GravityEffect = 
+				{
+					bool Active = true,
+					bool WakeUpOnChange = true,
+					bool LocalSpaceDirection = false,
+					float Strength = 100,
+					Vec3 Direction = [0, 0, -1],
+				},
+				MassOverride = 
+				{
+					bool Active = true,
+					float invMass = 0.0625,
+					Vec3 invInertiaX = [0, 0, 0],
+					Vec3 invInertiaY = [0, 0, 0],
+					Vec3 invInertiaZ = [0, 0, 0],
+					Vec3 LocalCenterOfMass = [0, 0, 0],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 44,
+				},
+				Named = 
+				{
+					string Name = "WoodSurface",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [2.79404, 51.554, -1.33464],
+					Vec3 Scale = [4, 44, 4],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "537644533dba9ae8:mat_Plain",
+					string MeshName = "4de0354322b3572e:Cylinder",
+					Vec4 Color = [0.22, 0.0429, 0.0429, 1],
+				},
+				RigidBody = 
+				{
+					bool Static = true,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = true,
+					bool Mode2D = false,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				CylinderCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					float Radius = 1,
+					float Height = 1,
+					uint Direction = 1,
+				},
+				FootstepSurface = 
+				{
+					Enum SurfaceType = Wood,
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 45,
+		},
+		Named = 
+		{
+			string Name = "GrassClump",
+		},
+		Archetyped = 
+		{
+			string Name = "5490712bd8c7fb92:GrassClump",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [5.6464, 12.7874, -0.445887],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		SkinnedModel = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			string Material = "5490712ad8b3fc25:mat_Grass",
+			string Mesh = "5490712ad8abfdb8:GrassClump",
+			Vec4 Color = [0.20306, 0.715, 0.075075, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 46,
+				},
+				Named = 
+				{
+					string Name = "Base",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.000482774, -0.00220203, 2.14395e-019],
+					Vec3 Scale = [0.94761, 2.27692, 2.2771],
+					Quat Rotation = [-5.10458e-006, -5.43978e-006, 0.718809, 0.695207],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 47,
+						},
+						Named = 
+						{
+							string Name = "Mid",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [1.07329, -0.00819294, -1.96259e-007],
+							Vec3 Scale = [1.00013, 1.44634, 1.44503],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						SphereCollider = 
+						{
+							bool Ghost = true,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							float Radius = 0.3,
+						},
+					},
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 48,
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4.30445, 1.43169, 1.08815],
+			Vec3 Scale = [4, 4, 4],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			string MaterialName = "537644533dba9ae8:mat_Plain",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.22, 0.0429, 0.0429, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 49,
+		},
+		Named = 
+		{
+			string Name = "PushBlock",
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [9.98439, -8.587, 0],
+			Vec3 Scale = [2, 2, 9],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			string MaterialName = "537644533dba9ae8:mat_Plain",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.82, 0.82, 0.82, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 100,
+			Vec3 Direction = [0, 0, -1],
+		},
+		WaterSplasher = 
+		{
+			int SplashRate = 20,
+			float SplashIntensity = 1,
+		},
+		MassOverride = 
+		{
+			bool Active = true,
+			float invMass = 0.1,
+			Vec3 invInertiaX = [0.0146341, 0, 0],
+			Vec3 invInertiaY = [0, 0.0146341, 0],
+			Vec3 invInertiaZ = [0, 0, 0.6],
+			Vec3 LocalCenterOfMass = [0, 0, 0],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 50,
+		},
+		Named = 
+		{
+			string Name = "PushBlock",
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [8.45109, -8.58696, 0],
+			Vec3 Scale = [2, 2, 9],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			string MaterialName = "537644533dba9ae8:mat_Plain",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.82, 0.82, 0.82, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 100,
+			Vec3 Direction = [0, 0, -1],
+		},
+		WaterSplasher = 
+		{
+			int SplashRate = 20,
+			float SplashIntensity = 1,
+		},
+		MassOverride = 
+		{
+			bool Active = true,
+			float invMass = 0.1,
+			Vec3 invInertiaX = [0.0146341, 0, 0],
+			Vec3 invInertiaY = [0, 0.0146341, 0],
+			Vec3 invInertiaZ = [0, 0, 0.6],
+			Vec3 LocalCenterOfMass = [0, 0, 0],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 51,
+		},
+		Named = 
+		{
+			string Name = "PushBlock",
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [6.95451, -8.58696, 0],
+			Vec3 Scale = [2, 2, 9],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			string MaterialName = "537644533dba9ae8:mat_Plain",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.82, 0.82, 0.82, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 100,
+			Vec3 Direction = [0, 0, -1],
+		},
+		WaterSplasher = 
+		{
+			int SplashRate = 20,
+			float SplashIntensity = 1,
+		},
+		MassOverride = 
+		{
+			bool Active = true,
+			float invMass = 0.1,
+			Vec3 invInertiaX = [0.0146341, -9.73879e-016, 0],
+			Vec3 invInertiaY = [-9.73879e-016, 0.0146341, 0],
+			Vec3 invInertiaZ = [0, 0, 0.6],
+			Vec3 LocalCenterOfMass = [0, 0, 0],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 52,
+		},
+		ObjectLink = 
+		{
+			uint ObjectA = 50,
+			uint ObjectB = 51,
+			Vec3 BodyPointA = [-0.5, -0.165648, 0.178016],
+			Vec3 BodyPointB = [0.5, -0.0919008, 0.155611],
+		},
+		StickJoint = 
+		{
+			bool Active = true,
+			bool SendsEvents = false,
+			bool AutoSnaps = false,
+			bool CollideConnected = true,
+			float MaxForce = 0,
+			float Length = 0.502523,
+			Vec3 BodyPointA = [-0.5, -0.165648, 0.178016],
+			Vec3 BodyPointB = [0.5, -0.0919008, 0.155611],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 53,
+		},
+		ObjectLink = 
+		{
+			uint ObjectA = 49,
+			uint ObjectB = 50,
+			Vec3 BodyPointA = [-0.5, -0.0351086, 0.113756],
+			Vec3 BodyPointB = [0.5, -0.0503874, 0.205837],
+		},
+		StickJoint = 
+		{
+			bool Active = true,
+			bool SendsEvents = false,
+			bool AutoSnaps = false,
+			bool CollideConnected = true,
+			float MaxForce = 0,
+			float Length = 0.541403,
+			Vec3 BodyPointA = [-0.5, -0.0351086, 0.113756],
+			Vec3 BodyPointB = [0.5, -0.0503874, 0.205837],
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "549ace0b48a4b8aa:GroundSmoke",
+		LinkId = 
+		{
+			uint Id = 54,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [2.11916, -10.9911, -0.304352],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "GroundSmoke",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 55,
+		},
+		Named = 
+		{
+			string Name = "Sphere",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [5.11832, 1.82248, 9.17725],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 56,
+		},
+		Named = 
+		{
+			string Name = "TargetLock",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.0516014, 10.2423, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 57,
+				},
+				Named = 
+				{
+					string Name = "Indicator",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-4.76837e-007, 2.6226e-006, -2.86102e-006],
+					Vec3 Scale = [0.5, 0.5, 2],
+					Quat Rotation = [-0, 1, -0, -4.37114e-008],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "549ac0a634988ae0:mat_Indicator",
+					string MeshName = "4de0354322b33457:Cone",
+					Vec4 Color = [0, 0.25, 1, 1],
+				},
+				IndicatorLock = 
+				{
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 58,
+		},
+		Named = 
+		{
+			string Name = "TestingSphere",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-16.4147, -6.67521, 1.24853],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			string MaterialName = "54ff27758d4308c1:mat_Ghost",
+			string MeshName = "4de0354322b376ae:Sphere",
+			Vec4 Color = [0.414113, 0.11625, 0.75, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		SphereCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 1,
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 100,
+			Vec3 Direction = [0, 0, -1],
+		},
+		Targetable = 
+		{
+			Enum IndicatorType = Standard,
+			Vec3 IndicatorOffset = [0, 0, 1],
+			float Range = 20,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 59,
+		},
+		Named = 
+		{
+			string Name = "Mushroom",
+		},
+		Archetyped = 
+		{
+			string Name = "54d91be9f05af4a9:arc_mushroom",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-8.65637, -24.5266, 0.332444],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			string MaterialName = "544380cb7820af93:lambert1",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 0, 1],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [0, 1, 0],
+			OrientationBases DefaultBases = ForwardYUpZ,
+		},
+		Z_EnemyController = 
+		{
+			CogPath TargetObjectPath = ":/Player",
+			float TargetDetectionRange = 30,
+			float MaxAttackRange = 15,
+			int MaxAttacks = 1,
+			float AttackTimeout = 300,
+			float LungeSpeed = 5,
+			float HeadbuttAttackPercentage = 0.9,
+			float JumpHeight = 6,
+			float JumpTime = 0.5,
+			float HangTime = 1,
+			float CrashDownTime = 0.25,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 60,
+				},
+				Named = 
+				{
+					string Name = "mushroom-crash-particle-system",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.0194893, -0.530666, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteParticleSystem = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					SystemChildMode ChildMode = Independent,
+					SystemSpace SystemSpace = WorldSpace,
+					uint DrawOrder = 0,
+					float WarmUpTime = 0,
+					ParticleGeometry GeometryMode = Billboarded,
+					ParticleRenderMode RenderMode = Blended,
+					ParticleSortMode SortMode = Youngest,
+					ParticleAnimation ParticleAnimation = Single,
+					string Texture = "549077776ae2d105:tex_toon_explosion_Low_Contrast",
+					Vec4 Tint = [0.3, 0.17799, 0.051, 1],
+					float VelocityScale = 1,
+					float LengthScale = 1,
+					float MaxParticleSize = 1,
+					Vec3 SystemSize = [6, 6, 3],
+				},
+				LinearParticleAnimator = 
+				{
+					Vec3 Force = [0, 0, 0],
+					Vec3 RandomForce = [0, 0, 0],
+					float Torque = 0,
+					float Growth = 0,
+					float Dampening = 0.5,
+					Vec3 Twist = [0, 0, 0],
+				},
+				ParticleColorAnimator = 
+				{
+					Vec4 Color0 = [1, 1, 1, 0],
+					Vec4 Color1 = [1, 1, 1, 1],
+					Vec4 Color2 = [1, 1, 1, 1],
+					Vec4 Color3 = [1, 1, 1, 1],
+					Vec4 Color4 = [1, 1, 1, 0],
+				},
+				BoxParticleEmitter = 
+				{
+					bool Active = false,
+					uint EmitCount = 0,
+					float EmitRate = 10,
+					float EmitVariance = 0,
+					float Size = 1,
+					float SizeVariance = 0.5,
+					float Lifetime = 1,
+					float LifetimeVariance = 0.2,
+					float Spin = 0,
+					float SpinVariance = 50,
+					bool RandomSpin = true,
+					float Fill = 1,
+					float EmitterVelocityPercent = 0,
+					Vec3 StartVelocity = [0, 0, 0],
+					Vec3 RandomVelocity = [2, 2, 2],
+					Vec3 TangentVelocity = [0, 0, 0],
+					Vec3 EmitterSize = [0, 0, 0],
+					bool FastMovingEmitter = false,
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 61,
+		},
+		Named = 
+		{
+			string Name = "enemy_bladetrap",
+		},
+		Archetyped = 
+		{
+			string Name = "547f372542dfb8ac:enemy_bladetrap",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-20, -20, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b376ae:Sphere",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = true,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		SphereCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 1,
+		},
+		Z_EnemySlider = 
+		{
+			Vec3 RayCastVector = [0, 1, 0],
+			float CastDistance = 10,
+			Vec4 RayColor = [1, 1, 1, 1],
+			float ArrowSize = 0.25,
+			bool OnTop = true,
+			CogPath TargetCogPath = ":/Player",
+			float SlideCompletionTime = 1,
+			float SlideReturnTime = 3,
+			float SlideDistance = 10,
+			float SlideDelay = 2,
+			Enum SlideEase = QuadIn,
+			Enum ReturnEase = Linear,
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 0, 1],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [0, 1, 0],
+			OrientationBases DefaultBases = ForwardYUpZ,
+		},
+	},
+},

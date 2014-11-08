@@ -1,0 +1,66 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "enemy_bladetrap",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-20, -20, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
+		string MeshName = "4de0354322b376ae:Sphere",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	SphereCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 1,
+	},
+	Z_EnemySlider = 
+	{
+		Vec3 RayCastVector = [0, 1, 0],
+		float CastDistance = 10,
+		Vec4 RayColor = [1, 1, 1, 1],
+		float ArrowSize = 0.25,
+		bool OnTop = true,
+		CogPath TargetCogPath = ":/Player",
+		float SlideCompletionTime = 1,
+		float SlideReturnTime = 3,
+		float SlideDistance = 10,
+		float SlideDelay = 2,
+	},
+	Orientation = 
+	{
+		Vec3 GlobalUp = [0, 0, 1],
+		Vec3 UpVector = [0, 0, 1],
+		Vec3 ForwardVector = [0, 1, 0],
+		OrientationBases DefaultBases = ForwardYUpZ,
+	},
+},

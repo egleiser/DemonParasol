@@ -1,0 +1,118 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Mushroom",
+	},
+	Archetyped = 
+	{
+		string Name = "54d91be9f05af4a9:arc_mushroom",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-8.65637, -24.5266, 0.332444],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "544380cb7820af93:lambert1",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [0.5, 0.5, 0.5],
+	},
+	Orientation = 
+	{
+		Vec3 GlobalUp = [0, 0, 1],
+		Vec3 UpVector = [0, 0, 1],
+		Vec3 ForwardVector = [0, 1, 0],
+		OrientationBases DefaultBases = ForwardYUpZ,
+	},
+	Z_EnemyController = 
+	{
+		CogPath TargetObjectPath = ":/Player",
+		float TargetDetectionRange = 30,
+		float MaxAttackRange = 15,
+		int MaxAttacks = 1,
+		float AttackTimeout = 300,
+		float LungeSpeed = 5,
+		float HeadbuttAttackPercentage = 0.9,
+		float JumpHeight = 1,
+		float JumpSpeed = 5,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Mushroom Top",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.0360069, 0.00558662, 0.49488],
+				Vec3 Scale = [1.5, 1.5, 0.5],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				string MaterialName = "544380cb7820af93:lambert1",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [1, 1, 1, 1],
+				bool Visible = true,
+			},
+			RigidBody = 
+			{
+				bool Static = false,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			BoxCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				Vec3 Size = [0.5, 0.5, 0.5],
+			},
+		},
+	},
+},

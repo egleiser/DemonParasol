@@ -53,9 +53,9 @@ class TongueManager : ZilchComponent
         this.TongueArray.Add(this.LastTongueJoint);
         
         //Create the master tongue joint (it will keep the tongue at a fixed length)
-        this.MasterTongueJoint = this.Space.CreateAtPosition(Archetype.Find("MasterTongueJoint"), this.Transform.WorldTranslation);
-        this.MasterTongueJoint.ObjectLink.ObjectA = this.Owner;
-        this.MasterTongueJoint.ObjectLink.ObjectB = this.EndTongue;
+        //this.MasterTongueJoint = this.Space.CreateAtPosition(Archetype.Find("MasterTongueJoint"), this.Transform.WorldTranslation);
+        //this.MasterTongueJoint.ObjectLink.ObjectA = this.Owner;
+        //this.MasterTongueJoint.ObjectLink.ObjectB = this.EndTongue;
         
         
     }

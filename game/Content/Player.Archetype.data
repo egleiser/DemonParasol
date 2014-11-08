@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [3, 7.5, 0],
+		Vec3 Translation = [17.007, -5.7173, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -615,7 +615,7 @@ Cog =
 				ParticleRenderMode RenderMode = Blended,
 				ParticleSortMode SortMode = Youngest,
 				ParticleAnimation ParticleAnimation = Single,
-				string Texture = "549077776ae53c06:tex_toon_explosion",
+				string Texture = "5481a3be505a50f6:wind-particles-glow-02",
 				Vec4 Tint = [1, 1, 1, 0.87],
 				float VelocityScale = 1,
 				float LengthScale = 1,
@@ -626,7 +626,7 @@ Cog =
 			{
 				bool Active = false,
 				uint EmitCount = 0,
-				float EmitRate = 80,
+				float EmitRate = 150,
 				float EmitVariance = 0,
 				float Size = 1,
 				float SizeVariance = 0.5,
