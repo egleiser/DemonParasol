@@ -45,33 +45,6 @@ class RunAwayFromTarget : ZilchComponent
     function OnLogicUpdate(event : UpdateEvent)
     {
         this.CalculateRunAwayDirectionAndDistance();
-        //var isWarning : Boolean = false;
-        //var isPatrolling : Boolean = false;
-        //var isRunning : Boolean = false;
-        
-        //if(this.TargetObject != null)
-        //{
-        //    if(this.Owner.Patrol != null)
-        //    {
-        //        isPatrolling = true;
-        //    }
-            
-        //    if(this.Owner.WarnTarget != null)
-        //    {
-        //        isWarning = true;
-        //    }
-        //    this.CalculateRunAwayDirectionAndDistance();
-        //    this.CheckRunAwayRange();
-        //}
-        
-        //if(this.TargetIsWithinRunAwayRange && !isWarning && !isPatrolling)
-        //{
-        //    this.RunningAwayFromTarget(event);
-        //}
-        //if(this.RunningAway)
-        //{
-        //    this.RunningAwayFromTarget(event);
-        //}
     }
     
     /*This function does a few things: First, it changes the color of the model to show that running away
@@ -80,8 +53,6 @@ class RunAwayFromTarget : ZilchComponent
     reaches its MaxRunAwayDistance then a function is called that returns it back to its start spot.*/
     function RunningAwayFromTarget(event : UpdateEvent)
     {
-        //Changes color to Green to show Running Away condition has been met
-        this.Owner.Model.Color = this.RunAwayColor;
         this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.RunAwayRotation, 3.5 * event.Dt);
         //Console.WriteLine(this.RunAwayDirection);
         //Dog moves off in a direction opposite that of player as defined in calculate function below
@@ -99,20 +70,14 @@ class RunAwayFromTarget : ZilchComponent
         
     }
     
+    //Still needs to be here despite AI Manager because of running towards Target Object
     function CalculateRunAwayDirectionAndDistance()
     {
+        if(this.RunToObject != null)
+        {
+            this.RunAwayDirection = this.RunToObject.Transform.Translation - this.Owner.Transform.Translation;
+            this.RunAwayDirection = Math.Normalize(this.RunAwayDirection);
+        }
         
-        this.RunAwayDirection = this.RunToObject.Transform.Translation - this.Owner.Transform.Translation;
-        this.RunAwayDistanceFromTarget = Math.Length(this.RunAwayDirection);
-        this.RunAwayRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.RunAwayDirection, Real3(0,0,1));
-        this.RunAwayDirection = Math.Normalize(this.RunAwayDirection);
-        
-    }
-    
-    function CheckRunAwayRange() : Boolean
-    {
-        Console.WriteLine("`this.RunAwayDistanceFromTarget`");
-        this.TargetIsWithinRunAwayRange = (this.RunAwayDistanceFromTarget <= this.RunAwayTriggerDistance);
-        return this.TargetIsWithinRunAwayRange;
     }
 }

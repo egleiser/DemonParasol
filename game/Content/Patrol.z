@@ -33,45 +33,13 @@ class Patrol : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        var isWarning : Boolean = false;
-        var hasRunning : Boolean = false;
-        var runRange : Boolean = false;
-        
-        if(this.Owner != null)
-        {
-            if(this.Owner.WarnTarget != null)
-            {
-                isWarning = true;
-            }
-            if(this.Owner.RunAwayFromTarget != null)
-            {
-                hasRunning = true;
-            }
-            this.RunRange = this.Owner.RunAwayFromTarget.CheckRunAwayRange();
-            //Console.WriteLine("`this.Owner.RunAwayFromTarget.CheckRunAwayRange()`");
-        }
-        
-        if(this.RunRange)/* && !isWarning && !this.IsRunning)*/
-        {
-            //this.IsRunning = true;
-            this.Owner.RunAwayFromTarget.RunningAway = true;
-        }
-        //else if(this.IsRunning)
-        //{
-        //    this.Owner.RunAwayFromTarget.RunningAway = true;
-        //}
-        else if(!this.Owner.RunAwayFromTarget.RunningAway)
-        {
-            this.PaceBackAndForth(event);
-        }
+        this.PaceBackAndForth(event);
     }
     
     function PaceBackAndForth(event : UpdateEvent)
     {
-        //Sets the model's color to the primary color set above.
-        this.Owner.Model.Color = this.PaceColor;
         
-        //Creats a displacement vector to get the length of the pace
+        //Creates a displacement vector to get the length of the pace
         var displacement : Real3 = Real3(0,0,0);
         //Sets the displacement vector from the start position
         displacement = this.Owner.Transform.Translation - this.StartPosition;
@@ -97,7 +65,7 @@ class Patrol : ZilchComponent
         this.Owner.RigidBody.Velocity = this.PaceDirection * this.PaceSpeed;
         
         //Sets the PaceRotation variable, which is used to rotate teh dog towards the direction
-        //it's currently facing, using Orientation and the PaceDirection variabel
+        //it's currently facing, using Orientation and the PaceDirection variable
         this.PaceRotation = this.Orientation.GetLookAtDirectionWithUpRotation(this.PaceDirection, Real3(0,0,1));
         //Slerps the dog's rotation to reflect its new rotation
         this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.PaceRotation, 3.5 * event.Dt);

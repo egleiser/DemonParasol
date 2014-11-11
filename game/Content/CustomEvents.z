@@ -80,4 +80,15 @@ class CameraLockEvent : Event
 {
     var IsLocked : Boolean  = false;
 }
+class HUDLetterboxEvent : Event
+{
+    //The distance on screen you want the top and bottom sprites to move to (bottom is
+    //just the negative of whatever value is chosen)
+    var DistanceOnScreen : Real = 0.0;
+    //Time for Letterbox Action (in or out) to complete
+    var InOutTime : Real = 0.0;
+    //The ease type for the letterboxing
+    var EaseCurve : Ease = Ease.QuadOut;
+}
+
 

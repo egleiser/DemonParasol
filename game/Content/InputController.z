@@ -81,4 +81,5 @@ class InputController : ZilchComponent
         this.MovementVec = gamepadVec + keyboardVec;
         return Real3(-this.Gamepad.RightStick.X, this.Gamepad.RightStick.Y, 0.0);
     }
+    
 }

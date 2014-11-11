@@ -70,9 +70,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-89.6856, 1.86662, 88.8583],
+			Vec3 Translation = [-0.476952, 7.23307, 102.696],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.036018, -0.481347, 0.0198011, 0.875566],
+			Quat Rotation = [0.00969751, -0.00261795, 2.53891e-005, 0.99995],
 		},
 		Camera = 
 		{
@@ -87,10 +87,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 100.688,
-			float VerticalAngle = -0.0822273,
-			float HorizontalAngle = 1.00531,
-			Vec3 LookTarget = [-4.95917, 10.1366, 35.0893],
+			float LookDistance = 91.1063,
+			float VerticalAngle = -0.0193954,
+			float HorizontalAngle = 0.00523612,
+			Vec3 LookTarget = [0, 9, 11.608],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -162,6 +162,80 @@ Level =
 					bool AnimationActive = true,
 					float AnimationSpeed = 1,
 					uint StartFrame = 0,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 5,
+				},
+				Named = 
+				{
+					string Name = "LetterboxSpriteTop",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 15, -1],
+					Vec3 Scale = [40, 10, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					Vec4 Color = [0, 0, 0, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5275aa4d802dd6dc:Square",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool OnTop = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				Letterbox = 
+				{
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 6,
+				},
+				Named = 
+				{
+					string Name = "LetterboxSpriteBottom",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -15, -1],
+					Vec3 Scale = [40, 10, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					Vec4 Color = [0, 0, 0, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5275aa4d802dd6dc:Square",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool OnTop = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				Letterbox = 
+				{
 				},
 			},
 		},
