@@ -2,35 +2,27 @@ enum BirdStates{Patrolling, Swooping, Attacking, Returning}
 
 class BirdController : ZilchComponent
 {
+    [Dependency]
+    var Orientation : Orientation = null;
+    
     [Property]
     var TargetObjectPath : CogPath = null;
     
-    [Property]
-    var AttackTriggerDistance : Real = 0.0;
+    var TargetObject : Cog = null;
     
     [Property]
     var AttackSpeed : Real = 0.0;
     
-    [Property]
-    var AttackColor : Real4 = Real4(0,0,0,0);
-    
-    var TargetObject : Cog = null;
+    var IdleRotation : Quaternion = Quaternion(0,0,0,0);
     
     var AttackDirection : Real3 = Real3(0,0,0);
     var AttackDistanceFromTarget : Real = 0.0;
     var AttackRotation : Quaternion = Quaternion(0,0,0,0);
     
-    //For real AI later
-    var IsPatrolling : Boolean = false;
-    var IsSwooping : Boolean = false;
-    var IsAttacking : Boolean = false;
-    var IsReturning : Boolean = false;
-    
     
     function Initialize(init : CogInitializer)
     {
         this.TargetObject = this.TargetObjectPath.Cog;
-        
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
     }
@@ -38,26 +30,11 @@ class BirdController : ZilchComponent
    
     function OnLogicUpdate(event : UpdateEvent)
     {
-        var targetIsWithinAttackDistance : Boolean = false;
-        
-        if(this.TargetObject != null)
-        {
-            this.CalculateAttackDirectionAndDistance();
-            targetIsWithinAttackDistance = (this.AttackDistanceFromTarget <= this.AttackTriggerDistance);
-        }
-        
-        if(targetIsWithinAttackDistance)
-        {
-            Console.WriteLine("Should be attacking");
-            this.Owner.Parent.AnimationGraph.Active = false;
-            this.Attack(event);
-        }
         
     }
     
     function Attack(event : UpdateEvent)
     {
-        this.Owner.Model.Color = this.AttackColor;
         this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.AttackRotation, 0.3);
         this.Owner.RigidBody.Velocity = this.AttackDirection * this.AttackSpeed;
     }
@@ -67,7 +44,6 @@ class BirdController : ZilchComponent
         this.AttackDirection = this.TargetObject.Transform.Translation - this.Owner.Transform.WorldTranslation;
         this.AttackRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.AttackDirection, Real3(0,0,1));
         this.AttackDistanceFromTarget = Math.Length(this.AttackDirection);
-        //Console.WriteLine("Distance From Target = `this.AttackDistanceFromTarget`");
         this.AttackDirection = Math.Normalize(this.AttackDirection);
     }
     
