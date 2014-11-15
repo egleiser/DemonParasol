@@ -22,6 +22,11 @@ class Targetable : ZilchComponent
     {
         
     }
+    function Destroy()
+    {
+         var indexToRemove = this.Player.PlayerController.TargetList.FindFirstIndex(this.Owner);
+         this.Player.PlayerController.TargetList.RemoveAt(indexToRemove);
+    }
     function GetDistanceToPlayer():Real
     {
         this.PlayerDistance = Math.Length(this.Player.Transform.Translation - this.Owner.Transform.WorldTranslation);

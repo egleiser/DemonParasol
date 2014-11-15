@@ -102,13 +102,15 @@ class PlayerController : ZilchComponent
     
     function UpdateTargets()
     {
-        this.TargetList.Sort(ObjectSorting.SortTargetByDistance);
         this.TargetProximity.Clear();
         foreach(var cog in this.TargetList )
         {
-            if(cog.Targetable.GetDistanceToPlayer() < cog.Targetable.Range)
+            if(cog != null)
             {
-                this.TargetProximity.Add(cog);
+                if(cog.Targetable.GetDistanceToPlayer() < cog.Targetable.Range)
+                {
+                    this.TargetProximity.Add(cog);
+                }
             }
         }
         this.TargetProximity.Sort(ObjectSorting.SortTargetByDistance);
