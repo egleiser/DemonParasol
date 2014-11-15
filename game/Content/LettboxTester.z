@@ -16,7 +16,7 @@ class LettboxTester : ZilchComponent
     function Letterboxing()
     {
         var letterboxEvent = new HUDLetterboxEvent();
-        letterboxEvent.DistanceOnScreen = 12.0;
+        letterboxEvent.DistanceOnScreen = 13.0;
         letterboxEvent.InOutTime = 1.2;
         letterboxEvent.EaseCurve = Ease.QuadOut;
         var levelSettings = this.Space.LevelSettings;

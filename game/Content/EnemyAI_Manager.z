@@ -69,6 +69,10 @@ class EnemyAI_Manager : ZilchComponent
             {
                 this.HasRunAway = true;
             }
+            //if(this.Owner.Lunge != null)
+            //{
+            //    this.HasLunge = true;
+            //}
         }
             
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -127,7 +131,7 @@ class EnemyAI_Manager : ZilchComponent
             }
         }
         //If the enemy is neither running away or warning, then patrol
-        else if(!this.RunningAway && !this.Warning)
+        else if(this.HasPatrol && !this.RunningAway && !this.Warning)
         {
             //Calls the Pacing function from the Patrol script
             this.Owner.Patrol.PaceBackAndForth(event);
