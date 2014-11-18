@@ -90,5 +90,18 @@ class HUDLetterboxEvent : Event
     //The ease type for the letterboxing
     var EaseCurve : Ease = Ease.QuadOut;
 }
+class TextBoxEvent : Event
+{
+    var DistanceOnScreen : Real = 0.0;
+    var InOutTime : Real = 0.0;
+    var EaseCurve : Ease = Ease.QuadOut;
+    var Opacity : Real = 0.0;
+    var OpacityTimeIn : Real = 0.0;
+    var OpacityEase : Ease = Ease.Linear;
+}
+class TextScrollEvent : Event
+{
+    var TextToWrite : TextBlock = TextBlock.Find("TextTextBlock");
+}
 
 

@@ -1,0 +1,67 @@
+class TextScrollManager : ZilchComponent
+{
+    var GoalString : String = null;
+    var CurrentString : String = null;
+    var CurrentIndex : Integer = 0;
+    
+    var Something : any = new Array[String](10);
+    [Property]
+    var TextDelay : Real = 0.05;
+    
+    var TextSeq : ActionSet = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, "textScrollEvent", this.OntextScrollEvent);
+    }
+
+    function OntextScrollEvent(event : TextScrollEvent)
+    {
+        if(this.TextSeq != null)
+        {
+            this.TextSeq.Cancel();
+        }
+        
+        this.CurrentIndex = 0;
+        this.CurrentString = null;
+        this.GoalString = event.TextToWrite.Text;
+        
+        this.TextSeq = Action.Sequence(this.Owner.Actions);
+        
+        Actions.Delay(this.TextSeq, this.TextDelay);
+        Actions.Call(this.TextSeq, this.TextScroll);
+    }
+    
+    
+    
+    function TextScroll()
+    {
+        if(this.GoalString == this.CurrentString)
+        {
+            this.TextSeq.Cancel();
+            return;
+        }
+        
+        this.CurrentString = this.GoalString.SubString(0, this.CurrentIndex);
+        this.CurrentIndex += 1;
+        
+        //this is where the extra screen wrapping code would go
+        
+        this.Owner.SpriteText.Text = this.CurrentString;
+        
+        this.TextSeq = Action.Sequence(this.Owner.Actions);
+        
+        Actions.Delay(this.TextSeq, this.TextDelay);
+        Actions.Call(this.TextSeq, this.TextScroll);
+    }
+}
+    
+    //    Console.WriteLine("TextScrollEvent");
+    //    var seq = Action.Sequence(this.Owner.Actions);
+    //    
+    //    for(var i:Integer = 0; i < event.TextToWrite.Text.Count; ++i)
+    //    {
+    //        Action.Property(seq, @this.Owner.SpriteText.Text, event.TextToWrite.Text.SubString(0, i), 0.1, Ease.Linear);
+    //    }
+    //}
+    //
