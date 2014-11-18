@@ -4,9 +4,14 @@ class TextScrollManager : ZilchComponent
     var CurrentString : String = null;
     var CurrentIndex : Integer = 0;
     
-    var Something : any = new Array[String](10);
+    var TextDelay : Real = 0.0;
+    var IsPunctuation : Boolean = false;
+    
     [Property]
-    var TextDelay : Real = 0.05;
+    var PunctuationDelay : Real = 0.1;
+    
+    [Property]
+    var LetterDelay : Real = 0.05;
     
     var TextSeq : ActionSet = null;
     
@@ -32,8 +37,6 @@ class TextScrollManager : ZilchComponent
         Actions.Call(this.TextSeq, this.TextScroll);
     }
     
-    
-    
     function TextScroll()
     {
         if(this.GoalString == this.CurrentString)
@@ -42,7 +45,28 @@ class TextScrollManager : ZilchComponent
             return;
         }
         
-        this.CurrentString = this.GoalString.SubString(0, this.CurrentIndex);
+        this.CurrentString = this.GoalString.SubString(0, this.CurrentIndex + 1);
+        Console.WriteLine(this.CurrentIndex);
+        Console.WriteLine(this.CurrentString);
+        Console.WriteLine(this.GoalString.Get(this.CurrentIndex));
+        
+        var currentCharacterInt:Integer = this.GoalString.Get(this.CurrentIndex);
+        var currentCharacter:String = null;
+        
+        currentCharacter = String.FromChar(currentCharacterInt);
+        
+        this.TextDelay = this.LetterDelay;
+        
+        if(this.IsPunctuation)
+        {
+            this.TextDelay = this.PunctuationDelay;
+            this.IsPunctuation = false;
+        }
+        if(currentCharacter == "." || currentCharacter == "?" || currentCharacter == "!")
+        {
+            this.IsPunctuation = true;
+        }
+        
         this.CurrentIndex += 1;
         
         //this is where the extra screen wrapping code would go
