@@ -96,6 +96,13 @@ Cog =
 		float Pitch = 1,
 		bool Positional = true,
 	},
+	Health = 
+	{
+		float MaxHealth = 10,
+		bool DestroyAtZeroHealth = true,
+		bool SendsHealthModified = true,
+		float DamageScalar = 1,
+	},
 	Hierarchy = 
 	{
 		Cog = 
