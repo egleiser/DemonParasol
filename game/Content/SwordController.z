@@ -49,8 +49,7 @@ class SwordController : ZilchComponent
         if(this.Ribs.RibController.Open == false)
         {
             Console.WriteLine("Attack!");
-            //Play Player Grunt
-            this.Space.SoundSpace.PlayCueAt(this.GruntSound, this.Owner.Transform.Translation);
+            
             //Play Swish Sound
             this.Owner.SoundEmitter.PlayCue(this.SwishSound);
             
@@ -67,6 +66,8 @@ class SwordController : ZilchComponent
             else if(this.SlashCount == 3)
             {
                 this.Owner.SimpleAnimation.PlaySingle(Animation.Find("VerticalSlash1"),0);
+                //Play Player Grunt
+                this.Space.SoundSpace.PlayCueAt(this.GruntSound, this.Owner.Transform.Translation);
             }
             else
             {
@@ -84,7 +85,10 @@ class SwordController : ZilchComponent
             var hitEvent = new HitEvent();
             otherObject.DispatchDown("hitEvent", hitEvent);
             otherObject.DispatchEvent("hitEvent", hitEvent);
-            this.Space.CreateAtPosition(Archetype.Find("HitSparks"), event.FirstPoint.WorldPoint);
+            if(otherObject.Collider.CollisionGroup.Name != "CG_Tongue")
+            {
+                this.Space.CreateAtPosition(Archetype.Find("HitSparks"), event.FirstPoint.WorldPoint);
+            }
             
         }
     }

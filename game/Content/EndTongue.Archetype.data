@@ -15,15 +15,16 @@ Cog =
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [1, 1, 1],
+		Vec3 Scale = [4, 4, 4],
 		Quat Rotation = [4.47035e-008, 2.28174e-008, 9.31322e-009, 1],
 	},
 	Model = 
 	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
 		string MaterialName = "54ff27758d4308c1:mat_Ghost",
 		string MeshName = "4de0354322b376ae:Sphere",
 		Vec4 Color = [1, 0, 0.000599861, 1],
-		bool Visible = true,
 	},
 	RigidBody = 
 	{
@@ -61,16 +62,15 @@ Cog =
 	},
 	Light = 
 	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
 		LightType LightType = Point,
-		bool Active = true,
-		float Range = 12,
-		float MinRange = 2,
-		float Angle = 45,
-		float Intensity = 0.27,
 		Vec4 Color = [1, 0, 0, 1],
-		float MinRange = 2,
+		float Intensity = 0.27,
+		float Range = 12,
+		float Falloff = 1,
+		float Angle = 45,
 		float Size = 20,
-		bool Baked = false,
 	},
 	InputController = 
 	{

@@ -6,17 +6,17 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "HitSparks",
+		string Name = "SpitSplash",
 	},
 	Archetyped = 
 	{
-		string Name = "548d621b6ab08628:HitSparks",
+		string Name = "54be884b9b73c764:SpitSplash",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
+		Vec3 Translation = [29.5287, 15.6081, 1.26818],
 		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [-2.38418e-007, 0, 0, 1],
+		Quat Rotation = [0, 0, 0, 1],
 	},
 	SpriteParticleSystem = 
 	{
@@ -43,7 +43,7 @@ Cog =
 		uint EmitCount = 50,
 		float EmitRate = 1000,
 		float EmitVariance = 0,
-		float Size = 0.2,
+		float Size = 0.4,
 		float SizeVariance = 0.05,
 		float Lifetime = 0.5,
 		float LifetimeVariance = 0.05,
@@ -69,11 +69,11 @@ Cog =
 	},
 	ParticleColorAnimator = 
 	{
-		Vec4 Color0 = [1, 0.87, 0, 0],
-		Vec4 Color1 = [1, 0.54, 0, 1],
-		Vec4 Color2 = [1, 0.33, 0, 1],
-		Vec4 Color3 = [0.99, 0.1188, 0, 1],
-		Vec4 Color4 = [1, 0, 0, 0],
+		Vec4 Color0 = [1, 1, 1, 0],
+		Vec4 Color1 = [0.46, 0.9028, 1, 1],
+		Vec4 Color2 = [0.5335, 0.86524, 0.97, 1],
+		Vec4 Color3 = [0.532325, 0.772916, 0.995, 1],
+		Vec4 Color4 = [0, 0.67, 1, 0],
 	},
 	TimedDeath = 
 	{

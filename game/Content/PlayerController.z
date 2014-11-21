@@ -24,7 +24,10 @@ class PlayerController : ZilchComponent
     var Camera:Cog = null;
     
     
+    //Tongue
+    var TongueFinder:Cog = null;
     
+    //Targeting
     var TargetList:Array[Cog] = new Array[Cog]();
     var TargetProximity:Array[Cog] = new Array[Cog]();
     var TargetIndex:Integer = 0;
@@ -43,12 +46,17 @@ class PlayerController : ZilchComponent
     {
         if(this.Active)
         {
-            this.MovementUpdate(event);
-            this.AttackUpdate(event);
-            this.BlockUpdate(event);
+            if(this.TongueFinder == null)
+            {
+                this.MovementUpdate(event);
+                this.AttackUpdate(event);
+                this.BlockUpdate(event);
+                this.SwitchTargetUpdate(event);
+            }
+            this.TongueUpdate(event);
         }
         this.ZTargetingUpdate(event);
-        this.SwitchTargetUpdate(event);
+
     }
     function AttackUpdate(event : UpdateEvent)
     {
@@ -136,7 +144,43 @@ class PlayerController : ZilchComponent
             }
         }
     }
-    
+    function TongueUpdate(event : UpdateEvent)
+    {
+        if(this.TongueFinder != null)
+        {
+            if(this.TongueFinder.TongueFinder.PullPlayer == true)
+            {
+                this.Owner.AutoHopper.Active = false;
+                this.Owner.GravityEffect.Active = false;
+                var targetDistanceVec = this.TongueFinder.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
+                Math.Normalize(targetDistanceVec);
+                var targetAngle = Math.ATan2(targetDistanceVec.Y,targetDistanceVec.X) - 1.57079633;
+                this.MoveAngle = targetAngle;
+                this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation,Math.Euler(Real3(0.0,0.0,targetAngle)),event.Dt*this.RotateSpeed);
+                this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed * 2.0, this.Orientation.WorldUp);
+            }
+            else
+            {
+                this.Owner.DynamicMotor.MoveInDirection(Real3(0,0,0), this.Orientation.WorldUp);
+                this.Owner.GravityEffect.Active = true;
+                this.Owner.AutoHopper.Active = true;
+            }
+        }
+        else
+        {
+            this.Owner.GravityEffect.Active = true;
+            this.Owner.AutoHopper.Active = true;
+        }
+        if(this.Owner.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.R))
+        {
+            if(this.TongueFinder != null)
+            {
+                this.TongueFinder.Destroy();
+            }
+            this.TongueFinder = this.Space.CreateAtPosition(Archetype.Find("TongueFinder"), this.Owner.Transform.WorldTranslation + Real3(0,0,2));
+            this.TongueFinder.TongueFinder.InitialDirection = this.Orientation.WorldForward;
+        }
+    }
     function MovementUpdate(event : UpdateEvent)
     {
         if(this.Owner.InputController.GetMovement() != Real3(0,0,0))

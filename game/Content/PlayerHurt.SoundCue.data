@@ -1,10 +1,10 @@
 SoundCue = 
 {
 	SoundPlayMode PlayMode = Single,
-	float Volume = 1,
+	float Volume = 0.78,
 	float VolumeVariation = 0,
-	float Pitch = 0,
-	float PitchVariation = 0,
+	float Pitch = 0.4,
+	float PitchVariation = 0.2,
 	float MinDistance = 10,
 	float MaxDistance = 10000,
 	float PositionRandomization = 0,
@@ -13,5 +13,14 @@ SoundCue =
 	bool LinearRollOff = true,
 	Array Sounds = 
 	[
+		{
+			string SoundName = "54fc49cc8d863c78:Female_LS_D_Grunt01",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fc49cc8d864cfc:Female_LS_D_Grunt02",
+			float Weight = 1,
+		},
 	],
+	string RolloffCurveName = "",
 },
