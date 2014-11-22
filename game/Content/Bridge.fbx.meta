@@ -1,0 +1,37 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 5418421c335bd3b2,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "Bridge.pCylinder1",
+				uint64 ResourceId = 5418421d33706eef,
+			},
+			{
+				string Name = "Bridge.polySurface222",
+				uint64 ResourceId = 5418421d33706ef4,
+			},
+			{
+				string Name = "Bridge.polySurface223",
+				uint64 ResourceId = 5418421d33706ef6,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},
