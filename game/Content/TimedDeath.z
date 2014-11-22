@@ -3,7 +3,7 @@ class TimedDeath : ZilchComponent
     // The amount of time before this object will be destroyed.
     [Property]
     var Lifetime : Real = 1.0;
-    
+
     // Do we send the death event when the timer runs out?
     [Property]
     var SendsDeathEvent : Boolean = true;

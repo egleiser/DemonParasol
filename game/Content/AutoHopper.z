@@ -58,7 +58,7 @@ class AutoHopper : ZilchComponent
             if(this.Jumping == true)
             {
                 this.JumpForce *= 0.2;
-                this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * 100, this.Orientation.WorldUp);
+                this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * 100 , this.Orientation.WorldUp);
                 this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldUp * event.Dt * this.JumpForce, this.Orientation.WorldForward);
             }
         }

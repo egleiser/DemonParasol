@@ -20,10 +20,11 @@ Cog =
 	},
 	Model = 
 	{
+		bool Visible = false,
+		bool VisibilityCulling = true,
 		string MaterialName = "54ff27758d4308c1:mat_Ghost",
 		string MeshName = "4de0354322b376ae:Sphere",
 		Vec4 Color = [1, 0, 0.000599861, 1],
-		bool Visible = false,
 	},
 	RigidBody = 
 	{
@@ -49,6 +50,7 @@ Cog =
 	},
 	DebugDrawLineToParent = 
 	{
+		bool DrawFrameUpdate = false,
 	},
 	MassOverride = 
 	{
@@ -61,16 +63,15 @@ Cog =
 	},
 	Light = 
 	{
+		bool Visible = false,
+		bool VisibilityCulling = true,
 		LightType LightType = Point,
-		bool Active = false,
-		float Range = 8,
-		float MinRange = 2,
-		float Angle = 45,
-		float Intensity = 0.27,
 		Vec4 Color = [1, 0, 0, 1],
-		float MinRange = 2,
+		float Intensity = 0.27,
+		float Range = 8,
+		float Falloff = 1,
+		float Angle = 45,
 		float Size = 20,
-		bool Baked = false,
 	},
 	LockZ = 
 	{

@@ -1,12 +1,13 @@
 class TongueFinder : ZilchComponent
 {
     var Player:Cog = null;
+    var LatchedObject:Cog = null;
     var PlayerDistance:Real = 0.0;
     [Property]
     var InitialDirection: Real3 = Real3(0,0,0);
     var InitialSpeed: Real = 0.5;
     var PullPlayer:Boolean = false;
-    var Pullable:Boolean = false;
+    var Latched:Boolean = false;
     function Initialize(init : CogInitializer)
     {
         this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
@@ -17,38 +18,47 @@ class TongueFinder : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        if(this.Player.InputController.Gamepad.LeftTrigger < 0.5 && this.Latched)
+        {
+            this.Owner.Destroy();
+        }
         Math.Normalize(this.InitialDirection);
         this.Owner.Transform.Translation += this.InitialDirection * this.InitialSpeed;
-        if(this.GetDistanceToPlayer() > 35.0)
+        if(this.GetDistanceToPlayer() > 30.0)
         {
             this.Owner.Destroy();
         }
-
+        
         if(this.PullPlayer == true && this.GetDistanceToPlayer() < 3.0)
         {
-            Console.WriteLine("Player Close Destroy");
+            
             this.Owner.Destroy();
         }
+        
     }
     
     function OnCollisionStarted(event : CollisionEvent)
     {
-        if(event.OtherObject.Collider.CollisionGroup.Name == "DefaultGroup")
-        {
-            this.Owner.Space.CreateAtPosition(Archetype.Find("SpitSplash"), this.Owner.Transform.WorldTranslation);
-            this.Owner.Destroy();
-        }
         if(event.OtherObject.Name == "TongueTarget")
         {
             if(this.PullPlayer == false)
             {
+                this.LatchedObject = event.OtherObject;
+                this.Owner.Transform.WorldTranslation = this.LatchedObject.Transform.WorldTranslation;
                 this.Owner.SoundEmitter.Play();
-                this.Space.SoundSpace.PlayCueAt(SoundCue.Find("PlayerHurt"),this.Player.Transform.WorldTranslation);
-                this.Owner.Space.CreateAtPosition(Archetype.Find("SpitSplash"), this.Owner.Transform.WorldTranslation);
+                //this.Space.SoundSpace.PlayCueAt(SoundCue.Find("PlayerHurt"),this.Player.Transform.WorldTranslation);
+                this.Owner.Space.CreateAtPosition(Archetype.Find("SpitSplash"), event.FirstPoint.WorldPoint);
             }
-            this.PullPlayer = true;
+            this.Latched = true;
+
             this.InitialSpeed = 0.0;
         }
+        if(event.OtherObject.Collider.CollisionGroup.Name == "DefaultGroup" && this.Latched == false)
+        {
+            this.Owner.Space.CreateAtPosition(Archetype.Find("SpitSplash"), event.FirstPoint.WorldPoint);
+            this.Owner.Destroy();
+        }
+
     }
     function GetDistanceToPlayer():Real
     {

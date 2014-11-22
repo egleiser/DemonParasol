@@ -24,8 +24,7 @@ class PlayerAnimator : ZilchComponent
         this.Owner.AnimationGraph.TimeScale = 1 + (Math.Length(this.Owner.Parent.RigidBody.Velocity) /10);
         if((Math.Length(this.Owner.Parent.InputController.GetMovement()) > 0) && this.Owner.Parent.PlayerController.Active )
         {
-            if(this.AniState != 0 && 
-            this.Owner.Parent.PlayerController.TongueFinder == null)
+            if(this.AniState != 0)
             {
                 this.AniState = 0;
                 this.Owner.SimpleAnimation.CrossBlend(this.AniWalk,1.0,1);

@@ -50,11 +50,11 @@ Cog =
 		bool VisibilityCulling = true,
 		string MaterialName = "54ff27758d4308c1:mat_Ghost",
 		string MeshName = "4de0354322b376ae:Sphere",
-		Vec4 Color = [1, 0, 0, 1],
+		Vec4 Color = [1, 0, 0.000599861, 1],
 	},
 	TimedDeath = 
 	{
-		float Lifetime = 8,
+		float Lifetime = 20,
 		bool SendsDeathEvent = true,
 		bool AutoDestroy = true,
 	},

@@ -46,13 +46,13 @@ class PlayerController : ZilchComponent
     {
         if(this.Active)
         {
-            if(this.TongueFinder == null)
-            {
+            //if(this.TongueFinder == null)
+            //{
                 this.MovementUpdate(event);
                 this.AttackUpdate(event);
                 this.BlockUpdate(event);
                 this.SwitchTargetUpdate(event);
-            }
+            //}
             this.TongueUpdate(event);
         }
         this.ZTargetingUpdate(event);
@@ -100,11 +100,14 @@ class PlayerController : ZilchComponent
         
         if(this.Target != null)
         {
-            var targetDistanceVec = this.Target.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
-            Math.Normalize(targetDistanceVec);
-            this.TargetAngle = Math.ATan2(targetDistanceVec.Y,targetDistanceVec.X) - 1.57079633;
-            this.MoveAngle = this.TargetAngle;
-            this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation,Math.Euler(Real3(0.0,0.0,this.TargetAngle)),event.Dt*this.RotateSpeed);
+            if(this.TongueFinder == null || this.TongueFinder.TongueFinder.PullPlayer == true)
+            {
+                var targetDistanceVec = this.Target.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
+                Math.Normalize(targetDistanceVec);
+                this.TargetAngle = Math.ATan2(targetDistanceVec.Y,targetDistanceVec.X) - 1.57079633;
+                this.MoveAngle = this.TargetAngle;
+                this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation,Math.Euler(Real3(0.0,0.0,this.TargetAngle)),event.Dt*this.RotateSpeed);
+            }
         }
     }
     
@@ -131,7 +134,7 @@ class PlayerController : ZilchComponent
     }
     function NextTarget()
     {
-        if(this.Owner.InputController.Gamepad.IsButtonPressed(Buttons.Y))
+        if(this.Owner.InputController.Gamepad.IsButtonPressed(Buttons.Y) && this.TongueFinder == null)
         {
             Console.WriteLine(this.TargetProximity);
             if(this.TargetIndex < this.TargetProximity.Count-1)
@@ -157,7 +160,13 @@ class PlayerController : ZilchComponent
                 var targetAngle = Math.ATan2(targetDistanceVec.Y,targetDistanceVec.X) - 1.57079633;
                 this.MoveAngle = targetAngle;
                 this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation,Math.Euler(Real3(0.0,0.0,targetAngle)),event.Dt*this.RotateSpeed);
-                this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed * 2.0, this.Orientation.WorldUp);
+                var flatTargetVector = Real3(targetDistanceVec.X, targetDistanceVec.Y, 0.0);
+                this.Owner.DynamicMotor.MoveInDirection(flatTargetVector * event.Dt *  400.0, this.Orientation.WorldUp);
+            }
+            else if(this.TongueFinder.TongueFinder.PullPlayer == false && this.TongueFinder.TongueFinder.Latched == true)
+            {
+                
+                
             }
             else
             {
@@ -173,12 +182,21 @@ class PlayerController : ZilchComponent
         }
         if(this.Owner.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.R))
         {
-            if(this.TongueFinder != null)
+            if(this.TongueFinder != null && this.TongueFinder.TongueFinder.Latched == false)
             {
                 this.TongueFinder.Destroy();
             }
-            this.TongueFinder = this.Space.CreateAtPosition(Archetype.Find("TongueFinder"), this.Owner.Transform.WorldTranslation + Real3(0,0,2));
-            this.TongueFinder.TongueFinder.InitialDirection = this.Orientation.WorldForward;
+            if(this.TongueFinder != null && this.TongueFinder.TongueFinder.Latched == true)
+            {
+                this.TongueFinder.TongueFinder.PullPlayer = true;
+                Console.WriteLine("Tongue Pull: `this.TongueFinder.TongueFinder.PullPlayer`");
+            }
+            if(this.TongueFinder == null)
+            {
+                this.TongueFinder = this.Space.CreateAtPosition(Archetype.Find("TongueFinder"), this.Owner.Transform.WorldTranslation + Real3(0,0,2));
+                this.TongueFinder.TongueFinder.InitialDirection = this.Orientation.WorldForward;
+            }
+
         }
     }
     function MovementUpdate(event : UpdateEvent)
