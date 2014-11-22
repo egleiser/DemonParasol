@@ -1,7 +1,7 @@
 SoundCue = 
 {
 	SoundPlayMode PlayMode = Single,
-	float Volume = 1,
+	float Volume = 0.7,
 	float VolumeVariation = 0,
 	float Pitch = 0.2,
 	float PitchVariation = 0.1,
@@ -18,4 +18,5 @@ SoundCue =
 			float Weight = 1,
 		},
 	],
+	string RolloffCurveName = "",
 },

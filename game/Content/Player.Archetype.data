@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
+		Vec3 Translation = [25.0968, 14.1501, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -62,7 +62,7 @@ Cog =
 		bool SendsMessages = true,
 		bool Seamless = true,
 		string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
-		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		string SerializedGroupName = "54bebd865c1562ee:CG_Player",
 		Vec3 Offset = [0, 0, 1],
 		float Radius = 1,
 		float Height = 1,
@@ -105,6 +105,13 @@ Cog =
 		Vec4 DebugColorB = [1, 0, 0.000599861, 0.7],
 		string GruntSound = "54fc772fa224f98d:PlayerAttackGrunt",
 	},
+	Health = 
+	{
+		float MaxHealth = 5,
+		bool DestroyAtZeroHealth = false,
+		bool SendsHealthModified = true,
+		float DamageScalar = 1,
+	},
 	Hierarchy = 
 	{
 		Cog = 
@@ -146,6 +153,8 @@ Cog =
 				string AniWalk = "53f50ba0bfb0cbbd:BoxManWalk.All",
 				string AniJump = "53f50b9fbfecf34d:BoxManHop.All",
 				string AniFall = "53f50b9fbfc4b7e5:BoxManFall.All",
+				string AniAttack = "53f50ba0bfb0cbbd:BoxManWalk.All",
+				string AniLatch = "53f50ba1bf84ad4e:BoxManKickWall.All",
 			},
 			Hierarchy = 
 			{
@@ -269,7 +278,7 @@ Cog =
 												bool SendsMessages = true,
 												bool Seamless = true,
 												string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-												string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+												string SerializedGroupName = "54bebd865c1562ee:CG_Player",
 												Vec3 Offset = [0, 0, 0],
 												float Radius = 1,
 											},
@@ -317,7 +326,7 @@ Cog =
 														bool SendsMessages = true,
 														bool Seamless = true,
 														string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-														string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+														string SerializedGroupName = "54bebd865c1562ee:CG_Player",
 														Vec3 Offset = [0, 0, 0],
 														float Radius = 1,
 													},
@@ -411,14 +420,12 @@ Cog =
 														bool Visible = true,
 														bool VisibilityCulling = true,
 														LightType LightType = Point,
-														float Range = 15,
-														float MinRange = 0.1,
-														float Angle = 45,
-														float Intensity = 1,
 														Vec4 Color = [0.99, 0.409613, 0.12375, 1],
-														float MinRange = 0.1,
+														float Intensity = 1,
+														float Range = 15,
+														float Falloff = 1,
+														float Angle = 45,
 														float Size = 20,
-														bool Baked = false,
 													},
 													GodRayLight = 
 													{
@@ -723,7 +730,7 @@ Cog =
 				bool SendsMessages = true,
 				bool Seamless = true,
 				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				string SerializedGroupName = "54bebd865c1562ee:CG_Player",
 				Vec3 Offset = [0, 0, 0],
 				Vec3 Size = [0.5, 0.5, 0.5],
 			},
@@ -781,7 +788,7 @@ Cog =
 						bool SendsMessages = true,
 						bool Seamless = true,
 						string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-						string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+						string SerializedGroupName = "54bebd865c1562ee:CG_Player",
 						Vec3 Offset = [0, 0, 0],
 						Vec3 Size = [0.5, 0.5, 0.5],
 					},
@@ -813,6 +820,18 @@ Cog =
 						bool VisibilityCulling = false,
 						string Material = "5404506d3dd2a41e:mat_Light",
 						Vec4 Color = [1, 1, 1, 1],
+					},
+					RigidBody = 
+					{
+						bool Static = false,
+						bool Asleep = false,
+						bool Kinematic = true,
+						bool RotationLocked = false,
+						bool Mode2D = false,
+						bool AllowSleep = true,
+						bool Inherit2DMode = true,
+						Vec3 Velocity = [0, 0, 0],
+						Vec3 AngularVelocity = [0, 0, 0],
 					},
 					Hierarchy = 
 					{
@@ -881,7 +900,7 @@ Cog =
 						bool SendsMessages = true,
 						bool Seamless = true,
 						string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-						string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+						string SerializedGroupName = "54bebd865c1562ee:CG_Player",
 						Vec3 Offset = [0, -0.5, 0],
 						Vec3 Size = [2.5, 0.5, 2.5],
 					},
@@ -944,11 +963,58 @@ Cog =
 							},
 							TongueManager = 
 							{
-								bool Enable = false,
+								bool Enable = true,
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 23,
+							},
+							Named = 
+							{
+								string Name = "Eye",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [-0.569626, -0.397944, 1.2287],
+								Vec3 Scale = [0.666667, 0.0444444, 0.666667],
+								Quat Rotation = [-3.35276e-007, 1.11759e-008, 3.747e-015, 1],
+							},
+							Model = 
+							{
+								bool Visible = true,
+								bool VisibilityCulling = true,
+								string MaterialName = "54ff05a7f658ee25:mat_EyeBall",
+								string MeshName = "4de0354322b376ae:Sphere",
+								Vec4 Color = [1, 1, 1, 1],
+							},
+							UseWorldScale = 
+							{
+								Vec3 Scale = [0.5, 0.5, 0.5],
 							},
 						},
 					},
 				},
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481a2f612bcc3ec:TargetLock",
+			LinkId = 
+			{
+				uint Id = 24,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-2.2203, -23.4585, 1.39367],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "TargetLock",
 			},
 		},
 	},

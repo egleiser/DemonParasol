@@ -17,6 +17,7 @@ class Ai_LanternEnemy : ZilchComponent
         this.FireBreathInhale = this.Owner.FindChildByName("FireBreath_Inhale");
         Zero.Connect(this.Owner, "hitEvent", this.OnHit);
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.Death, this.OnDeath);
         this.Space.SoundSpace.PlayCueAt(SoundCue.Find("Demon_Roar"),this.Owner.Transform.WorldTranslation);
     }
 
@@ -30,7 +31,8 @@ class Ai_LanternEnemy : ZilchComponent
     function OnHit(event : HitEvent)
     {
         this.Space.SoundSpace.PlayCueAt(SoundCue.Find("Demon_Hurt"),this.Owner.Transform.WorldTranslation);
-        this.OnDeath();
+        this.Owner.Health.ApplyDamage(2);
+        
     }
     
     function LookatPlayer(event : UpdateEvent)
@@ -65,7 +67,7 @@ class Ai_LanternEnemy : ZilchComponent
         }
     }
     
-    function OnDeath()
+    function OnDeath(event : Event)
     {
        this.Space.CreateAtPosition(Archetype.Find("DeathSmoke"), this.Owner.Transform.WorldTranslation);
        this.Owner.Destroy();

@@ -8,24 +8,59 @@ class Targetable : ZilchComponent
     [Property]
     var Range:Real = 20.0;
     var Player:Cog = null;
+    var BGMManager:Cog = null;
+    var AddedToEnemyArray: Boolean = false;
     var PlayerDistance:Real = 0.0;
     
     function Initialize(init : CogInitializer)
     {
         this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
         this.Player.PlayerController.TargetList.Add(this.Owner);
-        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-        
+        this.BGMManager = this.LevelSettings.FindChildByName("BGMManager");
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.Death, this.OnDeath);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        
+        if(this.IndicatorType == TargetType.Enemy)
+        {
+            if(this.BGMManager != null && this.BGMManager.DungeonSoundManager != null)
+            {
+                if(this.GetDistanceToPlayer() < this.Range)
+                {
+                    if(this.AddedToEnemyArray == false)
+                    {
+                        this.AddedToEnemyArray = true;
+                        this.BGMManager.DungeonSoundManager.EnemyList.Push(this.Owner);
+                    }
+                }
+                else
+                {
+                    if(this.AddedToEnemyArray == true)
+                    {
+                        this.AddedToEnemyArray = false;
+                        var indexToRemove = this.BGMManager.DungeonSoundManager.EnemyList.FindFirstIndex(this.Owner);
+                        this.BGMManager.DungeonSoundManager.EnemyList.RemoveAt(indexToRemove);
+                    }
+                }
+            }
+        }
     }
-    function Destroy()
+    function OnDeath(event : Event)
     {
-         var indexToRemove = this.Player.PlayerController.TargetList.FindFirstIndex(this.Owner);
-         this.Player.PlayerController.TargetList.RemoveAt(indexToRemove);
+        this.CleanUp();
+    }
+    function CleanUp()
+    {
+        var indexToRemove = this.Player.PlayerController.TargetList.FindFirstIndex(this.Owner);
+        this.Player.PlayerController.TargetList.RemoveAt(indexToRemove);
+        if(this.AddedToEnemyArray == true)
+        {
+            Console.WriteLine("Killed");
+            indexToRemove = this.BGMManager.DungeonSoundManager.EnemyList.FindFirstIndex(this.Owner);
+            this.BGMManager.DungeonSoundManager.EnemyList.RemoveAt(indexToRemove);
+        }
     }
     function GetDistanceToPlayer():Real
     {

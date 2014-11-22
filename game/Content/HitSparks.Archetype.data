@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-8.63284, 1.39512, 2.04011],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [-2.38418e-007, 0, 0, 1],
 	},
@@ -80,5 +80,14 @@ Cog =
 		float Lifetime = 0.6,
 		bool SendsDeathEvent = true,
 		bool AutoDestroy = true,
+	},
+	SoundEmitter = 
+	{
+		bool StartPlaying = true,
+		int ExtraPriority = 0,
+		string CueName = "54fc48603d85eb28:WetTongue",
+		float Volume = 1,
+		float Pitch = 1,
+		bool Positional = true,
 	},
 },

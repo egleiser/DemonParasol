@@ -6,7 +6,7 @@ class AutoHopper : ZilchComponent
     var Transform: Transform = null;
     [Property]
     var JumpDistance : Real = 2.0;
-    
+    var Active : Boolean = true;
     var Jumping : Boolean = false;
     var JumpForce : Real = 0.0;
     
@@ -29,35 +29,38 @@ class AutoHopper : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        var grounded:Boolean = this.DetectGround();
-        var postGrounded:Boolean = this.PostDetectGround();
-
-        
-        if(this.Jumping == false && (!grounded && !postGrounded))
+        if(this.Active == true)
         {
-            this.Jumping = true;
-            //Play Player Grunt
-            this.Space.SoundSpace.PlayCueAt(this.GruntSound, this.Owner.Transform.Translation);
-            Console.WriteLine("AutoHop! Start:`this.Jumping`");
-            this.JumpForce = 500000;
-            this.Owner.PlayerController.Active = false;
+            var grounded:Boolean = this.DetectGround();
+            var postGrounded:Boolean = this.PostDetectGround();
 
-        }
-        
-        if(this.Jumping == true && (grounded && postGrounded))
-        {
-            this.Jumping = false;
-            Console.WriteLine("AutoHop! End:`this.Jumping`");
-            this.JumpForce = 0;
-            this.Owner.PlayerController.Active = true;
+            
+            if(this.Jumping == false && (!grounded && !postGrounded))
+            {
+                this.Jumping = true;
+                //Play Player Grunt
+                this.Space.SoundSpace.PlayCueAt(this.GruntSound, this.Owner.Transform.Translation);
+                Console.WriteLine("AutoHop! Start:`this.Jumping`");
+                this.JumpForce = 500000;
+                this.Owner.PlayerController.Active = false;
 
-        }
-        
-        if(this.Jumping == true)
-        {
-            this.JumpForce *= 0.2;
-            this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * 100, this.Orientation.WorldUp);
-            this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldUp * event.Dt * this.JumpForce, this.Orientation.WorldForward);
+            }
+            
+            if(this.Jumping == true && (grounded && postGrounded))
+            {
+                this.Jumping = false;
+                Console.WriteLine("AutoHop! End:`this.Jumping`");
+                this.JumpForce = 0;
+                this.Owner.PlayerController.Active = true;
+
+            }
+            
+            if(this.Jumping == true)
+            {
+                this.JumpForce *= 0.2;
+                this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * 100 , this.Orientation.WorldUp);
+                this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldUp * event.Dt * this.JumpForce, this.Orientation.WorldForward);
+            }
         }
     }
 
