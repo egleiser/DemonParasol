@@ -1,0 +1,37 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 547600055becde69,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [0.16, 0.16, 0.16],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "FamilyHouse.polySurface4",
+				uint64 ResourceId = 547600055be4cd32,
+			},
+			{
+				string Name = "FamilyHouse.polySurface2",
+				uint64 ResourceId = 547600055be4cd36,
+			},
+			{
+				string Name = "FamilyHouse.polySurface5",
+				uint64 ResourceId = 547600055be4cd38,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},
