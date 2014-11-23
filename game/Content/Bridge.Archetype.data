@@ -1,0 +1,95 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Bridge",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "pCylinder1",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.764184, 0, 0],
+				Vec3 Scale = [79.1359, 41.5928, 11.7761],
+				Quat Rotation = [0.707107, 0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "543c8f5dc0f6f2be:lambert3",
+				string MeshName = "5418421d33706eef:Bridge.pCylinder1",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "polySurface222",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "543c8f5dc0f6013e:lambert2",
+				string MeshName = "5418421d33706ef4:Bridge.polySurface222",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "polySurface223",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, -0, 1, -6.12323e-017],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "543c8f5dc0f6013e:lambert2",
+				string MeshName = "5418421d33706ef6:Bridge.polySurface223",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+	},
+},

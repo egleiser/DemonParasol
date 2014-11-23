@@ -5,6 +5,14 @@ Material =
 		float SpecularExponent = 15,
 		float SpecularScalar = 0.35,
 	},
+	EmissiveMapping = 
+	{
+		float EmissiveScale = 1,
+		string EmissiveMapTexture = "54be9b9a32041e83:texEye",
+		Vec2 EmissiveScroll = [0, 0],
+		Vec2 EmissiveTiling = [2, 1],
+		Vec2 EmissiveOffset = [0.1, 0],
+	},
 	Fresnel = 
 	{
 		string TestTexture = "4fab71e8bcb7a8ce:DefaultTexture",
@@ -20,9 +28,9 @@ Material =
 	},
 	TextureDiffuse = 
 	{
-		string DiffuseTexture = "54ff066cf9708547:EnemyEye",
+		string DiffuseTexture = "54be9b9a32041e83:texEye",
 		Vec2 DiffuseScroll = [0, 0],
 		Vec2 DiffuseTiling = [2, 1],
-		Vec2 DiffuseOffset = [0, 0],
+		Vec2 DiffuseOffset = [0.1, 0],
 	},
 },

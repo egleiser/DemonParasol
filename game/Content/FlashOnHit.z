@@ -1,11 +1,67 @@
 class FlashOnHit : ZilchComponent
 {
+    var InitialColor:Real4 = Real4(0,0,0,0);
+    [Property]
+    var HitColor:Real4 = Real4(1,0,0,1);
+    [Property]
+    var HitTime:Real = 0.1;
+    [Property]
+    var HitCount:Integer = 5;
+    [Property]
+    var PlaySound:Boolean = false;
     function Initialize(init : CogInitializer)
     {
+        Zero.Connect(this.Owner, "hitEvent", this.OnHit);
+        if(this.Owner.Model != null)
+        {
+            this.InitialColor = this.Owner.Model.Color;
+        }
+        if(this.Owner.SkinnedModel != null)
+        {
+            this.InitialColor = this.Owner.SkinnedModel.Color;
+        }
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
 
-    function OnLogicUpdate(event : UpdateEvent)
+    function OnHit(event : HitEvent)
     {
+        Console.WriteLine("Hit!");
+        if(this.PlaySound)
+        {
+            this.Space.SoundSpace.PlayCueAt(SoundCue.Find("HitSound"),this.Owner.Transform.WorldTranslation);
+            
+        }
+        //create action sequence
+        var aFlashHit = Action.Sequence(this.Owner.Actions);
+        //aFlashHit.Cancel();
+        for(var i = 0; i <= this.HitCount; i += 1)
+        {
+            if(this.Owner.Model != null)
+            {
+                Action.Property(aFlashHit,
+                                @this.Owner.Model.Color,
+                                this.HitColor,
+                                0.2,
+                                Ease.Linear);
+                Action.Property(aFlashHit,
+                                @this.Owner.Model.Color,
+                                this.InitialColor,
+                                this.HitTime,
+                                Ease.Linear);
+            }
+            if(this.Owner.SkinnedModel != null)
+            {
+                Action.Property(aFlashHit,
+                                @this.Owner.SkinnedModel.Color,
+                                this.HitColor,
+                                this.HitTime,
+                                Ease.Linear);
+                Action.Property(aFlashHit,
+                                @this.Owner.SkinnedModel.Color,
+                                this.InitialColor,
+                                this.HitTime,
+                                Ease.Linear);
+            }
+        }
     }
 }

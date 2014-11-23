@@ -1,0 +1,39 @@
+Material = 
+{
+	Phong = 
+	{
+		float SpecularExponent = 48,
+		float SpecularScalar = 1,
+	},
+	EmissiveMapping = 
+	{
+		float EmissiveScale = 0.8,
+		string EmissiveMapTexture = "5438253cb5888f4b:Water",
+		Vec2 EmissiveScroll = [0.015, -0.01],
+		Vec2 EmissiveTiling = [1, 1],
+		Vec2 EmissiveOffset = [0, 0],
+	},
+	ModulateModelColor = 
+	{
+	},
+	NormalMapping = 
+	{
+		float Bumpiness = 1,
+		string NormalMapTexture = "5438253cb5888f4b:Water",
+		Vec2 NormalScroll = [0.02, 0],
+		Vec2 NormalTiling = [10, 10],
+		Vec2 NormalOffset = [0, 0],
+	},
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Alpha,
+		bool CastShadow = false,
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "549077307890dfed:Chrome1",
+		Vec2 DiffuseScroll = [0.01, 0],
+		Vec2 DiffuseTiling = [10, 10],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

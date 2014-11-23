@@ -1,0 +1,99 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "TongueTargetTarget",
+	},
+	Archetyped = 
+	{
+		string Name = "54bfd4ebd919d6f3:TongueTargetTarget",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 1, -4.37114e-008],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "TargetBase",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [0.971794, 0.223381, 0.971794],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54bfd084bf659d75:TongueTargetMesh.TargetBase",
+				Vec4 Color = [0.207075, 0.09625, 0.275, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "TargetRings",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [0.971794, 0.223381, 0.971794],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "54bfd02198c390ed:mat_TargetFlasher",
+				string MeshName = "54bfd084bf659d79:TongueTargetMesh.TargetRings",
+				Vec4 Color = [0.825, 0, 0.000494885, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "TargetRings",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [6.16457e-010, 0.00705147, 0],
+				Vec3 Scale = [0.310416, 0.101288, 0.310416],
+				Quat Rotation = [-0, 0, 1, -4.37114e-008],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "54bfd02198c390ed:mat_TargetFlasher",
+				string MeshName = "54bfd084bf659d79:TongueTargetMesh.TargetRings",
+				Vec4 Color = [0.825, 0, 0.000494885, 1],
+			},
+		},
+	},
+},

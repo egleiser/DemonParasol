@@ -1,0 +1,78 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Eye",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [6.73306, 1.35771, 2.96256],
+		Vec3 Scale = [0.362731, 0.62684, 0.626841],
+		Quat Rotation = [-0.707107, 0.707107, 4.21469e-008, 4.21467e-008],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		string MaterialName = "5404506d3dd2a41e:mat_Light",
+		string MeshName = "548d36630a005b68:LanternDemon.Pupil",
+		Vec4 Color = [0, 0.13, 1, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "GeoSphere001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [2.01949e-028, -3.55271e-015, -9.92242e-021, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "54ff27758d4308c1:mat_Ghost",
+				string MeshName = "548d36630a005b61:LanternDemon.GeoSphere001",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "GeoSphere001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.26347, -0.00574303, 5.72205e-006],
+				Vec3 Scale = [0.811638, 1.09018, 1.01852],
+				Quat Rotation = [-7.1054e-014, 3.50177e-014, -1.13422e-013, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "548d36630a005b61:LanternDemon.GeoSphere001",
+				Vec4 Color = [0, 0, 0, 1],
+			},
+		},
+	},
+},

@@ -1,0 +1,22 @@
+SoundCue = 
+{
+	SoundPlayMode PlayMode = Looping,
+	float Volume = 1,
+	float VolumeVariation = 0.1,
+	float Pitch = 0,
+	float PitchVariation = 0.3,
+	float MinDistance = 20,
+	float MaxDistance = 50,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 128,
+	bool LinearRollOff = true,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "54bfd2f714a0ad32:Fire_Torch_Loop1",
+			float Weight = 1,
+		},
+	],
+	string RolloffCurveName = "",
+},

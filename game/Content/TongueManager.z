@@ -1,5 +1,6 @@
 class TongueManager : ZilchComponent
 {
+    var Player:Cog = null;
     [Property]
     var Enable:Boolean = false;
     [Dependency]
@@ -18,6 +19,7 @@ class TongueManager : ZilchComponent
             this.InitializeTongue();
             this.ExtendTongue(10);
         }
+        this.Player = this.Owner.FindRoot();
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         
 
@@ -25,6 +27,10 @@ class TongueManager : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        if(this.Player.PlayerController.TongueFinder != null)
+        {
+            this.EndTongue.Transform.WorldTranslation = this.Player.PlayerController.TongueFinder.Transform.WorldTranslation;
+        }
         
     }
     function InitializeTongue()
@@ -34,7 +40,7 @@ class TongueManager : ZilchComponent
         
         //Create the last Tongue Segment
         this.EndTongue = this.Space.CreateAtPosition(Archetype.Find("EndTongue"), this.Transform.WorldTranslation);
-        this.EndTongue.Transform.Scale = Real3(0.2,0.2,0.2);
+        this.EndTongue.Transform.Scale = Real3(0.3,0.3,0.3);
         //Attach the last segment to the first
         this.EndTongue.AttachTo(this.RootTongue);
         

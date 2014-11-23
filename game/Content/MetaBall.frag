@@ -7,12 +7,10 @@ AutoBlock
 inputs
 {
     // Custom Inputs
-    texture TestTexture;
-    float EdgeFalloffPower;
-    float EdgeFalloffScale;
-    float4 EdgeGlowColor;
+    texture MetaBallTexture;
+    float4 ColorTint;
 
-    //Built In
+    //Built I2
     // View Space Normal
     float3 Normal;
     // Us from mesh
@@ -40,8 +38,23 @@ fragmentCode
 void MetaBall(inout Data data)
 {
     // Simple edge glow
-    float4 texColor = tex2D(TestTexture, data.Uv);
-    float scalar = saturate(1 - dot( -normalize(data.PixelPosition), data.Normal ));   
-    scalar = pow( scalar, data.EdgeFalloffPower) * data.EdgeFalloffScale;
-    data.Additive = scalar * data.EdgeGlowColor * texColor;
+    //float4 texColor = tex2D(TestTexture, data.Uv);
+    //float scalar = saturate(1 - dot( -normalize(data.PixelPosition), data.Normal ));   
+    //scalar = pow( scalar, data.EdgeFalloffPower) * data.EdgeFalloffScale;
+    //data.Additive = scalar * data.EdgeGlowColor * texColor;
+    float4 texColor = tex2D(MetaBallTexture, data.Uv);
+    //float4 finalColor = float4(0.0,texColor.g/2.0,texColor.b,texColor.a);
+    float4 finalColor = data.ColorTint * float4(0.0,texColor.g/2.0,texColor.b,texColor.a);
+    if(finalColor.a>0.5)
+    {
+        finalColor.a=1;
+        finalColor.b = floor((finalColor.b/0.1)*0.5);
+    }
+    finalColor = finalColor * 1.0;
+    if(finalColor.a<0.5 && finalColor.a>0.1)
+    {
+        finalColor.a=0.2;
+
+    }
+    data.Additive = finalColor;
 }

@@ -4,6 +4,7 @@ CollisionTable =
 	[
 		"4e740859314e5515:DefaultGroup",
 		"54ff0eb5b975b8c8:CG_Tongue",
+		"54bebd865c1562ee:CG_Player",
 	],
 	Array CollisionFilters = 
 	[
@@ -20,6 +21,26 @@ CollisionTable =
 		{
 			string TypeA = "54ff0eb5b975b8c8:CG_Tongue",
 			string TypeB = "54ff0eb5b975b8c8:CG_Tongue",
+			bool SkipResolution = true,
+			bool SkipDetectingCollision = false,
+			bool StartEvent = false,
+			bool EndEvent = false,
+			bool PersistedEvent = false,
+			bool PreSolveEvent = false,
+		},
+		{
+			string TypeA = "54bebd865c1562ee:CG_Player",
+			string TypeB = "54ff0eb5b975b8c8:CG_Tongue",
+			bool SkipResolution = true,
+			bool SkipDetectingCollision = false,
+			bool StartEvent = false,
+			bool EndEvent = false,
+			bool PersistedEvent = false,
+			bool PreSolveEvent = false,
+		},
+		{
+			string TypeA = "54bebd865c1562ee:CG_Player",
+			string TypeB = "54bebd865c1562ee:CG_Player",
 			bool SkipResolution = true,
 			bool SkipDetectingCollision = false,
 			bool StartEvent = false,

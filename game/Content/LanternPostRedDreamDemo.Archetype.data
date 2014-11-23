@@ -10,13 +10,13 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "548181af93868c61:LanternPostRedDayDemo",
+		string Name = "54819cd20045e78f:LanternPostRedDreamDemo",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [55.215, -32.3224, 0],
+		Vec3 Translation = [171.656, 53.0672, 0],
 		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0.657494, -0.260194, -0.260194, 0.657494],
+		Quat Rotation = [0.334862, -0.62279, -0.62279, 0.334862],
 	},
 	BoxCollider = 
 	{
@@ -48,10 +48,11 @@ Cog =
 			},
 			Model = 
 			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
 				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 				string MeshName = "5481b3b2289af798:LanternPost.LanternPost_Body",
 				Vec4 Color = [0.75, 0.195, 0.195, 1],
-				bool Visible = true,
 			},
 		},
 		Cog = 
@@ -72,10 +73,11 @@ Cog =
 			},
 			Model = 
 			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
 				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 				string MeshName = "5481b3b2289af79f:LanternPost.LanternPost_Hook",
 				Vec4 Color = [1, 1, 1, 1],
-				bool Visible = true,
 			},
 		},
 		Cog = 
@@ -125,11 +127,11 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "LanternBasicDay",
+				string Name = "LanternDivDream",
 			},
 			Archetyped = 
 			{
-				string Name = "5481b243d32c456d:LanternBasicDay",
+				string Name = "54819ccafbab1c7f:LanternDivDream",
 			},
 			Transform = 
 			{
@@ -176,6 +178,20 @@ Cog =
 				float Intensity = 0.002,
 				bool UseInitialRot = false,
 			},
+			Light = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				LightType LightType = Point,
+				float Range = 10,
+				float MinRange = 2,
+				float Angle = 45,
+				float Intensity = 1,
+				Vec4 Color = [1, 1, 1, 1],
+				float MinRange = 2,
+				float Size = 20,
+				bool Baked = false,
+			},
 			Hierarchy = 
 			{
 				Cog = 
@@ -196,10 +212,11 @@ Cog =
 					},
 					Model = 
 					{
-						string MaterialName = "5481b84e008be766:mat_gradient",
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						string MaterialName = "5404506d3dd2a41e:mat_Light",
 						string MeshName = "5481b3bc2e648605:LanternSymbol.LanternPaper",
 						Vec4 Color = [0.945, 0.829899, 0.533925, 1],
-						bool Visible = true,
 					},
 				},
 				Cog = 
@@ -220,10 +237,11 @@ Cog =
 					},
 					Model = 
 					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
 						string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 						string MeshName = "5481b3bc2e64860a:LanternSymbol.LanternMetal",
 						Vec4 Color = [0.48, 0.48, 0.48, 1],
-						bool Visible = true,
 					},
 					SphereCollider = 
 					{
@@ -254,10 +272,11 @@ Cog =
 					},
 					Model = 
 					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
 						string MaterialName = "5481bc7b33d5a109:Material__5",
 						string MeshName = "5481b3bc2e64860c:LanternSymbol.Lantern_Symbol",
 						Vec4 Color = [1, 1, 1, 1],
-						bool Visible = false,
 					},
 				},
 				Cog = 
