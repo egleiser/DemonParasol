@@ -1,3 +1,7 @@
+class ContextEvent : Event
+{
+    var Context : ContextState = ContextState.Sleep;
+}  
 class BlockEvent : Event
 {
     var InfoToSend : String = "";

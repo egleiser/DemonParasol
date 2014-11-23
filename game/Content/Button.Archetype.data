@@ -6,11 +6,7 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "TongueTargetMesh",
-	},
-	Archetyped = 
-	{
-		string Name = "54bfd084bf9c6dfe:TongueTargetMesh",
+		string Name = "Button",
 	},
 	Transform = 
 	{
@@ -28,12 +24,12 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "TargetBase",
+				string Name = "Button",
 			},
 			Transform = 
 			{
 				Vec3 Translation = [0, 0, 0],
-				Vec3 Scale = [0.971794, 0.223381, 0.971794],
+				Vec3 Scale = [1.06672, 0.224174, 1.06672],
 				Quat Rotation = [0, 0, 0, 1],
 			},
 			Model = 
@@ -41,7 +37,7 @@ Cog =
 				bool Visible = true,
 				bool VisibilityCulling = true,
 				string MaterialName = "4de020863e85bb61:DefaultMaterial",
-				string MeshName = "54bfd084bf659d75:TongueTargetMesh.TargetBase",
+				string MeshName = "54a1a33a13959b79:Button.Button",
 				Vec4 Color = [1, 1, 1, 1],
 			},
 		},
@@ -53,12 +49,12 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "TargetRings",
+				string Name = "ButtonBorder",
 			},
 			Transform = 
 			{
 				Vec3 Translation = [0, 0, 0],
-				Vec3 Scale = [0.971794, 0.223381, 0.971794],
+				Vec3 Scale = [1.08798, 0.182324, 1.08798],
 				Quat Rotation = [0, 0, 0, 1],
 			},
 			Model = 
@@ -66,7 +62,7 @@ Cog =
 				bool Visible = true,
 				bool VisibilityCulling = true,
 				string MaterialName = "4de020863e85bb61:DefaultMaterial",
-				string MeshName = "54bfd084bf659d79:TongueTargetMesh.TargetRings",
+				string MeshName = "54a1a33a13959b7d:Button.ButtonBorder",
 				Vec4 Color = [1, 1, 1, 1],
 			},
 		},

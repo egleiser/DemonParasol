@@ -23,7 +23,9 @@ class PlayerController : ZilchComponent
     var MoveAngle:Real = 0;
     var Camera:Cog = null;
     
-    
+    var ContextButton:Cog = null;
+    var ContextInteract:Boolean = false;
+    var ContextString:String = "";
     //Tongue
     var TongueFinder:Cog = null;
     
@@ -39,11 +41,16 @@ class PlayerController : ZilchComponent
     {
         this.Owner.DynamicMotor.MaxMoveForce = this.MaxMoveForce;
         this.Camera = this.CameraPath.Cog;
+        this.ContextButton = this.LevelSettings.HudCreator.HudSpace.FindObjectByName("ContextButton");
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        if(Zero.Keyboard.KeyIsPressed(Keys.O))
+        {
+            this.Owner.Health.ApplyDamage(1);
+        }
         if(this.Active)
         {
             //if(this.TongueFinder == null)
@@ -56,6 +63,7 @@ class PlayerController : ZilchComponent
             this.TongueUpdate(event);
         }
         this.ZTargetingUpdate(event);
+        this.ContextUpdate(event);
 
     }
     function AttackUpdate(event : UpdateEvent)
@@ -136,7 +144,7 @@ class PlayerController : ZilchComponent
     {
         if(this.Owner.InputController.Gamepad.IsButtonPressed(Buttons.Y) && this.TongueFinder == null)
         {
-            Console.WriteLine(this.TargetProximity);
+            //Console.WriteLine(this.TargetProximity);
             if(this.TargetIndex < this.TargetProximity.Count-1)
             {
                 this.TargetIndex += 1;
@@ -147,8 +155,45 @@ class PlayerController : ZilchComponent
             }
         }
     }
+    function ContextUpdate(event : UpdateEvent)
+    {
+        if(this.ContextString == "")
+        {
+            if(this.TongueFinder != null)
+            {
+                //ContextButton
+                if(this.TongueFinder.TongueFinder.Latched == true && this.TongueFinder.TongueFinder.Destroy == true &&
+                 this.ContextButton.ContextButtonManager.WantedText != "Yank" && this.TongueFinder.TongueFinder.Grapple == false)
+                {
+                    this.ContextButton.ContextButtonManager.SetButton("Yank");
+                }
+                else if(this.TongueFinder.TongueFinder.Latched == true && this.ContextButton.ContextButtonManager.WantedText != "Grapple" &&
+                this.TongueFinder.TongueFinder.Destroy == false && this.TongueFinder.TongueFinder.Grapple == true)
+                {
+                    this.ContextButton.ContextButtonManager.SetButton("Grapple");
+                }
+                //ContextButton
+                else if(this.TongueFinder.TongueFinder.Latched == true && this.ContextButton.ContextButtonManager.WantedText != "Pull" &&
+                this.TongueFinder.TongueFinder.Destroy == false && this.TongueFinder.TongueFinder.Grapple == false)
+                {
+                    this.ContextButton.ContextButtonManager.SetButton("Pull");
+                }
+            }
+            else if(this.ContextButton.ContextButtonManager.WantedText != "Tongue")
+            {
+                this.ContextButton.ContextButtonManager.SetButton("Tongue");
+            }
+        }
+        else if(this.ContextButton.ContextButtonManager.WantedText != this.ContextString)
+        {
+            this.ContextButton.ContextButtonManager.SetButton(this.ContextString);
+        }
+    }
+    
     function TongueUpdate(event : UpdateEvent)
     {
+
+            
         if(this.TongueFinder != null)
         {
             if(this.TongueFinder.TongueFinder.PullPlayer == true)
@@ -180,18 +225,36 @@ class PlayerController : ZilchComponent
             this.Owner.GravityEffect.Active = true;
             this.Owner.AutoHopper.Active = true;
         }
+        
+        //When the A Button is pressed
         if(this.Owner.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.R))
         {
-            if(this.TongueFinder != null && this.TongueFinder.TongueFinder.Latched == false)
+            if(this.TongueFinder != null && this.TongueFinder.TongueFinder.Latched == false )
             {
                 this.TongueFinder.Destroy();
             }
-            if(this.TongueFinder != null && this.TongueFinder.TongueFinder.Latched == true)
+            //Pull the player to the object
+            if(this.TongueFinder != null && this.TongueFinder.TongueFinder.Latched == true && this.TongueFinder.TongueFinder.Destroy == false
+            && this.ContextButton.ContextButtonManager.WantedText == "Pull")
             {
                 this.TongueFinder.TongueFinder.PullPlayer = true;
                 Console.WriteLine("Tongue Pull: `this.TongueFinder.TongueFinder.PullPlayer`");
             }
-            if(this.TongueFinder == null)
+            //Yank an Object Apart
+            if(this.TongueFinder != null && this.TongueFinder.TongueFinder.Latched == true && this.TongueFinder.TongueFinder.Destroy == true
+            && this.ContextButton.ContextButtonManager.WantedText == "Yank")
+            {
+                this.TongueFinder.TongueFinder.LatchedObject.Destroy();
+                this.TongueFinder.Destroy();
+            }
+            //Grapple to the player
+            if(this.TongueFinder != null && this.TongueFinder.TongueFinder.Latched == true && this.TongueFinder.TongueFinder.Destroy == false
+            && this.TongueFinder.TongueFinder.Grapple == true && this.ContextButton.ContextButtonManager.WantedText == "Grapple")
+            {
+                this.TongueFinder.TongueFinder.PullToPlayer = true;
+                this.TongueFinder.TongueFinder.PullPlayer = false;
+            }
+            if(this.TongueFinder == null && this.ContextButton.ContextButtonManager.WantedText == "Tongue")
             {
                 this.TongueFinder = this.Space.CreateAtPosition(Archetype.Find("TongueFinder"), this.Owner.Transform.WorldTranslation + Real3(0,0,2));
                 this.TongueFinder.TongueFinder.InitialDirection = this.Orientation.WorldForward;

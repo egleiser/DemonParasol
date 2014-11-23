@@ -1,0 +1,27 @@
+class TextInteractVolume : ZilchComponent
+{
+    [Property]
+    var Text:TextBlock = null;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player")
+        {
+            otherObject.PlayerController.ContextString = "Read";
+        }
+    }
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player")
+        {
+            otherObject.PlayerController.ContextString = "";
+        }
+    }
+}

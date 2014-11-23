@@ -1,0 +1,345 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "FlowerHealth",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-14.3223, 7.59676, 10.7488],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Sprite = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		Vec4 Color = [1, 1, 1, 1],
+		BlendMode BlendMode = Alpha,
+		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		string SpriteSource = "54a1b7e32a56022f:ui-heart-flower-0hp",
+		bool RenderMask = false,
+		bool FlipX = false,
+		bool FlipY = false,
+		bool OnTop = false,
+		bool AnimationActive = true,
+		float AnimationSpeed = 1,
+		uint StartFrame = 0,
+	},
+	HealthFlower = 
+	{
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Petal1",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.218771, 1.34004, 0.00497627],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Sprite = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "54a1b7e32a563fe8:ui-heart-petal-1",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = true,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			RigidBody = 
+			{
+				bool Static = false,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			IgnoreSpaceEffects = 
+			{
+				bool Drag = false,
+				bool Flow = false,
+				bool Force = false,
+				bool Gravity = true,
+				bool Thrust = false,
+				bool Vortex = false,
+				bool Wind = false,
+				bool Invalid = false,
+				bool Torque = false,
+				bool PointGravity = false,
+				bool PointForce = false,
+				bool Buoyancy = false,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "Petal2",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.20828, 0.862959, 0.269239],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Sprite = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "54a1b7e32a567fc1:ui-heart-petal-2",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = true,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			RigidBody = 
+			{
+				bool Static = false,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			IgnoreSpaceEffects = 
+			{
+				bool Drag = false,
+				bool Flow = false,
+				bool Force = false,
+				bool Gravity = true,
+				bool Thrust = false,
+				bool Vortex = false,
+				bool Wind = false,
+				bool Invalid = false,
+				bool Torque = false,
+				bool PointGravity = false,
+				bool PointForce = false,
+				bool Buoyancy = false,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "Petal3",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.26378, -0.598475, 0.407766],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Sprite = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "54a1b7e32a56b6b2:ui-heart-petal-3",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = true,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			RigidBody = 
+			{
+				bool Static = false,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			IgnoreSpaceEffects = 
+			{
+				bool Drag = false,
+				bool Flow = false,
+				bool Force = false,
+				bool Gravity = true,
+				bool Thrust = false,
+				bool Vortex = false,
+				bool Wind = false,
+				bool Invalid = false,
+				bool Torque = false,
+				bool PointGravity = false,
+				bool PointForce = false,
+				bool Buoyancy = false,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "Petal4",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.444322, -0.716662, 0.341035],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Sprite = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "54a1b7e32a56f8e3:ui-heart-petal-4",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = true,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			RigidBody = 
+			{
+				bool Static = false,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			IgnoreSpaceEffects = 
+			{
+				bool Drag = false,
+				bool Flow = false,
+				bool Force = false,
+				bool Gravity = true,
+				bool Thrust = false,
+				bool Vortex = false,
+				bool Wind = false,
+				bool Invalid = false,
+				bool Torque = false,
+				bool PointGravity = false,
+				bool PointForce = false,
+				bool Buoyancy = false,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "Petal5",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.843156, 0.712352, 0.491552],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Sprite = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "54a1b7e32a573417:ui-heart-petal-5",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = true,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			RigidBody = 
+			{
+				bool Static = false,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			IgnoreSpaceEffects = 
+			{
+				bool Drag = false,
+				bool Flow = false,
+				bool Force = false,
+				bool Gravity = true,
+				bool Thrust = false,
+				bool Vortex = false,
+				bool Wind = false,
+				bool Invalid = false,
+				bool Torque = false,
+				bool PointGravity = false,
+				bool PointForce = false,
+				bool Buoyancy = false,
+			},
+		},
+	},
+},

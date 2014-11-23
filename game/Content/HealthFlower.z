@@ -1,0 +1,79 @@
+class HealthFlower : ZilchComponent
+{
+    var Petal1:Cog = null;
+    var Petal2:Cog = null;
+    var Petal3:Cog = null;
+    var Petal4:Cog = null;
+    var Petal5:Cog = null;
+    var Player:Cog = null;
+    var MainSpace:Space = null;
+    function Initialize(init : CogInitializer)
+    {
+        this.MainSpace = this.GameSession.FindSpaceByName("Main");
+        this.Petal1 = this.Owner.FindChildByName("Petal1");
+        this.Petal2 = this.Owner.FindChildByName("Petal2");
+        this.Petal3 = this.Owner.FindChildByName("Petal3");
+        this.Petal4 = this.Owner.FindChildByName("Petal4");
+        this.Petal5 = this.Owner.FindChildByName("Petal5");
+        this.Player = this.MainSpace.FindObjectByName("Player");
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+
+
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.Player != null)
+        {
+            if(this.Player.Health.CurrentHealth < 5)
+            {
+                this.RemovePetal(this.Petal5);
+                
+            }
+            if(this.Player.Health.CurrentHealth < 4)
+            {
+                this.RemovePetal(this.Petal4);
+                
+            }
+            if(this.Player.Health.CurrentHealth < 3)
+            {
+                this.RemovePetal(this.Petal3);
+                
+            }
+            if(this.Player.Health.CurrentHealth < 2)
+            {
+                this.RemovePetal(this.Petal2);
+                
+            }
+            if(this.Player.Health.CurrentHealth < 1)
+            {
+                this.RemovePetal(this.Petal1);
+                
+            }
+        }
+    }
+    function RemovePetal(petal : Cog)
+    {
+        if(petal.Sprite.OnTop == false)
+        {
+            var random = new Random();
+            var seq = Action.Sequence(petal.Actions);
+            petal.Sprite.OnTop = true;
+            // FadeOut
+            Action.Property(seq, @petal.Sprite.Color, Real4(1,1,1,0), 1, Ease.Linear);
+            //FlutterAway
+            petal.RigidBody.Velocity = Real3(-1,-4,0);
+            petal.RigidBody.AngularVelocity = Real3(random.DieRoll(10)-5,random.DieRoll(10)-5,random.DieRoll(10)-5);
+            this.Petal1.Sprite.Color -= Real4(0.1,0.1,0.1,0);
+            this.Petal2.Sprite.Color -= Real4(0.1,0.1,0.1,0);
+            this.Petal3.Sprite.Color -= Real4(0.1,0.1,0.1,0);
+            this.Petal4.Sprite.Color -= Real4(0.1,0.1,0.1,0);
+            this.Petal5.Sprite.Color -= Real4(0.1,0.1,0.1,0);
+        }
+    }
+    function RestorePetals()
+    {
+        this.Space.CreateAtPosition(Archetype.Find("FlowerHealth"), this.Owner.Transform.WorldTranslation);
+        this.Owner.Destroy();
+    }
+}

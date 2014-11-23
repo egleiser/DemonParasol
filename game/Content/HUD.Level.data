@@ -34,7 +34,7 @@ Level =
 			bool Blocking = true,
 			uint Renderer = 1,
 			uint Camera = 2,
-			ViewportScaling Scaling = Fill,
+			ViewportScaling Scaling = Letterbox,
 			Vec2 Resolution = [1280, 720],
 			Vec4 MarginColor = [0, 0, 0, 1],
 		},
@@ -70,9 +70,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-3.15124, -4.51828, 43.798],
+			Vec3 Translation = [-14.8285, 8.77273, 22.4001],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0373554, -0.0575238, -0.0021539, 0.997643],
+			Quat Rotation = [0.00522654, -0.0601653, 0.000315032, 0.998175],
 		},
 		Camera = 
 		{
@@ -87,10 +87,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 27.4407,
-			float VerticalAngle = 0.0748524,
-			float HorizontalAngle = 0.115192,
-			Vec3 LookTarget = [-0.00611466, -6.57036, 16.6155],
+			float LookDistance = 12.3618,
+			float VerticalAngle = -0.0104721,
+			float HorizontalAngle = 6.40359,
+			Vec3 LookTarget = [-13.3438, 8.90218, 10.1285],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -142,7 +142,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, 0, -2.71598],
+					Vec3 Translation = [0, 0, -0.104407],
 					Vec3 Scale = [50, 50, 50],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -176,7 +176,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, 15, -1],
+					Vec3 Translation = [0, 15, -2.39792],
 					Vec3 Scale = [40, 10, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -213,7 +213,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, -15, -1],
+					Vec3 Translation = [0, -15, -2.39792],
 					Vec3 Scale = [40, 10, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -399,6 +399,367 @@ Level =
 					},
 				},
 			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 10,
+		},
+		Named = 
+		{
+			string Name = "ContextButton",
+		},
+		Archetyped = 
+		{
+			string Name = "54a1a36b03f9edca:ContextButton",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [15.4867, 7.86099, 10.7488],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [-0.722008, 0, 0, 0.691885],
+		},
+		ContextButtonManager = 
+		{
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 11,
+				},
+				Named = 
+				{
+					string Name = "Button",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1.06672, 0.224174, 1.06672],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "5481b84e008be766:mat_gradient",
+					string MeshName = "54a1a33a13959b79:Button.Button",
+					Vec4 Color = [0.5075, 1, 0.015, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 12,
+				},
+				Named = 
+				{
+					string Name = "ButtonBorder",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1.08798, 0.182324, 1.08798],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "5481b84e008be766:mat_gradient",
+					string MeshName = "54a1a33a13959b7d:Button.ButtonBorder",
+					Vec4 Color = [0.05764, 0.08, 0.054, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 13,
+				},
+				Named = 
+				{
+					string Name = "ButtonText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0.522718, 0],
+					Vec3 Scale = [5, 5, 5],
+					Quat Rotation = [-0.707107, 0, 0, 0.707107],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					TextPositionMode Position = Centered,
+					string FontName = "54a1a5a3fbbefcbd:Paragon Cleaners Black",
+					uint FontSize = 30,
+					string Text = "Tongue",
+					bool OnTop = true,
+					Vec2 Size = [0, 0],
+					TextAlign Align = Center,
+					float PixelsPerUnit = 200,
+					bool Smoothing = true,
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 14,
+						},
+						Named = 
+						{
+							string Name = "ButtonTextShadow",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0.00999999, -0.00999999, -0.01987],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [-2.36556e-007, 0, 0, 1],
+						},
+						SpriteText = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							Vec4 Color = [0, 0, 0, 1],
+							BlendMode BlendMode = Alpha,
+							SpriteGeometryMode GeometryMode = ZPlane,
+							string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+							TextPositionMode Position = Centered,
+							string FontName = "54a1a5a3fbbefcbd:Paragon Cleaners Black",
+							uint FontSize = 30,
+							string Text = "Tongue",
+							bool OnTop = false,
+							Vec2 Size = [0, 0],
+							TextAlign Align = Center,
+							float PixelsPerUnit = 200,
+							bool Smoothing = true,
+						},
+						MatchParentText = 
+						{
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 15,
+						},
+						Named = 
+						{
+							string Name = "ButtonTextShadow",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-0.0118834, -0.00999999, -0.01987],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [-2.36556e-007, 0, 0, 1],
+						},
+						SpriteText = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							Vec4 Color = [0, 0, 0, 1],
+							BlendMode BlendMode = Alpha,
+							SpriteGeometryMode GeometryMode = ZPlane,
+							string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+							TextPositionMode Position = Centered,
+							string FontName = "54a1a5a3fbbefcbd:Paragon Cleaners Black",
+							uint FontSize = 30,
+							string Text = "Tongue",
+							bool OnTop = false,
+							Vec2 Size = [0, 0],
+							TextAlign Align = Center,
+							float PixelsPerUnit = 200,
+							bool Smoothing = true,
+						},
+						MatchParentText = 
+						{
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 16,
+						},
+						Named = 
+						{
+							string Name = "ButtonTextShadow",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-0.0118834, 0.00483448, -0.0192376],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [-2.36556e-007, 0, 0, 1],
+						},
+						SpriteText = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							Vec4 Color = [0, 0, 0, 1],
+							BlendMode BlendMode = Alpha,
+							SpriteGeometryMode GeometryMode = ZPlane,
+							string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+							TextPositionMode Position = Centered,
+							string FontName = "54a1a5a3fbbefcbd:Paragon Cleaners Black",
+							uint FontSize = 30,
+							string Text = "Tongue",
+							bool OnTop = false,
+							Vec2 Size = [0, 0],
+							TextAlign Align = Center,
+							float PixelsPerUnit = 200,
+							bool Smoothing = true,
+						},
+						MatchParentText = 
+						{
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 17,
+						},
+						Named = 
+						{
+							string Name = "ButtonTextShadow",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0.00993762, 0.00469613, -0.0192435],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [-2.36556e-007, 0, 0, 1],
+						},
+						SpriteText = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							Vec4 Color = [0, 0, 0, 1],
+							BlendMode BlendMode = Alpha,
+							SpriteGeometryMode GeometryMode = ZPlane,
+							string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+							TextPositionMode Position = Centered,
+							string FontName = "54a1a5a3fbbefcbd:Paragon Cleaners Black",
+							uint FontSize = 30,
+							string Text = "Tongue",
+							bool OnTop = false,
+							Vec2 Size = [0, 0],
+							TextAlign Align = Center,
+							float PixelsPerUnit = 200,
+							bool Smoothing = true,
+						},
+						MatchParentText = 
+						{
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 18,
+						},
+						Named = 
+						{
+							string Name = "ButtonTextShadow",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0.00993762, 0.0129981, -0.0188896],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [-2.36556e-007, 0, 0, 1],
+						},
+						SpriteText = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							Vec4 Color = [0, 0, 0, 1],
+							BlendMode BlendMode = Alpha,
+							SpriteGeometryMode GeometryMode = ZPlane,
+							string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+							TextPositionMode Position = Centered,
+							string FontName = "54a1a5a3fbbefcbd:Paragon Cleaners Black",
+							uint FontSize = 30,
+							string Text = "Tongue",
+							bool OnTop = false,
+							Vec2 Size = [0, 0],
+							TextAlign Align = Center,
+							float PixelsPerUnit = 200,
+							bool Smoothing = true,
+						},
+						MatchParentText = 
+						{
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 19,
+						},
+						Named = 
+						{
+							string Name = "ButtonTextShadow",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-0.0118834, 0.0131365, -0.0188837],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [-2.36556e-007, 0, 0, 1],
+						},
+						SpriteText = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							Vec4 Color = [0, 0, 0, 1],
+							BlendMode BlendMode = Alpha,
+							SpriteGeometryMode GeometryMode = ZPlane,
+							string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+							TextPositionMode Position = Centered,
+							string FontName = "54a1a5a3fbbefcbd:Paragon Cleaners Black",
+							uint FontSize = 30,
+							string Text = "Tongue",
+							bool OnTop = false,
+							Vec2 Size = [0, 0],
+							TextAlign Align = Center,
+							float PixelsPerUnit = 200,
+							bool Smoothing = true,
+						},
+						MatchParentText = 
+						{
+						},
+					},
+				},
+			},
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54a18aa838278161:FlowerHealth",
+		LinkId = 
+		{
+			uint Id = 20,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-14.3223, 7.59676, 10.7488],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "FlowerHealth",
 		},
 	},
 },
