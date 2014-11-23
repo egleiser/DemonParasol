@@ -75,20 +75,20 @@ class TextScrollManager : ZilchComponent
         
         Actions.Delay(this.TextSeq, this.TextDelay);
         Actions.Call(this.TextSeq, this.TextScroll);
-        this.ParticleScroll(this.CurrentIndex);
+        //this.ParticleScroll(this.CurrentIndex);
     }
     
-    function ParticleScroll(currentCharacterIndex:Integer)
-    {
-        var particle:Cog = this.Space.FindObjectByName("TextBoxParticle");
+    //function ParticleScroll(currentCharacterIndex:Integer)
+    //{
+    //    var particle:Cog = this.Space.FindObjectByName("TextBoxParticle");
         
-        var currentCharacterPosition:Real3 = this.Owner.SpriteText.GetCharacterPosition(currentCharacterIndex);
-        Console.WriteLine("Pos: `currentCharacterPosition`");
+    //    var currentCharacterPosition:Real3 = this.Owner.SpriteText.GetCharacterPosition(currentCharacterIndex);
+    //    Console.WriteLine("Pos: `currentCharacterPosition`");
         //currentCharacterPosition = this.Owner.Transform.TransformPoint(currentCharacterPosition);
         
         //particle.SpriteParticleSystem.Visible = true;
-        particle.Transform.Translation = currentCharacterPosition;// = Math.Lerp(particle.Transform.Translation, currentCharacterPosition, 1.0);
-    }
+        //particle.Transform.Translation = currentCharacterPosition;// = Math.Lerp(particle.Transform.Translation, currentCharacterPosition, 1.0);
+    //}
 }
     
     //    Console.WriteLine("TextScrollEvent");
