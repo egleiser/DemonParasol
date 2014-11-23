@@ -1,0 +1,25 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BridgeCollisionMesh",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		string MaterialName = "544380cb7820af93:lambert1",
+		string MeshName = "5418bf46b60f40d0:BridgeCollisionMesh",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+},
