@@ -11,13 +11,21 @@ class BirdController : ZilchComponent
     var TargetObject : Cog = null;
     
     [Property]
+    var AttackTriggerDistance : Real = 0.0;
+    
+    [Property]
     var AttackSpeed : Real = 0.0;
+    
+    [Property]
+    var DeathArchetype : Archetype = null;
     
     var IdleRotation : Quaternion = Quaternion(0,0,0,0);
     
     var AttackDirection : Real3 = Real3(0,0,0);
     var AttackDistanceFromTarget : Real = 0.0;
     var AttackRotation : Quaternion = Quaternion(0,0,0,0);
+    
+    var OriginalPosition : Real3 = Real3(0,0,0);
     
     
     function Initialize(init : CogInitializer)
@@ -30,7 +38,12 @@ class BirdController : ZilchComponent
    
     function OnLogicUpdate(event : UpdateEvent)
     {
-        
+        this.CalculateAttackDirectionAndDistance();
+        if(this.AttackDistanceFromTarget <= this.AttackTriggerDistance)
+        {
+            this.Owner.Parent.AnimationGraph.Active = false;
+            this.Attack(event);
+        }
     }
     
     function Attack(event : UpdateEvent)
@@ -52,6 +65,11 @@ class BirdController : ZilchComponent
         var otherObject = event.OtherObject;
         if(otherObject.Name == this.TargetObject.Name)
         {
+            var pos = this.Owner.Transform.Translation;
+            for(var i:Integer = 0; i < 25; ++i)
+            {
+                this.Space.CreateAtPosition(this.DeathArchetype, pos);
+            }
             this.Owner.Destroy();
         }
     }

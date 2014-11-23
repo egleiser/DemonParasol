@@ -48,6 +48,7 @@ class EnemyAI_Manager : ZilchComponent
     //or Running Away (and probably more when more AI is written)
     var RunningAway : Boolean = false;
     var Warning : Boolean = false;
+    var Lunging : Boolean = false;
     
     function Initialize(init : CogInitializer)
     {
@@ -69,10 +70,10 @@ class EnemyAI_Manager : ZilchComponent
             {
                 this.HasRunAway = true;
             }
-            //if(this.Owner.Lunge != null)
-            //{
-            //    this.HasLunge = true;
-            //}
+            if(this.Owner.LungeAndHeadbutt != null)
+            {
+                this.HasLunge = true;
+            }
         }
             
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -88,6 +89,7 @@ class EnemyAI_Manager : ZilchComponent
         //to the distance values set in the properties of the enemy.
         this.TargetIsWithinWarnRange = (this.CalcDistanceBetweenEnemyAndTarget() <= this.WarningDistanceTrigger);
         this.TargetIsWithinRunAwayRange = (this.CalcDistanceBetweenEnemyAndTarget() <= this.RunningAwayDistanceTrigger);
+        this.TargetIsWithinLungeRange = (this.CalcDistanceBetweenEnemyAndTarget() <= this.LungeDistanceTrigger);
         
         //Conditional check set for Warning or not (if not warning and not running, then patrols)
         if(this.HasWarning && this.TargetIsWithinWarnRange && !this.RunningAway)
@@ -106,6 +108,17 @@ class EnemyAI_Manager : ZilchComponent
             this.Warning = false;
         }
         
+        if(this.HasLunge && this.TargetIsWithinLungeRange)
+        {
+            this.Lunging = true;
+            this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.CalcEnemyRotationTowardsPlayer(), 0.3);
+            this.Owner.LungeAndHeadbutt.ChooseAttackType(event);
+        }
+        else
+        {
+            this.Lunging = false;
+        }
+        
         //Conditional check if values are right for running away
         if(this.HasRunAway && this.TargetIsWithinRunAwayRange && !this.RunningAway)
         {
@@ -113,6 +126,7 @@ class EnemyAI_Manager : ZilchComponent
             //itself onces it hits the run away trigger distance (see if condition directly below)
             this.RunningAway = true;
         }
+        
        
         //Conditional check set for running away, patrolling, and for setting running away boolean back to false
         if(this.RunningAway)
@@ -131,7 +145,7 @@ class EnemyAI_Manager : ZilchComponent
             }
         }
         //If the enemy is neither running away or warning, then patrol
-        else if(this.HasPatrol && !this.RunningAway && !this.Warning)
+        else if(this.HasPatrol && !this.RunningAway && !this.Warning && !this.Lunging)
         {
             //Calls the Pacing function from the Patrol script
             this.Owner.Patrol.PaceBackAndForth(event);

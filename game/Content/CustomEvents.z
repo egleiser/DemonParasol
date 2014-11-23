@@ -92,11 +92,17 @@ class HUDLetterboxEvent : Event
 }
 class TextBoxEvent : Event
 {
+    //Distance the text box will move on screen
     var DistanceOnScreen : Real = 0.0;
+    //The time it takes for the text box to move on and off the screen
     var InOutTime : Real = 0.0;
+    //The ease curve applied to the action moving the text box on and off teh screen
     var EaseCurve : Ease = Ease.QuadOut;
+    //The opacity of the text box
     var Opacity : Real = 0.0;
+    //The time for the opacity to change
     var OpacityTimeIn : Real = 0.0;
+    //The ease for the opacity to change applied to the action
     var OpacityEase : Ease = Ease.Linear;
 }
 class TextScrollEvent : Event

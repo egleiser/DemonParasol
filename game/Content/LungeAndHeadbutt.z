@@ -1,34 +1,24 @@
-/*//////////////////////////////////////////////////////////////////////////////////////////////////////////
-//SCRIPT-Z_EnemyController.z
-//AUTHOR-Travis Moore
-//COURSE-GAM205
-//COPYRIGHT-© 2014 DigiPen, All Rights Reserved.
-//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-
-class Z_EnemyController:ZilchComponent
+class LungeAndHeadbutt : ZilchComponent
 {
     //DEPENDENCIES
     [Dependency]
     var Orientation : Orientation = null;
     
-    //ATTACK PROPERTIES
     [Property]
     var TargetObjectPath:CogPath = null;
-    [Property]
-    var TargetDetectionRange:Real = 30.0;
-    [Property]
-    var MaxAttackRange:Real = 15.0;
     [Property]
     var MaxAttacks:Integer = 1;
     [Property]
     var AttackTimeout:Real = 300.0; //miliseconds
-    //non-settable properties
-    var TargetObject:Cog = null;
-    var TargetDirection:Real3 = Real3();
-    var TargetDistance:Real = Real();
+    
+    
     var OriginalPosition:Real3 = Real3();
     var MushroomRotation:Quaternion = Quaternion();
     var AttackTimer:Real = 0.0;
+    
+    var TargetObject:Cog = null;
+    var TargetDirection:Real3 = Real3();
+    var TargetDistance:Real = Real();
     
     //LUNGE PROPERTIES
     [Property]
@@ -50,21 +40,14 @@ class Z_EnemyController:ZilchComponent
     //non-settable properies
     var UpsideDownRotation:Quaternion = Quaternion();
     
-    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCTION-Initialize
-    //EXPLANATION-Initialize variables/functions so that we can use them
-    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    function Initialize(init:CogInitializer)
+    function Initialize(init : CogInitializer)
     {
-        //set the target of the enemy
-        //this.TargetObject = this.TargetObjectPath.Cog;
-        
-        //set the OriginalPosition of this object
-        this.OriginalPosition = this.Owner.Transform.Translation;
-        
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        
+        this.OriginalPosition = this.Owner.Transform.Translation;
     }
+    
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCTION-OnCollisionStarted
     //EXPLANATION-Initialize variables/functions so that we can use them
@@ -82,52 +65,9 @@ class Z_EnemyController:ZilchComponent
         }
     }
     
-    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCTION-OnLogicUpdate
-    //EXPLANATION-Update every frame, perform actions of the enemy
-    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    function OnLogicUpdate(event:UpdateEvent):Void
+
+    function OnLogicUpdate(event : UpdateEvent)
     {
-        //do we have a target?
-        if(this.TargetObject != null)
-        {
-            //call function to get distance/direction
-            this.GetDistanceAndDirectionToTarget();
-            
-            //enemy in detection range?
-            if(this.TargetDistance <= this.TargetDetectionRange)
-            {
-                //rotate the enemy
-                this.RotateTowardsTarget(event);
-                //DEBUG
-                //Console.WriteLine("`this.TargetObject` in range");
-                
-                //can we attack yet?
-                if(this.AttackTimer >= this.AttackTimeout)
-                {
-                    //DEBUG
-                    //Console.WriteLine("I can attack!");
-                    
-                    //enemy at lunge range?
-                    if(this.TargetDistance <= this.MaxAttackRange)
-                    {
-                        //choose an attack
-                        this.ChooseAttackType(event);
-                        
-                        //DEBUG
-                        //Console.WriteLine("Attacking!");
-                        
-                        //reset AttackTimer
-                        this.AttackTimer = 0.0;
-                    }
-                }
-                
-            }
-            //increment AttackTimer
-            ++this.AttackTimer;
-            //DEBUG FOR LOCATION IN WORLD SPACE
-            //Console.WriteLine("Where we are: `this.Owner.Transform.Translation`");
-        }
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -211,34 +151,5 @@ class Z_EnemyController:ZilchComponent
                         false,
                         0.25,
                         Ease.QuadOut);
-    }
-    
-    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCTION-DistanceToTarget
-    //EXPLANATION-Calculates the distance/direction between this enemy and the target object
-    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    function GetDistanceAndDirectionToTarget():Void
-    {
-        var playerPos = this.TargetObject.Transform.Translation;
-        var enemyPos = this.Owner.Transform.Translation;
-        
-        //enemy - player
-        this.TargetDirection = enemyPos - playerPos;
-        //length
-        this.TargetDistance = Math.Length(this.TargetDirection);
-        //normalize
-        this.TargetDirection = Math.Normalize(this.TargetDirection);
-    }
-    
-    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCTION-RotateTowardsTarget
-    //EXPLANATION-Calculates the distance/direction between this enemy and the target object
-    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    function RotateTowardsTarget(event:UpdateEvent):Void
-    {
-        //store rotation
-        this.MushroomRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.TargetDirection, Real3(0,0,1));
-        //perform rotation through slerping
-        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.MushroomRotation, 0.1);
     }
 }

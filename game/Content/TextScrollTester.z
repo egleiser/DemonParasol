@@ -14,6 +14,21 @@ class TextScrollTester : ZilchComponent
             var levelSettings = this.Space.LevelSettings;
             var textBoxTest = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBoxText");
             textBoxTest.DispatchEvent("textScrollEvent", textScrollEvent);
+            
+            var textScrollEvent2 = new TextScrollEvent();
+            var textBlock = TextBlock.Find("TestTextBlock");
+            textScrollEvent.TextToWrite = textBlock;
+            textBoxTest.DispatchEvent("textScrollEvent", textScrollEvent2);
+            
+        }
+        if(Zero.Keyboard.KeyIsPressed(Keys.J))
+        {
+            var textScrollEvent = new TextScrollEvent();
+            var levelSettings = this.Space.LevelSettings;
+            var textBoxTest = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBoxText");
+            var textBlock = TextBlock.Find("TestTextBlock");
+            textScrollEvent.TextToWrite = textBlock;
+            textBoxTest.DispatchEvent("textScrollEvent", textScrollEvent);
         }
     }
 }
