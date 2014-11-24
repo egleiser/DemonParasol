@@ -1,0 +1,135 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "FamilyHouse",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "pCube1",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [9.8523, 9.8523, 19.9481],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "polySurface1",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 4,
+							},
+							Named = 
+							{
+								string Name = "polySurface4",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							Model = 
+							{
+								bool Visible = true,
+								bool VisibilityCulling = true,
+								string MaterialName = "544380cb7820af93:lambert1",
+								string MeshName = "54064da2957dfbfc:FamilyHouse.polySurface4",
+								Vec4 Color = [1, 1, 1, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 5,
+					},
+					Named = 
+					{
+						string Name = "polySurface2",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 1, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						string MaterialName = "544380cb7820af93:lambert1",
+						string MeshName = "54064da2957dfc02:FamilyHouse.polySurface2",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "polySurface5",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "544380cb7820af93:lambert1",
+				string MeshName = "54064da2957dfc04:FamilyHouse.polySurface5",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+	},
+},

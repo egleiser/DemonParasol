@@ -20,10 +20,11 @@ Cog =
 	},
 	SkinnedModel = 
 	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
 		string Material = "4de020863e85bb61:DefaultMaterial",
 		string Mesh = "5481552a36e3aa3a:ThornArm",
 		Vec4 Color = [1, 1, 1, 1],
-		bool Visible = true,
 	},
 	AnimationGraph = 
 	{
@@ -31,12 +32,7 @@ Cog =
 		AnimPlayMode PlayMode = PlayOnce,
 		float TimeScale = 1,
 		string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
-		uint64 DebugPreviewId = 6f6d206172656d61,
-<<<<<<< .mine
 		uint64 DebugPreviewId = 206e6f6974636e75,
-=======
-		uint64 DebugPreviewId = 0000000000000000,
->>>>>>> .theirs
 	},
 	SimpleAnimation = 
 	{

@@ -8,11 +8,15 @@ Cog =
 	{
 		string Name = "Bridge",
 	},
+	Archetyped = 
+	{
+		string Name = "5418421c335bd3b2:Bridge",
+	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Translation = [197.153, 215.113, -0.508075],
+		Vec3 Scale = [0.15, 0.15, 0.15],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
 	},
 	Hierarchy = 
 	{
@@ -24,7 +28,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "pCylinder1",
+				string Name = "BridgeWood",
 			},
 			Transform = 
 			{
@@ -36,9 +40,22 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				string MaterialName = "543c8f5dc0f6f2be:lambert3",
+				string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 				string MeshName = "5418421d33706eef:Bridge.pCylinder1",
-				Vec4 Color = [1, 1, 1, 1],
+				Vec4 Color = [0.23, 0.17112, 0.0828, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "540595a1324d4c74:BridgeCollisionMesh",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
 			},
 		},
 		Cog = 
@@ -49,7 +66,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "polySurface222",
+				string Name = "BridgeFenceFront",
 			},
 			Transform = 
 			{
@@ -61,9 +78,9 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				string MaterialName = "543c8f5dc0f6013e:lambert2",
+				string MaterialName = "542f98932dfed31c:mat_Ramp",
 				string MeshName = "5418421d33706ef4:Bridge.polySurface222",
-				Vec4 Color = [1, 1, 1, 1],
+				Vec4 Color = [0.645, 0.1032, 0.1032, 1],
 			},
 		},
 		Cog = 
@@ -74,21 +91,115 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "polySurface223",
+				string Name = "BridgeFenceBack",
 			},
 			Transform = 
 			{
 				Vec3 Translation = [0, 0, 0],
 				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, -0, 1, -6.12323e-017],
+				Quat Rotation = [-4.37114e-008, 1, -4.37114e-008, 1.91069e-015],
 			},
 			Model = 
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				string MaterialName = "543c8f5dc0f6013e:lambert2",
+				string MaterialName = "542f98932dfed31c:mat_Ramp",
 				string MeshName = "5418421d33706ef6:Bridge.polySurface223",
+				Vec4 Color = [0.65, 0.104, 0.104, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "Front",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.262962, 15.2933, 38.6966],
+				Vec3 Scale = [161.718, 3.40752, 33.3333],
+				Quat Rotation = [-0.707107, 0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				string MaterialName = "54354a3358ccba15:blinn1",
+				string MeshName = "4de0354322b345ae:Cube",
 				Vec4 Color = [1, 1, 1, 1],
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = true,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			BoxCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				Vec3 Size = [0.5, 0.5, 0.5],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "Back",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.267479, 15.2933, -38.5852],
+				Vec3 Scale = [161.718, 3.40752, 33.3333],
+				Quat Rotation = [-0.707107, 0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				string MaterialName = "54354a3358ccba15:blinn1",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = true,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			BoxCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				Vec3 Size = [0.5, 0.5, 0.5],
 			},
 		},
 	},

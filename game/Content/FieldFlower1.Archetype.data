@@ -38,10 +38,11 @@ Cog =
 			},
 			Model = 
 			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
 				string MaterialName = "4de020863e85bb61:DefaultMaterial",
 				string MeshName = "5481bc2945b689a4:FieldFlower1.FieldFlower_Petals001",
 				Vec4 Color = [1, 1, 1, 1],
-				bool Visible = true,
 			},
 		},
 		Cog = 
@@ -62,10 +63,11 @@ Cog =
 			},
 			Model = 
 			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
 				string MaterialName = "4de020863e85bb61:DefaultMaterial",
 				string MeshName = "5481bc2945b689a8:FieldFlower1.FieldFlower_Stem",
 				Vec4 Color = [1, 1, 1, 1],
-				bool Visible = true,
 			},
 		},
 	},

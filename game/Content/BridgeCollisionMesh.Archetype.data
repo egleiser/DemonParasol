@@ -8,6 +8,10 @@ Cog =
 	{
 		string Name = "BridgeCollisionMesh",
 	},
+	Archetyped = 
+	{
+		string Name = "540596fe52faba97:BridgeCollisionMesh",
+	},
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
@@ -19,7 +23,20 @@ Cog =
 		bool Visible = true,
 		bool VisibilityCulling = true,
 		string MaterialName = "544380cb7820af93:lambert1",
-		string MeshName = "5418bf46b60f40d0:BridgeCollisionMesh",
+		string MeshName = "540596fe52e03e46:BridgeCollisionMesh",
 		Vec4 Color = [1, 1, 1, 1],
+	},
+	MeshCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		string PhysicsMeshName = "540595a1324d4c74:BridgeCollisionMesh",
+		bool DrawEdges = true,
+		bool DrawFaces = false,
+		bool DrawFaceNormals = false,
 	},
 },
