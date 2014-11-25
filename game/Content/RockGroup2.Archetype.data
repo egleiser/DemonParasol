@@ -1,0 +1,74 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "RockGroup2",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [239.456, 300.453, 0.654561],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		ArchetypeInstance = 
+		{
+			string Name = "5481b30411f6b027:Rock3",
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.869034, 2.49872, -0.174858],
+				Vec3 Scale = [3.9645, 3.9645, 3.9645],
+				Quat Rotation = [0, 0, 0.791878, 0.610679],
+			},
+			Named = 
+			{
+				string Name = "Rock3",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b30411f6b027:Rock3",
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-2.02605, -2.06348, -0.174858],
+				Vec3 Scale = [3.9645, 3.9645, 3.9645],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Rock3",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "5481b31f137468a7:Rock2",
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [1.15703, -0.435272, 0.349716],
+				Vec3 Scale = [3.12113, 3.12113, 3.12113],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Rock2",
+			},
+		},
+	},
+},

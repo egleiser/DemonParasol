@@ -8,213 +8,22 @@ Cog =
 	{
 		string Name = "DogFirstPass",
 	},
+	Archetyped = 
+	{
+		string Name = "542a2880f786dfa5:DogFirstPass",
+	},
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
-	Hierarchy = 
+	Model = 
 	{
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 2,
-			},
-			Named = 
-			{
-				string Name = "Body",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [-3.33067e-016, 1.93462, 0],
-				Vec3 Scale = [2.80371, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Model = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				string MaterialName = "543c8f5dc0f69090:lambert5",
-				string MeshName = "542a2a2f54a4394a:DogFirstPass.Body",
-				Vec4 Color = [1, 1, 1, 1],
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 3,
-			},
-			Named = 
-			{
-				string Name = "FrontRight",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [-2.22045e-016, 0, 0],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Model = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				string MaterialName = "542a2a2f54ad82b5:DogFirstPassFrontRightMulti",
-				string MeshName = "542a2a2f54a43953:DogFirstPass.FrontRight",
-				Vec4 Color = [1, 1, 1, 1],
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 4,
-			},
-			Named = 
-			{
-				string Name = "HindLeft",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [-3.33067e-016, 0, 0],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, -0, 1, -6.12323e-017],
-			},
-			Model = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				string MaterialName = "542a2a2f54addb6a:DogFirstPassHindLeftMulti",
-				string MeshName = "542a2a2f54a43955:DogFirstPass.HindLeft",
-				Vec4 Color = [1, 1, 1, 1],
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 5,
-			},
-			Named = 
-			{
-				string Name = "HindRight",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [-3.33067e-016, 0, 0],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Model = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				string MaterialName = "542a2a2f54addb6a:DogFirstPassHindLeftMulti",
-				string MeshName = "542a2a2f54a43957:DogFirstPass.HindRight",
-				Vec4 Color = [1, 1, 1, 1],
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 6,
-			},
-			Named = 
-			{
-				string Name = "Tail",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [8.43769e-015, 2.37964, 7.88861e-031],
-				Vec3 Scale = [0.246342, 0.246342, 0.246342],
-				Quat Rotation = [0, 0, 0.406231, 0.91377],
-			},
-			Model = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				string MaterialName = "543c8f5dc0f66121:lambert6",
-				string MeshName = "542a2a2f54a43959:DogFirstPass.Tail",
-				Vec4 Color = [1, 1, 1, 1],
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 7,
-			},
-			Named = 
-			{
-				string Name = "Mane",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [-5.10703e-015, 2.25076, 0],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0.116884, 0.993146],
-			},
-			Model = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				string MaterialName = "543c8f5dc0f6013e:lambert2",
-				string MeshName = "542a2a2f54a4395b:DogFirstPass.Mane",
-				Vec4 Color = [1, 1, 1, 1],
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 8,
-			},
-			Named = 
-			{
-				string Name = "Head",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [2.62013e-014, 2.64838, 0],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, -0, -0.0146361, 0.999893],
-			},
-			Model = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				string MaterialName = "542a2a2f54ac0700:DogFirstPassHeadMulti",
-				string MeshName = "542a2a2f54a4395d:DogFirstPass.Head",
-				Vec4 Color = [1, 1, 1, 1],
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 9,
-			},
-			Named = 
-			{
-				string Name = "FrontLeft",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [-2.22045e-016, 0, 0],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, -0, 1, -6.12323e-017],
-			},
-			Model = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				string MaterialName = "542a2a2f54ad82b5:DogFirstPassFrontRightMulti",
-				string MeshName = "542a2a2f54a4395f:DogFirstPass.FrontLeft",
-				Vec4 Color = [1, 1, 1, 1],
-			},
-		},
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		string MaterialName = "542a2a744e33eb7b:DogFirstPassRootNodeMulti",
+		string MeshName = "542a2880f78b1d8b:DogFirstPass",
+		Vec4 Color = [1, 1, 1, 1],
 	},
 },

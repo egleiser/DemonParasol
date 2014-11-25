@@ -14,9 +14,21 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [243.933, 178.274, 3.50145],
-		Vec3 Scale = [1.82088, 1.82088, 1.82088],
-		Quat Rotation = [0.694899, -0.130826, -0.130826, 0.694899],
+		Vec3 Translation = [18.6289, 3.71813, -0.674732],
+		Vec3 Scale = [2, 2, 2],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+	},
+	CylinderCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 3, 0],
+		float Radius = 1,
+		float Height = 6,
+		uint Direction = 1,
 	},
 	Hierarchy = 
 	{
@@ -40,9 +52,9 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				string MaterialName = "543831f6e6ba5fd3:mat_Tree",
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 				string MeshName = "5481b8fc1f1fcd88:BasicTree.BasicTree_Trunk",
-				Vec4 Color = [1, 1, 1, 1],
+				Vec4 Color = [0.27, 0.10719, 0.027, 1],
 			},
 		},
 		Cog = 
@@ -65,9 +77,9 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				string MaterialName = "5402dc5f32131156:mat_MountainTreeLeaves",
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 				string MeshName = "5481b8fc1f1fcd8d:BasicTree.BasicTree_Leaves",
-				Vec4 Color = [0.0738, 0.18, 0.08442, 1],
+				Vec4 Color = [0.88, 0.4928, 0.7832, 1],
 			},
 		},
 	},
