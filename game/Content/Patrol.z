@@ -1,0 +1,73 @@
+class Patrol : ZilchComponent
+{
+    [Dependency]
+    var Orientation : Orientation = null;
+    
+    [Property]
+    var PaceDirection : Real3 = Real3(0,0,0);
+    
+    [Property]
+    var PaceSpeed : Real = 0.0;
+    
+    [Property]
+    var MaxMoveDistance : Real = 0.0;
+    
+    [Property]
+    var PaceColor : Real4 = Real4(0,0,0,0);
+    
+    var PaceRotation : Quaternion = Quaternion(0,0,0,0);
+    
+    var StartPosition : Real3 = Real3(0,0,0);
+    
+    var IsRunning : Boolean = false;
+    
+    var RunRange : Boolean = false;
+
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.StartPosition = this.Owner.Transform.Translation;
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.PaceBackAndForth(event);
+    }
+    
+    function PaceBackAndForth(event : UpdateEvent)
+    {
+        
+        //Creates a displacement vector to get the length of the pace
+        var displacement : Real3 = Real3(0,0,0);
+        //Sets the displacement vector from the start position
+        displacement = this.Owner.Transform.Translation - this.StartPosition;
+        
+        //Variable to keep track of the distance from the start
+        var distanceFromStart : Real = 0.0;
+        //Sets this distance by getting the length from the displacement vector
+        distanceFromStart = Math.Length(displacement);
+        
+        //Checks if the dog has moved farther away from the start than the MaxMoveDistance
+        //set in the properties
+        if(distanceFromStart >= this.MaxMoveDistance)
+        {
+            //If so, sets the pace direction to the opposite of the displacement vector
+            this.PaceDirection = -displacement;
+        }
+        
+        //Normalizes the PaceDirection variable so it can be used as a direction
+        this.PaceDirection = Math.Normalize(this.PaceDirection);
+        
+        //Moves the dog according to its current PaceDirection, over time that is multiplied by
+        //a speed value set in the properties
+        this.Owner.RigidBody.Velocity = this.PaceDirection * this.PaceSpeed;
+        
+        //Sets the PaceRotation variable, which is used to rotate teh dog towards the direction
+        //it's currently facing, using Orientation and the PaceDirection variable
+        this.PaceRotation = this.Orientation.GetLookAtDirectionWithUpRotation(this.PaceDirection, Real3(0,0,1));
+        //Slerps the dog's rotation to reflect its new rotation
+        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.PaceRotation, 3.5 * event.Dt);
+    }
+}
