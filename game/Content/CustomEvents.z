@@ -92,6 +92,8 @@ class HUDLetterboxEvent : Event
 }
 class TextBoxEvent : Event
 {
+    //Sprite source fo the Text Box
+    var TextBoxSpriteSource : SpriteSource = null;
     //Distance the text box will move on screen
     var DistanceOnScreen : Real = 0.0;
     //The time it takes for the text box to move on and off the screen

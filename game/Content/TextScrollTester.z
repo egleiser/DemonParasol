@@ -8,17 +8,16 @@ class TextScrollTester : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        var textBlockInfo = this.Space.FindObjectByName("TestTextBlockInfo");
+        
         if(Zero.Keyboard.KeyIsPressed(Keys.H))
         {
             var textScrollEvent = new TextScrollEvent();
             var levelSettings = this.Space.LevelSettings;
             var textBoxTest = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBoxText");
-            textBoxTest.DispatchEvent("textScrollEvent", textScrollEvent);
-            
-            var textScrollEvent2 = new TextScrollEvent();
-            var textBlock = TextBlock.Find("TestTextBlock");
+            var textBlock = textBlockInfo.TextBlockInfo.SpeakerTextBlock;
             textScrollEvent.TextToWrite = textBlock;
-            textBoxTest.DispatchEvent("textScrollEvent", textScrollEvent2);
+            textBoxTest.DispatchEvent("textScrollEvent", textScrollEvent);
             
         }
         if(Zero.Keyboard.KeyIsPressed(Keys.J))

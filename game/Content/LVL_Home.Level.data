@@ -3371,7 +3371,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "TestTextBlockElieInfo",
+			string Name = "TestTextBlockInfo",
 		},
 		Transform = 
 		{
@@ -3379,9 +3379,12 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		TextBlockElieInfo = 
+		TextBlockInfo = 
 		{
-			string Speakername = "",
+			CogPath SpeakerCogPath = "",
+			string SpeakerName = "Setsuko",
+			string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
+			string SpeakerTextBlock = "545746113a6777f9:SetsukoTestTextBlock",
 		},
 	},
 },
