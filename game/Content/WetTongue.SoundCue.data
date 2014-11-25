@@ -1,10 +1,10 @@
 SoundCue = 
 {
 	SoundPlayMode PlayMode = Single,
-	float Volume = 1,
+	float Volume = 0.71,
 	float VolumeVariation = 0,
 	float Pitch = 0,
-	float PitchVariation = 0,
+	float PitchVariation = 0.3,
 	float MinDistance = 10,
 	float MaxDistance = 10000,
 	float PositionRandomization = 0,
@@ -13,5 +13,22 @@ SoundCue =
 	bool LinearRollOff = true,
 	Array Sounds = 
 	[
+		{
+			string SoundName = "54fc48613dfae0b1:Squish_WetSlime2",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fc48613dfaf177:Squish_WetSlime3",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fc48613dfb013d:Squish_WetSlime4",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fc48613dfb121f:Squish_WetSlime5",
+			float Weight = 1,
+		},
 	],
+	string RolloffCurveName = "",
 },

@@ -1,0 +1,102 @@
+class TextScrollManager : ZilchComponent
+{
+    var GoalString : String = null;
+    var CurrentString : String = null;
+    var CurrentIndex : Integer = 0;
+    
+    var TextDelay : Real = 0.0;
+    var IsPunctuation : Boolean = false;
+    
+    [Property]
+    var PunctuationDelay : Real = 0.1;
+    
+    [Property]
+    var LetterDelay : Real = 0.05;
+    
+    var TextSeq : ActionSet = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, "textScrollEvent", this.OntextScrollEvent);
+    }
+
+    function OntextScrollEvent(event : TextScrollEvent)
+    {
+        if(this.TextSeq != null)
+        {
+            this.TextSeq.Cancel();
+        }
+        
+        this.CurrentIndex = 0;
+        this.CurrentString = null;
+        this.GoalString = event.TextToWrite.Text;
+        
+        this.TextSeq = Action.Sequence(this.Owner.Actions);
+        
+        Actions.Delay(this.TextSeq, this.TextDelay);
+        Actions.Call(this.TextSeq, this.TextScroll);
+        //this.ParticleScroll(this.CurrentIndex);
+    }
+    
+    function TextScroll()
+    {
+        if(this.GoalString == this.CurrentString)
+        {
+            this.TextSeq.Cancel();
+            return;
+        }
+        
+        this.CurrentString = this.GoalString.SubString(0, this.CurrentIndex + 1);
+        
+        var currentCharacterInt:Integer = this.GoalString.Get(this.CurrentIndex);
+        var currentCharacter:String = null;
+        
+        currentCharacter = String.FromChar(currentCharacterInt);
+        
+        this.TextDelay = this.LetterDelay;
+        
+        if(this.IsPunctuation)
+        {
+            this.TextDelay = this.PunctuationDelay;
+            this.IsPunctuation = false;
+        }
+        if(currentCharacter == "." || currentCharacter == "?" || currentCharacter == "!")
+        {
+            this.IsPunctuation = true;
+        }
+        
+        this.CurrentIndex += 1;
+        
+        //this is where the extra screen wrapping code would go
+        
+        this.Owner.SpriteText.Text = this.CurrentString;
+        
+        this.TextSeq = Action.Sequence(this.Owner.Actions);
+        
+        Actions.Delay(this.TextSeq, this.TextDelay);
+        Actions.Call(this.TextSeq, this.TextScroll);
+        this.ParticleScroll(this.CurrentIndex);
+    }
+    
+    function ParticleScroll(currentCharacterIndex:Integer)
+    {
+        var particle:Cog = this.Space.FindObjectByName("TextBoxParticle");
+        
+        var currentCharacterPosition:Real3 = this.Owner.SpriteText.GetCharacterPosition(currentCharacterIndex);
+        Console.WriteLine("Pos: `currentCharacterPosition`");
+        //currentCharacterPosition = this.Owner.Transform.TransformPoint(currentCharacterPosition);
+        
+        //particle.SpriteParticleSystem.Visible = true;
+        particle.Transform.Translation = currentCharacterPosition;// = Math.Lerp(particle.Transform.Translation, currentCharacterPosition, 1.0);
+    }
+}
+    
+    //    Console.WriteLine("TextScrollEvent");
+    //    var seq = Action.Sequence(this.Owner.Actions);
+    //    
+    //    for(var i:Integer = 0; i < event.TextToWrite.Text.Count; ++i)
+    //    {
+    //        Action.Property(seq, @this.Owner.SpriteText.Text, event.TextToWrite.Text.SubString(0, i), 0.1, Ease.Linear);
+    //    }
+    //}
+    //

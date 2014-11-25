@@ -1,0 +1,180 @@
+class EnemyAI_Manager : ZilchComponent
+{
+    //Dependency for the Orientation component
+    [Dependency]
+    var Orientation : Orientation = null;
+    
+    //Set target for Enemy (usually Player)
+    [Property]
+    var TargetObjectPath : CogPath = null;
+    
+    //Properties for Trigger Distances
+    [Property]
+    var WarningDistanceTrigger : Real = 0.0;
+    [Property]
+    var RunningAwayDistanceTrigger : Real = 0.0;
+    [Property]
+    var AttackDistanceTrigger : Real = 0.0;
+    [Property]
+    var DiveBombDistanceTrigger : Real = 0.0;
+    [Property]
+    var LungeDistanceTrigger : Real = 0.0;
+    
+    //Variable for the TargetObject iteself (is set from TargetObjectPath Property below in Initialize)
+    var TargetObject : Cog = null;
+    
+    //Variables used in calculation functions
+    var DirectionVector : Real3 = Real3(0,0,0);
+    var NormalizedDirectionVector : Real3 = Real3(0,0,0);
+    var DistanceBetweenEnemyAndPlayer : Real = 0.0;
+    var EnemyRotationTowardsPlayer : Quaternion = Quaternion(0,0,0,0);
+    var EnemyRotationTowardsObject : Quaternion = Quaternion(0,0,0,0);
+    
+    //Booleans for checking AI components
+    var HasPatrol : Boolean = false;
+    var HasWarning : Boolean = false;
+    var HasRunAway : Boolean = false;
+    var HasAttack : Boolean = false;
+    var HasLunge : Boolean = false;
+    var HasHeadButt: Boolean = false;
+    var HasDiveBomb : Boolean = false;
+    
+    //Booleans for checking is target has breached trigger distances
+    var TargetIsWithinWarnRange : Boolean = false;
+    var TargetIsWithinRunAwayRange : Boolean = false;
+    var TargetIsWithinLungeRange : Boolean = false;
+    
+    //Booleans for checking whether conditions have been met for Warning
+    //or Running Away (and probably more when more AI is written)
+    var RunningAway : Boolean = false;
+    var Warning : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.TargetObject = this.TargetObjectPath.Cog;
+        
+        //These conditionals just check to see whether the enemy has the various
+        //Enemy AI components 
+        if(this.TargetObject != null)
+        {
+            if(this.Owner.Patrol != null)
+            {
+                this.HasPatrol = true;
+            }
+            if(this.Owner.WarnTarget != null)
+            {
+                this.HasWarning = true;
+            }
+            if(this.Owner.RunAwayFromTarget != null)
+            {
+                this.HasRunAway = true;
+            }
+            //if(this.Owner.Lunge != null)
+            //{
+            //    this.HasLunge = true;
+            //}
+        }
+            
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    /*LogicUpdate here is basically checking a number of conditions using the
+    various helper functions I've set up below to decide when to call the
+    various AI functions in their scripts*/
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //These two lines set teh booleans for whether player is within warn or run away triger distances
+        //by checking is the value calculated by the distance helper function below is less than or equal
+        //to the distance values set in the properties of the enemy.
+        this.TargetIsWithinWarnRange = (this.CalcDistanceBetweenEnemyAndTarget() <= this.WarningDistanceTrigger);
+        this.TargetIsWithinRunAwayRange = (this.CalcDistanceBetweenEnemyAndTarget() <= this.RunningAwayDistanceTrigger);
+        
+        //Conditional check set for Warning or not (if not warning and not running, then patrols)
+        if(this.HasWarning && this.TargetIsWithinWarnRange && !this.RunningAway)
+        {
+            //Sets Warning to true so that enemy will no longer patrol
+            this.Warning = true;
+            //Slerps enemy rotation towards player
+            this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.CalcEnemyRotationTowardsPlayer(), 0.3);
+            //Calls the warn function from the WarnTarget script
+            this.Owner.WarnTarget.WarnTarget(event);
+        }
+        //If not within warn range...
+        else
+        {
+            //Sets Warning boolean to false, so that enemy may resume (or start) patrol
+            this.Warning = false;
+        }
+        
+        //Conditional check if values are right for running away
+        if(this.HasRunAway && this.TargetIsWithinRunAwayRange && !this.RunningAway)
+        {
+            //Sets RunningAway boolean to true so that enemy will run away without resetting
+            //itself onces it hits the run away trigger distance (see if condition directly below)
+            this.RunningAway = true;
+        }
+       
+        //Conditional check set for running away, patrolling, and for setting running away boolean back to false
+        if(this.RunningAway)
+        {
+            //Sets rotation of enemy to object its running towards
+            this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.CalcEnemyRotationTowardsObject(), 0.3);
+            //Calls the function to make object run away from run away script
+            this.Owner.RunAwayFromTarget.RunningAwayFromTarget(event);
+            //Sets RunningAway trigger equal to Warn Trigger so that enemy will stop running when reaching warn distance
+            this.RunningAwayDistanceTrigger = this.WarningDistanceTrigger - 0.1;
+            //Check to see if player has met that warn trigger distance, stopping enemy from running
+            if(this.TargetIsWithinWarnRange)
+            {
+                //Sets runnning away boolean to false so that enemy will stop (and/or start patrolling)
+                this.RunningAway = false;
+            }
+        }
+        //If the enemy is neither running away or warning, then patrol
+        else if(this.HasPatrol && !this.RunningAway && !this.Warning)
+        {
+            //Calls the Pacing function from the Patrol script
+            this.Owner.Patrol.PaceBackAndForth(event);
+        }
+    }
+    
+    //Helper function to return direction vector between the enemy and player
+    function DirectionVectorBetweenEnemyAndTarget() : Real3
+    {
+        this.DirectionVector = this.TargetObject.Transform.Translation - this.Owner.Transform.Translation;
+        return this.DirectionVector;
+    }
+    
+    //Helper function to return the NORMALIZED direction vector between the enemy and player
+    function NormalizedDirectionVectorBetweenEnemyAndTarget() : Real3
+    {
+        this.NormalizedDirectionVector = this.TargetObject.Transform.Translation - this.Owner.Transform.Translation;
+        this.NormalizedDirectionVector = Math.Normalize(this.NormalizedDirectionVector);
+        return this.NormalizedDirectionVector;
+    }
+    
+    //Helper function to return the distance between enemy and player
+    function CalcDistanceBetweenEnemyAndTarget() : Real
+    {
+        var directionVector : Real3 = this.DirectionVectorBetweenEnemyAndTarget();
+        this.DistanceBetweenEnemyAndPlayer = Math.Length(directionVector);
+        return this.DistanceBetweenEnemyAndPlayer;
+    }
+    
+    //Helper function to return the rotation quaternion for the enemy to face the player
+    function CalcEnemyRotationTowardsPlayer() : Quaternion
+    {
+        var directionVector : Real3 = this.DirectionVectorBetweenEnemyAndTarget();
+        this.EnemyRotationTowardsPlayer = this.Orientation.GetLookAtDirectionWithUpRotation(directionVector, Real3(0,0,1));
+        return this.EnemyRotationTowardsPlayer;
+    }
+    
+    //Helper function to return the rotation quaternion for the enemy to face the object
+    //it is running away towards
+    function CalcEnemyRotationTowardsObject() : Quaternion
+    {
+        var directionVector : Real3 = this.Owner.RunAwayFromTarget.RunToObject.Transform.Translation - this.Owner.Transform.Translation;
+        this.EnemyRotationTowardsObject = this.Orientation.GetLookAtDirectionWithUpRotation(directionVector, Real3(0,0,1));
+        return this.EnemyRotationTowardsObject;
+    }
+}

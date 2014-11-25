@@ -1,0 +1,128 @@
+class AutoHopper : ZilchComponent
+{
+    [Dependency]
+    var Orientation: Orientation = null;
+    [Dependency]
+    var Transform: Transform = null;
+    [Property]
+    var JumpDistance : Real = 2.0;
+    var Active : Boolean = true;
+    var Jumping : Boolean = false;
+    var JumpForce : Real = 0.0;
+    
+    
+    
+    
+    [Property]
+    var DebugDraw : Boolean = false;
+    [Property]
+    var DebugColorA : Real4 = Real4(0,1,0,0.7);
+    [Property]
+    var DebugColorB : Real4 = Real4(0,1,0,0.7);
+    [Property]
+    var GruntSound : SoundCue = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.Active == true)
+        {
+            var grounded:Boolean = this.DetectGround();
+            var postGrounded:Boolean = this.PostDetectGround();
+
+            
+            if(this.Jumping == false && (!grounded && !postGrounded))
+            {
+                this.Jumping = true;
+                //Play Player Grunt
+                this.Space.SoundSpace.PlayCueAt(this.GruntSound, this.Owner.Transform.Translation);
+                Console.WriteLine("AutoHop! Start:`this.Jumping`");
+                this.JumpForce = 500000;
+                this.Owner.PlayerController.Active = false;
+
+            }
+            
+            if(this.Jumping == true && (grounded && postGrounded))
+            {
+                this.Jumping = false;
+                Console.WriteLine("AutoHop! End:`this.Jumping`");
+                this.JumpForce = 0;
+                this.Owner.PlayerController.Active = true;
+
+            }
+            
+            if(this.Jumping == true)
+            {
+                this.JumpForce *= 0.2;
+                this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * 100 , this.Orientation.WorldUp);
+                this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldUp * event.Dt * this.JumpForce, this.Orientation.WorldForward);
+            }
+        }
+    }
+
+
+    //Detect where the player is standing
+    function DetectGround():Boolean
+    {
+        var rayCast = Ray();
+        rayCast.Start = this.Transform.WorldTranslation + Real3(0,0,2) ;
+        rayCast.Direction = -this.Orientation.LocalUp;
+        var rayDistance = 10.0;
+        var objectHit = this.Space.PhysicsSpace.CastRayFirst(rayCast).ObjectHit;
+        var endPosition = rayCast.Start + rayCast.Direction * rayDistance;
+        if(this.DebugDraw == true)
+        {
+            this.DrawArrow(rayCast.Start, endPosition, this.DebugColorA);
+        }
+        
+        if(objectHit != null && objectHit.RigidBody != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
+        
+
+    }
+    //Detect infront of the player
+    function PostDetectGround():Boolean
+    {
+        var rayCast = Ray();
+        rayCast.Start = this.Transform.WorldTranslation + (Real3(1,1,0) * this.Orientation.WorldForward);
+        rayCast.Direction = -this.Orientation.LocalUp;
+        var rayDistance = 10.0;
+        var objectHit = this.Space.PhysicsSpace.CastRayFirst(rayCast).ObjectHit;
+        
+        var endPosition = rayCast.Start + rayCast.Direction * rayDistance;
+        if(this.DebugDraw == true)
+        {
+            this.DrawArrow(rayCast.Start, endPosition, this.DebugColorB);
+        }
+        if(objectHit != null && objectHit.RigidBody != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+    function DrawArrow(startPos : Real3, endPos : Real3, arrowColor : Real4)
+    {
+        var line = DebugLine();
+        line.Start(startPos);
+        line.End(endPos);
+        line.HeadSize(0.25);
+        line.Float4Color(arrowColor);
+        line.OnTop(false);
+        line.Draw();
+    }
+}

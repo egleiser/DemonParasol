@@ -1,0 +1,34 @@
+class DungeonSoundManager : ZilchComponent
+{
+    [Property]
+    var MasterVolume: Real = 0.5;
+    var MusicNormal: Cog = null;
+    var MusicEnemy: Cog = null;
+    var EnemyList: Array[Cog] = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.MusicNormal = this.Owner.FindChildByName("BGMNormal");
+        this.MusicEnemy = this.Owner.FindChildByName("BGMEnemy");
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.MusicNormal.SoundEmitter.Volume = 0.001;
+        this.MusicEnemy.SoundEmitter.Volume = 0.001;
+        this.EnemyList = new Array[Cog]();
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+
+        //Console.WriteLine(this.EnemyList.Count);
+        if(this.EnemyList.Count > 0)
+        {
+            this.MusicNormal.SoundEmitter.Volume = Math.Lerp(this.MusicNormal.SoundEmitter.Volume, 0.0, event.Dt);
+            this.MusicEnemy.SoundEmitter.Volume = Math.Lerp(this.MusicEnemy.SoundEmitter.Volume, this.MasterVolume, event.Dt);
+        }
+        else
+        {
+            this.MusicNormal.SoundEmitter.Volume = Math.Lerp(this.MusicNormal.SoundEmitter.Volume, this.MasterVolume, event.Dt);
+            this.MusicEnemy.SoundEmitter.Volume = Math.Lerp(this.MusicEnemy.SoundEmitter.Volume, 0.0, event.Dt);
+        }
+    }
+}

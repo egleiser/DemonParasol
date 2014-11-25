@@ -1,11 +1,40 @@
 class DebugDrawLineToParent : ZilchComponent
 {
+    [Property]
+    var DrawFrameUpdate: Boolean = true;
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        if(!this.DrawFrameUpdate)
+        {
+            Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        }
+        else
+        {
+            Zero.Connect(this.Space, Events.FrameUpdate, this.OnFrameUpdate);
+        }
     }
 
     function OnLogicUpdate(event : UpdateEvent)
+    {
+        var parentTransform:Real3 = this.Owner.Parent.Transform.WorldTranslation;
+        this.DrawLine(parentTransform, this.Owner.Transform.WorldTranslation, Real4(0.9,0.5,0.5,1.0));
+        this.DrawLine(parentTransform + Real3(0.1,-0.1,0), this.Owner.Transform.WorldTranslation  + Real3(0.1,-0.1,0) , Real4(0.9,0.9,0.9,0.6));
+        this.DrawLine(parentTransform + Real3(-0.1,0.1,0), this.Owner.Transform.WorldTranslation  + Real3(-0.1,0.1,0) , Real4(0.9,0.9,0.9,0.6));
+        this.DrawLine(parentTransform + Real3(-0.1,-0.1,0), this.Owner.Transform.WorldTranslation  + Real3(-0.1,-0.1,0) , Real4(0.9,0.9,0.9,0.6));
+        this.DrawLine(parentTransform + Real3(0.1,0.1,0), this.Owner.Transform.WorldTranslation  + Real3(0.1,0.1,0) , Real4(0.9,0.9,0.9,0.6));
+        
+
+        this.DrawLine(parentTransform + Real3(0.075,-0.075,0), this.Owner.Transform.WorldTranslation  + Real3(0.05,-0.075,0) , Real4(0.9,0.3,0.0,0.7));
+        this.DrawLine(parentTransform + Real3(-0.075,0.075,0), this.Owner.Transform.WorldTranslation  + Real3(-0.05,0.075,0) , Real4(0.9,0.3,0.0,0.7));
+        this.DrawLine(parentTransform + Real3(-0.075,-0.075,0), this.Owner.Transform.WorldTranslation  + Real3(-0.05,-0.075,0) , Real4(0.9,0.3,0.0,0.7));
+        this.DrawLine(parentTransform + Real3(0.075,0.075,0), this.Owner.Transform.WorldTranslation  + Real3(0.05,0.075,0) , Real4(0.9,0.3,0.0,0.7));
+
+        this.DrawLine(parentTransform + Real3(0.05,-0.05,0), this.Owner.Transform.WorldTranslation  + Real3(0.05,-0.05,0) , Real4(0.9,0.0,0.0,0.8));
+        this.DrawLine(parentTransform + Real3(-0.05,0.05,0), this.Owner.Transform.WorldTranslation  + Real3(-0.05,0.05,0) , Real4(0.9,0.0,0.0,0.8));
+        this.DrawLine(parentTransform + Real3(-0.05,-0.05,0), this.Owner.Transform.WorldTranslation  + Real3(-0.05,-0.05,0) , Real4(0.9,0.0,0.0,0.8));
+        this.DrawLine(parentTransform + Real3(0.05,0.05,0), this.Owner.Transform.WorldTranslation  + Real3(0.05,0.05,0) , Real4(0.9,0.0,0.0,0.8));
+    }
+    function OnFrameUpdate(event : UpdateEvent)
     {
         var parentTransform:Real3 = this.Owner.Parent.Transform.WorldTranslation;
         this.DrawLine(parentTransform, this.Owner.Transform.WorldTranslation, Real4(0.9,0.5,0.5,1.0));

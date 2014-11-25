@@ -1,0 +1,144 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "TorchLit",
+	},
+	Archetyped = 
+	{
+		string Name = "54bfd150c81b3a60:TorchLit",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [18.8665, 21.8771, -0.034992],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0.651607, 0.274606, 0.274606, 0.651607],
+	},
+	RigidBody = 
+	{
+		bool Static = true,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	CylinderCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 2.8, 0],
+		float Radius = 0.7,
+		float Height = 5.2,
+		uint Direction = 1,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Box005",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.0711966, 0, 0.0702215],
+				Vec3 Scale = [0.840656, 1, 0.521172],
+				Quat Rotation = [0, -0.379496, 0, 0.925193],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54bfddaeb4274bc2:Torch.Box005",
+				Vec4 Color = [0.195, 0.131362, 0.090675, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "Torus001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.00729713, 3.37667, 0.00892897],
+				Vec3 Scale = [1.1548, 1.1548, 1.1548],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481b84e008be766:mat_gradient",
+				string MeshName = "54bfddaeb4274bc7:Torch.Torus001",
+				Vec4 Color = [0.705, 0.0987, 0.0990637, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "GeoSphere001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.00729713, 3.42347, 0.00892897],
+				Vec3 Scale = [0.831134, 1.05159, 0.831134],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5404506d3dd2a41e:mat_Light",
+				string MeshName = "54bfddaeb4274bca:Torch.GeoSphere001",
+				Vec4 Color = [1, 0.7148, 0.08, 1],
+			},
+			Hierarchy = 
+			{
+				ArchetypeInstance = 
+				{
+					string Name = "54bfdcef7551a22a:TorchFire",
+					LinkId = 
+					{
+						uint Id = 5,
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-0.707107, 0, 0, 0.707107],
+					},
+					Named = 
+					{
+						string Name = "TorchFire",
+					},
+				},
+			},
+		},
+	},
+},
