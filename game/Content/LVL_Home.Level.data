@@ -89,7 +89,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-97.7029, -60.5784, 12.7331],
+			Vec3 Translation = [-97.7029, -60.5785, 12.7331],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.637217, 0.0196068, -0.0162202, 0.770264],
 		},
@@ -3361,6 +3361,27 @@ Level =
 			bool Inherit2DMode = true,
 			Vec3 Velocity = [0, 0, 0],
 			Vec3 AngularVelocity = [0, 0, 0],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 77,
+		},
+		Named = 
+		{
+			string Name = "TestTextBlockElieInfo",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-97.6044, -58.329, 12.1487],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		TextBlockElieInfo = 
+		{
+			string Speakername = "",
 		},
 	},
 },

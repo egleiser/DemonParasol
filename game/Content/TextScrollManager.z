@@ -1,18 +1,39 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: TextScrollManager.z      ////
+////    Written by: Jason Clark      ////
+////     Last Updated: 9-17-14       ////
+////                                 ////
+/////////////////////////////////////////
 class TextScrollManager : ZilchComponent
 {
+    //TextBlock taken from TextBlockElieInfo
+    var TextBlockToPrint : TextBlock = null;
+    
+    //The complete string that will be printed
     var GoalString : String = null;
+    //The string as it exists each moment while it is printed
     var CurrentString : String = null;
+    //The index of the character in the string that is being printed
     var CurrentIndex : Integer = 0;
     
     var TextDelay : Real = 0.0;
     var IsPunctuation : Boolean = false;
     
+    //Variables taken from the TextBlockElieInfo
+    var SpeakerPicture : SpriteSource = null;
+    var SpeakerName : String = "";
+    var SpeakerCog : Cog = null;
+    
+    //A higher delay to use after certain punctuation marks
     [Property]
     var PunctuationDelay : Real = 0.1;
     
+    //The standard delay for printing characters
     [Property]
     var LetterDelay : Real = 0.05;
     
+    //The Action Set that controls the delays
     var TextSeq : ActionSet = null;
     
     function Initialize(init : CogInitializer)

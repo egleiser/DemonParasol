@@ -1,0 +1,26 @@
+class TextBlockElieInfo : ZilchComponent
+{
+    [Property]
+    var SpeakerCogPath : CogPath = null;
+    
+    var SpeakerCog : Cog = null;
+    
+    [Property]
+    var SpeakerName : String = "";
+    
+    [Property]
+    var SpeakerSprite : SpriteSource = null; 
+    
+    [Property]
+    var SpeakerTextBlock : TextBlock = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.SpeakerCog = this.SpeakerCogPath.Cog;
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

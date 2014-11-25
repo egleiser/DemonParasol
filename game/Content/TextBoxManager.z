@@ -7,9 +7,7 @@ class TextBoxManager : ZilchComponent
     }
 
     function OntextBoxEvent(event : TextBoxEvent)
-    {
-        var testTextBlock : TextBlock = TextBlock.Find("TestTextBlock");
-        
+    {        
         var grp = Action.Group(this.Owner.Actions);
         Action.Property(grp,
                         @this.Owner.Transform.Translation,
