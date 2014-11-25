@@ -1,0 +1,65 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 54a3c5bcba2772bd,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [0.1, 0.1, 0.1],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "SwordBoss.Foot",
+				uint64 ResourceId = 54a3c5bcba3e8dfd,
+			},
+			{
+				string Name = "SwordBoss.EyeSocket",
+				uint64 ResourceId = 54a3c5bcba3e8e01,
+			},
+			{
+				string Name = "SwordBoss.Geta",
+				uint64 ResourceId = 54a3c5bcba3e8e03,
+			},
+			{
+				string Name = "SwordBoss.Scalera",
+				uint64 ResourceId = 54a3c5bcba3e8e05,
+			},
+			{
+				string Name = "SwordBoss.Iris",
+				uint64 ResourceId = 54a3c5bcba3e8e06,
+			},
+			{
+				string Name = "SwordBoss.DemonPupil",
+				uint64 ResourceId = 54a3c5bcba3e8e08,
+			},
+			{
+				string Name = "SwordBoss.Hilt",
+				uint64 ResourceId = 54a3c5bcba3e8e0a,
+			},
+			{
+				string Name = "SwordBoss.Blade",
+				uint64 ResourceId = 54a3c5bcba3e8e0b,
+			},
+			{
+				string Name = "SwordBoss.Handle",
+				uint64 ResourceId = 54a3c5bcba3e8e0d,
+			},
+			{
+				string Name = "SwordBoss.GetaString",
+				uint64 ResourceId = 54a3c5bcba3e8e0f,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},

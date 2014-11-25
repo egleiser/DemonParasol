@@ -1,0 +1,24 @@
+Material = 
+{
+	Phong = 
+	{
+		float SpecularExponent = 40,
+		float SpecularScalar = 1,
+	},
+	ModulateModelColor = 
+	{
+	},
+	Reflective = 
+	{
+		float Reflectivity = 0.2,
+		string Environment = "549077307890dfed:Chrome1",
+		Vec2 ReflectiveScroll = [0, 0],
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "5481a22f014e3367:tex_light_gradient",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

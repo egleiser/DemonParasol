@@ -1,0 +1,42 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "SwordBossMaster",
+	},
+	Archetyped = 
+	{
+		string Name = "54a3c5e4abe3dcb0:SwordBossMaster",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [33.6944, 8.26403, -0.187943],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		ArchetypeInstance = 
+		{
+			string Name = "54a3c510a994f6e4:SwordBossMesh",
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0.133667],
+				Vec3 Scale = [2, 2, 2],
+				Quat Rotation = [0.707107, 0, 0, 0.707107],
+			},
+			Named = 
+			{
+				string Name = "SwordBossMesh",
+			},
+		},
+	},
+},
