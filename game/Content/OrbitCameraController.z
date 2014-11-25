@@ -130,13 +130,13 @@ class OrbitCameraController : ZilchComponent
         {
             Console.WriteLine("Zoom Event Started");
             var seq = Action.Sequence(this.Owner.Actions);
-            Action.Property(seq, @this.Owner.Camera.Size, event.CamSize, event.ZoomTime, event.EasingCurve);
+            Action.Property(seq, @this.Owner.Camera.Size, event.CamSize, event.ZoomInTime, event.EasingCurve);
         }
         //If wanting to zoom back out to regular size (set at CamLerp.z, which is 30 right now)
         else
         {
             var seq = Action.Sequence(this.Owner.Actions);
-            Action.Property(seq, @this.Owner.Camera.Size, this.CamLerp.Z, event.ZoomTime, event.EasingCurve);
+            Action.Property(seq, @this.Owner.Camera.Size, this.CamLerp.Z, event.ZoomOutTime, event.EasingCurve);
         }
     }
     
@@ -247,34 +247,15 @@ class OrbitCameraController : ZilchComponent
             {
                 //Making a variable for the DollyTarget object
                 var dollyTarget : Cog = event.DollyTarget;
-                
-                /*****@IMPORTANT: CHOOSING THIS OPTION MEANS THE PLAYER WILL STILL BE THE 
-                FOCUS OF THE CAMERA UNTIL THE DOLLY IS COMPLETE*********/
-                if(event.TargetFocus)
-                {
-                    //Action interpolating between original camera translation and translation of the target object
-                    var seq = Action.Sequence(this.Owner.Actions);
-                    Action.Property(seq,
-                                    @this.Owner.Transform.Translation,
-                                    dollyTarget.Transform.Translation,
-                                    event.DollyTime,
-                                    event.EasingCurve);
-                    //Calls the function that disables the camera from updating according to player
-                    
-                    Action.Call(seq, this.CameraLock);
-                }
-                /******@IMPORTANT: CHOOSING THIS WILL NOT CHANGE THE ROTATION OF THE
-                CAMERA AT ALL; IT WILL ONLY CHANGE ITS TRANSLATION********/
-                else
-                {
-                    var seq2 = Action.Sequence(this.Owner.Actions);
-                    Action.Call(seq2, this.CameraLock);
-                    Action.Property(seq2,
-                                    @this.Owner.Transform.Translation,
-                                    dollyTarget.Transform.Translation,
-                                    event.DollyTime,
-                                    event.EasingCurve);
-                }
+                //Action interpolating between original camera translation and translation of the target object
+                var seq = Action.Sequence(this.Owner.Actions);
+                Action.Property(seq,
+                                @this.Owner.Transform.Translation,
+                                dollyTarget.Transform.Translation,
+                                event.DollyTime,
+                                event.EasingCurve);
+                //Calls the function that disables the camera from updating according to player
+                Action.Call(seq, this.CameraLock);
             }
             else
             {
