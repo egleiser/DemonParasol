@@ -1,0 +1,169 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FILE-Z_UI_Shift.z
+//AUTHOR-Travis Moore
+//COURSE-GAM205
+//COPYRIGHT-© 2014 DigiPen, All Rights Reserved.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+class Z_UI_Shift:ZilchComponent
+{
+    //PROPERTIES
+    [Property]
+    var ShiftTime:Real = 0.5;
+    [Property]
+    var FadeInTime:Real = 1.2;
+    [Property]
+    var FadeOutTime:Real = 0.6;
+    [Property]
+    var ScaleOutSize:Real3 = Real3(0.75, 0.75, 0.75);
+    [Property]
+    var ScaleOutTime:Real = 0.2;
+    [Property]
+    var ScaleInTime:Real = 0.8;
+    [Property]
+    var EndingXPosition:Real = 20.0;
+    [Property]
+    var EaseType:Ease = Ease.QuadIn;
+    //non-settables
+    var StartingPosition:Real3 = Real3();
+    var StartingScale:Real3 = Real3();
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Initialize
+    //EXPLANATION-Initialize variables/functions so that we can use them
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Initialize(init:CogInitializer):Void
+    {
+        //set starting position
+        this.StartingPosition = this.Owner.Transform.Translation;
+        this.StartingScale = this.Owner.Transform.Scale;
+        
+        //edge case for things that start out left
+        if(this.Owner.Name == "btn-arrow-left" || this.Owner.Name == "ui_text_keyboardmouse" || this.Owner.Name == "ui_howtoplay_keyboardmouse")
+        {
+            this.Owner.Transform.Scale = this.ScaleOutSize;
+        }
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-ShiftInLeft
+    //EXPLANATION-Shifts the selected item IN from the left
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function ShiftInLeft():Void
+    {
+        //create action sequence
+        var aShiftInLeftGroup = Action.Group(this.Owner.Actions);
+        
+        //scale back to normal
+        Action.Property(aShiftInLeftGroup,
+                        @this.Owner.Transform.Scale,
+                        this.StartingScale,
+                        this.ScaleInTime,
+                        this.EaseType);
+        
+        //shift in from the left
+        Action.Property(aShiftInLeftGroup,
+                        @this.Owner.Transform.Translation,
+                        Real3(this.EndingXPosition, this.Owner.Transform.Translation.Y ,this.Owner.Transform.Translation.Z),
+                        this.ShiftTime,
+                        this.EaseType);
+                        
+        //fade in
+        Action.Property(aShiftInLeftGroup,
+                        @this.Owner.Sprite.Color,
+                        Real4(1,1,1,1.0),
+                        this.FadeInTime,
+                        Ease.Linear);
+    }
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-ShiftOutLeft
+    //EXPLANATION-Shifts the selected item OUT to the left
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function ShiftOutLeft():Void
+    {
+        //create action sequence
+        var aShiftOutLeftGroup = Action.Group(this.Owner.Actions);
+        
+        //scale back a bit
+        Action.Property(aShiftOutLeftGroup,
+                        @this.Owner.Transform.Scale,
+                        this.ScaleOutSize,
+                        this.ScaleOutTime,
+                        this.EaseType);
+        
+        //shift out to the left
+        Action.Property(aShiftOutLeftGroup,
+                        @this.Owner.Transform.Translation,
+                        Real3(this.StartingPosition.X, this.Owner.Transform.Translation.Y ,this.Owner.Transform.Translation.Z),
+                        this.ShiftTime,
+                        this.EaseType);
+                        
+        //fade out
+        Action.Property(aShiftOutLeftGroup,
+                        @this.Owner.Sprite.Color,
+                        Real4(1,1,1,0.0),
+                        this.FadeOutTime,
+                        Ease.Linear);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-ShiftInRight
+    //EXPLANATION-Shifts the selected item IN from the right
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function ShiftInRight():Void
+    {
+        //create action sequence
+        var aShiftInRightGroup = Action.Group(this.Owner.Actions);
+        
+        //scale back to normal
+        Action.Property(aShiftInRightGroup,
+                        @this.Owner.Transform.Scale,
+                        this.StartingScale,
+                        this.ScaleInTime,
+                        this.EaseType);
+        
+        //shift in from the right
+        Action.Property(aShiftInRightGroup,
+                        @this.Owner.Transform.Translation,
+                        Real3(this.StartingPosition.X, this.Owner.Transform.Translation.Y ,this.Owner.Transform.Translation.Z),
+                        this.ShiftTime,
+                        this.EaseType);
+                        
+        //fade in
+        Action.Property(aShiftInRightGroup,
+                        @this.Owner.Sprite.Color,
+                        Real4(1,1,1,1.0),
+                        this.FadeInTime,
+                        Ease.Linear);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-ShiftOutRight
+    //EXPLANATION-Shifts the selected item OUT to the right
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function ShiftOutRight():Void
+    {
+        //create action sequence
+        var aShiftOutRightGroup = Action.Group(this.Owner.Actions);
+        
+        //scale back a bit
+        Action.Property(aShiftOutRightGroup,
+                        @this.Owner.Transform.Scale,
+                        this.ScaleOutSize,
+                        this.ScaleOutTime,
+                        this.EaseType);
+                        
+        //shift out to the right right
+        Action.Property(aShiftOutRightGroup,
+                        @this.Owner.Transform.Translation,
+                        Real3(this.EndingXPosition, this.Owner.Transform.Translation.Y ,this.Owner.Transform.Translation.Z),
+                        this.ShiftTime,
+                        this.EaseType);
+                        
+        //fade out
+        Action.Property(aShiftOutRightGroup,
+                        @this.Owner.Sprite.Color,
+                        Real4(1,1,1,0.0),
+                        this.FadeOutTime,
+                        Ease.Linear);
+    }
+}

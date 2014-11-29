@@ -6,28 +6,17 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "temp-btn-inactive",
+		string Name = "btn-game-start",
+	},
+	Archetyped = 
+	{
+		string Name = "549359035ea57e68:arc_menu_button",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, -1.9, 1],
-		Vec3 Scale = [1, 1, 1],
+		Vec3 Translation = [-0.5, -6.5, 1],
+		Vec3 Scale = [0.5, 0.5, 1],
 		Quat Rotation = [0, 0, 0, 1],
-	},
-	Sprite = 
-	{
-		string SpriteSource = "54935a99b556ac4c:temp-btn-inactive",
-		bool FlipX = false,
-		bool FlipY = false,
-		Vec4 Color = [1, 1, 1, 1],
-		bool Visible = true,
-		bool OnTop = false,
-		bool AnimationActive = true,
-		float AnimationSpeed = 1,
-		uint StartFrame = 0,
-		BlendMode BlendMode = Alpha,
-		SpriteGeometryMode GeometryMode = ZPlane,
-		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 	},
 	Reactive = 
 	{
@@ -36,5 +25,23 @@ Cog =
 	},
 	Z_UI_Button = 
 	{
+		string LevelToLoad = "54682358d686e046:lvl_menu_main",
+	},
+	Sprite = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		Vec4 Color = [1, 1, 1, 1],
+		BlendMode BlendMode = Alpha,
+		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		string SpriteSource = "545d0915ed5267f8:btn-start-game-inactive",
+		bool RenderMask = false,
+		bool FlipX = false,
+		bool FlipY = false,
+		bool OnTop = false,
+		bool AnimationActive = true,
+		float AnimationSpeed = 1,
+		uint StartFrame = 0,
 	},
 },

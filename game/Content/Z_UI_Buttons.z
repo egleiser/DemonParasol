@@ -19,6 +19,7 @@ class Z_UI_Button:ZilchComponent
     var LvlMenuControls: Level = Level.Find("lvl_menu_controls");
     var LvlMenuCredits:Level = Level.Find("lvl_menu_credits");
     var LvlMenuPause:Level = Level.Find("lvl_menu_pause");
+    //var LvlMenuOptions:Level = Level.Find("lvl_menu_options");
     
     //GAMEOVER
     var LvlGameoverLose:Level = Level.Find("lvl_gameover_lose");
@@ -61,34 +62,51 @@ class Z_UI_Button:ZilchComponent
         //if button is "Start Game"
         if(currentBtn == "btn-game-start")
         {
-            this.Owner.Sprite.SpriteSource = SpriteSource.Find("temp-btn-start-active");
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-start-game-active");
         }
         //if button is "New Game"
         if(currentBtn == "btn-game-new")
         {
-            this.Owner.Sprite.SpriteSource = SpriteSource.Find("temp-btn-game-new-active");
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-new-game-active");
         }
         //if button is "Quit Game"
         if(currentBtn == "btn-game-quit")
         {
-            this.Owner.Sprite.SpriteSource = SpriteSource.Find("temp-btn-game-quit-active");
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-quit-game-active");
         }
         
         //MENU BUTTONS
         //if button is "Menu Main"
         if(currentBtn == "btn-menu-main")
         {
-            this.Owner.Sprite.SpriteSource = SpriteSource.Find("temp-btn-menu-main-active");
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-main-active");
+        }
+        //if button is "Menu Options"
+        if(currentBtn == "btn-menu-options")
+        {
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-options-active");
         }
         //if button is "Menu Controls"
         if(currentBtn == "btn-menu-controls")
         {
-            this.Owner.Sprite.SpriteSource = SpriteSource.Find("temp-btn-menu-controls-active");
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-controls-active");
         }
         //if button is "Menu Credits"
         if(currentBtn == "btn-menu-credits")
         {
-            this.Owner.Sprite.SpriteSource = SpriteSource.Find("temp-btn-menu-credits-active");
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-credits-active");
+        }
+        
+        //ARROW BUTTON
+        //if button is "btn-arrow-left"
+        if(currentBtn == "btn-arrow-left")
+        {
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("ui_selectorarrow_red");
+        }
+        //if button is "btn-arrow-right"
+        if(currentBtn == "btn-arrow-right")
+        {
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("ui_selectorarrow_red");
         }
     }
     
@@ -107,34 +125,51 @@ class Z_UI_Button:ZilchComponent
         //if button is "Start Game"
         if(currentBtn == "btn-game-start")
         {
-            this.Owner.Sprite.SpriteSource = SpriteSource.Find("temp-btn-start-inactive");
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-start-game-inactive");
         }
         //if button is "New Game"
         if(currentBtn == "btn-game-new")
         {
-            this.Owner.Sprite.SpriteSource = SpriteSource.Find("temp-btn-game-new-inactive");
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-new-game-inactive");
         }
         //if button is "Quit Game"
         if(currentBtn == "btn-game-quit")
         {
-            this.Owner.Sprite.SpriteSource = SpriteSource.Find("temp-btn-game-quit-inactive");
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-quit-game-inactive");
         }
         
         //MENU BUTTONS
         //if button is "Menu Main"
         if(currentBtn == "btn-menu-main")
         {
-            this.Owner.Sprite.SpriteSource = SpriteSource.Find("temp-btn-menu-main-inactive");
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-main-inactive");
+        }
+        //if button is "Menu Options"
+        if(currentBtn == "btn-menu-options")
+        {
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-options-inactive");
         }
         //if button is "Menu Controls"
         if(currentBtn == "btn-menu-controls")
         {
-            this.Owner.Sprite.SpriteSource = SpriteSource.Find("temp-btn-menu-controls-inactive");
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-controls-inactive");
         }
         //if button is "Menu Credits"
         if(currentBtn == "btn-menu-credits")
         {
-            this.Owner.Sprite.SpriteSource = SpriteSource.Find("temp-btn-menu-credits-inactive");
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-credits-inactive");
+        }
+        
+        //ARROW BUTTON
+        //if button is "btn-arrow-left"
+        if(currentBtn == "btn-arrow-left")
+        {
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("ui_selectorarrow_white");
+        }
+        //if button is "btn-arrow-right"
+        if(currentBtn == "btn-arrow-right")
+        {
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("ui_selectorarrow_white");
         }
     }
     
@@ -144,6 +179,9 @@ class Z_UI_Button:ZilchComponent
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
     function OnMouseDown(event:ViewportMouseEvent):Void
     {
+        //check to see what button we are by getting name
+        var currentBtn:String = this.Owner.Name;
+        
         //GAME BUTTONS
         //if button is "Start Game"
         if(this.Owner.Name == "btn-game-start")
@@ -167,6 +205,10 @@ class Z_UI_Button:ZilchComponent
         {
             this.Space.LoadLevel(this.LvlMenuMain);
         }
+        if(this.Owner.Name == "btn-menu-options")
+        {
+            //this.Space.LoadLevel(this.LvlMenuOptions);
+        }
         //if button is "Menu Controls"
         if(this.Owner.Name == "btn-menu-controls")
         {
@@ -176,6 +218,34 @@ class Z_UI_Button:ZilchComponent
         if(this.Owner.Name == "btn-menu-credits")
         {
             this.Space.LoadLevel(this.LvlMenuCredits);
+        }
+        
+        //ARROW BUTTON
+        //if button is "btn-arrow-left"
+        if(currentBtn == "btn-arrow-left")
+        {
+            //find the things we need and call their shift left
+            this.Space.FindObjectByName("ui_howtoplay_keyboardmouse").Z_UI_Shift.ShiftOutLeft();
+            this.Space.FindObjectByName("ui_text_keyboardmouse").Z_UI_Shift.ShiftOutLeft();
+            this.Owner.Z_UI_Shift.ShiftOutLeft();
+            
+            //find the new things we need and call their shift left
+            this.Space.FindObjectByName("ui_howtoplay_gamepad").Z_UI_Shift.ShiftInRight();
+            this.Space.FindObjectByName("ui_text_gamepad").Z_UI_Shift.ShiftInRight();
+            this.Space.FindObjectByName("btn-arrow-right").Z_UI_Shift.ShiftInRight();
+        }
+        //if button is "btn-arrow-right"
+        if(currentBtn == "btn-arrow-right")
+        {
+            //find the things we need and call their shift right
+            this.Space.FindObjectByName("ui_howtoplay_gamepad").Z_UI_Shift.ShiftOutRight();
+            this.Space.FindObjectByName("ui_text_gamepad").Z_UI_Shift.ShiftOutRight();
+            this.Owner.Z_UI_Shift.ShiftOutRight();
+            
+            //find the new things we need and call their shift left
+            this.Space.FindObjectByName("ui_howtoplay_keyboardmouse").Z_UI_Shift.ShiftInLeft();
+            this.Space.FindObjectByName("ui_text_keyboardmouse").Z_UI_Shift.ShiftInLeft();
+            this.Space.FindObjectByName("btn-arrow-left").Z_UI_Shift.ShiftInLeft();
         }
     }
 }

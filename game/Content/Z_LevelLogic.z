@@ -1,5 +1,5 @@
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////
-//SCRIPT-Z_LevelLogic.z
+//FILE-Z_LevelLogic.z
 //AUTHOR-Travis Moore
 //COURSE-GAM205
 //COPYRIGHT-© 2014 DigiPen, All Rights Reserved.
@@ -7,25 +7,31 @@
 
 class Z_LevelLogic:ZilchComponent
 {
-    //SPLASH
-    var LvlSplashDigipen:Level = Level.Find("lvl_splash_digipen");
+    //PROPERTIES
+    [Property]
+    var SplashScreenDelayTimer:Real = 3;
+    [Property]
+    var NextSplashToLoad:Level = null;
+    [Property]
+    var IsSplash:Boolean = false;
     
-    //MENUS
+    //LEVELS
+    //splash/start screens
+    var LvlSplash:Level = Level.Find("lvl_splash_digipen");
+    var LvlStart:Level = Level.Find("lvl_splash_start");
+    var LvlSplashZero:Level = Level.Find("lvl_splash_zero_engine");
+    var LvlSplashGameStudio:Level = Level.Find("lvl_splash_team_logo");
+    //menu levels
     var LvlMenuMain:Level = Level.Find("lvl_menu_main");
-    var LvlMenuControls: Level = Level.Find("lvl_menu_controls");
+    //var LvlMenuPause:Level = Level.Find("lvl_menu_pause");
+    var LvlMenuControls:Level = Level.Find("lvl_menu_controls");
     var LvlMenuCredits:Level = Level.Find("lvl_menu_credits");
-    var LvlMenuPause:Level = Level.Find("lvl_menu_pause");
-    
-    //GAMEOVER
-    var LvlGameoverLose:Level = Level.Find("lvl_gameover_lose");
-    var LvlGameoverWin:Level = Level.Find("lvl_gameover_win");
-    
-    //IN-GAME LEVELS
-    /*
-        Need level names here
-    */
-    
-    //CURRENT LEVEL
+    //game over levels
+    var LvlLose:Level = Level.Find("lvl_gameover_lose");
+    var LvlWin:Level = Level.Find("lvl_gameover_win");
+    //in-game levels
+    var Lvl01Home:Level = Level.Find("LVL_Home");
+    //current level
     var LvlCurrentLevel:Level = null;
     
     //TIMER
@@ -36,19 +42,50 @@ class Z_LevelLogic:ZilchComponent
     //FUNCTION-Initialize
     //EXPLANATION-Initialize variables/functions for further use
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    function Initialize(init : CogInitializer)
+    function Initialize(init:CogInitializer):Void
     {
         //variable to hook to current level
         this.LvlCurrentLevel = this.Space.CurrentLevel;
+        
+        //connect to LogicUpdate event
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
     
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-OnLogicUpdate
+    //EXPLANATION-Update every frame, perform actions and listen for keyboard
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function OnLogicUpdate(event:UpdateEvent):Void
+    {
+        //if splash is true, do this sequence
+        if(this.IsSplash)
+        {
+            //keep track of the Timer
+            this.Timer += event.Dt;
+            
+            //continue to start screen once splash screen is done displaying
+            if(this.Timer >= this.SplashScreenDelayTimer)
+            {
+                this.LoadNextLevel();
+            }
+        }
+    }
+    
+    function LoadNextLevel():Void
+    {
+        //make sure this is not null
+        if(this.NextSplashToLoad != null)
+        {
+            this.Space.LoadLevel(this.NextSplashToLoad);
+        }
+    }
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCTION-LoadLevelWin
     //EXPLANATION-When called, loads the win screen
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
     function LoadWinLevel():Void
     {
-        this.Space.LoadLevel(this.LvlGameoverWin);
+        this.Space.LoadLevel(this.LvlWin);
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -57,7 +94,7 @@ class Z_LevelLogic:ZilchComponent
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
     function LoadLoseLevel():Void
     {
-        this.Space.LoadLevel(this.LvlGameoverLose);
+        this.Space.LoadLevel(this.LvlLose);
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -75,7 +112,7 @@ class Z_LevelLogic:ZilchComponent
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
     function ResetGame():Void
     {
-        this.Space.LoadLevel(this.LvlSplashDigipen);
+        this.Space.LoadLevel(this.LvlSplash);
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -84,6 +121,11 @@ class Z_LevelLogic:ZilchComponent
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
     function ReloadCurrentLevel():Void
     {
-        this.Space.LoadLevel(this.LvlCurrentLevel);
+        var player = this.Space.FindObjectByName("Player");
+
+        if(player != null)
+        {
+            //player.Transform.Translation = this.Owner.Z_LevelVariables.PlayerPosition;
+        }
     }
 }
