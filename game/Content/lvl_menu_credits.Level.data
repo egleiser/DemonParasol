@@ -76,7 +76,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, 50],
+			Vec3 Translation = [-0.584435, -3.93477, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -96,7 +96,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [0, 0, 0],
+			Vec3 LookTarget = [-0.584435, -3.93477, 1.23131e-008],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -215,7 +215,7 @@ Level =
 				},
 				Named = 
 				{
-					string Name = "btn-menu-main",
+					string Name = "btn-menu-main-red",
 				},
 				Archetyped = 
 				{
@@ -223,7 +223,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, -16, 0],
+					Vec3 Translation = [0, -16, 2],
 					Vec3 Scale = [0.233333, 0.233333, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -235,7 +235,7 @@ Level =
 					BlendMode BlendMode = Alpha,
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "545d3db81673558e:btn-menu-main-inactive",
+					string SpriteSource = "545d438a9a2a75dd:btn-menu-main-red-inactive",
 					bool RenderMask = false,
 					bool FlipX = false,
 					bool FlipY = false,
@@ -254,6 +254,54 @@ Level =
 					string LevelToLoad = "",
 				},
 			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 7,
+		},
+		Named = 
+		{
+			string Name = "bg-white-fade-out",
+		},
+		Archetyped = 
+		{
+			string Name = "545d477758b1a37e:arc_bg_white_fade",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 10],
+			Vec3 Scale = [48.7465, 48.7465, 48.7465],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Z_UI_Transitions = 
+		{
+			float FadeInTime = 0.5,
+			float FadeOutTime = 0.5,
+			Vec3 ScaleOutSize = [0.75, 0.75, 0.75],
+			float ScaleOutTime = 0.2,
+			Vec3 ScaleInSize = [1, 1, 1],
+			float ScaleInTime = 0.8,
+			Enum EaseType = QuadIn,
 		},
 	},
 },

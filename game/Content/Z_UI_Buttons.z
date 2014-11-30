@@ -74,12 +74,27 @@ class Z_UI_Button:ZilchComponent
         {
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-quit-game-active");
         }
+        //if button is "Quit Yes"
+        if(currentBtn == "btn-yes")
+        {
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-yes-active");
+        }
+        //if button is "Quit No"
+        if(currentBtn == "btn-no")
+        {
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-no-active");
+        }
         
         //MENU BUTTONS
         //if button is "Menu Main"
         if(currentBtn == "btn-menu-main")
         {
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-main-active");
+        }
+        //if button is the RED "Menu Main"
+        if(currentBtn == "btn-menu-main-red")
+        {
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-main-red-active");
         }
         //if button is "Menu Options"
         if(currentBtn == "btn-menu-options")
@@ -137,12 +152,27 @@ class Z_UI_Button:ZilchComponent
         {
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-quit-game-inactive");
         }
+        //if button is "Quit Yes"
+        if(currentBtn == "btn-yes")
+        {
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-yes-inactive");
+        }
+        //if button is "Quit No"
+        if(currentBtn == "btn-no")
+        {
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-no-inactive");
+        }
         
         //MENU BUTTONS
         //if button is "Menu Main"
         if(currentBtn == "btn-menu-main")
         {
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-main-inactive");
+        }
+        //if button is the RED "Menu Main"
+        if(currentBtn == "btn-menu-main-red")
+        {
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-main-red-inactive");
         }
         //if button is "Menu Options"
         if(currentBtn == "btn-menu-options")
@@ -181,12 +211,14 @@ class Z_UI_Button:ZilchComponent
     {
         //check to see what button we are by getting name
         var currentBtn:String = this.Owner.Name;
+        //grab the white fade out bg
+        var fadeoutwhite = this.Space.FindObjectByName("bg-white-fade-out");
         
         //GAME BUTTONS
         //if button is "Start Game"
         if(this.Owner.Name == "btn-game-start")
         {
-            this.Space.LoadLevel(this.LvlMenuMain);
+            //this.Space.LoadLevel(____SOMETHINGHERE_____);
         }
         //if button is "New Game"
         if(this.Owner.Name == "btn-game-new")
@@ -196,28 +228,38 @@ class Z_UI_Button:ZilchComponent
         //if button is "Quit Game"
         if(this.Owner.Name == "btn-game-quit")
         {
+            this.Space.FindObjectByName("ui_quit_confirmation").Z_UI_QuitConfirmation.FadeIn();
+        }
+        //if button is "Quit Yes"
+        if(currentBtn == "btn-yes")
+        {
             this.GameSession.Quit();
+        }
+        //if button is "Quit No"
+        if(currentBtn == "btn-no")
+        {
+            this.Space.FindObjectByName("ui_quit_confirmation").Z_UI_QuitConfirmation.FadeOut();
         }
         
         //MENU BUTTONS
         //if button is "Menu Main"
-        if(this.Owner.Name == "btn-menu-main")
+        if(this.Owner.Name == "btn-menu-main" || this.Owner.Name == "btn-menu-main-red")
         {
-            this.Space.LoadLevel(this.LvlMenuMain);
+            fadeoutwhite.Z_UI_Transitions.FadeOutTo("MainMenu");
         }
         if(this.Owner.Name == "btn-menu-options")
         {
-            //this.Space.LoadLevel(this.LvlMenuOptions);
+            //fadeoutwhite.Z_UI_Transitions.FadeOutTo("Options");
         }
         //if button is "Menu Controls"
         if(this.Owner.Name == "btn-menu-controls")
         {
-            this.Space.LoadLevel(this.LvlMenuControls);
+            fadeoutwhite.Z_UI_Transitions.FadeOutTo("Controls");
         }
         //if button is "Menu Credits"
         if(this.Owner.Name == "btn-menu-credits")
         {
-            this.Space.LoadLevel(this.LvlMenuCredits);
+            fadeoutwhite.Z_UI_Transitions.FadeOutTo("Credits");
         }
         
         //ARROW BUTTON
