@@ -76,7 +76,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.05913, -5.66321, 50],
+			Vec3 Translation = [-5.13659, -5.66321, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -88,7 +88,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 9.07181,
+			float Size = 90.4837,
 		},
 		EditorCameraController = 
 		{
@@ -96,7 +96,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-1.05913, -5.66321, -4.6296e-008],
+			Vec3 LookTarget = [-5.13659, -5.66321, -4.6296e-008],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -239,6 +239,24 @@ Level =
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "545d477758b1a37e:arc_bg_white_fade",
+		LinkId = 
+		{
+			uint Id = 7,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 10],
+			Vec3 Scale = [48.7465, 48.7465, 48.7465],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "bg-white-fade-out",
 		},
 	},
 },
