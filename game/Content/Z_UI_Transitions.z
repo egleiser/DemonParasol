@@ -1,0 +1,104 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FILE-Z_UI_Transitions.z
+//AUTHOR-Travis Moore
+//COURSE-GAM205
+//COPYRIGHT-© 2014 DigiPen, All Rights Reserved.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+class Z_UI_Transitions:ZilchComponent
+{
+    //PROPERTIES
+    
+    //FADE
+    [Property]
+    var FadeInTime:Real = 0.5;
+    [Property]
+    var FadeOutTime:Real = 0.25;
+    
+    //SCALE
+    [Property]
+    var ScaleOutSize:Real3 = Real3(0.75, 0.75, 0.75);
+    [Property]
+    var ScaleOutTime:Real = 0.2;
+    [Property]
+    var ScaleInSize:Real3 = Real3(1,1,1);
+    [Property]
+    var ScaleInTime:Real = 0.8;
+    
+    //EASE
+    [Property]
+    var EaseType:Ease = Ease.QuadIn;
+    
+    //non-settables
+    var StartingPosition:Real3 = Real3();
+    var StartingScale:Real3 = Real3();
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Initialize
+    //EXPLANATION-Initialize variables/functions so that we can use them
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Initialize(init:CogInitializer):Void
+    {
+        //set starting position
+        this.StartingPosition = Real3(0,0,10);
+        this.StartingScale = this.Owner.Transform.Scale;
+        
+        //start fading in right away
+        this.FadeInFromWhite();
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-FadeOutToMainMenu
+    //EXPLANATION-Transparency 0.0 -> 1.0, Load Menu
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function FadeOutTo(levelToLoad_:String):Void
+    {
+        //create action sequence
+        var aFadeOutToWhite = Action.Sequence(this.Owner.Actions);
+        
+        //fade in
+        Action.Property(aFadeOutToWhite,
+                        @this.Owner.Sprite.Color,
+                        Real4(1,1,1,1.0),
+                        this.FadeInTime,
+                        Ease.Linear);
+        
+        if(levelToLoad_ == "MainMenu")
+        {
+            //load main menu
+            Action.Call(aFadeOutToWhite, this.LevelSettings.Z_LevelLogic.LoadMainMenu);
+        }
+        if(levelToLoad_ == "Controls")
+        {
+            //load main menu
+            Action.Call(aFadeOutToWhite, this.LevelSettings.Z_LevelLogic.LoadControls);
+        }
+        if(levelToLoad_ == "Options")
+        {
+            //load main menu
+            Action.Call(aFadeOutToWhite, this.LevelSettings.Z_LevelLogic.LoadOptions);
+        }
+        if(levelToLoad_ == "Credits")
+        {
+            //load main menu
+            Action.Call(aFadeOutToWhite, this.LevelSettings.Z_LevelLogic.LoadCredits);
+        }
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-FadeInFromWhite
+    //EXPLANATION-Transparency 1.0 -> 0.0
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function FadeInFromWhite():Void
+    {
+        //create action sequence
+        var aFadeInFromWhite = Action.Sequence(this.Owner.Actions);
+        
+        //fade in
+        Action.Property(aFadeInFromWhite,
+                        @this.Owner.Sprite.Color,
+                        Real4(1,1,1,0.0),
+                        this.FadeInTime,
+                        Ease.Linear);
+                        
+    }
+}

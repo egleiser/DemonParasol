@@ -59,6 +59,9 @@ Level =
 		},
 		Z_LevelLogic = 
 		{
+			float SplashScreenDelayTimer = 3,
+			string NextSplashToLoad = "4faa6050b86892a8:DefaultLevel",
+			bool IsSplash = false,
 		},
 	},
 	Cog = 
@@ -73,7 +76,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, 50],
+			Vec3 Translation = [0.510008, -0.558252, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -81,12 +84,11 @@ Level =
 		{
 			ProjectionMode ProjectionMode = Orthographic,
 			Facing Facing = NegativeZ,
-			SpriteSort SpriteSort = ViewDepth,
-			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
+			CameraTransparentSort TransparentSort = InheritFromSpace,
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 20,
+			float Size = 100,
 		},
 		EditorCameraController = 
 		{
@@ -94,7 +96,8 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [0, 0, 0],
+			Vec3 LookTarget = [0.510008, -0.558252, 2.22953e-008],
+			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
 		{
@@ -127,28 +130,37 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "temp-scn-menu-controls",
+			string Name = "bg-menu",
+		},
+		Archetyped = 
+		{
+			string Name = "545d0ce33b4dab02:arc_bg_menu_red",
 		},
 		Transform = 
 		{
 			Vec3 Translation = [0, 0, 0],
-			Vec3 Scale = [1, 1, 1],
+			Vec3 Scale = [82.1718, 44.1504, 34.1574],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
 		{
-			string SpriteSource = "548c87bcb8b8cfd2:temp-scn-menu-controls",
-			bool FlipX = false,
-			bool FlipY = false,
-			Vec4 Color = [1, 1, 1, 1],
 			bool Visible = true,
-			bool OnTop = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
+			bool VisibilityCulling = true,
+			Vec4 Color = [0.74902, 0.305882, 0.305882, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = false,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Hierarchy = 
+		{
 		},
 	},
 	Cog = 
@@ -156,6 +168,232 @@ Level =
 		LinkId = 
 		{
 			uint Id = 5,
+		},
+		Named = 
+		{
+			string Name = "bg-white-fade-out",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 10],
+			Vec3 Scale = [48.7465, 48.7465, 48.7465],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Z_UI_Transitions = 
+		{
+			float FadeInTime = 0.5,
+			float FadeOutTime = 1,
+			Vec3 ScaleOutSize = [0.75, 0.75, 0.75],
+			float ScaleOutTime = 0.2,
+			Vec3 ScaleInSize = [1, 1, 1],
+			float ScaleInTime = 0.8,
+			Enum EaseType = QuadIn,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 6,
+		},
+		Named = 
+		{
+			string Name = "ui_text_gamepad",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.25, 3.75, 0.999999],
+			Vec3 Scale = [0.35, 0.35, 0.999999],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "545d3990737ad26f:ui_text_gamepad",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Z_UI_Shift = 
+		{
+			float ShiftTime = 0.5,
+			float FadeInTime = 1.2,
+			float FadeOutTime = 0.6,
+			Vec3 ScaleOutSize = [0.05, 0.05, 0.05],
+			float ScaleOutTime = 0.2,
+			float ScaleInTime = 0.8,
+			float EndingXPosition = 20,
+			Enum EaseType = QuadIn,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 7,
+		},
+		Named = 
+		{
+			string Name = "ui_howtoplay_keyboardmouse",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-25, 0, 2],
+			Vec3 Scale = [0.999998, 1, 0.999999],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [1, 1, 1, 0],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "545d0e124f76337b:ui_howtoplay_keyboardmouse",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Z_UI_Shift = 
+		{
+			float ShiftTime = 0.5,
+			float FadeInTime = 1.2,
+			float FadeOutTime = 0.6,
+			Vec3 ScaleOutSize = [0.25, 0.25, 0.25],
+			float ScaleOutTime = 0.2,
+			float ScaleInTime = 0.8,
+			float EndingXPosition = 0,
+			Enum EaseType = QuadIn,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 8,
+		},
+		Named = 
+		{
+			string Name = "btn-arrow-left",
+		},
+		Archetyped = 
+		{
+			string Name = "545d36b2cfc35d12:arc_btn_arrow",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-30, 3.75, 2],
+			Vec3 Scale = [0.999998, 1, 0.999999],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [1, 1, 1, 0],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "545d0e124f7468fa:ui_selectorarrow_white",
+			bool RenderMask = false,
+			bool FlipX = true,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		Z_UI_Button = 
+		{
+			string LevelToLoad = "",
+		},
+		Z_UI_Shift = 
+		{
+			float ShiftTime = 0.5,
+			float FadeInTime = 1.2,
+			float FadeOutTime = 0.6,
+			Vec3 ScaleOutSize = [0.25, 0.25, 0.25],
+			float ScaleOutTime = 0.2,
+			float ScaleInTime = 0.8,
+			float EndingXPosition = -5,
+			Enum EaseType = QuadIn,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 9,
+		},
+		Named = 
+		{
+			string Name = "ui_howtoplay",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 0.999999],
+			Vec3 Scale = [0.999998, 1, 0.999999],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "545d0e124f6bbbb8:ui_howtoplay",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 10,
 		},
 		Named = 
 		{
@@ -167,24 +405,26 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, -6.8, 1],
-			Vec3 Scale = [1, 1, 1],
+			Vec3 Translation = [0, -6.8, 0.999999],
+			Vec3 Scale = [0.35, 0.35, 0.999999],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
 		{
-			string SpriteSource = "54935a99b555473a:temp-btn-menu-main-inactive",
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "545d2b4bfc3fa37d:btn-menu-main-inactive",
+			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
-			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
 			bool OnTop = false,
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 		},
 		Reactive = 
 		{
@@ -193,6 +433,155 @@ Level =
 		},
 		Z_UI_Button = 
 		{
+			string LevelToLoad = "4faa6050b86892a8:DefaultLevel",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 11,
+		},
+		Named = 
+		{
+			string Name = "btn-arrow-right",
+		},
+		Archetyped = 
+		{
+			string Name = "545d36b2cfc35d12:arc_btn_arrow",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [5, 3.75, 0.999999],
+			Vec3 Scale = [0.999998, 1, 0.999999],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "545d0e124f7468fa:ui_selectorarrow_white",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		Z_UI_Button = 
+		{
+			string LevelToLoad = "4faa6050b86892a8:DefaultLevel",
+		},
+		Z_UI_Shift = 
+		{
+			float ShiftTime = 0.5,
+			float FadeInTime = 1.2,
+			float FadeOutTime = 0.6,
+			Vec3 ScaleOutSize = [0.25, 0.25, 0.25],
+			float ScaleOutTime = 0.2,
+			float ScaleInTime = 0.8,
+			float EndingXPosition = 20,
+			Enum EaseType = QuadIn,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 12,
+		},
+		Named = 
+		{
+			string Name = "ui_howtoplay_gamepad",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0.2, 0.999999],
+			Vec3 Scale = [0.999998, 1, 0.999999],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "545d39f51bcdf1aa:ui_howtoplay_gamepad",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Z_UI_Shift = 
+		{
+			float ShiftTime = 0.5,
+			float FadeInTime = 1.2,
+			float FadeOutTime = 0.6,
+			Vec3 ScaleOutSize = [0.25, 0.25, 0.25],
+			float ScaleOutTime = 0.2,
+			float ScaleInTime = 0.8,
+			float EndingXPosition = 20,
+			Enum EaseType = QuadIn,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 13,
+		},
+		Named = 
+		{
+			string Name = "ui_text_keyboardmouse",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-25, 3.85, 2],
+			Vec3 Scale = [0.5, 0.499999, 0.999999],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [1, 1, 1, 0],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "545d3990737aac44:ui_text_keyboardmouse",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Z_UI_Shift = 
+		{
+			float ShiftTime = 0.5,
+			float FadeInTime = 1.2,
+			float FadeOutTime = 0.6,
+			Vec3 ScaleOutSize = [0.25, 0.25, 0.25],
+			float ScaleOutTime = 0.2,
+			float ScaleInTime = 0.8,
+			float EndingXPosition = 0,
+			Enum EaseType = QuadIn,
 		},
 	},
 },
