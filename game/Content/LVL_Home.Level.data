@@ -72,9 +72,7 @@ Level =
 		},
 		TextBoxTester = 
 		{
-		},
-		TextScrollTester = 
-		{
+			CogPath DiagSegPath = "",
 		},
 	},
 	Cog = 
@@ -89,9 +87,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-97.7029, -60.5785, 12.7331],
+			Vec3 Translation = [-89.9697, -66.6154, 13.2499],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.637217, 0.0196068, -0.0162202, 0.770264],
+			Quat Rotation = [0.639369, 0.0115147, -0.0095767, 0.768755],
 		},
 		Camera = 
 		{
@@ -106,10 +104,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 40.7626,
-			float VerticalAngle = -1.3823,
-			float HorizontalAngle = -0.0508984,
-			Vec3 LookTarget = [-98.0915, -20.5379, 5.10484],
+			float LookDistance = 45.0496,
+			float VerticalAngle = -1.38754,
+			float HorizontalAngle = -0.0299545,
+			Vec3 LookTarget = [-90.2156, -22.3201, 5.04404],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -3371,20 +3369,108 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "TestTextBlockInfo",
+			string Name = "TestDiaologueSegment",
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-97.6044, -58.329, 12.1487],
+			Vec3 Translation = [-91.1432, -42.0937, 11.4763],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		TextBlockInfo = 
+		Hierarchy = 
 		{
-			CogPath SpeakerCogPath = "",
-			string SpeakerName = "Setsuko",
-			string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
-			string SpeakerTextBlock = "545746113a6777f9:SetsukoTestTextBlock",
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 78,
+				},
+				Named = 
+				{
+					string Name = "TestTextBlockInfo1",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-6.46123, -16.2353, 0.672431],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "Father",
+					string SpeakerSprite = "545746f1032fb183:ui-textbox-father",
+					string SpeakerTextBlock = "54450660db96cea5:TestTextBlock",
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 79,
+				},
+				Named = 
+				{
+					string Name = "TestTextBlockInfo2",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.927597, 19.7736, -6.43222],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "Setsuko",
+					string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
+					string SpeakerTextBlock = "5459b305235525b2:TestTextBlock2",
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 80,
+				},
+				Named = 
+				{
+					string Name = "TestTextBlockInfo3",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.927597, 19.7736, -6.43222],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "Mother",
+					string SpeakerSprite = "545746f1032c12f2:ui-textbox-mother",
+					string SpeakerTextBlock = "5459b35a5318fa87:TestTextBlock3",
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 81,
+				},
+				Named = 
+				{
+					string Name = "TestTextBlockInfo4",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.927597, 19.7736, -6.43222],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "Setsuko",
+					string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
+					string SpeakerTextBlock = "5459b3724bd6aec0:TestTextBlock4",
+				},
+			},
 		},
 	},
 },

@@ -1,19 +1,21 @@
 class TextBoxTester : ZilchComponent
 {
+    [Property]
+    var DiagSegPath : CogPath = null;
+    var DiagSeg : Cog = null;
+    
     function Initialize(init : CogInitializer)
     {
+        this.DiagSeg = this.Space.FindObjectByName("TestDiaologueSegment");
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        var textBlockInfo = this.Space.FindObjectByName("TestTextBlockInfo");
-        
         if(Zero.Keyboard.KeyIsPressed(Keys.T))
         {
             var textBoxEvent = new TextBoxEvent();
-            var speakerSprite = textBlockInfo.TextBlockInfo.SpeakerSprite;
-            textBoxEvent.TextBoxSpriteSource = speakerSprite;
+            textBoxEvent.DialogueSegmentToUse = this.Space.FindObjectByName("TestDiaologueSegment");
             textBoxEvent.DistanceOnScreen = -2.0;
             textBoxEvent.InOutTime = 0.3;
             textBoxEvent.EaseCurve = Ease.QuadOut;
@@ -22,20 +24,20 @@ class TextBoxTester : ZilchComponent
             textBoxEvent.OpacityEase = Ease.Linear;
             var levelSettings = this.Space.LevelSettings;
             var textBox = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
-            textBox.DispatchEvent("textBoxEvent", textBoxEvent);
+            textBox.DispatchEvent("startDialogue", textBoxEvent);
         }
-        if(Zero.Keyboard.KeyIsPressed(Keys.Y))
-        {
-            var textBoxEvent = new TextBoxEvent();
-            textBoxEvent.DistanceOnScreen = -13.0;
-            textBoxEvent.InOutTime = 0.3;
-            textBoxEvent.EaseCurve = Ease.QuadIn;
-            textBoxEvent.Opacity = 0.0;
-            textBoxEvent.OpacityTimeIn = 0.3;
-            textBoxEvent.OpacityEase = Ease.Linear;
-            var levelSettings = this.Space.LevelSettings;
-            var textBox = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
-            textBox.DispatchEvent("textBoxEvent", textBoxEvent);
-        }
+        //if(Zero.Keyboard.KeyIsPressed(Keys.Y))
+        //{
+        //    var textBoxEvent = new TextBoxEvent();
+        //    textBoxEvent.DistanceOnScreen = -13.0;
+        //    textBoxEvent.InOutTime = 0.3;
+        //    textBoxEvent.EaseCurve = Ease.QuadIn;
+        //    textBoxEvent.Opacity = 0.0;
+        //    textBoxEvent.OpacityTimeIn = 0.3;
+        //    textBoxEvent.OpacityEase = Ease.Linear;
+        //    var levelSettings = this.Space.LevelSettings;
+        //    var textBox = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
+        //    textBox.DispatchEvent("startDialogue", textBoxEvent);
+        //}
     }
 }

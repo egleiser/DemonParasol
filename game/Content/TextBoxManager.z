@@ -1,45 +1,109 @@
 class TextBoxManager : ZilchComponent
 {
-    var IsMoving : Boolean = false;
+    [Property]
+    var TextBoxTextPath : CogPath = null;
+    var TextBoxText : Cog = null;
+    
+    var DialogueSegment : Cog = null;
+    var CurrentTextIdx : Integer = 0;
+    var ChildTexts : Array[Cog] = null;
+    
+    var LastStartEvent : TextBoxEvent = null;
+    
+    var HasStarted : Boolean = false;
     var IsChanging : Boolean = false;
+    var HasEnded : Boolean = false;
     
     var TextBoxSprite : SpriteSource = null;
     
+    
+    var CurrentSprite : SpriteSource = null;
+    var SpriteToLoad : SpriteSource = null;
+    
     function Initialize(init : CogInitializer)
     {
-        this.IsMoving = false;
+        this.HasStarted = false;
         this.IsChanging = false;
+        this.HasEnded = false;
+        
+        this.ChildTexts = new Array[Cog]();
+        
+        this.TextBoxText = this.TextBoxTextPath.Cog;
+        
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-        Zero.Connect(this.Owner, "textBoxEvent", this.OntextBoxEvent);
+        Zero.Connect(this.Owner, "startDialogue", this.OnStartDialogueEvent);
+        Zero.Connect(this.Owner, "continueDialogue", this.OnContinueDialogueEvent);
     }
 
-    function OntextBoxEvent(event : TextBoxEvent)
+    function OnStartDialogueEvent(event : TextBoxEvent)
     {
-        this.TextBoxSprite = event.TextBoxSpriteSource;
-        this.Owner.Sprite.SpriteSource = this.TextBoxSprite;
+        this.DialogueSegment = event.DialogueSegmentToUse;
+        this.CurrentTextIdx = 0;
         
-        if(this.IsMoving == false)
+        if(this.DialogueSegment != null)
+        {
+            this.ChildTexts.Clear();
+            
+            foreach(var child in this.DialogueSegment.Children)
+            {
+                this.ChildTexts.Push(child);
+            }
+        }
+        
+        this.TextBoxSprite = this.ChildTexts.Get(0).TextBlockInfo.SpeakerSprite;
+        this.Owner.Sprite.SpriteSource = this.TextBoxSprite;
+        this.LastStartEvent = event;
+        
+        var grp = Action.Group(this.Owner.Actions);
+        Action.Property(grp,
+                        @this.Owner.Transform.Translation,
+                        Real3(this.Owner.Transform.Translation.X, event.DistanceOnScreen, this.Owner.Transform.Translation.Z),
+                        event.InOutTime,
+                        event.EaseCurve);
+        Action.Property(grp,
+                        @this.Owner.Sprite.Color,
+                        Real4(this.Owner.Sprite.Color.X, this.Owner.Sprite.Color.Y, this.Owner.Sprite.Color.Z, event.Opacity),
+                        event.OpacityTimeIn,
+                        event.OpacityEase);
+        
+        //Sending a new text scroll event to the Text Box Text (not text box)
+        var e = new TextScrollEvent();
+        e.TextToWrite = this.ChildTexts.Get(0).TextBlockInfo.SpeakerTextBlock;
+        this.TextBoxText.DispatchEvent("textScrollEvent", e);
+    }
+    
+    function OnContinueDialogueEvent(event : ContinueDialogueEvent)
+    {
+        this.CurrentTextIdx += 1;
+        
+        if(this.CurrentTextIdx == this.ChildTexts.Count)
         {
             var grp = Action.Group(this.Owner.Actions);
             Action.Property(grp,
                             @this.Owner.Transform.Translation,
-                            Real3(this.Owner.Transform.Translation.X, event.DistanceOnScreen, this.Owner.Transform.Translation.Z),
-                            event.InOutTime,
-                            event.EaseCurve);
-            Action.Property(grp,
-                            @this.Owner.Sprite.Color,
-                            Real4(this.Owner.Sprite.Color.X, this.Owner.Sprite.Color.Y, this.Owner.Sprite.Color.Z, event.Opacity),
-                            event.OpacityTimeIn,
-                            event.OpacityEase);
-            
-            this.IsMoving = true;
+                            Real3(this.Owner.Transform.Translation.X, -13.0, this.Owner.Transform.Translation.Z),
+                            0.3,
+                            Ease.QuadIn);
+                            
+            Action.Property(grp
+                , @this.Owner.Sprite.Color
+                , Real4(this.Owner.Sprite.Color.X, this.Owner.Sprite.Color.Y, this.Owner.Sprite.Color.Z, 0)
+                , 0.3
+                , Ease.Linear);
+            Console.WriteLine("Actions Should Have Run");
         }
-        
-        if(this.IsChanging == false && this.IsMoving == true)
+        else
         {
-            this.Owner.Sprite.SpriteSource = this.TextBoxSprite;
+            var speakerSprite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerSprite;
+            if(speakerSprite != this.TextBoxSprite)
+            {
+                this.Owner.Sprite.SpriteSource = speakerSprite;
+            }
+            
+            var e = new TextScrollEvent();
+            e.TextToWrite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerTextBlock;
+            this.TextBoxText.DispatchEvent("textScrollEvent", e);
         }
-
     }
 
     function OnLogicUpdate(event : UpdateEvent)
