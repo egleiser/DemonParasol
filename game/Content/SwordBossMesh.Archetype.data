@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0.133667],
+		Vec3 Translation = [0, -1.33921, 0.133667],
 		Vec3 Scale = [2, 2, 2],
 		Quat Rotation = [0.707107, 0, 0, 0.707107],
 	},
@@ -102,12 +102,40 @@ Cog =
 				string MeshName = "54a3c5bcba3e8e03:SwordBoss.Geta",
 				Vec4 Color = [0.3, 0.18222, 0.0735, 1],
 			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 5,
+					},
+					Named = 
+					{
+						string Name = "GetaString",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.20956, 0.076025, 1.09778],
+						Vec3 Scale = [1.10766, 1, 1],
+						Quat Rotation = [1.7053e-013, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+						string MeshName = "54a3c5bcba3e8e0f:SwordBoss.GetaString",
+						Vec4 Color = [0.92, 0, 0, 1],
+					},
+				},
+			},
 		},
 		Cog = 
 		{
 			LinkId = 
 			{
-				uint Id = 5,
+				uint Id = 6,
 			},
 			Named = 
 			{
@@ -132,7 +160,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 6,
+				uint Id = 7,
 			},
 			Named = 
 			{
@@ -158,7 +186,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 7,
+						uint Id = 8,
 					},
 					Named = 
 					{
@@ -173,7 +201,7 @@ Cog =
 					GodRayLight = 
 					{
 						GodRayLightType LightType = Point,
-						bool Active = true,
+						bool Active = false,
 						int Samples = 80,
 						Vec4 Color = [1, 0, 0, 1],
 						float Intensity = 1,
@@ -189,7 +217,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 8,
+						uint Id = 9,
 					},
 					Named = 
 					{
@@ -203,7 +231,7 @@ Cog =
 					},
 					Model = 
 					{
-						bool Visible = false,
+						bool Visible = true,
 						bool VisibilityCulling = true,
 						string MaterialName = "54a3db5a3ddb6b52:mat_LightIntense",
 						string MeshName = "54a3c5bcba3e8e06:SwordBoss.Iris",
@@ -217,7 +245,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 9,
+						uint Id = 10,
 					},
 					Named = 
 					{
@@ -244,7 +272,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 10,
+				uint Id = 11,
 			},
 			Named = 
 			{
@@ -269,7 +297,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 11,
+				uint Id = 12,
 			},
 			Named = 
 			{
@@ -294,7 +322,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 12,
+				uint Id = 13,
 			},
 			Named = 
 			{
@@ -319,7 +347,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 13,
+				uint Id = 14,
 			},
 			Named = 
 			{
@@ -338,31 +366,6 @@ Cog =
 				string MaterialName = "54a3c57d9c4c3210:mat_Gold",
 				string MeshName = "54a3c5bcba3e8e0d:SwordBoss.Handle",
 				Vec4 Color = [0.755, 0.570629, 0.2567, 1],
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 14,
-			},
-			Named = 
-			{
-				string Name = "GetaString",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [0.195389, 0.590118, 0.503458],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Model = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
-				string MeshName = "54a3c5bcba3e8e0f:SwordBoss.GetaString",
-				Vec4 Color = [0.92, 0, 0, 1],
 			},
 		},
 	},

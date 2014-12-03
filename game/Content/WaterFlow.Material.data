@@ -1,0 +1,32 @@
+Material = 
+{
+	Lambert = 
+	{
+	},
+	EmissiveMapping = 
+	{
+		float EmissiveScale = 0.7,
+		string EmissiveMapTexture = "549077307890dfed:Chrome1",
+		Vec2 EmissiveScroll = [0, -1.7],
+		Vec2 EmissiveTiling = [1, 1],
+		Vec2 EmissiveOffset = [0, 0],
+	},
+	ModulateModelColor = 
+	{
+	},
+	NormalMapping = 
+	{
+		float Bumpiness = 4,
+		string NormalMapTexture = "54ff30eba2db9c71:Stone_Normal",
+		Vec2 NormalScroll = [0, -1],
+		Vec2 NormalTiling = [1, 1],
+		Vec2 NormalOffset = [0, 0],
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "54ff30eba2dbc7b6:Stone_Spec",
+		Vec2 DiffuseScroll = [0, -1.5],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

@@ -1,0 +1,474 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BossRoomM",
+	},
+	Archetyped = 
+	{
+		string Name = "54ae5c0d06486d95:BossRoom",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [25, 15, 3.56535],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "PlatformMain",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -3.20942, 2.98223e-008],
+				Vec3 Scale = [0.9199, 0.9199, 0.9199],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54ae5c0c0608960a:BossRoom.PlatformMain",
+				Vec4 Color = [0.169205, 0.1505, 0.215, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "Wall",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -11.511, 2.98223e-008],
+				Vec3 Scale = [1.63855, 5.95008, 1.63855],
+				Quat Rotation = [1, 0, 0, -7.54979e-008],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54ae5c0c06089610:BossRoom.Wall",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "CryingMask002",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [20.129, 9.28008, -26.485],
+				Vec3 Scale = [4.13707, 3.92141, 1.56943],
+				Quat Rotation = [0.95396, 0.000379309, 0.299933, -0.00120642],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54ae5c0c06089612:BossRoom.CryingMask002",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "waterfall1",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [16.5976, -12.8948, -21.1966],
+				Vec3 Scale = [0.327699, 1.12349, 0.253482],
+				Quat Rotation = [0.95396, -1.31105e-008, 0.299933, 4.16989e-008],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54ae5c0c06089614:BossRoom.waterfall1",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "waterfall2",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.0962581, -6.70687, -27.9141],
+				Vec3 Scale = [0.327699, 1.12349, 0.253482],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54ae5c0c06089616:BossRoom.waterfall2",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 7,
+			},
+			Named = 
+			{
+				string Name = "CryingMask",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.0340169, 15.4681, -34.2718],
+				Vec3 Scale = [4.13707, 3.92141, 1.56943],
+				Quat Rotation = [0.0012646, 0, 0, 0.999999],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54ae5c0c06089617:BossRoom.CryingMask",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 8,
+			},
+			Named = 
+			{
+				string Name = "CryingMask001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-19.5775, 9.28008, -26.485],
+				Vec3 Scale = [4.13707, 3.92141, 1.56943],
+				Quat Rotation = [0.00120638, 0.299932, -0.000379294, 0.95396],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54ae5c0c06089619:BossRoom.CryingMask001",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 9,
+			},
+			Named = 
+			{
+				string Name = "waterfall3",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-16.0461, -12.8948, -21.1966],
+				Vec3 Scale = [0.327699, 1.12349, 0.253482],
+				Quat Rotation = [0, 0.299933, 0, 0.95396],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54ae5c0c0608961b:BossRoom.waterfall3",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 10,
+			},
+			Named = 
+			{
+				string Name = "Platform6",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [10.6602, -3.20942, -30.9213],
+				Vec3 Scale = [0.350385, 1.18946, 0.350385],
+				Quat Rotation = [7.83557e-017, 0.940865, 7.83557e-017, -0.338781],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54ae5c0c0608961d:BossRoom.Platform6",
+				Vec4 Color = [0.168627, 0.14902, 0.215686, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 11,
+			},
+			Named = 
+			{
+				string Name = "Platform7",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-10.6602, -3.20942, -30.9213],
+				Vec3 Scale = [0.350385, 1.18946, 0.350385],
+				Quat Rotation = [1.37948e-017, 0.81072, 1.37948e-017, 0.585434],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54ae5c0c0608961e:BossRoom.Platform7",
+				Vec4 Color = [0.168627, 0.14902, 0.215686, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 12,
+			},
+			Named = 
+			{
+				string Name = "Platform8",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [33.7147, -3.20942, 0],
+				Vec3 Scale = [0.350385, 1.18946, 0.350385],
+				Quat Rotation = [4.74616e-017, 0.978994, 4.74616e-017, 0.203887],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54ae5c0c06089620:BossRoom.Platform8",
+				Vec4 Color = [0.168627, 0.14902, 0.215686, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 13,
+			},
+			Named = 
+			{
+				string Name = "Platform9",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-33.7147, -3.20942, 0],
+				Vec3 Scale = [0.350385, 1.18946, 0.350385],
+				Quat Rotation = [1.10072e-007, 0.133045, 2.29238e-008, -0.99111],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54ae5c0c06089624:BossRoom.Platform9",
+				Vec4 Color = [0.168627, 0.14902, 0.215686, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 14,
+			},
+			Named = 
+			{
+				string Name = "WaterPlaneRound",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -6.08253, 0],
+				Vec3 Scale = [1, 0.366742, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54ae5c0c06089626:BossRoom.WaterPlaneRound",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 15,
+			},
+			Named = 
+			{
+				string Name = "Platform11",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-27.5994, -3.20942, -17.9874],
+				Vec3 Scale = [0.350385, 1.18946, 0.350385],
+				Quat Rotation = [1.1417e-007, 0.347049, -8.14101e-009, -0.937847],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54ae5c0c06089628:BossRoom.Platform11",
+				Vec4 Color = [0.168627, 0.14902, 0.215686, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 16,
+			},
+			Named = 
+			{
+				string Name = "Platform12",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [27.5994, -3.20942, -17.9874],
+				Vec3 Scale = [0.350385, 1.18946, 0.350385],
+				Quat Rotation = [6.54325e-017, 0.997467, 6.54325e-017, -0.0711257],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54ae5c0c0608962a:BossRoom.Platform12",
+				Vec4 Color = [0.168627, 0.14902, 0.215686, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 17,
+			},
+			Named = 
+			{
+				string Name = "StarGlowFX",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 1.90457, -1.33074],
+				Vec3 Scale = [46.432, 15.0751, 46.432],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54ae5c0c0608962c:BossRoom.StarGlowFX",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 18,
+			},
+			Named = 
+			{
+				string Name = "StarBase",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -3.20942, 2.98223e-008],
+				Vec3 Scale = [0.9199, 0.9199, 0.9199],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54ae5c0c0608962e:BossRoom.StarBase",
+				Vec4 Color = [0.595, 0, 0.000356917, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 19,
+			},
+			Named = 
+			{
+				string Name = "Box001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -3.2143, 27.0986],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54ae5c0c06089630:BossRoom.Box001",
+				Vec4 Color = [0.150276, 0.089975, 0.295, 1],
+			},
+		},
+	},
+},

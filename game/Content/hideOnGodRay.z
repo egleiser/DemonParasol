@@ -1,0 +1,15 @@
+class HideOnGodRay : ZilchComponent
+{
+    var EyeLight:Cog = null;
+    function Initialize(init : CogInitializer)
+    {
+        this.EyeLight = this.Owner.Parent.FindChildByName("EyeLight");
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+       
+        this.Owner.Model.Visible = !this.EyeLight.GodRayLight.Active;
+    }
+}

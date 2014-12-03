@@ -244,7 +244,10 @@ class PlayerController : ZilchComponent
             if(this.TongueFinder != null && this.TongueFinder.TongueFinder.Latched == true && this.TongueFinder.TongueFinder.Destroy == true
             && this.ContextButton.ContextButtonManager.WantedText == "Yank")
             {
-                this.TongueFinder.TongueFinder.LatchedObject.Destroy();
+                var yankEvent = new YankEvent();
+                this.TongueFinder.TongueFinder.LatchedObject.DispatchDown("yankEvent", yankEvent);
+                this.TongueFinder.TongueFinder.LatchedObject.DispatchUp("yankEvent", yankEvent);
+                this.TongueFinder.TongueFinder.LatchedObject.DispatchEvent("yankEvent", yankEvent);
                 this.TongueFinder.Destroy();
             }
             //Grapple to the player

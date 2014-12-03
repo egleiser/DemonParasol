@@ -21,6 +21,11 @@ class HitEvent : Event
     var DispatcherName : String = "";
     var NumberToSend : Integer = 0;
 }  
+class YankEvent : Event
+{
+    var DispatcherName : String = "";
+    var NumberToSend : Integer = 0;
+}  
 class CinemaEvent : Event
 {
     var CamEventType : String = "";
