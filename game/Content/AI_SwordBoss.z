@@ -163,7 +163,7 @@ class AI_SwordBoss : ZilchComponent
     function RotateStomp()
     {
         this.SwordBossMesh.Transform.Rotation = Math.Euler(Real3(1.57079633,0,0));
-        if(this.StompCount >= 16)
+        if(this.StompCount >= 16 / this.StompSpeed)
         {
             this.CurrentState = SwordBossState.Aim;
             this.StompCount = 0;
