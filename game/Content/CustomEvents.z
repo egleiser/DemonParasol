@@ -109,7 +109,7 @@ class TextBoxEvent : Event
 }
 class TextScrollEvent : Event
 {
-    var TextToWrite : TextBlock = TextBlock.Find("TestTextBlock");
+    var TextToWrite : TextBlock = null;
 }
 class ContinueDialogueEvent : Event
 {

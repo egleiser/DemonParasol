@@ -11,26 +11,26 @@ class TextScrollTester : ZilchComponent
     {
         var textBlockInfo = this.Space.FindObjectByName("TestTextBlockInfo1");
         
-        if(Zero.Keyboard.KeyIsPressed(Keys.H))
-        {
-            Console.WriteLine("Text Start Writing");
-            var textScrollEvent = new TextScrollEvent();
-            var levelSettings = this.Space.LevelSettings;
-            var textBoxTest = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBoxText");
-            var textBlock = textBlockInfo.TextBlockInfo.SpeakerTextBlock;
-            textScrollEvent.TextToWrite = textBlock;
-            Console.WriteLine(textBlock.Text);
-            textBoxTest.DispatchEvent("textScrollEvent", textScrollEvent);
+        //if(Zero.Keyboard.KeyIsPressed(Keys.H))
+        //{
+        //    Console.WriteLine("Text Start Writing");
+        //    var textScrollEvent = new TextScrollEvent();
+        //    var levelSettings = this.Space.LevelSettings;
+        //    var textBoxTest = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBoxText");
+        //    var textBlock = textBlockInfo.TextBlockInfo.SpeakerTextBlock;
+        //    textScrollEvent.TextToWrite = textBlock;
+        //    Console.WriteLine(textBlock.Text);
+        //    textBoxTest.DispatchEvent("textScrollEvent", textScrollEvent);
             
-        }
-        if(Zero.Keyboard.KeyIsPressed(Keys.J))
-        {
-            var textScrollEvent = new TextScrollEvent();
-            var levelSettings = this.Space.LevelSettings;
-            var textBoxTest = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBoxText");
-            var textBlock = TextBlock.Find("TestTextBlock");
-            textScrollEvent.TextToWrite = textBlock;
-            textBoxTest.DispatchEvent("textScrollEvent", textScrollEvent);
-        }
+        //}
+        //if(Zero.Keyboard.KeyIsPressed(Keys.J))
+        //{
+        //    var textScrollEvent = new TextScrollEvent();
+        //    var levelSettings = this.Space.LevelSettings;
+        //    var textBoxTest = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBoxText");
+        //    var textBlock = TextBlock.Find("TestTextBlock");
+        //    textScrollEvent.TextToWrite = textBlock;
+        //    textBoxTest.DispatchEvent("textScrollEvent", textScrollEvent);
+        //}
     }
 }

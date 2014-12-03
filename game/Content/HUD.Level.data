@@ -268,7 +268,7 @@ Level =
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
-			bool OnTop = true,
+			bool OnTop = false,
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
@@ -276,6 +276,9 @@ Level =
 		TextBoxManager = 
 		{
 			CogPath TextBoxTextPath = "TextBoxText",
+			CogPath ContinueButtonPath = "TextBoxText/ContinueButton",
+			int GamepadIndex = 0,
+			float SpeakerChangeDelay = 0.3,
 		},
 		Hierarchy = 
 		{
@@ -316,6 +319,9 @@ Level =
 				TextScrollManager = 
 				{
 					CogPath TextBoxPath = "..",
+					int GamepadIndex = 0,
+					float PunctuationDelay = 0.1,
+					float LetterDelay = 0.05,
 				},
 				Hierarchy = 
 				{
@@ -395,6 +401,40 @@ Level =
 							Vec4 Color2 = [1, 1, 1, 1],
 							Vec4 Color3 = [1, 1, 1, 1],
 							Vec4 Color4 = [1, 1, 1, 0],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 10,
+						},
+						Named = 
+						{
+							string Name = "ContinueButton",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [7.75, -2.5, 0.1],
+							Vec3 Scale = [1.25, 1.25, 1.25],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Sprite = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							Vec4 Color = [1, 1, 1, 0.8],
+							BlendMode BlendMode = Alpha,
+							SpriteGeometryMode GeometryMode = ZPlane,
+							string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+							string SpriteSource = "545746f1032f542e:ui-textbox-continue",
+							bool RenderMask = false,
+							bool FlipX = false,
+							bool FlipY = false,
+							bool OnTop = true,
+							bool AnimationActive = true,
+							float AnimationSpeed = 1,
+							uint StartFrame = 0,
 						},
 					},
 				},

@@ -17,27 +17,14 @@ class TextBoxTester : ZilchComponent
             var textBoxEvent = new TextBoxEvent();
             textBoxEvent.DialogueSegmentToUse = this.Space.FindObjectByName("TestDiaologueSegment");
             textBoxEvent.DistanceOnScreen = -2.0;
-            textBoxEvent.InOutTime = 0.3;
+            textBoxEvent.InOutTime = 0.5;
             textBoxEvent.EaseCurve = Ease.QuadOut;
-            textBoxEvent.Opacity = 0.8;
-            textBoxEvent.OpacityTimeIn = 0.3;
+            textBoxEvent.Opacity = 0.85;
+            textBoxEvent.OpacityTimeIn = 0.5;
             textBoxEvent.OpacityEase = Ease.Linear;
             var levelSettings = this.Space.LevelSettings;
             var textBox = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
             textBox.DispatchEvent("startDialogue", textBoxEvent);
         }
-        //if(Zero.Keyboard.KeyIsPressed(Keys.Y))
-        //{
-        //    var textBoxEvent = new TextBoxEvent();
-        //    textBoxEvent.DistanceOnScreen = -13.0;
-        //    textBoxEvent.InOutTime = 0.3;
-        //    textBoxEvent.EaseCurve = Ease.QuadIn;
-        //    textBoxEvent.Opacity = 0.0;
-        //    textBoxEvent.OpacityTimeIn = 0.3;
-        //    textBoxEvent.OpacityEase = Ease.Linear;
-        //    var levelSettings = this.Space.LevelSettings;
-        //    var textBox = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
-        //    textBox.DispatchEvent("startDialogue", textBoxEvent);
-        //}
     }
 }

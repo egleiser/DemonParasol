@@ -17,9 +17,6 @@ class TextScrollManager : ZilchComponent
     //The index of the character in the string that is being printed
     var CurrentIndex : Integer = 0;
     
-    var TextDelay : Real = 0.0;
-    var IsPunctuation : Boolean = false;
-    
     //Variables taken from the TextBlockElieInfo
     var SpeakerPicture : SpriteSource = null;
     var SpeakerName : String = "";
@@ -28,13 +25,26 @@ class TextScrollManager : ZilchComponent
     var TextBoxPath : CogPath = null;
     var TextBox : Cog = null;
     
+    //Gamepad variables
+    [Property]
+    var GamepadIndex:Integer = 0;
+    var Gamepad:Gamepad = null;
+    
+    var PlayerDeactivated : Boolean = false;
+    
+    var TextDelay : Real = 0.0;
+    var IsPunctuation : Boolean = false;
+    
     //A higher delay to use after certain punctuation marks
-    //[Property]
-    var PunctuationDelay : Real = 0.15;
+    [Property]
+    var PunctuationDelay : Real = 0.1;
     
     //The standard delay for printing characters
-    //[Property]
+    [Property]
     var LetterDelay : Real = 0.05;
+    //Boolean to check whether text is currently scrolling
+    //Used if player wishes to have text scroll very quickly
+    var TextIsScrolling : Boolean = false;
     
     //The Action Set that controls the delays
     var TextSeq : ActionSet = null;
@@ -45,8 +55,36 @@ class TextScrollManager : ZilchComponent
     
     function Initialize(init : CogInitializer)
     {
+        this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
         this.TextBox = this.TextBoxPath.Cog;
+        
+        this.TextIsScrolling = true;
+        
         Zero.Connect(this.Owner, "textScrollEvent", this.OntextScrollEvent);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.PlayerDeactivated == true)
+        {
+            if(this.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Shift))
+            {
+                if(this.TextIsScrolling == false)
+                {
+                    this.TextSeq.Cancel();
+                    this.ChangeSeq = Action.Sequence(this.Owner.Actions);
+                    Actions.Delay(this.ChangeSeq, this.ChangeDelay);
+                    Actions.Call(this.ChangeSeq, this.ContinueEventCall);
+                    this.TextIsScrolling = true;
+                }
+                else
+                {
+                    this.LetterDelay = 0.0;
+                    this.PunctuationDelay = 0.0;
+                }
+            }
+        }
     }
 
     function OntextScrollEvent(event : TextScrollEvent)
@@ -55,6 +93,7 @@ class TextScrollManager : ZilchComponent
         {
             this.TextSeq.Cancel();
         }
+        this.PlayerDeactivated = true;
         
         this.CurrentIndex = 0;
         this.CurrentString = null;
@@ -71,14 +110,12 @@ class TextScrollManager : ZilchComponent
     {
         if(this.GoalString == this.CurrentString)
         {
-            this.TextSeq.Cancel();
-            this.ChangeSeq = Action.Sequence(this.Owner.Actions);
-            Actions.Delay(this.ChangeSeq, this.ChangeDelay);
-            Actions.Call(this.ChangeSeq, this.ContinueEventCall);
+            this.PunctuationDelay = 0.1;
+            this.LetterDelay = 0.05;
+            this.TextIsScrolling = false;
             return;
         }
         
-        //Console.WriteLine("This is the current string: `this.CurrentString`");
         this.CurrentString = this.GoalString.SubString(0, this.CurrentIndex + 1);
         
         var currentCharacterInt:Integer = this.GoalString.Get(this.CurrentIndex);
