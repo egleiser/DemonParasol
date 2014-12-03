@@ -2,18 +2,18 @@ Material =
 {
 	Phong = 
 	{
-		float SpecularExponent = 48,
-		float SpecularScalar = 1,
+		float SpecularExponent = 14,
+		float SpecularScalar = 0.45,
 	},
 	ModulateModelColor = 
 	{
 	},
 	NormalMapping = 
 	{
-		float Bumpiness = 2,
+		float Bumpiness = 2.5,
 		string NormalMapTexture = "543827b3e3a68078:Ground1",
 		Vec2 NormalScroll = [0.001, 0],
-		Vec2 NormalTiling = [1, 1],
+		Vec2 NormalTiling = [5, 5],
 		Vec2 NormalOffset = [0, 0],
 	},
 	Reflective = 
@@ -30,8 +30,8 @@ Material =
 	TextureDiffuse = 
 	{
 		string DiffuseTexture = "5438253cb5888f4b:Water",
-		Vec2 DiffuseScroll = [0.01, 0],
-		Vec2 DiffuseTiling = [100, 100],
+		Vec2 DiffuseScroll = [0.005, 0],
+		Vec2 DiffuseTiling = [1, 1],
 		Vec2 DiffuseOffset = [0, 0],
 	},
 },
