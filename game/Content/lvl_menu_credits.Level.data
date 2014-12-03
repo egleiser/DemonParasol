@@ -62,6 +62,7 @@ Level =
 			float SplashScreenDelayTimer = 3,
 			string NextSplashToLoad = "",
 			bool IsSplash = false,
+			string NextLevelToLoad = "",
 		},
 	},
 	Cog = 
@@ -88,7 +89,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 100,
+			float Size = 81.8732,
 		},
 		EditorCameraController = 
 		{
@@ -224,7 +225,7 @@ Level =
 				Transform = 
 				{
 					Vec3 Translation = [0, -16, 2],
-					Vec3 Scale = [0.233333, 0.233333, 1],
+					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
 				Sprite = 
@@ -253,55 +254,45 @@ Level =
 				{
 					string LevelToLoad = "",
 				},
+				Z_UI_Transitions = 
+				{
+					float FadeInTime = 0.5,
+					float FadeOutTime = 0.25,
+					float WaitTime = 2,
+					float ScaleOutTime = 0.2,
+					float ScaleInTime = 0.25,
+					float ScaleBiggerSize = 1.1,
+					Enum EaseType = QuadInOut,
+				},
+				Area = 
+				{
+					Vec2 Size = [5, 1.25],
+					Location Origin = Center,
+				},
 			},
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "545d477758b1a37e:arc_bg_white_fade",
 		LinkId = 
 		{
 			uint Id = 7,
 		},
-		Named = 
-		{
-			string Name = "bg-white-fade-out",
-		},
-		Archetyped = 
-		{
-			string Name = "545d477758b1a37e:arc_bg_white_fade",
-		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, 10],
-			Vec3 Scale = [48.7465, 48.7465, 48.7465],
+			Vec3 Translation = [0, 28.5326, 10],
+			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Sprite = 
+		Area = 
 		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5275aa4d802dd6dc:Square",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool OnTop = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
+			Vec2 Size = [32, 22],
+			Location Origin = Center,
 		},
-		Z_UI_Transitions = 
+		Named = 
 		{
-			float FadeInTime = 0.5,
-			float FadeOutTime = 0.5,
-			Vec3 ScaleOutSize = [0.75, 0.75, 0.75],
-			float ScaleOutTime = 0.2,
-			Vec3 ScaleInSize = [1, 1, 1],
-			float ScaleInTime = 0.8,
-			Enum EaseType = QuadIn,
+			string Name = "bg-white",
 		},
 	},
 },

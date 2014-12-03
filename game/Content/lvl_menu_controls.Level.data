@@ -62,6 +62,7 @@ Level =
 			float SplashScreenDelayTimer = 3,
 			string NextSplashToLoad = "4faa6050b86892a8:DefaultLevel",
 			bool IsSplash = false,
+			string NextLevelToLoad = "",
 		},
 	},
 	Cog = 
@@ -76,7 +77,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.510008, -0.558252, 50],
+			Vec3 Translation = [-0.0605402, -7.53755, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -88,7 +89,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 100,
+			float Size = 13.5335,
 		},
 		EditorCameraController = 
 		{
@@ -96,7 +97,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [0.510008, -0.558252, 2.22953e-008],
+			Vec3 LookTarget = [-0.0605402, -7.53755, -2.64416e-009],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -171,50 +172,6 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "bg-white-fade-out",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0, 0, 10],
-			Vec3 Scale = [48.7465, 48.7465, 48.7465],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5275aa4d802dd6dc:Square",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool OnTop = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-		Z_UI_Transitions = 
-		{
-			float FadeInTime = 0.5,
-			float FadeOutTime = 1,
-			Vec3 ScaleOutSize = [0.75, 0.75, 0.75],
-			float ScaleOutTime = 0.2,
-			Vec3 ScaleInSize = [1, 1, 1],
-			float ScaleInTime = 0.8,
-			Enum EaseType = QuadIn,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 6,
-		},
-		Named = 
-		{
 			string Name = "ui_text_gamepad",
 		},
 		Transform = 
@@ -256,7 +213,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 7,
+			uint Id = 6,
 		},
 		Named = 
 		{
@@ -301,7 +258,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 8,
+			uint Id = 7,
 		},
 		Named = 
 		{
@@ -314,7 +271,7 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [-30, 3.75, 2],
-			Vec3 Scale = [0.999998, 1, 0.999999],
+			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -354,12 +311,27 @@ Level =
 			float EndingXPosition = -5,
 			Enum EaseType = QuadIn,
 		},
+		Area = 
+		{
+			Vec2 Size = [1, 1.75],
+			Location Origin = Center,
+		},
+		Z_UI_Transitions = 
+		{
+			float FadeInTime = 0.5,
+			float FadeOutTime = 0.25,
+			float WaitTime = 2,
+			float ScaleOutTime = 0.2,
+			float ScaleInTime = 0.25,
+			float ScaleBiggerSize = 1.1,
+			Enum EaseType = QuadInOut,
+		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 9,
+			uint Id = 8,
 		},
 		Named = 
 		{
@@ -393,7 +365,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 10,
+			uint Id = 9,
 		},
 		Named = 
 		{
@@ -405,8 +377,8 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, -6.8, 0.999999],
-			Vec3 Scale = [0.35, 0.35, 0.999999],
+			Vec3 Translation = [0, -6.8, 1],
+			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -435,12 +407,27 @@ Level =
 		{
 			string LevelToLoad = "4faa6050b86892a8:DefaultLevel",
 		},
+		Area = 
+		{
+			Vec2 Size = [5.5, 1.5],
+			Location Origin = Center,
+		},
+		Z_UI_Transitions = 
+		{
+			float FadeInTime = 0.5,
+			float FadeOutTime = 0.25,
+			float WaitTime = 2,
+			float ScaleOutTime = 0.2,
+			float ScaleInTime = 0.25,
+			float ScaleBiggerSize = 1.1,
+			Enum EaseType = QuadInOut,
+		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 11,
+			uint Id = 10,
 		},
 		Named = 
 		{
@@ -453,7 +440,7 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [5, 3.75, 0.999999],
-			Vec3 Scale = [0.999998, 1, 0.999999],
+			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -493,12 +480,27 @@ Level =
 			float EndingXPosition = 20,
 			Enum EaseType = QuadIn,
 		},
+		Area = 
+		{
+			Vec2 Size = [1, 1.75],
+			Location Origin = Center,
+		},
+		Z_UI_Transitions = 
+		{
+			float FadeInTime = 0.5,
+			float FadeOutTime = 0.25,
+			float WaitTime = 2,
+			float ScaleOutTime = 0.2,
+			float ScaleInTime = 0.25,
+			float ScaleBiggerSize = 1.1,
+			Enum EaseType = QuadInOut,
+		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 12,
+			uint Id = 11,
 		},
 		Named = 
 		{
@@ -543,7 +545,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 13,
+			uint Id = 12,
 		},
 		Named = 
 		{
@@ -582,6 +584,29 @@ Level =
 			float ScaleInTime = 0.8,
 			float EndingXPosition = 0,
 			Enum EaseType = QuadIn,
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "545d477758b1a37e:arc_bg_white_fade",
+		LinkId = 
+		{
+			uint Id = 13,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 25, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Area = 
+		{
+			Vec2 Size = [32, 22],
+			Location Origin = Center,
+		},
+		Named = 
+		{
+			string Name = "bg-white",
 		},
 	},
 },

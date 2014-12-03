@@ -59,7 +59,7 @@ Level =
 		},
 		Z_SplashScreenLogic = 
 		{
-			float SplashScreenDelayTimer = 3,
+			float SplashScreenDelayTimer = 4.5,
 			string NextLevel = "545d0e2c41120b5e:lvl_splash_zero_engine",
 		},
 	},
@@ -87,7 +87,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 22.1034,
+			float Size = 40.2749,
 		},
 		EditorCameraController = 
 		{
@@ -173,6 +173,60 @@ Level =
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 5,
+		},
+		Named = 
+		{
+			string Name = "bg-back",
+		},
+		Archetyped = 
+		{
+			string Name = "54f6e7157262050e:arc_bg_black_fade",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 18.2017, 9],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [0.0666667, 0.0666667, 0.0666667, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = true,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Z_UI_Transitions = 
+		{
+			float FadeInTime = 1,
+			float FadeOutTime = 1,
+			float WaitTime = 2,
+			Vec3 ScaleOutSize = [0.75, 0.75, 0.75],
+			float ScaleOutTime = 0.2,
+			Vec3 ScaleInSize = [1, 1, 1],
+			float ScaleInTime = 0.8,
+			Enum EaseType = Linear,
+		},
+		Area = 
+		{
+			Vec2 Size = [32, 18],
+			Location Origin = Center,
 		},
 	},
 },

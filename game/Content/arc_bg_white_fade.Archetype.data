@@ -6,12 +6,16 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "bg-white-fade-out",
+		string Name = "bg-white",
+	},
+	Archetyped = 
+	{
+		string Name = "545d477758b1a37e:arc_bg_white_fade",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 10],
-		Vec3 Scale = [48.7465, 48.7465, 48.7465],
+		Vec3 Translation = [0, 20.4544, 10],
+		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
@@ -35,10 +39,15 @@ Cog =
 	{
 		float FadeInTime = 0.5,
 		float FadeOutTime = 0.25,
-		Vec3 ScaleOutSize = [0.75, 0.75, 0.75],
+		float WaitTime = 2,
 		float ScaleOutTime = 0.2,
-		Vec3 ScaleInSize = [1, 1, 1],
 		float ScaleInTime = 0.8,
+		float ScaleBiggerSize = 1.1,
 		Enum EaseType = QuadIn,
+	},
+	Area = 
+	{
+		Vec2 Size = [32, 22],
+		Location Origin = Center,
 	},
 },

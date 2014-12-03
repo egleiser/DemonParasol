@@ -62,26 +62,31 @@ class Z_UI_Button:ZilchComponent
         //if button is "Start Game"
         if(currentBtn == "btn-game-start")
         {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-start-game-active");
         }
         //if button is "New Game"
         if(currentBtn == "btn-game-new")
         {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-new-game-active");
         }
         //if button is "Quit Game"
         if(currentBtn == "btn-game-quit")
         {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-quit-game-active");
         }
         //if button is "Quit Yes"
         if(currentBtn == "btn-yes")
         {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-yes-active");
         }
         //if button is "Quit No"
         if(currentBtn == "btn-no")
         {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-no-active");
         }
         
@@ -89,26 +94,31 @@ class Z_UI_Button:ZilchComponent
         //if button is "Menu Main"
         if(currentBtn == "btn-menu-main")
         {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-main-active");
         }
         //if button is the RED "Menu Main"
         if(currentBtn == "btn-menu-main-red")
         {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-main-red-active");
         }
         //if button is "Menu Options"
         if(currentBtn == "btn-menu-options")
         {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-options-active");
         }
         //if button is "Menu Controls"
         if(currentBtn == "btn-menu-controls")
         {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-controls-active");
         }
         //if button is "Menu Credits"
         if(currentBtn == "btn-menu-credits")
         {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-credits-active");
         }
         
@@ -116,11 +126,13 @@ class Z_UI_Button:ZilchComponent
         //if button is "btn-arrow-left"
         if(currentBtn == "btn-arrow-left")
         {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("ui_selectorarrow_red");
         }
         //if button is "btn-arrow-right"
         if(currentBtn == "btn-arrow-right")
         {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("ui_selectorarrow_red");
         }
     }
@@ -140,26 +152,31 @@ class Z_UI_Button:ZilchComponent
         //if button is "Start Game"
         if(currentBtn == "btn-game-start")
         {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-start-game-inactive");
         }
         //if button is "New Game"
         if(currentBtn == "btn-game-new")
         {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-new-game-inactive");
         }
         //if button is "Quit Game"
         if(currentBtn == "btn-game-quit")
         {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-quit-game-inactive");
         }
         //if button is "Quit Yes"
         if(currentBtn == "btn-yes")
         {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-yes-inactive");
         }
         //if button is "Quit No"
         if(currentBtn == "btn-no")
         {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-no-inactive");
         }
         
@@ -167,26 +184,31 @@ class Z_UI_Button:ZilchComponent
         //if button is "Menu Main"
         if(currentBtn == "btn-menu-main")
         {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-main-inactive");
         }
         //if button is the RED "Menu Main"
         if(currentBtn == "btn-menu-main-red")
         {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-main-red-inactive");
         }
         //if button is "Menu Options"
         if(currentBtn == "btn-menu-options")
         {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-options-inactive");
         }
         //if button is "Menu Controls"
         if(currentBtn == "btn-menu-controls")
         {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-controls-inactive");
         }
         //if button is "Menu Credits"
         if(currentBtn == "btn-menu-credits")
         {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-credits-inactive");
         }
         
@@ -194,11 +216,13 @@ class Z_UI_Button:ZilchComponent
         //if button is "btn-arrow-left"
         if(currentBtn == "btn-arrow-left")
         {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("ui_selectorarrow_white");
         }
         //if button is "btn-arrow-right"
         if(currentBtn == "btn-arrow-right")
         {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("ui_selectorarrow_white");
         }
     }
@@ -212,7 +236,7 @@ class Z_UI_Button:ZilchComponent
         //check to see what button we are by getting name
         var currentBtn:String = this.Owner.Name;
         //grab the white fade out bg
-        var fadeoutwhite = this.Space.FindObjectByName("bg-white-fade-out");
+        var fadeoutwhite = this.Space.FindObjectByName("bg-white");
         
         //GAME BUTTONS
         //if button is "Start Game"

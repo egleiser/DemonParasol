@@ -6,57 +6,49 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "btn-game-start",
+		string Name = "bg-back",
 	},
 	Archetyped = 
 	{
-		string Name = "549359035ea57e68:arc_menu_button",
+		string Name = "54f6e7157262050e:arc_bg_black_fade",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-0.5, -6.5, 1],
+		Vec3 Translation = [0, 20.7688, 9],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
-	},
-	Reactive = 
-	{
-		bool Active = true,
-		bool CaptureMouse = true,
-	},
-	Z_UI_Button = 
-	{
-		string LevelToLoad = "54682358d686e046:lvl_menu_main",
 	},
 	Sprite = 
 	{
 		bool Visible = true,
 		bool VisibilityCulling = true,
-		Vec4 Color = [1, 1, 1, 1],
+		Vec4 Color = [0.0666667, 0.0666667, 0.0666667, 1],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "545d3bcc929e5c00:btn-start-game-inactive",
+		string SpriteSource = "5275aa4d802dd6dc:Square",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
-		bool OnTop = false,
+		bool OnTop = true,
 		bool AnimationActive = true,
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
 	},
-	Area = 
-	{
-		Vec2 Size = [4, 2],
-		Location Origin = Center,
-	},
 	Z_UI_Transitions = 
 	{
-		float FadeInTime = 0.5,
-		float FadeOutTime = 0.25,
+		float FadeInTime = 1,
+		float FadeOutTime = 1,
 		float WaitTime = 2,
+		Vec3 ScaleOutSize = [0.75, 0.75, 0.75],
 		float ScaleOutTime = 0.2,
-		float ScaleInTime = 0.5,
-		float ScaleBiggerSize = 1.1,
-		Enum EaseType = QuadInOut,
+		Vec3 ScaleInSize = [1, 1, 1],
+		float ScaleInTime = 0.8,
+		Enum EaseType = Linear,
+	},
+	Area = 
+	{
+		Vec2 Size = [32, 18],
+		Location Origin = Center,
 	},
 },
