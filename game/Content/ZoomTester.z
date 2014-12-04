@@ -1,0 +1,50 @@
+class ZoomTester : ZilchComponent
+{
+    [Property]
+    var ZoomTargetPath : CogPath = null;
+    var ZoomTarget : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.ZoomTarget = this.ZoomTargetPath.Cog;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsPressed(Keys.H))
+        {
+            Console.WriteLine("Zooming In");
+            Console.WriteLine("Zoom Object in Zoom Tester = `this.ZoomTarget`");
+            var zoomEvent = new CameraZoomEvent();
+            zoomEvent.IsZoomingIn = true;
+            zoomEvent.CameraTarget = this.ZoomTarget;
+            zoomEvent.CamSize = 8;
+            zoomEvent.ZoomTime = 1.5;
+            this.Space.FindObjectByName("Camera").DispatchEvent("zoomEvent", zoomEvent);
+            
+            
+        }
+        if(Zero.Keyboard.KeyIsPressed(Keys.J))
+        {
+            
+            //var panEvent = new CameraPanEvent();
+            //panEvent.IsActive = true;
+            //panEvent.PanTarget = this.ZoomTarget;
+            //panEvent.PanTime = event.Dt * 0.8;
+            //panEvent.EasingCurve = Ease.QuadInOut;
+            //this.Space.FindObjectByName("Camera").DispatchEvent("panEvent", panEvent);
+        }
+        this.PanEventStarter(event);
+    }
+    
+    function PanEventStarter(event : UpdateEvent)
+    {
+        var panEvent = new CameraPanEvent();
+        panEvent.IsActive = true;
+        panEvent.PanTarget = this.ZoomTarget;
+        panEvent.PanTime = event.Dt;
+        panEvent.EasingCurve = Ease.QuadInOut;
+        this.Space.FindObjectByName("Camera").DispatchEvent("panEvent", panEvent);
+    }
+}

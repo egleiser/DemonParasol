@@ -28,11 +28,15 @@ class OrbitCameraController : ZilchComponent
     [Property]
     var CamLerp: Real3 = Real3(0,0,30);
     
+    var FadeOutCog : Cog = null;
+    
     var WantedcamLerp : Real3 = Real3(0,0,10);
     
     var PanStartRotation : Quaternion = Quaternion(0,0,0,0);
     var PanTimer : Real = 1.1;
     var PanTargetRotation : Quaternion = Quaternion(0,0,0,0);
+    
+    var ZoomTowardsObject : Cog = null;
     
     var DefaultPosition : Real3 = Real3(0,0,0);
     
@@ -69,6 +73,7 @@ class OrbitCameraController : ZilchComponent
         Zero.Connect(this.Owner, "panEvent", this.OnPan);
         Zero.Connect(this.Owner, "dollyEvent", this.OnDolly);
         Zero.Connect(this.Owner, "cameraLockEvent", this.OnToggleCameraLock);
+        Zero.Connect(this.Owner, "fadeEvent", this.OnFadeToBlack);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -125,18 +130,64 @@ class OrbitCameraController : ZilchComponent
     
     function OnZoom(event : CameraZoomEvent)
     {
-        //If wanting to zoom in (only towards player at the moment)
-        if(event.IsZoomingIn)
+        //Checking the boolean to check if there is another object that the camera should zoom towards.
+        if(event.CameraTarget == null)
         {
-            Console.WriteLine("Zoom Event Started");
-            var seq = Action.Sequence(this.Owner.Actions);
-            Action.Property(seq, @this.Owner.Camera.Size, event.CamSize, event.ZoomTime, event.EasingCurve);
+            //If wanting to zoom in/out based on the player's position
+            if(event.IsZoomingIn)
+            {
+                Console.WriteLine("Normal Zoom In To Player");
+                //Creating and defining the variable to for the action sequence
+                var seq = Action.Sequence(this.Owner.Actions);
+                //Setting the variables for the Action property based on the values defined
+                //when creating a new zoom event. (See the CameraZoomEvent class in the
+                //CustomEvents Zilch script)
+                Action.Property(seq, @this.Owner.Camera.Size, event.CamSize, event.ZoomTime, event.EaseCurve);
+            }
+            //If wanting to zoom back out to regular size (set at CamLerp.z, which is 30 right now)
+            else
+            {
+                //Creating and defining the variable to for the action sequence
+                var seq = Action.Sequence(this.Owner.Actions);
+                //Setting the variables for the Action property based on the values defined
+                //when creating a new zoom event. (See the CameraZoomEvent class in the
+                //CustomEvents Zilch script)
+                Action.Property(seq, @this.Owner.Camera.Size, this.CamLerp.Z, event.ZoomTime, event.EaseCurve);
+            }
         }
-        //If wanting to zoom back out to regular size (set at CamLerp.z, which is 30 right now)
+        //If there is ANOTHER OBJECT you want to zoom in on besides the player
         else
         {
-            var seq = Action.Sequence(this.Owner.Actions);
-            Action.Property(seq, @this.Owner.Camera.Size, this.CamLerp.Z, event.ZoomTime, event.EasingCurve);
+            if(event.IsZoomingIn)
+            {
+                Console.WriteLine("Zoom Towards Object event is working");
+                //Variable for the object to zoom towards
+                this.ZoomTowardsObject = event.CameraTarget;
+                Console.WriteLine("Zoom Object = `event.CameraTarget`");
+                
+                //Vector of the camera towards the object
+                //var cameraObjectVector : Real3 = Real3(0,0,0);
+                //The rotation quaternion for the camera based on the object's position
+                //var rotationDirection : Quaternion = Quaternion(0,0,0,0);
+                
+                //Defining the vector between the camera and the object
+                //cameraObjectVector = otherObject.Transform.Translation - this.Owner.Transform.Translation;
+                //Defining the rotation quaternion based on the object's position
+                //rotationDirection = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(cameraObjectVector, Real3(0,0,1));
+                
+                //this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, rotationDirection, event.DT
+                
+                var grp = Action.Group(this.Owner.Actions);
+                //Action.Property(grp, @this.Owner.Transform.Rotation, Math.Euler(cameraObjectVector), event.ZoomTime, event.EaseCurve);
+                Action.Call(grp, this.ActionCallPanEvent);
+                Action.Property(grp, @this.Owner.Camera.Size, event.CamSize, event.ZoomTime, event.EaseCurve);
+            }
+            //If wanting to zoom back out to regular size (set at CamLerp.z, which is 30 right now)
+            else
+            {
+                var seq = Action.Sequence(this.Owner.Actions);
+                Action.Property(seq, @this.Owner.Camera.Size, this.CamLerp.Z, event.ZoomTime, event.EaseCurve);
+            }
         }
     }
     
@@ -176,7 +227,7 @@ class OrbitCameraController : ZilchComponent
                 //Rotating camera towards the EndRotation defined when calling the event using Math.Slerp
                 this.Owner.Transform.LocalRotation = (Math.Slerp(this.PanStartRotation, event.EndRotation, this.PanTimer));
             }
-            //Incremenets the PanTimer by event.Dt (as set in the event call) 
+            //Increments the PanTimer by event.Dt (as set in the event call) 
             this.PanTimer += event.PanTime;
             Console.WriteLine("Pan Timer = `this.PanTimer`");
             //Checks to see if the rotation has completed
@@ -304,6 +355,24 @@ class OrbitCameraController : ZilchComponent
         }
     }
     
+    function OnFadeToBlack (event : FadeToBlackEvent)
+    {
+        var levelSettings = this.Space.LevelSettings;
+        var hudSpace = levelSettings.HudCreator.HudSpace;
+        this.FadeOutCog = hudSpace.FindObjectByName("FadeToBlackSprite");
+        var seq = Action.Sequence(this.Owner.Actions);
+        Action.Property(seq,
+                        @this.FadeOutCog.Sprite.Visible,
+                        true,
+                        0.01,
+                        Ease.Linear);
+        Action.Property(seq,
+                        @this.FadeOutCog.Sprite.Color,
+                        Real4(0,0,0,1),
+                        event.TimeToFade,
+                        event.EaseCurve);
+    }
+    
     function CameraLock()
     {
         var cameraLockEvent = new CameraLockEvent();
@@ -321,5 +390,15 @@ class OrbitCameraController : ZilchComponent
     function OnToggleCameraLock(event : CameraLockEvent)
     {
         this.ShouldUpdateCamera = event.IsLocked;
+    }
+    
+    function ActionCallPanEvent()
+    {
+        var panEvent = new CameraPanEvent();
+        panEvent.IsActive = true;
+        panEvent.PanTarget = this.ZoomTowardsObject;
+        panEvent.PanTime = 0.5;
+        panEvent.EasingCurve = Ease.QuadInOut;
+        this.Owner.DispatchEvent("panEvent", panEvent);
     }
 }

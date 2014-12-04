@@ -28,14 +28,16 @@ class CinemaEvent : Event
 }
 class CameraZoomEvent : Event
 {
-    //Indicates whether the initial zoom is active
+    //Indicates whether this zoom event is zooming away from the standard camsize
+    //value used throughout the game. When zooming in or out, set to true; when you
+    //want to zoom back to the original, standard position, set to false.
     var IsZoomingIn : Boolean = false;
     //The main variable to change when zooming
     var CamSize : Real = 0.0;
     //Use if you want to zoom TOWARDS another object besides the player
     var CameraTarget : Cog = null;
     //Hpefully this will be for a custom ease later on
-    var EasingCurve : Ease = Ease.QuadInOut;
+    var EaseCurve : Ease = Ease.QuadInOut;
     //Time for zooming
     var ZoomTime : Real = 0.0;
 }
@@ -45,7 +47,7 @@ class CameraPanEvent : Event
     var IsActive : Boolean = false;
     //Use if you want to rotate TOWARDS another object besides the player
     var PanTarget : Cog = null;
-    //Use if you want to rotate using a specific quaternion value
+    //Use if you want to rotate using a specific quaternion value (that is, not an actual object)
     var EndRotation : Quaternion = Quaternion(0,0,0,0);
     //The start rotation before panning
     var StartRotation : Quaternion = Quaternion(0,0,0,0);
@@ -69,6 +71,11 @@ class CameraDollyEvent : Event
     var DollyTime : Real = 0.0;
     //Hopefully this will be for a custom ease later on
     var EasingCurve : Ease = Ease.QuadInOut;
+}
+class FadeToBlackEvent : Event
+{
+    var TimeToFade : Real = 0.0;
+    var EaseCurve : Ease = Ease.QuadOut;
 }
 class PanFinishedEvent : Event
 {
