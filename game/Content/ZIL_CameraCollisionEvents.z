@@ -1,0 +1,32 @@
+class ZIL_CameraCollisionEvents : ZilchComponent
+{
+    [Property]
+    var CameraZoomEvent : Boolean = false;
+    
+    [Property]
+    var IsZoomingIn : Boolean = false;
+    
+    [Property]
+    var CamSize : Real = 0.0;
+    
+    [Property]
+    var CameraTarget : CogPath = null;
+    
+    [Property]
+    var EasingCurve : Ease = Ease.QuadInOut;
+    
+    [Property]
+    var ZoomInTime : Real = 0.0;
+    
+    [Property]
+    var ZoomOutTime : Real = 0.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

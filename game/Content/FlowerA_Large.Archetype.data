@@ -1,0 +1,81 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "FlowerA",
+	},
+	Archetyped = 
+	{
+		string Name = "5409f97858c06e0a:FlowerA_Large",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-177.917, -22.9685, 42.1042],
+		Vec3 Scale = [2, 2, 2],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+	},
+	SinRotate = 
+	{
+		float SinSpeedX = 2,
+		float SinSpeedY = 3,
+		float Intensity = 0.05,
+		bool UseInitialRot = true,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Flower1_Petals",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.00380859, 0.644696, 0.150611],
+				Vec3 Scale = [1.5, 1.5, 1.5],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481b4ceba3fc9ad:mat_plant",
+				string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "Flower1_Stem",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.0044837, 0.00186954, 0.155889],
+				Vec3 Scale = [1.5, 1.5, 1.5],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481b4ceba3fc9ad:mat_plant",
+				string MeshName = "5481bc523b737db9:Flower1.Flower1_Stem",
+				Vec4 Color = [0.049, 0.35, 0, 1],
+			},
+		},
+	},
+},

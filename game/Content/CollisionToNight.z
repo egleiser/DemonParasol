@@ -1,23 +1,32 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: CollisionToNight         ////
+////    Written by: Eric Gleiser     ////
+////            and Garrett Huxtable ////
+////     Last Updated: 12-3-14       ////
+////                                 ////
+/////////////////////////////////////////
+
 class CollisionToNight : ZilchComponent
 {
-    [Property]
-    var ToDream:Boolean = true;
+    //[Property]
+    //var ToDream:Boolean = true;
+    
+    var OffPath:Boolean = false;
+    
     function Initialize(init : CogInitializer)
     {
-        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
-    }
-
-    function OnLogicUpdate(event : UpdateEvent)
-    {
     }
     
     function OnCollisionStarted(event : CollisionEvent)
     {
-        if(event.OtherObject.Name == "Player")
+        if(!this.OffPath)
         {
-            if(this.ToDream)
+            if(event.OtherObject.Name == "Player")
             {
+                //if(this.ToDream)
+                //{
                 this.Space.FindObjectByName("MainLight").DreamLighting.DreamWorld = true;
                 this.Space.FindObjectByName("AmbienceManager").Thunderstorm.Active = true;
                 this.Space.FindObjectByName("AmbienceManager").SoundEmitter.Play();
@@ -25,17 +34,20 @@ class CollisionToNight : ZilchComponent
                 //this.Space.FindObjectByName("DreamFogger").Model.Visible = true;
                 this.Space.FindObjectByName("Rain").BoxParticleEmitter.Active = true;
                 this.Space.CreateAtPosition(Archetype.Find("LightningStrike"),this.Space.FindObjectByName("Rain").Transform.WorldTranslation);
+                var offThePath = this.Space.FindObjectByName("PathDetector");
+                offThePath.ZIL_BridgeCollapse.PathFail = true;
+                Console.WriteLine("Off the Path");
+                this.OffPath = true;
+                //}
+                //else
+                //{
+                //    this.Space.FindObjectByName("MainLight").DreamLighting.DreamWorld = false;
+                //    this.Space.FindObjectByName("AmbienceManager").Thunderstorm.Active = false;
+                //    this.Space.FindObjectByName("Rain").SoundEmitter.Stop();
+                //    this.Space.FindObjectByName("DreamFogger").Model.Visible = false;
+                //    this.Space.FindObjectByName("Rain").BoxParticleEmitter.Active = false;
+                //}
             }
-            else
-            {
-                this.Space.FindObjectByName("MainLight").DreamLighting.DreamWorld = false;
-                this.Space.FindObjectByName("AmbienceManager").Thunderstorm.Active = false;
-                this.Space.FindObjectByName("Rain").SoundEmitter.Stop();
-                this.Space.FindObjectByName("DreamFogger").Model.Visible = false;
-                this.Space.FindObjectByName("Rain").BoxParticleEmitter.Active = false;
-            }
-            this.Owner.Destroy();
         }
-        
     }
 }

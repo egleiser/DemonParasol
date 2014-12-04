@@ -1,10 +1,17 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: ZIL_BridgeCollapse       ////
+////    Written by: Garrett Huxtable ////
+////     Last Updated: 12-3-14       ////
+////                                 ////
+/////////////////////////////////////////
+
 class ZIL_BridgeCollapse : ZilchComponent
 {
-    var PathFail : Boolean = true;
+    var PathFail : Boolean = false;
     
     function Initialize(init : CogInitializer)
     {
-        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
     }
 
@@ -28,9 +35,5 @@ class ZIL_BridgeCollapse : ZilchComponent
                 /* Code for dialogue about how close player is to the Monk's house */
             }
         }
-    }
-
-    function OnLogicUpdate(event : UpdateEvent)
-    {
     }
 }
