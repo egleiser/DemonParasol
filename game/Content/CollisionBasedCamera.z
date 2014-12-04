@@ -1,0 +1,226 @@
+/*******************************************/
+/***********INSTRUCTIONS FOR USE************/
+/*******************************************/
+/** 1. First, note that the script is      */
+/** connected to both CollisionStarted and */
+/** CollisionEnded. If you set the         */
+/** CollisionStartedEvent boolean (its a   */
+/** property near the top to true, it will */
+/** run on collision start. Ditto for      */
+/** CollisionEnded.                        */
+/*******************************************/
+/** 2.Second, set the Camera Cog Path so   */
+/** the Camera reference works             */
+/*******************************************/
+/** 3.If you have some other object BESIDES*/
+/** the player colliding with the object   */
+/** this script is attached to, set the    */
+/** Cog Path for NonPlayerCollisionObject  */
+/*******************************************/
+/** 4.Finally, for any event you've set    */
+/** the event boolean to true              */
+/** (i.e. the PanEvent boolean property)...*/
+/** enter the values in the property       */
+/** if, and only if, that you are using    */
+/** that value (the system works based     */
+/** on whether certain variables are null  */
+/** or not)                                */
+/*******************************************/
+/** If you have any questions, just ask me */
+/** and I'll be glad to help. Cheers!      */
+/*******************************************/
+/****************THE END********************/
+/*******************************************/
+
+class CollisionBasedCamera : ZilchComponent
+{
+    [Property]
+    var CameraPath : CogPath = null;
+    var Camera : Cog = null;
+    
+    [Property]
+    var CollisionStartedEvent : Boolean = false;
+    
+    [Property]
+    var CollisionEndedEvent : Boolean = false;
+    
+    [Property]
+    var NonPlayerCollisionObjectPath : CogPath = null;
+    var NonPlayerCollisionObject : Cog = null;
+    
+    [Property]
+    var ZoomEvent : Boolean = false;
+    
+    [Property]
+    var ZoomingInOut : Boolean = false;
+    
+    [Property]
+    var CamSizeChange : Real = 0.0;
+    
+    [Property]
+    var ZoomTargetPath : CogPath = null;
+    var ZoomTarget : Cog = null;
+    
+    [Property]
+    var ZoomEase : Ease = Ease.QuadInOut;
+    
+    [Property]
+    var ZoomTime : Real = 0.0;
+    
+    [Property]
+    var PanEvent : Boolean = false;
+    
+    [Property]
+    var PanStarted : Boolean = false;
+    
+    [Property]
+    var PanTargetPath : CogPath = null;
+    var PanTarget : Cog = null;
+    
+    [Property]
+    var PanEndRotation : Quaternion = Quaternion(0,0,0,0);
+    
+    [Property]
+    var PanEase : Ease = Ease.QuadInOut;
+    
+    [Property]
+    var PanTime : Real = 0.0;
+    
+    [Property]
+    var DollyEvent : Boolean = false;
+    
+    [Property]
+    var DollyStarted : Boolean = false;
+    
+    [Property]
+    var DollyTargetPath : CogPath = null;
+    var DollyTarget : Cog = null;
+    
+    [Property]
+    var DollyEndPosition : Real3 = Real3(0,0,0);
+    
+    [Property]
+    var DollyTime : Real = 0.0;
+    
+    [Property]
+    var DollyEase : Ease = Ease.QuadInOut;
+    
+    function Initialize(init : CogInitializer)
+    {
+        if(this.CollisionStartedEvent)
+        {
+            Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        }
+        if(this.CollisionEndedEvent)
+        {
+            Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+        }
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player")
+        {
+            if(this.ZoomEvent)
+            {
+                this.TriggerZoomEvent();
+            }
+            if(this.PanEvent)
+            {
+                this.TriggerPanEvent();
+            }
+            if(this.DollyEvent)
+            {
+                this.TriggerDollyEvent;
+            }
+        }
+        if(this.NonPlayerCollisionObject != null)
+        {
+            if(event.OtherObject.Name == this.NonPlayerCollisionObject.Name)
+            {
+                if(this.ZoomEvent)
+                {
+                    this.TriggerZoomEvent();
+                }
+                if(this.PanEvent)
+                {
+                    this.TriggerPanEvent();
+                }
+                if(this.DollyEvent)
+                {
+                    this.TriggerDollyEvent;
+                }
+            }
+        }
+    }
+    
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player")
+        {
+            if(this.ZoomEvent)
+            {
+                this.TriggerZoomEvent();
+            }
+            if(this.PanEvent)
+            {
+                this.TriggerPanEvent();
+            }
+            if(this.DollyEvent)
+            {
+                this.TriggerDollyEvent;
+            }
+        }
+        if(this.NonPlayerCollisionObject != null)
+        {
+            if(event.OtherObject.Name == this.NonPlayerCollisionObject.Name)
+            {
+                if(this.ZoomEvent)
+                {
+                    this.TriggerZoomEvent();
+                }
+                if(this.PanEvent)
+                {
+                    this.TriggerPanEvent();
+                }
+                if(this.DollyEvent)
+                {
+                    this.TriggerDollyEvent;
+                }
+            }
+        }
+    }
+    
+    function TriggerZoomEvent()
+    {
+        var zoomEvent = new CameraZoomEvent();
+        zoomEvent.IsZoomingIn = this.ZoomingInOut;
+        zoomEvent.CamSize = this.CamSizeChange;
+        zoomEvent.CameraTarget = this.ZoomTarget;
+        zoomEvent.ZoomTime = this.ZoomTime;
+        zoomEvent.EaseCurve = this.ZoomEase;
+        this.Camera.DispatchEvent("zoomEvent", zoomEvent);
+    }
+    
+    function TriggerPanEvent()
+    {
+        var panEvent = new CameraPanEvent();
+        panEvent.IsActive = this.PanStarted;
+        panEvent.PanTarget = this.PanTarget;
+        panEvent.EndRotation = this.PanEndRotation;
+        panEvent.PanTime = this.PanTime;
+        panEvent.EasingCurve = this.PanEase;
+        this.Camera.DispatchEvent("panEvent", panEvent);
+    }
+    
+    function TriggerDollyEvent()
+    {
+        var dollyEvent = new CameraDollyEvent();
+        dollyEvent.IsActive = this.DollyStarted;
+        dollyEvent.DollyTarget = this.DollyTarget;
+        dollyEvent.EndPosition = this.DollyEndPosition;
+        dollyEvent.DollyTime = this.DollyTime;
+        dollyEvent.EasingCurve = this.DollyEase;
+        this.Camera.DispatchEvent("dollyEvent", dollyEvent);
+    }
+}
