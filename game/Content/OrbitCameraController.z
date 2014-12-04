@@ -35,6 +35,7 @@ class OrbitCameraController : ZilchComponent
     var PanStartRotation : Quaternion = Quaternion(0,0,0,0);
     var PanTimer : Real = 1.1;
     var PanTargetRotation : Quaternion = Quaternion(0,0,0,0);
+    var PanFinished : Boolean = false;
     
     var ZoomTowardsObject : Cog = null;
     
@@ -179,7 +180,7 @@ class OrbitCameraController : ZilchComponent
                 
                 var grp = Action.Group(this.Owner.Actions);
                 //Action.Property(grp, @this.Owner.Transform.Rotation, Math.Euler(cameraObjectVector), event.ZoomTime, event.EaseCurve);
-                Action.Call(grp, this.ActionCallPanEvent);
+                //Action.Call(grp, this.ActionCallPanEvent);
                 Action.Property(grp, @this.Owner.Camera.Size, event.CamSize, event.ZoomTime, event.EaseCurve);
             }
             //If wanting to zoom back out to regular size (set at CamLerp.z, which is 30 right now)
@@ -219,7 +220,6 @@ class OrbitCameraController : ZilchComponent
                 targetDirection = Math.Normalize(this.Owner.Transform.Translation - panTarget.Transform.Translation);
                 this.PanTargetRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(targetDirection, Real3(0,0,1));
                 this.Owner.Transform.LocalRotation = Math.Slerp(this.PanStartRotation, this.PanTargetRotation, this.PanTimer);
-                
             }
             else
             {
@@ -227,14 +227,16 @@ class OrbitCameraController : ZilchComponent
                 //Rotating camera towards the EndRotation defined when calling the event using Math.Slerp
                 this.Owner.Transform.LocalRotation = (Math.Slerp(this.PanStartRotation, event.EndRotation, this.PanTimer));
             }
+            
             //Increments the PanTimer by event.Dt (as set in the event call) 
             this.PanTimer += event.PanTime;
-            Console.WriteLine("Pan Timer = `this.PanTimer`");
+            
             //Checks to see if the rotation has completed
             if(this.PanTimer >= 1.0)
             {
-                var panFinished = new PanFinishedEvent();
-                this.Space.DispatchEvent("panFinishedEvent", panFinished);
+                Console.WriteLine("Pan Finished");
+                var panFinishedEvent = new PanFinishedEvent();
+                this.Space.DispatchEvent("panFinishedEvent", panFinishedEvent);
                 //Locks the camera from updating according to player position
                 //This will stay locked until the pan back (for now; may need to change later)
                 this.ShouldUpdateCamera = false;
@@ -269,13 +271,13 @@ class OrbitCameraController : ZilchComponent
            
             //Increments PanTimer by event.Dt (as set in the event call)
             this.PanTimer += event.PanTime;
-            Console.WriteLine("Pan Timer = `this.PanTimer`");
             //Revert back to regular camera usage when done panning
             if(this.PanTimer >= 1.0)
             {
+                Console.WriteLine("Pan Finished");
                 //This event, when called in PlayerController, sets the IsPannning/IsReturnPanning to false
-                var panFinished = new PanFinishedEvent();
-                this.Space.DispatchEvent("panFinishedEvent", panFinished);
+                var panFinishedEvent = new PanFinishedEvent();
+                this.Space.DispatchEvent("panFinishedEvent", panFinishedEvent);
                 //Unlocks the camera so that it will now update according to player movement
                 this.ShouldUpdateCamera = true;
             }

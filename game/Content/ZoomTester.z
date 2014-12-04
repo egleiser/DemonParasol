@@ -4,10 +4,14 @@ class ZoomTester : ZilchComponent
     var ZoomTargetPath : CogPath = null;
     var ZoomTarget : Cog = null;
     
+    var IsPanning : Boolean = false;
+    var IsReturnPanning : Boolean = false;
+    
     function Initialize(init : CogInitializer)
     {
         this.ZoomTarget = this.ZoomTargetPath.Cog;
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, "panFinishedEvent", this.OnPanFinished);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -22,29 +26,47 @@ class ZoomTester : ZilchComponent
             zoomEvent.CamSize = 8;
             zoomEvent.ZoomTime = 1.5;
             this.Space.FindObjectByName("Camera").DispatchEvent("zoomEvent", zoomEvent);
-            
-            
         }
-        if(Zero.Keyboard.KeyIsPressed(Keys.J))
-        {
-            
-            //var panEvent = new CameraPanEvent();
-            //panEvent.IsActive = true;
-            //panEvent.PanTarget = this.ZoomTarget;
-            //panEvent.PanTime = event.Dt * 0.8;
-            //panEvent.EasingCurve = Ease.QuadInOut;
-            //this.Space.FindObjectByName("Camera").DispatchEvent("panEvent", panEvent);
-        }
-        this.PanEventStarter(event);
+        
+        this.OnPan(event);
     }
     
-    function PanEventStarter(event : UpdateEvent)
+    function OnPan(event : UpdateEvent)
     {
-        var panEvent = new CameraPanEvent();
-        panEvent.IsActive = true;
-        panEvent.PanTarget = this.ZoomTarget;
-        panEvent.PanTime = event.Dt;
-        panEvent.EasingCurve = Ease.QuadInOut;
-        this.Space.FindObjectByName("Camera").DispatchEvent("panEvent", panEvent);
+        if(Zero.Keyboard.KeyIsPressed(Keys.J))
+        {
+            this.IsPanning = true;
+            this.IsReturnPanning = false;
+        }
+        if(this.IsPanning)
+        {
+            var panEvent = new CameraPanEvent();
+            panEvent.IsActive = true;
+            panEvent.PanTarget = this.ZoomTarget;
+            panEvent.PanTime = 1.0 * event.Dt;
+            panEvent.EasingCurve = Ease.Linear;
+            this.Space.FindObjectByName("Camera").DispatchEvent("panEvent", panEvent);
+        }
+        if(Zero.Keyboard.KeyIsPressed(Keys.K))
+        {
+            this.IsPanning = false;
+            this.IsReturnPanning = true;
+        }
+        if(this.IsReturnPanning)
+        {
+            var panEvent = new CameraPanEvent();
+            panEvent.PanTarget = this.ZoomTarget;
+            panEvent.IsActive = false;
+            panEvent.PanTime = 1.0 * event.Dt;
+            panEvent.EasingCurve = Ease.QuadInOut;
+            this.Space.FindObjectByName("Camera").DispatchEvent("panEvent", panEvent);
+        }
+    }
+    
+    function OnPanFinished(event : PanFinishedEvent)
+    {
+        Console.WriteLine("Pan Finsihed Event Called");
+        this.IsPanning = false;
+        this.IsReturnPanning = false;
     }
 }
