@@ -1,0 +1,24 @@
+class ArrowAnimations : ZilchComponent
+{
+    var ActionComplete:Boolean = true;
+    var InitZ:Real = 0.0;
+    function Initialize(init : CogInitializer)
+    {
+        this.InitZ = this.Owner.Transform.WorldTranslation.Z;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.ActionComplete)
+        {
+
+            var ani = Action.Sequence(this.Owner.Actions);
+            Action.Property(ani, @this.ActionComplete, false, 0.0, Ease.Linear);
+            Action.Property(ani, @this.Owner.Transform.WorldTranslation, Real3(this.Owner.Transform.WorldTranslation.X,this.Owner.Transform.WorldTranslation.Y ,this.InitZ + 1.0), 0.7, Ease.QuadInOut);
+            Action.Property(ani, @this.Owner.Transform.WorldTranslation, Real3(this.Owner.Transform.WorldTranslation.X,this.Owner.Transform.WorldTranslation.Y ,this.InitZ - 1.0), 0.7, Ease.QuadInOut);
+            Action.Property(ani, @this.ActionComplete, true, 0.0, Ease.Linear);
+
+        }
+    }
+}

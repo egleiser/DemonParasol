@@ -1,0 +1,345 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "EnemyFatMan",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Body",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [2.1597, 2.89028e-007, -1.59149e-007],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "545028d7bbaa4fa8:EnemyFatMan.Body",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "Tail",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.13153, -0.0797968, 0.0237528],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "545028d7bbaa4fad:EnemyFatMan.Tail",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "Fins",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.035019, -0.0122131, 1.57356e-005],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "545028d7bbaa4faf:EnemyFatMan.Fins",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "Teeth",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [4.62867, -0.393467, 1.20163e-005],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-8.74228e-008, -8.74228e-008, -7.64274e-015, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "545028d7bbaa4fb1:EnemyFatMan.Teeth",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "WideTongue",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [4.96351, -0.865534, -7.71046e-005],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "545028d7bbaa4fb3:EnemyFatMan.WideTongue",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 7,
+			},
+			Named = 
+			{
+				string Name = "MouthBlack",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [4.58182, -0.477496, -0.000785554],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "545028d7bbaa4fb5:EnemyFatMan.MouthBlack",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 8,
+			},
+			Named = 
+			{
+				string Name = "Rods",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [3.66004, 1.78431, 0.0847418],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [4.37114e-008, -4.37114e-008, 4.37114e-008, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "545028d7bbaa4fb7:EnemyFatMan.Rods",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 9,
+			},
+			Named = 
+			{
+				string Name = "Pupil1",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [5.28136, 0.802316, 1.55065],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "545028d7bbaa4fb9:EnemyFatMan.Pupil1",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 10,
+			},
+			Named = 
+			{
+				string Name = "Scelara001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [5.14733, 0.825713, 1.42239],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "545028d7bbaa4fba:EnemyFatMan.Scelara001",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 11,
+			},
+			Named = 
+			{
+				string Name = "EyeShadow001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [5.07947, 0.833794, 1.33317],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "545028d7bbaa4fbc:EnemyFatMan.EyeShadow001",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 12,
+			},
+			Named = 
+			{
+				string Name = "EyeShadow002",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [5.06758, 0.834347, -1.37585],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "545028d7bbaa4fbe:EnemyFatMan.EyeShadow002",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 13,
+			},
+			Named = 
+			{
+				string Name = "Scelara002",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [5.14163, 0.789572, -1.45849],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 3.63216e-008, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "545028d7bbaa4fc0:EnemyFatMan.Scelara002",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 14,
+			},
+			Named = 
+			{
+				string Name = "Pupil2",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [5.28831, 0.795567, -1.60243],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [3.72529e-008, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "545028d7bbaa4fc2:EnemyFatMan.Pupil2",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+	},
+},

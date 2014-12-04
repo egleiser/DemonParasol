@@ -1,0 +1,22 @@
+SoundCue = 
+{
+	SoundPlayMode PlayMode = Single,
+	float Volume = 0.78,
+	float VolumeVariation = 0,
+	float Pitch = 0.4,
+	float PitchVariation = 0.2,
+	float MinDistance = 10,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 128,
+	bool LinearRollOff = true,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "54fc772ca298a6b7:Female_LS_D_AttackGrunt07",
+			float Weight = 1,
+		},
+	],
+	string RolloffCurveName = "",
+},

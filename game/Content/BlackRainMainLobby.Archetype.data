@@ -1,0 +1,270 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BlackRainMainLobby",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "CenterStage",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54afcfd2e5fa7165:BlackRainMainLobby.CenterStage",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "RoundPlatformB",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 125.346],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54afcfd2e5fa716a:BlackRainMainLobby.RoundPlatformB",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "StarShape",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54afcfd2e5fa716c:BlackRainMainLobby.StarShape",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "PlatformA",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, -43.0916],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54afcfd2e5fa716e:BlackRainMainLobby.PlatformA",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "BossRoom",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 32.8172, -102.75],
+				Vec3 Scale = [5.25143, 2.98827, 3.04203],
+				Quat Rotation = [-0, -0.707107, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54afcfd2e5fa7170:BlackRainMainLobby.BossRoom",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 7,
+			},
+			Named = 
+			{
+				string Name = "RoundPlatformA",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 76.3417],
+				Vec3 Scale = [0.56623, 1, 0.56623],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54afcfd2e5fa7172:BlackRainMainLobby.RoundPlatformA",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 8,
+			},
+			Named = 
+			{
+				string Name = "DoorLeft",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.0348545, 10.0162, -65.9563],
+				Vec3 Scale = [1.39402, 1.28655, 0.238901],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54afcfd2e5fa7173:BlackRainMainLobby.DoorLeft",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 9,
+			},
+			Named = 
+			{
+				string Name = "DoorRight",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.0348545, 10.0162, -65.9563],
+				Vec3 Scale = [1.39402, 1.28655, 0.238901],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54afcfd2e5fa7175:BlackRainMainLobby.DoorRight",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 10,
+			},
+			Named = 
+			{
+				string Name = "BridgeSegement",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.0458281, 0, 60.0929],
+				Vec3 Scale = [0.82405, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54afcfd2e5fa7177:BlackRainMainLobby.BridgeSegement",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 11,
+			},
+			Named = 
+			{
+				string Name = "PentaShape",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 9.41743, -66.4322],
+				Vec3 Scale = [4.57786, 1, 4.57786],
+				Quat Rotation = [0.707107, 0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54afcfd2e5fa7179:BlackRainMainLobby.PentaShape",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+	},
+},

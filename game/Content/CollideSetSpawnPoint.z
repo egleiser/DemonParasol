@@ -1,0 +1,23 @@
+class CollideSetSpawnPoint : ZilchComponent
+{
+    var Player:Cog = null;
+    var SpawnPoint:Cog = null;
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
+        this.SpawnPoint = this.Space.FindObjectByName("SpawnPoint");
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    //On Collision, Move the Spawn Point to this position
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject == this.Player)
+        {
+            
+            this.SpawnPoint.Transform.WorldTranslation = this.Owner.Transform.WorldTranslation;
+            
+        }
+    }
+}

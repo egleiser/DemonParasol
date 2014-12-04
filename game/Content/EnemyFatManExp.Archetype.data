@@ -1,0 +1,273 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "EnemyFatManExp",
+	},
+	Archetyped = 
+	{
+		string Name = "54502ff88201d48b:EnemyFatManExp",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [41.4502, -19.5072, -12.6651],
+		Vec3 Scale = [0.5, 0.5, 0.5],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = true,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	CapsuleCollider = 
+	{
+		bool Ghost = true,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [2, 0, 0],
+		float Radius = 2.1,
+		float Height = 4,
+		uint Direction = 0,
+	},
+	Orientation = 
+	{
+		Vec3 GlobalUp = [0, 1, 0],
+		Vec3 UpVector = [0, 0, 1],
+		Vec3 ForwardVector = [1, 0, 0],
+		OrientationBases DefaultBases = ForwardXUpZ,
+	},
+	AI_Fatman = 
+	{
+	},
+	OrientTowardsVelocity2D = 
+	{
+		float DegreeOffset = 90,
+	},
+	SoundEmitter = 
+	{
+		bool StartPlaying = true,
+		int ExtraPriority = 0,
+		string CueName = "545038a29d5e1382:Plane_Jet_Loop02",
+		float Volume = 1,
+		float Pitch = 1,
+		bool Positional = true,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Body",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [2.15968, 0.0079236, 0.0192566],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.713819, -0.000596194, -0.000607678, -0.700329],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "54a3c57d9c4c3210:mat_Gold",
+				string MeshName = "54502813b7c534dd:EnemyFatMan.Body",
+				Vec4 Color = [0.275, 0, 0, 1],
+			},
+			SoundEmitter = 
+			{
+				bool StartPlaying = true,
+				int ExtraPriority = 0,
+				string CueName = "54afbb71643679d1:Plane_Jet_Afterburner",
+				float Volume = 0.3,
+				float Pitch = 1,
+				bool Positional = true,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "Tail",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.13151, -0.0199065, -0.0610847],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.713819, -0.000596194, -0.000607678, -0.700329],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54502813b7c534e1:EnemyFatMan.Tail",
+				Vec4 Color = [0.91, 0.768768, 0.0273, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "Fins",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.0350342, 0.00440741, 0.00697327],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.713819, -0.000596194, -0.000607678, -0.700329],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "54a3db5a3ddb6b52:mat_LightIntense",
+				string MeshName = "54502813b7c534e3:EnemyFatMan.Fins",
+				Vec4 Color = [1, 0, 0, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "Teeth",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [4.62865, 0.0196209, -0.374062],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.713819, -0.000596133, -0.000607616, -0.700329],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481b84e008be766:mat_gradient",
+				string MeshName = "54502813b7c534e5:EnemyFatMan.Teeth",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "WideTongue",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [4.96349, 0.0292864, -0.846031],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.713819, -0.000596194, -0.000607678, -0.700329],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "54a3db5a3ddb6b52:mat_LightIntense",
+				string MeshName = "54502813b7c534e7:EnemyFatMan.WideTongue",
+				Vec4 Color = [0, 0.431372, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 7,
+			},
+			Named = 
+			{
+				string Name = "MouthBlack",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [4.58179, 0.021945, -0.458057],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.713819, -0.000596194, -0.000607678, -0.700329],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54502813b7c534e8:EnemyFatMan.MouthBlack",
+				Vec4 Color = [0, 0.0903, 0.21, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 8,
+			},
+			Named = 
+			{
+				string Name = "Rods",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [3.66016, -0.108287, 1.80167],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.713819, -0.000596133, -0.000607678, -0.700329],
+			},
+			Model = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54502813b7c534ea:EnemyFatMan.Rods",
+				Vec4 Color = [0.695, 0.695, 0.695, 1],
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "54502fcb8d389f32:RocketSmokeB",
+			LinkId = 
+			{
+				uint Id = 9,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.99899, 0.000844955, 0.0191231],
+				Vec3 Scale = [0.75957, 0.37959, 0.967928],
+				Quat Rotation = [-0.00953885, 8.12053e-006, -0.000851266, -0.999954],
+			},
+			Named = 
+			{
+				string Name = "RocketSmokeB",
+			},
+		},
+	},
+},

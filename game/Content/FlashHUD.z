@@ -1,0 +1,29 @@
+class FlashHUD : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        var aFlashHit = Action.Sequence(this.Owner.Actions);
+        //aFlashHit.Cancel();
+        this.Owner.Model.Color = Real4(1,1,1,0);
+        this.Owner.Transform.WorldTranslation = Real3(0,0,8.70859);
+        if(this.Owner.Model != null)
+        {
+            Action.Property(aFlashHit,
+                            @this.Owner.Model.Color,
+                            Real4(1,1,1,0.3),
+                            0.2,
+                            Ease.QuadIn);
+            Action.Property(aFlashHit,
+                            @this.Owner.Model.Color,
+                            Real4(1,1,1,0),
+                            0.3,
+                            Ease.Linear);
+            Action.Call(aFlashHit, this.Owner.Destroy);
+            }
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

@@ -9,11 +9,15 @@ class FlashOnHit : ZilchComponent
     var HitCount:Integer = 5;
     [Property]
     var PlaySound:Boolean = false;
+    var OriginalMat:Material = null;
+    var LightMat:Material = null;
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Owner, "hitEvent", this.OnHit);
         if(this.Owner.Model != null)
         {
+            this.OriginalMat = this.Owner.Model.Material;
+            this.LightMat = Material.Find("mat_Light");
             this.InitialColor = this.Owner.Model.Color;
         }
         if(this.Owner.SkinnedModel != null)
@@ -22,7 +26,14 @@ class FlashOnHit : ZilchComponent
         }
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
-
+    function Light()
+    {
+        this.Owner.Model.Material = this.LightMat;
+    }
+    function UnLight()
+    {
+        this.Owner.Model.Material = this.OriginalMat;
+    }
     function OnHit(event : HitEvent)
     {
         Console.WriteLine("Hit!");
@@ -38,6 +49,7 @@ class FlashOnHit : ZilchComponent
         {
             if(this.Owner.Model != null)
             {
+                Action.Call(aFlashHit, this.Light);
                 Action.Property(aFlashHit,
                                 @this.Owner.Model.Color,
                                 this.HitColor,
@@ -48,6 +60,7 @@ class FlashOnHit : ZilchComponent
                                 this.InitialColor,
                                 this.HitTime,
                                 Ease.Linear);
+                Action.Call(aFlashHit, this.UnLight);
             }
             if(this.Owner.SkinnedModel != null)
             {

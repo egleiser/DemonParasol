@@ -1,0 +1,65 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 54afcfd3e5f66d78,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [0.5, 0.5, 0.5],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "BlackRainMainLobby.CenterStage",
+				uint64 ResourceId = 54afcfd2e5fa7165,
+			},
+			{
+				string Name = "BlackRainMainLobby.RoundPlatformB",
+				uint64 ResourceId = 54afcfd2e5fa716a,
+			},
+			{
+				string Name = "BlackRainMainLobby.StarShape",
+				uint64 ResourceId = 54afcfd2e5fa716c,
+			},
+			{
+				string Name = "BlackRainMainLobby.PlatformA",
+				uint64 ResourceId = 54afcfd2e5fa716e,
+			},
+			{
+				string Name = "BlackRainMainLobby.BossRoom",
+				uint64 ResourceId = 54afcfd2e5fa7170,
+			},
+			{
+				string Name = "BlackRainMainLobby.RoundPlatformA",
+				uint64 ResourceId = 54afcfd2e5fa7172,
+			},
+			{
+				string Name = "BlackRainMainLobby.DoorLeft",
+				uint64 ResourceId = 54afcfd2e5fa7173,
+			},
+			{
+				string Name = "BlackRainMainLobby.DoorRight",
+				uint64 ResourceId = 54afcfd2e5fa7175,
+			},
+			{
+				string Name = "BlackRainMainLobby.BridgeSegement",
+				uint64 ResourceId = 54afcfd2e5fa7177,
+			},
+			{
+				string Name = "BlackRainMainLobby.PentaShape",
+				uint64 ResourceId = 54afcfd2e5fa7179,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},

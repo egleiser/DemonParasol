@@ -1,0 +1,25 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "WaterPlaneRound",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, -7.31273, 43.4147],
+		Vec3 Scale = [1.3, 0.366742, 1.3],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+		string MeshName = "54ae5c0c06089626:BossRoom.WaterPlaneRound",
+		Vec4 Color = [0.095, 0.095, 0.095, 1],
+	},
+},

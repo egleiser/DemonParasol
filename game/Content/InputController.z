@@ -43,7 +43,7 @@ class InputController : ZilchComponent
         }
         if(this.Gamepad.IsActive)
         {
-
+            //Zero.Mouse.Cursor = -1;
             gamepadVec = Real3(-this.Gamepad.LeftStick.X, this.Gamepad.LeftStick.Y, 0.0);
             
         }

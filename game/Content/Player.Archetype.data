@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [25.0968, 14.1501, 0],
+		Vec3 Translation = [25.0968, -14.5398, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -111,6 +111,9 @@ Cog =
 		bool DestroyAtZeroHealth = false,
 		bool SendsHealthModified = true,
 		float DamageScalar = 1,
+	},
+	TextBoxTester = 
+	{
 	},
 	Hierarchy = 
 	{
@@ -1060,6 +1063,84 @@ Cog =
 						},
 					},
 				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 24,
+			},
+			Named = 
+			{
+				string Name = "Sparkle",
+			},
+			Archetyped = 
+			{
+				string Name = "54af9ff15e8501bd:Sparkle",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.0128422, 0.459993, 1.52721],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteParticleSystem = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				SystemChildMode ChildMode = Independent,
+				SystemSpace SystemSpace = WorldSpace,
+				uint DrawOrder = 0,
+				float WarmUpTime = 0,
+				ParticleGeometry GeometryMode = Billboarded,
+				ParticleRenderMode RenderMode = Additive,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Single,
+				string Texture = "548d76e779a3aea4:tex_light_ray",
+				Vec4 Tint = [1, 1, 1, 0.87],
+				float VelocityScale = 1,
+				float LengthScale = 1,
+				float MaxParticleSize = 100,
+				Vec3 SystemSize = [4, 4, 4],
+			},
+			LinearParticleAnimator = 
+			{
+				Vec3 Force = [0, 0, 0],
+				Vec3 RandomForce = [0, 0, 0],
+				float Torque = 0,
+				float Growth = -1,
+				float Dampening = 0,
+				Vec3 Twist = [0, 0, 0],
+			},
+			ParticleColorAnimator = 
+			{
+				Vec4 Color0 = [1, 1, 1, 0],
+				Vec4 Color1 = [0.495, 1, 0.65155, 1],
+				Vec4 Color2 = [0.269, 1, 0.15, 1],
+				Vec4 Color3 = [0.5, 1, 0, 1],
+				Vec4 Color4 = [0.0500001, 1, 0, 0],
+			},
+			BoxParticleEmitter = 
+			{
+				bool Active = false,
+				uint EmitCount = 0,
+				float EmitRate = 300,
+				float EmitVariance = 0,
+				float Size = 1,
+				float SizeVariance = 0.5,
+				float Lifetime = 0.2,
+				float LifetimeVariance = 0.1,
+				float Spin = 0,
+				float SpinVariance = 50,
+				bool RandomSpin = true,
+				float Fill = 1,
+				float EmitterVelocityPercent = 0,
+				Vec3 StartVelocity = [0, 0, 0],
+				Vec3 RandomVelocity = [0, 0, 0],
+				Vec3 TangentVelocity = [0, 0, 0],
+				Vec3 EmitterSize = [3, 2, 4],
+				bool FastMovingEmitter = false,
 			},
 		},
 	},

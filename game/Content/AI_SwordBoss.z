@@ -3,9 +3,11 @@ class AI_SwordBoss : ZilchComponent
 {
     var FaceThePlayer : Boolean = false;
     var MoveTowardsPlayer : Boolean = false;
+    var StuckBlackRain : Boolean = false;
     var ShakeIt : Boolean = false;
     //Cogs
     var Player:Cog = null;
+    var Camera:Cog = null;
     var SwordBossMesh:Cog = null;
     var FootCollider:Cog = null;
     var BaseCollider:Cog = null;
@@ -13,6 +15,10 @@ class AI_SwordBoss : ZilchComponent
     var EyeLight:Cog = null;
     var IrisOff:Cog = null;
     var Smoke:Cog = null;
+    var HurtSmoke:Cog = null;
+    var HurtSpark:Cog = null;
+    var Laser:Cog = null;
+    var StarGlow:Cog = null;
     [Property]
     var CurrentState:SwordBossState = SwordBossState.Off;
     var ActionComplete:Boolean = true;
@@ -30,10 +36,12 @@ class AI_SwordBoss : ZilchComponent
     var InitScale:Real3 = Real3(1.5,1.5,1.5);
     var InitModelPos:Real3 = Real3(1.5,1.5,1.5);
     var LastPlayerVector:Real3 = Real3(0,0,0);
+    var TargetPlayerVector:Real3 = Real3(0,0,0);
     function Initialize(init : CogInitializer)
     {
         //Grab Cogs
         this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
+        this.Camera = this.LevelSettings.CameraViewport.Camera;
         this.FootCollider = this.Owner.FindChildByName("ColliderFoot");
         this.BaseCollider = this.Owner.FindChildByName("ColliderBase");
         this.DemonPupil = this.Owner.FindChildByName("DemonPupil");
@@ -41,7 +49,11 @@ class AI_SwordBoss : ZilchComponent
         this.IrisOff = this.Owner.FindChildByName("IrisOff");
         this.Smoke = this.Owner.FindChildByName("RocketSmoke");
         this.SwordBossMesh = this.Owner.FindChildByName("SwordBossMesh");
-        
+        this.HurtSpark = this.Owner.FindChildByName("HurtSparks");
+        this.Laser = this.Owner.FindChildByName("LaserSight");
+        this.StarGlow = this.Space.FindObjectByName("StarGlowFX");
+        this.HurtSmoke = this.Space.FindObjectByName("HurtSmoke");
+        Zero.Connect(this.Owner, Events.Death, this.OnDeath);
         this.InitModelPos = this.SwordBossMesh.Transform.Translation;
         this.InitZ = this.Owner.Transform.WorldTranslation.Z;
         Zero.Connect(this.Owner, "yankEvent", this.OnYank);
@@ -96,6 +108,7 @@ class AI_SwordBoss : ZilchComponent
         }
         if(this.CurrentState == SwordBossState.Activating)
         {
+            this.StarGlow.PentaGlow.Active = false;
             this.FlickerEye();
         }
         if(this.CurrentState == SwordBossState.Chase)
@@ -121,9 +134,12 @@ class AI_SwordBoss : ZilchComponent
         {
 
             Console.WriteLine("YANK!!!!");
+            this.HurtSpark.SphericalParticleEmitter.Active = false;
+            
             this.Owner.Actions.Cancel();
             Action.Sequence(this.Owner.Actions).Cancel();
             this.ActionComplete = true;
+            this.StuckBlackRain = false;
             this.SetStateToChase();
         }
     }
@@ -140,7 +156,21 @@ class AI_SwordBoss : ZilchComponent
         if(this.CurrentState == SwordBossState.Fire)
         {
             var otherObject = event.OtherObject;
-            
+            if(otherObject.Name == "DmgBoss")
+            {
+                this.StuckBlackRain = true;
+                //this.Space.CreateAtPosition(Archetype.Find("HitSparksBig"), event.FirstPoint.WorldPoint);
+                Console.WriteLine("OUCH!!!!");
+                var hitEvent = new HitEvent();
+                this.Owner.DispatchDown("hitEvent", hitEvent);
+                this.Owner.DispatchEvent("hitEvent", hitEvent);
+                this.Space.CreateAtPosition(Archetype.Find("PullSparksBig"), this.FootCollider.Transform.WorldTranslation);
+                this.Owner.Health.ApplyDamage(1);
+                Console.WriteLine("Boss HP: `this.Owner.Health.CurrentHealth`");
+                //Get Faster
+                this.StompSpeed /= 1.5;
+
+            }
             if(otherObject.Name == "ColliderCube")
             {
 
@@ -156,12 +186,17 @@ class AI_SwordBoss : ZilchComponent
     
     function GetPlayerVector(scale : Real):Real3
     {
-        var targetVector = this.Player.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
-        Math.Normalize(targetVector);
-        return(targetVector * scale);
+        this.TargetPlayerVector = this.Player.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
+        Math.Normalize(this.TargetPlayerVector);
+        return(this.TargetPlayerVector * scale);
     }
     function RotateStomp()
     {
+        if(this.Owner.Health.CurrentHealth == 1)
+        {
+            this.FlickerEyeHurt(0.8);
+            this.HurtSmoke.SphericalParticleEmitter.Active = true;
+        }
         this.SwordBossMesh.Transform.Rotation = Math.Euler(Real3(1.57079633,0,0));
         if(this.StompCount >= 16 / this.StompSpeed)
         {
@@ -170,9 +205,11 @@ class AI_SwordBoss : ZilchComponent
         }
         if(this.ActionComplete)
         {
+
             var stomp = Action.Sequence(this.Owner.Actions);
             //stomp.Cancel();
             Action.Property(stomp, @this.ActionComplete, false, 0.0, Ease.Linear);
+            Action.Property(stomp, @this.HurtSpark.SphericalParticleEmitter.Active, false, 0.0, Ease.Linear);
             Action.Property(stomp, @this.FaceThePlayer, true, 0.0, Ease.Linear);
             Action.Call(stomp, this.FootCollider.SoundEmitter.Stop);
             Action.Call(stomp, this.FootCollider.SoundEmitter.Play);
@@ -191,6 +228,7 @@ class AI_SwordBoss : ZilchComponent
     {
         if(this.ActionComplete)
         {
+            this.Laser.Model.Visible = true;
             var aim = Action.Sequence(this.Owner.Actions);
             //stomp.Cancel();
             Action.Property(aim, @this.ActionComplete, false, 0.0, Ease.Linear);
@@ -199,7 +237,7 @@ class AI_SwordBoss : ZilchComponent
             Action.Property(aim, @this.FaceThePlayer, true, 0.0, Ease.Linear);
             Action.Call(aim, this.SwordBossMesh.SoundEmitter.Stop);
             Action.Call(aim, this.SwordBossMesh.SoundEmitter.Play);
-            Action.Property(aim, @this.Owner.Transform.WorldTranslation, Real3(this.Owner.Transform.WorldTranslation.X,this.Owner.Transform.WorldTranslation.Y,this.InitZ + 5.0), 0.2, Ease.QuadOut);
+            Action.Property(aim, @this.Owner.Transform.WorldTranslation, Real3(this.Owner.Transform.WorldTranslation.X - this.GetPlayerVector(1).X,this.Owner.Transform.WorldTranslation.Y - this.GetPlayerVector(1).Y,this.InitZ + 5.0), 0.2, Ease.QuadOut);
             Action.Property(aim, @this.SwordBossMesh.Transform.Rotation, Math.Euler(Real3(3.14,3.14,0)), 1.0, Ease.QuadOut);
             Action.Delay(aim, 3.5);
             Action.Property(aim, @this.FaceThePlayer, false, 0.0, Ease.Linear);
@@ -214,8 +252,16 @@ class AI_SwordBoss : ZilchComponent
             var stuck = Action.Sequence(this.Owner.Actions);
             //stomp.Cancel();
             Action.Property(stuck, @this.ActionComplete, false, 0.0, Ease.Linear);
-            for(var i = 0; i < 16; i += 1)
+            for(var i = 0; i < 32; i += 1)
             {
+                if(!this.StuckBlackRain)
+                {
+                    i += 3;
+                }
+                else
+                {
+                    Action.Property(stuck, @this.HurtSpark.SphericalParticleEmitter.Active, true, 0.0, Ease.Linear);
+                }
                 Action.Property(stuck, @this.Owner.Transform.WorldRotation,Math.Multiply(this.Owner.Transform.WorldRotation, Math.Euler(Real3(0,0,0.05))) , 0.1 , Ease.QuadIn);
                 Action.Property(stuck, @this.Owner.Transform.WorldRotation,Math.Multiply(this.Owner.Transform.WorldRotation, Math.Euler(Real3(0,0,-0.05))) , 0.4 , Ease.Linear);
                 if(i % 2 == 0)
@@ -224,13 +270,31 @@ class AI_SwordBoss : ZilchComponent
                     Action.Call(stuck, this.BaseCollider.SoundEmitter.Play);
                 }
             }
+            Action.Property(stuck, @this.HurtSpark.SphericalParticleEmitter.Active, false, 0.0, Ease.Linear);
             Action.Call(stuck, this.SetStateToChase);
             Action.Property(stuck, @this.ActionComplete, true, 0.0, Ease.Linear);
         }
     }
     function SetStateToChase()
     {
+        var zoomEvent = new CameraZoomEvent();
+        zoomEvent.IsZoomingIn = true;
+        zoomEvent.CamSize = 40;
+        zoomEvent.EasingCurve = Ease.QuadInOut;
+        zoomEvent.CameraTarget = this.Player;
+        zoomEvent.ZoomTime = 2.0;
+        this.LevelSettings.CameraViewport.Camera.DispatchEvent("zoomEvent", zoomEvent);
+            
+        this.Laser.Model.Visible = false;
+        this.StuckBlackRain = false;
         this.CurrentState = SwordBossState.Chase;
+        if(!this.Owner.LevelSettings.FindChildByName("BGMEnemy").SoundEmitter.IsPlaying())
+        {
+            this.Owner.LevelSettings.FindChildByName("BGMEnemy").SoundEmitter.Stop();
+            this.Owner.LevelSettings.FindChildByName("BGMNormal").SoundEmitter.Stop();
+            this.Owner.LevelSettings.FindChildByName("BGMEnemy").SoundEmitter.Play();
+            this.Owner.LevelSettings.FindChildByName("BGMNormal").SoundEmitter.Play();
+        }
     }
     function IncrementStompCount()
     {
@@ -242,6 +306,9 @@ class AI_SwordBoss : ZilchComponent
         this.FireSpeed = 1.0;
         this.LastPlayerVector = Real3(this.GetPlayerVector(1.0).X,this.GetPlayerVector(1.0).Y,0.0);
         this.Smoke.SphericalParticleEmitter.Active = true;
+        this.Smoke.SoundEmitter.Stop();
+        this.Smoke.SoundEmitter.Play();
+        this.Laser.Model.Visible = false;
     }
     function SetStateToStuck()
     {
@@ -254,6 +321,18 @@ class AI_SwordBoss : ZilchComponent
     {
         if(this.ActionComplete)
         {
+            
+            var zoomEvent = new CameraZoomEvent();
+            zoomEvent.IsZoomingIn = true;
+            zoomEvent.CamSize = 30;
+            zoomEvent.EasingCurve = Ease.QuadInOut;
+            zoomEvent.CameraTarget = this.EyeLight;
+            zoomEvent.ZoomTime = 1.0;
+            this.LevelSettings.CameraViewport.Camera.DispatchEvent("zoomEvent", zoomEvent);
+            
+            
+            this.Camera.FindChildByName("MainLight").DreamLighting.DreamWorld = false;
+
             var flicker = Action.Sequence(this.Owner.Actions);
             Action.Property(flicker, @this.ActionComplete, false, 0.0, Ease.Linear);
             for(var i = 0; i < 8; i += 1)
@@ -263,10 +342,31 @@ class AI_SwordBoss : ZilchComponent
                 Action.Property(flicker, @this.EyeLight.GodRayLight.Active, false, 0.1 * (i/5.0), Ease.Linear);
             }
             Action.Call(flicker, this.IrisOff.SoundEmitter.Play);
+            Action.Call(flicker, this.CreateShine);
             Action.Property(flicker, @this.EyeLight.GodRayLight.Active, true, 0.1, Ease.Linear);
             Action.Delay(flicker, 1.0);
             Action.Property(flicker, @this.ActionComplete, true, 0.0, Ease.Linear);
             Action.Call(flicker, this.SetStateToChase);
+        }
+
+    }
+    function FlickerEyeHurt(threshold : Real)
+    {
+        var randGen:Random = new Random();
+        var randNum = randGen.Real();
+       
+        if(randNum > threshold)
+        {
+            Console.WriteLine("`this.EyeLight.GodRayLight.Active`");
+            if(this.EyeLight.GodRayLight.Active == true)
+            {
+                this.EyeLight.GodRayLight.Active = false;
+            }
+            else
+            {
+                this.EyeLight.GodRayLight.Active = true;
+                this.EyeLight.SoundEmitter.Play();
+            }
         }
 
     }
@@ -282,5 +382,21 @@ class AI_SwordBoss : ZilchComponent
     function CreatePoof()
     {
        this.Space.CreateAtPosition(Archetype.Find("PoundSmoke"), this.FootCollider.Transform.WorldTranslation);
+       var damageSphere = this.Space.CreateAtPosition(Archetype.Find("HurtSphere"), this.FootCollider.Transform.WorldTranslation);
+       damageSphere.DamagePlayerOnCollide.Damage = 0.5;
+       damageSphere.Transform.WorldScale *= 1.5;
+    }
+    function CreateShine()
+    {
+       this.Space.CreateAtPosition(Archetype.Find("RoarPart"), this.EyeLight.Transform.WorldTranslation);
+    }
+    
+    function OnDeath(event : Event)
+    {
+        //this.Camera.FindChildByName("MainLight").DreamLighting.DreamWorld = true;
+        this.Owner.LevelSettings.FindChildByName("BGMManager").Destroy();
+        this.StarGlow.PentaGlow.Active = true;
+        this.Space.CreateAtPosition(Archetype.Find("DeathSmoke"), this.Owner.Transform.WorldTranslation);
+        this.Owner.Destroy();
     }
 }

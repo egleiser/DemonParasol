@@ -1,0 +1,52 @@
+class CollideDeathPlane : ZilchComponent
+{
+    var Player:Cog = null;
+    var TongueMount:Cog = null;
+    var SpawnPoint:Cog = null;
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
+        this.TongueMount = this.Player.FindChildByName("TongueMount");
+        this.SpawnPoint = this.Space.FindObjectByName("SpawnPoint");
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject == this.Player)
+        {
+            var sparkle = this.Player.FindChildByName("Sparkle");
+            if(sparkle.BoxParticleEmitter.Active == false)
+            {
+                var reset = Action.Sequence(this.Owner.Actions);
+                this.Space.SoundSpace.PlayCue(SoundCue.Find("PlayerDeath"));
+                this.Player.Health.ApplyDamage(1);
+                this.LevelSettings.HudCreator.HudSpace.Create(Archetype.Find("HurtOverlay"));
+                Console.WriteLine("Player Hurt! HP: `this.Player.Health.CurrentHealth`");
+                Action.Property(reset, @sparkle.BoxParticleEmitter.Active, true, 0.0, Ease.Linear);
+                Action.Property(reset, @this.Player.Transform.WorldTranslation.Z, this.SpawnPoint.Transform.WorldTranslation.Z + 1.0, 0.3, Ease.Linear);
+                Action.Property(reset, @this.Player.Transform.WorldTranslation, this.SpawnPoint.Transform.WorldTranslation, 0.3, Ease.QuadOut);
+                Action.Property(reset, @sparkle.BoxParticleEmitter.Active, false, 0.0, Ease.Linear);
+                //Console.WriteLine("`this.TongueMount.TongueManager.TongueArray`");
+                
+                
+                //Snap the Tongue to Z to avoid it getting stuck
+                foreach(var cog in this.TongueMount.TongueManager.TongueArray)
+                {
+                    if(cog.ObjectLink.ObjectA != null)
+                    {
+                        cog.ObjectLink.ObjectA.Transform.WorldTranslation.Z = this.SpawnPoint.Transform.WorldTranslation.Z;
+                    }
+                    if(cog.ObjectLink.ObjectB != null)
+                    {
+                        cog.ObjectLink.ObjectB.Transform.WorldTranslation.Z = this.SpawnPoint.Transform.WorldTranslation.Z;
+                    }
+                }
+                
+                
+            }
+
+        }
+    }
+}

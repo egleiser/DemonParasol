@@ -1,0 +1,97 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "UpSmoke",
+	},
+	Archetyped = 
+	{
+		string Name = "545026e6bf8d589d:UpSmoke",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0.522594],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SpriteParticleSystem = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		SystemChildMode ChildMode = Independent,
+		SystemSpace SystemSpace = WorldSpace,
+		uint DrawOrder = 0,
+		float WarmUpTime = 0,
+		ParticleGeometry GeometryMode = Billboarded,
+		ParticleRenderMode RenderMode = Blended,
+		ParticleSortMode SortMode = Youngest,
+		ParticleAnimation ParticleAnimation = Single,
+		string Texture = "5481a3be505a348b:wind-particles-glow-01",
+		Vec4 Tint = [1, 1, 1, 1],
+		float VelocityScale = 0.3,
+		float LengthScale = 0.2,
+		float MaxParticleSize = 100,
+		Vec3 SystemSize = [4, 4, 4],
+	},
+	SphericalParticleEmitter = 
+	{
+		bool Active = true,
+		uint EmitCount = 70,
+		float EmitRate = 140,
+		float EmitVariance = 0,
+		float Size = 1,
+		float SizeVariance = 0.2,
+		float Lifetime = 1.5,
+		float LifetimeVariance = 0.2,
+		float Spin = -400,
+		float SpinVariance = 50,
+		bool RandomSpin = true,
+		float Fill = 1,
+		float EmitterVelocityPercent = 0,
+		Vec3 StartVelocity = [0, 0, 2],
+		Vec3 RandomVelocity = [0, 0, 0.1],
+		Vec3 TangentVelocity = [0, 0, 0.5],
+		Vec3 EmitterSize = [0.1, 0.1, 0],
+		bool FastMovingEmitter = false,
+	},
+	LinearParticleAnimator = 
+	{
+		Vec3 Force = [0, 0, 0],
+		Vec3 RandomForce = [0, 0, 0],
+		float Torque = 0,
+		float Growth = 2,
+		float Dampening = 0.01,
+		Vec3 Twist = [0, 0, 0],
+	},
+	ParticleColorAnimator = 
+	{
+		Vec4 Color0 = [1, 0.9934, 0.835, 0],
+		Vec4 Color1 = [1, 0.93, 0, 1],
+		Vec4 Color2 = [1, 0.69, 0, 1],
+		Vec4 Color3 = [0.975, 0.351, 0, 0.35],
+		Vec4 Color4 = [0, 0, 0, 0],
+	},
+	SoundEmitter = 
+	{
+		bool StartPlaying = true,
+		int ExtraPriority = 0,
+		string CueName = "548d75aa52cfbdee:Magic_Poof1",
+		float Volume = 1,
+		float Pitch = 1,
+		bool Positional = true,
+	},
+	ParticleTwister = 
+	{
+		Vec3 Axis = [0, 0, 1],
+		float Strength = 10,
+		float MinDistance = 0,
+		float MaxDistance = 100,
+	},
+	Hierarchy = 
+	{
+	},
+},

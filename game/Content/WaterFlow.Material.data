@@ -11,6 +11,16 @@ Material =
 		Vec2 EmissiveTiling = [1, 1],
 		Vec2 EmissiveOffset = [0, 0],
 	},
+	Fresnel = 
+	{
+		string TestTexture = "4fab71e8bcb7a8ce:DefaultTexture",
+		float EdgeFalloffPower = 4,
+		float EdgeFalloffScale = 2,
+		float PulseTimeScale = 4,
+		float PulseIntensity = 1,
+		float PulseIntensityOffset = 1,
+		Vec4 EdgeGlowColor = [0, 1, 0.0700002, 1],
+	},
 	ModulateModelColor = 
 	{
 	},
