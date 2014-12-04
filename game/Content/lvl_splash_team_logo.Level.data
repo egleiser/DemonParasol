@@ -59,7 +59,7 @@ Level =
 		},
 		Z_SplashScreenLogic = 
 		{
-			float SplashScreenDelayTimer = 3,
+			float SplashScreenDelayTimer = 4,
 			string NextLevel = "54682326dd6dfdb8:lvl_splash_start",
 		},
 	},
@@ -83,12 +83,11 @@ Level =
 		{
 			ProjectionMode ProjectionMode = Orthographic,
 			Facing Facing = NegativeZ,
-			SpriteSort SpriteSort = ViewDepth,
-			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
+			CameraTransparentSort TransparentSort = InheritFromSpace,
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 20,
+			float Size = 29.8365,
 		},
 		EditorCameraController = 
 		{
@@ -97,6 +96,7 @@ Level =
 			float VerticalAngle = 0.3,
 			float HorizontalAngle = 0,
 			Vec3 LookTarget = [-1.302, -0.414616, 0.128256],
+			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
 		{
@@ -127,8 +127,7 @@ Level =
 		{
 			ProjectionMode ProjectionMode = Orthographic,
 			Facing Facing = NegativeZ,
-			SpriteSort SpriteSort = ViewDepth,
-			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
+			CameraTransparentSort TransparentSort = InheritFromSpace,
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 5000,
@@ -169,18 +168,57 @@ Level =
 		},
 		Sprite = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 			string SpriteSource = "5493600dd45e2d0a:scn-splash-teamLogo",
+			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
-			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
 			bool OnTop = false,
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		},
+		Area = 
+		{
+			Vec2 Size = [38, 22],
+			Location Origin = Center,
+		},
+		Z_UI_Transitions = 
+		{
+			float FadeInTime = 0.5,
+			float FadeOutTime = 0.25,
+			float WaitTime = 2,
+			float ScaleOutTime = 10,
+			float ScaleInTime = 0.8,
+			Enum EaseType = Linear,
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54f6e7157262050e:arc_bg_black_fade",
+		LinkId = 
+		{
+			uint Id = 5,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 20.7688, 9],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Area = 
+		{
+			Vec2 Size = [32, 18],
+			Location Origin = Center,
+		},
+		Named = 
+		{
+			string Name = "bg-back",
 		},
 	},
 },
