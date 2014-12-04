@@ -199,7 +199,8 @@ class CollisionBasedCamera : ZilchComponent
         zoomEvent.CameraTarget = this.ZoomTarget;
         zoomEvent.ZoomTime = this.ZoomTime;
         zoomEvent.EaseCurve = this.ZoomEase;
-        this.Camera.DispatchEvent("zoomEvent", zoomEvent);
+        var camera = this.Space.FindObjectByName("Camera");
+        camera.DispatchEvent("zoomEvent", zoomEvent);
     }
     
     function TriggerPanEvent()
@@ -210,7 +211,8 @@ class CollisionBasedCamera : ZilchComponent
         panEvent.EndRotation = this.PanEndRotation;
         panEvent.PanTime = this.PanTime;
         panEvent.EasingCurve = this.PanEase;
-        this.Camera.DispatchEvent("panEvent", panEvent);
+        var camera = this.Space.FindObjectByName("Camera");
+        camera.DispatchEvent("panEvent", panEvent);
     }
     
     function TriggerDollyEvent()
@@ -221,6 +223,7 @@ class CollisionBasedCamera : ZilchComponent
         dollyEvent.EndPosition = this.DollyEndPosition;
         dollyEvent.DollyTime = this.DollyTime;
         dollyEvent.EasingCurve = this.DollyEase;
-        this.Camera.DispatchEvent("dollyEvent", dollyEvent);
+        var camera = this.Space.FindObjectByName("Camera");
+        camera.DispatchEvent("dollyEvent", dollyEvent);
     }
 }
