@@ -1,0 +1,117 @@
+class CameraSystemComponent : ZilchComponent
+{
+    [Property]
+    var CameraPath : CogPath = null;
+    var Camera : Cog = null;
+    
+    [Property]
+    var ZoomEvent : Boolean = false;
+    
+    [Property]
+    var ZoomingInOut : Boolean = false;
+    
+    [Property]
+    var CamSizeChange : Real = 0.0;
+    
+    [Property]
+    var ZoomTargetPath : CogPath = null;
+    var ZoomTarget : Cog = null;
+    
+    [Property]
+    var ZoomEase : Ease = Ease.QuadInOut;
+    
+    [Property]
+    var ZoomTime : Real = 0.0;
+    
+    [Property]
+    var PanEvent : Boolean = false;
+    
+    [Property]
+    var PanStarted : Boolean = false;
+    
+    [Property]
+    var PanTargetPath : CogPath = null;
+    var PanTarget : Cog = null;
+    
+    [Property]
+    var PanEndRotation : Quaternion = Quaternion(0,0,0,0);
+    
+    [Property]
+    var PanEase : Ease = Ease.QuadInOut;
+    
+    [Property]
+    var PanTime : Real = 0.0;
+    
+    [Property]
+    var DollyEvent : Boolean = false;
+    
+    [Property]
+    var DollyStarted : Boolean = false;
+    
+    [Property]
+    var DollyTargetPath : CogPath = null;
+    var DollyTarget : Cog = null;
+    
+    [Property]
+    var DollyEndPosition : Real3 = Real3(0,0,0);
+    
+    [Property]
+    var DollyTime : Real = 0.0;
+    
+    [Property]
+    var DollyEase : Ease = Ease.QuadInOut;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(this.ZoomEvent)
+        {
+            this.TriggerZoomEvent();
+        }
+        if(this.PanEvent)
+        {
+            this.TriggerPanEvent();
+        }
+        if(this.DollyEvent)
+        {
+            this.TriggerDollyEvent;
+        }
+    }
+    
+    function TriggerZoomEvent()
+    {
+        var zoomEvent = new CameraZoomEvent();
+        zoomEvent.IsZoomingIn = this.ZoomingInOut;
+        zoomEvent.CamSize = this.CamSizeChange;
+        zoomEvent.CameraTarget = this.ZoomTarget;
+        zoomEvent.ZoomTime = this.ZoomTime;
+        zoomEvent.EaseCurve = this.ZoomEase;
+        this.Camera.DispatchEvent("zoomEvent", zoomEvent);
+    }
+    
+    function TriggerPanEvent()
+    {
+        var panEvent = new CameraPanEvent();
+        panEvent.IsActive = this.PanStarted;
+        panEvent.PanTarget = this.PanTarget;
+        panEvent.EndRotation = this.PanEndRotation;
+        panEvent.PanTime = this.PanTime;
+        panEvent.EasingCurve = this.PanEase;
+        this.Camera.DispatchEvent("panEvent", panEvent);
+    }
+    
+    function TriggerDollyEvent()
+    {
+        var dollyEvent = new CameraDollyEvent();
+        dollyEvent.IsActive = this.DollyStarted;
+        dollyEvent.DollyTarget = this.DollyTarget;
+        dollyEvent.EndPosition = this.DollyEndPosition;
+        dollyEvent.DollyTime = this.DollyTime;
+        dollyEvent.EasingCurve = this.DollyEase;
+        this.Camera.DispatchEvent("dollyEvent", dollyEvent);
+    }
+}

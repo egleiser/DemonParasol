@@ -74,6 +74,9 @@ class CameraDollyEvent : Event
 }
 class FadeToBlackEvent : Event
 {
+    //Boolean to check whether it's a Fade In event. If FALSE, event will FADE OUT.
+    //If TRUE, event will FADE IN!!!!!!!!!!!
+    var IsFadeIn : Boolean = false;
     var TimeToFade : Real = 0.0;
     var EaseCurve : Ease = Ease.QuadOut;
 }
