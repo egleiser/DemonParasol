@@ -37,6 +37,7 @@ class AI_SwordBoss : ZilchComponent
     var InitModelPos:Real3 = Real3(1.5,1.5,1.5);
     var LastPlayerVector:Real3 = Real3(0,0,0);
     var TargetPlayerVector:Real3 = Real3(0,0,0);
+    var DoZoomEvent:Boolean = false;
     function Initialize(init : CogInitializer)
     {
         //Grab Cogs
@@ -277,14 +278,19 @@ class AI_SwordBoss : ZilchComponent
     }
     function SetStateToChase()
     {
-        var zoomEvent = new CameraZoomEvent();
-        zoomEvent.IsZoomingIn = true;
-        zoomEvent.CamSize = 40;
-        zoomEvent.EasingCurve = Ease.QuadInOut;
-        zoomEvent.CameraTarget = this.Player;
-        zoomEvent.ZoomTime = 2.0;
-        this.LevelSettings.CameraViewport.Camera.DispatchEvent("zoomEvent", zoomEvent);
-            
+        //Zoom Back Out
+        if(this.DoZoomEvent)
+        {
+            var zoomEvent = new CameraZoomEvent();
+            zoomEvent.IsZoomingIn = false;
+            zoomEvent.CamSize = 40;
+            zoomEvent.EaseCurve = Ease.QuadInOut;
+            zoomEvent.CameraTarget = this.Player;
+            zoomEvent.ZoomTime = 2.0;
+            this.LevelSettings.CameraViewport.Camera.DispatchEvent("zoomEvent", zoomEvent);
+        }
+        
+        
         this.Laser.Model.Visible = false;
         this.StuckBlackRain = false;
         this.CurrentState = SwordBossState.Chase;
@@ -322,19 +328,26 @@ class AI_SwordBoss : ZilchComponent
         if(this.ActionComplete)
         {
             
-            var zoomEvent = new CameraZoomEvent();
-            zoomEvent.IsZoomingIn = true;
-            zoomEvent.CamSize = 30;
-            zoomEvent.EasingCurve = Ease.QuadInOut;
-            zoomEvent.CameraTarget = this.EyeLight;
-            zoomEvent.ZoomTime = 1.0;
-            this.LevelSettings.CameraViewport.Camera.DispatchEvent("zoomEvent", zoomEvent);
+
             
             
             this.Camera.FindChildByName("MainLight").DreamLighting.DreamWorld = false;
 
             var flicker = Action.Sequence(this.Owner.Actions);
             Action.Property(flicker, @this.ActionComplete, false, 0.0, Ease.Linear);
+            //Zoom in
+            if(this.DoZoomEvent)
+            {
+                var zoomEvent = new CameraZoomEvent();
+                zoomEvent.IsZoomingIn = true;
+                zoomEvent.CamSize = 20;
+                zoomEvent.EaseCurve = Ease.QuadInOut;
+                zoomEvent.CameraTarget = this.EyeLight;
+                zoomEvent.ZoomTime = 1.0;
+                this.LevelSettings.CameraViewport.Camera.DispatchEvent("zoomEvent", zoomEvent);
+            }
+            
+            
             for(var i = 0; i < 8; i += 1)
             {
                 Action.Property(flicker, @this.EyeLight.GodRayLight.Active, true, 0.1 * (i/5.0), Ease.Linear);

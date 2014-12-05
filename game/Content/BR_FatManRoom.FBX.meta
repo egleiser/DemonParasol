@@ -1,0 +1,41 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 54513662d20342e8,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [0.5, 0.5, 0.5],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "BR_FatManRoom.FM_RoomWalls",
+				uint64 ResourceId = 54513662d2086773,
+			},
+			{
+				string Name = "BR_FatManRoom.BombPillarBase",
+				uint64 ResourceId = 54513662d2086779,
+			},
+			{
+				string Name = "BR_FatManRoom.BombPillarMain",
+				uint64 ResourceId = 54513662d208677b,
+			},
+			{
+				string Name = "BR_FatManRoom.DecoBorder",
+				uint64 ResourceId = 54513662d208677d,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},
