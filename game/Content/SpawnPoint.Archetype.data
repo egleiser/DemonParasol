@@ -1,0 +1,29 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "SpawnPoint",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [25.0968, -14.5398, 1.51712],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = false,
+		bool VisibilityCulling = true,
+		string MaterialName = "5404506d3dd2a41e:mat_Light",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [0.0500001, 1, 0, 1],
+	},
+	FootstepSurface = 
+	{
+		Enum SurfaceType = Dirt,
+	},
+},

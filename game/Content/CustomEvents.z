@@ -1,3 +1,7 @@
+class ContextEvent : Event
+{
+    var Context : ContextState = ContextState.Sleep;
+}  
 class BlockEvent : Event
 {
     var InfoToSend : String = "";
@@ -13,6 +17,11 @@ class AttackEvent : Event
     var NumberToSend : Integer = 0;
 }  
 class HitEvent : Event
+{
+    var DispatcherName : String = "";
+    var NumberToSend : Integer = 0;
+}  
+class YankEvent : Event
 {
     var DispatcherName : String = "";
     var NumberToSend : Integer = 0;

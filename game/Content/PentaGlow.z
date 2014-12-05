@@ -1,0 +1,27 @@
+class PentaGlow : ZilchComponent
+{
+    [Property]
+    var Active : Boolean = false;
+    [Property]
+    var Color : Real4 = Real4(1,0.2,1,0.2);
+    var NoColor : Real4 = Real4(0,0,0,0);
+    function Initialize(init : CogInitializer)
+    {
+        this.Owner.Model.Color = this.NoColor;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.Active)
+        {
+            this.Owner.Model.Color = Math.Lerp(this.Owner.Model.Color, this.Color, event.Dt * 0.5);
+            this.Owner.SoundEmitter.Volume = Math.Lerp(this.Owner.SoundEmitter.Volume, 0.6, event.Dt * 0.5);
+        }
+        else
+        {
+            this.Owner.Model.Color = Math.Lerp(this.Owner.Model.Color, this.NoColor, event.Dt * 3);
+            this.Owner.SoundEmitter.Volume = Math.Lerp(this.Owner.SoundEmitter.Volume, 0.0, event.Dt * 3);
+        }
+    }
+}

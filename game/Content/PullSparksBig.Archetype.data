@@ -1,0 +1,114 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "PullSparksBig",
+	},
+	Archetyped = 
+	{
+		string Name = "54afbc79f835e5f4:PullSparksBig",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [29.1122, 20.4956, 7.24546],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SpriteParticleSystem = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		SystemChildMode ChildMode = Independent,
+		SystemSpace SystemSpace = WorldSpace,
+		uint DrawOrder = 0,
+		float WarmUpTime = 0,
+		ParticleGeometry GeometryMode = Beam,
+		ParticleRenderMode RenderMode = Additive,
+		ParticleSortMode SortMode = Youngest,
+		ParticleAnimation ParticleAnimation = Single,
+		string Texture = "5274db4c2e7c11f9:Circle",
+		Vec4 Tint = [1, 1, 1, 1],
+		float VelocityScale = 0.5,
+		float LengthScale = 0.5,
+		float MaxParticleSize = 100,
+		Vec3 SystemSize = [4, 4, 4],
+	},
+	SphericalParticleEmitter = 
+	{
+		bool Active = true,
+		uint EmitCount = 100,
+		float EmitRate = 1000,
+		float EmitVariance = 0,
+		float Size = 0.35,
+		float SizeVariance = 0.05,
+		float Lifetime = 0.8,
+		float LifetimeVariance = 0.05,
+		float Spin = 200,
+		float SpinVariance = 50,
+		bool RandomSpin = true,
+		float Fill = 1,
+		float EmitterVelocityPercent = 0,
+		Vec3 StartVelocity = [0, 0, 0],
+		Vec3 RandomVelocity = [8, 8, 8],
+		Vec3 TangentVelocity = [0, 0, 0],
+		Vec3 EmitterSize = [0, 0, 0],
+		bool FastMovingEmitter = false,
+	},
+	LinearParticleAnimator = 
+	{
+		Vec3 Force = [0, 0, -10],
+		Vec3 RandomForce = [20, 20, 20],
+		float Torque = 0,
+		float Growth = 0,
+		float Dampening = 0,
+		Vec3 Twist = [0, 0, 0],
+	},
+	ParticleColorAnimator = 
+	{
+		Vec4 Color0 = [0.89, 0, 1, 0],
+		Vec4 Color1 = [0.04785, 0.771342, 0.87, 1],
+		Vec4 Color2 = [0.68, 0, 1, 1],
+		Vec4 Color3 = [1, 1, 1, 1],
+		Vec4 Color4 = [0.71, 0, 1, 0],
+	},
+	TimedDeath = 
+	{
+		float Lifetime = 2,
+		bool SendsDeathEvent = true,
+		bool AutoDestroy = true,
+	},
+	SoundEmitter = 
+	{
+		bool StartPlaying = true,
+		int ExtraPriority = 0,
+		string CueName = "548d7ef212955d1e:Demon_Death",
+		float Volume = 0.7,
+		float Pitch = 1,
+		bool Positional = true,
+	},
+	Hierarchy = 
+	{
+		ArchetypeInstance = 
+		{
+			string Name = "54afb3f9e6fba5ff:BigSmoke2",
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, -0.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, -0.544617, 0.838685],
+			},
+			Named = 
+			{
+				string Name = "BigSmoke2",
+			},
+		},
+	},
+},

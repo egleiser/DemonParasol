@@ -1,0 +1,26 @@
+SoundCue = 
+{
+	SoundPlayMode PlayMode = Single,
+	float Volume = 0.39,
+	float VolumeVariation = 0,
+	float Pitch = 0.1,
+	float PitchVariation = 0.2,
+	float MinDistance = 10,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 128,
+	bool LinearRollOff = true,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "54aeb64875e25fec:smallElecArc",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54aeb64875e4acd0:smallElecArc2",
+			float Weight = 1,
+		},
+	],
+	string RolloffCurveName = "",
+},

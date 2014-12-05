@@ -7,6 +7,9 @@ class TongueFinder : ZilchComponent
     var InitialDirection: Real3 = Real3(0,0,0);
     var InitialSpeed: Real = 0.5;
     var PullPlayer:Boolean = false;
+    var Destroy:Boolean = false;
+    var Grapple:Boolean = false;
+    var PullToPlayer:Boolean = false;
     var Latched:Boolean = false;
     function Initialize(init : CogInitializer)
     {
@@ -35,24 +38,70 @@ class TongueFinder : ZilchComponent
             this.Owner.Destroy();
         }
         
+        if(this.PullToPlayer == true && this.GetDistanceToPlayer() < 5.0)
+        {
+            
+            this.Owner.Destroy();
+        }
+        
+        if(this.PullToPlayer == true && this.LatchedObject != null)
+        {
+            var playerVector = Math.Normalize(this.Player.Transform.WorldTranslation - this.LatchedObject.Transform.WorldTranslation);
+            
+            this.LatchedObject.Transform.WorldTranslation += playerVector * 1.0;
+            this.Owner.Transform.WorldTranslation = this.LatchedObject.Transform.WorldTranslation;
+        }
+        
     }
     
     function OnCollisionStarted(event : CollisionEvent)
     {
-        if(event.OtherObject.Name == "TongueTarget")
-        {
-            if(this.PullPlayer == false)
+        if(this.Latched == false)
             {
-                this.LatchedObject = event.OtherObject;
-                this.Owner.Transform.WorldTranslation = this.LatchedObject.Transform.WorldTranslation;
-                this.Owner.SoundEmitter.Play();
-                //this.Space.SoundSpace.PlayCueAt(SoundCue.Find("PlayerHurt"),this.Player.Transform.WorldTranslation);
-                this.Owner.Space.CreateAtPosition(Archetype.Find("SpitSplash"), event.FirstPoint.WorldPoint);
-            }
-            this.Latched = true;
+            if(event.OtherObject.Name == "TongueTarget")
+            {
+                if(this.PullPlayer == false)
+                {
+                    this.LatchedObject = event.OtherObject;
+                    this.Owner.Transform.WorldTranslation = this.LatchedObject.Transform.WorldTranslation;
+                    this.Owner.SoundEmitter.Play();
+                    //this.Space.SoundSpace.PlayCueAt(SoundCue.Find("PlayerHurt"),this.Player.Transform.WorldTranslation);
+                    this.Owner.Space.CreateAtPosition(Archetype.Find("SpitSplash"), event.FirstPoint.WorldPoint);
+                }
+                this.Latched = true;
 
-            this.InitialSpeed = 0.0;
+                this.InitialSpeed = 0.0;
+            }
+            
+            if(event.OtherObject.Name == "TongueYank")
+            {
+                if(this.PullPlayer == false)
+                {
+                    this.LatchedObject = event.OtherObject;
+                    this.Owner.Transform.WorldTranslation = this.LatchedObject.Transform.WorldTranslation;
+                    this.Owner.SoundEmitter.Play();
+                    this.Owner.Space.CreateAtPosition(Archetype.Find("SpitSplash"), event.FirstPoint.WorldPoint);
+                }
+                this.Latched = true;
+                this.Destroy = true;
+                this.InitialSpeed = 0.0;
+            }
+            
+            if(event.OtherObject.Grabbable != null)
+            {
+                if(this.PullPlayer == false)
+                {
+                    this.LatchedObject = event.OtherObject;
+                    this.Owner.Transform.WorldTranslation = this.LatchedObject.Transform.WorldTranslation;
+                    this.Owner.SoundEmitter.Play();
+                    this.Owner.Space.CreateAtPosition(Archetype.Find("SpitSplash"), event.FirstPoint.WorldPoint);
+                }
+                this.Latched = true;
+                this.Grapple = true;
+                this.InitialSpeed = 0.0;
+            }
         }
+        
         if(event.OtherObject.Collider.CollisionGroup.Name == "DefaultGroup" && this.Latched == false)
         {
             this.Owner.Space.CreateAtPosition(Archetype.Find("SpitSplash"), event.FirstPoint.WorldPoint);

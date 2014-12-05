@@ -1,0 +1,270 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "SwordBoss",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Foot",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.072964, 0.590118, -0.132404],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54a3c5bcba3e8dfd:SwordBoss.Foot",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "EyeSocket",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.112962, 2.5691, -1.30902],
+				Vec3 Scale = [1.19038, 1.19038, 1.19038],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54a3c5bcba3e8e01:SwordBoss.EyeSocket",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "Geta",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.00619666, 0.514093, -0.594319],
+				Vec3 Scale = [0.902802, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54a3c5bcba3e8e03:SwordBoss.Geta",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "Scalera",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.177229, 5.04811, -0.964414],
+				Vec3 Scale = [1.16808, 1.16808, 1.16808],
+				Quat Rotation = [0.707107, 0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54a3c5bcba3e8e05:SwordBoss.Scalera",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "Iris",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.177229, 5.04811, -0.964414],
+				Vec3 Scale = [1.16808, 1.16808, 1.16808],
+				Quat Rotation = [0.707107, 0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54a3c5bcba3e8e06:SwordBoss.Iris",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 7,
+			},
+			Named = 
+			{
+				string Name = "DemonPupil",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.177229, 5.04811, -0.964414],
+				Vec3 Scale = [1.16808, 1.16808, 1.16808],
+				Quat Rotation = [0.707107, 0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54a3c5bcba3e8e08:SwordBoss.DemonPupil",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 8,
+			},
+			Named = 
+			{
+				string Name = "Hilt",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.112962, 2.5691, -1.30902],
+				Vec3 Scale = [1.19038, 1.19038, 1.19038],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54a3c5bcba3e8e0a:SwordBoss.Hilt",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 9,
+			},
+			Named = 
+			{
+				string Name = "Blade",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.112962, 2.5691, -1.30902],
+				Vec3 Scale = [1.19038, 1.19038, 1.19038],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54a3c5bcba3e8e0b:SwordBoss.Blade",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 10,
+			},
+			Named = 
+			{
+				string Name = "Handle",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.112962, 2.5691, -1.30902],
+				Vec3 Scale = [1.19038, 1.19038, 1.19038],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54a3c5bcba3e8e0d:SwordBoss.Handle",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 11,
+			},
+			Named = 
+			{
+				string Name = "GetaString",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.195389, 0.590118, 0.503458],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "54a3c5bcba3e8e0f:SwordBoss.GetaString",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+	},
+},

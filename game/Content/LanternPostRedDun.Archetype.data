@@ -1,0 +1,141 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "LanternPostRedDun",
+	},
+	Archetyped = 
+	{
+		string Name = "548181af93868c61:LanternPostRedDayDemo",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [45.8616, 27.9807, -4.18309],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0.269006, -0.653939, -0.653939, 0.269006],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 4, 0],
+		Vec3 Size = [0.5, 4, 0.5],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "LanternPost_Body",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [0.890963, 0.890963, 2.32696],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "5481b3b2289af798:LanternPost.LanternPost_Body",
+				Vec4 Color = [0.75, 0.195, 0.195, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "LanternPost_Hook",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [2.44297, 7.77209, 2.50177e-007],
+				Vec3 Scale = [1.44999, 1.44999, 1],
+				Quat Rotation = [8.14603e-008, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "5481b3b2289af79f:LanternPost.LanternPost_Hook",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "LanternPost_HookPoint",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [2.44297, 7.46766, 2.86467e-007],
+				Vec3 Scale = [1.44999, 1.44999, 1],
+				Quat Rotation = [8.14603e-008, 0, 0, 1],
+			},
+			SphereCollider = 
+			{
+				bool Ghost = true,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				float Radius = 0.3,
+			},
+			RigidBody = 
+			{
+				bool Static = false,
+				bool Asleep = false,
+				bool Kinematic = true,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = false,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "54bebc5606a21d42:TongueTarget",
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [2.70107, 6.93095, -0.0507765],
+				Vec3 Scale = [0.999999, 0.999998, 0.999999],
+				Quat Rotation = [-0.471931, 0.526575, 0.526575, 0.471931],
+			},
+			Named = 
+			{
+				string Name = "TongueTarget",
+			},
+		},
+	},
+},

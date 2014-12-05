@@ -1,0 +1,26 @@
+enum ContextState{Read, Talk, Push, Pull, Tongue, Sleep, Open}
+class ContextButtonManager : ZilchComponent
+{
+    var Text: Cog = null;
+    var WantedText: String = "";
+    function Initialize(init : CogInitializer)
+    {
+        this.Text = this.Owner.FindChildByName("ButtonText");
+        var seq = Action.Sequence(this.Owner.Actions);
+
+        // Move up
+        Action.Property(seq, @this.Owner.Transform.Rotation, Math.Euler(Real3(Math.ToRadians(90), 0, 0)), 0.2, Ease.Linear);
+    }
+    function SetButton(text : String)
+    {
+         // Create an Action Sequence attach to this object
+        var seq = Action.Sequence(this.Owner.Actions);
+        this.WantedText = text;
+        // Move up
+        Action.Property(seq, @this.Owner.Transform.Rotation, Math.Euler(Real3(Math.ToRadians(270), 0, 0)), 0.1, Ease.QuadIn);
+        Action.Property(seq, @this.Text.SpriteText.Text, this.WantedText, 0.0, Ease.Linear);
+        Action.Property(seq, @this.Owner.Transform.Rotation, Math.Euler(Real3(Math.ToRadians(90), 0, 0)), 0.2, Ease.Linear);
+
+    }
+
+}

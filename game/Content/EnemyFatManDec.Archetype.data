@@ -1,0 +1,199 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "EnemyFatManDec",
+	},
+	Archetyped = 
+	{
+		string Name = "54502f4d6b7c0e1d:EnemyFatManDec",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [52.0864, 26.2573, 5.12686],
+		Vec3 Scale = [0.5, 0.5, 0.5],
+		Quat Rotation = [0.252864, -0.660348, -0.660348, 0.252864],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Body",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [2.1597, 2.89028e-007, -1.59149e-007],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "54a3c57d9c4c3210:mat_Gold",
+				string MeshName = "54502813b7c534dd:EnemyFatMan.Body",
+				Vec4 Color = [0.275, 0, 0, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "Tail",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.13153, -0.0797968, 0.0237528],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54502813b7c534e1:EnemyFatMan.Tail",
+				Vec4 Color = [0.91, 0.768768, 0.0273, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "Fins",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.035019, -0.0122131, 1.57356e-005],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54502813b7c534e3:EnemyFatMan.Fins",
+				Vec4 Color = [0.185, 0.185, 0.185, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "Teeth",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [4.62867, -0.393467, 1.20163e-005],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-8.74228e-008, -8.74228e-008, -7.64274e-015, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481b84e008be766:mat_gradient",
+				string MeshName = "54502813b7c534e5:EnemyFatMan.Teeth",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "WideTongue",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [4.96351, -0.865534, -7.71046e-005],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "54a3db5a3ddb6b52:mat_LightIntense",
+				string MeshName = "54502813b7c534e7:EnemyFatMan.WideTongue",
+				Vec4 Color = [0, 0.431372, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 7,
+			},
+			Named = 
+			{
+				string Name = "MouthBlack",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [4.58182, -0.477496, -0.000785554],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54502813b7c534e8:EnemyFatMan.MouthBlack",
+				Vec4 Color = [0, 0.0903, 0.21, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 8,
+			},
+			Named = 
+			{
+				string Name = "Rods",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [3.66004, 1.78431, 0.0847418],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [4.37114e-008, -4.37114e-008, 4.37114e-008, 1],
+			},
+			Model = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54502813b7c534ea:EnemyFatMan.Rods",
+				Vec4 Color = [0.695, 0.695, 0.695, 1],
+			},
+		},
+	},
+},

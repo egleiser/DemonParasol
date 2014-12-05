@@ -1,0 +1,82 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "CryMaskWoodBurn",
+	},
+	Archetyped = 
+	{
+		string Name = "54afd4f9879ed87f:CryMaskWoodBurn",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-12.2131, 17.2221, -1.53937],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [-1, -0, 0, -4.37114e-008],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		string MaterialName = "54a3c57d9c4c3210:mat_Gold",
+		string MeshName = "54afd9330e0afcd4:CryMask",
+		Vec4 Color = [0.135, 0.0830722, 0.029025, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "EyeLight",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.647582, 0.718932, -0.35304],
+				Vec3 Scale = [0.676808, 0.288666, 0.850506],
+				Quat Rotation = [0.99442, 0.105493, 4.61123e-009, -4.34675e-008],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "54afb93202e8a4b0:mat_LightIntenseHigh",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [0.675, 0.02025, 0.0206428, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "EyeLight",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.71656, 0.718938, -0.35304],
+				Vec3 Scale = [0.676807, 0.288666, 0.850509],
+				Quat Rotation = [0.994098, -0.108484, -4.74201e-009, -4.34534e-008],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "54afb93202e8a4b0:mat_LightIntenseHigh",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [0.675, 0.02025, 0.0206428, 1],
+			},
+		},
+	},
+},

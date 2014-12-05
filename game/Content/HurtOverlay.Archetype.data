@@ -1,0 +1,28 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "HurtOverlay",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 8.70859],
+		Vec3 Scale = [35.6822, 21.9002, 0.01],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		string MaterialName = "54afec308fba9649:mat_Hurt",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	FlashHUD = 
+	{
+	},
+},

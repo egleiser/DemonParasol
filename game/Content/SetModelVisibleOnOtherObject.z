@@ -1,0 +1,25 @@
+class SetModelVisibleOnOtherObject : ZilchComponent
+{
+    [Property]
+    var TargetObjectPath : CogPath = null;
+    
+    var TargetObject : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.TargetObject = this.TargetObjectPath.Cog;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.TargetObject != null)
+        {
+            this.Owner.Model.Visible = this.TargetObject.Model.Visible;
+        }
+        else
+        {
+            this.Owner.Model.Visible = false;
+        }
+    }
+}

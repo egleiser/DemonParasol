@@ -1,0 +1,35 @@
+Material = 
+{
+	Lambert = 
+	{
+	},
+	DoNotBlockGodRays = 
+	{
+	},
+	DoubledSide = 
+	{
+	},
+	EmissiveMapping = 
+	{
+		float EmissiveScale = 2,
+		string EmissiveMapTexture = "54ae56a4e2cb01ae:WaveGlow",
+		Vec2 EmissiveScroll = [0, 0.02],
+		Vec2 EmissiveTiling = [0, 100],
+		Vec2 EmissiveOffset = [0, 0],
+	},
+	ModulateModelColor = 
+	{
+	},
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Additive,
+		bool CastShadow = false,
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "54ae56a4e2cb01ae:WaveGlow",
+		Vec2 DiffuseScroll = [0, 0.02],
+		Vec2 DiffuseTiling = [0, 100],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

@@ -1,0 +1,55 @@
+class AI_Fatman : ZilchComponent
+{
+    var Player:Cog = null;
+    var TargetPlayerVector:Real3 = Real3(0,0,0);
+    var Rise:Boolean = true;
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.Death, this.OnDeath);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //RotateTowards Player
+        if(this.Rise == true)
+        {
+            this.Owner.Transform.WorldTranslation += Real3(0,0,0.1);
+        }
+        if(this.Owner.Transform.WorldTranslation.Z > this.Player.Transform.WorldTranslation.Z + 3.0)
+        {
+            this.Rise = false;
+        }
+        if(Math.Length(this.GetPlayerVector(1.0)) < 3.0 && this.Rise == false)
+        {
+            this.Owner.Transform.WorldTranslation += this.GetPlayerVector(0.1);
+        }
+
+    }
+    function GetPlayerVector(scale : Real):Real3
+    {
+        this.TargetPlayerVector = this.Player.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
+        this.TargetPlayerVector = Math.Normalize(this.TargetPlayerVector);
+        return(Real3(this.TargetPlayerVector.X,this.TargetPlayerVector.Y,0) * scale);
+    }
+ 
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Collider.Ghost == false && otherObject.Name != "Player")
+        {
+            var toSend = ZilchEvent();
+            this.Owner.DispatchEvent(Events.Death, toSend);
+        }
+    }
+    function OnDeath(event : Event)
+    {
+        var damageSphere = this.Space.CreateAtPosition(Archetype.Find("HurtSphere"), this.Owner.Transform.WorldTranslation);
+        damageSphere.DamagePlayerOnCollide.Damage = 1.0;
+        damageSphere.Transform.WorldScale *= 5;
+        this.Space.CreateAtPosition(Archetype.Find("NukeSmoke"), this.Owner.Transform.WorldTranslation);
+        this.Owner.Destroy();
+    }
+}

@@ -1,0 +1,29 @@
+Material = 
+{
+	Lambert = 
+	{
+	},
+	DoNotBlockGodRays = 
+	{
+	},
+	DoubledSide = 
+	{
+	},
+	EmissiveMapping = 
+	{
+		float EmissiveScale = 3.1,
+		string EmissiveMapTexture = "549077307893025c:Chrome2",
+		Vec2 EmissiveScroll = [0.1, 0.2],
+		Vec2 EmissiveTiling = [1, 1],
+		Vec2 EmissiveOffset = [0, 0],
+	},
+	ModulateModelColor = 
+	{
+	},
+	Reflective = 
+	{
+		float Reflectivity = 1,
+		string Environment = "549077307893025c:Chrome2",
+		Vec2 ReflectiveScroll = [0.01, 0],
+	},
+},

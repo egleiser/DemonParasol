@@ -1,0 +1,77 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 54502810b7ff1f7a,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [0.1, 0.1, 0.1],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "EnemyFatMan.Body",
+				uint64 ResourceId = 54502813b7c534dd,
+			},
+			{
+				string Name = "EnemyFatMan.Tail",
+				uint64 ResourceId = 54502813b7c534e1,
+			},
+			{
+				string Name = "EnemyFatMan.Fins",
+				uint64 ResourceId = 54502813b7c534e3,
+			},
+			{
+				string Name = "EnemyFatMan.Teeth",
+				uint64 ResourceId = 54502813b7c534e5,
+			},
+			{
+				string Name = "EnemyFatMan.WideTongue",
+				uint64 ResourceId = 54502813b7c534e7,
+			},
+			{
+				string Name = "EnemyFatMan.MouthBlack",
+				uint64 ResourceId = 54502813b7c534e8,
+			},
+			{
+				string Name = "EnemyFatMan.Rods",
+				uint64 ResourceId = 54502813b7c534ea,
+			},
+			{
+				string Name = "EnemyFatMan.Pupil1",
+				uint64 ResourceId = 54502813b7c534ec,
+			},
+			{
+				string Name = "EnemyFatMan.Scelara001",
+				uint64 ResourceId = 54502813b7c534ee,
+			},
+			{
+				string Name = "EnemyFatMan.EyeShadow001",
+				uint64 ResourceId = 54502813b7c534f0,
+			},
+			{
+				string Name = "EnemyFatMan.EyeShadow002",
+				uint64 ResourceId = 54502813b7c534f1,
+			},
+			{
+				string Name = "EnemyFatMan.Scelara002",
+				uint64 ResourceId = 54502813b7c534f3,
+			},
+			{
+				string Name = "EnemyFatMan.Pupil2",
+				uint64 ResourceId = 54502813b7c534f5,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},

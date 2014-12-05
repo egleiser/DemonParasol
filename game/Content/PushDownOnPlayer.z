@@ -1,0 +1,47 @@
+class PushDownOnPlayer : ZilchComponent
+{
+    var Pushing:Boolean = false;
+    var InitialRotation:Quaternion = Quaternion(0,0,0,0);
+    var Player:Cog = null;
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
+        this.InitialRotation = this.Owner.Transform.Rotation;
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var wantedRot:Quaternion = Quaternion(0,0,0,0);
+        var xOffset = (this.Player.Transform.WorldTranslation.X - this.Owner.Transform.WorldTranslation.X)/6.0;
+        if(this.Pushing)
+        {
+            //Console.WriteLine("Pushing");
+            wantedRot = Math.Multiply(this.InitialRotation, Math.Euler(Real3(0,0,-xOffset)));
+            this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation,wantedRot, event.Dt*2);
+        }
+        else
+        {
+            wantedRot = this.InitialRotation;
+            this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation,wantedRot, event.Dt * 1);
+        }
+        
+    }
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject == this.Player)
+        {
+            this.Pushing = true;
+        }
+    }
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject == this.Player)
+        {
+            this.Pushing = false;
+        }
+    }
+}

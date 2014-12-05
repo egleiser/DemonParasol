@@ -1,0 +1,70 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "SwordBossMaster",
+	},
+	Archetyped = 
+	{
+		string Name = "54a3c5e4abe3dcb0:SwordBossMaster",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [25.0661, 30.1182, 0.0855715],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Orientation = 
+	{
+		Vec3 GlobalUp = [0, 1, 0],
+		Vec3 UpVector = [0, 0, 1],
+		Vec3 ForwardVector = [0, 1, 0],
+		OrientationBases DefaultBases = ForwardYUpZ,
+	},
+	AI_SwordBoss = 
+	{
+		Enum CurrentState = Off,
+		float RotationSpeed = 8,
+		float StompHeight = 5,
+		float StompDistance = 0.5,
+		float StompSpeed = 1,
+	},
+	Targetable = 
+	{
+		Enum IndicatorType = Enemy,
+		Vec3 IndicatorOffset = [0, -2, 5],
+		float Range = 30,
+	},
+	Health = 
+	{
+		float MaxHealth = 3,
+		bool DestroyAtZeroHealth = true,
+		bool SendsHealthModified = true,
+		float DamageScalar = 1,
+	},
+	Hierarchy = 
+	{
+		ArchetypeInstance = 
+		{
+			string Name = "54a3c510a994f6e4:SwordBossMesh",
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -1.33921, 0.133667],
+				Vec3 Scale = [1.5, 1.5, 1.5],
+				Quat Rotation = [0.707107, 0, 0, 0.707107],
+			},
+			Named = 
+			{
+				string Name = "SwordBossMesh",
+			},
+		},
+	},
+},
