@@ -30,6 +30,8 @@ class OrbitCameraController : ZilchComponent
     
     var FadeOutCog : Cog = null;
     
+    var PlayerCog : Cog = null;
+    
     var WantedcamLerp : Real3 = Real3(0,0,10);
     
     var PanStartRotation : Quaternion = Quaternion(0,0,0,0);
@@ -55,13 +57,15 @@ class OrbitCameraController : ZilchComponent
     
     function Initialize(init : CogInitializer)
     {
-        this.Direction = Math.Normalize(this.Owner.Transform.Translation - this.OrbitTarget.Cog.Transform.Translation);
+        this.PlayerCog = this.Space.FindObjectByName("Player");
+        
+        this.Direction = Math.Normalize(this.Owner.Transform.WorldTranslation - this.OrbitTarget.Cog.Transform.WorldTranslation);
         
         this.Owner.Transform.Rotation = Math.Euler(Real3(Math.ToRadians(210.0), Math.ToRadians(180.0), 33.0));
         
         this.CurrentAngle = Math.ToRadians(270);
         this.Owner.Transform.WorldTranslation = Real3( Math.Cos(this.CurrentAngle) * this.Radius,
-         Math.Sin(this.CurrentAngle) * this.Radius, 0.0) + this.OrbitTarget.Cog.Transform.Translation;
+         Math.Sin(this.CurrentAngle) * this.Radius, 0.0) + this.OrbitTarget.Cog.Transform.WorldTranslation;
         
         
         this.Owner.Camera.Size = this.CamLerp.Z ;
@@ -79,7 +83,7 @@ class OrbitCameraController : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        this.Direction = Math.Normalize(this.Owner.Transform.Translation - this.OrbitTarget.Cog.Transform.Translation);
+        this.Direction = Math.Normalize(this.Owner.Transform.WorldTranslation - this.OrbitTarget.Cog.Transform.WorldTranslation);
         this.UpdatePlayerInput();
         
         if(this.ShouldUpdateCamera)
@@ -91,11 +95,11 @@ class OrbitCameraController : ZilchComponent
                 this.WantedRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1));
                 
                 this.CurrentAngle = Math.Lerp(this.CurrentAngle, Math.ToRadians(this.AngleChange), event.Dt * 3);
-                this.WantedPosition = Real3( Math.Cos(this.CurrentAngle) * this.Radius, Math.Sin(this.CurrentAngle) * this.Radius, this.Height) + this.OrbitTarget.Cog.Transform.Translation;
+                this.WantedPosition = Real3( Math.Cos(this.CurrentAngle) * this.Radius, Math.Sin(this.CurrentAngle) * this.Radius, this.Height) + this.OrbitTarget.Cog.Transform.WorldTranslation;
                 
                 //this.Owner.Transform.Rotation = this.WantedRotation;
                 this.Owner.Transform.Rotation = Math.RotateTowards(this.Owner.Transform.Rotation, this.WantedRotation, 1);    
-                this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, this.WantedPosition, event.Dt * 5);
+                this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, this.WantedPosition, event.Dt * 5);
                 
 
             }
@@ -106,11 +110,11 @@ class OrbitCameraController : ZilchComponent
                 this.WantedRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1));
                 
                 this.CurrentAngle = Math.Lerp(this.CurrentAngle, Math.ToRadians(270), event.Dt * 3);
-                this.WantedPosition = Real3( Math.Cos(this.CurrentAngle) * this.Radius, Math.Sin(this.CurrentAngle) * this.Radius, this.Height) + this.OrbitTarget.Cog.Transform.Translation;
+                this.WantedPosition = Real3( Math.Cos(this.CurrentAngle) * this.Radius, Math.Sin(this.CurrentAngle) * this.Radius, this.Height) + this.OrbitTarget.Cog.Transform.WorldTranslation;
                 
                 //this.Owner.Transform.Rotation = this.WantedRotation;
                 this.Owner.Transform.Rotation = Math.RotateTowards(this.Owner.Transform.Rotation, this.WantedRotation, 5);
-                this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, this.WantedPosition, event.Dt * 5);
+                this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, this.WantedPosition, event.Dt * 5);
             }
         }
     }
@@ -171,7 +175,7 @@ class OrbitCameraController : ZilchComponent
                 //The rotation quaternion for the camera based on the object's position
                 var rotationDirection : Quaternion = Quaternion(0,0,0,0);
                 //Defining the vector between the camera and the object
-                cameraObjectVector = Math.Normalize(this.ZoomTowardsObject.Transform.Translation - this.Owner.Transform.Translation);
+                cameraObjectVector = Math.Normalize(this.ZoomTowardsObject.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation);
                 //Defining the rotation quaternion based on the object's position
                 rotationDirection = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(cameraObjectVector, Real3(0,0,1));
                 
@@ -181,17 +185,21 @@ class OrbitCameraController : ZilchComponent
                                 event.CamSize,
                                 event.ZoomTime,
                                 event.EaseCurve);
-                Action.Call(grp, this.ActionCallPanEvent);
+                Action.Call(grp, this.ActionCallPanEventStart);
             }
             //If wanting to zoom back out to regular size (set at CamLerp.z, which is 30 right now)
             else
             {
+                Console.WriteLine("Targeted Pan Ending");
+                this.ZoomTowardsObject = event.CameraTarget;
+                
                 var grp = Action.Group(this.Owner.Actions);
                 Action.Property(grp,
                                 @this.Owner.Camera.Size,
                                 this.CamLerp.Z,
                                 event.ZoomTime,
                                 event.EaseCurve);
+                Action.Call(grp, this.ActionCallPanEventEnd);
             }
         }
     }
@@ -212,10 +220,11 @@ class OrbitCameraController : ZilchComponent
                 //Grabbing the target object.
                 var panTarget : Cog = event.PanTarget;
                 //Defining the direction vector
-                targetDirection = Math.Normalize(this.Owner.Transform.Translation - panTarget.Transform.Translation);
+                targetDirection = Math.Normalize(this.Owner.Transform.WorldTranslation - panTarget.Transform.WorldTranslation);
                 this.PanTargetRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(targetDirection, Real3(0,0,1));
-                var seq = Action.Sequence(this.Owner.Actions);
-                Action.Property(seq,
+                var grp = Action.Group(this.Owner.Actions);
+                Action.Call(grp, this.StopPlayer);
+                Action.Property(grp,
                                 @this.Owner.Transform.Rotation,
                                 this.PanTargetRotation,
                                 event.PanTime,
@@ -238,12 +247,14 @@ class OrbitCameraController : ZilchComponent
             {
                 Console.WriteLine("Targeted Pan Ending");
                 var seq = Action.Sequence(this.Owner.Actions);
+                var grp = Action.Group(seq);
                 Action.Property(seq,
                                 @this.Owner.Transform.Rotation,
                                 this.PanStartRotation,
                                 event.PanTime,
                                 event.EasingCurve);
-                Action.Call(seq, this.UpdateCamera);
+                Action.Call(grp, this.UpdateCamera);
+                Action.Call(grp, this.StartPlayer);
             }
             else
             {
@@ -264,12 +275,12 @@ class OrbitCameraController : ZilchComponent
         //Grabs the position of the camera before dollying so that it can be used when dollying back to original position
         
             
-        //If wanting to change translation of camera
+        //If wanting to change WorldTranslation of camera
         if(event.IsActive)
         {
             //If dollying to the same position twice in a row without dollying back, this position will screw up
             //the return dolly because the second default position is not actually the Default position.
-            this.DefaultPosition = this.Owner.Transform.Translation;
+            this.DefaultPosition = this.Owner.Transform.WorldTranslation;
             Console.WriteLine("Dolly Event Started");
             if(event.DollyTarget != null)
             {
@@ -280,55 +291,62 @@ class OrbitCameraController : ZilchComponent
                 FOCUS OF THE CAMERA UNTIL THE DOLLY IS COMPLETE*********/
                 if(event.TargetFocus)
                 {
-                    //Action interpolating between original camera translation and translation of the target object
+                    //Action interpolating between original camera WorldTranslation and translation of the target object
                     var seq = Action.Sequence(this.Owner.Actions);
+                    var grp = Action.Group(seq);
                     Action.Property(seq,
-                                    @this.Owner.Transform.Translation,
-                                    dollyTarget.Transform.Translation,
+                                    @this.Owner.Transform.WorldTranslation,
+                                    dollyTarget.Transform.WorldTranslation,
                                     event.DollyTime,
                                     event.EasingCurve);
                     //Calls the function that disables the camera from updating according to player
-                    
-                    Action.Call(seq, this.CameraLock);
+                    Action.Call(grp, this.CameraLock);
+                    Action.Call(grp, this.StopPlayer);
                 }
                 /******@IMPORTANT: CHOOSING THIS WILL NOT CHANGE THE ROTATION OF THE
-                CAMERA AT ALL; IT WILL ONLY CHANGE ITS TRANSLATION********/
+                CAMERA AT ALL; IT WILL ONLY CHANGE ITS WorldTranslation********/
                 else
                 {
                     var seq2 = Action.Sequence(this.Owner.Actions);
-                    Action.Call(seq2, this.CameraLock);
+                    var grp2 = Action.Group(this.Owner.Actions);
+                    Action.Call(grp2, this.StopPlayer);
+                    Action.Call(grp2, this.CameraLock);
                     Action.Property(seq2,
-                                    @this.Owner.Transform.Translation,
-                                    dollyTarget.Transform.Translation,
+                                    @this.Owner.Transform.WorldTranslation,
+                                    dollyTarget.Transform.WorldTranslation,
                                     event.DollyTime,
                                     event.EasingCurve);
                 }
             }
             else
             {
-                //Action interpolating between original camera translation and EndPosition as defined when dispatching event
+                //Action interpolating between original camera WorldTranslation and EndPosition as defined when dispatching event
                 var seq = Action.Sequence(this.Owner.Actions);
+                var grp = Action.Group(seq);
                 Action.Property(seq,
-                                @this.Owner.Transform.Translation,
+                                @this.Owner.Transform.WorldTranslation,
                                 event.EndPosition,
                                 event.DollyTime,
                                 event.EasingCurve);
                 //Calls the function that will now allow the camera to update according to the player again
                 Action.Call(seq, this.CameraLock);
+                Action.Call(grp, this.StopPlayer);
             }
             //Calls the ToggleCameraLock function so that the camera locks and will not update according to player movement
             
         }
-        //For returning to original translation before dolly occurs
+        //For returning to original WorldTranslation before dolly occurs
         else
         {
             Console.WriteLine("Dolly Event Ending");
-            //Action interpolating between former Endposition and original translation behind player
+            //Action interpolating between former Endposition and original WorldTranslation behind player
             var seq = Action.Sequence(this.Owner.Actions);
+            var grp = Action.Group(seq);
             //Calls the ToggleCameraLock function so that the camera unlocks and updates according to player movement again
-            Action.Call(seq, this.CameraUnlock);
+            Action.Call(grp, this.CameraUnlock);
+            Action.Call(grp, this.StartPlayer);
             //Action interpolating BACK to where camera was positioned before dolly.
-            Action.Property(seq, @this.Owner.Transform.Translation, this.DefaultPosition, event.DollyTime, event.EasingCurve);
+            Action.Property(seq, @this.Owner.Transform.WorldTranslation, this.DefaultPosition, event.DollyTime, event.EasingCurve);
         }
     }
     
@@ -387,10 +405,19 @@ class OrbitCameraController : ZilchComponent
         this.ShouldUpdateCamera = event.IsLocked;
     }
     
-    function ActionCallPanEvent()
+    function ActionCallPanEventStart()
     {
         var panEvent = new CameraPanEvent();
         panEvent.IsActive = true;
+        panEvent.PanTarget = this.ZoomTowardsObject;
+        panEvent.PanTime = 1.5;
+        panEvent.EasingCurve = Ease.QuadInOut;
+        this.Owner.DispatchEvent("panEvent", panEvent);
+    }
+    function ActionCallPanEventEnd()
+    {
+        var panEvent = new CameraPanEvent();
+        panEvent.IsActive = false;
         panEvent.PanTarget = this.ZoomTowardsObject;
         panEvent.PanTime = 1.5;
         panEvent.EasingCurve = Ease.QuadInOut;
@@ -400,5 +427,20 @@ class OrbitCameraController : ZilchComponent
     function UpdateCamera()
     {
         this.ShouldUpdateCamera = true;
+    }
+    
+    function StopUpdateCamera()
+    {
+        this.ShouldUpdateCamera = false;
+    }
+    
+    function StartPlayer()
+    {
+        this.PlayerCog.PlayerController.Active = true;
+    }
+    
+    function StopPlayer()
+    {
+        this.PlayerCog.PlayerController.Active = false;
     }
 }

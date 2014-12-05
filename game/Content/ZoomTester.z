@@ -39,7 +39,7 @@ class ZoomTester : ZilchComponent
         {
             var zoomEvent = new CameraZoomEvent();
             zoomEvent.IsZoomingIn = false;
-            zoomEvent.CameraTarget = this.ZoomTarget;
+            zoomEvent.CameraTarget = this.Owner;
             zoomEvent.CamSize = 20;
             zoomEvent.ZoomTime = 1.35;
             this.Space.FindObjectByName("Camera").DispatchEvent("zoomEvent", zoomEvent);
