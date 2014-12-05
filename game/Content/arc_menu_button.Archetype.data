@@ -6,7 +6,7 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "btn-game-start",
+		string Name = "btn-game-quit",
 	},
 	Archetyped = 
 	{
@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-0.5, -6.5, 1],
+		Vec3 Translation = [3.75, -1.5, 6],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -22,10 +22,6 @@ Cog =
 	{
 		bool Active = true,
 		bool CaptureMouse = true,
-	},
-	Z_UI_Button = 
-	{
-		string LevelToLoad = "54682358d686e046:lvl_menu_main",
 	},
 	Sprite = 
 	{
@@ -35,7 +31,7 @@ Cog =
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "545d3bcc929e5c00:btn-start-game-inactive",
+		string SpriteSource = "540aa3ac9e3bd60a:btn-quit-game-white-inactive",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
@@ -44,19 +40,23 @@ Cog =
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
 	},
-	Area = 
-	{
-		Vec2 Size = [4, 2],
-		Location Origin = Center,
-	},
 	Z_UI_Transitions = 
 	{
 		float FadeInTime = 0.5,
 		float FadeOutTime = 0.25,
 		float WaitTime = 2,
 		float ScaleOutTime = 0.2,
-		float ScaleInTime = 0.5,
+		float ScaleInTime = 0.25,
 		float ScaleBiggerSize = 1.1,
 		Enum EaseType = QuadInOut,
+	},
+	Area = 
+	{
+		Vec2 Size = [5.5, 1.5],
+		Location Origin = Center,
+	},
+	Z_UI_Button = 
+	{
+		string LevelToLoad = "",
 	},
 },

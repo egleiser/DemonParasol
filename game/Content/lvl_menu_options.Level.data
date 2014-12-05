@@ -60,11 +60,34 @@ Level =
 		Z_LevelLogic = 
 		{
 			float SplashScreenDelayTimer = 3,
-			string NextSplashToLoad = "",
+			string NextSplashToLoad = "4faa6050b86892a8:DefaultLevel",
 			bool IsSplash = false,
-			string NextLevelToLoad = "",
+			string NextLevelToLoad = "4faa6050b86892a8:DefaultLevel",
 		},
 		Z_CheatCodes = 
+		{
+		},
+		Z_WinLoseTrigger = 
+		{
+			Vec3 StartingPosition = [0, 0, 1],
+			Vec3 EndingPosition = [0, 6, 1],
+			float FadeInTime = 2,
+			Vec3 TrackingScale = [1.1, 1.1, 1],
+			float TrackingTime = 20,
+			Enum EaseType = QuadIn,
+		},
+		Z_UI_MenuPopUp = 
+		{
+			float FadeInTime = 0.5,
+			float FadeOutTime = 0.25,
+			Vec3 ScaleOutSize = [0.75, 0.75, 0.75],
+			float ScaleOutTime = 0.2,
+			Vec3 ScaleInSize = [1, 1, 1],
+			float ScaleInTime = 0.8,
+			Enum EaseType = QuadIn,
+			Vec3 StartingPosition = [0, 0, 9],
+		},
+		QuickPause = 
 		{
 		},
 	},
@@ -80,7 +103,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.35726, 1.88745, 50],
+			Vec3 Translation = [6.73303, 41.8394, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -92,7 +115,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 100,
+			float Size = 60.6531,
 		},
 		EditorCameraController = 
 		{
@@ -100,7 +123,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-1.35726, 1.88745, -2.14683e-008],
+			Vec3 LookTarget = [6.73303, 41.8394, 3.69327e-007],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -126,39 +149,11 @@ Level =
 			string Name = "Camera",
 		},
 	},
-	ArchetypeInstance = 
-	{
-		string Name = "545d0ce33b4dab02:arc_bg_menu_red",
-		LinkId = 
-		{
-			uint Id = 4,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0, 0, -1],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Area = 
-		{
-			Vec2 Size = [75, 50],
-			Location Origin = Center,
-		},
-		Named = 
-		{
-			string Name = "bg-menu-red",
-		},
-		EditorFlags = 
-		{
-			bool Locked = true,
-			bool Hidden = false,
-		},
-	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 5,
+			uint Id = 4,
 		},
 		Named = 
 		{
@@ -170,7 +165,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, 1],
+			Vec3 Translation = [0, -4, 1],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -221,7 +216,7 @@ Level =
 		string Name = "545d477758b1a37e:arc_bg_white_fade",
 		LinkId = 
 		{
-			uint Id = 6,
+			uint Id = 5,
 		},
 		Transform = 
 		{

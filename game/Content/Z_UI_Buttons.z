@@ -77,6 +77,12 @@ class Z_UI_Button:ZilchComponent
             this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-quit-game-active");
         }
+        //if button is "Quit Game"
+        if(currentBtn == "btn-game-quit-white")
+        {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-quit-game-white-active");
+        }
         //if button is "Quit Yes"
         if(currentBtn == "btn-yes")
         {
@@ -167,6 +173,12 @@ class Z_UI_Button:ZilchComponent
             this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-quit-game-inactive");
         }
+        //if button is "Quit Game"
+        if(currentBtn == "btn-game-quit-white")
+        {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-quit-game-white-inactive");
+        }
         //if button is "Quit Yes"
         if(currentBtn == "btn-yes")
         {
@@ -250,9 +262,14 @@ class Z_UI_Button:ZilchComponent
             this.Space.LoadLevel(this.LevelToLoad);
         }
         //if button is "Quit Game"
-        if(this.Owner.Name == "btn-game-quit")
+        if(this.Owner.Name == "btn-game-quit" )
         {
-            this.Space.FindObjectByName("ui_quit_confirmation").Z_UI_QuitConfirmation.FadeIn();
+            this.Space.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox("QuitConfirmation");
+        }
+        //if button is "Quit Game"
+        if(this.Owner.Name == "btn-game-quit-white" )
+        {
+            this.GameSession.Quit();
         }
         //if button is "Quit Yes"
         if(currentBtn == "btn-yes")
@@ -262,7 +279,7 @@ class Z_UI_Button:ZilchComponent
         //if button is "Quit No"
         if(currentBtn == "btn-no")
         {
-            this.Space.FindObjectByName("ui_quit_confirmation").Z_UI_QuitConfirmation.FadeOut();
+            this.Space.LevelSettings.Z_UI_MenuPopUp.FadeOut();
         }
         
         //MENU BUTTONS
