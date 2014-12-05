@@ -1,0 +1,46 @@
+Material = 
+{
+	Lambert = 
+	{
+	},
+	DoubledSide = 
+	{
+	},
+	EmissiveMapping = 
+	{
+		float EmissiveScale = 2,
+		string EmissiveMapTexture = "549077307890dfed:Chrome1",
+		Vec2 EmissiveScroll = [-0.01, 0],
+		Vec2 EmissiveTiling = [10, 1],
+		Vec2 EmissiveOffset = [0, 0],
+	},
+	ModulateModelColor = 
+	{
+	},
+	NormalMapping = 
+	{
+		float Bumpiness = 0.3,
+		string NormalMapTexture = "5438253cb5888f4b:Water",
+		Vec2 NormalScroll = [0.02, 0],
+		Vec2 NormalTiling = [10, 1],
+		Vec2 NormalOffset = [0, 0],
+	},
+	Reflective = 
+	{
+		float Reflectivity = 0.5,
+		string Environment = "549077307893025c:Chrome2",
+		Vec2 ReflectiveScroll = [0.01, 0.01],
+	},
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Additive,
+		bool CastShadow = true,
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "54ae56a4e2cb01ae:WaveGlow",
+		Vec2 DiffuseScroll = [0.01, 0],
+		Vec2 DiffuseTiling = [2, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

@@ -162,9 +162,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [37.6257, 24.4697, 16.1434],
+			Vec3 Translation = [-135.224, 71.091, 147.218],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.401929, 0.00885519, -0.00388716, 0.91562],
+			Quat Rotation = [-0.120287, -0.384932, -0.0506773, 0.913669],
 		},
 		Camera = 
 		{
@@ -179,10 +179,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 21.1038,
-			float VerticalAngle = -0.827286,
-			float HorizontalAngle = -0.0193419,
-			Vec3 LookTarget = [37.3494, 40.0041, 1.86143],
+			float LookDistance = 257.096,
+			float VerticalAngle = 0.2618,
+			float HorizontalAngle = 0.797471,
+			Vec3 LookTarget = [42.4836, 4.54946, -26.249],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -901,6 +901,13 @@ Level =
 							string MeshName = "54ae5c0c06089626:BossRoom.WaterPlaneRound",
 							Vec4 Color = [0.095, 0.095, 0.095, 1],
 						},
+						SinTranslate = 
+						{
+							float SinSpeedX = 1,
+							float SinSpeedY = 1,
+							float Intensity = 0.5,
+							bool UseInitialRot = false,
+						},
 					},
 					Cog = 
 					{
@@ -1268,12 +1275,19 @@ Level =
 							Vec4 Color = [0.4945, 0, 0.575, 1],
 						},
 					},
-					ArchetypeInstance = 
+					Cog = 
 					{
-						string Name = "54afcedca92f94bb:WaterPlaneRound",
 						LinkId = 
 						{
 							uint Id = 41,
+						},
+						Named = 
+						{
+							string Name = "WaterPlaneRound",
+						},
+						Archetyped = 
+						{
+							string Name = "54afcedca92f94bb:WaterPlaneRound",
 						},
 						Transform = 
 						{
@@ -1281,9 +1295,164 @@ Level =
 							Vec3 Scale = [1.3, 0.366742, 1.3],
 							Quat Rotation = [0, 0, 0, 1],
 						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+							string MeshName = "54ae5c0c06089626:BossRoom.WaterPlaneRound",
+							Vec4 Color = [0.095, 0.095, 0.095, 1],
+						},
+						SinTranslate = 
+						{
+							float SinSpeedX = 1,
+							float SinSpeedY = 1,
+							float Intensity = 0.5,
+							bool UseInitialRot = false,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 42,
+						},
 						Named = 
 						{
 							string Name = "WaterPlaneRound",
+						},
+						Archetyped = 
+						{
+							string Name = "54afcedca92f94bb:WaterPlaneRound",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-53.7875, -7.88429, 3.61894],
+							Vec3 Scale = [1, 0.366742, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+							string MeshName = "54ae5c0c06089626:BossRoom.WaterPlaneRound",
+							Vec4 Color = [0.095, 0.095, 0.095, 1],
+						},
+						SinTranslate = 
+						{
+							float SinSpeedX = 1,
+							float SinSpeedY = 1,
+							float Intensity = 0.5,
+							bool UseInitialRot = false,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 43,
+						},
+						Named = 
+						{
+							string Name = "WaterPlaneRound",
+						},
+						Archetyped = 
+						{
+							string Name = "54afcedca92f94bb:WaterPlaneRound",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [54.0087, -7.88429, 3.61895],
+							Vec3 Scale = [1, 0.366742, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+							string MeshName = "54ae5c0c06089626:BossRoom.WaterPlaneRound",
+							Vec4 Color = [0.095, 0.095, 0.095, 1],
+						},
+						SinTranslate = 
+						{
+							float SinSpeedX = 1,
+							float SinSpeedY = 1,
+							float Intensity = 0.5,
+							bool UseInitialRot = false,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 44,
+						},
+						Named = 
+						{
+							string Name = "WaterPlaneRound",
+						},
+						Archetyped = 
+						{
+							string Name = "54afcedca92f94bb:WaterPlaneRound",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [54.0087, -10.0836, -53.849],
+							Vec3 Scale = [1, 0.366742, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+							string MeshName = "54ae5c0c06089626:BossRoom.WaterPlaneRound",
+							Vec4 Color = [0.095, 0.095, 0.095, 1],
+						},
+						SinTranslate = 
+						{
+							float SinSpeedX = 1,
+							float SinSpeedY = 1,
+							float Intensity = 0.5,
+							bool UseInitialRot = false,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 45,
+						},
+						Named = 
+						{
+							string Name = "WaterPlaneRound",
+						},
+						Archetyped = 
+						{
+							string Name = "54afcedca92f94bb:WaterPlaneRound",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-53.7875, -10.0836, -53.849],
+							Vec3 Scale = [1, 0.366742, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+							string MeshName = "54ae5c0c06089626:BossRoom.WaterPlaneRound",
+							Vec4 Color = [0.095, 0.095, 0.095, 1],
+						},
+						SinTranslate = 
+						{
+							float SinSpeedX = 1,
+							float SinSpeedY = 1,
+							float Intensity = 0.5,
+							bool UseInitialRot = false,
 						},
 					},
 				},
@@ -1294,7 +1463,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 42,
+			uint Id = 46,
 		},
 		Named = 
 		{
@@ -1344,7 +1513,7 @@ Level =
 		string Name = "5481a2f612bcc3ec:TargetLock",
 		LinkId = 
 		{
-			uint Id = 43,
+			uint Id = 47,
 		},
 		Transform = 
 		{
@@ -1361,7 +1530,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 44,
+			uint Id = 48,
 		},
 		Named = 
 		{
@@ -1387,7 +1556,7 @@ Level =
 		string Name = "54a3c5e4abe3dcb0:SwordBossMaster",
 		LinkId = 
 		{
-			uint Id = 45,
+			uint Id = 49,
 		},
 		Transform = 
 		{
@@ -1404,202 +1573,6 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 46,
-		},
-		Named = 
-		{
-			string Name = "CollisionBase",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-8.22063, 15, -1.38987],
-			Vec3 Scale = [7.40345, 3.57869, 7.40345],
-			Quat Rotation = [0.707107, 0, 0, 0.707107],
-		},
-		Model = 
-		{
-			bool Visible = false,
-			bool VisibilityCulling = true,
-			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-			string MeshName = "4de0354322b3572e:Cylinder",
-			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = true,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		CylinderCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			float Radius = 1,
-			float Height = 1,
-			uint Direction = 1,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 47,
-		},
-		Named = 
-		{
-			string Name = "CollisionBase",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-8.22063, 15, -1.38987],
-			Vec3 Scale = [7.40345, 3.57869, 7.40345],
-			Quat Rotation = [0.707107, 0, 0, 0.707107],
-		},
-		Model = 
-		{
-			bool Visible = false,
-			bool VisibilityCulling = true,
-			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-			string MeshName = "4de0354322b3572e:Cylinder",
-			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = true,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		CylinderCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			float Radius = 1,
-			float Height = 1,
-			uint Direction = 1,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 48,
-		},
-		Named = 
-		{
-			string Name = "CollisionBase",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-2.46922, 32.7051, -1.38987],
-			Vec3 Scale = [7.40345, 3.57869, 7.40345],
-			Quat Rotation = [0.707107, 0, 0, 0.707107],
-		},
-		Model = 
-		{
-			bool Visible = false,
-			bool VisibilityCulling = true,
-			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-			string MeshName = "4de0354322b3572e:Cylinder",
-			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = true,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		CylinderCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			float Radius = 1,
-			float Height = 1,
-			uint Direction = 1,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 49,
-		},
-		Named = 
-		{
-			string Name = "CollisionBase",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [14.1984, 45.7009, -1.38987],
-			Vec3 Scale = [7.40345, 3.57869, 7.40345],
-			Quat Rotation = [0.707107, 0, 0, 0.707107],
-		},
-		Model = 
-		{
-			bool Visible = false,
-			bool VisibilityCulling = true,
-			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-			string MeshName = "4de0354322b3572e:Cylinder",
-			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = true,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		CylinderCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			float Radius = 1,
-			float Height = 1,
-			uint Direction = 1,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
 			uint Id = 50,
 		},
 		Named = 
@@ -1608,7 +1581,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [35.6448, 45.7009, -1.38987],
+			Vec3 Translation = [-8.22063, 15, -1.38987],
 			Vec3 Scale = [7.40345, 3.57869, 7.40345],
 			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
@@ -1657,7 +1630,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [52.632, 32.7051, -1.38987],
+			Vec3 Translation = [-8.22063, 15, -1.38987],
 			Vec3 Scale = [7.40345, 3.57869, 7.40345],
 			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
@@ -1699,6 +1672,202 @@ Level =
 		LinkId = 
 		{
 			uint Id = 52,
+		},
+		Named = 
+		{
+			string Name = "CollisionBase",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-2.46922, 32.7051, -1.38987],
+			Vec3 Scale = [7.40345, 3.57869, 7.40345],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "4de0354322b3572e:Cylinder",
+			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = true,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CylinderCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 1,
+			float Height = 1,
+			uint Direction = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 53,
+		},
+		Named = 
+		{
+			string Name = "CollisionBase",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [14.1984, 45.7009, -1.38987],
+			Vec3 Scale = [7.40345, 3.57869, 7.40345],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "4de0354322b3572e:Cylinder",
+			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = true,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CylinderCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 1,
+			float Height = 1,
+			uint Direction = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 54,
+		},
+		Named = 
+		{
+			string Name = "CollisionBase",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [35.6448, 45.7009, -1.38987],
+			Vec3 Scale = [7.40345, 3.57869, 7.40345],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "4de0354322b3572e:Cylinder",
+			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = true,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CylinderCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 1,
+			float Height = 1,
+			uint Direction = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 55,
+		},
+		Named = 
+		{
+			string Name = "CollisionBase",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [52.632, 32.7051, -1.38987],
+			Vec3 Scale = [7.40345, 3.57869, 7.40345],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "4de0354322b3572e:Cylinder",
+			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = true,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CylinderCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 1,
+			float Height = 1,
+			uint Direction = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 56,
 		},
 		Named = 
 		{
@@ -1748,7 +1917,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 53,
+			uint Id = 57,
 		},
 		Transform = 
 		{
@@ -1766,7 +1935,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 54,
+			uint Id = 58,
 		},
 		Transform = 
 		{
@@ -1784,7 +1953,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 55,
+			uint Id = 59,
 		},
 		Transform = 
 		{
@@ -1801,7 +1970,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 56,
+			uint Id = 60,
 		},
 		Named = 
 		{
@@ -1848,7 +2017,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 57,
+			uint Id = 61,
 		},
 		Named = 
 		{
@@ -1895,7 +2064,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 58,
+			uint Id = 62,
 		},
 		Named = 
 		{
@@ -1942,7 +2111,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 59,
+			uint Id = 63,
 		},
 		Named = 
 		{
@@ -1989,7 +2158,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 60,
+			uint Id = 64,
 		},
 		Named = 
 		{
@@ -2036,7 +2205,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 61,
+			uint Id = 65,
 		},
 		Named = 
 		{
@@ -2083,7 +2252,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 62,
+			uint Id = 66,
 		},
 		Named = 
 		{
@@ -2130,7 +2299,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 63,
+			uint Id = 67,
 		},
 		Named = 
 		{
@@ -2177,7 +2346,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 64,
+			uint Id = 68,
 		},
 		Named = 
 		{
@@ -2227,7 +2396,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 65,
+			uint Id = 69,
 		},
 		Named = 
 		{
@@ -2277,7 +2446,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 66,
+			uint Id = 70,
 		},
 		Named = 
 		{
@@ -2328,7 +2497,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 67,
+			uint Id = 71,
 		},
 		Transform = 
 		{
@@ -2346,7 +2515,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 68,
+			uint Id = 72,
 		},
 		Transform = 
 		{
@@ -2363,7 +2532,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 69,
+			uint Id = 73,
 		},
 		Named = 
 		{
@@ -2412,7 +2581,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 70,
+			uint Id = 74,
 		},
 		Named = 
 		{
@@ -2461,7 +2630,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 71,
+			uint Id = 75,
 		},
 		Named = 
 		{
@@ -2511,7 +2680,7 @@ Level =
 		string Name = "54af82929de79018:ArrowPoint",
 		LinkId = 
 		{
-			uint Id = 72,
+			uint Id = 76,
 		},
 		Transform = 
 		{
@@ -2529,7 +2698,7 @@ Level =
 		string Name = "54af82929de79018:ArrowPoint",
 		LinkId = 
 		{
-			uint Id = 73,
+			uint Id = 77,
 		},
 		Transform = 
 		{
@@ -2547,7 +2716,7 @@ Level =
 		string Name = "54af82929de79018:ArrowPoint",
 		LinkId = 
 		{
-			uint Id = 74,
+			uint Id = 78,
 		},
 		Transform = 
 		{
@@ -2564,7 +2733,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 75,
+			uint Id = 79,
 		},
 		Named = 
 		{
@@ -2593,7 +2762,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 76,
+			uint Id = 80,
 		},
 		Named = 
 		{
@@ -2644,7 +2813,7 @@ Level =
 		string Name = "54af9521548f6372:BlackRainSmoke",
 		LinkId = 
 		{
-			uint Id = 77,
+			uint Id = 81,
 		},
 		Transform = 
 		{
@@ -2661,7 +2830,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 78,
+			uint Id = 82,
 		},
 		Named = 
 		{
@@ -2743,7 +2912,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 79,
+			uint Id = 83,
 		},
 		Transform = 
 		{
@@ -2761,7 +2930,7 @@ Level =
 		string Name = "5481b3171ce3c4b4:Rock1",
 		LinkId = 
 		{
-			uint Id = 80,
+			uint Id = 84,
 		},
 		Transform = 
 		{
@@ -2779,7 +2948,7 @@ Level =
 		string Name = "5481b3171ce3c4b4:Rock1",
 		LinkId = 
 		{
-			uint Id = 81,
+			uint Id = 85,
 		},
 		Transform = 
 		{
@@ -2797,7 +2966,7 @@ Level =
 		string Name = "5481b3171ce3c4b4:Rock1",
 		LinkId = 
 		{
-			uint Id = 82,
+			uint Id = 86,
 		},
 		Transform = 
 		{
@@ -2815,7 +2984,7 @@ Level =
 		string Name = "5481b3171ce3c4b4:Rock1",
 		LinkId = 
 		{
-			uint Id = 83,
+			uint Id = 87,
 		},
 		Transform = 
 		{
@@ -2833,7 +3002,7 @@ Level =
 		string Name = "5481b3171ce3c4b4:Rock1",
 		LinkId = 
 		{
-			uint Id = 84,
+			uint Id = 88,
 		},
 		Transform = 
 		{
@@ -2851,7 +3020,7 @@ Level =
 		string Name = "5481b3171ce3c4b4:Rock1",
 		LinkId = 
 		{
-			uint Id = 85,
+			uint Id = 89,
 		},
 		Transform = 
 		{
@@ -2869,7 +3038,7 @@ Level =
 		string Name = "5481b3171ce3c4b4:Rock1",
 		LinkId = 
 		{
-			uint Id = 86,
+			uint Id = 90,
 		},
 		Transform = 
 		{
@@ -2887,7 +3056,7 @@ Level =
 		string Name = "5481b3171ce3c4b4:Rock1",
 		LinkId = 
 		{
-			uint Id = 87,
+			uint Id = 91,
 		},
 		Transform = 
 		{
@@ -2905,7 +3074,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 88,
+			uint Id = 92,
 		},
 		Transform = 
 		{
@@ -2923,7 +3092,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 89,
+			uint Id = 93,
 		},
 		Transform = 
 		{

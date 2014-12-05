@@ -1,0 +1,44 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "StarGlowFX",
+	},
+	EditorFlags = 
+	{
+		bool Locked = true,
+		bool Hidden = false,
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 1.90457, -1.33074],
+		Vec3 Scale = [46.432, 15.0751, 46.432],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		string MaterialName = "54ae56dae691b022:WaveGlow",
+		string MeshName = "54ae5c0c0608962c:BossRoom.StarGlowFX",
+		Vec4 Color = [1, 0.445, 0.445333, 0],
+	},
+	PentaGlow = 
+	{
+		bool Active = true,
+		Vec4 Color = [1, 0.2, 1, 0.2],
+	},
+	SoundEmitter = 
+	{
+		bool StartPlaying = true,
+		int ExtraPriority = 0,
+		string CueName = "54afb4516b13f2fd:Amb_Choir_LevitateLoop1",
+		float Volume = 0,
+		float Pitch = 1,
+		bool Positional = true,
+	},
+},

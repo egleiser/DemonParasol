@@ -357,7 +357,7 @@ class AI_SwordBoss : ZilchComponent
        
         if(randNum > threshold)
         {
-            Console.WriteLine("`this.EyeLight.GodRayLight.Active`");
+            //Console.WriteLine("`this.EyeLight.GodRayLight.Active`");
             if(this.EyeLight.GodRayLight.Active == true)
             {
                 this.EyeLight.GodRayLight.Active = false;
@@ -393,7 +393,7 @@ class AI_SwordBoss : ZilchComponent
     
     function OnDeath(event : Event)
     {
-        //this.Camera.FindChildByName("MainLight").DreamLighting.DreamWorld = true;
+        this.Camera.FindChildByName("MainLight").DreamLighting.DreamWorld = true;
         this.Owner.LevelSettings.FindChildByName("BGMManager").Destroy();
         this.StarGlow.PentaGlow.Active = true;
         this.Space.CreateAtPosition(Archetype.Find("DeathSmoke"), this.Owner.Transform.WorldTranslation);

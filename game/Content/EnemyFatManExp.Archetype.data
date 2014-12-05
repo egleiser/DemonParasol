@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [41.4502, -19.5072, -12.6651],
+		Vec3 Translation = [59.7452, -66.4382, -12.6651],
 		Vec3 Scale = [0.5, 0.5, 0.5],
 		Quat Rotation = [0.707107, 0, 0, 0.707107],
 	},
@@ -64,6 +64,12 @@ Cog =
 		float Volume = 1,
 		float Pitch = 1,
 		bool Positional = true,
+	},
+	Targetable = 
+	{
+		Enum IndicatorType = Enemy,
+		Vec3 IndicatorOffset = [0, 0, 0],
+		float Range = 30,
 	},
 	Hierarchy = 
 	{
