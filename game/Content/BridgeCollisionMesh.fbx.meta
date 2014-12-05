@@ -2,14 +2,14 @@ GeometryContent =
 {
 	GeneratedArchetype = 
 	{
-		uint64 ResourceId = 5418bf46b6086752,
+		uint64 ResourceId = 540596fe52faba97,
 	},
 	GeometryImport = 
 	{
 		bool ChangeWinding = false,
 		Vec3 Translation = [0, 0, 0],
-		Quat Rotation = [0, 0, 0, 1],
-		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [-0.707107, 0, 0, 0.707107],
+		Vec3 Scale = [0.012, 0.09, 0.022],
 	},
 	MeshBuilder = 
 	{
@@ -17,7 +17,7 @@ GeometryContent =
 		[
 			{
 				string Name = "BridgeCollisionMesh",
-				uint64 ResourceId = 5418bf46b60f40d0,
+				uint64 ResourceId = 540596fe52e03e46,
 			},
 		],
 		MeshMode MeshMode = Single,
@@ -25,5 +25,18 @@ GeometryContent =
 		Generation Normals = Import,
 		Generation Tangents = Import,
 		float SmoothingAngle = 60,
+	},
+	PhysicsMeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "BridgeCollisionMesh",
+				uint64 ResourceId = 540595a1324d4c74,
+			},
+		],
+		bool MakeConvex = false,
+		bool OnlyUseMarkedCollision = false,
+		PhysicsMeshType MeshBuilt = GenericMesh,
 	},
 },

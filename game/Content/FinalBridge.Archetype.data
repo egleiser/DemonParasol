@@ -1,0 +1,168 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "FinalBridge",
+	},
+	Archetyped = 
+	{
+		string Name = "5418421c335bd3b2:Bridge",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [196.64, 216.838, -0.461691],
+		Vec3 Scale = [0.15, 0.15, 0.15],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "BridgeRamp",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.76416, 2.6226e-006, 0],
+				Vec3 Scale = [79.1359, 41.5928, 11.7761],
+				Quat Rotation = [0.707107, 0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "542f98932dfed31c:mat_Ramp",
+				string MeshName = "5418421d33706eef:Bridge.pCylinder1",
+				Vec4 Color = [0.45, 0.3051, 0.135, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "540595a1324d4c74:BridgeCollisionMesh",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "PathDetector",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.00965881, 3.8147e-006, -2.10498],
+						Vec3 Scale = [0.390784, 1.94598, 2.79459],
+						Quat Rotation = [1, 0, 0, 2.10522e-006],
+					},
+					Model = 
+					{
+						bool Visible = false,
+						bool VisibilityCulling = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "4de0354322b345ae:Cube",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+					RigidBody = 
+					{
+						bool Static = true,
+						bool Asleep = false,
+						bool Kinematic = false,
+						bool RotationLocked = false,
+						bool Mode2D = false,
+						bool AllowSleep = true,
+						bool Inherit2DMode = true,
+						Vec3 Velocity = [0, 0, 0],
+						Vec3 AngularVelocity = [0, 0, 0],
+					},
+					BoxCollider = 
+					{
+						bool Ghost = true,
+						bool SendsMessages = true,
+						bool Seamless = true,
+						string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+						string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+						Vec3 Offset = [0, 0, 0],
+						Vec3 Size = [0.5, 0.5, 0.5],
+					},
+					ZIL_BridgeCollapse = 
+					{
+					},
+					Hierarchy = 
+					{
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "BridgeFenceBack",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 2.6226e-006, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-4.37114e-008, 1, 1.1921e-007, -4.61948e-015],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "54828a09aef2b289:TerrainMat3",
+				string MeshName = "5418421d33706ef6:Bridge.polySurface223",
+				Vec4 Color = [0.525, 0.049875, 0.049875, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "BridgeFenceFront",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 2.6226e-006, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [1.78814e-007, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "54828a09aef2b289:TerrainMat3",
+				string MeshName = "5418421d33706ef4:Bridge.polySurface222",
+				Vec4 Color = [0.52, 0.0468, 0.0468, 1],
+			},
+		},
+	},
+},

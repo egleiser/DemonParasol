@@ -1,0 +1,29 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "DogFirstPass",
+	},
+	Archetyped = 
+	{
+		string Name = "542a2880f786dfa5:DogFirstPass",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		string MaterialName = "542a2a744e33eb7b:DogFirstPassRootNodeMulti",
+		string MeshName = "542a2880f78b1d8b:DogFirstPass",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+},

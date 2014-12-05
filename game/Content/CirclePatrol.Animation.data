@@ -8,7 +8,6 @@ RichAnimation =
 		string Name = "Root",
 		string Path = "",
 		bool Disabled = false,
-		uint PropertyTypeId = 0,
 		string PropertyTypeName = "void",
 		Array KeyFrames = 
 		[
@@ -20,7 +19,6 @@ RichAnimation =
 				string Name = "/",
 				string Path = "/",
 				bool Disabled = false,
-				uint PropertyTypeId = 0,
 				string PropertyTypeName = "",
 				Array KeyFrames = 
 				[
@@ -32,7 +30,6 @@ RichAnimation =
 						string Name = "Transform",
 						string Path = "Transform",
 						bool Disabled = false,
-						uint PropertyTypeId = 0,
 						string PropertyTypeName = "",
 						Array KeyFrames = 
 						[
@@ -44,7 +41,6 @@ RichAnimation =
 								string Name = "Rotation",
 								string Path = "Transform.Rotation",
 								bool Disabled = false,
-								uint PropertyTypeId = 10,
 								string PropertyTypeName = "Quat",
 								Array KeyFrames = 
 								[
@@ -56,7 +52,6 @@ RichAnimation =
 										string Name = "X",
 										string Path = "Transform.Rotation.X",
 										bool Disabled = false,
-										uint PropertyTypeId = 3,
 										string PropertyTypeName = "",
 										Array KeyFrames = 
 										[
@@ -92,7 +87,6 @@ RichAnimation =
 										string Name = "Y",
 										string Path = "Transform.Rotation.Y",
 										bool Disabled = false,
-										uint PropertyTypeId = 3,
 										string PropertyTypeName = "",
 										Array KeyFrames = 
 										[
@@ -128,7 +122,6 @@ RichAnimation =
 										string Name = "Z",
 										string Path = "Transform.Rotation.Z",
 										bool Disabled = false,
-										uint PropertyTypeId = 3,
 										string PropertyTypeName = "",
 										Array KeyFrames = 
 										[
@@ -166,7 +159,6 @@ RichAnimation =
 								string Name = "Translation",
 								string Path = "Transform.Translation",
 								bool Disabled = false,
-								uint PropertyTypeId = 8,
 								string PropertyTypeName = "Vec3",
 								Array KeyFrames = 
 								[
@@ -178,7 +170,6 @@ RichAnimation =
 										string Name = "X",
 										string Path = "Transform.Translation.X",
 										bool Disabled = false,
-										uint PropertyTypeId = 3,
 										string PropertyTypeName = "",
 										Array KeyFrames = 
 										[
@@ -188,28 +179,6 @@ RichAnimation =
 												{
 													float Time = 0,
 													float Value = 8.08374,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
-											{
-												float key = 0.3,
-												Object value = 
-												{
-													float Time = 0.3,
-													float Value = 6,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
-											{
-												float key = 0.633333,
-												Object value = 
-												{
-													float Time = 0.633333,
-													float Value = 10,
 													Vec2 TangentIn = [-0.05, 0],
 													Vec2 TangentOut = [0.05, 0],
 													uint EditorFlags = 0,
@@ -236,7 +205,6 @@ RichAnimation =
 										string Name = "Y",
 										string Path = "Transform.Translation.Y",
 										bool Disabled = false,
-										uint PropertyTypeId = 3,
 										string PropertyTypeName = "",
 										Array KeyFrames = 
 										[
@@ -246,28 +214,6 @@ RichAnimation =
 												{
 													float Time = 0,
 													float Value = -22.3619,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
-											{
-												float key = 0.3,
-												Object value = 
-												{
-													float Time = 0.3,
-													float Value = -24.5,
-													Vec2 TangentIn = [-0.05, 0],
-													Vec2 TangentOut = [0.05, 0],
-													uint EditorFlags = 0,
-												},
-											},
-											{
-												float key = 0.633333,
-												Object value = 
-												{
-													float Time = 0.633333,
-													float Value = -20.5,
 													Vec2 TangentIn = [-0.05, 0],
 													Vec2 TangentOut = [0.05, 0],
 													uint EditorFlags = 0,
@@ -294,7 +240,6 @@ RichAnimation =
 										string Name = "Z",
 										string Path = "Transform.Translation.Z",
 										bool Disabled = false,
-										uint PropertyTypeId = 3,
 										string PropertyTypeName = "",
 										Array KeyFrames = 
 										[
@@ -354,7 +299,6 @@ RichAnimation =
 								string Name = "Scale",
 								string Path = "Transform.Scale",
 								bool Disabled = false,
-								uint PropertyTypeId = 8,
 								string PropertyTypeName = "Vec3",
 								Array KeyFrames = 
 								[
@@ -366,7 +310,6 @@ RichAnimation =
 										string Name = "X",
 										string Path = "Transform.Scale.X",
 										bool Disabled = false,
-										uint PropertyTypeId = 3,
 										string PropertyTypeName = "",
 										Array KeyFrames = 
 										[
@@ -386,7 +329,7 @@ RichAnimation =
 												Object value = 
 												{
 													float Time = 0.3,
-													float Value = 1,
+													float Value = 1.25,
 													Vec2 TangentIn = [-0.05, 0],
 													Vec2 TangentOut = [0.05, 0],
 													uint EditorFlags = 0,
@@ -397,7 +340,7 @@ RichAnimation =
 												Object value = 
 												{
 													float Time = 0.633333,
-													float Value = 2,
+													float Value = 1.75,
 													Vec2 TangentIn = [-0.05, 0],
 													Vec2 TangentOut = [0.05, 0],
 													uint EditorFlags = 0,
@@ -424,7 +367,6 @@ RichAnimation =
 										string Name = "Y",
 										string Path = "Transform.Scale.Y",
 										bool Disabled = false,
-										uint PropertyTypeId = 3,
 										string PropertyTypeName = "",
 										Array KeyFrames = 
 										[
@@ -444,7 +386,7 @@ RichAnimation =
 												Object value = 
 												{
 													float Time = 0.3,
-													float Value = 1,
+													float Value = 1.25,
 													Vec2 TangentIn = [-0.05, 0],
 													Vec2 TangentOut = [0.05, 0],
 													uint EditorFlags = 0,
@@ -455,7 +397,7 @@ RichAnimation =
 												Object value = 
 												{
 													float Time = 0.633333,
-													float Value = 2,
+													float Value = 1.75,
 													Vec2 TangentIn = [-0.05, 0],
 													Vec2 TangentOut = [0.05, 0],
 													uint EditorFlags = 0,
@@ -482,7 +424,6 @@ RichAnimation =
 										string Name = "Z",
 										string Path = "Transform.Scale.Z",
 										bool Disabled = false,
-										uint PropertyTypeId = 3,
 										string PropertyTypeName = "",
 										Array KeyFrames = 
 										[
@@ -502,7 +443,7 @@ RichAnimation =
 												Object value = 
 												{
 													float Time = 0.3,
-													float Value = 1,
+													float Value = 1.25,
 													Vec2 TangentIn = [-0.05, 0],
 													Vec2 TangentOut = [0.05, 0],
 													uint EditorFlags = 0,
@@ -513,7 +454,7 @@ RichAnimation =
 												Object value = 
 												{
 													float Time = 0.633333,
-													float Value = 2,
+													float Value = 1.75,
 													Vec2 TangentIn = [-0.05, 0],
 													Vec2 TangentOut = [0.05, 0],
 													uint EditorFlags = 0,
@@ -533,178 +474,6 @@ RichAnimation =
 										],
 										Array Children = 
 										[
-										],
-									},
-								],
-							},
-						],
-					},
-					{
-						TrackType Type = Object,
-						string Name = "Bird",
-						string Path = "/Bird",
-						bool Disabled = false,
-						uint PropertyTypeId = 0,
-						string PropertyTypeName = "",
-						Array KeyFrames = 
-						[
-						],
-						Array Children = 
-						[
-							{
-								TrackType Type = Component,
-								string Name = "Transform",
-								string Path = "Transform",
-								bool Disabled = false,
-								uint PropertyTypeId = 0,
-								string PropertyTypeName = "",
-								Array KeyFrames = 
-								[
-								],
-								Array Children = 
-								[
-									{
-										TrackType Type = Property,
-										string Name = "Rotation",
-										string Path = "Transform.Rotation",
-										bool Disabled = false,
-										uint PropertyTypeId = 10,
-										string PropertyTypeName = "Quat",
-										Array KeyFrames = 
-										[
-										],
-										Array Children = 
-										[
-											{
-												TrackType Type = SubProperty,
-												string Name = "X",
-												string Path = "Transform.Rotation.X",
-												bool Disabled = false,
-												uint PropertyTypeId = 3,
-												string PropertyTypeName = "",
-												Array KeyFrames = 
-												[
-													{
-														float key = 0,
-														Object value = 
-														{
-															float Time = 0,
-															float Value = 85,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-													{
-														float key = 0.15,
-														Object value = 
-														{
-															float Time = 0.15,
-															float Value = 110,
-															Vec2 TangentIn = [-0.0596318, -10.1996],
-															Vec2 TangentOut = [0.101348, -10.1996],
-															uint EditorFlags = 9,
-														},
-													},
-													{
-														float key = 0.483333,
-														Object value = 
-														{
-															float Time = 0.483333,
-															float Value = 65,
-															Vec2 TangentIn = [-0.032224, 18.287],
-															Vec2 TangentOut = [0.032224, -18.287],
-															uint EditorFlags = 8,
-														},
-													},
-													{
-														float key = 1,
-														Object value = 
-														{
-															float Time = 1,
-															float Value = 85,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-												],
-												Array Children = 
-												[
-												],
-											},
-											{
-												TrackType Type = SubProperty,
-												string Name = "Y",
-												string Path = "Transform.Rotation.Y",
-												bool Disabled = false,
-												uint PropertyTypeId = 3,
-												string PropertyTypeName = "",
-												Array KeyFrames = 
-												[
-													{
-														float key = 0,
-														Object value = 
-														{
-															float Time = 0,
-															float Value = -0,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-													{
-														float key = 1,
-														Object value = 
-														{
-															float Time = 1,
-															float Value = 0,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-												],
-												Array Children = 
-												[
-												],
-											},
-											{
-												TrackType Type = SubProperty,
-												string Name = "Z",
-												string Path = "Transform.Rotation.Z",
-												bool Disabled = false,
-												uint PropertyTypeId = 3,
-												string PropertyTypeName = "",
-												Array KeyFrames = 
-												[
-													{
-														float key = 0,
-														Object value = 
-														{
-															float Time = 0,
-															float Value = -180,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-													{
-														float key = 1,
-														Object value = 
-														{
-															float Time = 1,
-															float Value = -180,
-															Vec2 TangentIn = [-0.05, 0],
-															Vec2 TangentOut = [0.05, 0],
-															uint EditorFlags = 0,
-														},
-													},
-												],
-												Array Children = 
-												[
-												],
-											},
 										],
 									},
 								],

@@ -1,0 +1,169 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: TextScrollManager.z      ////
+////    Written by: Jason Clark      ////
+////     Last Updated: 9-17-14       ////
+////                                 ////
+/////////////////////////////////////////
+class TextScrollManager : ZilchComponent
+{
+    //TextBlock taken from TextBlockInfo
+    var TextBlockToPrint : TextBlock = null;
+    
+    //The complete string that will be printed
+    var GoalString : String = null;
+    //The string as it exists each moment while it is printed
+    var CurrentString : String = null;
+    //The index of the character in the string that is being printed
+    var CurrentIndex : Integer = 0;
+    
+    //Variables taken from the TextBlockElieInfo
+    var SpeakerPicture : SpriteSource = null;
+    var SpeakerName : String = "";
+    
+    [Property]
+    var TextBoxPath : CogPath = null;
+    var TextBox : Cog = null;
+    
+    //Gamepad variables
+    [Property]
+    var GamepadIndex:Integer = 0;
+    var Gamepad:Gamepad = null;
+    
+    var PlayerDeactivated : Boolean = false;
+    
+    var TextDelay : Real = 0.0;
+    var IsPunctuation : Boolean = false;
+    
+    //A higher delay to use after certain punctuation marks
+    [Property]
+    var PunctuationDelay : Real = 0.1;
+    
+    //The standard delay for printing characters
+    [Property]
+    var LetterDelay : Real = 0.05;
+    //Boolean to check whether text is currently scrolling
+    //Used if player wishes to have text scroll very quickly
+    var TextIsScrolling : Boolean = false;
+    
+    //The Action Set that controls the delays
+    var TextSeq : ActionSet = null;
+    //The Action Set to control delay between speaker changes
+    var ChangeSeq : ActionSet = null;
+    
+    var ChangeDelay : Real = 0.5;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
+        this.TextBox = this.TextBoxPath.Cog;
+        
+        this.TextIsScrolling = true;
+        
+        Zero.Connect(this.Owner, "textScrollEvent", this.OntextScrollEvent);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.PlayerDeactivated == true)
+        {
+            if(this.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Shift))
+            {
+                if(this.TextIsScrolling == false)
+                {
+                    this.TextSeq.Cancel();
+                    this.ChangeSeq = Action.Sequence(this.Owner.Actions);
+                    Actions.Delay(this.ChangeSeq, this.ChangeDelay);
+                    Actions.Call(this.ChangeSeq, this.ContinueEventCall);
+                    this.TextIsScrolling = true;
+                }
+                else
+                {
+                    this.LetterDelay = 0.0;
+                    this.PunctuationDelay = 0.0;
+                }
+            }
+        }
+    }
+
+    function OntextScrollEvent(event : TextScrollEvent)
+    {
+        if(this.TextSeq != null)
+        {
+            this.TextSeq.Cancel();
+        }
+        this.PlayerDeactivated = true;
+        
+        this.CurrentIndex = 0;
+        this.CurrentString = null;
+        this.GoalString = event.TextToWrite.Text;
+        
+        this.TextSeq = Action.Sequence(this.Owner.Actions);
+        
+        Actions.Delay(this.TextSeq, this.TextDelay);
+        Actions.Call(this.TextSeq, this.TextScroll);
+        //this.ParticleScroll(this.CurrentIndex);
+    }
+    
+    function TextScroll()
+    {
+        if(this.GoalString == this.CurrentString)
+        {
+            this.PunctuationDelay = 0.1;
+            this.LetterDelay = 0.05;
+            this.TextIsScrolling = false;
+            return;
+        }
+        
+        this.CurrentString = this.GoalString.SubString(0, this.CurrentIndex + 1);
+        
+        var currentCharacterInt:Integer = this.GoalString.Get(this.CurrentIndex);
+        var currentCharacter:String = null;
+        
+        currentCharacter = String.FromChar(currentCharacterInt);
+        
+        this.TextDelay = this.LetterDelay;
+        
+        if(this.IsPunctuation)
+        {
+            this.TextDelay = this.PunctuationDelay;
+            this.IsPunctuation = false;
+        }
+        if(currentCharacter == "." || currentCharacter == "?" || currentCharacter == "!")
+        {
+            this.IsPunctuation = true;
+        }
+        
+        this.CurrentIndex += 1;
+        
+        //this is where the extra screen wrapping code would go
+        
+        this.Owner.SpriteText.Text = this.CurrentString;
+        
+        this.TextSeq = Action.Sequence(this.Owner.Actions);
+        
+        Actions.Delay(this.TextSeq, this.TextDelay);
+        Actions.Call(this.TextSeq, this.TextScroll);
+        //this.ParticleScroll(this.CurrentIndex);
+    }
+    
+    function ContinueEventCall()
+    {
+        var e = new ContinueDialogueEvent();
+        this.TextBox.DispatchEvent("continueDialogue", e);
+    }
+    
+    //function ParticleScroll(currentCharacterIndex:Integer)
+    //{
+    //    var particle:Cog = this.Space.FindObjectByName("TextBoxParticle");
+        
+    //    var currentCharacterPosition:Real3 = this.Owner.SpriteText.GetCharacterPosition(this.CurrentIndex);
+    //    Console.WriteLine("Pos: `currentCharacterPosition`");
+    //    //currentCharacterPosition = this.Owner.Transform.TransformPoint(currentCharacterPosition);
+        
+    //    //particle.SpriteParticleSystem.Visible = true;
+    //    particle.Transform.Translation = currentCharacterPosition;// = Math.Lerp(particle.Transform.Translation, currentCharacterPosition, 1.0);
+    //}
+}
+    
