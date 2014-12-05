@@ -107,6 +107,10 @@ class CollisionBasedCamera : ZilchComponent
     
     function Initialize(init : CogInitializer)
     {
+        this.ZoomTarget = this.ZoomTargetPath.Cog;
+        this.PanTarget = this.PanTargetPath.Cog;
+        this.DollyTarget = this.DollyTargetPath.Cog;
+        
         if(this.CollisionStartedEvent)
         {
             Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);

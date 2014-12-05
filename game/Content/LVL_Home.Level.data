@@ -87,9 +87,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-90.092, -66.5269, 13.7163],
+			Vec3 Translation = [-90.092, -66.5269, 13.7164],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.635388, 0.00550045, -0.00452615, 0.77216],
+			Quat Rotation = [0.635387, 0.00550045, -0.00452615, 0.772161],
 		},
 		Camera = 
 		{
@@ -3582,12 +3582,12 @@ Level =
 			CogPath ZoomTargetPath = "",
 			Enum ZoomEase = QuadInOut,
 			float ZoomTime = 1.5,
-			bool PanEvent = false,
-			bool PanStarted = false,
-			CogPath PanTargetPath = "",
+			bool PanEvent = true,
+			bool PanStarted = true,
+			CogPath PanTargetPath = ":/TestEnemy",
 			Quat PanEndRotation = [0, 0, 0, 0],
 			Enum PanEase = QuadInOut,
-			float PanTime = 0,
+			float PanTime = 1.5,
 			bool DollyEvent = false,
 			bool DollyStarted = false,
 			CogPath DollyTargetPath = "",
