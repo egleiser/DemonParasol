@@ -19,8 +19,8 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [82.1718, 44.1504, 34.1574],
+		Vec3 Translation = [0, 0, -1],
+		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
@@ -39,5 +39,10 @@ Cog =
 		bool AnimationActive = false,
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
+	},
+	Area = 
+	{
+		Vec2 Size = [75, 50],
+		Location Origin = Center,
 	},
 },

@@ -28,7 +28,7 @@ class Z_LevelLogic:ZilchComponent
     //var LvlMenuPause:Level = Level.Find("lvl_menu_pause");
     var LvlMenuControls:Level = Level.Find("lvl_menu_controls");
     var LvlMenuCredits:Level = Level.Find("lvl_menu_credits");
-    //var LvlMenuOptions:Level = Level.Find("lvl_menu_options");
+    var LvlMenuOptions:Level = Level.Find("lvl_menu_options");
     
     //game over levels
     //var LvlLose:Level = Level.Find("lvl_gameover_lose");
@@ -106,7 +106,7 @@ class Z_LevelLogic:ZilchComponent
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
     function LoadOptions():Void
     {
-        //this.Space.LoadLevel(this.LvlMenuOptions);
+        this.Space.LoadLevel(this.LvlMenuOptions);
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////

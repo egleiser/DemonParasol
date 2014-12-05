@@ -19,7 +19,7 @@ class Z_UI_Button:ZilchComponent
     var LvlMenuControls: Level = Level.Find("lvl_menu_controls");
     var LvlMenuCredits:Level = Level.Find("lvl_menu_credits");
     var LvlMenuPause:Level = Level.Find("lvl_menu_pause");
-    //var LvlMenuOptions:Level = Level.Find("lvl_menu_options");
+    var LvlMenuOptions:Level = Level.Find("lvl_menu_options");
     
     //GAMEOVER
     var LvlGameoverLose:Level = Level.Find("lvl_gameover_lose");
@@ -273,7 +273,7 @@ class Z_UI_Button:ZilchComponent
         }
         if(this.Owner.Name == "btn-menu-options")
         {
-            //fadeoutwhite.Z_UI_Transitions.FadeOutTo("Options");
+            fadeoutwhite.Z_UI_Transitions.FadeOutTo("Options");
         }
         //if button is "Menu Controls"
         if(this.Owner.Name == "btn-menu-controls")
