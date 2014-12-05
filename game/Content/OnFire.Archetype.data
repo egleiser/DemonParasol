@@ -8,6 +8,10 @@ Cog =
 	{
 		string Name = "OnFire",
 	},
+	Archetyped = 
+	{
+		string Name = "549a983f28a95fba:OnFire",
+	},
 	Transform = 
 	{
 		Vec3 Translation = [0.0153871, 0.459993, 0.334081],
@@ -16,6 +20,8 @@ Cog =
 	},
 	SpriteParticleSystem = 
 	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
 		SystemChildMode ChildMode = Independent,
 		SystemSpace SystemSpace = WorldSpace,
 		uint DrawOrder = 0,
@@ -24,7 +30,7 @@ Cog =
 		ParticleRenderMode RenderMode = Blended,
 		ParticleSortMode SortMode = Youngest,
 		ParticleAnimation ParticleAnimation = Single,
-		string Texture = "549077776ae53c06:tex_toon_explosion",
+		string Texture = "5481a3be505a50f6:wind-particles-glow-02",
 		Vec4 Tint = [1, 1, 1, 0.87],
 		float VelocityScale = 1,
 		float LengthScale = 1,
@@ -33,9 +39,9 @@ Cog =
 	},
 	SphericalParticleEmitter = 
 	{
-		bool Active = true,
+		bool Active = false,
 		uint EmitCount = 0,
-		float EmitRate = 80,
+		float EmitRate = 150,
 		float EmitVariance = 0,
 		float Size = 1,
 		float SizeVariance = 0.5,

@@ -1,0 +1,29 @@
+class QuickPause : ZilchComponent
+{
+    var GamepadIndex:Integer = 0;
+    
+    var Gamepad:Gamepad = null;
+    function Initialize(init : CogInitializer)
+    {
+        this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
+        Zero.Connect(this.Space, Events.FrameUpdate, this.OnFrameUpdate);
+    }
+
+    function OnFrameUpdate(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsPressed(Keys.Escape) || this.Gamepad.IsButtonPressed(Buttons.Start))
+        {
+            this.Space.TimeSpace.TogglePause();
+            this.Space.SoundSpace.Pause = !this.Space.SoundSpace.Pause;
+            if(this.Space.SoundSpace.Pause)
+            {
+                this.LevelSettings.HudCreator.HudSpace.SoundSpace.PlayCue(SoundCue.Find("Whoosh_ParasolOpen"));
+                this.LevelSettings.HudCreator.HudSpace.CreateAtPosition(Archetype.Find("BasicPauseText"), Real3(0,0,0));
+            }
+            else if (this.LevelSettings.HudCreator.HudSpace.FindObjectByName("BasicPauseText") != null)
+            {
+                this.LevelSettings.HudCreator.HudSpace.FindObjectByName("BasicPauseText").Destroy();
+            }
+        }
+    }
+}

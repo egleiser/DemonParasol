@@ -1,10 +1,10 @@
 SoundCue = 
 {
 	SoundPlayMode PlayMode = Single,
-	float Volume = 0.63,
+	float Volume = 1,
 	float VolumeVariation = 0,
-	float Pitch = 0.7,
-	float PitchVariation = 0.1,
+	float Pitch = 0,
+	float PitchVariation = 0,
 	float MinDistance = 10,
 	float MaxDistance = 10000,
 	float PositionRandomization = 0,
@@ -14,7 +14,7 @@ SoundCue =
 	Array Sounds = 
 	[
 		{
-			string SoundName = "548d7ef312ca7cbb:Demon_Inhale",
+			string SoundName = "54511e2b262b5613:PuzzleSolved_A",
 			float Weight = 1,
 		},
 	],

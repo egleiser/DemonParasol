@@ -6,25 +6,35 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "CryMaskWood",
+		string Name = "CryMaskWoodPuzz",
 	},
 	Archetyped = 
 	{
-		string Name = "54afd816d8cf9959:CryMaskWood",
+		string Name = "54516a40b9f70911:CryMaskWoodPuzz",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [37.8768, 45.9832, 3.78813],
-		Vec3 Scale = [3.63539, 3.63539, 3.63539],
-		Quat Rotation = [-1, -0, 0, -4.37114e-008],
+		Vec3 Translation = [4.57779, -27.9753, 3.73246],
+		Vec3 Scale = [2.35413, 2.35413, 2.35413],
+		Quat Rotation = [0.912967, 0.408033, -1.78357e-008, -3.99071e-008],
 	},
 	Model = 
 	{
 		bool Visible = true,
 		bool VisibilityCulling = true,
-		string MaterialName = "54a3c57d9c4c3210:mat_Gold",
+		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 		string MeshName = "54afd9330e0afcd4:CryMask",
 		Vec4 Color = [0.24, 0.144156, 0.0444, 1],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0.5, 0],
+		Vec3 Size = [1.5, 0.5, 2],
 	},
 	Hierarchy = 
 	{
@@ -50,7 +60,7 @@ Cog =
 				bool VisibilityCulling = true,
 				string MaterialName = "54afb93202e8a4b0:mat_LightIntenseHigh",
 				string MeshName = "4de0354322b345ae:Cube",
-				Vec4 Color = [0.661905, 0.02025, 0.675, 1],
+				Vec4 Color = [0.675, 0.02025, 0.0206428, 1],
 			},
 		},
 		Cog = 
@@ -75,7 +85,7 @@ Cog =
 				bool VisibilityCulling = true,
 				string MaterialName = "54afb93202e8a4b0:mat_LightIntenseHigh",
 				string MeshName = "4de0354322b345ae:Cube",
-				Vec4 Color = [0.661905, 0.02025, 0.675, 1],
+				Vec4 Color = [0.675, 0.02025, 0.0206428, 1],
 			},
 		},
 		Cog = 
@@ -189,6 +199,84 @@ Cog =
 					{
 					},
 				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "OnFireBig",
+			},
+			Archetyped = 
+			{
+				string Name = "549a983f28a95fba:OnFire",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.0405631, 0.429818, 1.14692],
+				Vec3 Scale = [0.424785, 0.424786, 0.424786],
+				Quat Rotation = [0.912967, 0.408033, -1.78357e-008, 3.99071e-008],
+			},
+			SpriteParticleSystem = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				SystemChildMode ChildMode = Independent,
+				SystemSpace SystemSpace = WorldSpace,
+				uint DrawOrder = 0,
+				float WarmUpTime = 0,
+				ParticleGeometry GeometryMode = Billboarded,
+				ParticleRenderMode RenderMode = Blended,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Single,
+				string Texture = "5481a3be505a50f6:wind-particles-glow-02",
+				Vec4 Tint = [1, 1, 1, 0.87],
+				float VelocityScale = 1,
+				float LengthScale = 1,
+				float MaxParticleSize = 100,
+				Vec3 SystemSize = [4, 4, 4],
+			},
+			SphericalParticleEmitter = 
+			{
+				bool Active = true,
+				uint EmitCount = 0,
+				float EmitRate = 150,
+				float EmitVariance = 0,
+				float Size = 3,
+				float SizeVariance = 0.5,
+				float Lifetime = 1,
+				float LifetimeVariance = 0.2,
+				float Spin = 360,
+				float SpinVariance = 50,
+				bool RandomSpin = true,
+				float Fill = 1,
+				float EmitterVelocityPercent = 0,
+				Vec3 StartVelocity = [0, 0, 8],
+				Vec3 RandomVelocity = [1, 1, 1],
+				Vec3 TangentVelocity = [0, 0, 0],
+				Vec3 EmitterSize = [2, 2, 2],
+				bool FastMovingEmitter = true,
+			},
+			LinearParticleAnimator = 
+			{
+				Vec3 Force = [0, 0, 0],
+				Vec3 RandomForce = [0, 0, 0],
+				float Torque = 0,
+				float Growth = -1,
+				float Dampening = 0,
+				Vec3 Twist = [0, 0, 0],
+			},
+			ParticleColorAnimator = 
+			{
+				Vec4 Color0 = [1, 0.75, 0, 0],
+				Vec4 Color1 = [1, 0.69, 0, 1],
+				Vec4 Color2 = [0.985, 0.426209, 0.06895, 1],
+				Vec4 Color3 = [1, 0.15, 0, 1],
+				Vec4 Color4 = [1, 0.15, 0, 0],
 			},
 		},
 	},

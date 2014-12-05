@@ -1,0 +1,37 @@
+class CrackedPillar : ZilchComponent
+{
+    var PillarMain:Cog = null;
+    var Active:Boolean = false;
+    function Initialize(init : CogInitializer)
+    {
+        this.PillarMain = this.Owner.FindChildByName("BombPillarMain");
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "EnemyFatManExp" && this.Active == false)
+        {
+            this.KnockOver();
+        }
+    }
+    function KnockOver()
+    {
+        this.Active = true;
+        this.Owner.Collider.Ghost = true;
+        this.Space.CreateAtPosition(Archetype.Find("PoundSmoke"), this.Owner.Transform.WorldTranslation);
+        var knock = Action.Sequence(this.Owner.Actions);
+        Action.Property(knock, @this.PillarMain.Transform.Rotation, Math.Euler(Real3(0,0,2.7)), 1.5, Ease.QuadIn);
+        var splash = Action.Sequence(this.Owner.Actions);
+        Action.Delay(splash, 1.0);
+        Action.Call(splash, this.Splash);
+    }
+    function Splash()
+    {
+        this.Space.CreateAtPosition(Archetype.Find("WaterSplash"), this.PillarMain.Transform.WorldTranslation + Real3(0,0,-20));
+    }
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

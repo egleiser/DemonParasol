@@ -1,0 +1,39 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BasicSpriteText",
+	},
+	Archetyped = 
+	{
+		string Name = "545167afaa1e3863:BasicSpriteText",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [37.8587, -58.9676, 13.0637],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SpriteText = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		Vec4 Color = [1, 1, 1, 1],
+		BlendMode BlendMode = Alpha,
+		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		TextPositionMode Position = Centered,
+		string FontName = "54a1a5a3fbbefcbd:Paragon Cleaners Black",
+		uint FontSize = 150,
+		string Text = "Sprite Text...",
+		bool OnTop = false,
+		Vec2 Size = [0, 0],
+		TextAlign Align = Left,
+		float PixelsPerUnit = 64,
+		bool Smoothing = true,
+	},
+},
