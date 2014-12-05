@@ -78,9 +78,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [15.2233, -155.599, 154.536],
+			Vec3 Translation = [-707.968, 95.5885, 4.87324],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.377829, 0.0072718, -0.00296756, 0.925842],
+			Quat Rotation = [0.608759, 0.00207695, -0.00159369, 0.793351],
 		},
 		Camera = 
 		{
@@ -95,10 +95,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = ZPlane,
-			float LookDistance = 191.907,
-			float VerticalAngle = -0.774926,
-			float HorizontalAngle = -0.0157082,
-			Vec3 LookTarget = [13.0696, -21.3285, 17.44],
+			float LookDistance = 27.7973,
+			float VerticalAngle = -1.309,
+			float HorizontalAngle = -0.00523596,
+			Vec3 LookTarget = [-708.006, 122.439, -2.32113],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -122,7 +122,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.531708, 2.25047, 0.256514],
+			Vec3 Translation = [-707.586, 121.69, 0.256514],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1144,7 +1144,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, -40.6131, 11.028],
+			Vec3 Translation = [0, -40.6131, 5],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.574167, 0, 0, 0.818738],
 		},
@@ -1153,9 +1153,9 @@ Level =
 			ProjectionMode ProjectionMode = Orthographic,
 			Facing Facing = NegativeZ,
 			CameraTransparentSort TransparentSort = InheritFromSpace,
-			float FieldOfView = 39,
+			float FieldOfView = 89,
 			float NearPlane = 0,
-			float FarPlane = 200,
+			float FarPlane = 500,
 			float Size = 60,
 		},
 		MotionBlur = 
@@ -1166,13 +1166,13 @@ Level =
 		},
 		Fog = 
 		{
-			FogType FogType = Linear,
+			FogType FogType = Exp2,
 			float BeginDepth = 0.1,
 			float EndDepth = 100,
 			float BeginDensity = 0,
 			float EndDensity = 1,
-			Vec4 Color = [0.100281, 0.054375, 0.125, 1],
-			float FogDensity = 0.293,
+			Vec4 Color = [0.100281, 0.054375, 0.125, 0],
+			float FogDensity = 0.04,
 			float FogStart = 0,
 		},
 		OrbitCameraController = 
@@ -12610,7 +12610,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed263c462,
+					uint64 CachedGeometryId = 54f73b9eb0f70c6a,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -13359,7 +13359,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed263f7d5,
+					uint64 CachedGeometryId = 54f73b9eb0f741d9,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -13656,7 +13656,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed2629108,
+					uint64 CachedGeometryId = 54f73b9eb0f7dead,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -14259,7 +14259,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed2641eb7,
+					uint64 CachedGeometryId = 54f73b9eb0f902bf,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -15144,7 +15144,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed264aa54,
+					uint64 CachedGeometryId = 54f73b9eb0f99199,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -15712,7 +15712,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed2672d56,
+					uint64 CachedGeometryId = 54f73b9eb0f815f4,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -16238,7 +16238,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed26754c3,
+					uint64 CachedGeometryId = 54f73b9eb0f84023,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -16479,7 +16479,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed267725f,
+					uint64 CachedGeometryId = 54f73b9eb0f85eaa,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -16689,7 +16689,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed2679461,
+					uint64 CachedGeometryId = 54f73b9eb0f88482,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -16916,7 +16916,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed267ada3,
+					uint64 CachedGeometryId = 54f73b9eb0f89e1b,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -17107,7 +17107,7 @@ Level =
 				{
 					int Layer = -2,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed267d231,
+					uint64 CachedGeometryId = 54f73b9fb0f8c41e,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -17343,7 +17343,7 @@ Level =
 				{
 					int Layer = -2,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed267f3b2,
+					uint64 CachedGeometryId = 54f73b9fb0f8ea86,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -17570,7 +17570,7 @@ Level =
 				{
 					int Layer = -3,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed2665c0b,
+					uint64 CachedGeometryId = 54f73b9fb0fb581d,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -18032,7 +18032,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed266657d,
+					uint64 CachedGeometryId = 54f73b9fb0fb619a,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -18143,7 +18143,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed2666bc1,
+					uint64 CachedGeometryId = 54f73b9fb0fb6848,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -18239,7 +18239,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed266ea41,
+					uint64 CachedGeometryId = 54f73b9fb0fbdff6,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -18737,7 +18737,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed26973a1,
+					uint64 CachedGeometryId = 54f73b9fb0fa528f,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -19215,7 +19215,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed2698672,
+					uint64 CachedGeometryId = 54f73b9fb0fa661f,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -19374,7 +19374,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed268d933,
+					uint64 CachedGeometryId = 54f73b9fb0faa48d,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -19691,7 +19691,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409fc7ed268ed57,
+					uint64 CachedGeometryId = 54f73b9fb0fab9ad,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -19857,7 +19857,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5409c1b388779f1c,
+					uint64 CachedGeometryId = 54f73b9fb0fddfc6,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -63576,6 +63576,528 @@ Level =
 		Named = 
 		{
 			string Name = "PrettyTree",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2103,
+		},
+		Named = 
+		{
+			string Name = "Sprite",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-713.207, 127.36, -0.291251],
+			Vec3 Scale = [100, 100, 100],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [0, 0, 0, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2104,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-708.662, 122.28, -1.55164],
+			Vec3 Scale = [25.0716, 25.0716, 2.87886],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2105,
+		},
+		Named = 
+		{
+			string Name = "DivinerInterior",
+		},
+		Archetyped = 
+		{
+			string Name = "54f72f39e702afb6:DivinerInterior",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-707.927, 122.575, 0.0303411],
+			Vec3 Scale = [2.17886, 2.17886, 2.17886],
+			Quat Rotation = [0.5, -0.5, -0.5, 0.5],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2106,
+				},
+				Named = 
+				{
+					string Name = "pCube55",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [0.356355, 0.356355, 0.356355],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 2107,
+						},
+						Named = 
+						{
+							string Name = "Building",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.67705, 0, 0],
+							Vec3 Scale = [1.36605, 1.36605, 1.09743],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							string MaterialName = "537644533dba9ae8:mat_Plain",
+							string MeshName = "54f72f39e706413e:DivinerInterior.Building",
+							Vec4 Color = [0.415, 0.370471, 0.29465, 1],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 2108,
+						},
+						Named = 
+						{
+							string Name = "Fireplace",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.89466, 0, -1.48772],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0.231079, 0, 0.972935],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							string MaterialName = "537644533dba9ae8:mat_Plain",
+							string MeshName = "54f72f39e7064143:DivinerInterior.Fireplace",
+							Vec4 Color = [0.355, 0.11005, 0.11005, 1],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 2109,
+						},
+						Named = 
+						{
+							string Name = "Chair",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, -0.017005, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							string MaterialName = "537644533dba9ae8:mat_Plain",
+							string MeshName = "54f72f39e7064145:DivinerInterior.Chair",
+							Vec4 Color = [0.586017, 0.243675, 0.855, 1],
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2110,
+				},
+				Named = 
+				{
+					string Name = "DivinerTorso",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-3.22594, 1.04998, 0.149839],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "537644533dba9ae8:mat_Plain",
+					string MeshName = "54f72f39e7064147:DivinerInterior.DivinerTorso",
+					Vec4 Color = [0.3332, 0.59192, 0.98, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2111,
+				},
+				Named = 
+				{
+					string Name = "DivinerRightHand",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-3.22124, 1.62348, 0.443725],
+					Vec3 Scale = [0.137826, 0.137826, 0.137826],
+					Quat Rotation = [-0.531403, -0, 0, 0.847119],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "537644533dba9ae8:mat_Plain",
+					string MeshName = "54f72f39e7064149:DivinerInterior.DivinerRightHand",
+					Vec4 Color = [1, 0.9918, 0.795, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2112,
+				},
+				Named = 
+				{
+					string Name = "DivinerLeftHand",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.76264, 0.875072, -0.564276],
+					Vec3 Scale = [0.137826, 0.137826, 0.137826],
+					Quat Rotation = [0.65959, 0.349469, 0.652104, -0.132564],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "537644533dba9ae8:mat_Plain",
+					string MeshName = "54f72f39e706414b:DivinerInterior.DivinerLeftHand",
+					Vec4 Color = [1, 0.9918, 0.795, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2113,
+				},
+				Named = 
+				{
+					string Name = "DivinerHat",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-3.23485, 1.87521, 0.306328],
+					Vec3 Scale = [0.285555, 0.225437, 0.268453],
+					Quat Rotation = [0.218445, 0, 0, 0.975849],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "537644533dba9ae8:mat_Plain",
+					string MeshName = "54f72f39e706414c:DivinerInterior.DivinerHat",
+					Vec4 Color = [0.22, 0.22, 0.22, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2114,
+				},
+				Named = 
+				{
+					string Name = "DivinerLegs",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "537644533dba9ae8:mat_Plain",
+					string MeshName = "54f72f39e7064151:DivinerInterior.DivinerLegs",
+					Vec4 Color = [0.955, 0.815283, 0.319925, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2115,
+				},
+				Named = 
+				{
+					string Name = "DivinerHead",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "537644533dba9ae8:mat_Plain",
+					string MeshName = "54f72f39e7064153:DivinerInterior.DivinerHead",
+					Vec4 Color = [1, 0.9918, 0.795, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2116,
+				},
+				Named = 
+				{
+					string Name = "Logs",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [1.16411, 0, -0.530154],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0.231079, 0, 0.972935],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "54f72f39e7064154:DivinerInterior.Logs",
+					Vec4 Color = [0.3, 0.1971, 0.09, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2117,
+				},
+				Named = 
+				{
+					string Name = "Books3",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.85576, -0.0181998, -0.196784],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [4.61825e-017, 0.98021, 4.13115e-017, 0.197961],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "537644533dba9ae8:mat_Plain",
+					string MeshName = "54f72f39e7064156:DivinerInterior.Books3",
+					Vec4 Color = [0.044625, 0.425, 0.0484287, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2118,
+				},
+				Named = 
+				{
+					string Name = "Books2",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.85576, -0.0181998, -0.196784],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [4.61825e-017, 0.98021, 4.13115e-017, 0.197961],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "537644533dba9ae8:mat_Plain",
+					string MeshName = "54f72f39e7064158:DivinerInterior.Books2",
+					Vec4 Color = [0.615, 0.095325, 0.095325, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2119,
+				},
+				Named = 
+				{
+					string Name = "Books1",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.85576, -0.0181998, -0.196784],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [4.61825e-017, 0.98021, 4.13115e-017, 0.197961],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "537644533dba9ae8:mat_Plain",
+					string MeshName = "54f72f39e7064159:DivinerInterior.Books1",
+					Vec4 Color = [0.485368, 0.11175, 0.745, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2120,
+				},
+				Named = 
+				{
+					string Name = "Bookshelf",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.941053, -0.0181998, -0.160864],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [4.61825e-017, 0.98021, 4.13115e-017, 0.197961],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "537644533dba9ae8:mat_Plain",
+					string MeshName = "54f72f39e706415b:DivinerInterior.Bookshelf",
+					Vec4 Color = [0.465, 0.305412, 0.1581, 1],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2121,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-708.006, 122.439, -0.436508],
+			Vec3 Scale = [13.0763, 13.0763, 1.19882],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			string MaterialName = "54819fe496791aa4:mat_DecalPentaStar",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.15015, 0.117, 0.78, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
 		},
 	},
 },
