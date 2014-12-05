@@ -43,12 +43,24 @@ class AI_Fatman : ZilchComponent
             var toSend = ZilchEvent();
             this.Owner.DispatchEvent(Events.Death, toSend);
         }
+        if(otherObject.RibController != null)
+        {
+            if(otherObject.RibController.Open)
+            {
+                this.SoftDeath();
+            }
+        }
     }
     function OnDeath(event : Event)
     {
         var damageSphere = this.Space.CreateAtPosition(Archetype.Find("HurtSphere"), this.Owner.Transform.WorldTranslation);
         damageSphere.DamagePlayerOnCollide.Damage = 1.0;
         damageSphere.Transform.WorldScale *= 5;
+        this.Space.CreateAtPosition(Archetype.Find("NukeSmoke"), this.Owner.Transform.WorldTranslation);
+        this.Owner.Destroy();
+    }
+    function SoftDeath()
+    {
         this.Space.CreateAtPosition(Archetype.Find("NukeSmoke"), this.Owner.Transform.WorldTranslation);
         this.Owner.Destroy();
     }

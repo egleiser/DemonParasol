@@ -1,0 +1,53 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BombPillar",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [36.7135, -43.0237, -0.977844],
+		Vec3 Scale = [0.20232, 0.39045, 0.20232],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+		string MeshName = "54513662d2086779:BR_FatManRoom.BombPillarBase",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "BombPillarMain",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-9.66713, 2.47904, -1.52588e-005],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [3.41061e-013, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54513662d208677b:BR_FatManRoom.BombPillarMain",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+	},
+},
