@@ -1,0 +1,37 @@
+class ButtonType : ZilchComponent
+{
+    [Property]
+    var ButtonType : Integer = 0;
+    
+    var MainSpace : Space = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.MainSpace = this.GameSession.FindSpaceByName("Main");
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var currentButton : Integer = this.MainSpace.LevelSettings.PauseMenuController.CurrentButton;
+        if(currentButton == 0)
+        {
+            if(this.Owner.Name == "ReturnButton")
+            {
+                var grp = Action.Sequence(this.Owner.Actions);
+                Action.Property(grp, @this.Owner.SpriteText.Color, Real4(0,0,1,1), 0.1, Ease.Linear);
+                Action.Property(grp, @this.Space.FindObjectByName("MainMenuButton").SpriteText.Color, Real4(1,1,1,1), 0.1, Ease.Linear);
+            }
+        }
+        if(currentButton == 1)
+        {
+            if(this.Owner.Name == "MainMenuButton")
+            {
+                var grp = Action.Sequence(this.Owner.Actions);
+                Action.Property(grp, @this.Owner.SpriteText.Color, Real4(0,0,1,1), 0.1, Ease.Linear);
+                Action.Property(grp, @this.Space.FindObjectByName("ReturnButton").SpriteText.Color, Real4(1,1,1,1), 0.1, Ease.Linear);
+            }
+        }
+        
+    }
+}

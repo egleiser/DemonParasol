@@ -1,0 +1,65 @@
+class HUDAnimator : ZilchComponent
+{
+    [Property]
+    var ChangeToInitPos : Real3 = Real3(0,0,0);
+    
+    var ChangeToOpacity : Real4 = Real4(0,0,0,-1);
+    
+    [Property]
+    var TimeInOut : Real = 0.0;
+    
+    var InitPos : Real3 = Real3(0,0,0);
+    var InitOpacity : Real4 = Real4(0,0,0,0);
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.InitPos = this.Owner.Transform.Translation;
+        this.InitOpacity = this.Owner.Sprite.Color;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var wantedPos : Real3 = Real3(0,0,0);
+        var wantedOpacity : Real4 = Real4(0,0,0,0);
+        
+        if(this.Owner.Sprite != null)
+        {
+            if(this.Owner.Sprite.Visible)
+            {
+                wantedPos = this.InitPos;
+                wantedOpacity = this.InitOpacity;
+            }
+            else
+            {
+                wantedPos = this.InitPos + this.ChangeToInitPos;
+                wantedOpacity = this.InitOpacity + this.ChangeToOpacity;
+            }
+        }
+        if(this.Owner.SpriteText != null)
+        {
+            if(this.Owner.SpriteText.Visible)
+            {
+                wantedPos = this.InitPos;
+                wantedOpacity = this.InitOpacity;
+            }
+            else
+            {
+                wantedPos = this.InitPos + this.ChangeToInitPos;
+                wantedOpacity = this.InitOpacity + this.InitOpacity;
+            }
+        }
+        
+        var grp = Action.Group(this.Owner.Actions);
+        Action.Property(grp,
+                        @this.Owner.Transform.Translation,
+                        wantedPos,
+                        this.TimeInOut,
+                        Ease.QuadOut);
+        Action.Property(grp,
+                        @this.Owner.Sprite.Color,
+                        wantedOpacity,
+                        this.TimeInOut,
+                        Ease.Linear);
+    }
+}

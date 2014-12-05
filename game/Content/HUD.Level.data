@@ -70,9 +70,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.96685, 2.11982, 48.5762],
+			Vec3 Translation = [0.984599, 10.1135, 79.8178],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.072285, -0.0704415, 0.00511806, 0.99488],
+			Quat Rotation = [-0.0295663, -0.0104674, -0.000309636, 0.999508],
 		},
 		Camera = 
 		{
@@ -87,9 +87,9 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 30.3267,
-			float VerticalAngle = -0.145059,
-			float HorizontalAngle = 0.141372,
+			float LookDistance = 61.0706,
+			float VerticalAngle = 0.0591445,
+			float HorizontalAngle = 0.0209443,
 			Vec3 LookTarget = [2.26135, 6.50357, 18.8674],
 			float MoveSensitivity = 1,
 		},
@@ -806,6 +806,161 @@ Level =
 		Named = 
 		{
 			string Name = "ContextButton",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 18,
+		},
+		Named = 
+		{
+			string Name = "PauseBox",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 0],
+			Vec3 Scale = [5, 8, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			Vec4 Color = [0.7133, 0.39, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		HUDAnimator = 
+		{
+			Vec3 ChangeToInitPos = [0, -20, 0],
+			float TimeInOut = 1,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 19,
+				},
+				Named = 
+				{
+					string Name = "PauseMenuSprite",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0.35, 1],
+					Vec3 Scale = [0.2, 0.125, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					Vec4 Color = [0.08, 1, 0, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					TextPositionMode Position = Centered,
+					string FontName = "4e7bac697bec55c5:Verdana",
+					uint FontSize = 30,
+					string Text = "Pause Menu",
+					bool OnTop = false,
+					Vec2 Size = [0, 0],
+					TextAlign Align = Left,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 20,
+				},
+				Named = 
+				{
+					string Name = "ReturnButton",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0.125, 1],
+					Vec3 Scale = [0.2, 0.125, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					TextPositionMode Position = Centered,
+					string FontName = "4e7bac697bec55c5:Verdana",
+					uint FontSize = 28,
+					string Text = "Return To Game",
+					bool OnTop = false,
+					Vec2 Size = [0, 0],
+					TextAlign Align = Left,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+				ButtonType = 
+				{
+					int ButtonType = 0,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 21,
+				},
+				Named = 
+				{
+					string Name = "MainMenuButton",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -0.1, 1],
+					Vec3 Scale = [0.2, 0.125, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					TextPositionMode Position = Centered,
+					string FontName = "4e7bac697bec55c5:Verdana",
+					uint FontSize = 28,
+					string Text = "Back To Main Menu",
+					bool OnTop = false,
+					Vec2 Size = [0, 0],
+					TextAlign Align = Left,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+				ButtonType = 
+				{
+					int ButtonType = 1,
+				},
+			},
 		},
 	},
 },

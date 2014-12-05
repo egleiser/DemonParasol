@@ -1,0 +1,115 @@
+/////////////////////////////////////////
+////                                 ////
+////   Name: PauseMenuController.z   ////
+////     Written by: Jason Clark     ////
+////     Last Updtaed: 12-4-14       ////
+////                                 ////
+/////////////////////////////////////////
+
+enum PauseButtons { Return, Exit }
+
+class PauseMenuController : ZilchComponent
+{
+    [Property]
+    var LevelToLoad : String = "";
+    
+    [Property]
+    var GamePadIndex : Integer = 0;
+    
+    var ButtonArray : Array[Cog] = new Array[Cog]();
+    
+    var CurrentButton : Integer = 0;
+    
+    var PauseBoxCog : Cog = null;
+    
+    var GamePad : Gamepad = null;
+    
+    var IsSelected : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        var hudSpace = this.GameSession.FindSpaceByName("HudSpace");
+        this.PauseBoxCog = hudSpace.FindObjectByName("PauseBox");
+        
+        this.GamePad = Zero.Gamepads.GetGamePad(this.GamePadIndex);
+        
+        foreach(var child in this.PauseBoxCog.Children)
+        {
+            if(child.Name != "PauseMenuSprite")
+            {
+                this.ButtonArray.Push(child);
+            }
+        }
+        Zero.Connect(this.Space, Events.FrameUpdate, this.OnFrameUpdate);
+    }
+    
+    function OnFrameUpdate(event : UpdateEvent)
+    {
+        if(this.GamePad.IsButtonPressed(Buttons.Start))
+        {
+            this.Space.SoundSpace.Pause = !this.Space.SoundSpace.Pause;
+            this.Space.TimeSpace.TogglePause();
+            this.PauseBoxCog.Sprite.Visible = !this.PauseBoxCog.Sprite.Visible;
+            for(var i:Integer = 0; i < this.ButtonArray.Count; ++i)
+            {
+                this.ButtonArray.Get(i).SpriteText.Visible = !this.ButtonArray.Get(i).SpriteText.Visible;
+            }
+        }
+        this.PauseGame(event);
+    }
+
+    //The movement won't work becasue of update not running
+    function PauseGame(event : UpdateEvent)
+    {
+        if(this.GamePad.IsActive)
+        {
+            if(this.GamePad.LeftStick.Y < -0.2)
+            {
+                if(this.CurrentButton == 0)
+                {
+                    this.CurrentButton = 1;
+                }
+                else
+                {
+                    this.CurrentButton = 0;
+                }
+            }
+            if(this.GamePad.LeftStick.Y > 0.2)
+            {
+                if(this.CurrentButton == 1)
+                {
+                    this.CurrentButton = 0;
+                }
+                else
+                {
+                    this.CurrentButton = 1;
+                }
+            }
+            if(this.GamePad.IsButtonPressed(Buttons.A))
+            {
+                for(var j:Integer = 0; j < this.ButtonArray.Count; ++j)
+                {
+                    if(this.ButtonArray.Get(this.CurrentButton).ButtonType.ButtonType == 0)
+                    {
+                        var mainSpace = this.GameSession.FindSpaceByName("Main");
+                        var hudSpace = this.GameSession.FindSpaceByName("HudSpace");
+                        
+                        //this.Space.SoundSpace.PlayCueAt(SoundCue.Find("MenuClick"), this.Owner.Transform.Translation);
+                        
+                        this.Space.TimeSpace.TogglePause();
+                        this.Space.SoundSpace.Pause = !mainSpace.SoundSpace.Pause;
+                        this.PauseBoxCog.Sprite.Visible = !this.PauseBoxCog.Sprite.Visible;
+                        
+                        this.ButtonArray.Get(j).SpriteText.Visible = !this.ButtonArray.Get(j).SpriteText.Visible;
+                    }
+                    else
+                    {
+                        //var mainSpace = this.GameSession.FindSpaceByName("Main");
+                        this.Space.LoadLevel(Level.Find(this.LevelToLoad));
+                        //this.Space.SoundSpace.PlayCueAt(SoundCue.Find("MenuClick"), this.Owner.Transform.Translation);
+                    }
+                }
+            }
+        }
+    }
+}
