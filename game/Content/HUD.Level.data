@@ -34,7 +34,7 @@ Level =
 			bool Blocking = true,
 			uint Renderer = 1,
 			uint Camera = 2,
-			ViewportScaling Scaling = Fill,
+			ViewportScaling Scaling = Letterbox,
 			Vec2 Resolution = [1280, 720],
 			Vec4 MarginColor = [0, 0, 0, 1],
 		},
@@ -70,7 +70,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.96685, 2.11983, 48.5762],
+			Vec3 Translation = [-1.96685, 2.11982, 48.5762],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.072285, -0.0704415, 0.00511806, 0.99488],
 		},
