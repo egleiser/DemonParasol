@@ -1,0 +1,20 @@
+class TextBlockInfo : ZilchComponent
+{
+    [Property]
+    var SpeakerName : String = "";
+    
+    [Property]
+    var SpeakerSprite : SpriteSource = null; 
+    
+    [Property]
+    var SpeakerTextBlock : TextBlock = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

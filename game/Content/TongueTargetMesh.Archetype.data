@@ -14,9 +14,9 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-1.77659, -6.36181, 0.470348],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0, 0, 1, -4.37114e-008],
+		Quat Rotation = [0, 0, 0, 1],
 	},
 	Hierarchy = 
 	{
@@ -40,9 +40,9 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
 				string MeshName = "54bfd084bf659d75:TongueTargetMesh.TargetBase",
-				Vec4 Color = [0.207075, 0.09625, 0.275, 1],
+				Vec4 Color = [1, 1, 1, 1],
 			},
 		},
 		Cog = 
@@ -65,9 +65,9 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				string MaterialName = "54bfd02198c390ed:mat_TargetFlasher",
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
 				string MeshName = "54bfd084bf659d79:TongueTargetMesh.TargetRings",
-				Vec4 Color = [0.825, 0, 0.000494885, 1],
+				Vec4 Color = [1, 1, 1, 1],
 			},
 		},
 	},

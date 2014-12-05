@@ -15,7 +15,6 @@ class EndSegment : ZilchComponent
         if(objectHit.Name == player.Name)
         {
             var dollyEvent = new CameraDollyEvent();
-            dollyEvent.IsActive = true;
             dollyEvent.EasingCurve = Ease.QuadInOut;
             dollyEvent.DollyTarget = dollyEventCubeA;
             dollyEvent.DollyTime = 4.0;

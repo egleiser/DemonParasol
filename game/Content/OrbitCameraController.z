@@ -28,11 +28,16 @@ class OrbitCameraController : ZilchComponent
     [Property]
     var CamLerp: Real3 = Real3(0,0,30);
     
+    var FadeOutCog : Cog = null;
+    
     var WantedcamLerp : Real3 = Real3(0,0,10);
     
     var PanStartRotation : Quaternion = Quaternion(0,0,0,0);
     var PanTimer : Real = 1.1;
     var PanTargetRotation : Quaternion = Quaternion(0,0,0,0);
+    var PanFinished : Boolean = false;
+    
+    var ZoomTowardsObject : Cog = null;
     
     var DefaultPosition : Real3 = Real3(0,0,0);
     
@@ -69,6 +74,7 @@ class OrbitCameraController : ZilchComponent
         Zero.Connect(this.Owner, "panEvent", this.OnPan);
         Zero.Connect(this.Owner, "dollyEvent", this.OnDolly);
         Zero.Connect(this.Owner, "cameraLockEvent", this.OnToggleCameraLock);
+        Zero.Connect(this.Owner, "fadeEvent", this.OnFade);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -125,18 +131,68 @@ class OrbitCameraController : ZilchComponent
     
     function OnZoom(event : CameraZoomEvent)
     {
-        //If wanting to zoom in (only towards player at the moment)
-        if(event.IsZoomingIn)
+        //Checking the boolean to check if there is another object that the camera should zoom towards.
+        if(event.CameraTarget == null)
         {
-            Console.WriteLine("Zoom Event Started");
-            var seq = Action.Sequence(this.Owner.Actions);
-            Action.Property(seq, @this.Owner.Camera.Size, event.CamSize, event.ZoomTime, event.EasingCurve);
+            //If wanting to zoom in/out based on the player's position
+            if(event.IsZoomingIn)
+            {
+                Console.WriteLine("Normal Zoom In To Player");
+                //Creating and defining the variable to for the action sequence
+                var seq = Action.Sequence(this.Owner.Actions);
+                //Setting the variables for the Action property based on the values defined
+                //when creating a new zoom event. (See the CameraZoomEvent class in the
+                //CustomEvents Zilch script)
+                Action.Property(seq, @this.Owner.Camera.Size, event.CamSize, event.ZoomTime, event.EaseCurve);
+            }
+            //If wanting to zoom back out to regular size (set at CamLerp.z, which is 30 right now)
+            else
+            {
+                //Creating and defining the variable to for the action sequence
+                var seq = Action.Sequence(this.Owner.Actions);
+                //Setting the variables for the Action property based on the values defined
+                //when creating a new zoom event. (See the CameraZoomEvent class in the
+                //CustomEvents Zilch script)
+                Action.Property(seq, @this.Owner.Camera.Size, this.CamLerp.Z, event.ZoomTime, event.EaseCurve);
+            }
         }
-        //If wanting to zoom back out to regular size (set at CamLerp.z, which is 30 right now)
+        //If there is ANOTHER OBJECT you want to zoom in on besides the player
         else
         {
-            var seq = Action.Sequence(this.Owner.Actions);
-            Action.Property(seq, @this.Owner.Camera.Size, this.CamLerp.Z, event.ZoomTime, event.EasingCurve);
+            if(event.IsZoomingIn)
+            {
+                //Variable for the object to zoom towards
+                this.ZoomTowardsObject = event.CameraTarget;
+                
+                Console.WriteLine("Zoom Object = `this.ZoomTowardsObject`");
+                
+                //Vector of the camera towards the object
+                var cameraObjectVector : Real3 = Real3(0,0,0);
+                //The rotation quaternion for the camera based on the object's position
+                var rotationDirection : Quaternion = Quaternion(0,0,0,0);
+                //Defining the vector between the camera and the object
+                cameraObjectVector = Math.Normalize(this.ZoomTowardsObject.Transform.Translation - this.Owner.Transform.Translation);
+                //Defining the rotation quaternion based on the object's position
+                rotationDirection = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(cameraObjectVector, Real3(0,0,1));
+                
+                var grp = Action.Group(this.Owner.Actions);
+                Action.Property(grp,
+                                @this.Owner.Camera.Size,
+                                event.CamSize,
+                                event.ZoomTime,
+                                event.EaseCurve);
+                Action.Call(grp, this.ActionCallPanEvent);
+            }
+            //If wanting to zoom back out to regular size (set at CamLerp.z, which is 30 right now)
+            else
+            {
+                var grp = Action.Group(this.Owner.Actions);
+                Action.Property(grp,
+                                @this.Owner.Camera.Size,
+                                this.CamLerp.Z,
+                                event.ZoomTime,
+                                event.EaseCurve);
+            }
         }
     }
     
@@ -145,21 +201,12 @@ class OrbitCameraController : ZilchComponent
         //If wanting to pan awwy from the player
         if(event.IsActive)
         {
-            //Sets the start point for rotation and locks caemra
-            if(this.PanTimer >= 1.0)
-            {
-                //Camera is no longer updating according to player movement
-                this.ShouldUpdateCamera = false;
-                //Timer for how long the pan lasts is set to 0.
-                this.PanTimer = 0.0;
-                //The start rotation (used when Slerping) is set to the current rotation of camera
-                this.PanStartRotation = this.Owner.Transform.LocalRotation;
-            }
-            //Console.WriteLine("Pan Event Started");
-            //If there is an object specified (other than the player) that you wish to rotate towards...
+            this.ShouldUpdateCamera = false;
+            
             if(event.PanTarget != null)
             {
                 Console.WriteLine("Targeted Pan");
+                this.PanStartRotation = this.Owner.Transform.Rotation;
                 // Variable for the new direction vector based on CameraTarget
                 var targetDirection : Real3 = Real3(0,0,0);
                 //Grabbing the target object.
@@ -167,66 +214,47 @@ class OrbitCameraController : ZilchComponent
                 //Defining the direction vector
                 targetDirection = Math.Normalize(this.Owner.Transform.Translation - panTarget.Transform.Translation);
                 this.PanTargetRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(targetDirection, Real3(0,0,1));
-                this.Owner.Transform.LocalRotation = Math.Slerp(this.PanStartRotation, this.PanTargetRotation, this.PanTimer);
-                
+                var seq = Action.Sequence(this.Owner.Actions);
+                Action.Property(seq,
+                                @this.Owner.Transform.Rotation,
+                                this.PanTargetRotation,
+                                event.PanTime,
+                                event.EasingCurve);
             }
             else
             {
                 Console.WriteLine("Non-Targeted Pan");
-                //Rotating camera towards the EndRotation defined when calling the event using Math.Slerp
-                this.Owner.Transform.LocalRotation = (Math.Slerp(this.PanStartRotation, event.EndRotation, this.PanTimer));
-            }
-            //Incremenets the PanTimer by event.Dt (as set in the event call) 
-            this.PanTimer += event.PanTime;
-            Console.WriteLine("Pan Timer = `this.PanTimer`");
-            //Checks to see if the rotation has completed
-            if(this.PanTimer >= 1.0)
-            {
-                var panFinished = new PanFinishedEvent();
-                this.Space.DispatchEvent("panFinishedEvent", panFinished);
-                //Locks the camera from updating according to player position
-                //This will stay locked until the pan back (for now; may need to change later)
-                this.ShouldUpdateCamera = false;
+                var seq = Action.Sequence(this.Owner.Actions);
+                Action.Property(seq,
+                                @this.Owner.Transform.Rotation,
+                                event.EndRotation,
+                                event.PanTime,
+                                event.EasingCurve);
             }
         }
-        //For returning to original rotation looking towards the player
         else
         {
-            if(this.PanTimer >= 1.0)
-            {
-                //Camera is no longer updating according to player movement
-                this.ShouldUpdateCamera = false;
-                //Timer for how long the pan lasts is set to 0.
-                this.PanTimer = 0.0;
-                //The start rotation (used when Slerping) is set to the current rotation of camera)
-                this.PanStartRotation = this.Owner.Transform.LocalRotation;
-                Console.WriteLine("End Rotation: `event.EndRotation`");
-            }
-            //If rotating back from panning towards an object (and not just a quaternion value)
             if(event.PanTarget != null)
             {
                 Console.WriteLine("Targeted Pan Ending");
-                this.Owner.Transform.LocalRotation = Math.Slerp(this.PanTargetRotation, this.WantedRotation, this.PanTimer);
+                var seq = Action.Sequence(this.Owner.Actions);
+                Action.Property(seq,
+                                @this.Owner.Transform.Rotation,
+                                this.PanStartRotation,
+                                event.PanTime,
+                                event.EasingCurve);
+                Action.Call(seq, this.UpdateCamera);
             }
-            //If rotating back from a defined value (and not from an actual object)
             else
             {
                 Console.WriteLine("Non-Targeted Pan Ending");
-                //Slerp back to original local rotation
-                this.Owner.Transform.LocalRotation = (Math.Slerp(this.PanStartRotation, this.WantedRotation, this.PanTimer));
-            }
-           
-            //Increments PanTimer by event.Dt (as set in the event call)
-            this.PanTimer += event.PanTime;
-            Console.WriteLine("Pan Timer = `this.PanTimer`");
-            //Revert back to regular camera usage when done panning
-            if(this.PanTimer >= 1.0)
-            {
-                //This event, when called in PlayerController, sets the IsPannning/IsReturnPanning to false
-                var panFinished = new PanFinishedEvent();
-                this.Space.DispatchEvent("panFinishedEvent", panFinished);
-                //Unlocks the camera so that it will now update according to player movement
-                this.ShouldUpdateCamera = true;
+                var seq = Action.Sequence(this.Owner.Actions);
+                Action.Property(seq,
+                                @this.Owner.Transform.Rotation,
+                                this.PanStartRotation,
+                                event.PanTime,
+                                event.EasingCurve);
+                Action.Call(seq, this.UpdateCamera);
             }
         }
     }
@@ -304,6 +332,42 @@ class OrbitCameraController : ZilchComponent
         }
     }
     
+    function OnFade (event : FadeToBlackEvent)
+    {
+        var levelSettings = this.Space.LevelSettings;
+        var hudSpace = levelSettings.HudCreator.HudSpace;
+        this.FadeOutCog = hudSpace.FindObjectByName("FadeToBlackSprite");
+        if(event.IsFadeIn)
+        {
+            var seq = Action.Sequence(this.Owner.Actions);
+            Action.Property(seq,
+                            @this.FadeOutCog.Sprite.Color,
+                            Real4(0,0,0,0),
+                            event.TimeToFade,
+                            event.EaseCurve);
+            Action.Property(seq,
+                            @this.FadeOutCog.Sprite.Visible,
+                            false,
+                            0.01,
+                            Ease.Linear);
+        }
+        else
+        {
+            var seq = Action.Sequence(this.Owner.Actions);
+            Action.Property(seq,
+                            @this.FadeOutCog.Sprite.Visible,
+                            true,
+                            0.01,
+                            Ease.Linear);
+            Action.Property(seq,
+                            @this.FadeOutCog.Sprite.Color,
+                            Real4(0,0,0,1),
+                            event.TimeToFade,
+                            event.EaseCurve);
+        }
+            
+    }
+    
     function CameraLock()
     {
         var cameraLockEvent = new CameraLockEvent();
@@ -321,5 +385,20 @@ class OrbitCameraController : ZilchComponent
     function OnToggleCameraLock(event : CameraLockEvent)
     {
         this.ShouldUpdateCamera = event.IsLocked;
+    }
+    
+    function ActionCallPanEvent()
+    {
+        var panEvent = new CameraPanEvent();
+        panEvent.IsActive = true;
+        panEvent.PanTarget = this.ZoomTowardsObject;
+        panEvent.PanTime = 1.5;
+        panEvent.EasingCurve = Ease.QuadInOut;
+        this.Owner.DispatchEvent("panEvent", panEvent);
+    }
+    
+    function UpdateCamera()
+    {
+        this.ShouldUpdateCamera = true;
     }
 }

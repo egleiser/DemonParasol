@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [36.966, 13.1702, 0.0790229],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -22,20 +22,8 @@ Cog =
 	{
 		bool Visible = true,
 		bool VisibilityCulling = true,
-		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
 		string MeshName = "5481b3171cf67800:Rock1",
-		Vec4 Color = [0.775, 0.775, 0.775, 1],
-	},
-	CylinderCollider = 
-	{
-		bool Ghost = false,
-		bool SendsMessages = true,
-		bool Seamless = true,
-		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0, 0, 0.5],
-		float Radius = 0.6,
-		float Height = 1,
-		uint Direction = 2,
+		Vec4 Color = [1, 1, 1, 1],
 	},
 },

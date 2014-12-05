@@ -1,16 +1,74 @@
 class TextBoxManager : ZilchComponent
 {
+    [Property]
+    var TextBoxTextPath : CogPath = null;
+    var TextBoxText : Cog = null;
+    
+    [Property]
+    var ContinueButtonPath : CogPath = null;
+    var ContinueButton : Cog = null;
+    
+    //Gamepad variables
+    [Property]
+    var GamepadIndex:Integer = 0;
+    var Gamepad:Gamepad = null;
+    
+    //Delay between the text box appearing/changing and start of text scroll
+    [Property]
+    var SpeakerChangeDelay : Real = 0.3;
+    
+    //Dialogue Segment to get children TextBlockInfos from
+    var DialogueSegment : Cog = null;
+    //Index of the array craeted from the children
+    var CurrentTextIdx : Integer = 0;
+    //A new array of cogs to copy the children of Dialogue Segment into
+    var ChildTexts : Array[Cog] = null;
+    
+    //The sprite source for the text box (each character has their own)
+    var TextBoxSprite : SpriteSource = null;
+    
+    //The current sprite source loaded
+    var CurrentSprite : SpriteSource = null;
+    var SpriteToLoad : SpriteSource = null;
+    
     function Initialize(init : CogInitializer)
     {
+        this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
+        
+        this.ChildTexts = new Array[Cog]();
+        
+        this.TextBoxText = this.TextBoxTextPath.Cog;
+        this.ContinueButton = this.ContinueButtonPath.Cog;
+        
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-        Zero.Connect(this.Owner, "textBoxEvent", this.OntextBoxEvent);
+        Zero.Connect(this.Owner, "startDialogue", this.OnStartDialogueEvent);
+        Zero.Connect(this.Owner, "continueDialogue", this.OnContinueDialogueEvent);
     }
 
-    function OntextBoxEvent(event : TextBoxEvent)
+    function OnStartDialogueEvent(event : TextBoxEvent)
     {
-        var testTextBlock : TextBlock = TextBlock.Find("TestTextBlock");
+        var mainSpace = this.GameSession.FindSpaceByName("Main");
+        var player = mainSpace.FindObjectByName("Player");
+        player.PlayerController.Active = false;
+            
+        this.DialogueSegment = event.DialogueSegmentToUse;
+        this.CurrentTextIdx = 0;
         
-        var grp = Action.Group(this.Owner.Actions);
+        if(this.DialogueSegment != null)
+        {
+            this.ChildTexts.Clear();
+            
+            foreach(var child in this.DialogueSegment.Children)
+            {
+                this.ChildTexts.Push(child);
+            }
+        }
+        
+        this.TextBoxSprite = this.ChildTexts.Get(0).TextBlockInfo.SpeakerSprite;
+        this.Owner.Sprite.SpriteSource = this.TextBoxSprite;
+        
+        var seq = Action.Sequence(this.Owner.Actions);
+        var grp = Action.Group(seq);
         Action.Property(grp,
                         @this.Owner.Transform.Translation,
                         Real3(this.Owner.Transform.Translation.X, event.DistanceOnScreen, this.Owner.Transform.Translation.Z),
@@ -21,10 +79,105 @@ class TextBoxManager : ZilchComponent
                         Real4(this.Owner.Sprite.Color.X, this.Owner.Sprite.Color.Y, this.Owner.Sprite.Color.Z, event.Opacity),
                         event.OpacityTimeIn,
                         event.OpacityEase);
-
+        Action.Delay(seq, this.SpeakerChangeDelay);
+        Action.Call(seq, this.FirstTextScroll);
     }
-
-    function OnLogicUpdate(event : UpdateEvent)
+    
+    function OnContinueDialogueEvent(event : ContinueDialogueEvent)
     {
+        this.CurrentTextIdx += 1;
+        
+        if(this.CurrentTextIdx == this.ChildTexts.Count)
+        {
+            var grp = Action.Group(this.Owner.Actions);
+            Action.Property(grp,
+                            @this.Owner.Transform.Translation,
+                            Real3(this.Owner.Transform.Translation.X, -13.0, this.Owner.Transform.Translation.Z),
+                            0.3,
+                            Ease.QuadIn);
+                            
+            Action.Property(grp,
+                            @this.Owner.Sprite.Color,
+                            Real4(this.Owner.Sprite.Color.X, this.Owner.Sprite.Color.Y, this.Owner.Sprite.Color.Z, 0),
+                            0.3,
+                            Ease.Linear);
+            Action.Call(grp, this.ReactivateTongue);
+        }
+        else
+        {
+            var speakerSprite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerSprite;
+            if(speakerSprite != this.TextBoxSprite)
+            {
+                //Fades out current speaker's text box sprite
+                var seq = Action.Sequence(this.Owner.Actions);
+                var grp = Action.Group(seq);
+                Action.Property(grp,
+                                @this.Owner.Sprite.Color,
+                                Real4(this.Owner.Sprite.Color.X, this.Owner.Sprite.Color.Y, this.Owner.Sprite.Color.Z, 0.0),
+                                0.3,
+                                Ease.QuadIn);
+                Action.Property(grp,
+                                @this.ContinueButton.Sprite.Color,
+                                Real4(this.ContinueButton.Sprite.Color.X, this.ContinueButton.Sprite.Color.Y, this.ContinueButton.Sprite.Color.Z, 0.0),
+                                0.3,
+                                Ease.QuadIn);
+                                
+                //Call to function changing the text box sprite source to current speaker
+                Action.Call(seq, this.SwitchSprite);
+                
+                var grp2 = Action.Group(seq);
+                //Fades in new speaker's sprite
+                Action.Property(grp2,
+                                @this.Owner.Sprite.Color,
+                                Real4(this.Owner.Sprite.Color.X, this.Owner.Sprite.Color.Y, this.Owner.Sprite.Color.Z, 0.85),
+                                0.3,
+                                Ease.QuadOut);
+                Action.Property(grp2,
+                                @this.ContinueButton.Sprite.Color,
+                                Real4(this.ContinueButton.Sprite.Color.X, this.ContinueButton.Sprite.Color.Y, this.ContinueButton.Sprite.Color.Z, 0.9),
+                                0.3,
+                                Ease.QuadOut);
+                                
+                //Call for continuing to next text scroll event
+                Action.Call(grp2, this.ContinueScrollEventCall);
+            }
+            else
+            {
+                var e = new TextScrollEvent();
+                e.TextToWrite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerTextBlock;
+                this.TextBoxText.DispatchEvent("textScrollEvent", e);
+            }
+        }
+    }
+    
+    function SwitchSprite()
+    {
+        var speakerSprite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerSprite;
+        this.Owner.Sprite.SpriteSource = speakerSprite;
+    }
+    
+    function ContinueScrollEventCall()
+    {
+        var e = new TextScrollEvent();
+        e.TextToWrite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerTextBlock;
+        this.TextBoxText.DispatchEvent("textScrollEvent", e);
+    }
+    
+    function ReactivateTongue()
+    {
+        var textBoxText = this.Space.FindObjectByName("TextBoxText");
+        textBoxText.TextScrollManager.PlayerDeactivated = false;
+        
+        var mainSpace = this.GameSession.FindSpaceByName("Main");
+        var player = mainSpace.FindObjectByName("Player");
+        player.PlayerController.Active = true;
+    }
+    
+    function FirstTextScroll()
+    {
+        //Sending a new text scroll event to the Text Box Text (not text box)
+        var e = new TextScrollEvent();
+        e.TextToWrite = this.ChildTexts.Get(0).TextBlockInfo.SpeakerTextBlock;
+        this.TextBoxText.DispatchEvent("textScrollEvent", e);
     }
 }

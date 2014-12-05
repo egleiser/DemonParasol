@@ -57,7 +57,7 @@ class Z_EnemyController:ZilchComponent
     function Initialize(init:CogInitializer)
     {
         //set the target of the enemy
-        this.TargetObject = this.TargetObjectPath.Cog;
+        //this.TargetObject = this.TargetObjectPath.Cog;
         
         //set the OriginalPosition of this object
         this.OriginalPosition = this.Owner.Transform.Translation;

@@ -7,7 +7,7 @@ class ZoomZone : ZilchComponent
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
         Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
     }
-    //Make it so it only sends the event is the PLAYER collides with it
+    //Make it so it only sends the event is the PLAYER collides with its
     function OnCollisionEnded(event : CollisionEvent)
     {
         if(event.OtherObject.Name == "Player")
