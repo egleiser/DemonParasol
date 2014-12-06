@@ -28,11 +28,17 @@ class QuickPause : ZilchComponent
             {
                 this.LevelSettings.HudCreator.HudSpace.SoundSpace.PlayCue(SoundCue.Find("Whoosh_ParasolOpen"));
                 
-                this.PauseMenu.Transform.Translation = Real3(0,0,1);
+                if(this.PauseMenu != null)
+                {
+                    this.PauseMenu.Transform.Translation = Real3(0,0,1);
+                }
             }
             else
             {
-                this.PauseMenu.Transform.Translation = Real3(0, -500, 1);
+                if(this.PauseMenu != null)
+                {
+                    this.PauseMenu.Transform.Translation = Real3(0, -500, 1);
+                }
             }
     }
 }

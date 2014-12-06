@@ -63,7 +63,7 @@ class PlayerController : ZilchComponent
                 this.SwitchTargetUpdate(event);
             //}
             //if(this.Owner.FindChildByName(""))
-            if(this.Owner.AutoHopper != null && this.ContextButton != null)
+            if(this.Owner.AutoHopper != null)
             {
                 this.TongueUpdate(event);
             }
@@ -73,6 +73,7 @@ class PlayerController : ZilchComponent
         {
             this.ContextUpdate(event);
         }
+
     }
     function AttackUpdate(event : UpdateEvent)
     {
@@ -165,6 +166,7 @@ class PlayerController : ZilchComponent
     }
     function ContextUpdate(event : UpdateEvent)
     {
+        Console.WriteLine("DEBUG:`this.ContextButton`");
         if(this.ContextString == "")
         {
             if(this.TongueFinder != null)

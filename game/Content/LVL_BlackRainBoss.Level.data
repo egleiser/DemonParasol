@@ -76,6 +76,29 @@ Level =
 		QuickPause = 
 		{
 		},
+		Z_WinLoseTrigger = 
+		{
+			Vec3 StartingPosition = [0, 0, 1],
+			Vec3 EndingPosition = [0, 6, 1],
+			float FadeInTime = 2,
+			Vec3 TrackingScale = [1.1, 1.1, 1],
+			float TrackingTime = 20,
+			Enum EaseType = QuadIn,
+		},
+		Z_UI_MenuPopUp = 
+		{
+			float FadeInTime = 1,
+			float FadeOutTime = 0.25,
+			Vec3 ScaleOutSize = [0.75, 0.75, 0.75],
+			float ScaleOutTime = 0.2,
+			Vec3 ScaleInSize = [1, 1, 1],
+			float ScaleInTime = 0.8,
+			Enum EaseType = QuadIn,
+			Vec3 StartingPosition = [0, 0, 9],
+		},
+		Z_CheatCodes = 
+		{
+		},
 		Hierarchy = 
 		{
 			Cog = 
@@ -168,7 +191,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [29.8084, -41.0765, 55.993],
+			Vec3 Translation = [330.028, 41.2811, 22.9379],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.385058, 0.0137574, -0.00574073, 0.922772],
 		},
@@ -185,10 +208,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 94.5804,
+			float LookDistance = 19.0954,
 			float VerticalAngle = -0.790634,
 			float HorizontalAngle = -0.0298153,
-			Vec3 LookTarget = [27.8252, 26.1512, -10.5048],
+			Vec3 LookTarget = [329.628, 54.8541, 9.51219],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 

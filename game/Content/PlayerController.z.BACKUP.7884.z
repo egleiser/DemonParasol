@@ -73,6 +73,10 @@ class PlayerController : ZilchComponent
         {
             this.ContextUpdate(event);
         }
+<<<<<<< HEAD
+
+=======
+>>>>>>> bd75aa54d26e5a47cc2329055c863d2e813ce0ed
     }
     function AttackUpdate(event : UpdateEvent)
     {
@@ -165,6 +169,7 @@ class PlayerController : ZilchComponent
     }
     function ContextUpdate(event : UpdateEvent)
     {
+        Console.WriteLine("DEBUG:`this.ContextButton`");
         if(this.ContextString == "")
         {
             if(this.TongueFinder != null)

@@ -59,8 +59,8 @@ Level =
 		},
 		Z_SplashScreenLogic = 
 		{
-			float SplashScreenDelayTimer = 4,
-			string NextLevel = "540a25248e453bba:lvl_splash_best_played",
+			float SplashScreenDelayTimer = 4.5,
+			string NextLevel = "54682326dd6dfdb8:lvl_splash_start",
 		},
 	},
 	Cog = 
@@ -75,9 +75,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.302, 17.9076, 59.3591],
+			Vec3 Translation = [0.41499, -0.530081, 93.8416],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.149438, -1.10519e-008, -3.26607e-009, 0.988771],
+			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
 		Camera = 
 		{
@@ -87,15 +87,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 29.8365,
+			float Size = 49.1919,
 		},
 		EditorCameraController = 
 		{
-			ControlMode ControlMode = Orbit,
-			float LookDistance = 62,
-			float VerticalAngle = 0.3,
+			ControlMode ControlMode = ZPlane,
+			float LookDistance = 95,
+			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-1.302, -0.414616, 0.128256],
+			Vec3 LookTarget = [0.41499, -0.530081, -1.15844],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -113,13 +113,9 @@ Level =
 		{
 			string Name = "Camera",
 		},
-		Archetyped = 
-		{
-			string Name = "549361781f6586bc:arc_menuCamera",
-		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, 20],
+			Vec3 Translation = [0, 0, 10],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -144,11 +140,6 @@ Level =
 			Vec3 ForwardVector = [0, 1, 0],
 			OrientationBases DefaultBases = ForwardYUpZ,
 		},
-		Z_SplashScreenLogic = 
-		{
-			float SplashScreenDelayTimer = 3,
-			string NextLevel = "",
-		},
 	},
 	Cog = 
 	{
@@ -158,7 +149,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "scn-splash-teamLogo",
+			string Name = "scn-splash-best-played",
 		},
 		Transform = 
 		{
@@ -174,7 +165,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5493600dd45e2d0a:scn-splash-teamLogo",
+			string SpriteSource = "540a256281164596:scn-splash-gamepad",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
@@ -183,43 +174,68 @@ Level =
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
 		},
-		Area = 
-		{
-			Vec2 Size = [38, 22],
-			Location Origin = Center,
-		},
 		Z_UI_Transitions = 
 		{
 			float FadeInTime = 0.5,
 			float FadeOutTime = 0.25,
 			float WaitTime = 2,
-			float ScaleOutTime = 10,
-			float ScaleInTime = 0.8,
+			float ScaleOutTime = 0.2,
+			float ScaleInTime = 0.25,
 			float ScaleBiggerSize = 1.1,
-			Enum EaseType = Linear,
+			Enum EaseType = QuadInOut,
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "54f6e7157262050e:arc_bg_black_fade",
 		LinkId = 
 		{
 			uint Id = 5,
 		},
+		Named = 
+		{
+			string Name = "bg-back",
+		},
+		Archetyped = 
+		{
+			string Name = "54f6e7157262050e:arc_bg_black_fade",
+		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 20.7688, 9],
+			Vec3 Translation = [0, 18.2017, 9],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [0.0666667, 0.0666667, 0.0666667, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = true,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Z_UI_Transitions = 
+		{
+			float FadeInTime = 1,
+			float FadeOutTime = 1,
+			float WaitTime = 2,
+			float ScaleOutTime = 0.2,
+			float ScaleInTime = 0.8,
+			float ScaleBiggerSize = 1.1,
+			Enum EaseType = Linear,
 		},
 		Area = 
 		{
 			Vec2 Size = [32, 18],
 			Location Origin = Center,
-		},
-		Named = 
-		{
-			string Name = "bg-back",
 		},
 	},
 },

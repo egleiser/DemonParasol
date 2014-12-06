@@ -172,7 +172,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [51.1602, 22.5424, 25.7934],
+			Vec3 Translation = [39.0215, 19.7277, 37.6828],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.247261, 0.254311, -0.0674295, 0.932546],
 		},
@@ -189,10 +189,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 46.9671,
+			float LookDistance = 51.9067,
 			float VerticalAngle = -0.518364,
 			float HorizontalAngle = -6.81565,
-			Vec3 LookTarget = [30.4492, 45.8127, -9.35564],
+			Vec3 LookTarget = [16.1324, 45.4453, -1.1629],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -232,6 +232,7 @@ Level =
 			float MaxMoveForce = 1000,
 			float Deceleration = 1.5,
 			CogPath CameraPath = ":/Camera",
+			bool WindActive = true,
 		},
 		FootstepDetector = 
 		{
