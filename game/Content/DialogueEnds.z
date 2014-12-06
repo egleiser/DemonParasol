@@ -1,0 +1,55 @@
+class DialogueEnds : ZilchComponent
+{
+    [Property]
+    var ShouldDestroyCollider : Boolean = false;
+    
+    [Property]
+    var ColliderToDestroyPath : CogPath = null;
+    var ColliderToDestroy : Cog = null;
+    
+    [Property]
+    var ShouldTeleportPlayer : Boolean = false;
+    
+    [Property]
+    var PosToTeleportTo : Real3 = Real3(0,0,0);
+    
+    [Property]
+    var ObjectToTeleportToPath : CogPath = null;
+    var ObjectToTeleportTo : Cog = null;
+    
+    var Player : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Space.FindObjectByName("Player");
+        this.ObjectToTeleportTo = this.ObjectToTeleportToPath.Cog;
+        this.ColliderToDestroy = this.ColliderToDestroyPath.Cog;
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, "dialogueFinished", this.OndialogueFinished);
+    }
+
+    function OndialogueFinished(event : DialogueEventFinished)
+    {
+        if(this.ShouldDestroyCollider == true)
+        {
+            Console.WriteLine("Dialogue Finished");
+            Console.WriteLine(this.ColliderToDestroy);
+            if(this.ColliderToDestroy.CollisionBasedDialogue.DiagSegPath.Cog == event.CurrentDialogueSegment)
+            {
+                Console.WriteLine("This collider destroyed: `this.ColliderToDestroy`");
+                this.ColliderToDestroy.Destroy();
+            }
+        }
+        if(this.ShouldTeleportPlayer)
+        {
+            if(this.ObjectToTeleportTo != null)
+            {
+                this.Player.Transform.Translation = this.ObjectToTeleportTo.Transform.Translation;
+            }
+            else
+            {
+                this.Player.Transform.Translation = this.PosToTeleportTo;
+            }
+        }
+    }
+}

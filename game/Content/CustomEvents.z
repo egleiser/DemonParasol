@@ -35,6 +35,7 @@ class CinemaEvent : Event
     var EndPosition : Real3 = Real3(0.0,0.0,0.0);
     var EasingCurve : SampleCurve = null;
 }
+//Event for zooming camera (that is, changing camera's size value)
 class CameraZoomEvent : Event
 {
     //Indicates whether this zoom event is zooming away from the standard camsize
@@ -50,6 +51,7 @@ class CameraZoomEvent : Event
     //Time for zooming
     var ZoomTime : Real = 0.0;
 }
+//Event for panning camera (that is, changing it's local rotation)
 class CameraPanEvent : Event
 {
     //Indicates whether the initial pan has occurred
@@ -65,6 +67,7 @@ class CameraPanEvent : Event
     //Hopefully this will be for a custom ease later on
     var EasingCurve : Ease = Ease.Linear;
 }
+//Event for dollying camera (that is, changing its transformation)
 class CameraDollyEvent : Event
 {
     //Indicates whether the initial dolly has occurred
@@ -81,6 +84,7 @@ class CameraDollyEvent : Event
     //Hopefully this will be for a custom ease later on
     var EasingCurve : Ease = Ease.QuadInOut;
 }
+//Event for Fading In or Out
 class FadeToBlackEvent : Event
 {
     //Boolean to check whether it's a Fade In event. If FALSE, event will FADE OUT.
@@ -89,12 +93,15 @@ class FadeToBlackEvent : Event
     var TimeToFade : Real = 0.0;
     var EaseCurve : Ease = Ease.QuadOut;
 }
+//Event for when camera pan has finished
 class PanFinishedEvent : Event
 {
 }
+//Event for when camera dolly has finished
 class DollyFinishedEvent : Event
 {
 }
+//Event for locking update state of camera
 class CameraLockEvent : Event
 {
     var IsLocked : Boolean  = false;
@@ -126,14 +133,35 @@ class TextBoxEvent : Event
     //The ease for the opacity to change applied to the action
     var OpacityEase : Ease = Ease.Linear;
 }
+//Event for starting text scroll
 class TextScrollEvent : Event
 {
+    //The text block with the text that will be scrolled on each scroll event
     var TextToWrite : TextBlock = null;
 }
+//Event for continue dialogue past the initial text block
 class ContinueDialogueEvent : Event
 {
 }
+//Event for dialogue event started
+class DialogueStartedEvent : Event
+{
+    //The current dialogue segment for hte dialogue event
+    var CurrentDialogueSegment : Cog = null;
+}
+//Event for when a dialogue segment has ended
 class DialogueEventFinished : Event
+{
+    //THe current dialogue segment for the dialogue event
+    var CurrentDialogueSegment : Cog = null;
+}
+//Event for when a Fade In has ended
+class FadeInEndedEvent : Event
+{
+    
+}
+//Event for when a Fade Out has ended
+class FadeOutEndedEvent : Event
 {
     
 }

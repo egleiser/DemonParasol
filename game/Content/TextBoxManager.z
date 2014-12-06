@@ -47,7 +47,6 @@ class TextBoxManager : ZilchComponent
 
     function OnStartDialogueEvent(event : TextBoxEvent)
     {
-        Console.WriteLine("Dialogue Started");
         var mainSpace = this.GameSession.FindSpaceByName("Main");
         //var player = mainSpace.FindObjectByName("Player");
         //player.PlayerController.Active = false;
@@ -57,7 +56,6 @@ class TextBoxManager : ZilchComponent
         
         if(this.DialogueSegment != null)
         {
-            Console.WriteLine(this.DialogueSegment);
             this.ChildTexts.Clear();
             
             foreach(var child in this.DialogueSegment.Children)
@@ -105,7 +103,8 @@ class TextBoxManager : ZilchComponent
                             Ease.Linear);
             var mainSpace = this.GameSession.FindSpaceByName("Main");
             var dialogueFinished = new DialogueEventFinished();
-            mainSpace.FindObjectByName("PathDetector").DispatchEvent("dialogueFinished", dialogueFinished);
+            dialogueFinished.CurrentDialogueSegment = this.DialogueSegment;
+            mainSpace.DispatchEvent("dialogueFinished", dialogueFinished);
             
             //Action.Call(grp, this.ReactivateTongue);
         }

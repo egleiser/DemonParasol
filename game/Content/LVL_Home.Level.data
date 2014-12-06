@@ -67,7 +67,7 @@ Level =
 		},
 		HudCreator = 
 		{
-			string HudLevel = "5479d824bf69306c:HUD",
+			string HudLevel = "54f4128b2690c25b:HUD",
 			string SpaceArchetype = "537644322bbe895a:Space",
 		},
 		TextBoxTester = 
@@ -117,9 +117,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-60.769, 7.71196, 74.8436],
+			Vec3 Translation = [-85.0954, -70.3072, 41.5042],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0130817, -0.0399864, -0.000523552, 0.999114],
+			Quat Rotation = [0.265419, -0.030987, 0.00853526, 0.963597],
 		},
 		Camera = 
 		{
@@ -133,11 +133,11 @@ Level =
 		},
 		EditorCameraController = 
 		{
-			ControlMode ControlMode = Orbit,
-			float LookDistance = 29.8096,
-			float VerticalAngle = 0.026185,
-			float HorizontalAngle = 0.080001,
-			Vec3 LookTarget = [-58.3876, 6.93148, 45.1395],
+			ControlMode ControlMode = FirstPerson,
+			float LookDistance = 26.4209,
+			float VerticalAngle = -0.537562,
+			float HorizontalAngle = 0.0642931,
+			Vec3 LookTarget = [-83.6373, -56.7786, 18.8566],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -177,6 +177,7 @@ Level =
 			float MaxMoveForce = 1000,
 			float Deceleration = 1.5,
 			CogPath CameraPath = ":/Camera",
+			bool WindActive = true,
 		},
 		FootstepDetector = 
 		{
@@ -247,6 +248,7 @@ Level =
 		AutoHopper = 
 		{
 			float JumpDistance = 2,
+			bool Active = true,
 			bool DebugDraw = false,
 			Vec4 DebugColorA = [0.17, 0, 1, 0.7],
 			Vec4 DebugColorB = [1, 0, 0.000599861, 0.7],
@@ -3281,18 +3283,12 @@ Level =
 		},
 		EnemyAI_Manager = 
 		{
-			CogPath TargetObjectPath = ":/Player",
-			float WarningDistanceTrigger = 10,
-			float RunningAwayDistanceTrigger = 5,
-			float AttackDistanceTrigger = 0,
-			float DiveBombDistanceTrigger = 0,
-			float LungeDistanceTrigger = 0,
 		},
 		SoundEmitter = 
 		{
 			bool StartPlaying = false,
 			int ExtraPriority = 0,
-			string CueName = "5476de8d30847b2e:DogBark",
+			string CueName = "4e1bd44008b4dc2a:DefaultCue",
 			float Volume = 0.45,
 			float Pitch = 1,
 			bool Positional = true,
@@ -3411,6 +3407,14 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
+		DialogueEnds = 
+		{
+			bool ShouldDestroyCollider = true,
+			CogPath ColliderToDestroyPath = ":/CollisionTestObject",
+			bool ShouldTeleportPlayer = false,
+			Vec3 PosToTeleportTo = [0, 0, 0],
+			CogPath ObjectToTeleportToPath = "",
+		},
 		Hierarchy = 
 		{
 			Cog = 
@@ -3433,7 +3437,7 @@ Level =
 				{
 					string SpeakerName = "Father",
 					string SpeakerSprite = "545746f1032fb183:ui-textbox-father",
-					string SpeakerTextBlock = "54450660db96cea5:TestTextBlock",
+					string SpeakerTextBlock = "54f4128b269c0cad:TestTextBlock",
 				},
 			},
 			Cog = 
@@ -3566,7 +3570,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-90.2156, -30.9908, 0.194683],
+			Vec3 Translation = [-82.1994, -28.1588, 1],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -3600,30 +3604,12 @@ Level =
 			Vec3 Offset = [0, 0, 5],
 			Vec3 Size = [5, 5, 5],
 		},
-		CollisionBasedCamera = 
+		CollisionBasedDialogue = 
 		{
-			CogPath CameraPath = ":/Camera",
-			bool CollisionStartedEvent = true,
-			bool CollisionEndedEvent = false,
-			CogPath NonPlayerCollisionObjectPath = "",
-			bool ZoomEvent = true,
-			bool ZoomingInOut = true,
-			float CamSizeChange = 8,
-			CogPath ZoomTargetPath = "",
-			Enum ZoomEase = QuadInOut,
-			float ZoomTime = 1.5,
-			bool PanEvent = true,
-			bool PanStarted = true,
-			CogPath PanTargetPath = ":/TestEnemy",
-			Quat PanEndRotation = [0, 0, 0, 0],
-			Enum PanEase = QuadInOut,
-			float PanTime = 1.5,
-			bool DollyEvent = false,
-			bool DollyStarted = false,
-			CogPath DollyTargetPath = "",
-			Vec3 DollyEndPosition = [0, 0, 0],
-			float DollyTime = 0,
-			Enum DollyEase = QuadInOut,
+			bool OnCollideStart = true,
+			bool OnCollideEnd = false,
+			CogPath DiagSegPath = ":/TestDiaologueSegment",
+			bool ShouldFadeInOnStart = true,
 		},
 	},
 },
