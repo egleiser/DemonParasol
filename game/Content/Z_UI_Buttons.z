@@ -261,6 +261,8 @@ class Z_UI_Button:ZilchComponent
         var currentBtn:String = this.Owner.Name;
         //grab the white fade out bg
         var fadeoutwhite = this.Space.FindObjectByName("bg-white");
+        //find the main space, assign to variable
+        var gameSpace = this.GameSession.FindSpaceByName("Main");
         
         //GAME BUTTONS
         //if button is "Start Game"
@@ -271,8 +273,6 @@ class Z_UI_Button:ZilchComponent
         //if button is "Resume Game"
         if(this.Owner.Name == "btn-game-resume")
         {
-            //find the main space, assign to variable
-            var gameSpace = this.GameSession.FindSpaceByName("Main");
             var pause = this.Space.FindObjectByName("ui-pause-menu");
             pause.Transform.Translation = Real3(pause.Transform.Translation.X, -500, pause.Transform.Translation.Z);
             //toggle pause back off
@@ -314,7 +314,8 @@ class Z_UI_Button:ZilchComponent
             }
             else
             {
-                this.Space.TimeSpace.TogglePause();
+                gameSpace.TimeSpace.TogglePause();
+                gameSpace.LevelSettings.Z_LevelLogic.LoadMainMenu();
             }
         }
         if(this.Owner.Name == "btn-menu-options")
