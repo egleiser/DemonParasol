@@ -1,6 +1,6 @@
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////
 //FILE-Z_UI_MenuPopUp.z
-//AUTHOR-Eric Gleiser
+//AUTHOR-Eric Gleiser & Travis Moore
 //COURSE-GAM205
 //COPYRIGHT-© 2014 DigiPen, All Rights Reserved.
 //////////////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -33,6 +33,10 @@ class Z_GamepadButtonController : ZilchComponent
     [Property]
     var LevelToLoad:Level = null;
     
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Initialize()
+    //EXPLANATION-Initializes variables and events
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
     function Initialize(init : CogInitializer):Void
     {
         this.InitSprite = this.Owner.Sprite.SpriteSource;
@@ -40,7 +44,11 @@ class Z_GamepadButtonController : ZilchComponent
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
     }
-
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-OnLogicUpdate()
+    //EXPLANATION-Updates every frame and performs actions with button presses
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
     function OnLogicUpdate(event : UpdateEvent):Void
     {
         if(this.Active)
@@ -50,7 +58,9 @@ class Z_GamepadButtonController : ZilchComponent
                 if(this.LevelToLoad != null)
                 {
                     this.Space.LoadLevel(this.LevelToLoad);
+                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Accept"));
                 }
+                
                 if(this.Owner.Name == "BtnArrowRight")
                 {
                     //find the things we need and call their shift right
@@ -139,6 +149,7 @@ class Z_GamepadButtonController : ZilchComponent
             {
                 if(this.RightButton.Cog != null)
                 {
+                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Click"));
                     //Console.WriteLine("Right");
                     this.RightButton.Cog.Z_GamepadButtonController.Active = true;
                     this.RightButton.Cog.Z_GamepadButtonController.Timer = 0;
@@ -150,6 +161,7 @@ class Z_GamepadButtonController : ZilchComponent
             {
                 if(this.LeftButton.Cog != null)
                 {
+                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Click"));
                     //Console.WriteLine("Left");
                     this.LeftButton.Cog.Z_GamepadButtonController.Active = true;
                     this.LeftButton.Cog.Z_GamepadButtonController.Timer = 0;
@@ -161,6 +173,7 @@ class Z_GamepadButtonController : ZilchComponent
             {
                 if(this.UpButton.Cog != null)
                 {
+                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Click"));
                     //Console.WriteLine("Up");
                     this.UpButton.Cog.Z_GamepadButtonController.Active = true;
                     this.UpButton.Cog.Z_GamepadButtonController.Timer = 0;
@@ -172,6 +185,7 @@ class Z_GamepadButtonController : ZilchComponent
             {
                 if(this.DownButton.Cog != null)
                 {
+                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Click"));
                     //Console.WriteLine("Down");
                     this.DownButton.Cog.Z_GamepadButtonController.Active = true;
                     this.DownButton.Cog.Z_GamepadButtonController.Timer = 0;

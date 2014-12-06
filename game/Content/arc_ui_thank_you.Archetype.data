@@ -6,7 +6,7 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "ui_quit_confirmation",
+		string Name = "ui_quit_thank-you",
 	},
 	Archetyped = 
 	{
@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [53.8122, 20.5522, 3.8147e-006],
+		Vec3 Translation = [47.0197, 37.0962, -0.000999451],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -101,16 +101,11 @@ Cog =
 				bool Active = true,
 				bool CaptureMouse = true,
 			},
-			Z_UI_Button = 
-			{
-				string LevelToLoad = "54682358d686e046:lvl_menu_main",
-				int GamepadIndex = 0,
-			},
 			Sprite = 
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				Vec4 Color = [1, 1, 1, 0],
+				Vec4 Color = [1, 1, 1, 1],
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
 				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
@@ -142,12 +137,13 @@ Cog =
 			{
 				CogPath UpButton = "",
 				CogPath DownButton = "",
-				CogPath LeftButton = "",
-				CogPath RightButton = "../btn-game-quit-white",
+				CogPath LeftButton = "../BtnGameQuitWhite",
+				CogPath RightButton = "../BtnGameQuitWhite",
 				string AltSprite = "545d2b4bfc3f8313:btn-menu-main-active",
 				int GamepadIndex = 0,
 				bool Active = true,
 				float Timer = 0,
+				string LevelToLoad = "54682358d686e046:lvl_menu_main",
 			},
 		},
 		Cog = 
@@ -174,11 +170,6 @@ Cog =
 			{
 				bool Active = true,
 				bool CaptureMouse = true,
-			},
-			Z_UI_Button = 
-			{
-				string LevelToLoad = "54682358d686e046:lvl_menu_main",
-				int GamepadIndex = 0,
 			},
 			Sprite = 
 			{
@@ -217,11 +208,12 @@ Cog =
 				CogPath UpButton = "",
 				CogPath DownButton = "",
 				CogPath LeftButton = "../BtnMainMenu",
-				CogPath RightButton = "",
+				CogPath RightButton = "../BtnMainMenu",
 				string AltSprite = "540aa3ac9e3bb8b1:btn-quit-game-white-active",
 				int GamepadIndex = 0,
 				bool Active = false,
 				float Timer = 0,
+				string LevelToLoad = "",
 			},
 		},
 	},

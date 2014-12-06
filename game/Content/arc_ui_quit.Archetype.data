@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [50.5959, 22.3394, 0],
+		Vec3 Translation = [-43.2375, 11.5382, -0.000999451],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -101,11 +101,6 @@ Cog =
 				bool Active = true,
 				bool CaptureMouse = true,
 			},
-			Z_UI_Button = 
-			{
-				string LevelToLoad = "54682358d686e046:lvl_menu_main",
-				int GamepadIndex = 0,
-			},
 			Sprite = 
 			{
 				bool Visible = true,
@@ -148,6 +143,7 @@ Cog =
 				int GamepadIndex = 0,
 				bool Active = false,
 				float Timer = 0,
+				string LevelToLoad = "",
 			},
 		},
 		Cog = 
@@ -174,11 +170,6 @@ Cog =
 			{
 				bool Active = true,
 				bool CaptureMouse = true,
-			},
-			Z_UI_Button = 
-			{
-				string LevelToLoad = "54682358d686e046:lvl_menu_main",
-				int GamepadIndex = 0,
 			},
 			Sprite = 
 			{
@@ -222,6 +213,7 @@ Cog =
 				int GamepadIndex = 0,
 				bool Active = true,
 				float Timer = 0,
+				string LevelToLoad = "",
 			},
 		},
 		Cog = 
