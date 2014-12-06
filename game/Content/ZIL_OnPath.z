@@ -1,0 +1,29 @@
+class ZIL_OnPath : ZilchComponent
+{
+    var LowerGrass : Cog = null;
+    var UpperGrass : Cog = null;
+    var MiddleGrass : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.LowerGrass = this.Space.FindObjectByName("LowerGrass");
+        this.MiddleGrass = this.Space.FindObjectByName("MiddleGrass");
+        this.UpperGrass = this.Space.FindObjectByName("UpperGrass");
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player")
+        {
+            this.LowerGrass.CollisionToNight.OffPath = false;
+            this.LowerGrass.CollisionToNight.TimeOffPath = 0.0;
+            
+            this.MiddleGrass.CollisionToNight.OffPath = false;
+            this.MiddleGrass.CollisionToNight.TimeOffPath = 0.0;
+            
+            this.UpperGrass.CollisionToNight.OffPath = false;
+            this.UpperGrass.CollisionToNight.TimeOffPath = 0.0;
+        }
+    }
+}

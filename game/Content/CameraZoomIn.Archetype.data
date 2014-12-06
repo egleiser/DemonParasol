@@ -1,0 +1,77 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "CameraZoomIn",
+	},
+	Archetyped = 
+	{
+		string Name = "54f46ed973962c32:CameraZoomIn",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-102.274, -18.6167, 0.59919],
+		Vec3 Scale = [10.7964, 0.96352, 3.04409],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = false,
+		bool VisibilityCulling = true,
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	RigidBody = 
+	{
+		bool Static = true,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = true,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [0.5, 0.5, 0.5],
+	},
+	CollisionBasedCamera = 
+	{
+		CogPath CameraPath = ":/Camera",
+		bool CollisionStartedEvent = true,
+		bool CollisionEndedEvent = false,
+		CogPath NonPlayerCollisionObjectPath = "",
+		bool ZoomEvent = true,
+		bool ZoomingIn = true,
+		float CamSize = 20,
+		CogPath ZoomTargetPath = "",
+		Enum ZoomEase = QuadInOut,
+		float ZoomTime = 3,
+		bool PanEvent = false,
+		bool PanAway = false,
+		CogPath PanTargetPath = "",
+		Quat PanEndRotation = [0, 0, 0, 0],
+		Enum PanEase = QuadInOut,
+		float PanTime = 0,
+		bool DollyEvent = false,
+		bool DollyAway = false,
+		bool DollyPlayerFocus = false,
+		CogPath DollyTargetPath = "",
+		Vec3 DollyEndPosition = [0, -20, 0],
+		float DollyTime = 3,
+		Enum DollyEase = QuadInOut,
+	},
+},

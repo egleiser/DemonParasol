@@ -92,7 +92,7 @@ class DogController : ZilchComponent
         {
             //Console.WriteLine("Target within runaway");
             
-            Console.WriteLine("Start running");
+            //Console.WriteLine("Start running");
             this.RunningAway = true;
         }
         else if(this.RunningAway)
@@ -105,7 +105,7 @@ class DogController : ZilchComponent
             this.SegmentRunAway(event);
             if(this.RunningAwayDistance >= this.MaxRunAwayDistance)
             {
-                Console.WriteLine("Dog Stopping");
+                //Console.WriteLine("Dog Stopping");
                 //Calls this function, which causes the dog to return to it original start position
                 //this.ReturnToStart(event);
                 this.Owner.RigidBody.Velocity = Real3();
@@ -275,7 +275,7 @@ class DogController : ZilchComponent
         var ranAwayDisplacement : Real3 = this.StartPosition - runAwayEndPosition;
         var distanceRan : Real = 0.0;
         distanceRan = Math.Length(ranAwayDisplacement);
-        Console.WriteLine("Distance Running = `distanceRan`");
+        //Console.WriteLine("Distance Running = `distanceRan`");
         ranAwayDisplacement = Math.Normalize(ranAwayDisplacement);
         this.Owner.RigidBody.Velocity = ranAwayDisplacement * this.RunAwaySpeed;
         this.RunningAway = false;

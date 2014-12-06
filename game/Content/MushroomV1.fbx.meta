@@ -1,0 +1,41 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 54f4661e51fe45db,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "MushroomV1.polySurface4",
+				uint64 ResourceId = 54f4661e51e303a6,
+			},
+			{
+				string Name = "MushroomV1.polySurface5",
+				uint64 ResourceId = 54f4661e51e303aa,
+			},
+			{
+				string Name = "MushroomV1.polySurface3",
+				uint64 ResourceId = 54f4661e51e303ac,
+			},
+			{
+				string Name = "MushroomV1.polySurface6",
+				uint64 ResourceId = 54f4661e51e303ae,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},

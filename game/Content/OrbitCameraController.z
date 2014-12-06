@@ -320,17 +320,49 @@ class OrbitCameraController : ZilchComponent
             }
             else
             {
+                Console.WriteLine("Non-targeted Dolly");
+                
                 //Action interpolating between original camera WorldTranslation and EndPosition as defined when dispatching event
-                var seq = Action.Sequence(this.Owner.Actions);
-                var grp = Action.Group(seq);
-                Action.Property(seq,
-                                @this.Owner.Transform.WorldTranslation,
-                                event.EndPosition,
-                                event.DollyTime,
-                                event.EasingCurve);
+                //var seq = Action.Sequence(this.Owner.Actions);
+                //var grp = Action.Group(seq);
+                //Action.Property(seq,
+                //                @this.Owner.Transform.WorldTranslation,
+                //                this.Owner.Transform.WorldTranslation + event.EndPosition,
+                //                event.DollyTime,
+                //                event.EasingCurve);
                 //Calls the function that will now allow the camera to update according to the player again
-                Action.Call(seq, this.CameraLock);
-                //Action.Call(grp, this.StopPlayer);
+                
+                
+                /*****@IMPORTANT: CHOOSING THIS OPTION MEANS THE PLAYER WILL STILL BE THE 
+                FOCUS OF THE CAMERA UNTIL THE DOLLY IS COMPLETE*********/
+                if(event.TargetFocus)
+                {
+                    //Action interpolating between original camera WorldTranslation and translation of the target object
+                    var seq = Action.Sequence(this.Owner.Actions);
+                    var grp = Action.Group(seq);
+                    Action.Property(seq,
+                                    @this.Owner.Transform.WorldTranslation,
+                                    this.Owner.Transform.Translation + event.EndPosition,
+                                    event.DollyTime,
+                                    event.EasingCurve);
+                    //Calls the function that disables the camera from updating according to player
+                    //Action.Call(seq, this.StopUpdateCamera);
+                    //Action.Call(grp, this.StopPlayer);
+                }
+                /******@IMPORTANT: CHOOSING THIS WILL NOT CHANGE THE ROTATION OF THE
+                CAMERA AT ALL; IT WILL ONLY CHANGE ITS WorldTranslation********/
+                else
+                {
+                    var seq2 = Action.Sequence(this.Owner.Actions);
+                    var grp2 = Action.Group(this.Owner.Actions);
+                    Action.Call(grp2, this.StopPlayer);
+                    Action.Call(grp2, this.StopUpdateCamera);
+                    Action.Property(seq2,
+                                    @this.Owner.Transform.WorldTranslation,
+                                    this.Owner.Transform.Translation + event.EndPosition,
+                                    event.DollyTime,
+                                    event.EasingCurve);
+                }
             }
             //Calls the ToggleCameraLock function so that the camera locks and will not update according to player movement
             
@@ -343,7 +375,7 @@ class OrbitCameraController : ZilchComponent
             var seq = Action.Sequence(this.Owner.Actions);
             var grp = Action.Group(seq);
             //Calls the ToggleCameraLock function so that the camera unlocks and updates according to player movement again
-            Action.Call(grp, this.CameraUnlock);
+            Action.Call(grp, this.UpdateCamera);
             Action.Call(grp, this.StartPlayer);
             //Action interpolating BACK to where camera was positioned before dolly.
             Action.Property(seq, @this.Owner.Transform.WorldTranslation, this.DefaultPosition, event.DollyTime, event.EasingCurve);
