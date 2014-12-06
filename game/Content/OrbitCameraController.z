@@ -400,6 +400,7 @@ class OrbitCameraController : ZilchComponent
                             false,
                             0.01,
                             Ease.Linear);
+            Action.Call(seq, this.FadeInFinished);
         }
         else
         {
@@ -474,5 +475,15 @@ class OrbitCameraController : ZilchComponent
     function StopPlayer()
     {
         this.PlayerCog.PlayerController.Active = false;
+    }
+    function FadeInFinished()
+    {
+        var fadeInEnded = new FadeInEndedEvent();
+        this.Space.DispatchEvent("fadeInEnded", fadeInEnded);
+    }
+    function FadeOutFinished()
+    {
+        var fadeOutEndedEvent = new FadeOutEndedEvent();
+        this.Space.DispatchEvent("fadeOutEndedEvent", fadeOutEndedEvent);
     }
 }

@@ -13,7 +13,7 @@ class ZIL_BridgeCollapse : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
-        Zero.Connect(this.Owner, "dialogueFinished", this.OndialogueFinished);
+        Zero.Connect(this.Space, "dialogueFinished", this.OndialogueFinished);
     }
 
     function OndialogueFinished(event : Event)
