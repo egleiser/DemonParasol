@@ -32,7 +32,7 @@ class TextInteractVolume : ZilchComponent
         var otherObject = event.OtherObject;
         if(otherObject.Name == "Player")
         {
-            if(this.Player.InputController.Gamepad.IsButtonPressed(Buttons.A))
+            if(this.Player.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space))
             {
                 Console.WriteLine("TextBox");
 

@@ -32,6 +32,8 @@ class DungeonTeleporter : ZilchComponent
     }
     function Teleport()
     {
+        this.LevelSettings.DataLoader.SaveFile.SaveData.LastLevel = this.Space.CurrentLevel.Name;
+        this.LevelSettings.DataLoader.StoreSaveFile();
         this.Space.LoadLevel(this.Room);
     }
     function OnLogicUpdate(event : UpdateEvent)

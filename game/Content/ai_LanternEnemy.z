@@ -2,6 +2,8 @@ enum DemonLanternState{Wander, Spoted, Chase, Inhale, Fire}
 class Ai_LanternEnemy : ZilchComponent
 {
     [Property]
+    var Invincible:Boolean = true;
+    [Property]
     var AiState:DemonLanternState = DemonLanternState.Wander;
     var Player:Cog = null;
     var FireBreath:Cog = null;
@@ -9,6 +11,7 @@ class Ai_LanternEnemy : ZilchComponent
     var FireBreathInhale:Cog = null;
     var Timer:Integer = 0;
     var Distance:Real = 0.0;
+    var LastKnownPlayerVec:Real3 = Real3(0,0,0);
     
     function Initialize(init : CogInitializer)
     {
@@ -35,6 +38,7 @@ class Ai_LanternEnemy : ZilchComponent
             {
                 
                 this.Timer = 0;
+                this.LastKnownPlayerVec = this.Player.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
                 this.Space.SoundSpace.PlayCueAt(SoundCue.Find("Demon_Inhale"),this.Owner.Transform.WorldTranslation);
                 this.AiState = DemonLanternState.Inhale;
             }
@@ -42,10 +46,11 @@ class Ai_LanternEnemy : ZilchComponent
         //Inhale State
         if(this.AiState == DemonLanternState.Inhale)
         {
-            this.LookatPlayer(event);
+            //this.LookatPlayer(event);
             this.Timer += 1;
             if(this.Timer > 180)
             {
+
                 this.Timer = 0;
                 this.Space.SoundSpace.PlayCueAt(SoundCue.Find("EnergySword_Strike1"),this.Owner.Transform.WorldTranslation);
                 this.AiState = DemonLanternState.Fire;
@@ -56,6 +61,12 @@ class Ai_LanternEnemy : ZilchComponent
         {
             //this.LookatPlayer(event);
             this.Timer += 1;
+            if(this.Timer % 16 == 0)
+            {
+                var fire = this.Space.CreateAtPosition(Archetype.Find("HurtSphereFire"), this.FireBreath.Transform.WorldTranslation);
+                fire.RigidBody.Velocity = Math.Normalize(this.LastKnownPlayerVec) * 10;
+                
+            }
             if(this.Timer > 180)
             {
                 this.Timer = 0;
@@ -67,8 +78,11 @@ class Ai_LanternEnemy : ZilchComponent
     
     function OnHit(event : HitEvent)
     {
-        this.Space.SoundSpace.PlayCueAt(SoundCue.Find("Demon_Hurt"),this.Owner.Transform.WorldTranslation);
-        this.Owner.Health.ApplyDamage(2);
+        if(this.Invincible == false)
+        {
+            this.Space.SoundSpace.PlayCueAt(SoundCue.Find("Demon_Hurt"),this.Owner.Transform.WorldTranslation);
+            this.Owner.Health.ApplyDamage(2);
+        }
         
     }
     function GetPlayerDistance():Real
@@ -114,6 +128,11 @@ class Ai_LanternEnemy : ZilchComponent
     }
     
     function OnDeath(event : Event)
+    {
+       this.Space.CreateAtPosition(Archetype.Find("DeathSmoke"), this.Owner.Transform.WorldTranslation);
+       this.Owner.Destroy();
+    }
+    function OnForceDeath()
     {
        this.Space.CreateAtPosition(Archetype.Find("DeathSmoke"), this.Owner.Transform.WorldTranslation);
        this.Owner.Destroy();
