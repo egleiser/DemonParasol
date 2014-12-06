@@ -81,7 +81,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [4.93482, -35.119, 44.0636],
+			Vec3 Translation = [-4.04638, -0.0362124, 63.1877],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.072285, -0.0704415, 0.00511806, 0.99488],
 		},
@@ -98,10 +98,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 30.3267,
+			float LookDistance = 45.2421,
 			float VerticalAngle = -0.145059,
 			float HorizontalAngle = 0.141372,
-			Vec3 LookTarget = [9.16302, -30.7352, 14.3548],
+			Vec3 LookTarget = [2.26135, 6.50357, 18.8674],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -835,24 +835,6 @@ Level =
 		Named = 
 		{
 			string Name = "ui-pause-menu",
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "540aac15949f28cc:arc_ui_thank_you",
-		LinkId = 
-		{
-			uint Id = 19,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [10.7731, -29.8268, 14.718],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Named = 
-		{
-			string Name = "ui_quit_thank-you",
 		},
 	},
 },

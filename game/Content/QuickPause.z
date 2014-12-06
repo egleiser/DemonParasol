@@ -10,7 +10,6 @@ class QuickPause : ZilchComponent
         this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
         Zero.Connect(this.Space, Events.FrameUpdate, this.OnFrameUpdate);
         this.PauseMenu = this.LevelSettings.HudCreator.HudSpace.FindObjectByName("ui-pause-menu");
-        
     }
 
     function OnFrameUpdate(event : UpdateEvent)
