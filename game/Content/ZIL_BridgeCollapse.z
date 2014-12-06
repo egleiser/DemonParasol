@@ -13,6 +13,12 @@ class ZIL_BridgeCollapse : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+        Zero.Connect(this.Owner, "dialogueFinished", this.OndialogueFinished);
+    }
+
+    function OndialogueFinished(event : Event)
+    {
+        this.FailStuff();
     }
 
     function OnCollisionPersisted(event : CollisionEvent)
@@ -21,19 +27,55 @@ class ZIL_BridgeCollapse : ZilchComponent
         {
             if(this.PathFail == true)
             {
+                var seq = Action.Sequence(this.Owner.Actions);
+                Action.Call(seq, this.FailDialogue);
+                Action.Call(seq, this.FailStuff);
                 /* player should freeze in place on the peak of the bridge */
                 /* player should look around */
                 /* an ominous noise should play */
-                /* bridge texture changes to ghostly appearance */
-                this.Owner.Parent.Model.Material = Material.Find("Mat_MetaBall");
-                /* player falls through the bridge and into the water */
-                this.Owner.Parent.MeshCollider.Ghost = true;
             }
             
             else
             {
-                /* Code for dialogue about how close player is to the Monk's house */
+                var textBoxEvent = new TextBoxEvent();
+                textBoxEvent.DialogueSegmentToUse = this.Space.FindObjectByName("MonkPathBridgeSuccess");
+                textBoxEvent.DistanceOnScreen = -2.0;
+                textBoxEvent.InOutTime = 0.5;
+                textBoxEvent.EaseCurve = Ease.QuadOut;
+                textBoxEvent.Opacity = 0.85;
+                textBoxEvent.OpacityTimeIn = 0.5;
+                textBoxEvent.OpacityEase = Ease.Linear;
+                var levelSettings = this.Space.LevelSettings;
+                var textBox = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
+                textBox.DispatchEvent("startDialogue", textBoxEvent);
             }
         }
     }
+    
+    function FailDialogue()
+    {
+        var textBoxEvent = new TextBoxEvent();
+        textBoxEvent.DialogueSegmentToUse = this.Space.FindObjectByName("MonkPathBridgeFailure");
+        textBoxEvent.DistanceOnScreen = -2.0;
+        textBoxEvent.InOutTime = 0.5;
+        textBoxEvent.EaseCurve = Ease.QuadOut;
+        textBoxEvent.Opacity = 0.85;
+        textBoxEvent.OpacityTimeIn = 0.5;
+        textBoxEvent.OpacityEase = Ease.Linear;
+        var levelSettings = this.Space.LevelSettings;
+        var textBox = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
+        textBox.DispatchEvent("startDialogue", textBoxEvent);
+    }
+    
+    function FailStuff()
+    {
+        if(this.PathFail == true)
+        {
+            /* bridge texture changes to ghostly appearance */
+            this.Owner.Parent.Model.Material = Material.Find("Mat_MetaBall");
+            /* player falls through the bridge and into the water */
+            this.Owner.Parent.MeshCollider.Ghost = true;
+        }
+    }
+                
 }

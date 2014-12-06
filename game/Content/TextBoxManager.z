@@ -49,8 +49,8 @@ class TextBoxManager : ZilchComponent
     {
         Console.WriteLine("Dialogue Started");
         var mainSpace = this.GameSession.FindSpaceByName("Main");
-        var player = mainSpace.FindObjectByName("Player");
-        player.PlayerController.Active = false;
+        //var player = mainSpace.FindObjectByName("Player");
+        //player.PlayerController.Active = false;
             
         this.DialogueSegment = event.DialogueSegmentToUse;
         this.CurrentTextIdx = 0;
@@ -103,13 +103,17 @@ class TextBoxManager : ZilchComponent
                             Real4(this.Owner.Sprite.Color.X, this.Owner.Sprite.Color.Y, this.Owner.Sprite.Color.Z, 0),
                             0.3,
                             Ease.Linear);
-            Action.Call(grp, this.ReactivateTongue);
+            var mainSpace = this.GameSession.FindSpaceByName("Main");
+            var dialogueFinished = new DialogueEventFinished();
+            mainSpace.FindObjectByName("PathDetector").DispatchEvent("dialogueFinished", dialogueFinished);
+            
+            //Action.Call(grp, this.ReactivateTongue);
         }
         else
         {
             var speakerSprite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerSprite;
-            Console.WriteLine(speakerSprite);
-            if(speakerSprite != this.TextBoxSprite)
+            Console.WriteLine(this.TextBoxSprite);
+            if(this.TextBoxSprite != speakerSprite)
             {
                 //Fades out current speaker's text box sprite
                 var seq = Action.Sequence(this.Owner.Actions);
@@ -130,6 +134,7 @@ class TextBoxManager : ZilchComponent
                 
                 var grp2 = Action.Group(seq);
                 //Fades in new speaker's sprite
+                Action.Call(grp2, this.SwitchSprite);
                 Action.Property(grp2,
                                 @this.Owner.Sprite.Color,
                                 Real4(this.Owner.Sprite.Color.X, this.Owner.Sprite.Color.Y, this.Owner.Sprite.Color.Z, 0.85),
@@ -155,8 +160,8 @@ class TextBoxManager : ZilchComponent
     
     function SwitchSprite()
     {
-        var speakerSprite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerSprite;
-        this.Owner.Sprite.SpriteSource = speakerSprite;
+        this.TextBoxSprite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerSprite;
+        this.Owner.Sprite.SpriteSource = this.TextBoxSprite;
     }
     
     function ContinueScrollEventCall()
@@ -168,12 +173,12 @@ class TextBoxManager : ZilchComponent
     
     function ReactivateTongue()
     {
-        var textBoxText = this.Space.FindObjectByName("TextBoxText");
-        textBoxText.TextScrollManager.PlayerDeactivated = false;
+        //var textBoxText = this.Space.FindObjectByName("TextBoxText");
+        //textBoxText.TextScrollManager.PlayerDeactivated = false;
         
-        var mainSpace = this.GameSession.FindSpaceByName("Main");
-        var player = mainSpace.FindObjectByName("Player");
-        player.PlayerController.Active = true;
+        //var mainSpace = this.GameSession.FindSpaceByName("Main");
+        //var player = mainSpace.FindObjectByName("Player");
+        //player.PlayerController.Active = true;
     }
     
     function FirstTextScroll()

@@ -69,7 +69,10 @@ class PlayerController : ZilchComponent
             }
         }
         this.ZTargetingUpdate(event);
-        this.ContextUpdate(event);
+        if(this.ContextButton != null)
+        {
+            this.ContextUpdate(event);
+        }
 
     }
     function AttackUpdate(event : UpdateEvent)
@@ -163,6 +166,7 @@ class PlayerController : ZilchComponent
     }
     function ContextUpdate(event : UpdateEvent)
     {
+        Console.WriteLine("DEBUG:`this.ContextButton`");
         if(this.ContextString == "")
         {
             if(this.TongueFinder != null)
