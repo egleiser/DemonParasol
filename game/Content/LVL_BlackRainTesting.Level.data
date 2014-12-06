@@ -65,6 +65,11 @@ Level =
 			float Pitch = 1,
 			bool Positional = false,
 		},
+		HudCreator = 
+		{
+			string HudLevel = "54f4128b2690c25b:HUD",
+			string SpaceArchetype = "537644322bbe895a:Space",
+		},
 		Hierarchy = 
 		{
 			Cog = 
@@ -157,9 +162,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [32.2738, -39.8434, 34.417],
+			Vec3 Translation = [32.2738, -39.8434, 34.4171],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.52026, 0.00378626, -0.00230661, 0.853997],
+			Quat Rotation = [0.520259, 0.00378627, -0.00230661, 0.853997],
 		},
 		Camera = 
 		{
@@ -287,6 +292,7 @@ Level =
 		AutoHopper = 
 		{
 			float JumpDistance = 2,
+			bool Active = true,
 			bool DebugDraw = false,
 			Vec4 DebugColorA = [0.17, 0, 1, 0.7],
 			Vec4 DebugColorB = [1, 0, 0.000599861, 0.7],
@@ -3574,6 +3580,7 @@ Level =
 		},
 		Ai_LanternEnemy = 
 		{
+			bool Invincible = true,
 			Enum AiState = Fire,
 		},
 		Targetable = 

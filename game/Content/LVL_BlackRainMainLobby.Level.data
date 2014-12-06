@@ -70,7 +70,7 @@ Level =
 		},
 		HudCreator = 
 		{
-			string HudLevel = "5479d824bf69306c:HUD",
+			string HudLevel = "54f4128b2690c25b:HUD",
 			string SpaceArchetype = "537644322bbe895a:Space",
 		},
 		QuitGameTest = 
@@ -172,9 +172,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [51.1601, 22.5424, 25.7935],
+			Vec3 Translation = [51.1602, 22.5424, 25.7934],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.247261, 0.254309, -0.067429, 0.932546],
+			Quat Rotation = [0.247261, 0.254311, -0.0674295, 0.932546],
 		},
 		Camera = 
 		{
@@ -302,6 +302,7 @@ Level =
 		AutoHopper = 
 		{
 			float JumpDistance = 2,
+			bool Active = true,
 			bool DebugDraw = false,
 			Vec4 DebugColorA = [0.17, 0, 1, 0.7],
 			Vec4 DebugColorB = [1, 0, 0.000599861, 0.7],

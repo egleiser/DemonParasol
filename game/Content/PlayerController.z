@@ -20,6 +20,8 @@ class PlayerController : ZilchComponent
     var Deceleration:Real = 1.5;
     [Property]
     var CameraPath:CogPath = null;
+    [Property]
+    var WindActive:Boolean = true;
     var MoveAngle:Real = 0;
     var Camera:Cog = null;
     
@@ -60,6 +62,7 @@ class PlayerController : ZilchComponent
                 this.BlockUpdate(event);
                 this.SwitchTargetUpdate(event);
             //}
+            //if(this.Owner.FindChildByName(""))
             this.TongueUpdate(event);
         }
         this.ZTargetingUpdate(event);
@@ -77,7 +80,7 @@ class PlayerController : ZilchComponent
     }
     function BlockUpdate(event : UpdateEvent)
     {
-        if(this.Owner.InputController.Gamepad.RightTrigger > 0.5 || Zero.Keyboard.KeyIsDown(Keys.F))
+        if((this.Owner.InputController.Gamepad.RightTrigger > 0.5 || Zero.Keyboard.KeyIsDown(Keys.F)) && this.WindActive)
         {
             var blockEvent = new BlockEvent();
             this.Owner.DispatchDown("blockEvent", blockEvent);
