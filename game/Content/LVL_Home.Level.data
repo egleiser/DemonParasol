@@ -74,6 +74,36 @@ Level =
 		{
 			CogPath DiagSegPath = "",
 		},
+		QuickPause = 
+		{
+		},
+		Z_UI_MenuPopUp = 
+		{
+			float FadeInTime = 1,
+			float FadeOutTime = 0.25,
+			Vec3 ScaleOutSize = [0.75, 0.75, 0.75],
+			float ScaleOutTime = 0.2,
+			Vec3 ScaleInSize = [1, 1, 1],
+			float ScaleInTime = 0.8,
+			Enum EaseType = QuadIn,
+			Vec3 StartingPosition = [0, 0, 9],
+		},
+		Z_WinLoseTrigger = 
+		{
+			Vec3 StartingPosition = [0, 0, 1],
+			Vec3 EndingPosition = [0, 6, 1],
+			float FadeInTime = 2,
+			Vec3 TrackingScale = [1.1, 1.1, 1],
+			float TrackingTime = 20,
+			Enum EaseType = QuadIn,
+		},
+		Z_LevelLogic = 
+		{
+			float SplashScreenDelayTimer = 4,
+			string NextSplashToLoad = "",
+			bool IsSplash = false,
+			string NextLevelToLoad = "",
+		},
 	},
 	Cog = 
 	{
@@ -87,9 +117,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-90.092, -66.5269, 13.7164],
+			Vec3 Translation = [-60.769, 7.71196, 74.8436],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.635387, 0.00550045, -0.00452615, 0.772161],
+			Quat Rotation = [-0.0130817, -0.0399864, -0.000523552, 0.999114],
 		},
 		Camera = 
 		{
@@ -104,10 +134,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 45.0496,
-			float VerticalAngle = -1.37706,
-			float HorizontalAngle = -0.0142467,
-			Vec3 LookTarget = [-90.2156, -22.3201, 5.04404],
+			float LookDistance = 29.8096,
+			float VerticalAngle = 0.026185,
+			float HorizontalAngle = 0.080001,
+			Vec3 LookTarget = [-58.3876, 6.93148, 45.1395],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 

@@ -1,16 +1,15 @@
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////
-//FILE-Z_UI_QuitConfirmation.z
+//FILE-Z_UI_MenuPopUp.z
 //AUTHOR-Travis Moore
 //COURSE-GAM205
 //COPYRIGHT-© 2014 DigiPen, All Rights Reserved.
 //////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-class Z_UI_QuitConfirmation:ZilchComponent
+class Z_UI_MenuPopUp:ZilchComponent
 {
     //PROPERTIES
-    
     //FADE
     [Property]
-    var FadeInTime:Real = 0.5;
+    var FadeInTime:Real = 1.0;
     [Property]
     var FadeOutTime:Real = 0.25;
     
@@ -28,38 +27,64 @@ class Z_UI_QuitConfirmation:ZilchComponent
     [Property]
     var EaseType:Ease = Ease.QuadIn;
     
+    //POSITION
+    [Property]
+    var StartingPosition:Real3 = Real3(0,0,9);
+    
     //non-settables
-    var StartingPosition:Real3 = Real3();
     var StartingScale:Real3 = Real3();
     var Focus:Cog = null;
-    var BtnYes:Cog = null;
-    var BtnNo:Cog = null;
+    var Btn1:Cog = null;
+    var Btn2:Cog = null;
+    var DialogBox:Cog = null;
+    var FocusBg:Cog = null;
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCTION-Initialize
-    //EXPLANATION-Initialize variables/functions so that we can use them
+    //FUNCTION-DetermineDialogBox()
+    //EXPLANATION-receives a dialog box type to display, makes the correct call for the things it will need
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    function Initialize(init:CogInitializer):Void
+    function DetermineDialogBox(dialogType_:String):Void
     {
-        //set starting position
-        this.StartingPosition = this.Owner.Transform.Translation;
-        this.StartingScale = this.Owner.Transform.Scale;
-        
-        //ensure we are invisible from the beginning
-        this.Owner.Sprite.Color = Real4(1,1,1,0.0);
-        this.Focus = this.Owner.FindChildByName("ui_focus");
-        this.Focus.Sprite.Color = Real4(1,1,1,0.0);
-        this.BtnYes = this.Owner.FindChildByName("btn-yes");
-        this.BtnYes.Sprite.Color = Real4(1,1,1,0.0);
-        this.BtnNo = this.Owner.FindChildByName("btn-no");
-        this.BtnNo.Sprite.Color = Real4(1,1,1,0.0);
-        
-        //move everything out of the way
-        this.Owner.Transform.Translation = Real3(0,-50,0);
+        if(dialogType_ == "PauseMenu")
+        {
+            //assign dialogbox to thank you arc type
+            this.DialogBox = this.Space.CreateAtPosition(Archetype.Find("arc_ui_pause_menu"), this.StartingPosition);
+            this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
+            //find parts of this dialog box
+            this.FocusBg = this.DialogBox.FindChildByName("ui-focus");
+            this.Btn1 = this.DialogBox.FindChildByName("btn-game-resume");
+            this.Btn2 = this.DialogBox.FindChildByName("btn-menu-main");
+            
+            //call fadein
+            this.FadeIn();
+        }
+        if(dialogType_ == "ThankYou")
+        {
+            //assign dialogbox to thank you arc type
+            this.DialogBox = this.Space.CreateAtPosition(Archetype.Find("arc_ui_thank_you"), this.StartingPosition);
+            this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
+            //find parts of this dialog box
+            this.FocusBg = this.DialogBox.FindChildByName("ui-focus");
+            this.Btn1 = this.DialogBox.FindChildByName("btn-menu-main");
+            this.Btn2 = this.DialogBox.FindChildByName("btn-game-quit-white");
+        }
+        if(dialogType_ == "QuitConfirmation")
+        {
+            //assign dialogbox to quit confirmation arc type
+            this.DialogBox = this.Space.CreateAtPosition(Archetype.Find("arc_ui_quit"), this.StartingPosition);
+            this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
+            //find parts of this dialog box
+            this.FocusBg = this.DialogBox.FindChildByName("ui-focus");
+            this.Btn1 = this.DialogBox.FindChildByName("btn-yes");
+            this.Btn2 = this.DialogBox.FindChildByName("btn-no");
+            
+            //call fadein
+            this.FadeIn();
+        }
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCTION-FadeIn
+    //FUNCTION-FadeIn()
     //EXPLANATION-Transparency 0.0 -> 1.0
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
     function FadeIn():Void
@@ -69,35 +94,35 @@ class Z_UI_QuitConfirmation:ZilchComponent
         
         //move into position
         Action.Property(aFadeIn,
-                        @this.Owner.Transform.Translation,
+                        @this.DialogBox.Transform.Translation,
                         this.StartingPosition,
                         0.1,
                         Ease.Linear);
                         
         //fade in quit dialog
         Action.Property(aFadeIn,
-                        @this.Owner.Sprite.Color,
+                        @this.DialogBox.Sprite.Color,
                         Real4(1,1,1,1.0),
                         this.FadeInTime,
                         Ease.Linear);
                         
         //fade in focus
         Action.Property(aFadeIn,
-                        @this.Focus.Sprite.Color,
+                        @this.FocusBg.Sprite.Color,
                         Real4(1,1,1,1.0),
                         this.FadeInTime,
                         Ease.Linear);
                         
-        //fade in yes
+        //fade in Btn1
         Action.Property(aFadeIn,
-                        @this.BtnYes.Sprite.Color,
+                        @this.Btn1.Sprite.Color,
                         Real4(1,1,1,1.0),
                         this.FadeInTime,
                         Ease.Linear);
                         
-        //fade in no
+        //fade in Btn2
         Action.Property(aFadeIn,
-                        @this.BtnNo.Sprite.Color,
+                        @this.Btn2.Sprite.Color,
                         Real4(1,1,1,1.0),
                         this.FadeInTime,
                         Ease.Linear);
@@ -114,31 +139,33 @@ class Z_UI_QuitConfirmation:ZilchComponent
         
         //fade in quit dialog
         Action.Property(aFadeOut,
-                        @this.Owner.Sprite.Color,
+                        @this.DialogBox.Sprite.Color,
                         Real4(1,1,1,0.0),
                         this.FadeInTime,
                         Ease.Linear);
                         
         //fade in focus
         Action.Property(aFadeOut,
-                        @this.Focus.Sprite.Color,
+                        @this.FocusBg.Sprite.Color,
                         Real4(1,1,1,0.0),
                         this.FadeInTime,
                         Ease.Linear);
                         
-        //fade in yes
+        //fade in Btn1
         Action.Property(aFadeOut,
-                        @this.BtnYes.Sprite.Color,
+                        @this.Btn1.Sprite.Color,
                         Real4(1,1,1,0.0),
                         this.FadeInTime,
                         Ease.Linear);
                         
-        //fade in no
+        //fade in Btn2
         Action.Property(aFadeOut,
-                        @this.BtnNo.Sprite.Color,
+                        @this.Btn2.Sprite.Color,
                         Real4(1,1,1,0.0),
                         this.FadeInTime,
                         Ease.Linear);
+                        
+        //bit of a delay
         Action.Delay(aFadeOut, 1.0);
         
         //move out position
@@ -155,12 +182,15 @@ class Z_UI_QuitConfirmation:ZilchComponent
         
         //wait
         Action.Delay(aWaitThenMove, 1.5);
-        
-        //move out position
-        Action.Property(aWaitThenMove,
-                        @this.Owner.Transform.Translation,
-                        Real3(this.StartingPosition.X, -50, this.StartingPosition.Z),
-                        0.1,
-                        Ease.Linear);
+        if(this.DialogBox == null)
+        {
+            this.DetermineDialogBox("PauseMenu");
+        }
+            //move out position
+            Action.Property(aWaitThenMove,
+                            @this.DialogBox.Transform.Translation,
+                            Real3(this.StartingPosition.X, -50, this.StartingPosition.Z),
+                            0.1,
+                            Ease.Linear);
     }
 }

@@ -57,6 +57,17 @@ Level =
 			int HilightInterval = 10,
 			bool FollowEditorCamera = false,
 		},
+		Z_UI_MenuPopUp = 
+		{
+			float FadeInTime = 1,
+			float FadeOutTime = 0.25,
+			Vec3 ScaleOutSize = [0.75, 0.75, 0.75],
+			float ScaleOutTime = 0.2,
+			Vec3 ScaleInSize = [1, 1, 1],
+			float ScaleInTime = 0.8,
+			Enum EaseType = QuadIn,
+			Vec3 StartingPosition = [0, 0, 9],
+		},
 	},
 	Cog = 
 	{
@@ -70,7 +81,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.96685, 2.11982, 48.5762],
+			Vec3 Translation = [-4.04638, -0.036211, 63.1877],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.072285, -0.0704415, 0.00511806, 0.99488],
 		},
@@ -87,7 +98,7 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 30.3267,
+			float LookDistance = 45.2421,
 			float VerticalAngle = -0.145059,
 			float HorizontalAngle = 0.141372,
 			Vec3 LookTarget = [2.26135, 6.50357, 18.8674],
@@ -806,6 +817,24 @@ Level =
 		Named = 
 		{
 			string Name = "ContextButton",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "540a8b380e40915e:arc_ui_pause_menu",
+		LinkId = 
+		{
+			uint Id = 18,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [2.59002, -20.8584, 16.1171],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "ui-pause-menu",
 		},
 	},
 },

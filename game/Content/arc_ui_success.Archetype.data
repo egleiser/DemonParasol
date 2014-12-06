@@ -6,43 +6,38 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "bg-menu-red",
+		string Name = "ui-success",
 	},
 	Archetyped = 
 	{
-		string Name = "545d0ce33b4dab02:arc_bg_menu_red",
-	},
-	EditorFlags = 
-	{
-		bool Locked = true,
-		bool Hidden = false,
+		string Name = "540ab3acb0d3e4d1:arc_ui_success",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, -1],
-		Vec3 Scale = [1, 1, 1],
+		Vec3 Translation = [86.7755, 63.7086, -0.000995636],
+		Vec3 Scale = [3, 3, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
 	{
 		bool Visible = true,
 		bool VisibilityCulling = true,
-		Vec4 Color = [0.74902, 0.305882, 0.305882, 1],
+		Vec4 Color = [1, 1, 1, 0],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "5275aa4d802dd6dc:Square",
+		string SpriteSource = "540ab30b8dbe86ff:ui-success",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
 		bool OnTop = false,
-		bool AnimationActive = false,
+		bool AnimationActive = true,
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
 	},
 	Area = 
 	{
-		Vec2 Size = [75, 50],
+		Vec2 Size = [20, 2.5],
 		Location Origin = Center,
 	},
 },

@@ -3,27 +3,41 @@ class QuickPause : ZilchComponent
     var GamepadIndex:Integer = 0;
     
     var Gamepad:Gamepad = null;
+    var PauseMenu:Cog = null;
+    var GameSpace:Space = null;
+    
     function Initialize(init : CogInitializer)
     {
         this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
         Zero.Connect(this.Space, Events.FrameUpdate, this.OnFrameUpdate);
+        
+        //grab the pause menu
+        this.PauseMenu = this.LevelSettings.HudCreator.HudSpace.FindObjectByName("ui-pause-menu");
+        //grab the main space
+        this.GameSpace = this.GameSession.FindSpaceByName("Main");
     }
 
     function OnFrameUpdate(event : UpdateEvent)
     {
-        if(Zero.Keyboard.KeyIsPressed(Keys.Escape) || this.Gamepad.IsButtonPressed(Buttons.Start))
+        if(Zero.Keyboard.KeyIsPressed(Keys.NumPad9) || this.Gamepad.IsButtonPressed(Buttons.Start))
         {
-            this.Space.TimeSpace.TogglePause();
+            this.TogglePauseMenu();
+        }
+    }
+    
+    function TogglePauseMenu():Void
+    {
+        this.Space.TimeSpace.TogglePause();
             this.Space.SoundSpace.Pause = !this.Space.SoundSpace.Pause;
             if(this.Space.SoundSpace.Pause)
             {
                 this.LevelSettings.HudCreator.HudSpace.SoundSpace.PlayCue(SoundCue.Find("Whoosh_ParasolOpen"));
-                this.LevelSettings.HudCreator.HudSpace.CreateAtPosition(Archetype.Find("BasicPauseText"), Real3(0,0,0));
+                
+                this.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox("PauseMenu");
             }
-            else if (this.LevelSettings.HudCreator.HudSpace.FindObjectByName("BasicPauseText") != null)
+            else
             {
-                this.LevelSettings.HudCreator.HudSpace.FindObjectByName("BasicPauseText").Destroy();
+                this.PauseMenu.Transform.Translation = Real3(0, -500, 1);
             }
-        }
     }
 }
