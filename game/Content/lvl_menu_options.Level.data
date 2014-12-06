@@ -87,14 +87,6 @@ Level =
 			Enum EaseType = QuadIn,
 			Vec3 StartingPosition = [0, 0, 9],
 		},
-		QuickPause = 
-		{
-		},
-		HudCreator = 
-		{
-			string HudLevel = "",
-			string SpaceArchetype = "537644322bbe895a:Space",
-		},
 	},
 	Cog = 
 	{
@@ -108,7 +100,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.34385, 49.5593, 50],
+			Vec3 Translation = [24.6168, 9.82379, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -120,7 +112,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 40.6571,
+			float Size = 30.1194,
 		},
 		EditorCameraController = 
 		{
@@ -128,7 +120,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-1.34385, 49.5593, 1.62667e-008],
+			Vec3 LookTarget = [24.6168, 9.82379, 1.18747e-006],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -175,6 +167,168 @@ Level =
 		Named = 
 		{
 			string Name = "bg-white",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 5,
+		},
+		Named = 
+		{
+			string Name = "bg-menu-red",
+		},
+		Archetyped = 
+		{
+			string Name = "545d0ce33b4dab02:arc_bg_menu_red",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "540ae2765c0a9814:ui-options",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = false,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 6,
+		},
+		Named = 
+		{
+			string Name = "btn-menu-main",
+		},
+		Archetyped = 
+		{
+			string Name = "549359035ea57e68:arc_menu_button",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.157213, -4, 1],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = true,
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "545d2b4bfc3fa37d:btn-menu-main-inactive",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Z_UI_Transitions = 
+		{
+			float FadeInTime = 0.5,
+			float FadeOutTime = 0.25,
+			float WaitTime = 2,
+			float ScaleOutTime = 0.2,
+			float ScaleInTime = 0.25,
+			float ScaleBiggerSize = 1.1,
+			Enum EaseType = QuadInOut,
+		},
+		Area = 
+		{
+			Vec2 Size = [6, 1.5],
+			Location Origin = Center,
+		},
+		Z_UI_Button = 
+		{
+			string LevelToLoad = "",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 7,
+		},
+		Named = 
+		{
+			string Name = "btn-game-erase-data",
+		},
+		Archetyped = 
+		{
+			string Name = "549359035ea57e68:arc_menu_button",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.269509, -0.5059, 1],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = true,
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "540ae11881afb514:btn-erase-game-data-inactive",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Z_UI_Transitions = 
+		{
+			float FadeInTime = 0.5,
+			float FadeOutTime = 0.25,
+			float WaitTime = 2,
+			float ScaleOutTime = 0.2,
+			float ScaleInTime = 0.25,
+			float ScaleBiggerSize = 1.1,
+			Enum EaseType = QuadInOut,
+		},
+		Area = 
+		{
+			Vec2 Size = [7.5, 1.5],
+			Location Origin = Center,
+		},
+		Z_UI_Button = 
+		{
+			string LevelToLoad = "",
 		},
 	},
 },

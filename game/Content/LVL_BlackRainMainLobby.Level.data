@@ -65,9 +65,12 @@ Level =
 			float Pitch = 1,
 			bool Positional = false,
 		},
+		DataLoader = 
+		{
+		},
 		HudCreator = 
 		{
-			string HudLevel = "5479d824bf69306c:HUD",
+			string HudLevel = "54f4128b2690c25b:HUD",
 			string SpaceArchetype = "537644322bbe895a:Space",
 		},
 		QuitGameTest = 
@@ -169,9 +172,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [34.4672, -14.0396, 19.8231],
+			Vec3 Translation = [51.1602, 22.5424, 25.7934],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.533406, 0.0236728, -0.0149364, 0.845396],
+			Quat Rotation = [0.247261, 0.254311, -0.0674295, 0.932546],
 		},
 		Camera = 
 		{
@@ -186,10 +189,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 94.5799,
-			float VerticalAngle = -1.12574,
-			float HorizontalAngle = -6.33917,
-			Vec3 LookTarget = [32.1886, 71.3269, -20.8306],
+			float LookDistance = 46.9671,
+			float VerticalAngle = -0.518364,
+			float HorizontalAngle = -6.81565,
+			Vec3 LookTarget = [30.4492, 45.8127, -9.35564],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -299,6 +302,7 @@ Level =
 		AutoHopper = 
 		{
 			float JumpDistance = 2,
+			bool Active = true,
 			bool DebugDraw = false,
 			Vec4 DebugColorA = [0.17, 0, 1, 0.7],
 			Vec4 DebugColorB = [1, 0, 0.000599861, 0.7],
@@ -1765,7 +1769,7 @@ Level =
 		{
 			Enum IndicatorType = Friendly,
 			Vec3 IndicatorOffset = [0, 0, 1],
-			float Range = 25,
+			float Range = 35,
 		},
 		Hierarchy = 
 		{
@@ -1987,7 +1991,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [50.8164, 26.9734, -3.11755],
+			Vec3 Translation = [49.1213, 25.6489, -3.11755],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.269006, -0.653939, -0.653939, 0.269006],
 		},
@@ -2789,56 +2793,56 @@ Level =
 							Enum SurfaceType = Dirt,
 						},
 					},
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 72,
-				},
-				Named = 
-				{
-					string Name = "DoorRight",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0.0348545, 10.0162, -65.9563],
-					Vec3 Scale = [1.39402, 1.28655, 0.238901],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
-					string MeshName = "54afcfd2e5fa7175:BlackRainMainLobby.DoorRight",
-					Vec4 Color = [1, 1, 1, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 73,
-				},
-				Named = 
-				{
-					string Name = "PentaShape",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 9.41743, -66.4322],
-					Vec3 Scale = [4.57786, 1, 4.57786],
-					Quat Rotation = [0.707107, 0, 0, 0.707107],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54a3db5a3ddb6b52:mat_LightIntense",
-					string MeshName = "54afcfd2e5fa7179:BlackRainMainLobby.PentaShape",
-					Vec4 Color = [0.79, 0.13035, 0.466771, 1],
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 72,
+						},
+						Named = 
+						{
+							string Name = "DoorRight",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, -4.76837e-007, 3.05176e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [6.82121e-013, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+							string MeshName = "54afcfd2e5fa7175:BlackRainMainLobby.DoorRight",
+							Vec4 Color = [1, 1, 1, 1],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 73,
+						},
+						Named = 
+						{
+							string Name = "PentaShape",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-0.0250053, -0.465407, -1.992],
+							Vec3 Scale = [3.28393, 4.18584, 3.55825],
+							Quat Rotation = [0.707107, 0, 0, 0.707107],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							string MaterialName = "54a3db5a3ddb6b52:mat_LightIntense",
+							string MeshName = "54afcfd2e5fa7179:BlackRainMainLobby.PentaShape",
+							Vec4 Color = [0.79, 0.13035, 0.466771, 1],
+						},
+					},
 				},
 			},
 			Cog = 
@@ -2853,7 +2857,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [57.6147, 0.891181, -19.6841],
+					Vec3 Translation = [51.5546, 0.891183, -16.3035],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, -0.55744, 3.3226e-007, 0.830217],
 				},
@@ -3092,7 +3096,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [83.6856, -6.40283e-005, -31.0792],
+					Vec3 Translation = [77.6255, -6.20133e-005, -27.6986],
 					Vec3 Scale = [0.56623, 1, 0.56623],
 					Quat Rotation = [-5.68434e-014, -0.562386, 3.35208e-007, 0.826875],
 				},
@@ -3813,7 +3817,7 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [26.3923, 3.30619, 2.03377],
-			Vec3 Scale = [8.10859, 3.30252, 3.64501],
+			Vec3 Scale = [13.8251, 3.30252, 3.64501],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Named = 
@@ -4028,7 +4032,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [26.3923, 46.4258, 2.03377],
+			Vec3 Translation = [26.3923, 47.2575, 2.03377],
 			Vec3 Scale = [8.10859, 3.30252, 3.64501],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -5132,7 +5136,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [52.0864, 26.2573, 5.12686],
+			Vec3 Translation = [50.3913, 24.9328, 5.12686],
 			Vec3 Scale = [0.5, 0.5, 0.5],
 			Quat Rotation = [0.252864, -0.660348, -0.660348, 0.252864],
 		},
@@ -5596,7 +5600,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [68.5162, 29.8388, 3.23735],
+			Vec3 Translation = [65.4862, 28.1485, 3.23735],
 			Vec3 Scale = [3.07005, 6.58777, 3.07005],
 			Quat Rotation = [-2.77017e-005, 0.707107, 0.707107, -2.77017e-005],
 		},
@@ -5915,7 +5919,7 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [26.4026, 21.7939, -0.0733643],
-			Vec3 Scale = [5.57941, 6.41092, 0.1],
+			Vec3 Scale = [13.2778, 6.41092, 0.1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Model = 
@@ -6069,6 +6073,516 @@ Level =
 		DungeonTeleporter = 
 		{
 			string Room = "54ae5cdc15c8d954:LVL_BlackRainBoss",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54afc3c2102f00bd:SpawnPointCollider",
+		LinkId = 
+		{
+			uint Id = 185,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [46.2629, 20.5407, 2.03377],
+			Vec3 Scale = [8.10859, 3.30252, 3.64501],
+			Quat Rotation = [0, 0, -0.581879, 0.813275],
+		},
+		Named = 
+		{
+			string Name = "SpawnPointCollider",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54afc3c2102f00bd:SpawnPointCollider",
+		LinkId = 
+		{
+			uint Id = 186,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [53.9359, 20.5538, 2.03377],
+			Vec3 Scale = [8.10859, 3.30252, 3.64501],
+			Quat Rotation = [0, 0, -0.977768, 0.209689],
+		},
+		Named = 
+		{
+			string Name = "SpawnPointCollider",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54afc3c2102f00bd:SpawnPointCollider",
+		LinkId = 
+		{
+			uint Id = 187,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [54.8729, 26.9271, 2.03377],
+			Vec3 Scale = [8.10859, 3.30252, 3.64501],
+			Quat Rotation = [0, 0, -0.977768, 0.209689],
+		},
+		Named = 
+		{
+			string Name = "SpawnPointCollider",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54afc3c2102f00bd:SpawnPointCollider",
+		LinkId = 
+		{
+			uint Id = 188,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [5.85025, 21.7226, 2.03377],
+			Vec3 Scale = [8.10859, 3.30252, 3.64501],
+			Quat Rotation = [0, 0, -0.791074, 0.611721],
+		},
+		Named = 
+		{
+			string Name = "SpawnPointCollider",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54afc3c2102f00bd:SpawnPointCollider",
+		LinkId = 
+		{
+			uint Id = 189,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-1.0404, 21.7226, 2.03377],
+			Vec3 Scale = [8.10859, 3.30252, 3.64501],
+			Quat Rotation = [0, 0, -0.988079, -0.153945],
+		},
+		Named = 
+		{
+			string Name = "SpawnPointCollider",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54afc3c2102f00bd:SpawnPointCollider",
+		LinkId = 
+		{
+			uint Id = 190,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-1.0404, 27.5312, 2.03377],
+			Vec3 Scale = [8.10859, 3.30252, 3.64501],
+			Quat Rotation = [0, 0, -0.988079, -0.153945],
+		},
+		Named = 
+		{
+			string Name = "SpawnPointCollider",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54afc3c2102f00bd:SpawnPointCollider",
+		LinkId = 
+		{
+			uint Id = 191,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [17.1691, 8.47635, 2.03377],
+			Vec3 Scale = [8.10859, 3.30252, 3.64501],
+			Quat Rotation = [0, 0, -0.581879, 0.813275],
+		},
+		Named = 
+		{
+			string Name = "SpawnPointCollider",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54afc3c2102f00bd:SpawnPointCollider",
+		LinkId = 
+		{
+			uint Id = 192,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [35.4202, 8.32652, 2.03377],
+			Vec3 Scale = [8.10859, 3.30252, 3.64501],
+			Quat Rotation = [0, 0, -0.791074, 0.611721],
+		},
+		Named = 
+		{
+			string Name = "SpawnPointCollider",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 193,
+		},
+		Named = 
+		{
+			string Name = "RoomSpawnPointFatMan",
+		},
+		Archetyped = 
+		{
+			string Name = "5452052be5f94825:RoomSpawnPoint",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [59.4623, 25.3166, 2.03377],
+			Vec3 Scale = [2, 2, 2],
+			Quat Rotation = [0, 0, -0.977768, 0.209689],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0, 0.000599861, 0.385],
+		},
+		RoomSpawnPoint = 
+		{
+			string LastLevel = "LVL_BlackRainFatMan",
+		},
+		CollideSetSpawnPoint = 
+		{
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "54bebd865c1562ee:CG_Player",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5452052be5f94825:RoomSpawnPoint",
+		LinkId = 
+		{
+			uint Id = 194,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-7.592, 27.7201, 2.03377],
+			Vec3 Scale = [2, 2, 2],
+			Quat Rotation = [0, 0, -0.977768, 0.209689],
+		},
+		Named = 
+		{
+			string Name = "RoomSpawnPointMasks",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 195,
+		},
+		Named = 
+		{
+			string Name = "RoomSpawnPointBoss",
+		},
+		Archetyped = 
+		{
+			string Name = "5452052be5f94825:RoomSpawnPoint",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [26.3477, 38.5251, 2.03377],
+			Vec3 Scale = [2, 2, 2],
+			Quat Rotation = [0, 0, -0.977768, 0.209689],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0, 0.000599861, 0.385],
+		},
+		RoomSpawnPoint = 
+		{
+			string LastLevel = "LVL_BlackRainBoss",
+		},
+		CollideSetSpawnPoint = 
+		{
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "54bebd865c1562ee:CG_Player",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 196,
+		},
+		Named = 
+		{
+			string Name = "PuzzleBRLobby",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [32.642, 26.4652, -51.3766],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		Puzzle_BR_Lobby = 
+		{
+			CogPath StarMask = ":/LightActivatorMask",
+			CogPath StarFatMan = ":/LightActivatorFatMan",
+			CogPath StarBoss = ":/LightActivatorBoss",
+			CogPath BossDoor = ":/BlackRainLobbyMDL/DoorLeft",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54afc3c2102f00bd:SpawnPointCollider",
+		LinkId = 
+		{
+			uint Id = 197,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [33.6598, 23.3317, 2.03377],
+			Vec3 Scale = [8.10859, 3.30252, 3.64501],
+			Quat Rotation = [0, 0, -0.271935, 0.962316],
+		},
+		Named = 
+		{
+			string Name = "SpawnPointCollider",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54afc3c2102f00bd:SpawnPointCollider",
+		LinkId = 
+		{
+			uint Id = 198,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [19.3754, 23.8664, 2.03377],
+			Vec3 Scale = [8.10859, 3.30252, 3.64501],
+			Quat Rotation = [0, 0, -0.91551, 0.402296],
+		},
+		Named = 
+		{
+			string Name = "SpawnPointCollider",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54afc3c2102f00bd:SpawnPointCollider",
+		LinkId = 
+		{
+			uint Id = 199,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [30.1667, 36.2082, 2.03377],
+			Vec3 Scale = [11.4842, 3.30097, 3.64501],
+			Quat Rotation = [0, 0, -0.706128, 0.708084],
+		},
+		Named = 
+		{
+			string Name = "SpawnPointCollider",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54afc3c2102f00bd:SpawnPointCollider",
+		LinkId = 
+		{
+			uint Id = 200,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [22.7901, 36.2082, 2.03377],
+			Vec3 Scale = [11.4842, 3.30097, 3.64501],
+			Quat Rotation = [0, 0, -0.706128, 0.708084],
+		},
+		Named = 
+		{
+			string Name = "SpawnPointCollider",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 201,
+		},
+		Named = 
+		{
+			string Name = "LightActivatorBossGuide",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [22.3798, 36.2287, 0.269744],
+			Vec3 Scale = [0.971362, 11.5339, 0.515896],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			string MaterialName = "5450c2d94501ab0d:mat_LightIntenseHighNoRef",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.661905, 0.02025, 0.675, 1],
+		},
+		SetModelVisibleOnOtherObject = 
+		{
+			CogPath TargetObjectPath = ":/LightActivatorBoss",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 202,
+		},
+		Named = 
+		{
+			string Name = "LightActivatorBossGuide",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [30.4778, 36.2287, 0.269744],
+			Vec3 Scale = [0.971362, 11.5339, 0.515896],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			string MaterialName = "5450c2d94501ab0d:mat_LightIntenseHighNoRef",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.661905, 0.02025, 0.675, 1],
+		},
+		SetModelVisibleOnOtherObject = 
+		{
+			CogPath TargetObjectPath = ":/LightActivatorBoss",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 203,
+		},
+		Named = 
+		{
+			string Name = "LightActivatorBossGuide",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [22.3432, 56.5017, 0.269744],
+			Vec3 Scale = [0.971362, 19.2774, 0.515896],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			string MaterialName = "5450c2d94501ab0d:mat_LightIntenseHighNoRef",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.661905, 0.02025, 0.675, 1],
+		},
+		SetModelVisibleOnOtherObject = 
+		{
+			CogPath TargetObjectPath = ":/LightActivatorBoss",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 204,
+		},
+		Named = 
+		{
+			string Name = "LightActivatorBossGuide",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [30.4955, 56.5017, 0.269744],
+			Vec3 Scale = [0.971362, 19.2774, 0.515896],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			string MaterialName = "5450c2d94501ab0d:mat_LightIntenseHighNoRef",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.661905, 0.02025, 0.675, 1],
+		},
+		SetModelVisibleOnOtherObject = 
+		{
+			CogPath TargetObjectPath = ":/LightActivatorBoss",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 205,
+		},
+		Named = 
+		{
+			string Name = "ArrowPoint",
+		},
+		Archetyped = 
+		{
+			string Name = "54af82929de79018:ArrowPoint",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [26.1457, 50.4675, 1.30056],
+			Vec3 Scale = [0.5, 0.5, 0.5],
+			Quat Rotation = [0.707107, 0, -0, -0.707107],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			string MaterialName = "549ac0a634988ae0:mat_Indicator",
+			string MeshName = "54af8334a8b06f89:Arrow",
+			Vec4 Color = [1, 0, 0.87, 1],
+		},
+		ArrowAnimations = 
+		{
+		},
+		SetModelVisibleOnOtherObject = 
+		{
+			CogPath TargetObjectPath = ":/LightActivatorBossGuide",
 		},
 	},
 },

@@ -14,6 +14,19 @@ class Puzzle_BR_FatMan : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        if(this.LevelSettings.DataLoader.SaveFile != null)
+        {
+            if(this.LevelSettings.DataLoader.SaveFile.SaveData.FatManPuzzleComplete == true)
+            {
+                this.Star.Cog.PentaGlow.Active = true;
+                this.Owner.SoundEmitter.Play();
+                this.PillarA.Cog.CrackedPillar.Active = true;
+                this.PillarB.Cog.CrackedPillar.Active = true;
+                this.Spawner.Cog.BombSpawner.Active = false;
+                this.PuzzleComplete = true;
+                
+            }
+        }
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -22,9 +35,15 @@ class Puzzle_BR_FatMan : ZilchComponent
         {
             if(this.PillarA.Cog.CrackedPillar.Active && this.PillarB.Cog.CrackedPillar.Active)
             {
+                
                 this.Spawner.Cog.BombSpawner.Active = false;
                 this.Star.Cog.PentaGlow.Active = true;
                 this.Owner.SoundEmitter.Play();
+                if(this.LevelSettings.DataLoader.SaveFile != null)
+                {
+                    this.LevelSettings.DataLoader.SaveFile.SaveData.FatManPuzzleComplete = true;
+                    this.LevelSettings.DataLoader.StoreSaveFile();
+                }
                 this.PuzzleComplete = true;
                 
             }

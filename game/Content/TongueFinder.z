@@ -21,10 +21,11 @@ class TongueFinder : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(this.Player.InputController.Gamepad.LeftTrigger < 0.5 && this.Latched)
+        if((this.Player.InputController.Gamepad.LeftTrigger < 0.5 && (!Zero.Keyboard.KeyIsDown(Keys.A))) && this.Latched)
         {
             this.Owner.Destroy();
         }
+
         Math.Normalize(this.InitialDirection);
         this.Owner.Transform.Translation += this.InitialDirection * this.InitialSpeed;
         if(this.GetDistanceToPlayer() > 30.0)

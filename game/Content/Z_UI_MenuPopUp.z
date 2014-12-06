@@ -58,6 +58,20 @@ class Z_UI_MenuPopUp:ZilchComponent
             //call fadein
             this.FadeIn();
         }
+        
+        if(dialogType_ == "EraseGameData")
+        {
+            //assign dialogbox to thank you arc type
+            this.DialogBox = this.Space.CreateAtPosition(Archetype.Find("arc_ui_are_you_sure"), this.StartingPosition);
+            this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
+            //find parts of this dialog box
+            this.FocusBg = this.DialogBox.FindChildByName("ui-focus");
+            this.Btn1 = this.DialogBox.FindChildByName("btn-yes-erase");
+            this.Btn2 = this.DialogBox.FindChildByName("btn-no");
+            
+            //call fadein
+            this.FadeIn();
+        }
         if(dialogType_ == "ThankYou")
         {
             //assign dialogbox to thank you arc type
