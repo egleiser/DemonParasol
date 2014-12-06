@@ -15,7 +15,7 @@ class TextBoxManager : ZilchComponent
     
     //Delay between the text box appearing/changing and start of text scroll
     [Property]
-    var SpeakerChangeDelay : Real = 0.3;
+    var SpeakerChangeDelay : Real = 0.1;
     
     //Dialogue Segment to get children TextBlockInfos from
     var DialogueSegment : Cog = null;
@@ -47,6 +47,7 @@ class TextBoxManager : ZilchComponent
 
     function OnStartDialogueEvent(event : TextBoxEvent)
     {
+        Console.WriteLine("Dialogue Started");
         var mainSpace = this.GameSession.FindSpaceByName("Main");
         var player = mainSpace.FindObjectByName("Player");
         player.PlayerController.Active = false;
@@ -56,6 +57,7 @@ class TextBoxManager : ZilchComponent
         
         if(this.DialogueSegment != null)
         {
+            Console.WriteLine(this.DialogueSegment);
             this.ChildTexts.Clear();
             
             foreach(var child in this.DialogueSegment.Children)
@@ -106,6 +108,7 @@ class TextBoxManager : ZilchComponent
         else
         {
             var speakerSprite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerSprite;
+            Console.WriteLine(speakerSprite);
             if(speakerSprite != this.TextBoxSprite)
             {
                 //Fades out current speaker's text box sprite

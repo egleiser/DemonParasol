@@ -27,7 +27,7 @@ class TongueManager : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(this.Player.PlayerController.TongueFinder != null)
+        if(this.Player.PlayerController.TongueFinder != null && this.EndTongue != null)
         {
             this.EndTongue.Transform.WorldTranslation = this.Player.PlayerController.TongueFinder.Transform.WorldTranslation;
         }

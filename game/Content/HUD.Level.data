@@ -81,7 +81,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-4.04638, -0.036211, 63.1877],
+			Vec3 Translation = [-4.04638, -0.0362124, 63.1877],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.072285, -0.0704415, 0.00511806, 0.99488],
 		},
@@ -289,7 +289,7 @@ Level =
 			CogPath TextBoxTextPath = "TextBoxText",
 			CogPath ContinueButtonPath = "TextBoxText/ContinueButton",
 			int GamepadIndex = 0,
-			float SpeakerChangeDelay = 0.3,
+			float SpeakerChangeDelay = 0.1,
 		},
 		Hierarchy = 
 		{
@@ -319,7 +319,7 @@ Level =
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 					TextPositionMode Position = UpperLeft,
 					string FontName = "545d0deafc601f9d:Canaro",
-					uint FontSize = 30,
+					uint FontSize = 23,
 					string Text = "",
 					bool OnTop = true,
 					Vec2 Size = [9, 5],
@@ -332,7 +332,7 @@ Level =
 					CogPath TextBoxPath = "..",
 					int GamepadIndex = 0,
 					float PunctuationDelay = 0.1,
-					float LetterDelay = 0.05,
+					float LetterDelay = 0.03,
 				},
 				Hierarchy = 
 				{
@@ -348,7 +348,7 @@ Level =
 						},
 						Archetyped = 
 						{
-							string Name = "544f49654ddc4b68:TextBoxParticle",
+							string Name = "54f40ddd5694ae61:TextBoxParticle",
 						},
 						Transform = 
 						{
