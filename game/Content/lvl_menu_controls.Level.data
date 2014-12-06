@@ -77,7 +77,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [5, 3.75, 51],
+			Vec3 Translation = [2.11111, 3.61662, 51],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -89,7 +89,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 40.6569,
+			float Size = 49.6586,
 		},
 		EditorCameraController = 
 		{
@@ -97,7 +97,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [5, 3.75, 0.999999],
+			Vec3 LookTarget = [2.11111, 3.61662, 0.999999],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -330,13 +330,14 @@ Level =
 		Z_GamepadButtonController = 
 		{
 			CogPath UpButton = "",
-			CogPath DownButton = ":/btn-menu-main",
+			CogPath DownButton = ":/BtnMenuMain",
 			CogPath LeftButton = "",
 			CogPath RightButton = ":/BtnArrowRight",
 			string AltSprite = "545d0e124f74489f:ui_selectorarrow_red",
 			int GamepadIndex = 0,
 			bool Active = false,
 			float Timer = 0,
+			string LevelToLoad = "",
 		},
 	},
 	Cog = 
@@ -437,14 +438,15 @@ Level =
 		},
 		Z_GamepadButtonController = 
 		{
-			CogPath UpButton = ":/btnGameQuit",
-			CogPath DownButton = ":/btnMenuControls",
+			CogPath UpButton = ":/BtnArrowRight",
+			CogPath DownButton = ":/BtnArrowRight",
 			CogPath LeftButton = "",
 			CogPath RightButton = "",
 			string AltSprite = "545d2b4bfc3f8313:btn-menu-main-active",
 			int GamepadIndex = 0,
-			bool Active = true,
+			bool Active = false,
 			float Timer = 0,
+			string LevelToLoad = "54682358d686e046:lvl_menu_main",
 		},
 	},
 	Cog = 
@@ -523,20 +525,59 @@ Level =
 		Z_GamepadButtonController = 
 		{
 			CogPath UpButton = "",
-			CogPath DownButton = ":/btn-menu-main",
-			CogPath LeftButton = ":/btn-arrow-left",
+			CogPath DownButton = ":/BtnMenuMain",
+			CogPath LeftButton = ":/BtnArrowLeft",
 			CogPath RightButton = "",
 			string AltSprite = "545d0e124f74489f:ui_selectorarrow_red",
 			int GamepadIndex = 0,
 			bool Active = true,
 			float Timer = 0,
+			string LevelToLoad = "",
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 11,
+				},
+				Named = 
+				{
+					string Name = "SpriteText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.691477, 0.334586, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					TextPositionMode Position = UpperLeft,
+					string FontName = "545d0deafc601f9d:Canaro",
+					uint FontSize = 30,
+					string Text = "A",
+					bool OnTop = false,
+					Vec2 Size = [0, 0],
+					TextAlign Align = Left,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+			},
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 11,
+			uint Id = 12,
 		},
 		Named = 
 		{
@@ -581,7 +622,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 12,
+			uint Id = 13,
 		},
 		Named = 
 		{
@@ -627,7 +668,7 @@ Level =
 		string Name = "545d477758b1a37e:arc_bg_white_fade",
 		LinkId = 
 		{
-			uint Id = 13,
+			uint Id = 14,
 		},
 		Transform = 
 		{

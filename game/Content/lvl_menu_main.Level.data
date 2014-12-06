@@ -206,6 +206,7 @@ Level =
 			int GamepadIndex = 0,
 			bool Active = true,
 			float Timer = 0,
+			string LevelToLoad = "",
 		},
 	},
 	Cog = 
@@ -272,14 +273,15 @@ Level =
 		},
 		Z_GamepadButtonController = 
 		{
-			CogPath UpButton = ":/btnMenuControls",
-			CogPath DownButton = ":/btnMenuCredits",
+			CogPath UpButton = ":/BtnMenuControls",
+			CogPath DownButton = ":/BtnMenuCredits",
 			CogPath LeftButton = "",
 			CogPath RightButton = "",
-			string AltSprite = "545d438a9a2a9707:btn-menu-main-red-active",
+			string AltSprite = "545d022f95859340:btn-menu-options-active",
 			int GamepadIndex = 0,
 			bool Active = false,
 			float Timer = 0,
+			string LevelToLoad = "54094741d5c11f40:lvl_menu_options",
 		},
 	},
 	Cog = 
@@ -354,6 +356,7 @@ Level =
 			int GamepadIndex = 0,
 			bool Active = false,
 			float Timer = 0,
+			string LevelToLoad = "54682379d159b7c0:lvl_menu_credits",
 		},
 	},
 	Cog = 
@@ -428,6 +431,7 @@ Level =
 			int GamepadIndex = 0,
 			bool Active = false,
 			float Timer = 0,
+			string LevelToLoad = "",
 		},
 	},
 	Cog = 
@@ -574,6 +578,7 @@ Level =
 			int GamepadIndex = 0,
 			bool Active = false,
 			float Timer = 0,
+			string LevelToLoad = "5468234ed3b4c804:lvl_menu_controls",
 		},
 	},
 	ArchetypeInstance = 
