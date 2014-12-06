@@ -13,6 +13,7 @@ SolidCompression=yes
 SetupIconFile="Icon.ico"
 OutputBaseFilename=SetsukoSetup
 LicenseFile=DigiPen_EULA.txt
+PrivilegesRequired=none
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";
