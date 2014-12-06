@@ -88,7 +88,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.146188, -1.84834, 49.999],
+			Vec3 Translation = [-1.04332, -1.84834, 49.999],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -100,7 +100,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 36.788,
+			float Size = 20.1897,
 		},
 		EditorCameraController = 
 		{
@@ -108,7 +108,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [0.146188, -1.84834, -0.00100032],
+			Vec3 LookTarget = [-1.04332, -1.84834, -0.00100032],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -142,7 +142,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "btn-game-new",
+			string Name = "BtnGameNew",
 		},
 		Archetyped = 
 		{
@@ -161,7 +161,8 @@ Level =
 		},
 		Z_UI_Button = 
 		{
-			string LevelToLoad = "54682358d686e046:lvl_menu_main",
+			string LevelToLoad = "5481a28b21c79b8d:LVL_HomeSegment",
+			int GamepadIndex = 0,
 		},
 		Sprite = 
 		{
@@ -195,6 +196,17 @@ Level =
 			float ScaleBiggerSize = 1.1,
 			Enum EaseType = QuadInOut,
 		},
+		Z_GamepadButtonController = 
+		{
+			CogPath UpButton = ":/BtnGameQuit",
+			CogPath DownButton = ":/BtnMenuControls",
+			CogPath LeftButton = "",
+			CogPath RightButton = "",
+			string AltSprite = "545d044a249a3c23:btn-new-game-active",
+			int GamepadIndex = 0,
+			bool Active = true,
+			float Timer = 0,
+		},
 	},
 	Cog = 
 	{
@@ -204,7 +216,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "btn-menu-options",
+			string Name = "BtnMenuOptions",
 		},
 		Archetyped = 
 		{
@@ -241,6 +253,7 @@ Level =
 		Z_UI_Button = 
 		{
 			string LevelToLoad = "",
+			int GamepadIndex = 0,
 		},
 		Area = 
 		{
@@ -257,6 +270,17 @@ Level =
 			float ScaleBiggerSize = 1.1,
 			Enum EaseType = QuadInOut,
 		},
+		Z_GamepadButtonController = 
+		{
+			CogPath UpButton = ":/btnMenuControls",
+			CogPath DownButton = ":/btnMenuCredits",
+			CogPath LeftButton = "",
+			CogPath RightButton = "",
+			string AltSprite = "545d438a9a2a9707:btn-menu-main-red-active",
+			int GamepadIndex = 0,
+			bool Active = false,
+			float Timer = 0,
+		},
 	},
 	Cog = 
 	{
@@ -266,7 +290,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "btn-menu-credits",
+			string Name = "BtnMenuCredits",
 		},
 		Archetyped = 
 		{
@@ -303,6 +327,7 @@ Level =
 		Z_UI_Button = 
 		{
 			string LevelToLoad = "",
+			int GamepadIndex = 0,
 		},
 		Area = 
 		{
@@ -319,6 +344,17 @@ Level =
 			float ScaleBiggerSize = 1.1,
 			Enum EaseType = QuadInOut,
 		},
+		Z_GamepadButtonController = 
+		{
+			CogPath UpButton = ":/BtnMenuOptions",
+			CogPath DownButton = ":/BtnGameQuit",
+			CogPath LeftButton = "",
+			CogPath RightButton = "",
+			string AltSprite = "545d044a249ddf34:btn-menu-credits-active",
+			int GamepadIndex = 0,
+			bool Active = false,
+			float Timer = 0,
+		},
 	},
 	Cog = 
 	{
@@ -328,7 +364,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "btn-game-quit",
+			string Name = "BtnGameQuit",
 		},
 		Archetyped = 
 		{
@@ -365,6 +401,7 @@ Level =
 		Z_UI_Button = 
 		{
 			string LevelToLoad = "",
+			int GamepadIndex = 0,
 		},
 		Area = 
 		{
@@ -380,6 +417,17 @@ Level =
 			float ScaleInTime = 0.25,
 			float ScaleBiggerSize = 1.1,
 			Enum EaseType = QuadInOut,
+		},
+		Z_GamepadButtonController = 
+		{
+			CogPath UpButton = ":/BtnMenuCredits",
+			CogPath DownButton = ":/BtnGameNew",
+			CogPath LeftButton = "",
+			CogPath RightButton = "",
+			string AltSprite = "545d044a249a79c2:btn-quit-game-active",
+			int GamepadIndex = 0,
+			bool Active = false,
+			float Timer = 0,
 		},
 	},
 	Cog = 
@@ -462,7 +510,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "btn-menu-controls",
+			string Name = "BtnMenuControls",
 		},
 		Archetyped = 
 		{
@@ -499,6 +547,7 @@ Level =
 		Z_UI_Button = 
 		{
 			string LevelToLoad = "",
+			int GamepadIndex = 0,
 		},
 		Area = 
 		{
@@ -514,6 +563,17 @@ Level =
 			float ScaleInTime = 0.25,
 			float ScaleBiggerSize = 1.1,
 			Enum EaseType = QuadInOut,
+		},
+		Z_GamepadButtonController = 
+		{
+			CogPath UpButton = ":/BtnGameNew",
+			CogPath DownButton = ":/BtnMenuOptions",
+			CogPath LeftButton = "",
+			CogPath RightButton = "",
+			string AltSprite = "545d044a249d9d93:btn-menu-controls-active",
+			int GamepadIndex = 0,
+			bool Active = false,
+			float Timer = 0,
 		},
 	},
 	ArchetypeInstance = 

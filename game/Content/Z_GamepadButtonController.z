@@ -1,0 +1,100 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FILE-Z_UI_MenuPopUp.z
+//AUTHOR-Eric Gleiser
+//COURSE-GAM205
+//COPYRIGHT-© 2014 DigiPen, All Rights Reserved.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+class Z_GamepadButtonController : ZilchComponent
+{
+    [Property]
+    var UpButton:CogPath = null;
+    [Property]
+    var DownButton:CogPath = null;
+    [Property]
+    var LeftButton:CogPath = null;
+    [Property]
+    var RightButton:CogPath = null;
+    
+    [Property]
+    var AltSprite:SpriteSource = null;
+    var InitSprite:SpriteSource = null;
+    
+    //GAMEPAD
+    [Property]
+    var GamepadIndex:Integer = 0;
+    var Gamepad:Gamepad = null;
+    
+    [Property]
+    var Active:Boolean = false;
+    
+    [Property]
+    var Timer:Real = 0;
+    
+    function Initialize(init : CogInitializer):Void
+    {
+        this.InitSprite = this.Owner.Sprite.SpriteSource;
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent):Void
+    {
+        if(this.Gamepad.IsActive && this.Active && this.Timer > 60)
+        {
+            if(this.Gamepad.LeftStick.X > 0.4 || Zero.Keyboard.KeyIsPressed(Keys.Right))
+            {
+                if(this.RightButton.Cog != null)
+                {
+                    //Console.WriteLine("Right");
+                    this.RightButton.Cog.Z_GamepadButtonController.Active = true;
+                    this.RightButton.Cog.Z_GamepadButtonController.Timer = 0;
+                    this.Active = false;
+                }
+            }
+            if(this.Gamepad.LeftStick.X < -0.4 || Zero.Keyboard.KeyIsPressed(Keys.Left))
+            {
+                if(this.LeftButton.Cog != null)
+                {
+                    //Console.WriteLine("Left");
+                    this.LeftButton.Cog.Z_GamepadButtonController.Active = true;
+                    this.LeftButton.Cog.Z_GamepadButtonController.Timer = 0;
+                    this.Active = false;
+                }
+            }
+            if(this.Gamepad.LeftStick.Y > 0.4 || Zero.Keyboard.KeyIsPressed(Keys.Up))
+            {
+                if(this.UpButton.Cog != null)
+                {
+                    //Console.WriteLine("Up");
+                    this.UpButton.Cog.Z_GamepadButtonController.Active = true;
+                    this.UpButton.Cog.Z_GamepadButtonController.Timer = 0;
+                    this.Active = false;
+                }
+            }
+            if(this.Gamepad.LeftStick.Y < -0.4 || Zero.Keyboard.KeyIsPressed(Keys.Down))
+            {
+                if(this.DownButton.Cog != null)
+                {
+                    //Console.WriteLine("Down");
+                    this.DownButton.Cog.Z_GamepadButtonController.Active = true;
+                    this.DownButton.Cog.Z_GamepadButtonController.Timer = 0;
+                    this.Active = false;
+                }
+            }
+        }
+        
+        if(this.Active && this.Timer == 1)
+        {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
+            this.Owner.Sprite.SpriteSource = this.AltSprite;
+        }
+        else
+        {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
+            this.Owner.Sprite.SpriteSource = this.InitSprite;
+        }
+        
+        ++this.Timer;
+    }
+}

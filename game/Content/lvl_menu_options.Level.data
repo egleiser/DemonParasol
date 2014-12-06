@@ -100,7 +100,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [24.6168, 9.82379, 50],
+			Vec3 Translation = [0.676785, -1.38914, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -112,7 +112,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 30.1194,
+			float Size = 22.313,
 		},
 		EditorCameraController = 
 		{
@@ -120,7 +120,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [24.6168, 9.82379, 1.18747e-006],
+			Vec3 LookTarget = [0.676785, -1.38914, 1.41019e-007],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -215,7 +215,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "btn-menu-main",
+			string Name = "BtnMenuMain",
 		},
 		Archetyped = 
 		{
@@ -231,6 +231,11 @@ Level =
 		{
 			bool Active = true,
 			bool CaptureMouse = true,
+		},
+		Z_UI_Button = 
+		{
+			string LevelToLoad = "54682358d686e046:lvl_menu_main",
+			int GamepadIndex = 0,
 		},
 		Sprite = 
 		{
@@ -249,6 +254,11 @@ Level =
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
 		},
+		Area = 
+		{
+			Vec2 Size = [6, 1.5],
+			Location Origin = Center,
+		},
 		Z_UI_Transitions = 
 		{
 			float FadeInTime = 0.5,
@@ -259,14 +269,16 @@ Level =
 			float ScaleBiggerSize = 1.1,
 			Enum EaseType = QuadInOut,
 		},
-		Area = 
+		Z_GamepadButtonController = 
 		{
-			Vec2 Size = [6, 1.5],
-			Location Origin = Center,
-		},
-		Z_UI_Button = 
-		{
-			string LevelToLoad = "",
+			CogPath UpButton = ":/BtnGameEraseData",
+			CogPath DownButton = "",
+			CogPath LeftButton = "",
+			CogPath RightButton = "",
+			string AltSprite = "545d2b4bfc3f8313:btn-menu-main-active",
+			int GamepadIndex = 0,
+			bool Active = true,
+			float Timer = 0,
 		},
 	},
 	Cog = 
@@ -277,7 +289,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "btn-game-erase-data",
+			string Name = "BtnGameEraseData",
 		},
 		Archetyped = 
 		{
@@ -285,7 +297,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.269509, -0.5059, 1],
+			Vec3 Translation = [-0.451409, -0.5059, 1],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -293,6 +305,11 @@ Level =
 		{
 			bool Active = true,
 			bool CaptureMouse = true,
+		},
+		Z_UI_Button = 
+		{
+			string LevelToLoad = "54682358d686e046:lvl_menu_main",
+			int GamepadIndex = 0,
 		},
 		Sprite = 
 		{
@@ -311,6 +328,11 @@ Level =
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
 		},
+		Area = 
+		{
+			Vec2 Size = [7.5, 1.5],
+			Location Origin = Center,
+		},
 		Z_UI_Transitions = 
 		{
 			float FadeInTime = 0.5,
@@ -321,14 +343,16 @@ Level =
 			float ScaleBiggerSize = 1.1,
 			Enum EaseType = QuadInOut,
 		},
-		Area = 
+		Z_GamepadButtonController = 
 		{
-			Vec2 Size = [7.5, 1.5],
-			Location Origin = Center,
-		},
-		Z_UI_Button = 
-		{
-			string LevelToLoad = "",
+			CogPath UpButton = "",
+			CogPath DownButton = ":/btn-menu-main",
+			CogPath LeftButton = "",
+			CogPath RightButton = "",
+			string AltSprite = "540ae11881af9661:btn-erase-game-data-active",
+			int GamepadIndex = 0,
+			bool Active = true,
+			float Timer = 0,
 		},
 	},
 },

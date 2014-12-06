@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [40.4847, 38.052, 1],
+		Vec3 Translation = [53.8122, 20.5522, 3.8147e-006],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -84,7 +84,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "btn-menu-main",
+				string Name = "BtnMainMenu",
 			},
 			Archetyped = 
 			{
@@ -100,6 +100,11 @@ Cog =
 			{
 				bool Active = true,
 				bool CaptureMouse = true,
+			},
+			Z_UI_Button = 
+			{
+				string LevelToLoad = "54682358d686e046:lvl_menu_main",
+				int GamepadIndex = 0,
 			},
 			Sprite = 
 			{
@@ -118,6 +123,11 @@ Cog =
 				float AnimationSpeed = 1,
 				uint StartFrame = 0,
 			},
+			Area = 
+			{
+				Vec2 Size = [6, 1.5],
+				Location Origin = Center,
+			},
 			Z_UI_Transitions = 
 			{
 				float FadeInTime = 0.5,
@@ -128,14 +138,16 @@ Cog =
 				float ScaleBiggerSize = 1.1,
 				Enum EaseType = QuadInOut,
 			},
-			Area = 
+			Z_GamepadButtonController = 
 			{
-				Vec2 Size = [6, 1.5],
-				Location Origin = Center,
-			},
-			Z_UI_Button = 
-			{
-				string LevelToLoad = "54682358d686e046:lvl_menu_main",
+				CogPath UpButton = "",
+				CogPath DownButton = "",
+				CogPath LeftButton = "",
+				CogPath RightButton = "../btn-game-quit-white",
+				string AltSprite = "545d2b4bfc3f8313:btn-menu-main-active",
+				int GamepadIndex = 0,
+				bool Active = true,
+				float Timer = 0,
 			},
 		},
 		Cog = 
@@ -146,7 +158,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "btn-game-quit-white",
+				string Name = "BtnGameQuitWhite",
 			},
 			Archetyped = 
 			{
@@ -163,11 +175,16 @@ Cog =
 				bool Active = true,
 				bool CaptureMouse = true,
 			},
+			Z_UI_Button = 
+			{
+				string LevelToLoad = "54682358d686e046:lvl_menu_main",
+				int GamepadIndex = 0,
+			},
 			Sprite = 
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				Vec4 Color = [1, 1, 1, 0],
+				Vec4 Color = [1, 1, 1, 1],
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
 				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
@@ -180,6 +197,11 @@ Cog =
 				float AnimationSpeed = 1,
 				uint StartFrame = 0,
 			},
+			Area = 
+			{
+				Vec2 Size = [5.5, 1.5],
+				Location Origin = Center,
+			},
 			Z_UI_Transitions = 
 			{
 				float FadeInTime = 0.5,
@@ -190,14 +212,16 @@ Cog =
 				float ScaleBiggerSize = 1.1,
 				Enum EaseType = QuadInOut,
 			},
-			Area = 
+			Z_GamepadButtonController = 
 			{
-				Vec2 Size = [5.5, 1.5],
-				Location Origin = Center,
-			},
-			Z_UI_Button = 
-			{
-				string LevelToLoad = "",
+				CogPath UpButton = "",
+				CogPath DownButton = "",
+				CogPath LeftButton = "../BtnMainMenu",
+				CogPath RightButton = "",
+				string AltSprite = "540aa3ac9e3bb8b1:btn-quit-game-white-active",
+				int GamepadIndex = 0,
+				bool Active = false,
+				float Timer = 0,
 			},
 		},
 	},

@@ -52,8 +52,8 @@ class Z_UI_MenuPopUp:ZilchComponent
             this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
             //find parts of this dialog box
             this.FocusBg = this.DialogBox.FindChildByName("ui-focus");
-            this.Btn1 = this.DialogBox.FindChildByName("btn-game-resume");
-            this.Btn2 = this.DialogBox.FindChildByName("btn-menu-main");
+            this.Btn1 = this.DialogBox.FindChildByName("BtnGameResume");
+            this.Btn2 = this.DialogBox.FindChildByName("BtnMenuMain");
             
             //call fadein
             this.FadeIn();
@@ -66,8 +66,8 @@ class Z_UI_MenuPopUp:ZilchComponent
             this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
             //find parts of this dialog box
             this.FocusBg = this.DialogBox.FindChildByName("ui-focus");
-            this.Btn1 = this.DialogBox.FindChildByName("btn-yes-erase");
-            this.Btn2 = this.DialogBox.FindChildByName("btn-no");
+            this.Btn1 = this.DialogBox.FindChildByName("BtnYesErase");
+            this.Btn2 = this.DialogBox.FindChildByName("BtnNo");
             
             //call fadein
             this.FadeIn();
@@ -79,8 +79,8 @@ class Z_UI_MenuPopUp:ZilchComponent
             this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
             //find parts of this dialog box
             this.FocusBg = this.DialogBox.FindChildByName("ui-focus");
-            this.Btn1 = this.DialogBox.FindChildByName("btn-menu-main");
-            this.Btn2 = this.DialogBox.FindChildByName("btn-game-quit-white");
+            this.Btn1 = this.DialogBox.FindChildByName("BtnMenuMain");
+            this.Btn2 = this.DialogBox.FindChildByName("BtnGameQuitWhite");
         }
         if(dialogType_ == "QuitConfirmation")
         {
@@ -89,8 +89,8 @@ class Z_UI_MenuPopUp:ZilchComponent
             this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
             //find parts of this dialog box
             this.FocusBg = this.DialogBox.FindChildByName("ui-focus");
-            this.Btn1 = this.DialogBox.FindChildByName("btn-yes");
-            this.Btn2 = this.DialogBox.FindChildByName("btn-no");
+            this.Btn1 = this.DialogBox.FindChildByName("BtnYes");
+            this.Btn2 = this.DialogBox.FindChildByName("BtnNo");
             
             //call fadein
             this.FadeIn();
