@@ -1,0 +1,29 @@
+class Puzzle_BR_Lobby : ZilchComponent
+{
+    [Property]
+    var StarMask:CogPath = null;
+    [Property]
+    var StarFatMan:CogPath = null;
+    [Property]
+    var StarBoss:CogPath = null;
+    [Property]
+    var BossDoor:CogPath = null;
+    function Initialize(init : CogInitializer)
+    {
+        if(this.LevelSettings.DataLoader.SaveFile != null)
+        {
+            this.StarMask.Cog.Model.Visible = this.LevelSettings.DataLoader.SaveFile.SaveData.MaskPuzzleComplete;
+            this.StarFatMan.Cog.Model.Visible = this.LevelSettings.DataLoader.SaveFile.SaveData.FatManPuzzleComplete;
+            this.StarBoss.Cog.Model.Visible = this.StarFatMan.Cog.Model.Visible && this.StarMask.Cog.Model.Visible;
+            if(this.StarBoss.Cog.Model.Visible)
+            {
+                this.BossDoor.Cog.Transform.WorldTranslation = Real3(-10000, -10000, -10000);
+            }
+        }
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

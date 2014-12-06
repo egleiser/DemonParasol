@@ -25,19 +25,19 @@ class InputController : ZilchComponent
         this.MovementVec = Real3(0,0,0);
         var keyboardVec:Real3 = Real3(0,0,0);
         var gamepadVec:Real3 = Real3(0,0,0);
-        if(Zero.Keyboard.KeyIsDown(Keys.W) )
+        if(Zero.Keyboard.KeyIsDown(Keys.Up) )
         {
             keyboardVec +=Real3(0,1,0);
         }
-        if(Zero.Keyboard.KeyIsDown(Keys.A))
+        if(Zero.Keyboard.KeyIsDown(Keys.Left))
         {
             keyboardVec +=Real3(1,0,0);
         }
-        if(Zero.Keyboard.KeyIsDown(Keys.S))
+        if(Zero.Keyboard.KeyIsDown(Keys.Down))
         {
             keyboardVec +=Real3(0,-1,0);
         }
-        if(Zero.Keyboard.KeyIsDown(Keys.D))
+        if(Zero.Keyboard.KeyIsDown(Keys.Right))
         {
             keyboardVec +=Real3(-1,0,0);
         }

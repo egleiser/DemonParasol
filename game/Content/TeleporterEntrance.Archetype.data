@@ -1,0 +1,143 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "TeleporterEntrance",
+	},
+	Archetyped = 
+	{
+		string Name = "5452525a0cb62c49:TeleporterExit",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-388.333, 198.506, 3.00353],
+		Vec3 Scale = [3.07005, 6.58777, 3.07005],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		string MaterialName = "5450caa5de3555f3:WaveGlow2side",
+		string MeshName = "4de0354322b3572e:Cylinder",
+		Vec4 Color = [0.99, 0.4455, 0.93555, 0.375],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = true,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	CylinderCollider = 
+	{
+		bool Ghost = true,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 1,
+		float Height = 1,
+		uint Direction = 1,
+	},
+	FootstepSurface = 
+	{
+		Enum SurfaceType = Dirt,
+	},
+	Light = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		LightType LightType = Point,
+		Vec4 Color = [0.4455, 0.99, 0.614295, 0.375],
+		float Intensity = 1,
+		float Range = 20,
+		float Falloff = 1,
+		float Angle = 45,
+		float Size = 20,
+	},
+	DungeonTeleporter = 
+	{
+		string Room = "545136ccf7f93c63:LVL_BlackRainMainLobby",
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "PentaShape",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -0.515101, 0],
+				Vec3 Scale = [0.5032, 0.046807, 0.5032],
+				Quat Rotation = [-1.72942e-011, 1, -2.58681e-013, 3.91761e-005],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "54a3db5a3ddb6b52:mat_LightIntense",
+				string MeshName = "54afcfd2e5fa7179:BlackRainMainLobby.PentaShape",
+				Vec4 Color = [0.447059, 0.988235, 0.615686, 1],
+			},
+			GodRayLight = 
+			{
+				GodRayLightType LightType = Point,
+				bool Active = true,
+				int Samples = 80,
+				Vec4 Color = [0.447059, 0.988235, 0.615686, 1],
+				float Intensity = 0.8,
+				float ScreenRadius = 0.25,
+				float OccluderClarity = 0.1,
+				bool ScreenEdgeFade = false,
+				float BeginFade = -0.1,
+				float EndFade = 0.1,
+				float DepthOffset = 0,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "RoundPlatformB",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [1.50492e-011, -0.477118, -1.92071e-007],
+				Vec3 Scale = [0.0386244, 0.0126772, 0.0386244],
+				Quat Rotation = [-1.72942e-011, 1, -2.56647e-013, 3.91761e-005],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54afcfd2e5fa716a:BlackRainMainLobby.RoundPlatformB",
+				Vec4 Color = [0.29415, 0.555, 0.328061, 1],
+			},
+			Hierarchy = 
+			{
+			},
+		},
+	},
+},
