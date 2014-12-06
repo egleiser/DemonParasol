@@ -86,9 +86,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [4.97438, -23.458, 8.02254],
+			Vec3 Translation = [-7.02409, -37.7169, 13.3524],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.600411, 0.00418729, -0.00314389, 0.799675],
+			Quat Rotation = [0.649009, -0.027864, 0.0237979, 0.759897],
 		},
 		Camera = 
 		{
@@ -103,10 +103,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 26.7365,
-			float VerticalAngle = -1.28805,
-			float HorizontalAngle = -0.0104724,
-			Vec3 LookTarget = [4.89626, 2.21683, 0.563632],
+			float LookDistance = 44.081,
+			float VerticalAngle = -1.41371,
+			float HorizontalAngle = 0.0733034,
+			Vec3 LookTarget = [-6.51904, 5.82134, 6.47489],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -214,25 +214,12 @@ Level =
 		{
 			Vec3 TeleportToLocation = [3, 7.5, 0],
 		},
-		AutoHopper = 
-		{
-			float JumpDistance = 2,
-			bool Active = false,
-			bool DebugDraw = false,
-			Vec4 DebugColorA = [0.17, 0, 1, 0.7],
-			Vec4 DebugColorB = [1, 0, 0.000599861, 0.7],
-			string GruntSound = "54fc772fa224f98d:PlayerAttackGrunt",
-		},
 		Health = 
 		{
 			float MaxHealth = 5,
 			bool DestroyAtZeroHealth = false,
 			bool SendsHealthModified = true,
 			float DamageScalar = 1,
-		},
-		TextBoxTester = 
-		{
-			CogPath DiagSegPath = "",
 		},
 		Hierarchy = 
 		{
@@ -12975,7 +12962,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d25e55bb,
+					uint64 CachedGeometryId = 54a620956e3b22dc,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -13727,7 +13714,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d25ea138,
+					uint64 CachedGeometryId = 54a620956e3b5ad4,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -14024,7 +14011,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d25948be,
+					uint64 CachedGeometryId = 54a620956e3a03d3,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -14627,7 +14614,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d25881c7,
+					uint64 CachedGeometryId = 54a620956e353d92,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -15524,7 +15511,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d25b1a5e,
+					uint64 CachedGeometryId = 54a620956e35d5dd,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -16092,7 +16079,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d25ba728,
+					uint64 CachedGeometryId = 54a620956e34611a,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -16618,7 +16605,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d25bd004,
+					uint64 CachedGeometryId = 54a620956e3488c7,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -16859,7 +16846,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d25befdf,
+					uint64 CachedGeometryId = 54a620956e34a802,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -17069,7 +17056,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d25a1631,
+					uint64 CachedGeometryId = 54a620956e34cc1b,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -17296,7 +17283,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d25a3261,
+					uint64 CachedGeometryId = 54a620956e34e6e3,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -17487,7 +17474,7 @@ Level =
 				{
 					int Layer = -2,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d25a5b5a,
+					uint64 CachedGeometryId = 54a620956e370e10,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -17723,7 +17710,7 @@ Level =
 				{
 					int Layer = -2,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d25a80a1,
+					uint64 CachedGeometryId = 54a620956e373388,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -17950,7 +17937,7 @@ Level =
 				{
 					int Layer = -3,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d25af1a0,
+					uint64 CachedGeometryId = 54a620956e37a60a,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -18416,7 +18403,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d25afb5d,
+					uint64 CachedGeometryId = 54a620956e37aff8,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -18531,7 +18518,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d2550312,
+					uint64 CachedGeometryId = 54a620956e37b770,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -18631,7 +18618,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d255808f,
+					uint64 CachedGeometryId = 54a620956e3635c9,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -19135,7 +19122,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d255fa61,
+					uint64 CachedGeometryId = 54a620956e36ae2b,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -19619,7 +19606,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d2540ee6,
+					uint64 CachedGeometryId = 54a620956e36c24d,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -19782,7 +19769,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d25731f7,
+					uint64 CachedGeometryId = 54a620956e31e537,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -20613,7 +20600,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d257476e,
+					uint64 CachedGeometryId = 54a620956e31fb48,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -20787,7 +20774,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 54a62dd5d2578682,
+					uint64 CachedGeometryId = 54a620956e303a6a,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -65086,13 +65073,13 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "Cube",
+			string Name = "IntroDiagCube1",
 		},
 		Transform = 
 		{
-			Vec3 Translation = [4.28549, -1.57673, 4.58191],
-			Vec3 Scale = [15, 1, 10],
-			Quat Rotation = [0, 0, 0.261827, 0.965115],
+			Vec3 Translation = [0.894393, 8.07061, 2.8273],
+			Vec3 Scale = [5, 5, 5],
+			Quat Rotation = [0, 0, 0.00248116, 0.999997],
 		},
 		Model = 
 		{
@@ -65341,7 +65328,7 @@ Level =
 				},
 				Named = 
 				{
-					string Name = "IntroBlock1",
+					string Name = "IntroBlock9",
 				},
 				Transform = 
 				{
@@ -65366,7 +65353,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "IntroDiagSeg1",
+			string Name = "MonkPathStray1",
 		},
 		Transform = 
 		{
@@ -65374,22 +65361,31 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-	},
-	Cog = 
-	{
-		LinkId = 
+		Hierarchy = 
 		{
-			uint Id = 2156,
-		},
-		Named = 
-		{
-			string Name = "IntroDiagSeg1",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [4.89626, 2.21683, 0.563632],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2156,
+				},
+				Named = 
+				{
+					string Name = "StrayText1",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-11.4153, 3.60451, 5.91126],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
+					string SpeakerTextBlock = "",
+				},
+			},
 		},
 	},
 	Cog = 
@@ -65400,7 +65396,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "IntroDiagSeg1",
+			string Name = "MonkPathStray2",
 		},
 		Transform = 
 		{
@@ -65408,22 +65404,31 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-	},
-	Cog = 
-	{
-		LinkId = 
+		Hierarchy = 
 		{
-			uint Id = 2158,
-		},
-		Named = 
-		{
-			string Name = "IntroDiagSeg1",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [4.89626, 2.21683, 0.563632],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2158,
+				},
+				Named = 
+				{
+					string Name = "Transform",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-11.4153, 3.60451, 5.91126],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "",
+					string SpeakerTextBlock = "",
+				},
+			},
 		},
 	},
 	Cog = 
@@ -65434,7 +65439,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "IntroDiagSeg1",
+			string Name = "MonkPathStray3",
 		},
 		Transform = 
 		{
@@ -65442,22 +65447,31 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-	},
-	Cog = 
-	{
-		LinkId = 
+		Hierarchy = 
 		{
-			uint Id = 2160,
-		},
-		Named = 
-		{
-			string Name = "IntroDiagSeg1",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [4.89626, 2.21683, 0.563632],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2160,
+				},
+				Named = 
+				{
+					string Name = "Transform",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-11.4153, 3.60451, 5.91126],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "",
+					string SpeakerTextBlock = "",
+				},
+			},
 		},
 	},
 	Cog = 
@@ -65468,7 +65482,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "IntroDiagSeg1",
+			string Name = "MonkPathBridgeSuccess",
 		},
 		Transform = 
 		{
@@ -65476,39 +65490,54 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-	},
-	Cog = 
-	{
-		LinkId = 
+		Hierarchy = 
 		{
-			uint Id = 2162,
-		},
-		Named = 
-		{
-			string Name = "IntroDiagSeg1",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [4.89626, 2.21683, 0.563632],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 2163,
-		},
-		Named = 
-		{
-			string Name = "IntroDiagSeg1",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [4.89626, 2.21683, 0.563632],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2162,
+				},
+				Named = 
+				{
+					string Name = "Transform",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-11.4153, 3.60451, 5.91126],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "",
+					string SpeakerTextBlock = "",
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2163,
+				},
+				Named = 
+				{
+					string Name = "Transform",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-11.4153, 3.60451, 5.91126],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "",
+					string SpeakerTextBlock = "",
+				},
+			},
 		},
 	},
 	Cog = 
@@ -65519,7 +65548,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "IntroDiagSeg1",
+			string Name = "MonkPathBridgeFailure",
 		},
 		Transform = 
 		{
@@ -65527,22 +65556,31 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-	},
-	Cog = 
-	{
-		LinkId = 
+		Hierarchy = 
 		{
-			uint Id = 2165,
-		},
-		Named = 
-		{
-			string Name = "IntroDiagSeg1",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [4.89626, 2.21683, 0.563632],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2165,
+				},
+				Named = 
+				{
+					string Name = "Transform",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-11.4153, 3.60451, 5.91126],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "",
+					string SpeakerTextBlock = "",
+				},
+			},
 		},
 	},
 	Cog = 
@@ -65553,7 +65591,139 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "IntroDiagSeg1",
+			string Name = "DivinerPath",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4.89626, 2.21683, 0.563632],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2167,
+				},
+				Named = 
+				{
+					string Name = "Transform",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-11.4153, 3.60451, 5.91126],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "",
+					string SpeakerTextBlock = "",
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2168,
+				},
+				Named = 
+				{
+					string Name = "Transform",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-11.4153, 3.60451, 5.91126],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "",
+					string SpeakerTextBlock = "",
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2169,
+				},
+				Named = 
+				{
+					string Name = "Transform",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-11.4153, 3.60451, 5.91126],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "",
+					string SpeakerTextBlock = "",
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2170,
+		},
+		Named = 
+		{
+			string Name = "DivinerHouseOutside",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4.89626, 2.21683, 0.563632],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 2171,
+				},
+				Named = 
+				{
+					string Name = "Transform",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-11.4153, 3.60451, 5.91126],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "",
+					string SpeakerTextBlock = "",
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2172,
+		},
+		Named = 
+		{
+			string Name = "DivinerHouseInside",
 		},
 		Transform = 
 		{
@@ -65566,11 +65736,11 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 2167,
+			uint Id = 2173,
 		},
 		Named = 
 		{
-			string Name = "IntroDiagSeg1",
+			string Name = "DungeonPath",
 		},
 		Transform = 
 		{
@@ -65583,17 +65753,286 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 2168,
+			uint Id = 2174,
 		},
 		Named = 
 		{
-			string Name = "IntroDiagSeg1",
+			string Name = "DungeonIntro",
 		},
 		Transform = 
 		{
 			Vec3 Translation = [4.89626, 2.21683, 0.563632],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2175,
+		},
+		Named = 
+		{
+			string Name = "DungeonCentral",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4.89626, 2.21683, 0.563632],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2176,
+		},
+		Named = 
+		{
+			string Name = "DungeonCentral1",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4.89626, 2.21683, 0.563632],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2177,
+		},
+		Named = 
+		{
+			string Name = "DungeonBombRoom",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4.89626, 2.21683, 0.563632],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2178,
+		},
+		Named = 
+		{
+			string Name = "DungeonLanternRoom",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4.89626, 2.21683, 0.563632],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2179,
+		},
+		Named = 
+		{
+			string Name = "DungeonPreBoss",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4.89626, 2.21683, 0.563632],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2180,
+		},
+		Named = 
+		{
+			string Name = "Transform",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-6.51904, 5.82134, 6.47489],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		TextBlockInfo = 
+		{
+			string SpeakerName = "",
+			string SpeakerSprite = "",
+			string SpeakerTextBlock = "",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2181,
+		},
+		Named = 
+		{
+			string Name = "Transform",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-6.51904, 5.82134, 6.47489],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		TextBlockInfo = 
+		{
+			string SpeakerName = "",
+			string SpeakerSprite = "",
+			string SpeakerTextBlock = "",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2182,
+		},
+		Named = 
+		{
+			string Name = "Transform",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-6.51904, 5.82134, 6.47489],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		TextBlockInfo = 
+		{
+			string SpeakerName = "",
+			string SpeakerSprite = "",
+			string SpeakerTextBlock = "",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2183,
+		},
+		Named = 
+		{
+			string Name = "Transform",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-6.51904, 5.82134, 6.47489],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		TextBlockInfo = 
+		{
+			string SpeakerName = "",
+			string SpeakerSprite = "",
+			string SpeakerTextBlock = "",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2184,
+		},
+		Named = 
+		{
+			string Name = "Transform",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-6.51904, 5.82134, 6.47489],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		TextBlockInfo = 
+		{
+			string SpeakerName = "",
+			string SpeakerSprite = "",
+			string SpeakerTextBlock = "",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2185,
+		},
+		Named = 
+		{
+			string Name = "Transform",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-6.51904, 5.82134, 6.47489],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		TextBlockInfo = 
+		{
+			string SpeakerName = "",
+			string SpeakerSprite = "",
+			string SpeakerTextBlock = "",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2186,
+		},
+		Named = 
+		{
+			string Name = "Transform",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-6.51904, 5.82134, 6.47489],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		TextBlockInfo = 
+		{
+			string SpeakerName = "",
+			string SpeakerSprite = "",
+			string SpeakerTextBlock = "",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2187,
+		},
+		Named = 
+		{
+			string Name = "Transform",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-6.51904, 5.82134, 6.47489],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		TextBlockInfo = 
+		{
+			string SpeakerName = "",
+			string SpeakerSprite = "",
+			string SpeakerTextBlock = "",
 		},
 	},
 },

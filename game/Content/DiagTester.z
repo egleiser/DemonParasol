@@ -1,0 +1,41 @@
+class DiagTester : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        //Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);    
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var textBoxEvent = new TextBoxEvent();
+        textBoxEvent.DialogueSegmentToUse = this.Space.FindObjectByName("IntroDiagSeg1");
+        textBoxEvent.DistanceOnScreen = -2.0;
+        textBoxEvent.InOutTime = 0.5;
+        textBoxEvent.EaseCurve = Ease.QuadOut;
+        textBoxEvent.Opacity = 0.85;
+        textBoxEvent.OpacityTimeIn = 0.5;
+        textBoxEvent.OpacityEase = Ease.Linear;
+        var levelSettings = this.Space.LevelSettings;
+        var textBox = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
+        textBox.DispatchEvent("startDialogue", textBoxEvent);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsPressed(Keys.T))
+        {
+            var textBoxEvent = new TextBoxEvent();
+            textBoxEvent.DialogueSegmentToUse = this.Space.FindObjectByName("IntroDiagSeg1");
+            textBoxEvent.DistanceOnScreen = -2.0;
+            textBoxEvent.InOutTime = 0.5;
+            textBoxEvent.EaseCurve = Ease.QuadOut;
+            textBoxEvent.Opacity = 0.85;
+            textBoxEvent.OpacityTimeIn = 0.5;
+            textBoxEvent.OpacityEase = Ease.Linear;
+            var levelSettings = this.Space.LevelSettings;
+            var textBox = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
+            textBox.DispatchEvent("startDialogue", textBoxEvent);
+        }
+    }
+}

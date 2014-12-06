@@ -63,7 +63,10 @@ class PlayerController : ZilchComponent
                 this.SwitchTargetUpdate(event);
             //}
             //if(this.Owner.FindChildByName(""))
-            this.TongueUpdate(event);
+            if(this.Owner.AutoHopper != null)
+            {
+                this.TongueUpdate(event);
+            }
         }
         this.ZTargetingUpdate(event);
         this.ContextUpdate(event);
@@ -218,9 +221,14 @@ class PlayerController : ZilchComponent
             }
             else
             {
-                this.Owner.DynamicMotor.MoveInDirection(Real3(0,0,0), this.Orientation.WorldUp);
-                this.Owner.GravityEffect.Active = true;
-                this.Owner.AutoHopper.Active = true;
+                if(this.Owner.AutoHopper != null)
+                {
+            
+                    this.Owner.DynamicMotor.MoveInDirection(Real3(0,0,0), this.Orientation.WorldUp);
+                    this.Owner.GravityEffect.Active = true;
+
+                    this.Owner.AutoHopper.Active = true;
+                }
             }
         }
         else
