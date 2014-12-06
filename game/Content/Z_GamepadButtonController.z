@@ -57,7 +57,13 @@ class Z_GamepadButtonController : ZilchComponent
             {
                 if(this.LevelToLoad != null)
                 {
-                    this.Space.LoadLevel(this.LevelToLoad);
+                    var mainSpace = this.GameSession.FindSpaceByName("Main");
+                    if(mainSpace.TimeSpace.Paused)
+                    {
+                        mainSpace.TimeSpace.TogglePause();
+                        mainSpace.SoundSpace.Pause = false;
+                    }
+                    mainSpace.LoadLevel(this.LevelToLoad);
                     this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Accept"));
                 }
                 
@@ -149,7 +155,7 @@ class Z_GamepadButtonController : ZilchComponent
             }
         }
         
-        if(this.Gamepad.IsActive && this.Active && this.Timer > 20)
+        if(this.Active && this.Timer > 20)
         {
             if(this.Gamepad.LeftStick.X > 0.4 || Zero.Keyboard.KeyIsPressed(Keys.Right))
             {
@@ -181,6 +187,7 @@ class Z_GamepadButtonController : ZilchComponent
                 {
                     this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Click"));
                     //Console.WriteLine("Up");
+                    Console.WriteLine(this.Owner.Name);
                     this.UpButton.Cog.Z_GamepadButtonController.Active = true;
                     this.UpButton.Cog.Z_GamepadButtonController.Timer = 0;
                     this.Timer = 0;

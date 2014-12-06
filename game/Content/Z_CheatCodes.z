@@ -42,12 +42,12 @@ class Z_CheatCodes:ZilchComponent
             }
         }
         
-        //boss win cheat-NUMPAD 8
+        //player hurt cheat-NUMPAD 8
         if(Zero.Keyboard.KeyIsPressed(Keys.NumPad8))
         {
             if(this.Space.FindObjectByName("Player") != null)
             {
-                this.Space.FindObjectByName("Player").Health.ApplyDamage(5);
+                this.Space.FindObjectByName("Player").Health.ApplyDamage(1);
             }
         }
     }

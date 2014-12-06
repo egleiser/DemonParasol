@@ -29,8 +29,7 @@ class Z_UI_MenuPopUp:ZilchComponent
     
     //POSITION
     [Property]
-    var StartingPosition:Real3 = Real3(0,0,9);
-    var SecondStartingPosition:Real3 = Real3(0,0,20);
+    var StartingPosition:Real3 = Real3(0,10,20);
     
     //non-settables
     var StartingScale:Real3 = Real3();
@@ -49,6 +48,7 @@ class Z_UI_MenuPopUp:ZilchComponent
         if(dialogType_ == "PauseMenu")
         {
             //assign dialogbox to thank you arc type
+            
             this.DialogBox = this.Space.CreateAtPosition(Archetype.Find("arc_ui_pause_menu"), this.StartingPosition);
             this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
             //find parts of this dialog box
@@ -62,7 +62,9 @@ class Z_UI_MenuPopUp:ZilchComponent
         if(dialogType_ == "PauseMainMenu")
         {
             //assign dialogbox to thank you arc type
-            this.DialogBox = this.Space.CreateAtPosition(Archetype.Find("arc_ui_are_you_sure_pause"), this.SecondStartingPosition);
+            //set to higher than original pause menu
+            this.StartingPosition = Real3(0,0,25);
+            this.DialogBox = this.Space.CreateAtPosition(Archetype.Find("arc_ui_are_you_sure_pause"), this.StartingPosition);
             this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
             //find parts of this dialog box
             this.FocusBg = this.DialogBox.FindChildByName("ui-focus");

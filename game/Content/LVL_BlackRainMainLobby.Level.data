@@ -80,6 +80,9 @@ Level =
 		QuickPause = 
 		{
 		},
+		Z_CheatCodes = 
+		{
+		},
 		Hierarchy = 
 		{
 			Cog = 
@@ -172,9 +175,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [39.0215, 19.7277, 37.6828],
+			Vec3 Translation = [26.9659, 33.8979, 39.0072],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.247261, 0.254311, -0.0674295, 0.932546],
+			Quat Rotation = [-0.0104711, -0.0034225, -3.58399e-005, 0.999939],
 		},
 		Camera = 
 		{
@@ -189,10 +192,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 51.9067,
-			float VerticalAngle = -0.518364,
-			float HorizontalAngle = -6.81565,
-			Vec3 LookTarget = [16.1324, 45.4453, -1.1629],
+			float LookDistance = 63.399,
+			float VerticalAngle = 0.0209427,
+			float HorizontalAngle = -6.27634,
+			Vec3 LookTarget = [27.3998, 32.5702, -24.3764],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -6584,6 +6587,78 @@ Level =
 		SetModelVisibleOnOtherObject = 
 		{
 			CogPath TargetObjectPath = ":/LightActivatorBossGuide",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54afce1ca4899a60:BridgeSegement",
+		LinkId = 
+		{
+			uint Id = 206,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [26.2346, 29.9108, -0.450835],
+			Vec3 Scale = [0.412025, 0.5, 0.5],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Named = 
+		{
+			string Name = "BridgeSegement",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54afce1ca4899a60:BridgeSegement",
+		LinkId = 
+		{
+			uint Id = 207,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [26.2346, 28.184, -0.450835],
+			Vec3 Scale = [0.412025, 0.5, 0.5],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Named = 
+		{
+			string Name = "BridgeSegement",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54afce1ca4899a60:BridgeSegement",
+		LinkId = 
+		{
+			uint Id = 208,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [26.2346, 43.0517, -0.450835],
+			Vec3 Scale = [0.412025, 0.5, 0.5],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Named = 
+		{
+			string Name = "BridgeSegement",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54afce1ca4899a60:BridgeSegement",
+		LinkId = 
+		{
+			uint Id = 209,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [26.2346, 44.7785, -0.450835],
+			Vec3 Scale = [0.412025, 0.5, 0.5],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Named = 
+		{
+			string Name = "BridgeSegement",
 		},
 	},
 },

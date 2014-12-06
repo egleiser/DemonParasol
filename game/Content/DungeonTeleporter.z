@@ -17,7 +17,10 @@ class DungeonTeleporter : ZilchComponent
         {
             this.Space.SoundSpace.PlayCue(SoundCue.Find("TeleportSound"));
             this.Player.PlayerController.Active = false;
-            this.Player.AutoHopper.Active = false;
+            if(this.Player.AutoHopper != null)
+            {
+                this.Player.AutoHopper.Active = false;
+            }
             this.Active = true;
             var fadeEvent = new FadeToBlackEvent();
             fadeEvent.EaseCurve = Ease.Linear;

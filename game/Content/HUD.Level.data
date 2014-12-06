@@ -81,7 +81,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-4.04638, -0.0362124, 63.1877],
+			Vec3 Translation = [-3.47483, -33.9801, 49.8889],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.072285, -0.0704415, 0.00511806, 0.99488],
 		},
@@ -98,10 +98,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 45.2421,
+			float LookDistance = 37.0411,
 			float VerticalAngle = -0.145059,
 			float HorizontalAngle = 0.141372,
-			Vec3 LookTarget = [2.26135, 6.50357, 18.8674],
+			Vec3 LookTarget = [1.68951, -28.6258, 13.6024],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -121,7 +121,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, 12.609],
+			Vec3 Translation = [0, 0, 40],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -817,24 +817,6 @@ Level =
 		Named = 
 		{
 			string Name = "ContextButton",
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "540a8b380e40915e:arc_ui_pause_menu",
-		LinkId = 
-		{
-			uint Id = 18,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [2.59002, -20.8584, 16.1171],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Named = 
-		{
-			string Name = "ui-pause-menu",
 		},
 	},
 },
