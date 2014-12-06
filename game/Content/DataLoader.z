@@ -1,0 +1,82 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: DataLoader.z             ////
+////    Written by: Eric Gleiser     ////
+////                                 ////
+////     Last Updated: 12-05-14      ////
+////                                 ////
+/////////////////////////////////////////
+/*****@NOTE: Quit Game after erasing save data */
+//Press Ctrl + R to read save file
+//Press Ctrl + S to store save file
+//Press Ctrl + E to erase save file
+class DataLoader : ZilchComponent
+{
+    var SaveFile:Cog = null;
+    function Initialize(init : CogInitializer)
+    {
+        Console.WriteLine("Auto Reading SaveData...");
+        this.ReadSaveFile();
+        
+        Zero.Connect(this.Space, Events.FrameUpdate, this.OnFrameUpdate);
+        //Zero.Connect(this.Space, Events., this.OnFrameUpdate);
+    }
+
+    function OnFrameUpdate(event : UpdateEvent)
+    {
+        //Data Loading Debug
+        if(Zero.Keyboard.KeyIsDown(Keys.Control))
+        {
+        
+            if(Zero.Keyboard.KeyIsPressed(Keys.R))
+            {
+               this.ReadSaveFile();
+            }
+            if(Zero.Keyboard.KeyIsPressed(Keys.S))
+            {
+               this.StoreSaveFile();
+            }
+            if(Zero.Keyboard.KeyIsPressed(Keys.E))
+            {
+               this.EraseSaveFile();
+            }
+        }
+    }
+    function ReadSaveFile()
+    {
+        Console.WriteLine("Reading SaveFile...");
+        this.SaveFile = Zero.ObjectStore.Restore("SaveFile", this.Space);
+        
+        if(this.SaveFile == null)
+        {
+            Console.WriteLine("SaveFile Not Found!");
+            Console.WriteLine("Creating SaveFile...");
+            this.SaveFile = Zero.ObjectStore.RestoreOrArchetype("SaveFile", "SaveFile", this.Space);
+            Zero.ObjectStore.Store("SaveFile", this.SaveFile);
+        }
+        else
+        {
+            Console.WriteLine("SaveFile Loaded!");
+            Zero.ObjectStore.Store("SaveFile", this.SaveFile);
+        }
+        
+    }
+    function StoreSaveFile()
+    {
+        Console.WriteLine("Storing SaveFile...");
+        if(this.SaveFile != null)
+        {
+            Zero.ObjectStore.Store("SaveFile", this.SaveFile);
+        }
+        else
+        {
+            Console.WriteLine("Store Failed!");
+            Console.WriteLine("Error: SaveFile Does not exist in the current space!");
+        }
+    }
+    function EraseSaveFile()
+    {
+        Console.WriteLine("Erasing SaveFile...");
+        Zero.ObjectStore.ClearStore();
+    }
+}

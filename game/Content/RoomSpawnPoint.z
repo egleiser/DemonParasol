@@ -1,0 +1,20 @@
+class RoomSpawnPoint : ZilchComponent
+{
+    [Property]
+    var LastLevel:String = "";
+    var Player:Cog = null;
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
+        if(this.LevelSettings.DataLoader.SaveFile.SaveData.LastLevel == this.LastLevel)
+        {
+            this.Player.Transform.WorldTranslation = this.Owner.Transform.WorldTranslation;
+            
+        }
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

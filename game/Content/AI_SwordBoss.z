@@ -310,7 +310,8 @@ class AI_SwordBoss : ZilchComponent
     {
         this.CurrentState = SwordBossState.Fire;
         this.FireSpeed = 1.0;
-        this.LastPlayerVector = Real3(this.GetPlayerVector(1.0).X,this.GetPlayerVector(1.0).Y,0.0);
+        this.LastPlayerVector = Math.Normalize(Real3(this.GetPlayerVector(1.0).X,this.GetPlayerVector(1.0).Y,0.0));
+        Console.WriteLine("Last Player Vector: `this.LastPlayerVector`");
         this.Smoke.SphericalParticleEmitter.Active = true;
         this.Smoke.SoundEmitter.Stop();
         this.Smoke.SoundEmitter.Play();
@@ -387,7 +388,7 @@ class AI_SwordBoss : ZilchComponent
     {
         if(this.ActionComplete)
         {
-            this.Owner.Transform.WorldTranslation += this.LastPlayerVector * 0.005 * this.FireSpeed;
+            this.Owner.Transform.WorldTranslation += this.LastPlayerVector * 0.05 * this.FireSpeed;
             this.FireSpeed += 0.1;
         }
 
@@ -406,6 +407,11 @@ class AI_SwordBoss : ZilchComponent
     
     function OnDeath(event : Event)
     {
+        if(this.LevelSettings.DataLoader.SaveFile != null)
+        {
+            this.LevelSettings.DataLoader.SaveFile.SaveData.BossComplete = true;
+            this.LevelSettings.DataLoader.StoreSaveFile();
+        }
         this.Camera.FindChildByName("MainLight").DreamLighting.DreamWorld = true;
         this.Owner.LevelSettings.FindChildByName("BGMManager").Destroy();
         this.StarGlow.PentaGlow.Active = true;

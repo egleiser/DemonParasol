@@ -1,47 +1,47 @@
-class Puzzle_BR_FatMan : ZilchComponent
+class Puzzle_BR_Mask : ZilchComponent
 {
     [Property]
-    var PillarA:CogPath = null;
+    var MaskA:CogPath = null;
     [Property]
-    var PillarB:CogPath = null;
+    var MaskB:CogPath = null;
     [Property]
-    var Spawner:CogPath = null;
+    var Enemy:CogPath = null;
     [Property]
     var Star:CogPath = null;
-    var PuzzleComplete:Boolean = false;
     
+    var PuzzleComplete:Boolean = false;
     
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         if(this.LevelSettings.DataLoader.SaveFile != null)
         {
-            if(this.LevelSettings.DataLoader.SaveFile.SaveData.FatManPuzzleComplete == true)
+            if(this.LevelSettings.DataLoader.SaveFile.SaveData.MaskPuzzleComplete == true)
             {
+                this.MaskA.Cog.Destroy();
+                this.MaskB.Cog.Destroy();
+                this.Enemy.Cog.Ai_LanternEnemy.OnForceDeath();
                 this.Star.Cog.PentaGlow.Active = true;
                 this.Owner.SoundEmitter.Play();
-                this.PillarA.Cog.CrackedPillar.Active = true;
-                this.PillarB.Cog.CrackedPillar.Active = true;
-                this.Spawner.Cog.BombSpawner.Active = false;
                 this.PuzzleComplete = true;
-                
             }
+            
         }
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
         if(this.PuzzleComplete == false)
         {
-            if(this.PillarA.Cog.CrackedPillar.Active && this.PillarB.Cog.CrackedPillar.Active)
+            if(this.MaskA.Cog == null && this.MaskB.Cog == null )
             {
                 
-                this.Spawner.Cog.BombSpawner.Active = false;
+                this.Enemy.Cog.Ai_LanternEnemy.OnForceDeath();
                 this.Star.Cog.PentaGlow.Active = true;
                 this.Owner.SoundEmitter.Play();
                 if(this.LevelSettings.DataLoader.SaveFile != null)
                 {
-                    this.LevelSettings.DataLoader.SaveFile.SaveData.FatManPuzzleComplete = true;
+                    this.LevelSettings.DataLoader.SaveFile.SaveData.MaskPuzzleComplete = true;
                     this.LevelSettings.DataLoader.StoreSaveFile();
                 }
                 this.PuzzleComplete = true;

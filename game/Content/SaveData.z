@@ -1,0 +1,46 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: SaveData.z               ////
+////    Written by: Eric Gleiser     ////
+////                                 ////
+////     Last Updated: 12-05-14      ////
+////                                 ////
+/////////////////////////////////////////
+
+/*****@NOTE: Name of Archytpe is "SaveFile" */
+class SaveData : ZilchComponent
+{
+    //DebugData
+    [Property]
+    var TestInt:Integer = 0;
+    [Property]
+    var CheatsEneabled:Boolean = false;
+    
+    //Player Data
+    [Serialized]
+    var PlayerHealth:Integer = 0;
+    [Serialized]
+    var MonkPath:Boolean = true;
+    [Property]
+    var LastLevel:String = "";
+
+    //Black Rain Dungeon Data
+    [Serialized]
+    var MaskPuzzleComplete:Boolean = false;
+    [Serialized]
+    var FatManPuzzleComplete:Boolean = false;
+    [Serialized]
+    var BossComplete:Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Console.WriteLine("SaveData Initialized!");
+        this.TestInt += 1;
+        Console.WriteLine("DEBUG: SaveData Loaded `this.TestInt` times!");
+        Console.WriteLine("DEBUG: Last Level Loaded Was `this.LastLevel`!");
+
+    }
+
+
+
+}
