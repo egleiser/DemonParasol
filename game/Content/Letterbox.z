@@ -1,0 +1,37 @@
+class Letterbox : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, "letterboxEvent", this.OnLetterboxEvent);
+    }
+
+    function OnLetterboxEvent(event : HUDLetterboxEvent)
+    {
+        if(this.Owner.Name == "LetterboxSpriteTop")
+        {
+            this.Owner.Sprite.Visible = true;
+            var seq = Action.Sequence(this.Owner.Actions);
+            Action.Property(seq,
+                            @this.Owner.Transform.Translation,
+                            Real3(this.Owner.Transform.Translation.X, event.DistanceOnScreen, this.Owner.Transform.Translation.Z),
+                            event.InOutTime,
+                            event.EaseCurve);
+        }
+                            
+        if(this.Owner.Name == "LetterboxSpriteBottom")
+        {
+            this.Owner.Sprite.Visible = true;
+            var seq = Action.Sequence(this.Owner.Actions);
+            Action.Property(seq,
+                            @this.Owner.Transform.Translation,
+                            Real3(this.Owner.Transform.Translation.X, -event.DistanceOnScreen, this.Owner.Transform.Translation.Z),
+                            event.InOutTime,
+                            event.EaseCurve);
+        }
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

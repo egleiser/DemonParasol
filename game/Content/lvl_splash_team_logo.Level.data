@@ -60,7 +60,7 @@ Level =
 		Z_SplashScreenLogic = 
 		{
 			float SplashScreenDelayTimer = 4,
-			string NextLevel = "54682326dd6dfdb8:lvl_splash_start",
+			string NextLevel = "540a25248e453bba:lvl_splash_best_played",
 		},
 	},
 	Cog = 
@@ -195,6 +195,7 @@ Level =
 			float WaitTime = 2,
 			float ScaleOutTime = 10,
 			float ScaleInTime = 0.8,
+			float ScaleBiggerSize = 1.1,
 			Enum EaseType = Linear,
 		},
 	},
