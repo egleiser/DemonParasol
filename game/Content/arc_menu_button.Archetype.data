@@ -6,7 +6,7 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "btn-game-quit",
+		string Name = "btn-game-resume",
 	},
 	Archetyped = 
 	{
@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [3.75, -1.5, 6],
+		Vec3 Translation = [0, -0.25, 1],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -31,7 +31,7 @@ Cog =
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "540aa3ac9e3bd60a:btn-quit-game-white-inactive",
+		string SpriteSource = "540af00cbc919946:ui-game-resume-inactive",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
@@ -52,7 +52,7 @@ Cog =
 	},
 	Area = 
 	{
-		Vec2 Size = [5.5, 1.5],
+		Vec2 Size = [6.75, 1.5],
 		Location Origin = Center,
 	},
 	Z_UI_Button = 

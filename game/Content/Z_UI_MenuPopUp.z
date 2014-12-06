@@ -38,6 +38,8 @@ class Z_UI_MenuPopUp:ZilchComponent
     var Btn2:Cog = null;
     var DialogBox:Cog = null;
     var FocusBg:Cog = null;
+    var Player:Cog = null;
+    var MenuPosition:Real3 = Real3();
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCTION-Initialize
@@ -45,6 +47,22 @@ class Z_UI_MenuPopUp:ZilchComponent
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
     function Initialize(init:CogInitializer):Void
     {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        if(this.Space.FindObjectByName("Player") != null)
+        {
+            this.Player = this.Space.FindChildByName("Player");
+        }
+    }
+
+    function OnLogicUpdate(event:UpdateEvent)
+    {
+        if(this.Player != null)
+        {
+            this.MenuPosition = Real3(this.Player.Transform.Translation.X,
+                                      this.Player.Transform.Translation.Y,
+                                      6.0);
+        }
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -56,7 +74,7 @@ class Z_UI_MenuPopUp:ZilchComponent
         if(dialogType_ == "PauseMenu")
         {
             //assign dialogbox to thank you arc type
-            this.DialogBox = this.Space.CreateAtPosition(Archetype.Find("arc_ui_thank_you"), this.StartingPosition);
+            this.DialogBox = this.Space.CreateAtPosition(Archetype.Find("arc_ui_pause_menu"), this.MenuPosition);
             this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
             //find parts of this dialog box
             this.FocusBg = this.DialogBox.FindChildByName("ui-focus");
@@ -187,12 +205,15 @@ class Z_UI_MenuPopUp:ZilchComponent
         
         //wait
         Action.Delay(aWaitThenMove, 1.5);
-        
-        //move out position
-        Action.Property(aWaitThenMove,
-                        @this.DialogBox.Transform.Translation,
-                        Real3(this.StartingPosition.X, -50, this.StartingPosition.Z),
-                        0.1,
-                        Ease.Linear);
+        if(this.DialogBox == null)
+        {
+            this.DetermineDialogBox("PauseMenu");
+        }
+            //move out position
+            Action.Property(aWaitThenMove,
+                            @this.DialogBox.Transform.Translation,
+                            Real3(this.StartingPosition.X, -50, this.StartingPosition.Z),
+                            0.1,
+                            Ease.Linear);
     }
 }

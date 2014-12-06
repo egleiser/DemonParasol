@@ -65,6 +65,12 @@ class Z_UI_Button:ZilchComponent
             this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-start-game-active");
         }
+        //if the button is "Resume Game
+        if(currentBtn == "btn-game-resume")
+        {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("ui-game-resume-active");
+        }
         //if button is "New Game"
         if(currentBtn == "btn-game-new")
         {
@@ -161,6 +167,12 @@ class Z_UI_Button:ZilchComponent
             this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-start-game-inactive");
         }
+        //if the button is "Resume Game
+        if(currentBtn == "btn-game-resume")
+        {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("ui-game-resume-inactive");
+        }
         //if button is "New Game"
         if(currentBtn == "btn-game-new")
         {
@@ -256,6 +268,16 @@ class Z_UI_Button:ZilchComponent
         {
             fadeoutwhite.Z_UI_Transitions.FadeOutTo("MainMenu");
         }
+        //if button is "Resume Game"
+        if(this.Owner.Name == "btn-game-resume")
+        {
+            //find the main space, assign to variable
+            var gameSpace = this.GameSession.FindSpaceByName("Main");
+            var pause = this.Space.FindObjectByName("ui-pause-menu");
+            pause.Transform.Translation = Real3(pause.Transform.Translation.X, -500, pause.Transform.Translation.Z);
+            //toggle pause back off
+            gameSpace.TimeSpace.TogglePause();
+        }
         //if button is "New Game"
         if(this.Owner.Name == "btn-game-new")
         {
@@ -286,7 +308,14 @@ class Z_UI_Button:ZilchComponent
         //if button is "Menu Main"
         if(this.Owner.Name == "btn-menu-main" || this.Owner.Name == "btn-menu-main-red")
         {
-            fadeoutwhite.Z_UI_Transitions.FadeOutTo("MainMenu");
+            if(fadeoutwhite != null)
+            {
+                fadeoutwhite.Z_UI_Transitions.FadeOutTo("MainMenu");
+            }
+            else
+            {
+                this.Space.TimeSpace.TogglePause();
+            }
         }
         if(this.Owner.Name == "btn-menu-options")
         {
