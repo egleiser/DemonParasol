@@ -90,7 +90,7 @@ class Z_UI_Button:ZilchComponent
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-quit-game-white-active");
         }
         //if button is "Quit Yes"
-        if(currentBtn == "btn-yes")
+        if(this.Owner.Sprite.SpriteSource.Name == "btn-yes-inactive")
         {
             this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-yes-active");
@@ -132,6 +132,14 @@ class Z_UI_Button:ZilchComponent
         {
             this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-credits-active");
+        }
+        
+        //GAME DATA
+        //if button is "Erase Game Data"
+        if(currentBtn == "btn-game-erase-data")
+        {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-erase-game-data-active");
         }
         
         //ARROW BUTTON
@@ -192,7 +200,7 @@ class Z_UI_Button:ZilchComponent
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-quit-game-white-inactive");
         }
         //if button is "Quit Yes"
-        if(currentBtn == "btn-yes")
+        if(this.Owner.Sprite.SpriteSource.Name == "btn-yes-active")
         {
             this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-yes-inactive");
@@ -234,6 +242,14 @@ class Z_UI_Button:ZilchComponent
         {
             this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-credits-inactive");
+        }
+        
+        //GAME DATA
+        //if button is "Erase Game Data"
+        if(currentBtn == "btn-game-erase-data")
+        {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-erase-game-data-inactive");
         }
         
         //ARROW BUTTON
@@ -328,6 +344,18 @@ class Z_UI_Button:ZilchComponent
         if(this.Owner.Name == "btn-menu-credits")
         {
             fadeoutwhite.Z_UI_Transitions.FadeOutTo("Credits");
+        }
+        
+        //ERASE GAME DATA
+        //if button is "Quit Game"
+        if(this.Owner.Name == "btn-game-erase-data" )
+        {
+            this.Space.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox("EraseGameData");
+        }
+        //if button is "Quit Yes"
+        if(currentBtn == "btn-yes-erase")
+        {
+            //do something
         }
         
         //ARROW BUTTON

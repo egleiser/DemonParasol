@@ -4,17 +4,12 @@ class QuickPause : ZilchComponent
     
     var Gamepad:Gamepad = null;
     var PauseMenu:Cog = null;
-    var GameSpace:Space = null;
     
     function Initialize(init : CogInitializer)
     {
         this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
         Zero.Connect(this.Space, Events.FrameUpdate, this.OnFrameUpdate);
-        
-        //grab the pause menu
         this.PauseMenu = this.LevelSettings.HudCreator.HudSpace.FindObjectByName("ui-pause-menu");
-        //grab the main space
-        this.GameSpace = this.GameSession.FindSpaceByName("Main");
     }
 
     function OnFrameUpdate(event : UpdateEvent)
@@ -33,7 +28,7 @@ class QuickPause : ZilchComponent
             {
                 this.LevelSettings.HudCreator.HudSpace.SoundSpace.PlayCue(SoundCue.Find("Whoosh_ParasolOpen"));
                 
-                this.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox("PauseMenu");
+                this.PauseMenu.Transform.Translation = Real3(0,0,1);
             }
             else
             {
