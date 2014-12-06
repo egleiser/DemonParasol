@@ -75,14 +75,14 @@ class Z_WinLoseTrigger:ZilchComponent
             if(messageType_ == "YouLose")
             {
                 //create lose object
-                this.Message = this.Space.CreateAtPosition(Archetype.Find("arc_ui_you_lose"), this.StartingPosition);
+                this.Message = this.LevelSettings.HudCreator.HudSpace.CreateAtPosition(Archetype.Find("arc_ui_you_lose"), this.StartingPosition);
                 //set MessageType
                 this.MessageType = "ThankYou";
             }
             if(messageType_ == "Success")
             {
                 //create success object
-                this.Message = this.Space.CreateAtPosition(Archetype.Find("arc_ui_success"), this.StartingPosition);
+                this.Message = this.LevelSettings.HudCreator.HudSpace.CreateAtPosition(Archetype.Find("arc_ui_success"), this.StartingPosition);
                 //set MessageType
                 this.MessageType = "ThankYou";
             }
@@ -90,7 +90,7 @@ class Z_WinLoseTrigger:ZilchComponent
             if(messageType_ == "BossDefeated")
             {
                 //create boss defeated object
-                this.Message = this.Space.CreateAtPosition(Archetype.Find("arc_ui_boss_defeated"), this.StartingPosition);
+                this.Message = this.LevelSettings.HudCreator.HudSpace.CreateAtPosition(Archetype.Find("arc_ui_boss_defeated"), this.StartingPosition);
                 //set MessageType
                 this.MessageType = "ThankYou";
             }

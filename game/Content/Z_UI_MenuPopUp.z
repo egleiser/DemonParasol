@@ -89,11 +89,11 @@ class Z_UI_MenuPopUp:ZilchComponent
         if(dialogType_ == "ThankYou")
         {
             //assign dialogbox to thank you arc type
-            this.DialogBox = this.Space.CreateAtPosition(Archetype.Find("arc_ui_thank_you"), this.StartingPosition);
+            this.DialogBox = this.LevelSettings.HudCreator.HudSpace.CreateAtPosition(Archetype.Find("arc_ui_thank_you"), this.StartingPosition);
             this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
             //find parts of this dialog box
             this.FocusBg = this.DialogBox.FindChildByName("ui-focus");
-            this.Btn1 = this.DialogBox.FindChildByName("BtnMenuMain");
+            this.Btn1 = this.DialogBox.FindChildByName("BtnMainMenu");
             this.Btn2 = this.DialogBox.FindChildByName("BtnGameQuitWhite");
         }
         if(dialogType_ == "QuitConfirmation")

@@ -97,7 +97,7 @@ class Z_GamepadButtonController : ZilchComponent
                     this.Timer = 0;
                     this.Active = false;
                 }
-                if(this.Owner.Name == "BtnPauseMenuMain" )
+                if(this.Owner.Name == "BtnPauseMenuMain" && this.GameSession.FindSpaceByName("Main").TimeSpace.Paused)
                 {
                     this.Space.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox("PauseMainMenu");
                     this.Timer = 0;
@@ -107,6 +107,12 @@ class Z_GamepadButtonController : ZilchComponent
                 if(this.Owner.Name == "BtnYes")
                 {
                     this.GameSession.Quit();
+                }
+                //resume game
+                if(this.Owner.Name == "BtnGameResume" && this.GameSession.FindSpaceByName("Main").TimeSpace.Paused)
+                {
+                    //this.Space.LevelSettings.Z_UI_MenuPopUp.FadeOut();
+                    this.GameSession.FindSpaceByName("Main").LevelSettings.QuickPause.TogglePauseMenu();
                 }
                 //if button is "Yes Erase"
                 if(this.Owner.Name == "BtnYesErase")

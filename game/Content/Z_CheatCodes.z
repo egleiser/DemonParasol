@@ -33,10 +33,22 @@ class Z_CheatCodes:ZilchComponent
             this.Space.LevelSettings.Z_WinLoseTrigger.DisplayMessage("Success");
         }
         
-        //boss win cheat-NUMPAD 2
-        if(Zero.Keyboard.KeyIsPressed(Keys.NumPad2))
+        //boss win cheat-NUMPAD 7
+        if(Zero.Keyboard.KeyIsPressed(Keys.NumPad7))
         {
-            this.Space.LevelSettings.Z_WinLoseTrigger.DisplayMessage("BossDefeated");
+            if(this.Space.FindObjectByName("SwordBossMaster") != null)
+            {
+                this.Space.FindObjectByName("SwordBossMaster").Health.ApplyDamage(3);
+            }
+        }
+        
+        //boss win cheat-NUMPAD 8
+        if(Zero.Keyboard.KeyIsPressed(Keys.NumPad8))
+        {
+            if(this.Space.FindObjectByName("Player") != null)
+            {
+                this.Space.FindObjectByName("Player").Health.ApplyDamage(5);
+            }
         }
     }
 }

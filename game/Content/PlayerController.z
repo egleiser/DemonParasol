@@ -63,14 +63,16 @@ class PlayerController : ZilchComponent
                 this.SwitchTargetUpdate(event);
             //}
             //if(this.Owner.FindChildByName(""))
-            if(this.Owner.AutoHopper != null)
+            if(this.Owner.AutoHopper != null && this.ContextButton != null)
             {
                 this.TongueUpdate(event);
             }
         }
         this.ZTargetingUpdate(event);
-        this.ContextUpdate(event);
-
+        if(this.ContextButton != null)
+        {
+            this.ContextUpdate(event);
+        }
     }
     function AttackUpdate(event : UpdateEvent)
     {

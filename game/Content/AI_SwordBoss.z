@@ -417,5 +417,8 @@ class AI_SwordBoss : ZilchComponent
         this.StarGlow.PentaGlow.Active = true;
         this.Space.CreateAtPosition(Archetype.Find("DeathSmoke"), this.Owner.Transform.WorldTranslation);
         this.Owner.Destroy();
+        
+        //boss defeated
+        this.Space.LevelSettings.Z_WinLoseTrigger.DisplayMessage("BossDefeated");
     }
 }
