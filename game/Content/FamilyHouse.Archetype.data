@@ -8,10 +8,6 @@ Cog =
 	{
 		string Name = "FamilyHouse",
 	},
-	Archetyped = 
-	{
-		string Name = "54064da2957badbf:FamilyHouse",
-	},
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
@@ -64,6 +60,31 @@ Cog =
 							},
 							Named = 
 							{
+								string Name = "polySurface3",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							Model = 
+							{
+								bool Visible = true,
+								bool VisibilityCulling = true,
+								string MaterialName = "544380cb7820af93:lambert1",
+								string MeshName = "54f56a9f9dc087b7:FamilyHouse.polySurface3",
+								Vec4 Color = [1, 1, 1, 1],
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 5,
+							},
+							Named = 
+							{
 								string Name = "polySurface4",
 							},
 							Transform = 
@@ -77,35 +98,35 @@ Cog =
 								bool Visible = true,
 								bool VisibilityCulling = true,
 								string MaterialName = "544380cb7820af93:lambert1",
-								string MeshName = "54064da2957dfbfc:FamilyHouse.polySurface4",
+								string MeshName = "54f56a9f9dc087bc:FamilyHouse.polySurface4",
 								Vec4 Color = [1, 1, 1, 1],
 							},
 						},
-					},
-				},
-				Cog = 
-				{
-					LinkId = 
-					{
-						uint Id = 5,
-					},
-					Named = 
-					{
-						string Name = "polySurface2",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [0, 1, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					Model = 
-					{
-						bool Visible = true,
-						bool VisibilityCulling = true,
-						string MaterialName = "544380cb7820af93:lambert1",
-						string MeshName = "54064da2957dfc02:FamilyHouse.polySurface2",
-						Vec4 Color = [1, 1, 1, 1],
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 6,
+							},
+							Named = 
+							{
+								string Name = "polySurface5",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							Model = 
+							{
+								bool Visible = true,
+								bool VisibilityCulling = true,
+								string MaterialName = "544380cb7820af93:lambert1",
+								string MeshName = "54f56a9f9dc087be:FamilyHouse.polySurface5",
+								Vec4 Color = [1, 1, 1, 1],
+							},
+						},
 					},
 				},
 			},
@@ -114,11 +135,11 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 6,
+				uint Id = 7,
 			},
 			Named = 
 			{
-				string Name = "polySurface5",
+				string Name = "pCube20",
 			},
 			Transform = 
 			{
@@ -131,7 +152,32 @@ Cog =
 				bool Visible = true,
 				bool VisibilityCulling = true,
 				string MaterialName = "544380cb7820af93:lambert1",
-				string MeshName = "54064da2957dfc04:FamilyHouse.polySurface5",
+				string MeshName = "54f56a9f9dc087c0:FamilyHouse.pCube20",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 8,
+			},
+			Named = 
+			{
+				string Name = "polySurface2",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "544380cb7820af93:lambert1",
+				string MeshName = "54f56a9f9dc087c2:FamilyHouse.polySurface2",
 				Vec4 Color = [1, 1, 1, 1],
 			},
 		},
