@@ -30,6 +30,7 @@ class Z_UI_MenuPopUp:ZilchComponent
     //POSITION
     [Property]
     var StartingPosition:Real3 = Real3(0,0,9);
+    var SecondStartingPosition:Real3 = Real3(0,0,20);
     
     //non-settables
     var StartingScale:Real3 = Real3();
@@ -54,6 +55,19 @@ class Z_UI_MenuPopUp:ZilchComponent
             this.FocusBg = this.DialogBox.FindChildByName("ui-focus");
             this.Btn1 = this.DialogBox.FindChildByName("BtnGameResume");
             this.Btn2 = this.DialogBox.FindChildByName("BtnMenuMain");
+            
+            //call fadein
+            this.FadeIn();
+        }
+        if(dialogType_ == "PauseMainMenu")
+        {
+            //assign dialogbox to thank you arc type
+            this.DialogBox = this.Space.CreateAtPosition(Archetype.Find("arc_ui_are_you_sure_pause"), this.SecondStartingPosition);
+            this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
+            //find parts of this dialog box
+            this.FocusBg = this.DialogBox.FindChildByName("ui-focus");
+            this.Btn1 = this.DialogBox.FindChildByName("BtnYesMenu");
+            this.Btn2 = this.DialogBox.FindChildByName("BtnNo");
             
             //call fadein
             this.FadeIn();

@@ -6,7 +6,7 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "btnGameNew",
+		string Name = "BtnYesMenu",
 	},
 	Archetyped = 
 	{
@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, -0.5, 1],
+		Vec3 Translation = [-4, -1.25, 6],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -36,7 +36,7 @@ Cog =
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "545d044a249a5cc4:btn-new-game-inactive",
+		string SpriteSource = "545d7dbc70f4d782:btn-yes-inactive",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
@@ -47,7 +47,7 @@ Cog =
 	},
 	Area = 
 	{
-		Vec2 Size = [6, 1.5],
+		Vec2 Size = [3, 1.5],
 		Location Origin = Center,
 	},
 	Z_UI_Transitions = 
@@ -62,13 +62,14 @@ Cog =
 	},
 	Z_GamepadButtonController = 
 	{
-		CogPath UpButton = ":/btnGameQuit",
-		CogPath DownButton = ":/btnMenuControls",
-		CogPath LeftButton = "",
-		CogPath RightButton = "",
-		string AltSprite = "545d044a249a3c23:btn-new-game-active",
+		CogPath UpButton = "",
+		CogPath DownButton = "",
+		CogPath LeftButton = "../BtnNo",
+		CogPath RightButton = "../BtnNo",
+		string AltSprite = "545d7dbc70f4b5ba:btn-yes-active",
 		int GamepadIndex = 0,
-		bool Active = true,
+		bool Active = false,
 		float Timer = 0,
+		string LevelToLoad = "",
 	},
 },

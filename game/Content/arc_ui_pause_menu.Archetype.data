@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [52.1864, 20.2067, 3.8147e-006],
+		Vec3 Translation = [83.1312, 63.7743, -0.000995636],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -84,7 +84,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "BtnMenuMain",
+				string Name = "BtnPauseMenuMain",
 			},
 			Archetyped = 
 			{
@@ -141,13 +141,14 @@ Cog =
 			Z_GamepadButtonController = 
 			{
 				CogPath UpButton = "../BtnGameResume",
-				CogPath DownButton = "",
+				CogPath DownButton = "../BtnGameResume",
 				CogPath LeftButton = "",
 				CogPath RightButton = "",
 				string AltSprite = "545d2b4bfc3f8313:btn-menu-main-active",
 				int GamepadIndex = 0,
 				bool Active = false,
 				float Timer = 0,
+				string LevelToLoad = "",
 			},
 		},
 		Cog = 
@@ -214,14 +215,15 @@ Cog =
 			},
 			Z_GamepadButtonController = 
 			{
-				CogPath UpButton = "",
-				CogPath DownButton = "../BtnMenuMain",
+				CogPath UpButton = "../BtnPauseMenuMain",
+				CogPath DownButton = "../BtnPauseMenuMain",
 				CogPath LeftButton = "",
 				CogPath RightButton = "",
 				string AltSprite = "540af00cbc91bc69:ui-game-resume-active",
 				int GamepadIndex = 0,
 				bool Active = true,
 				float Timer = 0,
+				string LevelToLoad = "",
 			},
 		},
 	},

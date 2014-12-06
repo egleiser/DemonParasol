@@ -63,7 +63,6 @@ Level =
 			string NextSplashToLoad = "",
 			bool IsSplash = false,
 			string NextLevelToLoad = "",
-
 		},
 		Z_UI_MenuPopUp = 
 		{
@@ -89,7 +88,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.04332, -1.84834, 49.999],
+			Vec3 Translation = [85.1749, 63.3354, 49.999],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -109,7 +108,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-1.04332, -1.84834, -0.00100032],
+			Vec3 LookTarget = [85.1749, 63.3354, -0.000996551],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -605,12 +604,19 @@ Level =
 			string Name = "bg-white",
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "540ab3acb0d3e4d1:arc_ui_success",
 		LinkId = 
 		{
 			uint Id = 12,
+		},
+		Named = 
+		{
+			string Name = "ui-success",
+		},
+		Archetyped = 
+		{
+			string Name = "540ab3acb0d3e4d1:arc_ui_success",
 		},
 		Transform = 
 		{
@@ -618,14 +624,27 @@ Level =
 			Vec3 Scale = [3, 3, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [1, 1, 1, 0],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "540ab30b8dbe86ff:ui-success",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
 		Area = 
 		{
 			Vec2 Size = [20, 2.5],
 			Location Origin = Center,
-		},
-		Named = 
-		{
-			string Name = "ui-success",
 		},
 	},
 },

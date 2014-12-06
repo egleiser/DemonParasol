@@ -81,17 +81,53 @@ class Z_GamepadButtonController : ZilchComponent
                     this.Timer = 0;
                     this.Active = false;
                 }
+                if(this.Owner.Name == "BtnGameEraseData" )
+                {
+                    this.Space.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox("EraseGameData");
+                    this.Timer = 0;
+                    this.Active = false;
+                }
+                if(this.Owner.Name == "BtnPauseMenuMain" )
+                {
+                    this.Space.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox("PauseMainMenu");
+                    this.Timer = 0;
+                    this.Active = false;
+                }
                 //if button is "Quit Yes"
                 if(this.Owner.Name == "BtnYes")
                 {
                     this.GameSession.Quit();
                 }
+                //if button is "Yes Erase"
+                if(this.Owner.Name == "BtnYesErase")
+                {
+                    this.Space.LevelSettings.DataLoader.EraseSaveFile();
+                    this.Space.LoadLevel(Level.Find("lvl_menu_main"));
+                }
+                
+                if(this.Owner.Name == "BtnYesMenu")
+                {
+                    this.Space.LoadLevel(Level.Find("lvl_menu_main"));
+                }
                 //if button is "Quit No"
                 if(this.Owner.Name == "BtnNo")
                 {
                     this.Space.LevelSettings.Z_UI_MenuPopUp.FadeOut();
-                    this.Space.FindObjectByName("BtnGameQuit").Z_GamepadButtonController.Active = true;
-                    this.Space.FindObjectByName("BtnGameQuit").Z_GamepadButtonController.Timer = 0;
+                    if(this.Space.FindObjectByName("BtnGameQuit") != null)
+                    {
+                        this.Space.FindObjectByName("BtnGameQuit").Z_GamepadButtonController.Active = true;
+                        this.Space.FindObjectByName("BtnGameQuit").Z_GamepadButtonController.Timer = 0;
+                    }
+                    if(this.Space.FindObjectByName("BtnGameEraseData") != null)
+                    {
+                        this.Space.FindObjectByName("BtnGameEraseData").Z_GamepadButtonController.Active = true;
+                        this.Space.FindObjectByName("BtnGameEraseData").Z_GamepadButtonController.Timer = 0;
+                    }
+                    if(this.Space.FindObjectByName("BtnPauseMenuMain") != null)
+                    {
+                        this.Space.FindObjectByName("BtnPauseMenuMain").Z_GamepadButtonController.Active = true;
+                        this.Space.FindObjectByName("BtnPauseMenuMain").Z_GamepadButtonController.Timer = 0;
+                    }
                     this.Active = false;
                 }
             }
