@@ -1,0 +1,160 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FILE-Z_WinLoseTrigger.z
+//AUTHOR-Travis Moore
+//COURSE-GAM205
+//COPYRIGHT-© 2014 DigiPen, All Rights Reserved.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+class Z_WinLoseTrigger:ZilchComponent
+{
+    //PROPERTIES
+    [Property]
+    var StartingPosition:Real3 = Real3(0.0, 0.0, 1.0);
+    [Property]
+    var EndingPosition:Real3 = Real3(0.0, 6.0, 1.0);
+    
+    //FADE
+    [Property]
+    var FadeInTime:Real = 2.0;
+    
+    //SCALE
+    [Property]
+    var TrackingScale:Real3 = Real3(1.1, 1.1, 1.0);
+    [Property]
+    var TrackingTime:Real = 20.0;
+    
+    //EASE
+    [Property]
+    var EaseType:Ease = Ease.QuadIn;
+    
+    //non-settables
+    var IsAlreadyRunning:Boolean = false;
+    var MessageType:String = null;
+    var Message:Cog = null;
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Initialize
+    //EXPLANATION-Initialize variables/functions for further use
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Initialize(init:CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-OnLogicUpdate
+    //EXPLANATION-Check to make sure that we are ready to bring in the dialog box
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function OnLogicUpdate(event:UpdateEvent):Void
+    {
+        //is our message created yet?
+        if(this.Message != null)
+        {
+            //let the words get the right size first
+            if(this.Message.Transform.Scale.X == 1.0)
+            {
+                //bring in the dialog box
+                this.Owner.LevelSettings.Z_UI_MenuPopUp.FadeIn();
+            }
+        }
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-DisplayMessage()
+    //EXPLANATION-Displays a unique message depending on type of string passed in, calls PopUpMenu
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function DisplayMessage(messageType_:String):Void
+    {
+        //make sure we don't run this a million times
+        if(!this.IsAlreadyRunning)
+        {
+            //set bool so we don't do this again
+            this.IsAlreadyRunning = true;
+            
+            //determine what kind of message to create
+            if(messageType_ == "YouLose")
+            {
+                //create lose object
+                this.Message = this.Space.CreateAtPosition(Archetype.Find("arc_ui_you_lose"), this.StartingPosition);
+                //set MessageType
+                this.MessageType = "ThankYou";
+            }
+            if(messageType_ == "Success")
+            {
+                //create success object
+                this.Message = this.Space.CreateAtPosition(Archetype.Find("arc_ui_success"), this.StartingPosition);
+                //set MessageType
+                this.MessageType = "ThankYou";
+            }
+            
+            if(messageType_ == "BossDefeated")
+            {
+                //create boss defeated object
+                this.Message = this.Space.CreateAtPosition(Archetype.Find("arc_ui_boss_defeated"), this.StartingPosition);
+                //set MessageType
+                this.MessageType = "ThankYou";
+            }
+            
+            //create an action sequence for tracking size
+            var aTracking = Action.Sequence(this.Owner.Actions);
+            
+            //create an action group
+            var aMessage = Action.Group(this.Owner.Actions);
+            
+            //fade in
+            Action.Property(aMessage,
+                         @this.Message.Sprite.Color,
+                         Real4(1,1,1,1.0),
+                         this.FadeInTime,
+                         this.EaseType);
+            
+            //scale to normal size
+            Action.Property(aMessage,
+                            @this.Message.Transform.Scale,
+                            Real3(1,1,1),
+                            this.FadeInTime,
+                            this.EaseType);
+                            
+            //scale to normal size
+            Action.Property(aMessage,
+                            @this.Message.Transform.Translation,
+                            this.EndingPosition,
+                            this.FadeInTime,
+                            this.EaseType);
+            
+            //bring us the menu
+            Action.Call(aTracking, this.QuitConfirmationCall);
+            
+            //scale normal size
+            Action.Property(aTracking,
+                            @this.Message.Transform.Scale,
+                            Real3(1,1,1),
+                            1.0,
+                            Ease.Linear);
+            
+            //scale very slowly
+            Action.Property(aTracking,
+                            @this.Message.Transform.Scale,
+                            this.TrackingScale,
+                            this.TrackingTime,
+                            Ease.Linear);
+                            
+            //scale normal size
+            Action.Property(aTracking,
+                            @this.Message.Transform.Scale,
+                            Real3(1,1,1),
+                            this.TrackingTime,
+                            Ease.Linear);
+         }
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-QuitConfirmationCall
+    //EXPLANATION-Calls Z_UI_QuitConfirmation to display a dialog box with 2 options: main menu and quit
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function QuitConfirmationCall():Void
+    {
+        //give message type to determine the right dialog box to use
+        this.Space.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox(this.MessageType);
+    }
+}

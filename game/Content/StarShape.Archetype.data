@@ -1,0 +1,25 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "PentaShape",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 9.41743, -66.4322],
+		Vec3 Scale = [4.57786, 1, 4.57786],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		string MaterialName = "54a3db5a3ddb6b52:mat_LightIntense",
+		string MeshName = "54afcfd2e5fa7179:BlackRainMainLobby.PentaShape",
+		Vec4 Color = [0.79, 0.13035, 0.466771, 1],
+	},
+},

@@ -1,0 +1,204 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "ui_quit_confirmation",
+	},
+	Archetyped = 
+	{
+		string Name = "540aac15949f28cc:arc_ui_thank_you",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [40.4847, 38.052, 1],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Sprite = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		Vec4 Color = [1, 1, 1, 1],
+		BlendMode BlendMode = Alpha,
+		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		string SpriteSource = "540aa2adfcab3f3a:ui-dialog-thank-you",
+		bool RenderMask = false,
+		bool FlipX = false,
+		bool FlipY = false,
+		bool OnTop = false,
+		bool AnimationActive = true,
+		float AnimationSpeed = 1,
+		uint StartFrame = 0,
+	},
+	Reactive = 
+	{
+		bool Active = true,
+		bool CaptureMouse = false,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "ui-focus",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.6, 2.5, -2],
+				Vec3 Scale = [3, 3, 3],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Sprite = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				Vec4 Color = [1, 1, 1, 0],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "545d0e124f6a4955:ui_focus",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "btn-menu-main",
+			},
+			Archetyped = 
+			{
+				string Name = "549359035ea57e68:arc_menu_button",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-3.25, -1.5, 1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Reactive = 
+			{
+				bool Active = true,
+				bool CaptureMouse = true,
+			},
+			Sprite = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				Vec4 Color = [1, 1, 1, 0],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "545d2b4bfc3fa37d:btn-menu-main-inactive",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			Z_UI_Transitions = 
+			{
+				float FadeInTime = 0.5,
+				float FadeOutTime = 0.25,
+				float WaitTime = 2,
+				float ScaleOutTime = 0.2,
+				float ScaleInTime = 0.25,
+				float ScaleBiggerSize = 1.1,
+				Enum EaseType = QuadInOut,
+			},
+			Area = 
+			{
+				Vec2 Size = [6, 1.5],
+				Location Origin = Center,
+			},
+			Z_UI_Button = 
+			{
+				string LevelToLoad = "54682358d686e046:lvl_menu_main",
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "btn-game-quit-white",
+			},
+			Archetyped = 
+			{
+				string Name = "549359035ea57e68:arc_menu_button",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [3.75, -1.5, 1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Reactive = 
+			{
+				bool Active = true,
+				bool CaptureMouse = true,
+			},
+			Sprite = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				Vec4 Color = [1, 1, 1, 0],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "540aa3ac9e3bd60a:btn-quit-game-white-inactive",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			Z_UI_Transitions = 
+			{
+				float FadeInTime = 0.5,
+				float FadeOutTime = 0.25,
+				float WaitTime = 2,
+				float ScaleOutTime = 0.2,
+				float ScaleInTime = 0.25,
+				float ScaleBiggerSize = 1.1,
+				Enum EaseType = QuadInOut,
+			},
+			Area = 
+			{
+				Vec2 Size = [5.5, 1.5],
+				Location Origin = Center,
+			},
+			Z_UI_Button = 
+			{
+				string LevelToLoad = "",
+			},
+		},
+	},
+},

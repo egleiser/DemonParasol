@@ -1,0 +1,140 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "MushroomV1",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "pCylinder5",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 4.44089e-016, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "polySurface4",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, -4.44089e-016, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						string MaterialName = "544380cb7820af93:lambert1",
+						string MeshName = "54f4661e51e303a6:MushroomV1.polySurface4",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 4,
+					},
+					Named = 
+					{
+						string Name = "polySurface5",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, -4.44089e-016, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						string MaterialName = "544380cb7820af93:lambert1",
+						string MeshName = "54f4661e51e303aa:MushroomV1.polySurface5",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "polySurface3",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "544380cb7820af93:lambert1",
+				string MeshName = "54f4661e51e303ac:MushroomV1.polySurface3",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "polySurface6",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "544380cb7820af93:lambert1",
+				string MeshName = "54f4661e51e303ae:MushroomV1.polySurface6",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+	},
+},

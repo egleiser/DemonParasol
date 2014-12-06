@@ -1,0 +1,33 @@
+class Puzzle_BR_FatMan : ZilchComponent
+{
+    [Property]
+    var PillarA:CogPath = null;
+    [Property]
+    var PillarB:CogPath = null;
+    [Property]
+    var Spawner:CogPath = null;
+    [Property]
+    var Star:CogPath = null;
+    var PuzzleComplete:Boolean = false;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.PuzzleComplete == false)
+        {
+            if(this.PillarA.Cog.CrackedPillar.Active && this.PillarB.Cog.CrackedPillar.Active)
+            {
+                this.Spawner.Cog.BombSpawner.Active = false;
+                this.Star.Cog.PentaGlow.Active = true;
+                this.Owner.SoundEmitter.Play();
+                this.PuzzleComplete = true;
+                
+            }
+        }
+    }
+}

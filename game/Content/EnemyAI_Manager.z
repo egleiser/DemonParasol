@@ -1,5 +1,6 @@
 class EnemyAI_Manager : ZilchComponent
 {
+    /*
     //Dependency for the Orientation component
     [Dependency]
     var Orientation : Orientation = null;
@@ -79,9 +80,9 @@ class EnemyAI_Manager : ZilchComponent
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
     
-    /*LogicUpdate here is basically checking a number of conditions using the
-    various helper functions I've set up below to decide when to call the
-    various AI functions in their scripts*/
+    //LogicUpdate here is basically checking a number of conditions using the
+    //various helper functions I've set up below to decide when to call the
+    //various AI functions in their scripts
     function OnLogicUpdate(event : UpdateEvent)
     {
         //These two lines set teh booleans for whether player is within warn or run away triger distances
@@ -190,5 +191,5 @@ class EnemyAI_Manager : ZilchComponent
         var directionVector : Real3 = this.Owner.RunAwayFromTarget.RunToObject.Transform.Translation - this.Owner.Transform.Translation;
         this.EnemyRotationTowardsObject = this.Orientation.GetLookAtDirectionWithUpRotation(directionVector, Real3(0,0,1));
         return this.EnemyRotationTowardsObject;
-    }
+    }*/
 }

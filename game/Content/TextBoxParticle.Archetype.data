@@ -8,26 +8,30 @@ Cog =
 	{
 		string Name = "TextBoxParticle",
 	},
+	Archetyped = 
+	{
+		string Name = "4faa6050b86884ec:DefaultArchetype",
+	},
 	Transform = 
 	{
-		Vec3 Translation = [8.49389, 4.02963, 5.0065],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 0.999998, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	SpriteParticleSystem = 
 	{
-		bool Visible = true,
+		bool Visible = false,
 		bool VisibilityCulling = true,
 		SystemChildMode ChildMode = Independent,
 		SystemSpace SystemSpace = WorldSpace,
 		uint DrawOrder = 0,
 		float WarmUpTime = 0,
 		ParticleGeometry GeometryMode = Billboarded,
-		ParticleRenderMode RenderMode = Blended,
+		ParticleRenderMode RenderMode = Additive,
 		ParticleSortMode SortMode = Youngest,
 		ParticleAnimation ParticleAnimation = Single,
-		string Texture = "4fab71e8bcb7a8ce:DefaultTexture",
-		Vec4 Tint = [1, 1, 1, 1],
+		string Texture = "5310e87946ed955b:Twinkle",
+		Vec4 Tint = [0.6, 0.114, 0.114, 1],
 		float VelocityScale = 1,
 		float LengthScale = 1,
 		float MaxParticleSize = 100,
@@ -37,7 +41,7 @@ Cog =
 	{
 		bool Active = true,
 		uint EmitCount = 0,
-		float EmitRate = 10,
+		float EmitRate = 100,
 		float EmitVariance = 0,
 		float Size = 1,
 		float SizeVariance = 0.5,
@@ -49,7 +53,7 @@ Cog =
 		float Fill = 1,
 		float EmitterVelocityPercent = 0,
 		Vec3 StartVelocity = [0, 0, 0],
-		Vec3 RandomVelocity = [2, 2, 2],
+		Vec3 RandomVelocity = [1, 1, 1],
 		Vec3 TangentVelocity = [0, 0, 0],
 		Vec3 EmitterSize = [0, 0, 0],
 		bool FastMovingEmitter = false,

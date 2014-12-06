@@ -1,0 +1,38 @@
+class ZoomZone : ZilchComponent
+{
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+    }
+    //Make it so it only sends the event is the PLAYER collides with its
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player")
+        {
+            var zoomEvent = new CameraZoomEvent();
+            zoomEvent.IsZoomingIn = true;
+            zoomEvent.CamSize = 30;
+            zoomEvent.ZoomTime = 1.5;
+            this.Space.FindObjectByName("Camera").DispatchEvent("zoomEvent", zoomEvent);
+        }
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player")
+        {
+            var zoomEvent = new CameraZoomEvent();
+            zoomEvent.IsZoomingIn = true;
+            zoomEvent.CamSize = 50;
+            zoomEvent.ZoomTime = 1.5;
+            this.Space.FindObjectByName("Camera").DispatchEvent("zoomEvent", zoomEvent);
+        }
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

@@ -1,41 +1,89 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: CollisionToNight         ////
+////    Written by: Garrett Huxtable ////
+////            and Eric Gleiser     ////
+////     Last Updated: 12-5-14       ////
+////                                 ////
+/////////////////////////////////////////
+
 class CollisionToNight : ZilchComponent
 {
+    //[Property]
+    //var ToDream:Boolean = true;
+    
     [Property]
-    var ToDream:Boolean = true;
+    var OffPathLeeway : Real = 0.0;
+    
+    [Property]
+    var ToNightTrigger : Real = 0.0;
+    
+    var OffPath:Boolean = false;
+    
+    var PathFail: Boolean = false;
+    
+    var IsNight: Boolean = false;
+    
+    var TimeOffPath: Real = 0.0;
+    
     function Initialize(init : CogInitializer)
     {
-        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        
+        if(this.PathFail)
+        {
+            if(this.IsNight == false)
+            {
+                this.ToNight();
+                this.IsNight = true;
+            }
+        }
+        
+        else
+        {
+            if(this.OffPath)
+            {
+                ++this.TimeOffPath;
+                
+                if(this.TimeOffPath > this.OffPathLeeway)
+                {
+                    //Console.WriteLine("I should go back");
+                }
+                
+                if(this.TimeOffPath > this.ToNightTrigger)
+                {
+                    this.PathFail = true;
+                }
+            }
+        }
     }
     
     function OnCollisionStarted(event : CollisionEvent)
     {
-        if(event.OtherObject.Name == "Player")
+        if(!this.PathFail)
         {
-            if(this.ToDream)
+            if(event.OtherObject.Name == "Player")
             {
-                this.Space.FindObjectByName("MainLight").DreamLighting.DreamWorld = true;
-                this.Space.FindObjectByName("AmbienceManager").Thunderstorm.Active = true;
-                this.Space.FindObjectByName("AmbienceManager").SoundEmitter.Play();
-                this.Space.FindObjectByName("Rain").SoundEmitter.Play();
-                //this.Space.FindObjectByName("DreamFogger").Model.Visible = true;
-                this.Space.FindObjectByName("Rain").BoxParticleEmitter.Active = true;
-                this.Space.CreateAtPosition(Archetype.Find("LightningStrike"),this.Space.FindObjectByName("Rain").Transform.WorldTranslation);
+                this.OffPath = true;
             }
-            else
-            {
-                this.Space.FindObjectByName("MainLight").DreamLighting.DreamWorld = false;
-                this.Space.FindObjectByName("AmbienceManager").Thunderstorm.Active = false;
-                this.Space.FindObjectByName("Rain").SoundEmitter.Stop();
-                this.Space.FindObjectByName("DreamFogger").Model.Visible = false;
-                this.Space.FindObjectByName("Rain").BoxParticleEmitter.Active = false;
-            }
-            this.Owner.Destroy();
         }
-        
+    }
+    
+    function ToNight()
+    {
+        this.Space.FindObjectByName("MainLight").DreamLighting.DreamWorld = true;
+        this.Space.FindObjectByName("AmbienceManager").Thunderstorm.Active = true;
+        this.Space.FindObjectByName("AmbienceManager").SoundEmitter.Play();
+        this.Space.FindObjectByName("Rain").SoundEmitter.Play();
+        //this.Space.FindObjectByName("DreamFogger").Model.Visible = true;
+        this.Space.FindObjectByName("Rain").BoxParticleEmitter.Active = true;
+        this.Space.CreateAtPosition(Archetype.Find("LightningStrike"),this.Space.FindObjectByName("Rain").Transform.WorldTranslation);
+        var offThePath = this.Space.FindObjectByName("PathDetector");
+        offThePath.ZIL_BridgeCollapse.PathFail = true;
     }
 }

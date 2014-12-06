@@ -1,0 +1,42 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FILE-Z_CheatCodes.z
+//AUTHOR-Travis Moore
+//COURSE-GAM205
+//COPYRIGHT-© 2014 DigiPen, All Rights Reserved.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+class Z_CheatCodes:ZilchComponent
+{
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Initialize
+    //EXPLANATION-Initialize variables/functions for further use
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Initialize(init:CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-OnLogicUpdate
+    //EXPLANATION-Check for button presses
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function OnLogicUpdate(event:UpdateEvent):Void
+    {
+        //lose cheat-NUMPAD 0
+        if(Zero.Keyboard.KeyIsPressed(Keys.NumPad0))
+        {
+            this.Space.LevelSettings.Z_WinLoseTrigger.DisplayMessage("YouLose");
+        }
+        
+        //monk win cheat-NUMPAD 1
+        if(Zero.Keyboard.KeyIsPressed(Keys.NumPad1))
+        {
+            this.Space.LevelSettings.Z_WinLoseTrigger.DisplayMessage("Success");
+        }
+        
+        //boss win cheat-NUMPAD 2
+        if(Zero.Keyboard.KeyIsPressed(Keys.NumPad2))
+        {
+            this.Space.LevelSettings.Z_WinLoseTrigger.DisplayMessage("BossDefeated");
+        }
+    }
+}

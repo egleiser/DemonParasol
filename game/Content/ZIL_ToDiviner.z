@@ -1,0 +1,23 @@
+class ZIL_ToDiviner : ZilchComponent
+{
+    [Property]
+    var TeleportTo:Real3 = Real3();
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player")
+        {
+            //event.OtherObject.Transform.Translation = (-582.953, 98.75, -0.577783);
+        }
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

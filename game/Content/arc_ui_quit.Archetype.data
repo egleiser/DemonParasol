@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-0.6, -2.1, 5],
+		Vec3 Translation = [101.721, 64.1162, -0.000995636],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -35,16 +35,6 @@ Cog =
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
 	},
-	Z_UI_QuitConfirmation = 
-	{
-		float FadeInTime = 0.5,
-		float FadeOutTime = 0.25,
-		Vec3 ScaleOutSize = [0.75, 0.75, 0.75],
-		float ScaleOutTime = 0.2,
-		Vec3 ScaleInSize = [1, 1, 1],
-		float ScaleInTime = 0.8,
-		Enum EaseType = QuadIn,
-	},
 	Reactive = 
 	{
 		bool Active = true,
@@ -60,7 +50,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "ui_focus",
+				string Name = "ui-focus",
 			},
 			Transform = 
 			{
@@ -208,6 +198,45 @@ Cog =
 			{
 				Vec2 Size = [3, 1.5],
 				Location Origin = Center,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "button-blocker",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.0360489, -5.9712, 0],
+				Vec3 Scale = [10, 10, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Sprite = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				Vec4 Color = [1, 1, 1, 0],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "5275aa4d802dd6dc:Square",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			Reactive = 
+			{
+				bool Active = true,
+				bool CaptureMouse = false,
 			},
 		},
 	},

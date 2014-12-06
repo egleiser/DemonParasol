@@ -1,0 +1,39 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BasicPauseText",
+	},
+	Archetyped = 
+	{
+		string Name = "545167e5a748b7d6:BasicPauseText",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [70.1671, -58.9676, 13.0637],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SpriteText = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		Vec4 Color = [1, 1, 1, 1],
+		BlendMode BlendMode = Alpha,
+		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		TextPositionMode Position = Centered,
+		string FontName = "54a1a5a3fbbefcbd:Paragon Cleaners Black",
+		uint FontSize = 150,
+		string Text = "Game Paused",
+		bool OnTop = false,
+		Vec2 Size = [0, 0],
+		TextAlign Align = Left,
+		float PixelsPerUnit = 64,
+		bool Smoothing = true,
+	},
+},

@@ -223,7 +223,7 @@ class PlayerController : ZilchComponent
         else
         {
             this.Owner.GravityEffect.Active = true;
-            this.Owner.AutoHopper.Active = true;
+            //this.Owner.AutoHopper.Active = true;
         }
         
         //When the A Button is pressed

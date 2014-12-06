@@ -1,4 +1,4 @@
-enum DemonLanternState{Wander, Spoted, MoveTowards, Inhale, Fire}
+enum DemonLanternState{Wander, Spoted, Chase, Inhale, Fire}
 class Ai_LanternEnemy : ZilchComponent
 {
     [Property]
@@ -7,6 +7,7 @@ class Ai_LanternEnemy : ZilchComponent
     var FireBreath:Cog = null;
     var FireBreathSparks:Cog = null;
     var FireBreathInhale:Cog = null;
+    var Timer:Integer = 0;
     var Distance:Real = 0.0;
     
     function Initialize(init : CogInitializer)
@@ -24,7 +25,43 @@ class Ai_LanternEnemy : ZilchComponent
     function OnLogicUpdate(event : UpdateEvent)
     {
         this.Distance = Math.Length(this.Player.Transform.Translation - this.Owner.Transform.WorldTranslation);
-        this.LookatPlayer(event);
+        //Chase State
+        if(this.AiState == DemonLanternState.Chase)
+        {
+            this.LookatPlayer(event);
+            this.MoveToPlayer(event);
+            this.Timer += 1;
+            if(this.GetPlayerDistance() < 5 && this.Timer > 120)
+            {
+                
+                this.Timer = 0;
+                this.Space.SoundSpace.PlayCueAt(SoundCue.Find("Demon_Inhale"),this.Owner.Transform.WorldTranslation);
+                this.AiState = DemonLanternState.Inhale;
+            }
+        }
+        //Inhale State
+        if(this.AiState == DemonLanternState.Inhale)
+        {
+            this.LookatPlayer(event);
+            this.Timer += 1;
+            if(this.Timer > 180)
+            {
+                this.Timer = 0;
+                this.Space.SoundSpace.PlayCueAt(SoundCue.Find("EnergySword_Strike1"),this.Owner.Transform.WorldTranslation);
+                this.AiState = DemonLanternState.Fire;
+            }
+        }
+        //Fire State
+        if(this.AiState == DemonLanternState.Fire)
+        {
+            //this.LookatPlayer(event);
+            this.Timer += 1;
+            if(this.Timer > 180)
+            {
+                this.Timer = 0;
+                this.AiState = DemonLanternState.Chase;
+            }
+        }
         this.UpdateLights(event);
     }
     
@@ -34,13 +71,22 @@ class Ai_LanternEnemy : ZilchComponent
         this.Owner.Health.ApplyDamage(2);
         
     }
+    function GetPlayerDistance():Real
+    {
+        var playerVec = this.Player.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
+        return Math.Length(playerVec);
+    }
     
     function LookatPlayer(event : UpdateEvent)
     {
         this.Owner.Transform.WorldRotation = this.Owner.Orientation.GetLookAtPointWithUpRotation(
             Real3(this.Player.Transform.WorldTranslation.X,this.Player.Transform.WorldTranslation.Y,this.Owner.Transform.WorldTranslation.Z),this.Owner.Orientation.WorldUp);
     }
-    
+    function MoveToPlayer(event : UpdateEvent)
+    {
+        var playerVec = this.Player.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
+        this.Owner.Transform.WorldTranslation += Math.Normalize(playerVec) * 0.05;
+    }
     function UpdateLights(event : UpdateEvent)
     {
         if(this.AiState == DemonLanternState.Fire)

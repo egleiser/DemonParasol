@@ -74,6 +74,9 @@ Level =
 		{
 			bool AllowQuit = false,
 		},
+		QuickPause = 
+		{
+		},
 		Hierarchy = 
 		{
 			Cog = 
@@ -166,9 +169,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [37.9477, -14.3649, 25.3435],
+			Vec3 Translation = [34.4672, -14.0396, 19.8231],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.455372, 0.106044, -0.0547333, 0.882267],
+			Quat Rotation = [0.533406, 0.0236728, -0.0149364, 0.845396],
 		},
 		Camera = 
 		{
@@ -183,10 +186,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 38.4532,
-			float VerticalAngle = -0.95295,
-			float HorizontalAngle = -6.52243,
-			Vec3 LookTarget = [32.6693, 16.9794, 3.70272],
+			float LookDistance = 94.5799,
+			float VerticalAngle = -1.12574,
+			float HorizontalAngle = -6.33917,
+			Vec3 LookTarget = [32.1886, 71.3269, -20.8306],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -310,6 +313,7 @@ Level =
 		},
 		TextBoxTester = 
 		{
+			CogPath DiagSegPath = "",
 		},
 		Hierarchy = 
 		{
@@ -1398,7 +1402,7 @@ Level =
 		},
 		Camera = 
 		{
-			ProjectionMode ProjectionMode = Orthographic,
+			ProjectionMode ProjectionMode = Perspective,
 			Facing Facing = NegativeZ,
 			CameraTransparentSort TransparentSort = InheritFromSpace,
 			float FieldOfView = 39,
@@ -4789,19 +4793,12 @@ Level =
 			string Name = "SignReadablePoision",
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "54afd816d8cf9959:CryMaskWood",
 		LinkId = 
 		{
 			uint Id = 141,
-		},
-		Named = 
-		{
-			string Name = "CryMaskWood",
-		},
-		Archetyped = 
-		{
-			string Name = "54afd816d8cf9959:CryMaskWood",
 		},
 		Transform = 
 		{
@@ -4809,194 +4806,17 @@ Level =
 			Vec3 Scale = [3.63539, 3.63539, 3.63539],
 			Quat Rotation = [-1, -0, 0, -4.37114e-008],
 		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			string MaterialName = "54a3c57d9c4c3210:mat_Gold",
-			string MeshName = "54afd9330e0afcd4:CryMask",
-			Vec4 Color = [0.24, 0.144156, 0.0444, 1],
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 142,
-				},
-				Named = 
-				{
-					string Name = "EyeLight",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-0.647582, 0.718932, -0.35304],
-					Vec3 Scale = [0.676808, 0.288666, 0.850506],
-					Quat Rotation = [0.99442, 0.105493, 4.61123e-009, -4.34675e-008],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54afb93202e8a4b0:mat_LightIntenseHigh",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [0.661905, 0.02025, 0.675, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 143,
-				},
-				Named = 
-				{
-					string Name = "EyeLight",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0.71656, 0.718938, -0.35304],
-					Vec3 Scale = [0.676807, 0.288666, 0.850509],
-					Quat Rotation = [0.994098, -0.108484, -4.74201e-009, -4.34534e-008],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54afb93202e8a4b0:mat_LightIntenseHigh",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [0.661905, 0.02025, 0.675, 1],
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 144,
-		},
-		Named = 
-		{
-			string Name = "WaterFall",
-		},
-		Archetyped = 
-		{
-			string Name = "54afd977f8a916f8:waterfall1",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [38.0724, 45.6515, -11.6856],
-			Vec3 Scale = [0.291549, 0.999554, 0.225519],
-			Quat Rotation = [0.797771, 0, 0, 0.60296],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			string MaterialName = "54ae522e920b36f0:WaterFlow",
-			string MeshName = "54ae5c0c06089614:BossRoom.waterfall1",
-			Vec4 Color = [0.235, 0, 0.23265, 1],
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 145,
-				},
-				Named = 
-				{
-					string Name = "BlackRainSmoke",
-				},
-				Archetyped = 
-				{
-					string Name = "54af9521548f6372:BlackRainSmoke",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0.296548, 4.59947, -1.14601],
-					Vec3 Scale = [3.48508, 3.54881, 0.9633],
-					Quat Rotation = [-0.623078, 0.317773, 0.292541, 0.652084],
-				},
-				SpriteParticleSystem = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					SystemChildMode ChildMode = Independent,
-					SystemSpace SystemSpace = WorldSpace,
-					uint DrawOrder = 0,
-					float WarmUpTime = 0,
-					ParticleGeometry GeometryMode = Billboarded,
-					ParticleRenderMode RenderMode = Blended,
-					ParticleSortMode SortMode = Sorted,
-					ParticleAnimation ParticleAnimation = Looping,
-					string Texture = "5481a3be505a50f6:wind-particles-glow-02",
-					Vec4 Tint = [1, 1, 1, 1],
-					float VelocityScale = 0.3,
-					float LengthScale = 0.2,
-					float MaxParticleSize = 100,
-					Vec3 SystemSize = [40, 40, 40],
-				},
-				SphericalParticleEmitter = 
-				{
-					bool Active = true,
-					uint EmitCount = 0,
-					float EmitRate = 70,
-					float EmitVariance = 0,
-					float Size = 1,
-					float SizeVariance = 0.2,
-					float Lifetime = 1,
-					float LifetimeVariance = 0.2,
-					float Spin = 100,
-					float SpinVariance = 50,
-					bool RandomSpin = true,
-					float Fill = 1,
-					float EmitterVelocityPercent = 0,
-					Vec3 StartVelocity = [0, 0, 2],
-					Vec3 RandomVelocity = [0.5, 0.5, 0.5],
-					Vec3 TangentVelocity = [0, 0, 0],
-					Vec3 EmitterSize = [3, 3, 3],
-					bool FastMovingEmitter = false,
-				},
-				LinearParticleAnimator = 
-				{
-					Vec3 Force = [0, 0, 2],
-					Vec3 RandomForce = [0, 0, 0],
-					float Torque = 0,
-					float Growth = 2,
-					float Dampening = 0,
-					Vec3 Twist = [0, 0, 0],
-				},
-				ParticleColorAnimator = 
-				{
-					Vec4 Color0 = [0.38, 1, 0, 0],
-					Vec4 Color1 = [0.3298, 0.485, 0, 1],
-					Vec4 Color2 = [0.35, 0, 1, 0.49],
-					Vec4 Color3 = [0.70645, 0, 0.995, 0.235],
-					Vec4 Color4 = [0, 0, 0, 0],
-				},
-				Hierarchy = 
-				{
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 146,
-		},
 		Named = 
 		{
 			string Name = "CryMaskWood",
 		},
-		Archetyped = 
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54afd816d8cf9959:CryMaskWood",
+		LinkId = 
 		{
-			string Name = "54afd816d8cf9959:CryMaskWood",
+			uint Id = 142,
 		},
 		Transform = 
 		{
@@ -5004,91 +4824,16 @@ Level =
 			Vec3 Scale = [3.63539, 3.63539, 3.63539],
 			Quat Rotation = [-1, -0, 0, -4.37114e-008],
 		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			string MaterialName = "54a3c57d9c4c3210:mat_Gold",
-			string MeshName = "54afd9330e0afcd4:CryMask",
-			Vec4 Color = [0.24, 0.144156, 0.0444, 1],
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 147,
-				},
-				Named = 
-				{
-					string Name = "EyeLight",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-0.647582, 0.718932, -0.35304],
-					Vec3 Scale = [0.676808, 0.288666, 0.850506],
-					Quat Rotation = [0.99442, 0.105493, 4.61123e-009, -4.34675e-008],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54afb93202e8a4b0:mat_LightIntenseHigh",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [0.661905, 0.02025, 0.675, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 148,
-				},
-				Named = 
-				{
-					string Name = "EyeLight",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0.71656, 0.718938, -0.35304],
-					Vec3 Scale = [0.676807, 0.288666, 0.850509],
-					Quat Rotation = [0.994098, -0.108484, -4.74201e-009, -4.34534e-008],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54afb93202e8a4b0:mat_LightIntenseHigh",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [0.661905, 0.02025, 0.675, 1],
-				},
-			},
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "54afd977f8a916f8:waterfall1",
-		LinkId = 
-		{
-			uint Id = 149,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [14.3698, 45.6515, -11.6856],
-			Vec3 Scale = [0.291549, 0.999554, 0.225519],
-			Quat Rotation = [0.797771, 0, 0, 0.60296],
-		},
 		Named = 
 		{
-			string Name = "WaterFall",
+			string Name = "CryMaskWood",
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 150,
+			uint Id = 143,
 		},
 		Named = 
 		{
@@ -5147,7 +4892,7 @@ Level =
 				string Name = "54afd70e14740464:BridgeSegementGhost",
 				LinkId = 
 				{
-					uint Id = 151,
+					uint Id = 144,
 				},
 				Transform = 
 				{
@@ -5167,7 +4912,7 @@ Level =
 		string Name = "54afc55bc8a1b344:LanternPostRedDun",
 		LinkId = 
 		{
-			uint Id = 152,
+			uint Id = 145,
 		},
 		Transform = 
 		{
@@ -5184,7 +4929,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 153,
+			uint Id = 146,
 		},
 		Named = 
 		{
@@ -5220,7 +4965,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 154,
+			uint Id = 147,
 		},
 		Named = 
 		{
@@ -5256,7 +5001,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 155,
+			uint Id = 148,
 		},
 		Named = 
 		{
@@ -5293,7 +5038,7 @@ Level =
 		string Name = "54afc55bc8a1b344:LanternPostRedDun",
 		LinkId = 
 		{
-			uint Id = 156,
+			uint Id = 149,
 		},
 		Transform = 
 		{
@@ -5311,7 +5056,7 @@ Level =
 		string Name = "54afc55bc8a1b344:LanternPostRedDun",
 		LinkId = 
 		{
-			uint Id = 157,
+			uint Id = 150,
 		},
 		Transform = 
 		{
@@ -5329,7 +5074,7 @@ Level =
 		string Name = "54afce1ca4899a60:BridgeSegement",
 		LinkId = 
 		{
-			uint Id = 158,
+			uint Id = 151,
 		},
 		Transform = 
 		{
@@ -5347,7 +5092,7 @@ Level =
 		string Name = "54afc3c2102f00bd:SpawnPointCollider",
 		LinkId = 
 		{
-			uint Id = 159,
+			uint Id = 152,
 		},
 		Transform = 
 		{
@@ -5365,7 +5110,7 @@ Level =
 		string Name = "54afd4f9879ed87f:CryMaskWoodBurn",
 		LinkId = 
 		{
-			uint Id = 160,
+			uint Id = 153,
 		},
 		Transform = 
 		{
@@ -5380,28 +5125,10 @@ Level =
 	},
 	ArchetypeInstance = 
 	{
-		string Name = "54502ff88201d48b:EnemyFatManExp",
-		LinkId = 
-		{
-			uint Id = 161,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [59.7452, -66.4382, -12.6651],
-			Vec3 Scale = [0.5, 0.5, 0.5],
-			Quat Rotation = [0.707107, 0, 0, 0.707107],
-		},
-		Named = 
-		{
-			string Name = "EnemyFatManExp",
-		},
-	},
-	ArchetypeInstance = 
-	{
 		string Name = "54502f4d6b7c0e1d:EnemyFatManDec",
 		LinkId = 
 		{
-			uint Id = 162,
+			uint Id = 154,
 		},
 		Transform = 
 		{
@@ -5419,7 +5146,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 163,
+			uint Id = 155,
 		},
 		Transform = 
 		{
@@ -5437,7 +5164,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 164,
+			uint Id = 156,
 		},
 		Transform = 
 		{
@@ -5454,7 +5181,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 165,
+			uint Id = 157,
 		},
 		Named = 
 		{
@@ -5514,13 +5241,17 @@ Level =
 			float Angle = 45,
 			float Size = 20,
 		},
+		DungeonTeleporter = 
+		{
+			string Room = "545136ccf7f93c63:LVL_BlackRainMainLobby",
+		},
 		Hierarchy = 
 		{
 			Cog = 
 			{
 				LinkId = 
 				{
-					uint Id = 166,
+					uint Id = 158,
 				},
 				Named = 
 				{
@@ -5559,7 +5290,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 167,
+					uint Id = 159,
 				},
 				Named = 
 				{
@@ -5590,7 +5321,7 @@ Level =
 		string Name = "54afce1ca4899a60:BridgeSegement",
 		LinkId = 
 		{
-			uint Id = 168,
+			uint Id = 160,
 		},
 		Transform = 
 		{
@@ -5608,7 +5339,7 @@ Level =
 		string Name = "54afce1ca4899a60:BridgeSegement",
 		LinkId = 
 		{
-			uint Id = 169,
+			uint Id = 161,
 		},
 		Transform = 
 		{
@@ -5626,7 +5357,7 @@ Level =
 		string Name = "54afce1ca4899a60:BridgeSegement",
 		LinkId = 
 		{
-			uint Id = 170,
+			uint Id = 162,
 		},
 		Transform = 
 		{
@@ -5644,7 +5375,7 @@ Level =
 		string Name = "54afce1ca4899a60:BridgeSegement",
 		LinkId = 
 		{
-			uint Id = 171,
+			uint Id = 163,
 		},
 		Transform = 
 		{
@@ -5662,7 +5393,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 172,
+			uint Id = 164,
 		},
 		Transform = 
 		{
@@ -5680,7 +5411,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 173,
+			uint Id = 165,
 		},
 		Transform = 
 		{
@@ -5698,7 +5429,7 @@ Level =
 		string Name = "54afc3c2102f00bd:SpawnPointCollider",
 		LinkId = 
 		{
-			uint Id = 174,
+			uint Id = 166,
 		},
 		Transform = 
 		{
@@ -5716,7 +5447,7 @@ Level =
 		string Name = "54afc3c2102f00bd:SpawnPointCollider",
 		LinkId = 
 		{
-			uint Id = 175,
+			uint Id = 167,
 		},
 		Transform = 
 		{
@@ -5734,7 +5465,7 @@ Level =
 		string Name = "54afc3c2102f00bd:SpawnPointCollider",
 		LinkId = 
 		{
-			uint Id = 176,
+			uint Id = 168,
 		},
 		Transform = 
 		{
@@ -5751,7 +5482,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 177,
+			uint Id = 169,
 		},
 		Named = 
 		{
@@ -5776,7 +5507,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 178,
+			uint Id = 170,
 		},
 		Named = 
 		{
@@ -5802,7 +5533,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 179,
+					uint Id = 171,
 				},
 				Named = 
 				{
@@ -5857,7 +5588,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 180,
+			uint Id = 172,
 		},
 		Named = 
 		{
@@ -5917,13 +5648,17 @@ Level =
 			float Angle = 45,
 			float Size = 20,
 		},
+		DungeonTeleporter = 
+		{
+			string Room = "54affc3a5b8eeedf:LVL_BlackRainFatMan",
+		},
 		Hierarchy = 
 		{
 			Cog = 
 			{
 				LinkId = 
 				{
-					uint Id = 181,
+					uint Id = 173,
 				},
 				Named = 
 				{
@@ -5962,7 +5697,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 182,
+					uint Id = 174,
 				},
 				Named = 
 				{
@@ -5992,7 +5727,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 183,
+			uint Id = 175,
 		},
 		Named = 
 		{
@@ -6056,13 +5791,17 @@ Level =
 			float Angle = 45,
 			float Size = 20,
 		},
+		DungeonTeleporter = 
+		{
+			string Room = "5451164c8208ba0a:LVL_BlackRainMasks",
+		},
 		Hierarchy = 
 		{
 			Cog = 
 			{
 				LinkId = 
 				{
-					uint Id = 184,
+					uint Id = 176,
 				},
 				Named = 
 				{
@@ -6101,7 +5840,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 185,
+					uint Id = 177,
 				},
 				Named = 
 				{
@@ -6132,7 +5871,7 @@ Level =
 		string Name = "54afc3c2102f00bd:SpawnPointCollider",
 		LinkId = 
 		{
-			uint Id = 186,
+			uint Id = 178,
 		},
 		Transform = 
 		{
@@ -6150,7 +5889,7 @@ Level =
 		string Name = "54afc3c2102f00bd:SpawnPointCollider",
 		LinkId = 
 		{
-			uint Id = 187,
+			uint Id = 179,
 		},
 		Transform = 
 		{
@@ -6167,7 +5906,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 188,
+			uint Id = 180,
 		},
 		Named = 
 		{
@@ -6192,7 +5931,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 189,
+			uint Id = 181,
 		},
 		Named = 
 		{
@@ -6217,7 +5956,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 190,
+			uint Id = 182,
 		},
 		Named = 
 		{
@@ -6242,7 +5981,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 191,
+			uint Id = 183,
 		},
 		Named = 
 		{
@@ -6284,6 +6023,52 @@ Level =
 			float Volume = 0,
 			float Pitch = 1,
 			bool Positional = true,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 184,
+		},
+		Named = 
+		{
+			string Name = "BossTeleport",
+		},
+		Archetyped = 
+		{
+			string Name = "54afc3c2102f00bd:SpawnPointCollider",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [26.3923, 52.061, 2.03377],
+			Vec3 Scale = [8.10859, 3.30252, 3.64501],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0, 0.9, 0.385],
+		},
+		CollideSetSpawnPoint = 
+		{
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		DungeonTeleporter = 
+		{
+			string Room = "54ae5cdc15c8d954:LVL_BlackRainBoss",
 		},
 	},
 },

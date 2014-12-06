@@ -3,7 +3,8 @@ class BombSpawner : ZilchComponent
     var Bomb:Cog = null;
     var HingeL:Cog = null;
     var HingeR:Cog = null;
-
+    [Property]
+    var Active:Boolean = true;
     var Timer:Integer = 0;
     [Property]
     var SpawnRate:Integer = 360;
@@ -16,13 +17,9 @@ class BombSpawner : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        
         this.Timer += 1;
-        if(this.Bomb == null)
-        {
-            //this.CloseDoor();
-            
-        }
-        if(this.Timer >= this.SpawnRate && this.Bomb == null)
+        if(this.Timer >= this.SpawnRate && this.Bomb == null && this.Active)
         {
             this.OpenDoor();
             this.Bomb = this.Space.CreateAtPosition(Archetype.Find("EnemyFatManExp"), this.Owner.Transform.WorldTranslation);
@@ -32,9 +29,13 @@ class BombSpawner : ZilchComponent
     function OpenDoor()
     {
             var openL = Action.Sequence(this.Owner.Actions);
-            Action.Property(openL, @this.HingeL.Transform.Rotation, Math.Euler(Real3(0,-2,0)), 1.0, Ease.QuadOut);
+            Action.Property(openL, @this.HingeL.Transform.Rotation, Math.Euler(Real3(0,-2,0)), 0.5, Ease.QuadOut);
+            Action.Delay(openL,0.5);
+            Action.Property(openL, @this.HingeL.Transform.Rotation, Math.Euler(Real3(0,0,0)), 1.0, Ease.QuadOut);
             var openR = Action.Sequence(this.Owner.Actions);
-            Action.Property(openR, @this.HingeR.Transform.Rotation, Math.Euler(Real3(0,2,0)), 1.0, Ease.QuadOut);
+            Action.Property(openR, @this.HingeR.Transform.Rotation, Math.Euler(Real3(0,2,0)), 0.5, Ease.QuadOut);
+            Action.Delay(openR,0.5);
+            Action.Property(openR, @this.HingeR.Transform.Rotation, Math.Euler(Real3(0,0,0)), 1.0, Ease.QuadOut);
             //Action.Delay(open, 3.5);
             //Action.Call(open, this.SetStateToFire);
     }
@@ -42,6 +43,7 @@ class BombSpawner : ZilchComponent
     {
             var openL = Action.Sequence(this.Owner.Actions);
             Action.Property(openL, @this.HingeL.Transform.Rotation, Math.Euler(Real3(0,2,0)), 1.0, Ease.QuadOut);
+            
             var openR = Action.Sequence(this.Owner.Actions);
             Action.Property(openR, @this.HingeR.Transform.Rotation, Math.Euler(Real3(0,-2,0)), 1.0, Ease.QuadOut);
             //Action.Delay(open, 3.5);

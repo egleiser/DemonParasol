@@ -10,13 +10,13 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "5481b8fc1f17aab8:BasicTree",
+		string Name = "5482dc12a877b005:BasicTreeDead",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [38.7351, -6.19706, -0.674732],
+		Vec3 Translation = [-406.865, 155.154, 0.442513],
 		Vec3 Scale = [2, 2, 2],
-		Quat Rotation = [0.62884, -0.323357, -0.323357, 0.62884],
+		Quat Rotation = [0.701661, 0.08759, 0.08759, 0.701661],
 	},
 	CylinderCollider = 
 	{
@@ -50,10 +50,11 @@ Cog =
 			},
 			Model = 
 			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
 				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 				string MeshName = "5481b8fc1f1fcd88:BasicTree.BasicTree_Trunk",
-				Vec4 Color = [0.27, 0.10719, 0.027, 1],
-				bool Visible = true,
+				Vec4 Color = [0.16, 0.065664, 0.0192, 1],
 			},
 		},
 	},

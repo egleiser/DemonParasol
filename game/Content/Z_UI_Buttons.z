@@ -19,7 +19,7 @@ class Z_UI_Button:ZilchComponent
     var LvlMenuControls: Level = Level.Find("lvl_menu_controls");
     var LvlMenuCredits:Level = Level.Find("lvl_menu_credits");
     var LvlMenuPause:Level = Level.Find("lvl_menu_pause");
-    //var LvlMenuOptions:Level = Level.Find("lvl_menu_options");
+    var LvlMenuOptions:Level = Level.Find("lvl_menu_options");
     
     //GAMEOVER
     var LvlGameoverLose:Level = Level.Find("lvl_gameover_lose");
@@ -65,6 +65,12 @@ class Z_UI_Button:ZilchComponent
             this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-start-game-active");
         }
+        //if the button is "Resume Game
+        if(currentBtn == "btn-game-resume")
+        {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("ui-game-resume-active");
+        }
         //if button is "New Game"
         if(currentBtn == "btn-game-new")
         {
@@ -77,8 +83,14 @@ class Z_UI_Button:ZilchComponent
             this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-quit-game-active");
         }
+        //if button is "Quit Game"
+        if(currentBtn == "btn-game-quit-white")
+        {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-quit-game-white-active");
+        }
         //if button is "Quit Yes"
-        if(currentBtn == "btn-yes")
+        if(this.Owner.Sprite.SpriteSource.Name == "btn-yes-inactive")
         {
             this.Owner.Z_UI_Transitions.FadeInScaleUp();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-yes-active");
@@ -122,6 +134,14 @@ class Z_UI_Button:ZilchComponent
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-credits-active");
         }
         
+        //GAME DATA
+        //if button is "Erase Game Data"
+        if(currentBtn == "btn-game-erase-data")
+        {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-erase-game-data-active");
+        }
+        
         //ARROW BUTTON
         //if button is "btn-arrow-left"
         if(currentBtn == "btn-arrow-left")
@@ -155,6 +175,12 @@ class Z_UI_Button:ZilchComponent
             this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-start-game-inactive");
         }
+        //if the button is "Resume Game
+        if(currentBtn == "btn-game-resume")
+        {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("ui-game-resume-inactive");
+        }
         //if button is "New Game"
         if(currentBtn == "btn-game-new")
         {
@@ -167,8 +193,14 @@ class Z_UI_Button:ZilchComponent
             this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-quit-game-inactive");
         }
+        //if button is "Quit Game"
+        if(currentBtn == "btn-game-quit-white")
+        {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-quit-game-white-inactive");
+        }
         //if button is "Quit Yes"
-        if(currentBtn == "btn-yes")
+        if(this.Owner.Sprite.SpriteSource.Name == "btn-yes-active")
         {
             this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-yes-inactive");
@@ -212,6 +244,14 @@ class Z_UI_Button:ZilchComponent
             this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-menu-credits-inactive");
         }
         
+        //GAME DATA
+        //if button is "Erase Game Data"
+        if(currentBtn == "btn-game-erase-data")
+        {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
+            this.Owner.Sprite.SpriteSource = SpriteSource.Find("btn-erase-game-data-inactive");
+        }
+        
         //ARROW BUTTON
         //if button is "btn-arrow-left"
         if(currentBtn == "btn-arrow-left")
@@ -237,6 +277,8 @@ class Z_UI_Button:ZilchComponent
         var currentBtn:String = this.Owner.Name;
         //grab the white fade out bg
         var fadeoutwhite = this.Space.FindObjectByName("bg-white");
+        //find the main space, assign to variable
+        var gameSpace = this.GameSession.FindSpaceByName("Main");
         
         //GAME BUTTONS
         //if button is "Start Game"
@@ -244,15 +286,25 @@ class Z_UI_Button:ZilchComponent
         {
             fadeoutwhite.Z_UI_Transitions.FadeOutTo("MainMenu");
         }
+        //if button is "Resume Game"
+        if(this.Owner.Name == "btn-game-resume")
+        {
+            gameSpace.LevelSettings.QuickPause.TogglePauseMenu();
+        }
         //if button is "New Game"
         if(this.Owner.Name == "btn-game-new")
         {
             this.Space.LoadLevel(this.LevelToLoad);
         }
         //if button is "Quit Game"
-        if(this.Owner.Name == "btn-game-quit")
+        if(this.Owner.Name == "btn-game-quit" )
         {
-            this.Space.FindObjectByName("ui_quit_confirmation").Z_UI_QuitConfirmation.FadeIn();
+            this.Space.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox("QuitConfirmation");
+        }
+        //if button is "Quit Game"
+        if(this.Owner.Name == "btn-game-quit-white" )
+        {
+            this.GameSession.Quit();
         }
         //if button is "Quit Yes"
         if(currentBtn == "btn-yes")
@@ -262,18 +314,26 @@ class Z_UI_Button:ZilchComponent
         //if button is "Quit No"
         if(currentBtn == "btn-no")
         {
-            this.Space.FindObjectByName("ui_quit_confirmation").Z_UI_QuitConfirmation.FadeOut();
+            this.Space.LevelSettings.Z_UI_MenuPopUp.FadeOut();
         }
         
         //MENU BUTTONS
         //if button is "Menu Main"
         if(this.Owner.Name == "btn-menu-main" || this.Owner.Name == "btn-menu-main-red")
         {
-            fadeoutwhite.Z_UI_Transitions.FadeOutTo("MainMenu");
+            if(fadeoutwhite != null)
+            {
+                fadeoutwhite.Z_UI_Transitions.FadeOutTo("MainMenu");
+            }
+            else
+            {
+                gameSpace.TimeSpace.TogglePause();
+                gameSpace.LevelSettings.Z_LevelLogic.LoadMainMenu();
+            }
         }
         if(this.Owner.Name == "btn-menu-options")
         {
-            //fadeoutwhite.Z_UI_Transitions.FadeOutTo("Options");
+            fadeoutwhite.Z_UI_Transitions.FadeOutTo("Options");
         }
         //if button is "Menu Controls"
         if(this.Owner.Name == "btn-menu-controls")
@@ -284,6 +344,18 @@ class Z_UI_Button:ZilchComponent
         if(this.Owner.Name == "btn-menu-credits")
         {
             fadeoutwhite.Z_UI_Transitions.FadeOutTo("Credits");
+        }
+        
+        //ERASE GAME DATA
+        //if button is "Quit Game"
+        if(this.Owner.Name == "btn-game-erase-data" )
+        {
+            this.Space.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox("EraseGameData");
+        }
+        //if button is "Quit Yes"
+        if(currentBtn == "btn-yes-erase")
+        {
+            //do something
         }
         
         //ARROW BUTTON

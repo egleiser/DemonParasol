@@ -1,0 +1,39 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: ZIL_BridgeCollapse       ////
+////    Written by: Garrett Huxtable ////
+////     Last Updated: 12-3-14       ////
+////                                 ////
+/////////////////////////////////////////
+
+class ZIL_BridgeCollapse : ZilchComponent
+{
+    var PathFail : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+    }
+
+    function OnCollisionPersisted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player")
+        {
+            if(this.PathFail == true)
+            {
+                /* player should freeze in place on the peak of the bridge */
+                /* player should look around */
+                /* an ominous noise should play */
+                /* bridge texture changes to ghostly appearance */
+                this.Owner.Parent.Model.Material = Material.Find("Mat_MetaBall");
+                /* player falls through the bridge and into the water */
+                this.Owner.Parent.MeshCollider.Ghost = true;
+            }
+            
+            else
+            {
+                /* Code for dialogue about how close player is to the Monk's house */
+            }
+        }
+    }
+}

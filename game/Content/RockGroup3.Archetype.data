@@ -1,0 +1,356 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "RockGroup3",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [230.446, 231.134, 0.354362],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "RockGroup1",
+			},
+			Archetyped = 
+			{
+				string Name = "5402d836982dab9b:RockGroup1",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.51637, 0.645615, -0.0475034],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, -0.49506, 0.868859],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "Rock1",
+					},
+					Archetyped = 
+					{
+						string Name = "5481b3171ce3c4b4:Rock1",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.342636, 0.39827, -0.0589874],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, -0.362044, 0.932161],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+						string MeshName = "5481b3171cf67800:Rock1",
+						Vec4 Color = [0.17, 0.17, 0.17, 1],
+					},
+					CylinderCollider = 
+					{
+						bool Ghost = false,
+						bool SendsMessages = true,
+						bool Seamless = true,
+						string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+						string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+						Vec3 Offset = [0, 0, 0.5],
+						float Radius = 0.6,
+						float Height = 1,
+						uint Direction = 2,
+					},
+				},
+				ArchetypeInstance = 
+				{
+					string Name = "5481b30411f6b027:Rock3",
+					LinkId = 
+					{
+						uint Id = 4,
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.35675, -0.492676, 0.0475752],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0.913928, 0.405877],
+					},
+					Named = 
+					{
+						string Name = "Rock3",
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 5,
+					},
+					Named = 
+					{
+						string Name = "Rock4",
+					},
+					Archetyped = 
+					{
+						string Name = "5481aeaeed1a539b:Rock4",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.699371, 0.0944214, 0.0114122],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+						string MeshName = "5481aed1ece24867:Rock4",
+						Vec4 Color = [0.195, 0.182325, 0.182325, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "RockGroup1",
+			},
+			Archetyped = 
+			{
+				string Name = "5402d836982dab9b:RockGroup1",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [1.61441, -0.637421, -0.0475038],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0.946255, 0.323422],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 7,
+					},
+					Named = 
+					{
+						string Name = "Rock1",
+					},
+					Archetyped = 
+					{
+						string Name = "5481b3171ce3c4b4:Rock1",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.342636, 0.39827, -0.0589874],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, -0.362044, 0.932161],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+						string MeshName = "5481b3171cf67800:Rock1",
+						Vec4 Color = [0.17, 0.17, 0.17, 1],
+					},
+					CylinderCollider = 
+					{
+						bool Ghost = false,
+						bool SendsMessages = true,
+						bool Seamless = true,
+						string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+						string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+						Vec3 Offset = [0, 0, 0.5],
+						float Radius = 0.6,
+						float Height = 1,
+						uint Direction = 2,
+					},
+				},
+				ArchetypeInstance = 
+				{
+					string Name = "5481b30411f6b027:Rock3",
+					LinkId = 
+					{
+						uint Id = 8,
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.35675, -0.492676, 0.0475752],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0.913928, 0.405877],
+					},
+					Named = 
+					{
+						string Name = "Rock3",
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 9,
+					},
+					Named = 
+					{
+						string Name = "Rock4",
+					},
+					Archetyped = 
+					{
+						string Name = "5481aeaeed1a539b:Rock4",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.699371, 0.0944214, 0.0114122],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+						string MeshName = "5481aed1ece24867:Rock4",
+						Vec4 Color = [0.195, 0.182325, 0.182325, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 10,
+			},
+			Named = 
+			{
+				string Name = "RockGroup1",
+			},
+			Archetyped = 
+			{
+				string Name = "5402d836982dab9b:RockGroup1",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.0980682, -0.00822449, 0.0950071],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0.583102, 0.812399],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 11,
+					},
+					Named = 
+					{
+						string Name = "Rock1",
+					},
+					Archetyped = 
+					{
+						string Name = "5481b3171ce3c4b4:Rock1",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.342636, 0.39827, -0.0589874],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, -0.362044, 0.932161],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+						string MeshName = "5481b3171cf67800:Rock1",
+						Vec4 Color = [0.17, 0.17, 0.17, 1],
+					},
+					CylinderCollider = 
+					{
+						bool Ghost = false,
+						bool SendsMessages = true,
+						bool Seamless = true,
+						string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+						string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+						Vec3 Offset = [0, 0, 0.5],
+						float Radius = 0.6,
+						float Height = 1,
+						uint Direction = 2,
+					},
+				},
+				ArchetypeInstance = 
+				{
+					string Name = "5481b30411f6b027:Rock3",
+					LinkId = 
+					{
+						uint Id = 12,
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.35675, -0.492676, 0.0475752],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0.913928, 0.405877],
+					},
+					Named = 
+					{
+						string Name = "Rock3",
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 13,
+					},
+					Named = 
+					{
+						string Name = "Rock4",
+					},
+					Archetyped = 
+					{
+						string Name = "5481aeaeed1a539b:Rock4",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.699371, 0.0944214, 0.0114122],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+						string MeshName = "5481aed1ece24867:Rock4",
+						Vec4 Color = [0.195, 0.182325, 0.182325, 1],
+					},
+				},
+			},
+		},
+	},
+},

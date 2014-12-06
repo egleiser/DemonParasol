@@ -52,10 +52,10 @@ class CollisionBasedCamera : ZilchComponent
     var ZoomEvent : Boolean = false;
     
     [Property]
-    var ZoomingInOut : Boolean = false;
+    var ZoomingIn : Boolean = false;
     
     [Property]
-    var CamSizeChange : Real = 0.0;
+    var CamSize : Real = 0.0;
     
     [Property]
     var ZoomTargetPath : CogPath = null;
@@ -71,7 +71,7 @@ class CollisionBasedCamera : ZilchComponent
     var PanEvent : Boolean = false;
     
     [Property]
-    var PanStarted : Boolean = false;
+    var PanAway : Boolean = false;
     
     [Property]
     var PanTargetPath : CogPath = null;
@@ -90,7 +90,10 @@ class CollisionBasedCamera : ZilchComponent
     var DollyEvent : Boolean = false;
     
     [Property]
-    var DollyStarted : Boolean = false;
+    var DollyAway : Boolean = false;
+    
+    [Property]
+    var DollyPlayerFocus : Boolean = false;
     
     [Property]
     var DollyTargetPath : CogPath = null;
@@ -135,7 +138,7 @@ class CollisionBasedCamera : ZilchComponent
             }
             if(this.DollyEvent)
             {
-                this.TriggerDollyEvent;
+                this.TriggerDollyEvent();
             }
         }
         if(this.NonPlayerCollisionObject != null)
@@ -152,7 +155,7 @@ class CollisionBasedCamera : ZilchComponent
                 }
                 if(this.DollyEvent)
                 {
-                    this.TriggerDollyEvent;
+                    this.TriggerDollyEvent();
                 }
             }
         }
@@ -172,7 +175,7 @@ class CollisionBasedCamera : ZilchComponent
             }
             if(this.DollyEvent)
             {
-                this.TriggerDollyEvent;
+                this.TriggerDollyEvent();
             }
         }
         if(this.NonPlayerCollisionObject != null)
@@ -189,7 +192,7 @@ class CollisionBasedCamera : ZilchComponent
                 }
                 if(this.DollyEvent)
                 {
-                    this.TriggerDollyEvent;
+                    this.TriggerDollyEvent();
                 }
             }
         }
@@ -198,8 +201,8 @@ class CollisionBasedCamera : ZilchComponent
     function TriggerZoomEvent()
     {
         var zoomEvent = new CameraZoomEvent();
-        zoomEvent.IsZoomingIn = this.ZoomingInOut;
-        zoomEvent.CamSize = this.CamSizeChange;
+        zoomEvent.IsZoomingIn = this.ZoomingIn;
+        zoomEvent.CamSize = this.CamSize;
         zoomEvent.CameraTarget = this.ZoomTarget;
         zoomEvent.ZoomTime = this.ZoomTime;
         zoomEvent.EaseCurve = this.ZoomEase;
@@ -210,7 +213,7 @@ class CollisionBasedCamera : ZilchComponent
     function TriggerPanEvent()
     {
         var panEvent = new CameraPanEvent();
-        panEvent.IsActive = this.PanStarted;
+        panEvent.IsActive = this.PanAway;
         panEvent.PanTarget = this.PanTarget;
         panEvent.EndRotation = this.PanEndRotation;
         panEvent.PanTime = this.PanTime;
@@ -222,8 +225,9 @@ class CollisionBasedCamera : ZilchComponent
     function TriggerDollyEvent()
     {
         var dollyEvent = new CameraDollyEvent();
-        dollyEvent.IsActive = this.DollyStarted;
+        dollyEvent.IsActive = this.DollyAway;
         dollyEvent.DollyTarget = this.DollyTarget;
+        dollyEvent.TargetFocus = this.DollyPlayerFocus;
         dollyEvent.EndPosition = this.DollyEndPosition;
         dollyEvent.DollyTime = this.DollyTime;
         dollyEvent.EasingCurve = this.DollyEase;
