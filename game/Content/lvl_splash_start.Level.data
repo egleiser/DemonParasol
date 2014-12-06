@@ -77,7 +77,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.595932, -4.69869, 50],
+			Vec3 Translation = [1.67847, 0.618046, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -89,7 +89,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 13.5335,
+			float Size = 60.6531,
 		},
 		EditorCameraController = 
 		{
@@ -97,7 +97,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [0.595932, -4.69869, 2.0428e-007],
+			Vec3 LookTarget = [1.67847, 0.618046, 2.15129e-007],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -174,7 +174,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "btn-game-start",
+			string Name = "BtnGameStart",
 		},
 		Archetyped = 
 		{
@@ -190,10 +190,6 @@ Level =
 		{
 			bool Active = true,
 			bool CaptureMouse = true,
-		},
-		Z_UI_Button = 
-		{
-			string LevelToLoad = "54682358d686e046:lvl_menu_main",
 		},
 		Sprite = 
 		{
@@ -223,9 +219,21 @@ Level =
 			float FadeOutTime = 0.25,
 			float WaitTime = 2,
 			float ScaleOutTime = 0.2,
-			float ScaleInTime = 0.5,
+			float ScaleInTime = 0.25,
 			float ScaleBiggerSize = 1.1,
 			Enum EaseType = QuadInOut,
+		},
+		Z_GamepadButtonController = 
+		{
+			CogPath UpButton = "",
+			CogPath DownButton = "",
+			CogPath LeftButton = "",
+			CogPath RightButton = "",
+			string AltSprite = "545d3bb6811a2b1d:btn-start-game-active",
+			int GamepadIndex = 0,
+			bool Active = true,
+			float Timer = 0,
+			string LevelToLoad = "54682358d686e046:lvl_menu_main",
 		},
 	},
 	Cog = 
