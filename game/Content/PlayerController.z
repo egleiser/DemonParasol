@@ -68,7 +68,7 @@ class PlayerController : ZilchComponent
     }
     function AttackUpdate(event : UpdateEvent)
     {
-        if(this.Owner.InputController.Gamepad.IsButtonPressed(Buttons.X) || Zero.Keyboard.KeyIsPressed(Keys.Space))
+        if(this.Owner.InputController.Gamepad.IsButtonPressed(Buttons.X) || Zero.Keyboard.KeyIsPressed(Keys.D))
         {
             var attackEvent = new AttackEvent();
             this.Owner.DispatchDown("attackEvent", attackEvent);
@@ -87,7 +87,7 @@ class PlayerController : ZilchComponent
     function ZTargetingUpdate(event : UpdateEvent)
     {
         this.TargetIndicator.IndicatorLock.Target = this.Target;
-        if(this.Owner.InputController.Gamepad.LeftTrigger > 0.5 || Zero.Keyboard.KeyIsDown(Keys.V))
+        if(this.Owner.InputController.Gamepad.LeftTrigger > 0.5 || Zero.Keyboard.KeyIsDown(Keys.A))
         {
             if(this.EnterTargetMode == false)
             {
@@ -142,7 +142,7 @@ class PlayerController : ZilchComponent
     }
     function NextTarget()
     {
-        if(this.Owner.InputController.Gamepad.IsButtonPressed(Buttons.Y) && this.TongueFinder == null)
+        if((this.Owner.InputController.Gamepad.IsButtonPressed(Buttons.Y) || Zero.Keyboard.KeyIsPressed(Keys.S))  && this.TongueFinder == null)
         {
             //Console.WriteLine(this.TargetProximity);
             if(this.TargetIndex < this.TargetProximity.Count-1)
@@ -227,7 +227,7 @@ class PlayerController : ZilchComponent
         }
         
         //When the A Button is pressed
-        if(this.Owner.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.R))
+        if(this.Owner.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space))
         {
             if(this.TongueFinder != null && this.TongueFinder.TongueFinder.Latched == false )
             {
