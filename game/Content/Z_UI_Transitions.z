@@ -206,6 +206,9 @@ class Z_UI_Transitions:ZilchComponent
         //create action sequence
         var aFadeInFromWhite = Action.Sequence(this.Owner.Actions);
         
+        //wait a bit before coming in
+        Action.Delay(aFadeInFromWhite, 0.5);
+        
         //fade in
         Action.Property(aFadeInFromWhite,
                         @this.Owner.Sprite.Color,

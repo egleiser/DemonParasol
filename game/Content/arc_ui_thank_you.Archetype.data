@@ -10,11 +10,11 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "545d412a3f8a49ab:arc_ui_quit",
+		string Name = "540aac15949f28cc:arc_ui_thank_you",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [101.721, 64.1162, -0.000995636],
+		Vec3 Translation = [40.4847, 38.052, 1],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -26,7 +26,7 @@ Cog =
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "545d0e124f7744ad:ui_quit_confirmation",
+		string SpriteSource = "540aa2adfcab3f3a:ui-dialog-thank-you",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
@@ -84,7 +84,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "btn-yes",
+				string Name = "btn-menu-main",
 			},
 			Archetyped = 
 			{
@@ -92,7 +92,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [-4, -1.25, 6],
+				Vec3 Translation = [-3.25, -1.5, 1],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -101,19 +101,15 @@ Cog =
 				bool Active = true,
 				bool CaptureMouse = true,
 			},
-			Z_UI_Button = 
-			{
-				string LevelToLoad = "54682358d686e046:lvl_menu_main",
-			},
 			Sprite = 
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				Vec4 Color = [1, 1, 1, 1],
+				Vec4 Color = [1, 1, 1, 0],
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
 				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "545d7dbc70f4d782:btn-yes-inactive",
+				string SpriteSource = "545d2b4bfc3fa37d:btn-menu-main-inactive",
 				bool RenderMask = false,
 				bool FlipX = false,
 				bool FlipY = false,
@@ -121,11 +117,6 @@ Cog =
 				bool AnimationActive = true,
 				float AnimationSpeed = 1,
 				uint StartFrame = 0,
-			},
-			Area = 
-			{
-				Vec2 Size = [3, 1.5],
-				Location Origin = Center,
 			},
 			Z_UI_Transitions = 
 			{
@@ -136,6 +127,15 @@ Cog =
 				float ScaleInTime = 0.25,
 				float ScaleBiggerSize = 1.1,
 				Enum EaseType = QuadInOut,
+			},
+			Area = 
+			{
+				Vec2 Size = [6, 1.5],
+				Location Origin = Center,
+			},
+			Z_UI_Button = 
+			{
+				string LevelToLoad = "54682358d686e046:lvl_menu_main",
 			},
 		},
 		Cog = 
@@ -146,7 +146,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "btn-no",
+				string Name = "btn-game-quit-white",
 			},
 			Archetyped = 
 			{
@@ -154,7 +154,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [4, -1.25, 6],
+				Vec3 Translation = [3.75, -1.5, 1],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -163,19 +163,15 @@ Cog =
 				bool Active = true,
 				bool CaptureMouse = true,
 			},
-			Z_UI_Button = 
-			{
-				string LevelToLoad = "54682358d686e046:lvl_menu_main",
-			},
 			Sprite = 
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				Vec4 Color = [1, 1, 1, 1],
+				Vec4 Color = [1, 1, 1, 0],
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
 				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "545d7dbd70f20126:btn-no-inactive",
+				string SpriteSource = "540aa3ac9e3bd60a:btn-quit-game-white-inactive",
 				bool RenderMask = false,
 				bool FlipX = false,
 				bool FlipY = false,
@@ -196,47 +192,12 @@ Cog =
 			},
 			Area = 
 			{
-				Vec2 Size = [3, 1.5],
+				Vec2 Size = [5.5, 1.5],
 				Location Origin = Center,
 			},
-		},
-		Cog = 
-		{
-			LinkId = 
+			Z_UI_Button = 
 			{
-				uint Id = 5,
-			},
-			Named = 
-			{
-				string Name = "button-blocker",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [0.0360489, -5.9712, 0],
-				Vec3 Scale = [10, 10, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Sprite = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				Vec4 Color = [1, 1, 1, 0],
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "5275aa4d802dd6dc:Square",
-				bool RenderMask = false,
-				bool FlipX = false,
-				bool FlipY = false,
-				bool OnTop = false,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-			},
-			Reactive = 
-			{
-				bool Active = true,
-				bool CaptureMouse = false,
+				string LevelToLoad = "",
 			},
 		},
 	},
