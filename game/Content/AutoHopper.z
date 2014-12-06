@@ -6,6 +6,7 @@ class AutoHopper : ZilchComponent
     var Transform: Transform = null;
     [Property]
     var JumpDistance : Real = 2.0;
+    [Property]
     var Active : Boolean = true;
     var Jumping : Boolean = false;
     var JumpForce : Real = 0.0;
