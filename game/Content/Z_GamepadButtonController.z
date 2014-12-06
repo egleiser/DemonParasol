@@ -91,9 +91,33 @@ class Z_GamepadButtonController : ZilchComponent
                     this.Space.FindObjectByName("ui_text_gamepad").Z_UI_Shift.ShiftInRight();
                     this.Space.FindObjectByName("BtnArrowRight").Z_UI_Shift.ShiftInRight();
                 }
-                if(this.Owner.Name == "BtnGameQuit" )
+                if(this.Owner.Name == "BtnGameQuit")
                 {
                     this.Space.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox("QuitConfirmation");
+                    this.Timer = 0;
+                    this.Active = false;
+                }
+                if(this.Owner.Name == "BtnTryAgain")
+                {
+                    var mainSpace2 = this.GameSession.FindSpaceByName("Main");
+                    if(mainSpace2.TimeSpace.Paused)
+                    {
+                        mainSpace2.TimeSpace.TogglePause();
+                        mainSpace2.SoundSpace.Pause = false;
+                    }
+                    this.Timer = 0;
+                    this.Active = false;
+                    mainSpace2.ReloadLevel();
+                }
+                if(this.Owner.Name == "BtnGameQuitWhite")
+                {
+                    this.Space.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox("ThankYouQuitConfirmation");
+                    this.Timer = 0;
+                    this.Active = false;
+                }
+                if(this.Owner.Name == "BtnMainMenu")
+                {
+                    this.Space.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox("PauseMainMenu");
                     this.Timer = 0;
                     this.Active = false;
                 }
@@ -129,12 +153,26 @@ class Z_GamepadButtonController : ZilchComponent
                 
                 if(this.Owner.Name == "BtnYesMenu")
                 {
-                    this.Space.LoadLevel(Level.Find("lvl_menu_main"));
+                    //Console.WriteLine("HEREKLRJELRELR");
+                    //var mainSpace3 = this.GameSession.FindSpaceByName("Main");
+                    //if(mainSpace3.TimeSpace.Paused)
+                    //{
+                    //    mainSpace3.TimeSpace.TogglePause();
+                    //    mainSpace3.SoundSpace.Pause = false;
+                    //}
+                    //this.Timer = 0;
+                    //this.Active = false;
+                    //this.Space.LoadLevel(Level.Find("lvl_menu_main"));
                 }
                 //if button is "Quit No"
                 if(this.Owner.Name == "BtnNo")
                 {
                     this.Space.LevelSettings.Z_UI_MenuPopUp.FadeOut();
+                    if(this.Space.FindObjectByName("BtnMainMenu") != null)
+                    {
+                        this.Space.FindObjectByName("BtnMainMenu").Z_GamepadButtonController.Active = true;
+                        this.Space.FindObjectByName("BtnMainMenu").Z_GamepadButtonController.Timer = 0;
+                    }
                     if(this.Space.FindObjectByName("BtnGameQuit") != null)
                     {
                         this.Space.FindObjectByName("BtnGameQuit").Z_GamepadButtonController.Active = true;

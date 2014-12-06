@@ -29,7 +29,7 @@ class Z_UI_MenuPopUp:ZilchComponent
     
     //POSITION
     [Property]
-    var StartingPosition:Real3 = Real3(0,10,20);
+    var StartingPosition:Real3 = Real3(0,0,20);
     
     //non-settables
     var StartingScale:Real3 = Real3();
@@ -98,9 +98,33 @@ class Z_UI_MenuPopUp:ZilchComponent
             this.Btn1 = this.DialogBox.FindChildByName("BtnMainMenu");
             this.Btn2 = this.DialogBox.FindChildByName("BtnGameQuitWhite");
         }
+        if(dialogType_ == "ThankYouTryAgain")
+        {
+            //assign dialogbox to thank you arc type
+            this.DialogBox = this.LevelSettings.HudCreator.HudSpace.CreateAtPosition(Archetype.Find("arc_ui_thank_you_try_again"), this.StartingPosition);
+            this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
+            //find parts of this dialog box
+            this.FocusBg = this.DialogBox.FindChildByName("ui-focus");
+            this.Btn1 = this.DialogBox.FindChildByName("BtnMainMenu");
+            this.Btn2 = this.DialogBox.FindChildByName("BtnTryAgain");
+        }
         if(dialogType_ == "QuitConfirmation")
         {
             //assign dialogbox to quit confirmation arc type
+            this.DialogBox = this.Space.CreateAtPosition(Archetype.Find("arc_ui_quit"), this.StartingPosition);
+            this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
+            //find parts of this dialog box
+            this.FocusBg = this.DialogBox.FindChildByName("ui-focus");
+            this.Btn1 = this.DialogBox.FindChildByName("BtnYes");
+            this.Btn2 = this.DialogBox.FindChildByName("BtnNo");
+            
+            //call fadein
+            this.FadeIn();
+        }
+        if(dialogType_ == "ThankYouQuitConfirmation")
+        {
+            //assign dialogbox to quit confirmation arc type
+            this.StartingPosition = Real3(0,0,26);
             this.DialogBox = this.Space.CreateAtPosition(Archetype.Find("arc_ui_quit"), this.StartingPosition);
             this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
             //find parts of this dialog box

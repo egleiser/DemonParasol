@@ -47,7 +47,21 @@ class Z_CheatCodes:ZilchComponent
         {
             if(this.Space.FindObjectByName("Player") != null)
             {
+                var damageEvent = DamageEvent();
+                this.Space.FindObjectByName("Player").DispatchEvent(Events.ApplyDamage, damageEvent);
+                this.LevelSettings.HudCreator.HudSpace.Create(Archetype.Find("HurtOverlay"));
+                this.Space.SoundSpace.PlayCue(SoundCue.Find("PlayerHurt"));
                 this.Space.FindObjectByName("Player").Health.ApplyDamage(1);
+            }
+        }
+        
+        if(Zero.Keyboard.KeyIsPressed(Keys.NumPad5))
+        {
+            if(this.Space.LevelSettings != null)
+            {
+                this.LevelSettings.DataLoader.SaveFile.SaveData.LastLevel = this.Space.CurrentLevel.Name;
+                this.LevelSettings.DataLoader.StoreSaveFile();
+                this.Space.LoadLevel(Level.Find("LVL_BlackRainMainLobby"));
             }
         }
     }

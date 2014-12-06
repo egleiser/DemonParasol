@@ -45,6 +45,18 @@ class PlayerController : ZilchComponent
         this.Camera = this.CameraPath.Cog;
         this.ContextButton = this.LevelSettings.HudCreator.HudSpace.FindObjectByName("ContextButton");
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.Death, this.OnDeath);
+    }
+
+    function OnDeath(event : Event)
+    {
+        this.Space.LevelSettings.Z_WinLoseTrigger.DisplayMessage("YouLose");
+        
+        var aDead = Action.Sequence(this.Owner.Actions);
+        
+        Action.Delay(aDead, 3.0);
+        
+        Action.Call(aDead, this.Space.TimeSpace.TogglePause);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -309,4 +321,6 @@ class PlayerController : ZilchComponent
             this.Owner.RigidBody.Velocity /= Real3(this.Deceleration,this.Deceleration,1);
         }
     }
+    
+    
 }

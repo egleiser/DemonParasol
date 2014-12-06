@@ -83,6 +83,26 @@ Level =
 		Z_CheatCodes = 
 		{
 		},
+		Z_UI_MenuPopUp = 
+		{
+			float FadeInTime = 1,
+			float FadeOutTime = 0.25,
+			Vec3 ScaleOutSize = [0.75, 0.75, 0.75],
+			float ScaleOutTime = 0.2,
+			Vec3 ScaleInSize = [1, 1, 1],
+			float ScaleInTime = 0.8,
+			Enum EaseType = QuadIn,
+			Vec3 StartingPosition = [0, 0, 20],
+		},
+		Z_WinLoseTrigger = 
+		{
+			Vec3 StartingPosition = [0, 0, 1],
+			Vec3 EndingPosition = [0, 6, 1],
+			float FadeInTime = 2,
+			Vec3 TrackingScale = [1.1, 1.1, 1],
+			float TrackingTime = 20,
+			Enum EaseType = QuadIn,
+		},
 		Hierarchy = 
 		{
 			Cog = 

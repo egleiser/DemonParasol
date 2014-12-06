@@ -77,7 +77,7 @@ class Z_WinLoseTrigger:ZilchComponent
                 //create lose object
                 this.Message = this.LevelSettings.HudCreator.HudSpace.CreateAtPosition(Archetype.Find("arc_ui_you_lose"), this.StartingPosition);
                 //set MessageType
-                this.MessageType = "ThankYou";
+                this.MessageType = "ThankYouTryAgain";
             }
             if(messageType_ == "Success")
             {

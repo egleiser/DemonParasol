@@ -6,15 +6,15 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "ui-thank-you",
+		string Name = "ui-thank-you-try-again",
 	},
 	Archetyped = 
 	{
-		string Name = "540aac15949f28cc:arc_ui_thank_you",
+		string Name = "540be90b33a309b6:arc_ui_thank_you_try_again",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [255.928, 24.6136, -22.6453],
+		Vec3 Translation = [245.071, 7.80355, -22.3676],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -137,8 +137,8 @@ Cog =
 			{
 				CogPath UpButton = "",
 				CogPath DownButton = "",
-				CogPath LeftButton = "../BtnGameQuitWhite",
-				CogPath RightButton = "../BtnGameQuitWhite",
+				CogPath LeftButton = "../BtnTryAgain",
+				CogPath RightButton = "../BtnTryAgain",
 				string AltSprite = "545d2b4bfc3f8313:btn-menu-main-active",
 				int GamepadIndex = 0,
 				bool Active = true,
@@ -154,7 +154,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "BtnGameQuitWhite",
+				string Name = "BtnTryAgain",
 			},
 			Archetyped = 
 			{
@@ -179,7 +179,7 @@ Cog =
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
 				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "540aa3ac9e3bd60a:btn-quit-game-white-inactive",
+				string SpriteSource = "540be899035f42e4:btn-try-again-inactive",
 				bool RenderMask = false,
 				bool FlipX = false,
 				bool FlipY = false,
@@ -190,7 +190,7 @@ Cog =
 			},
 			Area = 
 			{
-				Vec2 Size = [5.5, 1.5],
+				Vec2 Size = [7, 1.5],
 				Location Origin = Center,
 			},
 			Z_UI_Transitions = 
@@ -209,7 +209,7 @@ Cog =
 				CogPath DownButton = "",
 				CogPath LeftButton = "../BtnMainMenu",
 				CogPath RightButton = "../BtnMainMenu",
-				string AltSprite = "540aa3ac9e3bb8b1:btn-quit-game-white-active",
+				string AltSprite = "540be899035f60e6:btn-try-again-active",
 				int GamepadIndex = 0,
 				bool Active = false,
 				float Timer = 0,

@@ -80,14 +80,14 @@ class AI_SwordBoss : ZilchComponent
             this.SwordBossMesh.Transform.Scale = this.InitScale;
         }
         //Debug Keys
-        if(Zero.Keyboard.KeyIsPressed(Keys.H))
-        {
-            this.CurrentState = SwordBossState.Activating;
-        }
-        if(Zero.Keyboard.KeyIsPressed(Keys.J))
-        {
-            this.CurrentState = SwordBossState.Aim;
-        }
+        //if(Zero.Keyboard.KeyIsPressed(Keys.H))
+        //{
+        //    this.CurrentState = SwordBossState.Activating;
+        //}
+        //if(Zero.Keyboard.KeyIsPressed(Keys.J))
+        //{
+        //    this.CurrentState = SwordBossState.Aim;
+        //}
         //Get Player Direction        
         if(this.FaceThePlayer)
         {
