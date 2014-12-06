@@ -1,0 +1,30 @@
+class PuzzleMaskBurn : ZilchComponent
+{
+    var Active:Boolean = false;
+    var Timer:Integer = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "HurtSphereFire" && this.Active == false)
+        {
+            this.Owner.FindChildByName("OnFireBig").SphericalParticleEmitter.Active = true;
+            this.Active = true;
+        }
+    }
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.Active)
+        {
+            this.Timer += 1;
+        }
+        if(this.Timer > 120)
+        {
+            this.Owner.Destroy();
+        }
+    }
+}

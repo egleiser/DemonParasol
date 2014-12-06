@@ -123,7 +123,7 @@ class OrbitCameraController : ZilchComponent
     {
         if(Zero.Keyboard.KeyIsPressed(Keys.Control) || this.Space.FindObjectByName("Player").InputController.Gamepad.IsButtonPressed(Buttons.RightShoulder))
         {
-            this.ToggleFlipCam();
+            //this.ToggleFlipCam();
             //throw(new Exception("FlipCam not at Sleep point"));
         }
     }
