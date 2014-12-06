@@ -77,7 +77,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.584435, -3.93477, 50],
+			Vec3 Translation = [-2.87261, 3.26687, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -89,7 +89,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 81.8732,
+			float Size = 81.8733,
 		},
 		EditorCameraController = 
 		{
@@ -97,7 +97,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-0.584435, -3.93477, 1.23131e-008],
+			Vec3 LookTarget = [-2.87261, 3.26687, -8.77063e-008],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -211,7 +211,7 @@ Level =
 				},
 				Named = 
 				{
-					string Name = "btn-menu-main-red",
+					string Name = "BtnMenuMainRed",
 				},
 				Archetyped = 
 				{
@@ -222,6 +222,11 @@ Level =
 					Vec3 Translation = [0, -16, 2],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
+				},
+				Reactive = 
+				{
+					bool Active = true,
+					bool CaptureMouse = true,
 				},
 				Sprite = 
 				{
@@ -240,14 +245,10 @@ Level =
 					float AnimationSpeed = 1,
 					uint StartFrame = 0,
 				},
-				Reactive = 
+				Area = 
 				{
-					bool Active = true,
-					bool CaptureMouse = true,
-				},
-				Z_UI_Button = 
-				{
-					string LevelToLoad = "",
+					Vec2 Size = [5, 1.25],
+					Location Origin = Center,
 				},
 				Z_UI_Transitions = 
 				{
@@ -259,10 +260,17 @@ Level =
 					float ScaleBiggerSize = 1.1,
 					Enum EaseType = QuadInOut,
 				},
-				Area = 
+				Z_GamepadButtonController = 
 				{
-					Vec2 Size = [5, 1.25],
-					Location Origin = Center,
+					CogPath UpButton = "",
+					CogPath DownButton = "",
+					CogPath LeftButton = "",
+					CogPath RightButton = "",
+					string AltSprite = "545d438a9a2a9707:btn-menu-main-red-active",
+					int GamepadIndex = 0,
+					bool Active = true,
+					float Timer = 0,
+					string LevelToLoad = "54682358d686e046:lvl_menu_main",
 				},
 			},
 		},

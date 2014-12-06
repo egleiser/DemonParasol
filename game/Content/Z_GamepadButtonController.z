@@ -1,0 +1,211 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FILE-Z_UI_MenuPopUp.z
+//AUTHOR-Eric Gleiser & Travis Moore
+//COURSE-GAM205
+//COPYRIGHT-© 2014 DigiPen, All Rights Reserved.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+class Z_GamepadButtonController : ZilchComponent
+{
+    [Property]
+    var UpButton:CogPath = null;
+    [Property]
+    var DownButton:CogPath = null;
+    [Property]
+    var LeftButton:CogPath = null;
+    [Property]
+    var RightButton:CogPath = null;
+    
+    [Property]
+    var AltSprite:SpriteSource = null;
+    var InitSprite:SpriteSource = null;
+    
+    //GAMEPAD
+    [Property]
+    var GamepadIndex:Integer = 0;
+    var Gamepad:Gamepad = null;
+    
+    [Property]
+    var Active:Boolean = false;
+    
+    [Property]
+    var Timer:Real = 0;
+    
+    [Property]
+    var LevelToLoad:Level = null;
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Initialize()
+    //EXPLANATION-Initializes variables and events
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Initialize(init : CogInitializer):Void
+    {
+        this.InitSprite = this.Owner.Sprite.SpriteSource;
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-OnLogicUpdate()
+    //EXPLANATION-Updates every frame and performs actions with button presses
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function OnLogicUpdate(event : UpdateEvent):Void
+    {
+        if(this.Active)
+        {
+            if(this.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Enter))
+            {
+                if(this.LevelToLoad != null)
+                {
+                    this.Space.LoadLevel(this.LevelToLoad);
+                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Accept"));
+                }
+                
+                if(this.Owner.Name == "BtnArrowRight")
+                {
+                    //find the things we need and call their shift right
+                    this.Space.FindObjectByName("ui_howtoplay_gamepad").Z_UI_Shift.ShiftOutRight();
+                    this.Space.FindObjectByName("ui_text_gamepad").Z_UI_Shift.ShiftOutRight();
+                    this.Owner.Z_UI_Shift.ShiftOutRight();
+                    
+                    //find the new things we need and call their shift left
+                    this.Space.FindObjectByName("ui_howtoplay_keyboardmouse").Z_UI_Shift.ShiftInLeft();
+                    this.Space.FindObjectByName("ui_text_keyboardmouse").Z_UI_Shift.ShiftInLeft();
+                    this.Space.FindObjectByName("BtnArrowLeft").Z_UI_Shift.ShiftInLeft();
+                }
+                if(this.Owner.Name == "BtnArrowLeft")
+                {
+                    //find the things we need and call their shift left
+                    this.Space.FindObjectByName("ui_howtoplay_keyboardmouse").Z_UI_Shift.ShiftOutLeft();
+                    this.Space.FindObjectByName("ui_text_keyboardmouse").Z_UI_Shift.ShiftOutLeft();
+                    this.Owner.Z_UI_Shift.ShiftOutLeft();
+                    
+                    //find the new things we need and call their shift left
+                    this.Space.FindObjectByName("ui_howtoplay_gamepad").Z_UI_Shift.ShiftInRight();
+                    this.Space.FindObjectByName("ui_text_gamepad").Z_UI_Shift.ShiftInRight();
+                    this.Space.FindObjectByName("BtnArrowRight").Z_UI_Shift.ShiftInRight();
+                }
+                if(this.Owner.Name == "BtnGameQuit" )
+                {
+                    this.Space.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox("QuitConfirmation");
+                    this.Timer = 0;
+                    this.Active = false;
+                }
+                if(this.Owner.Name == "BtnGameEraseData" )
+                {
+                    this.Space.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox("EraseGameData");
+                    this.Timer = 0;
+                    this.Active = false;
+                }
+                if(this.Owner.Name == "BtnPauseMenuMain" )
+                {
+                    this.Space.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox("PauseMainMenu");
+                    this.Timer = 0;
+                    this.Active = false;
+                }
+                //if button is "Quit Yes"
+                if(this.Owner.Name == "BtnYes")
+                {
+                    this.GameSession.Quit();
+                }
+                //if button is "Yes Erase"
+                if(this.Owner.Name == "BtnYesErase")
+                {
+                    this.Space.LevelSettings.DataLoader.EraseSaveFile();
+                    this.Space.LoadLevel(Level.Find("lvl_menu_main"));
+                }
+                
+                if(this.Owner.Name == "BtnYesMenu")
+                {
+                    this.Space.LoadLevel(Level.Find("lvl_menu_main"));
+                }
+                //if button is "Quit No"
+                if(this.Owner.Name == "BtnNo")
+                {
+                    this.Space.LevelSettings.Z_UI_MenuPopUp.FadeOut();
+                    if(this.Space.FindObjectByName("BtnGameQuit") != null)
+                    {
+                        this.Space.FindObjectByName("BtnGameQuit").Z_GamepadButtonController.Active = true;
+                        this.Space.FindObjectByName("BtnGameQuit").Z_GamepadButtonController.Timer = 0;
+                    }
+                    if(this.Space.FindObjectByName("BtnGameEraseData") != null)
+                    {
+                        this.Space.FindObjectByName("BtnGameEraseData").Z_GamepadButtonController.Active = true;
+                        this.Space.FindObjectByName("BtnGameEraseData").Z_GamepadButtonController.Timer = 0;
+                    }
+                    if(this.Space.FindObjectByName("BtnPauseMenuMain") != null)
+                    {
+                        this.Space.FindObjectByName("BtnPauseMenuMain").Z_GamepadButtonController.Active = true;
+                        this.Space.FindObjectByName("BtnPauseMenuMain").Z_GamepadButtonController.Timer = 0;
+                    }
+                    this.Active = false;
+                }
+            }
+        }
+        
+        if(this.Gamepad.IsActive && this.Active && this.Timer > 20)
+        {
+            if(this.Gamepad.LeftStick.X > 0.4 || Zero.Keyboard.KeyIsPressed(Keys.Right))
+            {
+                if(this.RightButton.Cog != null)
+                {
+                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Click"));
+                    //Console.WriteLine("Right");
+                    this.RightButton.Cog.Z_GamepadButtonController.Active = true;
+                    this.RightButton.Cog.Z_GamepadButtonController.Timer = 0;
+                    this.Timer = 0;
+                    this.Active = false;
+                }
+            }
+            if(this.Gamepad.LeftStick.X < -0.4 || Zero.Keyboard.KeyIsPressed(Keys.Left))
+            {
+                if(this.LeftButton.Cog != null)
+                {
+                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Click"));
+                    //Console.WriteLine("Left");
+                    this.LeftButton.Cog.Z_GamepadButtonController.Active = true;
+                    this.LeftButton.Cog.Z_GamepadButtonController.Timer = 0;
+                    this.Timer = 0;
+                    this.Active = false;
+                }
+            }
+            if(this.Gamepad.LeftStick.Y > 0.4 || Zero.Keyboard.KeyIsPressed(Keys.Up))
+            {
+                if(this.UpButton.Cog != null)
+                {
+                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Click"));
+                    //Console.WriteLine("Up");
+                    this.UpButton.Cog.Z_GamepadButtonController.Active = true;
+                    this.UpButton.Cog.Z_GamepadButtonController.Timer = 0;
+                    this.Timer = 0;
+                    this.Active = false;
+                }
+            }
+            if(this.Gamepad.LeftStick.Y < -0.4 || Zero.Keyboard.KeyIsPressed(Keys.Down))
+            {
+                if(this.DownButton.Cog != null)
+                {
+                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Click"));
+                    //Console.WriteLine("Down");
+                    this.DownButton.Cog.Z_GamepadButtonController.Active = true;
+                    this.DownButton.Cog.Z_GamepadButtonController.Timer = 0;
+                    this.Timer = 0;
+                    this.Active = false;
+                }
+            }
+        }
+        
+        if(this.Active && this.Timer == 1)
+        {
+            this.Owner.Z_UI_Transitions.FadeInScaleUp();
+            this.Owner.Sprite.SpriteSource = this.AltSprite;
+        }
+        else if (this.Timer == 0)
+        {
+            this.Owner.Z_UI_Transitions.ScaleNormal();
+            this.Owner.Sprite.SpriteSource = this.InitSprite;
+        }
+        
+        ++this.Timer;
+    }
+}
