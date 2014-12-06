@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-59.492, 13.0753, 44.8896],
+		Vec3 Translation = [82.322, 39.4097, -0.000999451],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -84,7 +84,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "btn-menu-main",
+				string Name = "BtnPauseMenuMain",
 			},
 			Archetyped = 
 			{
@@ -118,6 +118,11 @@ Cog =
 				float AnimationSpeed = 1,
 				uint StartFrame = 0,
 			},
+			Area = 
+			{
+				Vec2 Size = [6, 1.5],
+				Location Origin = Center,
+			},
 			Z_UI_Transitions = 
 			{
 				float FadeInTime = 0.5,
@@ -128,37 +133,87 @@ Cog =
 				float ScaleBiggerSize = 1.1,
 				Enum EaseType = QuadInOut,
 			},
-			Area = 
+			Z_GamepadButtonController = 
 			{
-				Vec2 Size = [6, 1.5],
-				Location Origin = Center,
-			},
-			Z_UI_Button = 
-			{
-				string LevelToLoad = "54682358d686e046:lvl_menu_main",
+				CogPath UpButton = "../BtnGameResume",
+				CogPath DownButton = "../BtnGameResume",
+				CogPath LeftButton = "",
+				CogPath RightButton = "",
+				string AltSprite = "545d2b4bfc3f8313:btn-menu-main-active",
+				int GamepadIndex = 0,
+				bool Active = false,
+				float Timer = 0,
+				string LevelToLoad = "",
 			},
 		},
-		ArchetypeInstance = 
+		Cog = 
 		{
-			string Name = "549359035ea57e68:arc_menu_button",
 			LinkId = 
 			{
 				uint Id = 4,
 			},
+			Named = 
+			{
+				string Name = "BtnGameResume",
+			},
+			Archetyped = 
+			{
+				string Name = "549359035ea57e68:arc_menu_button",
+			},
 			Transform = 
 			{
-				Vec3 Translation = [0, -0.25, 1],
+				Vec3 Translation = [-0.243862, -0.25, 1],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
+			},
+			Reactive = 
+			{
+				bool Active = true,
+				bool CaptureMouse = true,
+			},
+			Sprite = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "540af00cbc919946:ui-game-resume-inactive",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
 			},
 			Area = 
 			{
 				Vec2 Size = [6.75, 1.5],
 				Location Origin = Center,
 			},
-			Named = 
+			Z_UI_Transitions = 
 			{
-				string Name = "btn-game-resume",
+				float FadeInTime = 0.5,
+				float FadeOutTime = 0.25,
+				float WaitTime = 2,
+				float ScaleOutTime = 0.2,
+				float ScaleInTime = 0.25,
+				float ScaleBiggerSize = 1.1,
+				Enum EaseType = QuadInOut,
+			},
+			Z_GamepadButtonController = 
+			{
+				CogPath UpButton = "../BtnPauseMenuMain",
+				CogPath DownButton = "../BtnPauseMenuMain",
+				CogPath LeftButton = "",
+				CogPath RightButton = "",
+				string AltSprite = "540af00cbc91bc69:ui-game-resume-active",
+				int GamepadIndex = 0,
+				bool Active = true,
+				float Timer = 0,
+				string LevelToLoad = "",
 			},
 		},
 	},

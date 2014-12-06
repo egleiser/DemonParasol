@@ -88,7 +88,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.146188, -1.84834, 49.999],
+			Vec3 Translation = [52.9812, 18.5742, 49.999],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -100,7 +100,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 36.788,
+			float Size = 74.0818,
 		},
 		EditorCameraController = 
 		{
@@ -108,7 +108,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [0.146188, -1.84834, -0.00100032],
+			Vec3 LookTarget = [52.9812, 18.5742, -0.000997958],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -142,7 +142,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "btn-game-new",
+			string Name = "BtnGameNew",
 		},
 		Archetyped = 
 		{
@@ -158,10 +158,6 @@ Level =
 		{
 			bool Active = true,
 			bool CaptureMouse = true,
-		},
-		Z_UI_Button = 
-		{
-			string LevelToLoad = "5481a28b21c79b8d:LVL_HomeSegment",
 		},
 		Sprite = 
 		{
@@ -195,6 +191,18 @@ Level =
 			float ScaleBiggerSize = 1.1,
 			Enum EaseType = QuadInOut,
 		},
+		Z_GamepadButtonController = 
+		{
+			CogPath UpButton = ":/BtnGameQuit",
+			CogPath DownButton = ":/BtnMenuControls",
+			CogPath LeftButton = "",
+			CogPath RightButton = "",
+			string AltSprite = "545d044a249a3c23:btn-new-game-active",
+			int GamepadIndex = 0,
+			bool Active = true,
+			float Timer = 0,
+			string LevelToLoad = "",
+		},
 	},
 	Cog = 
 	{
@@ -204,7 +212,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "btn-menu-options",
+			string Name = "BtnMenuOptions",
 		},
 		Archetyped = 
 		{
@@ -238,10 +246,6 @@ Level =
 			bool Active = true,
 			bool CaptureMouse = true,
 		},
-		Z_UI_Button = 
-		{
-			string LevelToLoad = "",
-		},
 		Area = 
 		{
 			Vec2 Size = [6, 1.5],
@@ -257,6 +261,18 @@ Level =
 			float ScaleBiggerSize = 1.1,
 			Enum EaseType = QuadInOut,
 		},
+		Z_GamepadButtonController = 
+		{
+			CogPath UpButton = ":/BtnMenuControls",
+			CogPath DownButton = ":/BtnMenuCredits",
+			CogPath LeftButton = "",
+			CogPath RightButton = "",
+			string AltSprite = "545d022f95859340:btn-menu-options-active",
+			int GamepadIndex = 0,
+			bool Active = false,
+			float Timer = 0,
+			string LevelToLoad = "54094741d5c11f40:lvl_menu_options",
+		},
 	},
 	Cog = 
 	{
@@ -266,7 +282,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "btn-menu-credits",
+			string Name = "BtnMenuCredits",
 		},
 		Archetyped = 
 		{
@@ -300,10 +316,6 @@ Level =
 			bool Active = true,
 			bool CaptureMouse = true,
 		},
-		Z_UI_Button = 
-		{
-			string LevelToLoad = "",
-		},
 		Area = 
 		{
 			Vec2 Size = [6, 1.5],
@@ -319,6 +331,18 @@ Level =
 			float ScaleBiggerSize = 1.1,
 			Enum EaseType = QuadInOut,
 		},
+		Z_GamepadButtonController = 
+		{
+			CogPath UpButton = ":/BtnMenuOptions",
+			CogPath DownButton = ":/BtnGameQuit",
+			CogPath LeftButton = "",
+			CogPath RightButton = "",
+			string AltSprite = "545d044a249ddf34:btn-menu-credits-active",
+			int GamepadIndex = 0,
+			bool Active = false,
+			float Timer = 0,
+			string LevelToLoad = "54682379d159b7c0:lvl_menu_credits",
+		},
 	},
 	Cog = 
 	{
@@ -328,7 +352,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "btn-game-quit",
+			string Name = "BtnGameQuit",
 		},
 		Archetyped = 
 		{
@@ -362,10 +386,6 @@ Level =
 			bool Active = true,
 			bool CaptureMouse = true,
 		},
-		Z_UI_Button = 
-		{
-			string LevelToLoad = "",
-		},
 		Area = 
 		{
 			Vec2 Size = [6, 1.5],
@@ -380,6 +400,18 @@ Level =
 			float ScaleInTime = 0.25,
 			float ScaleBiggerSize = 1.1,
 			Enum EaseType = QuadInOut,
+		},
+		Z_GamepadButtonController = 
+		{
+			CogPath UpButton = ":/BtnMenuCredits",
+			CogPath DownButton = ":/BtnGameNew",
+			CogPath LeftButton = "",
+			CogPath RightButton = "",
+			string AltSprite = "545d044a249a79c2:btn-quit-game-active",
+			int GamepadIndex = 0,
+			bool Active = false,
+			float Timer = 0,
+			string LevelToLoad = "",
 		},
 	},
 	Cog = 
@@ -462,7 +494,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "btn-menu-controls",
+			string Name = "BtnMenuControls",
 		},
 		Archetyped = 
 		{
@@ -496,10 +528,6 @@ Level =
 			bool Active = true,
 			bool CaptureMouse = true,
 		},
-		Z_UI_Button = 
-		{
-			string LevelToLoad = "",
-		},
 		Area = 
 		{
 			Vec2 Size = [6, 1.5],
@@ -514,6 +542,18 @@ Level =
 			float ScaleInTime = 0.25,
 			float ScaleBiggerSize = 1.1,
 			Enum EaseType = QuadInOut,
+		},
+		Z_GamepadButtonController = 
+		{
+			CogPath UpButton = ":/BtnGameNew",
+			CogPath DownButton = ":/BtnMenuOptions",
+			CogPath LeftButton = "",
+			CogPath RightButton = "",
+			string AltSprite = "545d044a249d9d93:btn-menu-controls-active",
+			int GamepadIndex = 0,
+			bool Active = false,
+			float Timer = 0,
+			string LevelToLoad = "5468234ed3b4c804:lvl_menu_controls",
 		},
 	},
 	ArchetypeInstance = 
@@ -539,12 +579,19 @@ Level =
 			string Name = "bg-white",
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "540ab3acb0d3e4d1:arc_ui_success",
 		LinkId = 
 		{
 			uint Id = 12,
+		},
+		Named = 
+		{
+			string Name = "ui-success",
+		},
+		Archetyped = 
+		{
+			string Name = "540ab3acb0d3e4d1:arc_ui_success",
 		},
 		Transform = 
 		{
@@ -552,14 +599,27 @@ Level =
 			Vec3 Scale = [3, 3, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			Vec4 Color = [1, 1, 1, 0],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "540ab30b8dbe86ff:ui-success",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
 		Area = 
 		{
 			Vec2 Size = [20, 2.5],
 			Location Origin = Center,
-		},
-		Named = 
-		{
-			string Name = "ui-success",
 		},
 	},
 },

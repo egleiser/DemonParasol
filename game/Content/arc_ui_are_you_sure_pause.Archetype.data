@@ -10,11 +10,11 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "540ae3657fe4d0ad:arc_ui_are_you_sure",
+		string Name = "540a3d06b9c1b4a3:arc_ui_are_you_sure_pause",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [74.169, 32.7665, -0.000999451],
+		Vec3 Translation = [75.5782, 31.76, -0.000999451],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -84,7 +84,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "BtnYesErase",
+				string Name = "BtnNo",
 			},
 			Archetyped = 
 			{
@@ -92,7 +92,116 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [-4, -1.25, 6],
+				Vec3 Translation = [4, -1.25, 1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Reactive = 
+			{
+				bool Active = true,
+				bool CaptureMouse = true,
+			},
+			Sprite = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "545d7dbd70f20126:btn-no-inactive",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			Area = 
+			{
+				Vec2 Size = [3, 1.5],
+				Location Origin = Center,
+			},
+			Z_UI_Transitions = 
+			{
+				float FadeInTime = 0.5,
+				float FadeOutTime = 0.25,
+				float WaitTime = 2,
+				float ScaleOutTime = 0.2,
+				float ScaleInTime = 0.25,
+				float ScaleBiggerSize = 1.1,
+				Enum EaseType = QuadInOut,
+			},
+			Z_GamepadButtonController = 
+			{
+				CogPath UpButton = "",
+				CogPath DownButton = "",
+				CogPath LeftButton = "../BtnYesMenu",
+				CogPath RightButton = "../BtnYesMenu",
+				string AltSprite = "545d7dbd70f5e1a8:btn-no-active",
+				int GamepadIndex = 0,
+				bool Active = true,
+				float Timer = 0,
+				string LevelToLoad = "",
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "button-blocker",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.0360489, -5.9712, 0],
+				Vec3 Scale = [10, 10, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Sprite = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				Vec4 Color = [1, 1, 1, 0],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "5275aa4d802dd6dc:Square",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			Reactive = 
+			{
+				bool Active = true,
+				bool CaptureMouse = false,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "BtnYesMenu",
+			},
+			Archetyped = 
+			{
+				string Name = "549359035ea57e68:arc_menu_button",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-4, -1.25, 1],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -144,115 +253,6 @@ Cog =
 				bool Active = false,
 				float Timer = 0,
 				string LevelToLoad = "",
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 4,
-			},
-			Named = 
-			{
-				string Name = "BtnNo",
-			},
-			Archetyped = 
-			{
-				string Name = "549359035ea57e68:arc_menu_button",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [4, -1.25, 6],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Reactive = 
-			{
-				bool Active = true,
-				bool CaptureMouse = true,
-			},
-			Sprite = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				Vec4 Color = [1, 1, 1, 1],
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "545d7dbd70f20126:btn-no-inactive",
-				bool RenderMask = false,
-				bool FlipX = false,
-				bool FlipY = false,
-				bool OnTop = false,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-			},
-			Area = 
-			{
-				Vec2 Size = [3, 1.5],
-				Location Origin = Center,
-			},
-			Z_UI_Transitions = 
-			{
-				float FadeInTime = 0.5,
-				float FadeOutTime = 0.25,
-				float WaitTime = 2,
-				float ScaleOutTime = 0.2,
-				float ScaleInTime = 0.25,
-				float ScaleBiggerSize = 1.1,
-				Enum EaseType = QuadInOut,
-			},
-			Z_GamepadButtonController = 
-			{
-				CogPath UpButton = "",
-				CogPath DownButton = "",
-				CogPath LeftButton = "../BtnYesErase",
-				CogPath RightButton = "../BtnYesErase",
-				string AltSprite = "545d7dbd70f5e1a8:btn-no-active",
-				int GamepadIndex = 0,
-				bool Active = true,
-				float Timer = 0,
-				string LevelToLoad = "",
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 5,
-			},
-			Named = 
-			{
-				string Name = "button-blocker",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [0.0360489, -5.9712, 0],
-				Vec3 Scale = [10, 10, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Sprite = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				Vec4 Color = [1, 1, 1, 0],
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "5275aa4d802dd6dc:Square",
-				bool RenderMask = false,
-				bool FlipX = false,
-				bool FlipY = false,
-				bool OnTop = false,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-			},
-			Reactive = 
-			{
-				bool Active = true,
-				bool CaptureMouse = false,
 			},
 		},
 	},
