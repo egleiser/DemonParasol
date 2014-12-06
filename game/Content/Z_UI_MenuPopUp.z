@@ -38,32 +38,6 @@ class Z_UI_MenuPopUp:ZilchComponent
     var Btn2:Cog = null;
     var DialogBox:Cog = null;
     var FocusBg:Cog = null;
-    var Player:Cog = null;
-    var MenuPosition:Real3 = Real3();
-    
-    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCTION-Initialize
-    //EXPLANATION-Initialize variables/functions so that we can use them
-    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    function Initialize(init:CogInitializer):Void
-    {
-        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-        
-        if(this.Space.FindObjectByName("Player") != null)
-        {
-            this.Player = this.Space.FindChildByName("Player");
-        }
-    }
-
-    function OnLogicUpdate(event:UpdateEvent)
-    {
-        if(this.Player != null)
-        {
-            this.MenuPosition = Real3(this.Player.Transform.Translation.X,
-                                      this.Player.Transform.Translation.Y,
-                                      6.0);
-        }
-    }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCTION-DetermineDialogBox()
@@ -74,12 +48,15 @@ class Z_UI_MenuPopUp:ZilchComponent
         if(dialogType_ == "PauseMenu")
         {
             //assign dialogbox to thank you arc type
-            this.DialogBox = this.Space.CreateAtPosition(Archetype.Find("arc_ui_pause_menu"), this.MenuPosition);
+            this.DialogBox = this.Space.CreateAtPosition(Archetype.Find("arc_ui_pause_menu"), this.StartingPosition);
             this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
             //find parts of this dialog box
             this.FocusBg = this.DialogBox.FindChildByName("ui-focus");
-            this.Btn1 = this.DialogBox.FindChildByName("btn-menu-main");
-            this.Btn2 = this.DialogBox.FindChildByName("btn-game-quit-white");
+            this.Btn1 = this.DialogBox.FindChildByName("btn-game-resume");
+            this.Btn2 = this.DialogBox.FindChildByName("btn-menu-main");
+            
+            //call fadein
+            this.FadeIn();
         }
         if(dialogType_ == "ThankYou")
         {

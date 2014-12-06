@@ -273,10 +273,7 @@ class Z_UI_Button:ZilchComponent
         //if button is "Resume Game"
         if(this.Owner.Name == "btn-game-resume")
         {
-            var pause = this.Space.FindObjectByName("ui-pause-menu");
-            pause.Transform.Translation = Real3(pause.Transform.Translation.X, -500, pause.Transform.Translation.Z);
-            //toggle pause back off
-            gameSpace.TimeSpace.TogglePause();
+            gameSpace.LevelSettings.QuickPause.TogglePauseMenu();
         }
         //if button is "New Game"
         if(this.Owner.Name == "btn-game-new")

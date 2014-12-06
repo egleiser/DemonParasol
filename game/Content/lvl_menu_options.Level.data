@@ -108,7 +108,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [21.4011, 49.8889, 50],
+			Vec3 Translation = [-1.34385, 49.5593, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -120,7 +120,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 60.6532,
+			float Size = 40.6571,
 		},
 		EditorCameraController = 
 		{
@@ -128,7 +128,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [21.4011, 49.8889, 1.01048e-006],
+			Vec3 LookTarget = [-1.34385, 49.5593, 1.62667e-008],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -175,171 +175,6 @@ Level =
 		Named = 
 		{
 			string Name = "bg-white",
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 5,
-		},
-		Named = 
-		{
-			string Name = "ui-pause-menu",
-		},
-		Archetyped = 
-		{
-			string Name = "540a8b380e40915e:arc_ui_pause_menu",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [29.8755, 51.1504, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "545d0e124f766bc4:ui_pause",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool OnTop = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-		Reactive = 
-		{
-			bool Active = true,
-			bool CaptureMouse = false,
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 6,
-				},
-				Named = 
-				{
-					string Name = "ui-focus",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0.6, 2.5, -2],
-					Vec3 Scale = [3, 3, 3],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					Vec4 Color = [1, 1, 1, 0],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "545d0e124f6a4955:ui_focus",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool OnTop = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 7,
-				},
-				Named = 
-				{
-					string Name = "btn-menu-main",
-				},
-				Archetyped = 
-				{
-					string Name = "549359035ea57e68:arc_menu_button",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, -2, 1],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Reactive = 
-				{
-					bool Active = true,
-					bool CaptureMouse = true,
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "545d2b4bfc3fa37d:btn-menu-main-inactive",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool OnTop = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				Z_UI_Transitions = 
-				{
-					float FadeInTime = 0.5,
-					float FadeOutTime = 0.25,
-					float WaitTime = 2,
-					float ScaleOutTime = 0.2,
-					float ScaleInTime = 0.25,
-					float ScaleBiggerSize = 1.1,
-					Enum EaseType = QuadInOut,
-				},
-				Area = 
-				{
-					Vec2 Size = [6, 1.5],
-					Location Origin = Center,
-				},
-				Z_UI_Button = 
-				{
-					string LevelToLoad = "54682358d686e046:lvl_menu_main",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "549359035ea57e68:arc_menu_button",
-				LinkId = 
-				{
-					uint Id = 8,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, -0.25, 1],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Area = 
-				{
-					Vec2 Size = [6.75, 1.5],
-					Location Origin = Center,
-				},
-				Named = 
-				{
-					string Name = "btn-resume-game",
-				},
-			},
 		},
 	},
 },
