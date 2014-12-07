@@ -1,0 +1,107 @@
+class OutsideDivDiagBlocker : ZilchComponent
+{
+    var Player : Cog = null;
+    
+    var OutsideDivHouseConvoCog : Cog = null;
+    
+    var OutsideDivHouseBlocker1 : Cog = null;
+    var OutsideDivHouseBlocker2 : Cog = null;
+    var OutsideDivHouseBlocker3 : Cog = null;
+    var OutsideDivHouseBlocker4 : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Space.FindObjectByName("Player");
+        
+        //this.OutsideDivHouseConvoCog = this.Space.FindObjectByName("DivinerHouseOutCube");
+        
+        this.OutsideDivHouseBlocker1 = this.Space.FindObjectByName("OutsideDivHouseBlocker1");
+        this.OutsideDivHouseBlocker2 = this.Space.FindObjectByName("OutsideDivHouseBlocker2");
+        this.OutsideDivHouseBlocker3 = this.Space.FindObjectByName("OutsideDivHouseBlocker3");
+        this.OutsideDivHouseBlocker4 = this.Space.FindObjectByName("OutsideDivHouseBlocker4");
+        
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        Zero.Connect(this.Space, "dialogueFinished", this.OnDialogueFinished);
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player")
+        {
+            Console.WriteLine("Player hit collider");
+            var seq = Action.Sequence(this.Owner.Actions);
+            Action.Call(seq, this.DialogueStart);
+            Action.Call(seq, this.DivHouseOutsideConvoBlocker);
+        }
+    }
+    
+    function DivHouseOutsideConvoBlocker()
+    {
+        var grp = Action.Group(this.Owner.Actions);
+        Action.Property(grp,
+                        @this.OutsideDivHouseBlocker1.BoxCollider.Ghost,
+                        false,
+                        0.001,
+                        Ease.Linear);
+        Action.Property(grp,
+                        @this.OutsideDivHouseBlocker2.BoxCollider.Ghost,
+                        false,
+                        0.001,
+                        Ease.Linear);
+        Action.Property(grp,
+                        @this.OutsideDivHouseBlocker3.BoxCollider.Ghost,
+                        false,
+                        0.001,
+                        Ease.Linear);
+        Action.Property(grp,
+                        @this.OutsideDivHouseBlocker4.BoxCollider.Ghost,
+                        false,
+                        0.001,
+                        Ease.Linear);
+    }
+    
+    function OnDialogueFinished(event : DialogueEventFinished)
+    {
+        Console.WriteLine(event.CurrentDialogueSegment);
+        if(event.CurrentDialogueSegment != null && event.CurrentDialogueSegment.Name == "DivinerHouseOutside")
+        {
+            var grp = Action.Group(this.Owner.Actions);
+            Action.Property(grp,
+                            @this.OutsideDivHouseBlocker1.BoxCollider.Ghost,
+                            true,
+                            0.001,
+                            Ease.Linear);
+            Action.Property(grp,
+                            @this.OutsideDivHouseBlocker2.BoxCollider.Ghost,
+                            true,
+                            0.001,
+                            Ease.Linear);
+            Action.Property(grp,
+                            @this.OutsideDivHouseBlocker3.BoxCollider.Ghost,
+                            true,
+                            0.001,
+                            Ease.Linear);
+            Action.Property(grp,
+                            @this.OutsideDivHouseBlocker4.BoxCollider.Ghost,
+                            true,
+                            0.001,
+                            Ease.Linear);
+        }
+    }
+    
+    function DialogueStart()
+    {
+        var textBoxEvent = new TextBoxEvent();
+        textBoxEvent.DialogueSegmentToUse = this.Space.FindObjectByName("DivinerHouseOutside");
+        textBoxEvent.DistanceOnScreen = -2.0;
+        textBoxEvent.InOutTime = 0.5;
+        textBoxEvent.EaseCurve = Ease.QuadOut;
+        textBoxEvent.Opacity = 0.85;
+        textBoxEvent.OpacityTimeIn = 0.5;
+        textBoxEvent.OpacityEase = Ease.Linear;
+        var levelSettings = this.Space.LevelSettings;
+        var textBox = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
+        textBox.DispatchEvent("startDialogue", textBoxEvent);
+    }
+}

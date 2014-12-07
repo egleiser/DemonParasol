@@ -195,9 +195,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [145.386, -215.761, 324.264],
+			Vec3 Translation = [21.2876, -82.7166, 39.6328],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.135713, 0.00698196, -0.000956407, 0.990723],
+			Quat Rotation = [0.156292, -0.0421591, 0.00667737, 0.986788],
 		},
 		Camera = 
 		{
@@ -212,10 +212,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 383.539,
-			float VerticalAngle = -0.272272,
-			float HorizontalAngle = -6.29728,
-			Vec3 LookTarget = [140.18, -112.62, -45.1096],
+			float LookDistance = 70.0664,
+			float VerticalAngle = -0.31416,
+			float HorizontalAngle = -6.19779,
+			Vec3 LookTarget = [26.9712, -61.0648, -26.7615],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -232,7 +232,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [26.1632, -72.4165, 0],
+			Vec3 Translation = [26.1632, -74.7216, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -3655,6 +3655,45 @@ Level =
 		FootstepSurface = 
 		{
 			Enum SurfaceType = Dirt,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 106,
+		},
+		Named = 
+		{
+			string Name = "DialogColliderDun",
+		},
+		Archetyped = 
+		{
+			string Name = "54a777e86e8a02a6:DialogColliderDun",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [26.2708, -73.6339, 2.03377],
+			Vec3 Scale = [13.0933, 4.97016, 5.92401],
+			Quat Rotation = [0, 0, -0.999948, 0.0102025],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0, 0.9, 0.385],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "54bebd865c1562ee:CG_Player",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
 		},
 	},
 },
