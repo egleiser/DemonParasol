@@ -22,9 +22,9 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Source: "C:\Users\e.gleiser\AppData\Local\Temp\DemonParasol\*"; DestDir: "{app}";  Excludes: "*.exp,*.lib,__pycache__"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
-Name: "{group}\Vapor\{#MyGameName}"; Filename: "{app}\{#MyExeName}"; Parameters: "-play -file DemonParasol.zeroproj"
+Name: "{group}\DigiPen\{#MyGameName}"; Filename: "{app}\{#MyExeName}"; Parameters: "-play -file DemonParasol.zeroproj"
 Name: "{commondesktop}\{#MyGameName}"; Filename: "{app}\{#MyExeName}"; Tasks: desktopicon; Parameters: "-play -file DemonParasol.zeroproj"
-Name: "{group}\Vapor\Uninstall"; Filename: {uninstallexe}
+Name: "{group}\DigiPen\Uninstall"; Filename: {uninstallexe}
 
 [Run]
 Filename: {app}\{#MyExeName}; Description: "Run {#MyGameName}"; Flags: nowait postinstall skipifsilent; Parameters: "-play -file DemonParasol.zeroproj"
