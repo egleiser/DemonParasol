@@ -19,7 +19,7 @@ PrivilegesRequired=none
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";
 
 [Files]
-Source: "C:\Users\e.gleiser\AppData\Local\Temp\DemonParasol\*"; DestDir: "{app}";  Excludes: "*.exp,*.lib,__pycache__"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\Garrett\AppData\Local\Temp\DemonParasol\*"; DestDir: "{app}";  Excludes: "*.exp,*.lib,__pycache__"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{group}\DigiPen\{#MyGameName}"; Filename: "{app}\{#MyExeName}"; Parameters: "-play -file DemonParasol.zeroproj"
