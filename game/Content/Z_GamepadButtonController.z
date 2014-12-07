@@ -192,7 +192,7 @@ class Z_GamepadButtonController : ZilchComponent
                 }
             }
         }
-        
+        //Regular
         if(this.Active && this.Timer > 20)
         {
             if(this.Gamepad.LeftStick.X > 0.4 || Zero.Keyboard.KeyIsPressed(Keys.Right))
@@ -209,6 +209,7 @@ class Z_GamepadButtonController : ZilchComponent
             }
             if(this.Gamepad.LeftStick.X < -0.4 || Zero.Keyboard.KeyIsPressed(Keys.Left))
             {
+                
                 if(this.LeftButton.Cog != null)
                 {
                     this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Click"));
@@ -256,7 +257,37 @@ class Z_GamepadButtonController : ZilchComponent
             this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = this.InitSprite;
         }
-        
+        if(this.Gamepad.LeftStick.X > 0.4 || Zero.Keyboard.KeyIsPressed(Keys.Right))
+        {
+            if(this.Owner.Name == "BtnArrowRight")
+            {
+                //find the things we need and call their shift right
+                this.Space.FindObjectByName("ui_howtoplay_gamepad").Z_UI_Shift.ShiftOutRight();
+                this.Space.FindObjectByName("ui_text_gamepad").Z_UI_Shift.ShiftOutRight();
+                this.Owner.Z_UI_Shift.ShiftOutRight();
+                
+                //find the new things we need and call their shift left
+                this.Space.FindObjectByName("ui_howtoplay_keyboardmouse").Z_UI_Shift.ShiftInLeft();
+                this.Space.FindObjectByName("ui_text_keyboardmouse").Z_UI_Shift.ShiftInLeft();
+                this.Space.FindObjectByName("BtnArrowLeft").Z_UI_Shift.ShiftInLeft();
+            }
+        }
+        if(this.Gamepad.LeftStick.X < -0.4 || Zero.Keyboard.KeyIsPressed(Keys.Left))
+        {
+            
+            if(this.Owner.Name == "BtnArrowLeft")
+            {
+                //find the things we need and call their shift left
+                this.Space.FindObjectByName("ui_howtoplay_keyboardmouse").Z_UI_Shift.ShiftOutLeft();
+                this.Space.FindObjectByName("ui_text_keyboardmouse").Z_UI_Shift.ShiftOutLeft();
+                this.Owner.Z_UI_Shift.ShiftOutLeft();
+                
+                //find the new things we need and call their shift left
+                this.Space.FindObjectByName("ui_howtoplay_gamepad").Z_UI_Shift.ShiftInRight();
+                this.Space.FindObjectByName("ui_text_gamepad").Z_UI_Shift.ShiftInRight();
+                this.Space.FindObjectByName("BtnArrowRight").Z_UI_Shift.ShiftInRight();
+            }
+        }
         ++this.Timer;
     }
 }
