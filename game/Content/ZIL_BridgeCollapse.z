@@ -2,7 +2,8 @@
 ////                                 ////
 ////  Name: ZIL_BridgeCollapse       ////
 ////    Written by: Garrett Huxtable ////
-////     Last Updated: 12-3-14       ////
+////                 and Jason Clark ////
+////     Last Updated: 12-6-14       ////
 ////                                 ////
 /////////////////////////////////////////
 
@@ -10,44 +11,71 @@ class ZIL_BridgeCollapse : ZilchComponent
 {
     var PathFail : Boolean = false;
     
+    var Player : Cog = null;
+    
+    var DialogueDone : Boolean = false;
+    
+    var CurrentDiagSegEnded : Boolean = false;
+    
+    var BridgeSuccessCog : Cog = null;
+    var BridgeFailCog : Cog  = null;
+    
+    var BridgeFailBlocker1 : Cog = null;
+    var BridgeFailBlocker2 : Cog = null;
+    var BridgeFailBlocker3 : Cog = null;
+    var BridgeFailBlocker4 : Cog = null;
+    
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+        this.Player = this.Space.FindObjectByName("Player");
+        this.BridgeFailBlocker1 = this.Space.FindObjectByName("FailBridgeBlocker1");
+        this.BridgeFailBlocker2 = this.Space.FindObjectByName("FailBridgeBlocker2");
+        this.BridgeFailBlocker3 = this.Space.FindObjectByName("FailBridgeBlocker3");
+        this.BridgeFailBlocker4 = this.Space.FindObjectByName("FailBridgeBlocker4");
+        
+        this.BridgeSuccessCog = this.Space.FindObjectByName("MonkPathBridgeSuccess");
+        this.BridgeFailCog = this.Space.FindObjectByName("MonkPathBridgeFailure");
+        
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
         Zero.Connect(this.Space, "dialogueFinished", this.OndialogueFinished);
     }
 
-    function OndialogueFinished(event : Event)
-    {
-        this.FailStuff();
-    }
-
-    function OnCollisionPersisted(event : CollisionEvent)
+    function OnCollisionStarted(event : CollisionEvent)
     {
         if(event.OtherObject.Name == "Player")
         {
             if(this.PathFail == true)
             {
                 var seq = Action.Sequence(this.Owner.Actions);
+                var grp = Action.Group(seq);
                 Action.Call(seq, this.FailDialogue);
-                Action.Call(seq, this.FailStuff);
-                /* player should freeze in place on the peak of the bridge */
-                /* player should look around */
-                /* an ominous noise should play */
+                Action.Property(grp,
+                                @this.BridgeFailBlocker1.BoxCollider.Ghost,
+                                false,
+                                0.001,
+                                Ease.Linear);
+                Action.Property(grp,
+                                @this.BridgeFailBlocker2.BoxCollider.Ghost,
+                                false,
+                                0.001,
+                                Ease.Linear);
+                Action.Property(grp,
+                                @this.BridgeFailBlocker3.BoxCollider.Ghost,
+                                false,
+                                0.001,
+                                Ease.Linear);
+                Action.Property(grp,
+                                @this.BridgeFailBlocker4.BoxCollider.Ghost,
+                                false,
+                                0.001,
+                                Ease.Linear);
             }
             
             else
             {
-                var textBoxEvent = new TextBoxEvent();
-                textBoxEvent.DialogueSegmentToUse = this.Space.FindObjectByName("MonkPathBridgeSuccess");
-                textBoxEvent.DistanceOnScreen = -2.0;
-                textBoxEvent.InOutTime = 0.5;
-                textBoxEvent.EaseCurve = Ease.QuadOut;
-                textBoxEvent.Opacity = 0.85;
-                textBoxEvent.OpacityTimeIn = 0.5;
-                textBoxEvent.OpacityEase = Ease.Linear;
-                var levelSettings = this.Space.LevelSettings;
-                var textBox = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
-                textBox.DispatchEvent("startDialogue", textBoxEvent);
+                this.BridgeFailBlocker1.BoxCollider.Ghost = true;
+                this.BridgeFailBlocker2.BoxCollider.Ghost = true;
+                this.SuccessDialogue();
             }
         }
     }
@@ -55,7 +83,7 @@ class ZIL_BridgeCollapse : ZilchComponent
     function FailDialogue()
     {
         var textBoxEvent = new TextBoxEvent();
-        textBoxEvent.DialogueSegmentToUse = this.Space.FindObjectByName("MonkPathBridgeFailure");
+        textBoxEvent.DialogueSegmentToUse = this.BridgeFailCog;
         textBoxEvent.DistanceOnScreen = -2.0;
         textBoxEvent.InOutTime = 0.5;
         textBoxEvent.EaseCurve = Ease.QuadOut;
@@ -77,5 +105,37 @@ class ZIL_BridgeCollapse : ZilchComponent
             this.Owner.Parent.MeshCollider.Ghost = true;
         }
     }
-                
+    
+    function SuccessDialogue()
+    {
+        var textBoxEvent = new TextBoxEvent();
+        textBoxEvent.DialogueSegmentToUse = this.BridgeSuccessCog;
+        textBoxEvent.DistanceOnScreen = -2.0;
+        textBoxEvent.InOutTime = 0.5;
+        textBoxEvent.EaseCurve = Ease.QuadOut;
+        textBoxEvent.Opacity = 0.85;
+        textBoxEvent.OpacityTimeIn = 0.5;
+        textBoxEvent.OpacityEase = Ease.Linear;
+        var levelSettings = this.Space.LevelSettings;
+        var textBox = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
+        textBox.DispatchEvent("startDialogue", textBoxEvent);
+    }
+    
+    function SuccessStuff()
+    {
+        this.Space.LevelSettings.Z_WinLoseTrigger.DisplayMessage("Success");
+    }
+    
+    function OndialogueFinished(event : DialogueEventFinished)
+    {
+        Console.WriteLine(event.CurrentDialogueSegment);
+        if(event.CurrentDialogueSegment == this.BridgeSuccessCog)
+        {
+            this.SuccessStuff();
+        }
+        if(event.CurrentDialogueSegment == this.BridgeFailCog)
+        {
+            this.FailStuff();
+        }
+    }
 }

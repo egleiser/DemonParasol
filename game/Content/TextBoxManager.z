@@ -24,6 +24,10 @@ class TextBoxManager : ZilchComponent
     //A new array of cogs to copy the children of Dialogue Segment into
     var ChildTexts : Array[Cog] = null;
     
+    var DialogueFinished : Boolean = false;
+    
+    var DialogueStarted : Boolean = false;
+    
     //The sprite source for the text box (each character has their own)
     var TextBoxSprite : SpriteSource = null;
     
@@ -40,13 +44,20 @@ class TextBoxManager : ZilchComponent
         this.TextBoxText = this.TextBoxTextPath.Cog;
         this.ContinueButton = this.ContinueButtonPath.Cog;
         
-        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, "startDialogue", this.OnStartDialogueEvent);
         Zero.Connect(this.Owner, "continueDialogue", this.OnContinueDialogueEvent);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //Console.WriteLine(this.DialogueFinished);
     }
 
     function OnStartDialogueEvent(event : TextBoxEvent)
     {
+        this.DialogueStarted = true;
+        
         var mainSpace = this.GameSession.FindSpaceByName("Main");
         //var player = mainSpace.FindObjectByName("Player");
         //player.PlayerController.Active = false;
@@ -86,10 +97,14 @@ class TextBoxManager : ZilchComponent
     function OnContinueDialogueEvent(event : ContinueDialogueEvent)
     {
         this.CurrentTextIdx += 1;
+        //this.DialogueStarted = true;
         
         if(this.CurrentTextIdx == this.ChildTexts.Count)
         {
-            var grp = Action.Group(this.Owner.Actions);
+            var seq = Action.Sequence(this.Owner.Actions);
+            var grp = Action.Group(seq);
+            this.DialogueFinished = true;
+            Action.Call(seq, this.ChangeDiagSeqEndedBool);
             Action.Property(grp,
                             @this.Owner.Transform.Translation,
                             Real3(this.Owner.Transform.Translation.X, -13.0, this.Owner.Transform.Translation.Z),
@@ -101,10 +116,10 @@ class TextBoxManager : ZilchComponent
                             Real4(this.Owner.Sprite.Color.X, this.Owner.Sprite.Color.Y, this.Owner.Sprite.Color.Z, 0),
                             0.3,
                             Ease.Linear);
-            var mainSpace = this.GameSession.FindSpaceByName("Main");
-            var dialogueFinished = new DialogueEventFinished();
-            dialogueFinished.CurrentDialogueSegment = this.DialogueSegment;
-            mainSpace.DispatchEvent("dialogueFinished", dialogueFinished);
+            //var mainSpace = this.GameSession.FindSpaceByName("Main");
+            //var dialogueFinished = new DialogueEventFinished();
+            //dialogueFinished.CurrentDialogueSegment = this.DialogueSegment;
+            //mainSpace.DispatchEvent("dialogueFinished", dialogueFinished);
             
             //Action.Call(grp, this.ReactivateTongue);
         }
@@ -150,9 +165,12 @@ class TextBoxManager : ZilchComponent
             }
             else
             {
-                var e = new TextScrollEvent();
-                e.TextToWrite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerTextBlock;
-                this.TextBoxText.DispatchEvent("textScrollEvent", e);
+                if(this.CurrentTextIdx != this.ChildTexts.Count)
+                {
+                    var e = new TextScrollEvent();
+                    e.TextToWrite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerTextBlock;
+                    this.TextBoxText.DispatchEvent("textScrollEvent", e);
+                }
             }
         }
     }
@@ -182,9 +200,15 @@ class TextBoxManager : ZilchComponent
     
     function FirstTextScroll()
     {
+        this.DialogueStarted = true;
         //Sending a new text scroll event to the Text Box Text (not text box)
         var e = new TextScrollEvent();
         e.TextToWrite = this.ChildTexts.Get(0).TextBlockInfo.SpeakerTextBlock;
         this.TextBoxText.DispatchEvent("textScrollEvent", e);
+    }
+    
+    function ChangeDiagSeqEndedBool()
+    {
+        this.DialogueFinished = true;
     }
 }

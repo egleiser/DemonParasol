@@ -195,9 +195,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [270.996, -91.4347, 3.882],
+			Vec3 Translation = [22.2188, -74.0401, 42.0942],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.133074, -0.0267542, 0.00359357, 0.990739],
+			Quat Rotation = [0.0810547, -0.0190794, 0.00155187, 0.996526],
 		},
 		Camera = 
 		{
@@ -212,10 +212,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 31.4833,
-			float VerticalAngle = -0.267037,
-			float HorizontalAngle = -6.22919,
-			Vec3 LookTarget = [272.635, -83.127, -26.4412],
+			float LookDistance = 77.4363,
+			float VerticalAngle = -0.162317,
+			float HorizontalAngle = -6.2449,
+			Vec3 LookTarget = [25.1439, -61.5259, -34.2682],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -239,7 +239,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [26.1632, -72.4165, 0],
+			Vec3 Translation = [26.1632, -74.2345, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -6071,6 +6071,45 @@ Level =
 			CogPath MaskB = ":/CryMaskWoodPuzzB",
 			CogPath Enemy = ":/EneLanternDemon",
 			CogPath Star = ":/StarGlowFX",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 159,
+		},
+		Named = 
+		{
+			string Name = "DialogColliderDun",
+		},
+		Archetyped = 
+		{
+			string Name = "54a777e86e8a02a6:DialogColliderDun",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [26.2708, -73.6339, 2.03377],
+			Vec3 Scale = [13.0933, 4.97016, 5.92401],
+			Quat Rotation = [0, 0, -0.999948, 0.0102025],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0, 0.9, 0.385],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "54bebd865c1562ee:CG_Player",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
 		},
 	},
 },
