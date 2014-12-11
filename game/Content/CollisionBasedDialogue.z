@@ -26,7 +26,7 @@ class CollisionBasedDialogue : ZilchComponent
         
         this.HudSpaceRef = this.GameSession.FindSpaceByName("HudSpace");
         var textBox = this.HudSpaceRef.FindObjectByName("TextBox");
-        this.HasDialogueStarted = textBox.TextBoxManager.DialogueStarted;
+        //this.HasDialogueStarted = textBox.TextBoxManager.DialogueStarted;
         
         Zero.Connect(this.Space, "fadeInEnded", this.FadeInEnded);
         Zero.Connect(this.Space, "dialogueFinished", this.OnDialogueFinished);

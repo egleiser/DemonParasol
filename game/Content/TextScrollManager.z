@@ -62,26 +62,12 @@ class TextScrollManager : ZilchComponent
         
         Zero.Connect(this.Owner, "textScrollEvent", this.OntextScrollEvent);
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-        Zero.Connect(this.Space, "dialogueFinished", this.OnDialogueFinished);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
         if(this.PlayerDeactivated == true)
         {
-            var textManager = this.Space.FindObjectByName("TextBox").TextBoxManager;
-            var diagSeg = textManager.DialogueSegment;
-            //Console.WriteLine("Current Dialogue Segment = `diagSeg`");
-            if(textManager.DialogueFinished == true)
-            {
-                Console.WriteLine("This prints if dialogue is finsihed");
-                var mainSpace = this.GameSession.FindSpaceByName("Main");
-                var dialogueFinished = new DialogueEventFinished();
-                dialogueFinished.CurrentDialogueSegment = diagSeg;
-                mainSpace.DispatchEvent("dialogueFinished", dialogueFinished);
-                textManager.DialogueFinished = false;
-            }
-            
             if(this.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space))
             {
                 if(this.TextIsScrolling == false)
@@ -167,12 +153,6 @@ class TextScrollManager : ZilchComponent
         var e = new ContinueDialogueEvent();
         this.TextBox.DispatchEvent("continueDialogue", e);
     }
-    
-    function OnDialogueFinished(event : DialogueEventFinished)
-    {
-        this.Owner.SpriteText.Text = "";
-    }
-    
     
     //function ParticleScroll(currentCharacterIndex:Integer)
     //{
