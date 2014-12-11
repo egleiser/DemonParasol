@@ -92,14 +92,14 @@ class OrbitCameraController : ZilchComponent
             {
                 //this.WantedRotation = Math.Euler(Real3(Math.ToRadians(210.0), Math.ToRadians(180.0), 0.0));
                 //this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1))
-                //this.WantedRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1));
+                this.WantedRotation = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.Direction, Real3(0,0,1));
                 
-                //this.CurrentAngle = Math.Lerp(this.CurrentAngle, Math.ToRadians(this.AngleChange), event.Dt * 3);
-                //this.WantedPosition = Real3( Math.Cos(this.CurrentAngle) * this.Radius, Math.Sin(this.CurrentAngle) * this.Radius, this.Height) + this.OrbitTarget.Cog.Transform.WorldTranslation;
+                this.CurrentAngle = Math.Lerp(this.CurrentAngle, Math.ToRadians(this.AngleChange), event.Dt * 3);
+                this.WantedPosition = Real3( Math.Cos(this.CurrentAngle) * this.Radius, Math.Sin(this.CurrentAngle) * this.Radius, this.Height) + this.OrbitTarget.Cog.Transform.WorldTranslation;
                 
                 //this.Owner.Transform.Rotation = this.WantedRotation;
-                //this.Owner.Transform.Rotation = Math.RotateTowards(this.Owner.Transform.Rotation, this.WantedRotation, 1);    
-                //this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, this.WantedPosition, event.Dt * 5);
+                this.Owner.Transform.Rotation = Math.RotateTowards(this.Owner.Transform.Rotation, this.WantedRotation, 1);    
+                this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, this.WantedPosition, event.Dt * 5);
                 
 
             }

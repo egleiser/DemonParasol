@@ -17,68 +17,39 @@ class DialogueEnds : ZilchComponent
     var ObjectToTeleportToPath : CogPath = null;
     var ObjectToTeleportTo : Cog = null;
     
-    var ParasolRibs : Cog = null;
-    
     var Player : Cog = null;
     
     function Initialize(init : CogInitializer)
     {
         this.Player = this.Space.FindObjectByName("Player");
-        this.ParasolRibs = this.Player.FindChildByName("TongueMount");
         this.ObjectToTeleportTo = this.ObjectToTeleportToPath.Cog;
         this.ColliderToDestroy = this.ColliderToDestroyPath.Cog;
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Space, "dialogueFinished", this.OndialogueFinished);
-        //Zero.Connect(this.Space, "dialogueStarted", this.OnDialogueStarted);
     }
-    
+
     function OndialogueFinished(event : DialogueEventFinished)
     {
-        //if(this.ColliderToDestroy.DialogueEnds != null)
-        //{
-        //    var hudSpace = this.GameSession.FindSpaceByName("HudSpace");
-        //    var textBox = hudSpace.FindObjectByName("TextBox");
-        //    var destroyCollider : Boolean = textBox.TextBoxManager.DialogueFinished;
-        //    if(this.ShouldDestroyCollider == true && destroyCollider == true)
-        //    {
-        //        Console.WriteLine(this.ColliderToDestroy);
-        //        if(this.ColliderToDestroy.CollisionBasedDialogue.DiagSegPath.Cog == event.CurrentDialogueSegment)
-        //        {
-        //            Console.WriteLine("This collider destroyed: `this.ColliderToDestroy`");
-        //            if(this.ColliderToDestroy != null)
-        //            {
-        //                this.ColliderToDestroy.Destroy();
-        //            }
-        //        }
-        //    }
-        //}
-        if(this.ColliderToDestroy.DialogueEnds != null)
+        if(this.ShouldDestroyCollider == true)
         {
-            if(this.ShouldTeleportPlayer)
+            Console.WriteLine("Dialogue Finished");
+            Console.WriteLine(this.ColliderToDestroy);
+            if(this.ColliderToDestroy.CollisionBasedDialogue.DiagSegPath.Cog == event.CurrentDialogueSegment)
             {
-                if(this.ObjectToTeleportTo != null)
-                {
-                    if(event.CurrentDialogueSegment.Name == this.Owner.Name)
-                    {
-                        this.Player.Transform.Translation = this.ObjectToTeleportTo.Transform.Translation;
-                        this.ShouldTeleportPlayer = false;
-                    }
-                    //if(event.CurrentDialogueSegment.Name == "DivinerHouseInside")
-                    //{
-                    //    this.Player.Transform.Translation = this.ObjectToTeleportTo.Transform.Translation;
-                    //    this.ShouldTeleportPlayer = false;
-                    //}
-                }
-                else
-                {
-                    this.Player.Transform.Translation = this.PosToTeleportTo;
-                }
+                Console.WriteLine("This collider destroyed: `this.ColliderToDestroy`");
+                this.ColliderToDestroy.Destroy();
             }
         }
-        //Hard coded for now; need to change after the break
-        //if(event.CurrentDialogueSegment != null && event.CurrentDialogueSegment.Name == "DungeonPath")
-        //{
-        //    this.ParasolRibs.TongueManager.InitializeTongue();
-        //    this.ParasolRibs.TongueManager.ExtendTongue(10);
-        //}
+        if(this.ShouldTeleportPlayer)
+        {
+            if(this.ObjectToTeleportTo != null)
+            {
+                this.Player.Transform.Translation = this.ObjectToTeleportTo.Transform.Translation;
+            }
+            else
+            {
+                this.Player.Transform.Translation = this.PosToTeleportTo;
+            }
+        }
     }
 }

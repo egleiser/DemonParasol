@@ -20,25 +20,16 @@ class CollisionToNight : ZilchComponent
     
     var OffPath:Boolean = false;
     
-    var OffPathTextPlayed : Boolean = false;
-    
     var PathFail: Boolean = false;
     
     var IsNight: Boolean = false;
-    
-    var PathFailText : Cog = null;
     
     var TimeOffPath: Real = 0.0;
     
     function Initialize(init : CogInitializer)
     {
-        this.OffPathTextPlayed = true;
-        
-        this.PathFailText = this.Space.FindObjectByName("OffPathSegCog");
-        
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-        Zero.Connect(this.Space, "dialogueFinished", this.OnDialogueFinished);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -67,11 +58,6 @@ class CollisionToNight : ZilchComponent
                 if(this.TimeOffPath > this.ToNightTrigger)
                 {
                     this.PathFail = true;
-                    
-                    if(this.PathFailText != null)
-                    {
-                        this.PathFailTextCall();
-                    }
                 }
             }
         }
@@ -99,31 +85,5 @@ class CollisionToNight : ZilchComponent
         this.Space.CreateAtPosition(Archetype.Find("LightningStrike"),this.Space.FindObjectByName("Rain").Transform.WorldTranslation);
         var offThePath = this.Space.FindObjectByName("PathDetector");
         offThePath.ZIL_BridgeCollapse.PathFail = true;
-    }
-    
-    function PathFailTextCall()
-    {
-        var textBoxEvent = new TextBoxEvent();
-        textBoxEvent.DialogueSegmentToUse = this.PathFailText;
-        textBoxEvent.DistanceOnScreen = -2.0;
-        textBoxEvent.InOutTime = 0.5;
-        textBoxEvent.EaseCurve = Ease.QuadOut;
-        textBoxEvent.Opacity = 0.85;
-        textBoxEvent.OpacityTimeIn = 0.5;
-        textBoxEvent.OpacityEase = Ease.Linear;
-        var levelSettings = this.Space.LevelSettings;
-        var textBox = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
-        textBox.DispatchEvent("startDialogue", textBoxEvent);
-    }
-    
-    function OnDialogueFinished(event : DialogueEventFinished)
-    {
-        if(event.CurrentDialogueSegment == this.PathFailText)
-        {
-            if(this.PathFailText != null)
-            {
-                this.PathFailText.Destroy();
-            }
-        }
     }
 }
