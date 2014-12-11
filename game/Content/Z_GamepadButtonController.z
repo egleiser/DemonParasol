@@ -138,6 +138,12 @@ class Z_GamepadButtonController : ZilchComponent
                     this.Timer = 0;
                     this.Active = false;
                 }
+                if(this.Owner.Name == "BtnGameHowPlay" && this.GameSession.FindSpaceByName("Main").TimeSpace.Paused)
+                {
+                    this.Space.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox("HowPlay");
+                    this.Timer = 0;
+                    this.Active = false;
+                }
                 //if button is "Quit Yes"
                 if(this.Owner.Name == "BtnYes")
                 {
@@ -178,7 +184,7 @@ class Z_GamepadButtonController : ZilchComponent
                         this.Space.FindObjectByName("BtnMainMenu").Z_GamepadButtonController.Active = true;
                         this.Space.FindObjectByName("BtnMainMenu").Z_GamepadButtonController.Timer = 0;
                     }
-                    if(this.Space.FindObjectByName("BtnGameQuit") != null)
+                    if(this.Space.FindObjectByName("BtnGameQuit") != null && this.Space.Name == "Main")
                     {
                         this.Space.FindObjectByName("BtnGameQuit").Z_GamepadButtonController.Active = true;
                         this.Space.FindObjectByName("BtnGameQuit").Z_GamepadButtonController.Timer = 0;
@@ -198,9 +204,9 @@ class Z_GamepadButtonController : ZilchComponent
             }
         }
         //Regular
-        if(this.Active && this.Timer > 20)
+        if(this.Active && this.Timer > 10)
         {
-            if(this.Gamepad.LeftStick.X > 0.4 || Zero.Keyboard.KeyIsPressed(Keys.Right))
+            if(this.Gamepad.LeftStick.X > 0.4 || Zero.Keyboard.KeyIsPressed(Keys.Right) || this.Gamepad.IsButtonPressed(Buttons.DpadRight))
             {
                 if(this.RightButton.Cog != null)
                 {
@@ -212,7 +218,7 @@ class Z_GamepadButtonController : ZilchComponent
                     this.Active = false;
                 }
             }
-            if(this.Gamepad.LeftStick.X < -0.4 || Zero.Keyboard.KeyIsPressed(Keys.Left))
+            if(this.Gamepad.LeftStick.X < -0.4 || Zero.Keyboard.KeyIsPressed(Keys.Left)|| this.Gamepad.IsButtonPressed(Buttons.DpadLeft))
             {
                 
                 if(this.LeftButton.Cog != null)
@@ -225,7 +231,7 @@ class Z_GamepadButtonController : ZilchComponent
                     this.Active = false;
                 }
             }
-            if(this.Gamepad.LeftStick.Y > 0.4 || Zero.Keyboard.KeyIsPressed(Keys.Up))
+            if(this.Gamepad.LeftStick.Y > 0.4 || Zero.Keyboard.KeyIsPressed(Keys.Up)|| this.Gamepad.IsButtonPressed(Buttons.DpadUp))
             {
                 if(this.UpButton.Cog != null)
                 {
@@ -238,7 +244,7 @@ class Z_GamepadButtonController : ZilchComponent
                     this.Active = false;
                 }
             }
-            if(this.Gamepad.LeftStick.Y < -0.4 || Zero.Keyboard.KeyIsPressed(Keys.Down))
+            if(this.Gamepad.LeftStick.Y < -0.4 || Zero.Keyboard.KeyIsPressed(Keys.Down)|| this.Gamepad.IsButtonPressed(Buttons.DpadDown))
             {
                 if(this.DownButton.Cog != null)
                 {
@@ -262,7 +268,7 @@ class Z_GamepadButtonController : ZilchComponent
             this.Owner.Z_UI_Transitions.ScaleNormal();
             this.Owner.Sprite.SpriteSource = this.InitSprite;
         }
-        if(this.Gamepad.LeftStick.X > 0.4 || Zero.Keyboard.KeyIsPressed(Keys.Right))
+        if(this.Gamepad.LeftStick.X > 0.4 || Zero.Keyboard.KeyIsPressed(Keys.Right) || this.Gamepad.IsButtonPressed(Buttons.DpadRight))
         {
             if(this.Owner.Name == "BtnArrowRight")
             {
@@ -277,7 +283,7 @@ class Z_GamepadButtonController : ZilchComponent
                 this.Space.FindObjectByName("BtnArrowLeft").Z_UI_Shift.ShiftInLeft();
             }
         }
-        if(this.Gamepad.LeftStick.X < -0.4 || Zero.Keyboard.KeyIsPressed(Keys.Left))
+        if(this.Gamepad.LeftStick.X < -0.4 || Zero.Keyboard.KeyIsPressed(Keys.Left)|| this.Gamepad.IsButtonPressed(Buttons.DpadLeft))
         {
             
             if(this.Owner.Name == "BtnArrowLeft")

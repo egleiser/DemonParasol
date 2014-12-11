@@ -111,7 +111,22 @@ class Z_UI_MenuPopUp:ZilchComponent
         if(dialogType_ == "QuitConfirmation")
         {
             //assign dialogbox to quit confirmation arc type
+            this.StartingPosition = Real3(0,0,26);
             this.DialogBox = this.Space.CreateAtPosition(Archetype.Find("arc_ui_quit"), this.StartingPosition);
+            this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
+            //find parts of this dialog box
+            this.FocusBg = this.DialogBox.FindChildByName("ui-focus");
+            this.Btn1 = this.DialogBox.FindChildByName("BtnYes");
+            this.Btn2 = this.DialogBox.FindChildByName("BtnNo");
+            
+            //call fadein
+            this.FadeIn();
+        }
+        if(dialogType_ == "HowPlay")
+        {
+            //assign dialogbox to quit confirmation arc type
+            this.StartingPosition = Real3(0,0,26);
+            this.DialogBox = this.Space.CreateAtPosition(Archetype.Find("arc_ui_how_to_play"), this.StartingPosition);
             this.DialogBox.Sprite.Color = Real4(0,0,0,0.0);
             //find parts of this dialog box
             this.FocusBg = this.DialogBox.FindChildByName("ui-focus");

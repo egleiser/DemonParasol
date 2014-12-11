@@ -6,15 +6,15 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "ui-pause-menu",
+		string Name = "ui_how_to_play",
 	},
 	Archetyped = 
 	{
-		string Name = "540a8b380e40915e:arc_ui_pause_menu",
+		string Name = "545a0a2bffce0330:arc_ui_how_to_play",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [80.6541, 41.0547, -0.000995636],
+		Vec3 Translation = [85.8235, 41.0774, -0.000995636],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -26,7 +26,7 @@ Cog =
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "545d0e124f766bc4:ui_pause",
+		string SpriteSource = "545d39f51bcdf1aa:ui_howtoplay_gamepad",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
@@ -60,13 +60,13 @@ Cog =
 			},
 			Sprite = 
 			{
-				bool Visible = true,
+				bool Visible = false,
 				bool VisibilityCulling = true,
 				Vec4 Color = [1, 1, 1, 0],
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
 				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "545d0e124f6a4955:ui_focus",
+				string SpriteSource = "545a0fff76ec2ec2:black_sprite",
 				bool RenderMask = false,
 				bool FlipX = false,
 				bool FlipY = false,
@@ -84,32 +84,23 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "BtnPauseMenuMain",
-			},
-			Archetyped = 
-			{
-				string Name = "549359035ea57e68:arc_menu_button",
+				string Name = "button-blocker",
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, -1.46729, 1],
-				Vec3 Scale = [1, 1, 1],
+				Vec3 Translation = [0.0360489, -5.9712, 0],
+				Vec3 Scale = [10, 10, 1],
 				Quat Rotation = [0, 0, 0, 1],
-			},
-			Reactive = 
-			{
-				bool Active = true,
-				bool CaptureMouse = true,
 			},
 			Sprite = 
 			{
-				bool Visible = true,
+				bool Visible = false,
 				bool VisibilityCulling = true,
-				Vec4 Color = [1, 1, 1, 1],
+				Vec4 Color = [1, 1, 1, 0],
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
 				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "545d2b4bfc3fa37d:btn-menu-main-inactive",
+				string SpriteSource = "545a0fff76ec2ec2:black_sprite",
 				bool RenderMask = false,
 				bool FlipX = false,
 				bool FlipY = false,
@@ -118,32 +109,10 @@ Cog =
 				float AnimationSpeed = 1,
 				uint StartFrame = 0,
 			},
-			Area = 
+			Reactive = 
 			{
-				Vec2 Size = [6, 1.5],
-				Location Origin = Center,
-			},
-			Z_UI_Transitions = 
-			{
-				float FadeInTime = 0.5,
-				float FadeOutTime = 0.25,
-				float WaitTime = 2,
-				float ScaleOutTime = 0.2,
-				float ScaleInTime = 0.25,
-				float ScaleBiggerSize = 1.1,
-				Enum EaseType = QuadInOut,
-			},
-			Z_GamepadButtonController = 
-			{
-				CogPath UpButton = "../BtnGameHowPlay",
-				CogPath DownButton = "../BtnGameQuit",
-				CogPath LeftButton = "",
-				CogPath RightButton = "",
-				string AltSprite = "545d2b4bfc3f8313:btn-menu-main-active",
-				int GamepadIndex = 0,
-				bool Active = false,
-				float Timer = 0,
-				string LevelToLoad = "",
+				bool Active = true,
+				bool CaptureMouse = false,
 			},
 		},
 		Cog = 
@@ -154,7 +123,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "BtnGameResume",
+				string Name = "BtnYes",
 			},
 			Archetyped = 
 			{
@@ -162,7 +131,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [-0.243862, 0.588745, 1],
+				Vec3 Translation = [-0.294373, -1.93777, 6],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -173,13 +142,13 @@ Cog =
 			},
 			Sprite = 
 			{
-				bool Visible = true,
+				bool Visible = false,
 				bool VisibilityCulling = true,
-				Vec4 Color = [1, 1, 1, 1],
+				Vec4 Color = [0, 0, 0, 1],
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
 				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "540af00cbc919946:ui-game-resume-inactive",
+				string SpriteSource = "545a0fff76ec2ec2:black_sprite",
 				bool RenderMask = false,
 				bool FlipX = false,
 				bool FlipY = false,
@@ -190,7 +159,7 @@ Cog =
 			},
 			Area = 
 			{
-				Vec2 Size = [6.75, 1.5],
+				Vec2 Size = [3, 1.5],
 				Location Origin = Center,
 			},
 			Z_UI_Transitions = 
@@ -205,13 +174,13 @@ Cog =
 			},
 			Z_GamepadButtonController = 
 			{
-				CogPath UpButton = "../BtnGameQuit",
-				CogPath DownButton = "../BtnGameHowPlay",
+				CogPath UpButton = "",
+				CogPath DownButton = "",
 				CogPath LeftButton = "",
 				CogPath RightButton = "",
-				string AltSprite = "540af00cbc91bc69:ui-game-resume-active",
+				string AltSprite = "545a0fff76ec2ec2:black_sprite",
 				int GamepadIndex = 0,
-				bool Active = true,
+				bool Active = false,
 				float Timer = 0,
 				string LevelToLoad = "",
 			},
@@ -224,7 +193,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "BtnGameQuit",
+				string Name = "BtnNo",
 			},
 			Archetyped = 
 			{
@@ -232,7 +201,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, -2.67613, 1],
+				Vec3 Translation = [0.410171, -1.93777, 0],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -245,11 +214,11 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				Vec4 Color = [1, 1, 1, 1],
+				Vec4 Color = [0.08, 0.0208, 0.0208, 1],
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
 				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "540aa3ac9e3bd60a:btn-quit-game-white-inactive",
+				string SpriteSource = "545a0fff76ec2ec2:black_sprite",
 				bool RenderMask = false,
 				bool FlipX = false,
 				bool FlipY = false,
@@ -260,7 +229,7 @@ Cog =
 			},
 			Area = 
 			{
-				Vec2 Size = [6, 1.5],
+				Vec2 Size = [30, 30],
 				Location Origin = Center,
 			},
 			Z_UI_Transitions = 
@@ -275,88 +244,15 @@ Cog =
 			},
 			Z_GamepadButtonController = 
 			{
-				CogPath UpButton = "../BtnPauseMenuMain",
-				CogPath DownButton = "../BtnGameResume",
+				CogPath UpButton = "",
+				CogPath DownButton = "",
 				CogPath LeftButton = "",
 				CogPath RightButton = "",
-				string AltSprite = "540aa3ac9e3bb8b1:btn-quit-game-white-active",
+				string AltSprite = "545a0fff76ec2ec2:black_sprite",
 				int GamepadIndex = 0,
-				bool Active = false,
-				float Timer = 0,
-				string LevelToLoad = "",
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 6,
-			},
-			Named = 
-			{
-				string Name = "BtnGameHowPlay",
-			},
-			Archetyped = 
-			{
-				string Name = "549359035ea57e68:arc_menu_button",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [-0.243862, -0.400971, 1],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Reactive = 
-			{
 				bool Active = true,
-				bool CaptureMouse = true,
-			},
-			Sprite = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				Vec4 Color = [1, 1, 1, 1],
-				BlendMode BlendMode = Additive,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "545d044a249dbe75:btn-menu-controls-inactive",
-				bool RenderMask = false,
-				bool FlipX = false,
-				bool FlipY = false,
-				bool OnTop = false,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-			},
-			Area = 
-			{
-				Vec2 Size = [6.75, 1.5],
-				Location Origin = Center,
-			},
-			Z_UI_Transitions = 
-			{
-				float FadeInTime = 0.5,
-				float FadeOutTime = 0.25,
-				float WaitTime = 2,
-				float ScaleOutTime = 0.2,
-				float ScaleInTime = 0.25,
-				float ScaleBiggerSize = 1.1,
-				Enum EaseType = QuadInOut,
-			},
-			Z_GamepadButtonController = 
-			{
-				CogPath UpButton = "../BtnGameResume",
-				CogPath DownButton = "../BtnPauseMenuMain",
-				CogPath LeftButton = "",
-				CogPath RightButton = "",
-				string AltSprite = "545d044a249d9d93:btn-menu-controls-active",
-				int GamepadIndex = 0,
-				bool Active = false,
 				float Timer = 0,
 				string LevelToLoad = "",
-			},
-			Hierarchy = 
-			{
 			},
 		},
 	},

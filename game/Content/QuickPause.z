@@ -37,6 +37,24 @@ class QuickPause : ZilchComponent
                 {
                     Console.WriteLine("DESTROY");
                     this.PauseMenu.Destroy();
+                    var pauseConfirm = this.LevelSettings.HudCreator.HudSpace.FindObjectByName("ui-are-you-sure-pause");
+                    if(pauseConfirm != null)
+                    {
+                        pauseConfirm.Destroy();
+                        
+                    }
+                    var pauseQuit = this.LevelSettings.HudCreator.HudSpace.FindObjectByName("ui_quit_confirmation");
+                    if(pauseQuit != null)
+                    {
+                        pauseQuit.Destroy();
+                        
+                    }
+                    var pauseHow = this.LevelSettings.HudCreator.HudSpace.FindObjectByName("ui_how_to_play");
+                    if(pauseHow != null)
+                    {
+                        pauseHow.Destroy();
+                        
+                    }
                 }
             }
     }
