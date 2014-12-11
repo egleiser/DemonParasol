@@ -39,6 +39,10 @@ class Z_SplashScreenLogic:ZilchComponent
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
     function OnLogicUpdate(event:UpdateEvent)
     {
+        if(this.GameSession.InEditor == false)
+        {
+            Zero.Mouse.Cursor = -1;
+        }
         //keep track of the Timer
         this.Timer += event.Dt;
         

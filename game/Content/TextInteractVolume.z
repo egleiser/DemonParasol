@@ -48,6 +48,7 @@ class TextInteractVolume : ZilchComponent
                 
                 if(this.DiagSeg != null)
                 {
+                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Select_B_04"));
                     var textBoxEvent = new TextBoxEvent();
                     textBoxEvent.DialogueSegmentToUse = this.DiagSeg;
                     textBoxEvent.DistanceOnScreen = -2.0;

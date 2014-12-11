@@ -43,6 +43,7 @@ class Z_GamepadButtonController : ZilchComponent
         
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
+        
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,6 +52,10 @@ class Z_GamepadButtonController : ZilchComponent
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
     function OnLogicUpdate(event : UpdateEvent):Void
     {
+        if(this.GameSession.InEditor == false)
+        {
+            Zero.Mouse.Cursor = -1;
+        }
         if(this.Active)
         {
             if(this.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Enter))
@@ -64,7 +69,7 @@ class Z_GamepadButtonController : ZilchComponent
                         mainSpace.SoundSpace.Pause = false;
                     }
                     mainSpace.LoadLevel(this.LevelToLoad);
-                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Accept"));
+                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Select_B_05"));
                 }
                 
                 if(this.Owner.Name == "BtnArrowRight")
@@ -199,7 +204,7 @@ class Z_GamepadButtonController : ZilchComponent
             {
                 if(this.RightButton.Cog != null)
                 {
-                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Click"));
+                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Select_B_01"));
                     //Console.WriteLine("Right");
                     this.RightButton.Cog.Z_GamepadButtonController.Active = true;
                     this.RightButton.Cog.Z_GamepadButtonController.Timer = 0;
@@ -212,7 +217,7 @@ class Z_GamepadButtonController : ZilchComponent
                 
                 if(this.LeftButton.Cog != null)
                 {
-                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Click"));
+                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Select_B_01"));
                     //Console.WriteLine("Left");
                     this.LeftButton.Cog.Z_GamepadButtonController.Active = true;
                     this.LeftButton.Cog.Z_GamepadButtonController.Timer = 0;
@@ -224,7 +229,7 @@ class Z_GamepadButtonController : ZilchComponent
             {
                 if(this.UpButton.Cog != null)
                 {
-                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Click"));
+                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Select_B_01"));
                     //Console.WriteLine("Up");
                     Console.WriteLine(this.Owner.Name);
                     this.UpButton.Cog.Z_GamepadButtonController.Active = true;
@@ -237,7 +242,7 @@ class Z_GamepadButtonController : ZilchComponent
             {
                 if(this.DownButton.Cog != null)
                 {
-                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Click"));
+                    this.Space.SoundSpace.PlayCue(SoundCue.Find("Select_B_01"));
                     //Console.WriteLine("Down");
                     this.DownButton.Cog.Z_GamepadButtonController.Active = true;
                     this.DownButton.Cog.Z_GamepadButtonController.Timer = 0;
