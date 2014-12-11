@@ -14,9 +14,9 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [4.76596, 74.5349, -0.729816],
-		Vec3 Scale = [1.82088, 1.82088, 1.82088],
-		Quat Rotation = [0.702345, -0.0819203, -0.0819203, 0.702345],
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
 	},
 	Hierarchy = 
 	{
@@ -40,7 +40,7 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				string MaterialName = "543831f6e6ba5fd3:mat_Tree",
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
 				string MeshName = "5481b8fc1f1fcd88:BasicTree.BasicTree_Trunk",
 				Vec4 Color = [1, 1, 1, 1],
 			},
@@ -65,9 +65,9 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				string MaterialName = "5402dc5f32131156:mat_MountainTreeLeaves",
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
 				string MeshName = "5481b8fc1f1fcd8d:BasicTree.BasicTree_Leaves",
-				Vec4 Color = [0.0738, 0.18, 0.08442, 1],
+				Vec4 Color = [1, 1, 1, 1],
 			},
 		},
 	},

@@ -3,9 +3,13 @@ class TextInteractVolume : ZilchComponent
     [Property]
     var Text:TextBlock = null;
     var Player: Cog = null;
+    var DiagSeg: Cog = null;
+    var TextBox: Cog = null;
     function Initialize(init : CogInitializer)
     {
+        this.TextBox = this.Space.LevelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
         this.Player = this.Space.FindObjectByName("Player");
+        this.DiagSeg = this.Owner.Parent.FindChildByName("ReadText");
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
         Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
         Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
@@ -25,6 +29,10 @@ class TextInteractVolume : ZilchComponent
         if(otherObject.Name == "Player")
         {
             otherObject.PlayerController.ContextString = "";
+            if(this.TextBox.TextBoxManager.Owner.Sprite.Color.W > 0.001)
+            {
+                //Clear Text Box
+            }
         }
     }
     function OnCollisionPersisted(event : CollisionEvent)
@@ -32,9 +40,23 @@ class TextInteractVolume : ZilchComponent
         var otherObject = event.OtherObject;
         if(otherObject.Name == "Player")
         {
-            if(this.Player.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space))
+            //Console.WriteLine(this.TextBox.TextBoxManager.Owner.Sprite.Color.W);
+            if((this.TextBox.TextBoxManager.Owner.Sprite.Color.W < 0.001) &&
+            (this.Player.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space)))
             {
-                Console.WriteLine("TextBox");
+                //Dialog is in object called "ReadText"
+                
+                if(this.DiagSeg != null)
+                {
+                    var textBoxEvent = new TextBoxEvent();
+                    textBoxEvent.DialogueSegmentToUse = this.DiagSeg;
+                    textBoxEvent.DistanceOnScreen = -2.0;
+                    textBoxEvent.InOutTime = 0.5;
+                    textBoxEvent.EaseCurve = Ease.QuadOut;
+                    textBoxEvent.Opacity = 0.85;
+                    textBoxEvent.OpacityTimeIn = 0.5;
+                    this.TextBox.DispatchEvent("startDialogue", textBoxEvent);
+                }
 
             }
         }

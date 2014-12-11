@@ -22,6 +22,8 @@ class PlayerController : ZilchComponent
     var CameraPath:CogPath = null;
     [Property]
     var WindActive:Boolean = true;
+    [Property]
+    var FreezeMovement:Boolean = false;
     var MoveAngle:Real = 0;
     var Camera:Cog = null;
     
@@ -61,9 +63,9 @@ class PlayerController : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(Zero.Keyboard.KeyIsPressed(Keys.O))
+        if(this.FreezeMovement == true)
         {
-            this.Owner.Health.ApplyDamage(1);
+            this.NoMovement(event);
         }
         if(this.Active)
         {
@@ -92,7 +94,10 @@ class PlayerController : ZilchComponent
         {
             var attackEvent = new AttackEvent();
             this.Owner.DispatchDown("attackEvent", attackEvent);
-            this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed * 1000, this.Orientation.WorldUp);
+            if(this.FreezeMovement == false)
+            {
+                this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed * 1000, this.Orientation.WorldUp);
+            }
         }
     }
     function BlockUpdate(event : UpdateEvent)
@@ -223,10 +228,14 @@ class PlayerController : ZilchComponent
                 var targetDistanceVec = this.TongueFinder.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
                 Math.Normalize(targetDistanceVec);
                 var targetAngle = Math.ATan2(targetDistanceVec.Y,targetDistanceVec.X) - 1.57079633;
+                
+                var flatTargetVector = Real3(targetDistanceVec.X, targetDistanceVec.Y, 0.0);
+                if(this.FreezeMovement == false)
+                {
                 this.MoveAngle = targetAngle;
                 this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation,Math.Euler(Real3(0.0,0.0,targetAngle)),event.Dt*this.RotateSpeed);
-                var flatTargetVector = Real3(targetDistanceVec.X, targetDistanceVec.Y, 0.0);
                 this.Owner.DynamicMotor.MoveInDirection(flatTargetVector * event.Dt *  400.0, this.Orientation.WorldUp);
+                }
             }
             else if(this.TongueFinder.TongueFinder.PullPlayer == false && this.TongueFinder.TongueFinder.Latched == true)
             {
@@ -237,8 +246,10 @@ class PlayerController : ZilchComponent
             {
                 if(this.Owner.AutoHopper != null)
                 {
-            
-                    this.Owner.DynamicMotor.MoveInDirection(Real3(0,0,0), this.Orientation.WorldUp);
+                    if(this.FreezeMovement == false)
+                    {
+                        this.Owner.DynamicMotor.MoveInDirection(Real3(0,0,0), this.Orientation.WorldUp);
+                    }
                     this.Owner.GravityEffect.Active = true;
 
                     this.Owner.AutoHopper.Active = true;
@@ -300,17 +311,24 @@ class PlayerController : ZilchComponent
             {
                 this.MoveAngle = 0.0;
                 this.MoveAngle = Math.ATan2(this.Owner.InputController.GetMovement().X,this.Owner.InputController.GetMovement().Y) + cameraAngle + 1.57079633;
-                this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation,Math.Euler(Real3(0.0,0.0,this.MoveAngle)),event.Dt*this.RotateSpeed);
-                this.Owner.FootstepDetector.Walk();
-                this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed, this.Orientation.WorldUp);
+
+                if(this.FreezeMovement == false)
+                {
+                    this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation,Math.Euler(Real3(0.0,0.0,this.MoveAngle)),event.Dt*this.RotateSpeed);
+                    this.Owner.FootstepDetector.Walk();
+                    this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed, this.Orientation.WorldUp);
+                }
             }
             else
             {
-                this.Owner.FootstepDetector.Walk();
-                this.Owner.DynamicMotor.MoveInDirection(
-                 
-                Real3(-this.Owner.InputController.GetMovement().X,this.Owner.InputController.GetMovement().Y,0) * 
-                    event.Dt * this.MovmentSpeed, this.Orientation.WorldUp);
+                if(this.FreezeMovement == false)
+                {
+                    this.Owner.FootstepDetector.Walk();
+                    this.Owner.DynamicMotor.MoveInDirection(
+                     
+                    Real3(-this.Owner.InputController.GetMovement().X,this.Owner.InputController.GetMovement().Y,0) * 
+                        event.Dt * this.MovmentSpeed, this.Orientation.WorldUp);
+                }
             }
 
         }
@@ -321,6 +339,11 @@ class PlayerController : ZilchComponent
             this.Owner.RigidBody.Velocity /= Real3(this.Deceleration,this.Deceleration,1);
         }
     }
-    
+    function NoMovement(event : UpdateEvent)
+    {
+            this.Owner.DynamicMotor.MoveInDirection(Real3(0,0,0), this.Orientation.WorldUp);
+            //Stablizes the player
+            this.Owner.RigidBody.Velocity /= Real3(this.Deceleration,this.Deceleration,1);
+    }
     
 }

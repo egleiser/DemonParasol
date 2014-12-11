@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [22.063, 22.1649, 0.100598],
+		Vec3 Translation = [32.137, -42.4492, 0.100598],
 		Vec3 Scale = [1.75, 1.75, 1.75],
 		Quat Rotation = [0.707107, 0, 0, 0.707107],
 	},
@@ -138,7 +138,7 @@ Cog =
 			},
 			TextInteractVolume = 
 			{
-				string Text = "54450660db96cea5:TestTextBlock",
+				string Text = "54f4128b269c0cad:TestTextBlock",
 			},
 		},
 		Cog = 
@@ -168,6 +168,49 @@ Cog =
 				string MaterialName = "5481b84e008be766:mat_gradient",
 				string MeshName = "54a199dcdfa9cb66:SkullCrossBones",
 				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "ReadText",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-18.6146, -1.82009, -34.5842],
+				Vec3 Scale = [0.571429, 0.571428, 0.571428],
+				Quat Rotation = [-0.707107, 0, 0, 0.707107],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 7,
+					},
+					Named = 
+					{
+						string Name = "TutorialText",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [3.8445e-006, -7.62939e-006, 2.38419e-007],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [2.84217e-014, 0, 0, 1],
+					},
+					TextBlockInfo = 
+					{
+						string SpeakerName = "",
+						string SpeakerSprite = "545746f1032fd08a:ui-textbox-kasa-obake",
+						string SpeakerTextBlock = "54f4b0b2c19e47fb:DungeonCentral3",
+					},
+				},
 			},
 		},
 	},

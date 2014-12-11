@@ -22,6 +22,10 @@ class PlayerAnimator : ZilchComponent
     function OnLogicUpdate(event : UpdateEvent)
     {
         this.Owner.AnimationGraph.TimeScale = 1 + (Math.Length(this.Owner.Parent.RigidBody.Velocity) /10);
+        if(this.Owner.Parent.PlayerController.FreezeMovement)
+        {
+            this.Owner.AnimationGraph.TimeScale = 0;
+        }
         if((Math.Length(this.Owner.Parent.InputController.GetMovement()) > 0) && this.Owner.Parent.PlayerController.Active )
         {
             if(this.AniState != 0)

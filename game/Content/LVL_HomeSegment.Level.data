@@ -116,9 +116,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.32966, 4.23785, 28.5312],
+			Vec3 Translation = [-547.545, 32.1615, 48.8125],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.018198, -0.117519, -0.0021539, 0.992902],
+			Quat Rotation = [0.526956, -1.12355e-006, 7.02515e-007, 0.849893],
 		},
 		Camera = 
 		{
@@ -133,10 +133,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 17.9221,
-			float VerticalAngle = 0.0366522,
-			float HorizontalAngle = 0.235622,
-			Vec3 LookTarget = [6.51071, 3.58111, 11.116],
+			float LookDistance = 178.758,
+			float VerticalAngle = -1.11003,
+			float HorizontalAngle = 2.59373e-006,
+			Vec3 LookTarget = [-547.545, 192.277, -30.6696],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -177,6 +177,7 @@ Level =
 			float Deceleration = 1.5,
 			CogPath CameraPath = ":/Camera",
 			bool WindActive = false,
+			bool FreezeMovement = false,
 		},
 		FootstepDetector = 
 		{
@@ -12161,7 +12162,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5453d1ba05f05d2d,
+					uint64 CachedGeometryId = 5493481a7d4ff131,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -12458,7 +12459,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5453d1ba05f09264,
+					uint64 CachedGeometryId = 5493481a7d4959ce,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -12742,7 +12743,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5453d1ba05f1ce2e,
+					uint64 CachedGeometryId = 549348197d41755d,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -13639,7 +13640,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5453d1bd05fe67f4,
+					uint64 CachedGeometryId = 549348197d5d7262,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -14207,7 +14208,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5453d1bd05fef2c9,
+					uint64 CachedGeometryId = 549348197d592a63,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -14733,7 +14734,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5453d1bd05ff1bef,
+					uint64 CachedGeometryId = 549348197d5a407a,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -14974,7 +14975,7 @@ Level =
 				{
 					int Layer = 0,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5453d1bd05ff3ad7,
+					uint64 CachedGeometryId = 549348197d5b1990,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -15184,7 +15185,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5453d1bd05ff5f93,
+					uint64 CachedGeometryId = 549348197d5417b3,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -15411,7 +15412,7 @@ Level =
 				{
 					int Layer = -1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5453d1bd05ff7a2c,
+					uint64 CachedGeometryId = 549348197d54d000,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -15602,7 +15603,7 @@ Level =
 				{
 					int Layer = -2,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5453d1bd05ffa2d2,
+					uint64 CachedGeometryId = 549348197d55de3e,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -15838,7 +15839,7 @@ Level =
 				{
 					int Layer = -2,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5453d1bd05ffc64e,
+					uint64 CachedGeometryId = 549348197d56d6aa,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -16065,7 +16066,7 @@ Level =
 				{
 					int Layer = -3,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5453d1bd05fc3958,
+					uint64 CachedGeometryId = 549348197d51ec69,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -16531,7 +16532,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5453d1bd05fc42ee,
+					uint64 CachedGeometryId = 549348197d5230f7,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -16646,7 +16647,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5453d1bd05fc57ba,
+					uint64 CachedGeometryId = 549348197d52bd5a,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -16805,7 +16806,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5453d1bd05fcaf72,
+					uint64 CachedGeometryId = 549348197dacff98,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -17194,7 +17195,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5453d1bd05fdd79f,
+					uint64 CachedGeometryId = 549348197da49adb,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -18023,7 +18024,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5453d1bd05fa194f,
+					uint64 CachedGeometryId = 549348197da65499,
 					Shape2D Shape = 
 					{
 						Array Contours = 
@@ -18340,7 +18341,7 @@ Level =
 				{
 					int Layer = 1,
 					string GeometryMaterialName = "54ff3eb4e39ffbb7:DefaultGround",
-					uint64 CachedGeometryId = 5453d1bd05fa2ed6,
+					uint64 CachedGeometryId = 549348197da6e930,
 					Shape2D Shape = 
 					{
 						Array Contours = 

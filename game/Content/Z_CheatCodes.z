@@ -64,5 +64,14 @@ class Z_CheatCodes:ZilchComponent
                 this.Space.LoadLevel(Level.Find("LVL_BlackRainMainLobby"));
             }
         }
+        //Tons of health NUMPAD 6
+        if(Zero.Keyboard.KeyIsPressed(Keys.NumPad6))
+        {
+            if(this.Space.FindObjectByName("Player") != null)
+            {
+                this.Space.FindObjectByName("Player").Health.CurrentHealth = this.Space.FindObjectByName("Player").Health.MaxHealth;
+                this.LevelSettings.HudCreator.HudSpace.FindObjectByName("FlowerHealth").HealthFlower.RestorePetals();
+            }
+        }
     }
 }
