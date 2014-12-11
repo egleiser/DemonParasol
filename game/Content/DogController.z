@@ -117,7 +117,7 @@ class DogController : ZilchComponent
                 }
                 else if(this.SegmentGoAwayDog)
                 {
-                    this.Owner.BoxCollider.Ghost = true;
+                    this.Owner.SphereCollider.Ghost = true;
                     this.Owner.RigidBody.Velocity = Real3(1,0.25,0) * this.RunAwaySpeed;
                     var disappearVec : Real3 = this.TargetObject.Transform.Translation - this.Owner.Transform.Translation;
                     var disappear : Real = Math.Length(disappearVec);
@@ -186,7 +186,7 @@ class DogController : ZilchComponent
     {
         this.Owner.RigidBody.Velocity = Real3();
         //Changes model color to the user defined color for barking
-        this.Owner.Model.Color = this.BarkColor;
+        //this.Owner.Model.Color = this.BarkColor;
         //Grabs the quaternion for the rotation towards the player, based on BarkDirection
         //which is defined in the Calculate function directly below
         this.BarkRotation = this.Orientation.GetLookAtDirectionWithUpRotation(-this.BarkDirection, Real3(0,0,1));
@@ -220,7 +220,7 @@ class DogController : ZilchComponent
     function RunAwayFromTarget(event : UpdateEvent)
     {
         //Changes color to Green to show Running Away condition has been met
-        this.Owner.Model.Color = this.RunAwayColor;
+        //this.Owner.Model.Color = this.RunAwayColor;
         //Console.WriteLine(this.RunAwayDirection);
         //Dog moves off in a direction opposite that of player as defined in calculate function below
         this.Owner.RigidBody.Velocity = this.RunAwayDirection * this.RunAwaySpeed;
@@ -240,7 +240,7 @@ class DogController : ZilchComponent
     
     function SegmentRunAway(event : UpdateEvent)
     {
-        this.Owner.Model.Color = this.RunAwayColor;
+        //this.Owner.Model.Color = this.RunAwayColor;
         this.Owner.RigidBody.Velocity = this.SegmentRunDirection * this.RunAwaySpeed;
         var runAwayDisplacement : Real3 = this.Owner.Transform.Translation - this.RunAwayStartPosition;
         this.RunningAwayDistance = Math.Length(runAwayDisplacement);

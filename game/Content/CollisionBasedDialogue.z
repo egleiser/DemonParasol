@@ -15,12 +15,22 @@ class CollisionBasedDialogue : ZilchComponent
     
     var FadeInEventHasEnded : Boolean = false;
     
+    var HasDialogueStarted : Boolean = false;
+    
+    var HudSpaceRef : Space = null;
+    
     
     function Initialize(init : CogInitializer)
     {
         this.DiagSeg = this.DiagSegPath.Cog;
         
+        this.HudSpaceRef = this.GameSession.FindSpaceByName("HudSpace");
+        var textBox = this.HudSpaceRef.FindObjectByName("TextBox");
+        this.HasDialogueStarted = textBox.TextBoxManager.DialogueStarted;
+        
         Zero.Connect(this.Space, "fadeInEnded", this.FadeInEnded);
+        Zero.Connect(this.Space, "dialogueFinished", this.OnDialogueFinished);
+        Zero.Connect(this.Space, "dialogueStarted", this.OnDialogueStarted);
         
         if(this.OnCollideStart)
         {
@@ -32,10 +42,29 @@ class CollisionBasedDialogue : ZilchComponent
         }
     }
     
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        Console.WriteLine("Collision Based Dialogue Boolean = `this.HasDialogueStarted`");
+        if(this.HasDialogueStarted)
+        {
+            //this.Owner.Destroy();
+        }
+    }
+    
     function OnCollisionStarted(event : CollisionEvent)
     {
         if(event.OtherObject.Name == "Player")
         {
+            Console.WriteLine(this.Owner);
+            //this.Owner.Destroy();
+            this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y, -500);
+            Console.WriteLine("Collision Based Dialogue Is Working");
+            if(this.HasDialogueStarted == true)
+            {
+                Console.WriteLine("Should Destroy This = `this.Owner`");
+                //this.Owner.Destroy();
+            }
+            
             var textBoxEvent = new TextBoxEvent();
             textBoxEvent.DialogueSegmentToUse = this.DiagSeg;
             textBoxEvent.DistanceOnScreen = -2.0;
@@ -47,6 +76,7 @@ class CollisionBasedDialogue : ZilchComponent
             var levelSettings = this.Space.LevelSettings;
             var textBox = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
             textBox.DispatchEvent("startDialogue", textBoxEvent);
+            
         }
         
         //if(this.ShouldFadeInOnStart)
@@ -110,5 +140,26 @@ class CollisionBasedDialogue : ZilchComponent
     function ChangeFadeInFinishedBool()
     {
         this.FadeInEventHasEnded = true;
+    }
+    
+    function OnDialogueFinished(event : DialogueEventFinished)
+    {
+        //var introDiagCube = this.Space.FindObjectByName("IntroDiagCube1");
+        //Console.WriteLine("MEMEMEMEME");
+        //if(introDiagCube != null)
+        //{
+        //    if(event.CurrentDialogueSegment.Name == this.Owner.CollisionBasedDialogue.DiagSegPath.Cog.Name)
+        //    {
+        //        foreach(var child in introDiagCube.Children)
+        //        {
+        //            child.BoxCollider.Ghost = true;
+        //        }
+        //    }
+        //}
+    }
+    
+    function OnDialogueStarted(event : DialogueStartedEvent)
+    {
+        
     }
 }

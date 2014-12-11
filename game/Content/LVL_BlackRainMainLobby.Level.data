@@ -195,7 +195,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [234.789, 6.17057, 47.68],
+			Vec3 Translation = [22.762, 4.01977, 208.876],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0.0104711, -0.0034225, -3.58399e-005, 0.999939],
 		},
@@ -212,10 +212,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 70.0667,
+			float LookDistance = 232.629,
 			float VerticalAngle = 0.0209427,
 			float HorizontalAngle = -6.27634,
-			Vec3 LookTarget = [235.269, 4.70329, -22.3697],
+			Vec3 LookTarget = [24.354, -0.851758, -23.6972],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -6679,6 +6679,45 @@ Level =
 		Named = 
 		{
 			string Name = "BridgeSegement",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 210,
+		},
+		Named = 
+		{
+			string Name = "DialogColliderDun",
+		},
+		Archetyped = 
+		{
+			string Name = "54a777e86e8a02a6:DialogColliderDun",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [26.2708, 25.9711, 2.03377],
+			Vec3 Scale = [13.0933, 4.97016, 5.92401],
+			Quat Rotation = [0, 0, -0.999948, 0.0102025],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0, 0.9, 0.385],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "54bebd865c1562ee:CG_Player",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
 		},
 	},
 },
