@@ -1,3 +1,11 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: AI_SwordBoss.z           ////
+////    Written by: Eric Gleiser     ////
+////                                 ////
+////     Last Updated: 12-05-14      ////
+////                                 ////
+/////////////////////////////////////////
 enum SwordBossState{Off, Activating, Chase, Aim, Fire, Stuck, Returning}
 class AI_SwordBoss : ZilchComponent
 {
