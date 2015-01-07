@@ -1,10 +1,13 @@
 class CollisionBasedDialogue : ZilchComponent
 {
     [Property]
-    var OnCollideStart : Boolean = false;
+    var CollisionStart : Boolean = false;
     
     [Property]
-    var OnCollideEnd : Boolean = false;
+    var CollisionEnd : Boolean = false;
+    
+    [Property]
+    var DestroyCollider : Boolean = false;
     
     [Property]
     var DiagSegPath : CogPath = null;
@@ -32,22 +35,13 @@ class CollisionBasedDialogue : ZilchComponent
         Zero.Connect(this.Space, "dialogueFinished", this.OnDialogueFinished);
         Zero.Connect(this.Space, "dialogueStarted", this.OnDialogueStarted);
         
-        if(this.OnCollideStart)
+        if(this.CollisionStart)
         {
             Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
         }
-        if(this.OnCollideEnd)
+        if(this.CollisionEnd)
         {
             Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
-        }
-    }
-    
-    function OnLogicUpdate(event : UpdateEvent)
-    {
-        Console.WriteLine("Collision Based Dialogue Boolean = `this.HasDialogueStarted`");
-        if(this.HasDialogueStarted)
-        {
-            //this.Owner.Destroy();
         }
     }
     
@@ -55,15 +49,8 @@ class CollisionBasedDialogue : ZilchComponent
     {
         if(event.OtherObject.Name == "Player")
         {
+            
             Console.WriteLine(this.Owner);
-            //this.Owner.Destroy();
-            this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y, -500);
-            Console.WriteLine("Collision Based Dialogue Is Working");
-            if(this.HasDialogueStarted == true)
-            {
-                Console.WriteLine("Should Destroy This = `this.Owner`");
-                //this.Owner.Destroy();
-            }
             
             var textBoxEvent = new TextBoxEvent();
             textBoxEvent.DialogueSegmentToUse = this.DiagSeg;
@@ -77,42 +64,12 @@ class CollisionBasedDialogue : ZilchComponent
             var textBox = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
             textBox.DispatchEvent("startDialogue", textBoxEvent);
             
+            if(this.DestroyCollider)
+            {
+                this.Owner.Destroy();
+            }
+            
         }
-        
-        //if(this.ShouldFadeInOnStart)
-        //{
-        //    var seq = Action.Sequence(this.Owner.Actions);
-        //    Action.Call(seq, this.FadeInEventCall);
-        //    Action.Call(seq, this.ChangeFadeInFinishedBool);
-        //    if(event.OtherObject.Name == "Player" && this.FadeInEventHasEnded)
-        //    {
-        //        var textBoxEvent = new TextBoxEvent();
-        //        textBoxEvent.DialogueSegmentToUse = this.DiagSeg;
-        //        textBoxEvent.DistanceOnScreen = -2.0;
-        //        textBoxEvent.InOutTime = 0.5;
-        //        textBoxEvent.EaseCurve = Ease.QuadOut;
-        //        textBoxEvent.Opacity = 0.85;
-        //        textBoxEvent.OpacityTimeIn = 0.5;
-        //        textBoxEvent.OpacityEase = Ease.Linear;
-        //        var levelSettings = this.Space.LevelSettings;
-        //        var textBox = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
-        //        textBox.DispatchEvent("startDialogue", textBoxEvent);
-        //    }
-        //}
-        //else
-        //{
-        //    var textBoxEvent = new TextBoxEvent();
-        //    textBoxEvent.DialogueSegmentToUse = this.DiagSeg;
-        //    textBoxEvent.DistanceOnScreen = -2.0;
-        //    textBoxEvent.InOutTime = 0.5;
-        //    textBoxEvent.EaseCurve = Ease.QuadOut;
-        //    textBoxEvent.Opacity = 0.85;
-        //    textBoxEvent.OpacityTimeIn = 0.5;
-        //    textBoxEvent.OpacityEase = Ease.Linear;
-        //    var levelSettings = this.Space.LevelSettings;
-        //    var textBox = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
-        //    textBox.DispatchEvent("startDialogue", textBoxEvent);
-        //}
     }
     
     function OnCollisionEnded(event : CollisionEvent)
@@ -144,18 +101,18 @@ class CollisionBasedDialogue : ZilchComponent
     
     function OnDialogueFinished(event : DialogueEventFinished)
     {
-        //var introDiagCube = this.Space.FindObjectByName("IntroDiagCube1");
-        //Console.WriteLine("MEMEMEMEME");
-        //if(introDiagCube != null)
-        //{
-        //    if(event.CurrentDialogueSegment.Name == this.Owner.CollisionBasedDialogue.DiagSegPath.Cog.Name)
-        //    {
-        //        foreach(var child in introDiagCube.Children)
-        //        {
-        //            child.BoxCollider.Ghost = true;
-        //        }
-        //    }
-        //}
+        var introDiagCube = this.Space.FindObjectByName("IntroDiagCube1");
+        Console.WriteLine("MEMEMEMEME");
+        if(introDiagCube != null)
+        {
+            if(event.CurrentDialogueSegment.Name == this.Owner.CollisionBasedDialogue.DiagSegPath.Cog.Name)
+            {
+                foreach(var child in introDiagCube.Children)
+                {
+                    child.BoxCollider.Ghost = true;
+                }
+            }
+        }
     }
     
     function OnDialogueStarted(event : DialogueStartedEvent)

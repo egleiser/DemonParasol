@@ -1,0 +1,20 @@
+class DestroySelf : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, "DestroySelf", this.OnDestroySelf);
+    }
+    
+    function OnDestroySelf(event : DestroySelfEvent)
+    {
+        if(this.Owner.Name == event.ObjectName)
+        {
+            this.Owner.Destroy();
+        }
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

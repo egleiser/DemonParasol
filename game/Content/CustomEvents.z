@@ -165,5 +165,9 @@ class FadeOutEndedEvent : Event
 {
     
 }
+class DestroySelfEvent : Event
+{
+    var ObjectName : String = "";
+}
 
 
