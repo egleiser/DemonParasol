@@ -49,6 +49,9 @@ class PlayerController : ZilchComponent
     var Target:Cog = null;
     var TargetIndicator:Cog = null;
     var EnterTargetMode:Boolean = false;
+    
+    //Pick Up Throw Object
+    var PickUp:Cog = null;
     function Initialize(init : CogInitializer)
     {
         this.Owner.DynamicMotor.MaxMoveForce = this.MaxMoveForce;
@@ -84,7 +87,8 @@ class PlayerController : ZilchComponent
             //if(this.TongueFinder == null)
             //{
                 this.MovementUpdate(event);
-                this.AttackUpdate(event);
+                this.PickUpUpdate(event);
+                //this.AttackUpdate(event);
                 this.BlockUpdate(event);
                 this.SwitchTargetUpdate(event);
             //}
@@ -110,6 +114,18 @@ class PlayerController : ZilchComponent
             {
                 this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed * 1000, this.Orientation.WorldUp);
             }
+        }
+    }
+    // Used for Picking Up and Throwing Objects
+    function PickUpUpdate(event : UpdateEvent)
+    {
+        if(this.PickUp != null)
+        {
+            var wantedTranslation:Real3 =
+            this.Owner.Transform.WorldTranslation + (this.Orientation.WorldForward * 1) + Real3(0,0,2);
+            this.PickUp.Transform.WorldTranslation = Math.Lerp(this.PickUp.Transform.WorldTranslation, wantedTranslation, event.Dt * 35.0);
+            this.PickUp.Transform.WorldRotation = this.Owner.Transform.WorldRotation;
+            
         }
     }
     function BlockUpdate(event : UpdateEvent)
