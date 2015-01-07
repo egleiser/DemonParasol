@@ -53,7 +53,7 @@ class PickUpInteractVolume : ZilchComponent
                     
                 }
             }
-            if(this.Player.PlayerController.PickUp != null)
+            if(this.Player.PlayerController.PickUp == this.Owner.Parent)
             {
                 if(Math.Length(this.Player.RigidBody.Velocity) < 3)
                 {
@@ -79,7 +79,7 @@ class PickUpInteractVolume : ZilchComponent
         (this.Player.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space)))
         {
 
-            if(this.Player.PlayerController.PickUp != null)
+            if(this.Player.PlayerController.PickUp == this.Owner.Parent)
             {
                 this.Player.PlayerController.PickUp.GravityEffect.Active = true;
                 this.Player.PlayerController.PickUp.Collider.Ghost = false;

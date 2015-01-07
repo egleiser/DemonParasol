@@ -136,11 +136,29 @@ Cog =
 				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 				Vec3 Offset = [0, 0, 0],
-				float Radius = 2,
+				float Radius = 2.5,
 			},
 			PickUpInteractVolume = 
 			{
-				float ThrowForce = 70000,
+				float ThrowForce = 90000,
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "547c5da6ade3e04f:DustSmokeTrail",
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, -0.443131],
+				Vec3 Scale = [1.5, 1.5, 1.5],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "DustSmokeTrail",
 			},
 		},
 	},
