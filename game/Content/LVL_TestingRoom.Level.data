@@ -40,7 +40,7 @@ Level =
 		},
 		DeferredRenderer = 
 		{
-			Vec4 ClearColor = [0.12, 0.12, 0.12, 1],
+			Vec4 ClearColor = [0.175, 0.175, 0.175, 1],
 			bool Hdr = true,
 			bool Glow = true,
 			bool RenderMasks = false,
@@ -112,7 +112,7 @@ Level =
 						},
 						SoundEmitter = 
 						{
-							bool StartPlaying = true,
+							bool StartPlaying = false,
 							int ExtraPriority = 0,
 							string CueName = "54be4e5ee0f95b63:BlackRain",
 							float Volume = 1,
@@ -138,7 +138,7 @@ Level =
 						},
 						SoundEmitter = 
 						{
-							bool StartPlaying = true,
+							bool StartPlaying = false,
 							int ExtraPriority = 0,
 							string CueName = "54be4e5ee0fc5688:BlackRainEnemy",
 							float Volume = 1,
@@ -162,9 +162,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [98.0105, -19.9293, 16.3546],
+			Vec3 Translation = [83.4109, -18.5495, 7.44496],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.321345, -0.0230693, 0.00783099, 0.946649],
+			Quat Rotation = [0.164146, 0.0224488, -0.00373654, 0.986174],
 		},
 		Camera = 
 		{
@@ -179,10 +179,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 38.4527,
-			float VerticalAngle = -0.6545,
-			float HorizontalAngle = 0.0487292,
-			Vec3 LookTarget = [99.4965, 3.47923, -14.1158],
+			float LookDistance = 12.7998,
+			float VerticalAngle = -0.32987,
+			float HorizontalAngle = -0.0455192,
+			Vec3 LookTarget = [82.8599, -14.4034, -4.6522],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -306,6 +306,10 @@ Level =
 			bool DestroyAtZeroHealth = false,
 			bool SendsHealthModified = true,
 			float DamageScalar = 1,
+		},
+		Microphone = 
+		{
+			bool Active = true,
 		},
 		Hierarchy = 
 		{
@@ -1274,7 +1278,7 @@ Level =
 			float EndDepth = 100,
 			float BeginDensity = 0,
 			float EndDensity = 1,
-			Vec4 Color = [0.100281, 0.054375, 0.125, 1],
+			Vec4 Color = [0.125, 0.054375, 0.0544174, 1],
 			float FogDensity = 0.293,
 			float FogStart = 0,
 		},
@@ -1293,10 +1297,6 @@ Level =
 			Vec3 UpVector = [0, 1, 0],
 			Vec3 ForwardVector = [0, 0, 1],
 			OrientationBases DefaultBases = ForwardZUpY,
-		},
-		Microphone = 
-		{
-			bool Active = true,
 		},
 		Hierarchy = 
 		{
@@ -1507,7 +1507,7 @@ Level =
 							GodRayLightType LightType = Point,
 							bool Active = true,
 							int Samples = 80,
-							Vec4 Color = [0.329879, 0.00222501, 0.445, 1],
+							Vec4 Color = [0.445, 0.00222501, 0.00249062, 1],
 							float Intensity = 0.23,
 							float ScreenRadius = 1,
 							float OccluderClarity = 0.1,
@@ -5101,7 +5101,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [101.775, -7.98944, 1.75697],
+			Vec3 Translation = [101.775, -7.98944, 1.72258],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -5236,6 +5236,488 @@ Level =
 				LinkId = 
 				{
 					uint Id = 152,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, -0.443131],
+					Vec3 Scale = [1.5, 1.5, 1.5],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Named = 
+				{
+					string Name = "DustSmokeTrail",
+				},
+			},
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "546063c0374e5a52:PaperCranePart",
+		LinkId = 
+		{
+			uint Id = 153,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [96.9975, -2.79197, 1.32578],
+			Vec3 Scale = [2, 2, 2],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "PaperCranePart",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 154,
+		},
+		Named = 
+		{
+			string Name = "CraneSystemTornado",
+		},
+		Archetyped = 
+		{
+			string Name = "546067d66ef0b5f8:CraneSystemTornado",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [88.4235, -13.6767, 2.10839],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		ObjectSystem = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			SystemChildMode ChildMode = Independent,
+			SystemSpace SystemSpace = WorldSpace,
+			uint DrawOrder = 0,
+			float WarmUpTime = 0,
+			Vec3 StartRotation = [0, 0, 0],
+			Vec3 RandomRotation = [5, 5, 5],
+			Vec3 StartTorque = [0, 0, 0],
+			Vec3 RandomTorque = [0, 0, 0],
+			bool FaceVelocity = true,
+			bool EffectsTransform = false,
+			bool EffectsColor = true,
+			bool ControlsLifetime = true,
+			string SpawnArchetype = "546063c0374e5a52:PaperCranePart",
+			Vec3 SystemSize = [5, 5, 5],
+		},
+		SphericalParticleEmitter = 
+		{
+			bool Active = false,
+			uint EmitCount = 0,
+			float EmitRate = 100,
+			float EmitVariance = 0,
+			float Size = 1,
+			float SizeVariance = 0,
+			float Lifetime = 1,
+			float LifetimeVariance = 0,
+			float Spin = 0,
+			float SpinVariance = 50,
+			bool RandomSpin = true,
+			float Fill = 1,
+			float EmitterVelocityPercent = 0,
+			Vec3 StartVelocity = [0, 0, 0],
+			Vec3 RandomVelocity = [1, 1, 1],
+			Vec3 TangentVelocity = [0, 0, 0],
+			Vec3 EmitterSize = [5, 5, 5],
+			bool FastMovingEmitter = false,
+		},
+		LinearParticleAnimator = 
+		{
+			Vec3 Force = [0, 0, 0],
+			Vec3 RandomForce = [0, 0, 0],
+			float Torque = 0,
+			float Growth = 0,
+			float Dampening = 1,
+			Vec3 Twist = [0, 0, 0],
+		},
+		SphereCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "54ff0eb5b975b8c8:CG_Tongue",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 10,
+		},
+		Region = 
+		{
+			bool WakeUpOnEffectChange = false,
+		},
+		VortexEffect = 
+		{
+			bool Active = false,
+			bool WakeUpOnChange = true,
+			bool LocalAxis = false,
+			bool ClampToMax = false,
+			bool ContinueFalloff = true,
+			bool NoEffect = false,
+			float MinDistance = 1,
+			float MaxDistance = 10,
+			float ForceStrengthAtCenter = 10,
+			float ForceStrengthAtMaxDistance = 1,
+			float InwardStrengthAtCenter = 2,
+			float InwardStrengthAtMaxDistance = 10,
+			Vec3 VortexAxis = [0, 0, 0.5],
+			VortexInterpolationStates InterpolationType = Linear,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 155,
+		},
+		Named = 
+		{
+			string Name = "CraneSystem",
+		},
+		Archetyped = 
+		{
+			string Name = "5460610dbb58079a:CraneSystem",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [82.8747, -16.4096, 2.10839],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		ObjectSystem = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			SystemChildMode ChildMode = Independent,
+			SystemSpace SystemSpace = WorldSpace,
+			uint DrawOrder = 0,
+			float WarmUpTime = 0,
+			Vec3 StartRotation = [0, 0, 0],
+			Vec3 RandomRotation = [5, 5, 5],
+			Vec3 StartTorque = [0, 0, 0],
+			Vec3 RandomTorque = [0, 0, 0],
+			bool FaceVelocity = true,
+			bool EffectsTransform = false,
+			bool EffectsColor = true,
+			bool ControlsLifetime = true,
+			string SpawnArchetype = "546063c0374e5a52:PaperCranePart",
+			Vec3 SystemSize = [5, 5, 5],
+		},
+		SphericalParticleEmitter = 
+		{
+			bool Active = true,
+			uint EmitCount = 0,
+			float EmitRate = 30,
+			float EmitVariance = 0,
+			float Size = 2,
+			float SizeVariance = 0.2,
+			float Lifetime = 1.5,
+			float LifetimeVariance = 0,
+			float Spin = 0,
+			float SpinVariance = 50,
+			bool RandomSpin = true,
+			float Fill = 1,
+			float EmitterVelocityPercent = 0,
+			Vec3 StartVelocity = [0, 0, 0],
+			Vec3 RandomVelocity = [1, 1, 1],
+			Vec3 TangentVelocity = [0, 0, 0],
+			Vec3 EmitterSize = [1.5, 1.5, 1.5],
+			bool FastMovingEmitter = false,
+		},
+		LinearParticleAnimator = 
+		{
+			Vec3 Force = [2000, 0, 0],
+			Vec3 RandomForce = [0, 0, 0],
+			float Torque = 0,
+			float Growth = 0,
+			float Dampening = -2,
+			Vec3 Twist = [0, 0, 0],
+		},
+		ParticleColorAnimator = 
+		{
+			Vec4 Color0 = [0, 0, 0, 0],
+			Vec4 Color1 = [1, 1, 1, 1],
+			Vec4 Color2 = [1, 1, 1, 1],
+			Vec4 Color3 = [1, 1, 1, 1],
+			Vec4 Color4 = [0, 0, 0, 0],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 156,
+				},
+				Named = 
+				{
+					string Name = "Model",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [2, 2, 2],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "54afb633de4a7221:mat_LaserSight",
+					string MeshName = "4de0354322b376ae:Sphere",
+					Vec4 Color = [0.2324, 0, 0.28, 1],
+				},
+				SoundEmitter = 
+				{
+					bool StartPlaying = true,
+					int ExtraPriority = 0,
+					string CueName = "54604e1b6fdb1b02:CraneSpawner",
+					float Volume = 1,
+					float Pitch = 1,
+					bool Positional = true,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 157,
+				},
+				Named = 
+				{
+					string Name = "BasicParticleEffect",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteParticleSystem = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					SystemChildMode ChildMode = Independent,
+					SystemSpace SystemSpace = WorldSpace,
+					uint DrawOrder = 0,
+					float WarmUpTime = 0,
+					ParticleGeometry GeometryMode = Billboarded,
+					ParticleRenderMode RenderMode = Additive,
+					ParticleSortMode SortMode = Youngest,
+					ParticleAnimation ParticleAnimation = Single,
+					string Texture = "5481a22f0141934d:tex_Abe_no_Seimei",
+					Vec4 Tint = [0.858176, 0.1472, 0.92, 1],
+					float VelocityScale = 1,
+					float LengthScale = 1,
+					float MaxParticleSize = 100,
+					Vec3 SystemSize = [4, 4, 4],
+				},
+				SphericalParticleEmitter = 
+				{
+					bool Active = true,
+					uint EmitCount = 0,
+					float EmitRate = 40,
+					float EmitVariance = 0,
+					float Size = 6,
+					float SizeVariance = 0.5,
+					float Lifetime = 0.5,
+					float LifetimeVariance = 0.1,
+					float Spin = 0,
+					float SpinVariance = 50,
+					bool RandomSpin = true,
+					float Fill = 1,
+					float EmitterVelocityPercent = 0,
+					Vec3 StartVelocity = [0, 0, 0],
+					Vec3 RandomVelocity = [3, 3, 3],
+					Vec3 TangentVelocity = [0, 0, 0],
+					Vec3 EmitterSize = [0, 0, 0],
+					bool FastMovingEmitter = false,
+				},
+				LinearParticleAnimator = 
+				{
+					Vec3 Force = [0, 0, 0],
+					Vec3 RandomForce = [0, 0, 0],
+					float Torque = 0,
+					float Growth = 0,
+					float Dampening = 0,
+					Vec3 Twist = [0, 0, 0],
+				},
+				ParticleColorAnimator = 
+				{
+					Vec4 Color0 = [1, 1, 1, 0],
+					Vec4 Color1 = [1, 1, 1, 1],
+					Vec4 Color2 = [1, 1, 1, 1],
+					Vec4 Color3 = [1, 1, 1, 1],
+					Vec4 Color4 = [1, 1, 1, 0],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 158,
+		},
+		Named = 
+		{
+			string Name = "PickUpSphere",
+		},
+		Archetyped = 
+		{
+			string Name = "546070d270313227:PickUpSphere",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [93.5154, -7.98944, 1.72258],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		Targetable = 
+		{
+			Enum IndicatorType = Standard,
+			Vec3 IndicatorOffset = [0, 0, 2],
+			float Range = 20,
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 20,
+			Vec3 Direction = [0, 0, -1],
+		},
+		PickUpInteract = 
+		{
+			string SmokeParticle = "547c59ae76e9024f:DustSmoke",
+		},
+		DragEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			float Drag = 0.7,
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "4e1bd44008b4dc2a:DefaultCue",
+			float Volume = 1,
+			float Pitch = 0.5,
+			bool Positional = true,
+		},
+		SphereCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "546076170594c96b:Bouncy",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 1,
+		},
+		MassOverride = 
+		{
+			bool Active = true,
+			float invMass = 0.0143598,
+			Vec3 invInertiaX = [0.0060496, 0, 0],
+			Vec3 invInertiaY = [0, 0.0060496, 0],
+			Vec3 invInertiaZ = [0, 0, 0.0060496],
+			Vec3 LocalCenterOfMass = [0, 0, 0],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 159,
+				},
+				Named = 
+				{
+					string Name = "Model",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+					string MeshName = "4de0354322b376ae:Sphere",
+					Vec4 Color = [1, 0, 0, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 160,
+				},
+				Named = 
+				{
+					string Name = "PickUpVolume",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				RigidBody = 
+				{
+					bool Static = false,
+					bool Asleep = false,
+					bool Kinematic = true,
+					bool RotationLocked = false,
+					bool Mode2D = false,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				SphereCollider = 
+				{
+					bool Ghost = true,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "54ff0eb5b975b8c8:CG_Tongue",
+					Vec3 Offset = [0, 0, 0],
+					float Radius = 2.5,
+				},
+				PickUpInteractVolume = 
+				{
+					float ThrowForce = 100000,
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "547c5da6ade3e04f:DustSmokeTrail",
+				LinkId = 
+				{
+					uint Id = 161,
 				},
 				Transform = 
 				{

@@ -1,0 +1,70 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "CraneSystem",
+	},
+	Archetyped = 
+	{
+		string Name = "5460610dbb58079a:CraneSystem",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [130.586, -16.7079, 2.10839],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	ObjectSystem = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		SystemChildMode ChildMode = Independent,
+		SystemSpace SystemSpace = WorldSpace,
+		uint DrawOrder = 0,
+		float WarmUpTime = 0,
+		Vec3 StartRotation = [0, 0, 0],
+		Vec3 RandomRotation = [5, 5, 5],
+		Vec3 StartTorque = [0, 0, 0],
+		Vec3 RandomTorque = [0, 0, 0],
+		bool FaceVelocity = true,
+		bool EffectsTransform = false,
+		bool EffectsColor = true,
+		bool ControlsLifetime = true,
+		string SpawnArchetype = "546063c0374e5a52:PaperCranePart",
+		Vec3 SystemSize = [5, 5, 5],
+	},
+	SphericalParticleEmitter = 
+	{
+		bool Active = true,
+		uint EmitCount = 0,
+		float EmitRate = 50,
+		float EmitVariance = 0,
+		float Size = 2,
+		float SizeVariance = 0.2,
+		float Lifetime = 1,
+		float LifetimeVariance = 0,
+		float Spin = 0,
+		float SpinVariance = 50,
+		bool RandomSpin = true,
+		float Fill = 1,
+		float EmitterVelocityPercent = 0,
+		Vec3 StartVelocity = [0, 0, 0],
+		Vec3 RandomVelocity = [1, 1, 1],
+		Vec3 TangentVelocity = [0, 0, 0],
+		Vec3 EmitterSize = [2, 2, 2],
+		bool FastMovingEmitter = false,
+	},
+	LinearParticleAnimator = 
+	{
+		Vec3 Force = [2000, 0, 0],
+		Vec3 RandomForce = [0, 0, 0],
+		float Torque = 0,
+		float Growth = 0,
+		float Dampening = -2,
+		Vec3 Twist = [0, 0, 0],
+	},
+},
