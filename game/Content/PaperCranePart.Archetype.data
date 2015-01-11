@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [96.9975, -2.79197, 1.32578],
+		Vec3 Translation = [101.939, -2.79197, 1.32578],
 		Vec3 Scale = [2, 2, 2],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -60,7 +60,7 @@ Cog =
 		bool VisibilityCulling = true,
 		LightType LightType = Point,
 		Vec4 Color = [1, 1, 1, 1],
-		float Intensity = 0.45,
+		float Intensity = 1.13,
 		float Range = 3,
 		float Falloff = 1,
 		float Angle = 45,
@@ -77,82 +77,22 @@ Cog =
 	},
 	Hierarchy = 
 	{
-		Cog = 
+		ArchetypeInstance = 
 		{
+			string Name = "54abc270d6f65f7b:LitCranePart",
 			LinkId = 
 			{
 				uint Id = 2,
 			},
-			Named = 
-			{
-				string Name = "OnFireCrane",
-			},
-			Archetyped = 
-			{
-				string Name = "5460656ce59ecf19:OnFireCrane",
-			},
 			Transform = 
 			{
-				Vec3 Translation = [0, 0, -0.107227],
+				Vec3 Translation = [0, 0, 0],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
-			SpriteParticleSystem = 
+			Named = 
 			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				SystemChildMode ChildMode = Independent,
-				SystemSpace SystemSpace = LocalSpace,
-				uint DrawOrder = 0,
-				float WarmUpTime = 0,
-				ParticleGeometry GeometryMode = Billboarded,
-				ParticleRenderMode RenderMode = Additive,
-				ParticleSortMode SortMode = Youngest,
-				ParticleAnimation ParticleAnimation = Single,
-				string Texture = "5481a3be505a50f6:wind-particles-glow-02",
-				Vec4 Tint = [1, 1, 1, 0.87],
-				float VelocityScale = 1,
-				float LengthScale = 1,
-				float MaxParticleSize = 100,
-				Vec3 SystemSize = [4, 4, 4],
-			},
-			SphericalParticleEmitter = 
-			{
-				bool Active = false,
-				uint EmitCount = 0,
-				float EmitRate = 25,
-				float EmitVariance = 0,
-				float Size = 1.5,
-				float SizeVariance = 0.1,
-				float Lifetime = 0.2,
-				float LifetimeVariance = 0.01,
-				float Spin = 360,
-				float SpinVariance = 50,
-				bool RandomSpin = true,
-				float Fill = 1,
-				float EmitterVelocityPercent = 0,
-				Vec3 StartVelocity = [0, 0, 8],
-				Vec3 RandomVelocity = [1, 1, 1],
-				Vec3 TangentVelocity = [0, 0, 0],
-				Vec3 EmitterSize = [0.5, 0.5, 0.5],
-				bool FastMovingEmitter = true,
-			},
-			LinearParticleAnimator = 
-			{
-				Vec3 Force = [0, 0, 0],
-				Vec3 RandomForce = [0, 0, 0],
-				float Torque = 0,
-				float Growth = -2,
-				float Dampening = 0,
-				Vec3 Twist = [0, 0, 0],
-			},
-			ParticleColorAnimator = 
-			{
-				Vec4 Color0 = [1, 0.75, 0, 0],
-				Vec4 Color1 = [1, 0.69, 0, 1],
-				Vec4 Color2 = [0.985, 0.426209, 0.06895, 1],
-				Vec4 Color3 = [1, 0.15, 0, 1],
-				Vec4 Color4 = [1, 0.15, 0, 0],
+				string Name = "LitCranePart",
 			},
 		},
 	},

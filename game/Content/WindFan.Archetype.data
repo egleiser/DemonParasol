@@ -1,0 +1,310 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "WindFan",
+	},
+	Archetyped = 
+	{
+		string Name = "54abd2ebbe2e9e00:WindFan",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [100.387, -7.91679, 4.17562],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, -0.707107, 0.707107],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [0.5, 0.5, 0.5],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Wind",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [6.72015, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteParticleSystem = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				SystemChildMode ChildMode = Independent,
+				SystemSpace SystemSpace = WorldSpace,
+				uint DrawOrder = 0,
+				float WarmUpTime = 0,
+				ParticleGeometry GeometryMode = Beam,
+				ParticleRenderMode RenderMode = Additive,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Single,
+				string Texture = "5310e87a46fb0d8e:Laser",
+				Vec4 Tint = [1, 1, 1, 0.415],
+				float VelocityScale = 0.1,
+				float LengthScale = 1,
+				float MaxParticleSize = 100,
+				Vec3 SystemSize = [20, 4, 4],
+			},
+			LinearParticleAnimator = 
+			{
+				Vec3 Force = [0, 0, 0],
+				Vec3 RandomForce = [0, 0, 0],
+				float Torque = 0,
+				float Growth = 0,
+				float Dampening = 0,
+				Vec3 Twist = [0, 0, 0],
+			},
+			ParticleColorAnimator = 
+			{
+				Vec4 Color0 = [1, 1, 1, 0],
+				Vec4 Color1 = [1, 1, 1, 1],
+				Vec4 Color2 = [1, 1, 1, 1],
+				Vec4 Color3 = [1, 1, 1, 1],
+				Vec4 Color4 = [1, 1, 1, 0],
+			},
+			BoxParticleEmitter = 
+			{
+				bool Active = true,
+				uint EmitCount = 0,
+				float EmitRate = 100,
+				float EmitVariance = 0,
+				float Size = 0.3,
+				float SizeVariance = 0.1,
+				float Lifetime = 0.3,
+				float LifetimeVariance = 0.05,
+				float Spin = 0,
+				float SpinVariance = 50,
+				bool RandomSpin = true,
+				float Fill = 1,
+				float EmitterVelocityPercent = 0,
+				Vec3 StartVelocity = [50, 0, 0],
+				Vec3 RandomVelocity = [2, 2, 2],
+				Vec3 TangentVelocity = [0, 0, 0],
+				Vec3 EmitterSize = [20, 8, 8],
+				bool FastMovingEmitter = false,
+			},
+			BoxCollider = 
+			{
+				bool Ghost = true,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "54ff0eb5b975b8c8:CG_Tongue",
+				Vec3 Offset = [8, 0, 0],
+				Vec3 Size = [15, 4, 4],
+			},
+			Region = 
+			{
+				bool WakeUpOnEffectChange = false,
+			},
+			WindEffect = 
+			{
+				bool Active = true,
+				bool WakeUpOnChange = true,
+				float WindSpeed = 200,
+				Vec3 WindDirection = [0, -1, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "AOEModel",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [14.6, 0, 0],
+				Vec3 Scale = [30, 8, 8],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [1, 1, 1, 0.135],
+			},
+			Hierarchy = 
+			{
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "EnolaFan",
+			},
+			Archetyped = 
+			{
+				string Name = "54aba204de5afd7a:EnolaFan",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-3.88574, -7.62939e-006, -4.24203],
+				Vec3 Scale = [0.8, 0.8, 0.8],
+				Quat Rotation = [-2.10734e-007, 0.707107, 0.707107, -2.10734e-007],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 5,
+					},
+					Named = 
+					{
+						string Name = "EnolaEngine",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.0838577, 6.99494, 0.0597965],
+						Vec3 Scale = [1.9434, 1, 1],
+						Quat Rotation = [-0.707107, -0, 0, 0.707107],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+						string MeshName = "54aba3f6e879b855:EnolaFan.EnolaEngine",
+						Vec4 Color = [0.23, 0.23, 0.23, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 6,
+					},
+					Named = 
+					{
+						string Name = "EnolaProp",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-1.80492, 7.29487, 3.05759e-007],
+						Vec3 Scale = [1.27753, 1.27753, 1],
+						Quat Rotation = [1.97433e-008, -0.707107, 1.97433e-008, 0.707107],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						string MaterialName = "54aba201dd78822b:EnolaFanTex",
+						string MeshName = "54aba3f6e879b880:EnolaFan.EnolaProp",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+					SimpleRotate = 
+					{
+						Vec3 RotateSpeed = [0, 0, -0.25],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 7,
+					},
+					Named = 
+					{
+						string Name = "EnolaRing",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.975548, 6.99494, 3.05759e-007],
+						Vec3 Scale = [1, 1, 2.06317],
+						Quat Rotation = [7.49055e-009, -0.707107, 7.49055e-009, 0.707107],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+						string MeshName = "54aba3f6e879b88f:EnolaFan.EnolaRing",
+						Vec4 Color = [1, 0.966, 0.15, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 8,
+					},
+					Named = 
+					{
+						string Name = "EnolaBase",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 2.67196, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [8.14603e-008, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+						string MeshName = "54aba3f6e879b8a5:EnolaFan.EnolaBase",
+						Vec4 Color = [0.29, 0.29, 0.29, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 9,
+					},
+					Named = 
+					{
+						string Name = "EnolaRing2",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.0997551, -0.103013, 3.12188e-007],
+						Vec3 Scale = [0.763592, 0.763592, 1.57542],
+						Quat Rotation = [0.50251, -0.497477, 0.50251, 0.497478],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+						string MeshName = "54aba3f6e879b8bb:EnolaFan.EnolaRing2",
+						Vec4 Color = [1, 0.9, 0, 1],
+					},
+				},
+			},
+		},
+	},
+},

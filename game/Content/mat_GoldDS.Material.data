@@ -1,0 +1,35 @@
+Material = 
+{
+	Phong = 
+	{
+		float SpecularExponent = 40,
+		float SpecularScalar = 1,
+	},
+	DoubledSide = 
+	{
+	},
+	EmissiveMapping = 
+	{
+		float EmissiveScale = 3.1,
+		string EmissiveMapTexture = "5310e87946eeadd0:Smoke2",
+		Vec2 EmissiveScroll = [-1, 0],
+		Vec2 EmissiveTiling = [1, 1],
+		Vec2 EmissiveOffset = [0, 0],
+	},
+	ModulateModelColor = 
+	{
+	},
+	Reflective = 
+	{
+		float Reflectivity = 0.2,
+		string Environment = "54ff30eba2db9c71:Stone_Normal",
+		Vec2 ReflectiveScroll = [0, 0],
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "5481a22f014e3367:tex_light_gradient",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

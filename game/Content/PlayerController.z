@@ -63,13 +63,13 @@ class PlayerController : ZilchComponent
 
     function OnDeath(event : Event)
     {
-        this.Space.LevelSettings.Z_WinLoseTrigger.DisplayMessage("YouLose");
+        //this.Space.LevelSettings.Z_WinLoseTrigger.DisplayMessage("YouLose");
         
-        var aDead = Action.Sequence(this.Owner.Actions);
+        //var aDead = Action.Sequence(this.Owner.Actions);
         
-        Action.Delay(aDead, 3.0);
+        //Action.Delay(aDead, 3.0);
         
-        Action.Call(aDead, this.Space.TimeSpace.TogglePause);
+        //Action.Call(aDead, this.Space.TimeSpace.TogglePause);
     }
 
     function OnLogicUpdate(event : UpdateEvent)

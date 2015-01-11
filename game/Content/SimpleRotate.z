@@ -1,0 +1,14 @@
+class SimpleRotate : ZilchComponent
+{
+    [Property]
+    var RotateSpeed:Real3 = Real3(1,1,1);
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Owner.Transform.LocalRotation = Math.Multiply(this.Owner.Transform.LocalRotation, Math.Euler(this.RotateSpeed));
+    }
+}

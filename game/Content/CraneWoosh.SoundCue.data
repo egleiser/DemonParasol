@@ -3,13 +3,13 @@ SoundCue =
 	SoundPlayMode PlayMode = Looping,
 	float Volume = 0.13,
 	float VolumeVariation = 0.35,
-	float Pitch = 0,
+	float Pitch = 0.3,
 	float PitchVariation = 0.2,
 	float MinDistance = 1,
 	float MaxDistance = 8,
 	float PositionRandomization = 0,
 	uint MaxPlaybacks = 10,
-	int Priority = 128,
+	int Priority = 1000,
 	bool LinearRollOff = true,
 	Array Sounds = 
 	[

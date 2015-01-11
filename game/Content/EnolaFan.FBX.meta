@@ -1,0 +1,45 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 54aba204de5afd7a,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [0.1, 0.1, 0.1],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "EnolaFan.EnolaEngine",
+				uint64 ResourceId = 54aba3f6e879b855,
+			},
+			{
+				string Name = "EnolaFan.EnolaProp",
+				uint64 ResourceId = 54aba3f6e879b880,
+			},
+			{
+				string Name = "EnolaFan.EnolaRing",
+				uint64 ResourceId = 54aba3f6e879b88f,
+			},
+			{
+				string Name = "EnolaFan.EnolaBase",
+				uint64 ResourceId = 54aba3f6e879b8a5,
+			},
+			{
+				string Name = "EnolaFan.EnolaRing2",
+				uint64 ResourceId = 54aba3f6e879b8bb,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},
