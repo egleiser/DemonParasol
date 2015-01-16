@@ -1,0 +1,26 @@
+Material = 
+{
+	Phong = 
+	{
+		float SpecularExponent = 40,
+		float SpecularScalar = 1,
+	},
+	DoubledSide = 
+	{
+	},
+	ModulateModelColor = 
+	{
+	},
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Additive,
+		bool CastShadow = false,
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "5481a22f014e180f:tex_dark_gradient",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},
