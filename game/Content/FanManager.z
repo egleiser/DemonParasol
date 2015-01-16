@@ -1,0 +1,37 @@
+class FanManager : ZilchComponent
+{
+    var FanBlade:Cog = null;
+    var WindSystem:Cog = null;
+    [Property]
+    var Active:Boolean = true;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.FanBlade = this.Owner.FindChildByName("EnolaProp");
+        this.WindSystem = this.Owner.FindChildByName("Wind");
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsPressed(Keys.U))
+        {
+            this.Active = !this.Active;
+        }
+        if(this.Active)
+        {
+            this.FanBlade.AudioPitchOff.Active = true;
+            this.FanBlade.SimpleRotate.Active = true;
+            this.WindSystem.BoxParticleEmitter.Active = true;
+            this.WindSystem.FlowEffect.Active = true;
+        }
+        else
+        {
+            this.FanBlade.AudioPitchOff.Active = false;
+            this.FanBlade.SimpleRotate.Active = false;
+            this.WindSystem.BoxParticleEmitter.Active = false;
+            this.WindSystem.FlowEffect.Active = false;
+        }
+    }
+}

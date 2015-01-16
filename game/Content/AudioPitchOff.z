@@ -1,0 +1,57 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: AudioPitchOff.z          ////
+////    Written by: Eric Gleiser     ////
+////                                 ////
+////     Last Updated: 01-16-15      ////
+////                                 ////
+/////////////////////////////////////////
+class AudioPitchOff : ZilchComponent
+{
+    [Dependency]
+    var SoundEmitter: SoundEmitter = null;
+    var InitVolume:Real = 1;
+    var InitPitch:Real = 1;
+    [Property]
+    var RateVolume:Real = 1.5;
+    [Property]
+    var DestVolume:Real = 0;
+    [Property]
+    var RatePitch:Real = 1.5;
+    [Property]
+    var DestPitch:Real = 0.4;
+    [Property]
+    var Active:Boolean = true;
+    function Initialize(init : CogInitializer)
+    {
+        this.InitPitch = this.SoundEmitter.Pitch;
+        this.InitVolume = this.SoundEmitter.Volume;
+        if(this.Active)
+        {
+            this.SoundEmitter.Volume = this.InitVolume;
+            this.SoundEmitter.Pitch = this.InitPitch;
+        }
+        else
+        {
+            this.SoundEmitter.Volume = this.DestVolume;
+            this.SoundEmitter.Pitch = this.DestPitch;
+        }
+    
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+
+        if(this.Active)
+        {
+            this.SoundEmitter.Volume = Math.Lerp(this.SoundEmitter.Volume, this.InitVolume, event.Dt * this.RateVolume);
+            this.SoundEmitter.Pitch = Math.Lerp(this.SoundEmitter.Pitch, this.InitPitch, event.Dt * this.RatePitch);
+        }
+        else
+        {
+            this.SoundEmitter.Volume = Math.Lerp(this.SoundEmitter.Volume, this.DestVolume, event.Dt * this.RateVolume);
+            this.SoundEmitter.Pitch = Math.Lerp(this.SoundEmitter.Pitch, this.DestPitch, event.Dt * this.RatePitch);
+        }
+    }
+}
