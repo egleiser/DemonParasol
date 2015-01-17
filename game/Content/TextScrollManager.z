@@ -112,6 +112,7 @@ class TextScrollManager : ZilchComponent
         this.CurrentIndex = 0;
         this.CurrentString = null;
         this.GoalString = event.TextToWrite.Text;
+        Console.WriteLine(this.GoalString);
         
         this.TextSeq = Action.Sequence(this.Owner.Actions);
         
@@ -131,6 +132,7 @@ class TextScrollManager : ZilchComponent
         }
         
         this.CurrentString = this.GoalString.SubString(0, this.CurrentIndex + 1);
+        
         
         var currentCharacterInt:Integer = this.GoalString.Get(this.CurrentIndex);
         var currentCharacter:String = null;
@@ -154,6 +156,7 @@ class TextScrollManager : ZilchComponent
         //this is where the extra screen wrapping code would go
         
         this.Owner.SpriteText.Text = this.CurrentString;
+        //Console.WriteLine(this.Owner.SpriteText.Text);
         
         this.TextSeq = Action.Sequence(this.Owner.Actions);
         
