@@ -1,0 +1,63 @@
+GeometryContent = 
+{
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "SetsukoWalk_Umbrella_Baked.LeftArm1",
+				uint64 ResourceId = 54b4fbeda79ebf44,
+			},
+			{
+				string Name = "SetsukoWalk_Umbrella_Baked.pasted__pCylinder5",
+				uint64 ResourceId = 54b4fbeda79ebf49,
+			},
+			{
+				string Name = "SetsukoWalk_Umbrella_Baked.LeftArm",
+				uint64 ResourceId = 54b4fbeda79ebf4b,
+			},
+			{
+				string Name = "SetsukoWalk_Umbrella_Baked.Torso",
+				uint64 ResourceId = 54b4fbeda79ebf4d,
+			},
+			{
+				string Name = "SetsukoWalk_Umbrella_Baked.Head",
+				uint64 ResourceId = 54b4fbeda79ebf4f,
+			},
+			{
+				string Name = "SetsukoWalk_Umbrella_Baked.Hair",
+				uint64 ResourceId = 54b4fbeda79ebf51,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+	AnimationBuilder = 
+	{
+		string Name = "SetsukoWalk_Umbrella_Baked",
+		uint64 ResourceId = 54b4fbeda79db5b4,
+		bool MakeAnimationSet = true,
+		ResourceCompression CompressAnimation = None,
+		string PreviewArchetype = "",
+		Array Clips = 
+		[
+			{
+				string Name = "All",
+				uint64 ResourceId = 54b4fbeda7812f6d,
+				int StartFrame = 1,
+				int EndFrame = 20,
+				LoopingMode LoopingMode = Default,
+			},
+		],
+	},
+},

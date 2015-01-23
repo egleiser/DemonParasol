@@ -1,0 +1,60 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 54b4fc49e600970c,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "SetsukoRigged_Umbrella.Torso",
+				uint64 ResourceId = 54b4fc49e60547b4,
+			},
+			{
+				string Name = "SetsukoRigged_Umbrella.LeftArm",
+				uint64 ResourceId = 54b4fc49e60547bc,
+			},
+			{
+				string Name = "SetsukoRigged_Umbrella.LeftArm1",
+				uint64 ResourceId = 54b4fc49e60547bf,
+			},
+			{
+				string Name = "SetsukoRigged_Umbrella.pasted__pasted__pCylinder5",
+				uint64 ResourceId = 54b4fc49e60547c1,
+			},
+			{
+				string Name = "SetsukoRigged_Umbrella.Head",
+				uint64 ResourceId = 54b4fc49e60547c3,
+			},
+			{
+				string Name = "SetsukoRigged_Umbrella.Hair",
+				uint64 ResourceId = 54b4fc49e60547c4,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+	AnimationBuilder = 
+	{
+		string Name = "SetsukoRigged_Umbrella",
+		uint64 ResourceId = 54b4fc49e6009709,
+		bool MakeAnimationSet = false,
+		ResourceCompression CompressAnimation = None,
+		string PreviewArchetype = "",
+		Array Clips = 
+		[
+		],
+	},
+},
