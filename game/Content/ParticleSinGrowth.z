@@ -1,0 +1,17 @@
+class ParticleSinGrowth : ZilchComponent
+{
+    [Property]
+    var Oscillation:Real = 0.0;
+    [Property]
+    var Amplitude:Real = 0.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Owner.LinearParticleAnimator.Growth = Math.Sin(event.TimePassed * this.Oscillation) * this.Amplitude;
+    }
+}

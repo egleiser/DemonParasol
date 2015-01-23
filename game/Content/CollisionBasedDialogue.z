@@ -102,7 +102,7 @@ class CollisionBasedDialogue : ZilchComponent
     function OnDialogueFinished(event : DialogueEventFinished)
     {
         var introDiagCube = this.Space.FindObjectByName("IntroDiagCube1");
-        Console.WriteLine("MEMEMEMEME");
+        Console.WriteLine("Dialogue Segment Finished");
         if(introDiagCube != null)
         {
             if(event.CurrentDialogueSegment.Name == this.Owner.CollisionBasedDialogue.DiagSegPath.Cog.Name)
