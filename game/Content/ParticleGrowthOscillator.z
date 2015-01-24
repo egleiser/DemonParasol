@@ -25,6 +25,10 @@ class ParticleGrowthOscillator : ZilchComponent
     var Amplitude:Real = 0.0;
     [Property]
     var VerticalShift:Real = 0.0;
+    [Property]
+    var HorizontalShift:Real = 0.0;
+    
+    var Age:Real = 0.0;
     
     var Growth:Real = 0.0;
     
@@ -50,20 +54,20 @@ class ParticleGrowthOscillator : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        
         if(this.CurveType == CurveTypes.SinCurve)
         {
-            this.Owner.LinearParticleAnimator.Growth = (Math.Sin(event.TimePassed * this.Oscillation) * this.Amplitude) + this.VerticalShift;
+            this.Owner.LinearParticleAnimator.Growth = (Math.Sin((event.TimePassed - this.HorizontalShift) * this.Oscillation) * this.Amplitude) + this.VerticalShift;
         }
         if(this.CurveType == CurveTypes.CosCurve)
         {
-            this.Owner.LinearParticleAnimator.Growth = (Math.Cos(event.TimePassed * this.Oscillation) * this.Amplitude) + this.VerticalShift;
+            this.Owner.LinearParticleAnimator.Growth = (Math.Cos((event.TimePassed - this.HorizontalShift) * this.Oscillation) * this.Amplitude) + this.VerticalShift;
         }
         if(this.CurveType == CurveTypes.CustomCurve)
         {
             if(this.CustomCurve != null)
             {
-                //NOT SURE HOW TO DO THIS PART
-                //this.Owner.LinearParticleAnimator.Growth = this.CustomCurve.Sample(event.TimePassed * this.Oscillation) * this.Amplitude;
+                this.Owner.LinearParticleAnimator.Growth = this.CustomCurve.Sample(event.TimePassed);
             }
             else
             {
