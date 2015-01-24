@@ -1,0 +1,74 @@
+/********************************/
+/*  Particle Growth Oscillator  */
+/*                              */
+/*  Written by: Jason Clark     */
+/*              & Eric Gleiser  */
+/*                              */
+/*  Last Updated: 01/24/2015    */
+/********************************/
+
+enum CurveTypes {SinCurve, CosCurve, CustomCurve}
+
+class ParticleGrowthOscillator : ZilchComponent
+{
+    [Dependency]
+    var LinearParticleAnimator:LinearParticleAnimator = null;
+    
+    [Property]
+    var CurveType:CurveTypes = CurveTypes.SinCurve;
+    [Property]
+    var CustomCurve:SampleCurve = null;
+    
+    [Property]
+    var Oscillation:Real = 0.0;
+    [Property]
+    var Amplitude:Real = 0.0;
+    [Property]
+    var VerticalShift:Real = 0.0;
+    
+    var Growth:Real = 0.0;
+    
+    //var CurveChosen : ??? = ???
+    
+    function Initialize(init : CogInitializer)
+    {
+        //if(this.CurveType == CurveTypes.SinCurve)
+        //{
+        //    this.CurveChosen = Math.Sin;
+        //}
+        //if(this.CurveType == CurveTypes.CosCurve)
+        //{
+        //    this.CurveChosen = Math.Cos;
+        //}
+        //if(this.CurveType == CurveTypes.CustomCurve)
+        //{
+        //    this.CurveChosen = this.SampleCurve;
+        //}
+        //this.Growth = this.Owner.LinearParticleAnimator.Growth;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.CurveType == CurveTypes.SinCurve)
+        {
+            this.Owner.LinearParticleAnimator.Growth = (Math.Sin(event.TimePassed * this.Oscillation) * this.Amplitude) + this.VerticalShift;
+        }
+        if(this.CurveType == CurveTypes.CosCurve)
+        {
+            this.Owner.LinearParticleAnimator.Growth = (Math.Cos(event.TimePassed * this.Oscillation) * this.Amplitude) + this.VerticalShift;
+        }
+        if(this.CurveType == CurveTypes.CustomCurve)
+        {
+            if(this.CustomCurve != null)
+            {
+                //NOT SURE HOW TO DO THIS PART
+                //this.Owner.LinearParticleAnimator.Growth = this.CustomCurve.Sample(event.TimePassed * this.Oscillation) * this.Amplitude;
+            }
+            else
+            {
+                Console.WriteLine("You forgot to choose your Custom Curve!");
+            }
+        }
+    }
+}
