@@ -54,7 +54,7 @@ class Z_GamepadButtonController : ZilchComponent
     {
         if(this.GameSession.InEditor == false)
         {
-            Zero.Mouse.Cursor = -1;
+            Zero.Mouse.Cursor = Cursor.Invisible;
         }
         if(this.Active)
         {
