@@ -1,0 +1,19 @@
+Material = 
+{
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Alpha,
+	},
+	Refractivity = 
+	{
+	},
+	ShaderWavyFX = 
+	{
+		string Texture = "5438253cb5888f4b:Water",
+		string DistortionTexture = "549077307893025c:Chrome2",
+		float DistortIntensity = 10,
+		float Multiplier = 0.5,
+		Vec2 Scalar = [1, 1],
+		Vec2 WaveScalar = [1, 1],
+	},
+},

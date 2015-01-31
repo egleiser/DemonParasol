@@ -1,0 +1,51 @@
+[Pixel][AutoBlock]
+class WavyRefraction
+{
+    // Custom Inputs
+    [Input]
+    var DistortionTexture : Sampler2d = null;
+    [Input]
+    var Scalar : Real2 = Real2(1,1);
+    [Input]
+    var WaveScalar : Real2 = Real2(1,1);
+
+    //Built In
+    // View Space Normal
+    [Input]
+    var Normal : Real3 = Real3();
+    // Us from mesh
+    [Input]
+    var Uv : Real2 = Real2();
+    // Time in seconds
+    [Input]
+    var Time : Real = 0.0;
+    // Object color from model
+    //[Input]
+    //var ObjectColor : Real4 = Real4();
+    // Position in view space
+    [Input]
+    var PixelPosition : Real3 = Real3();
+    [Input]
+    var ScreenPosition : Real4 = Real4();
+    //Eye is at 0,0,0  
+    
+    //Color added to the surface
+    [Output]
+    var Refraction : Real2 = Real2();
+    
+    //Surface effected by lighting
+    //[Output]
+    //var SurfaceColor : Real4 = Real4();
+    
+    function Main()
+    {
+        // wavy Refraction
+        var offTime = this.Time + 2000;
+        var sinWave = Math.Sin(offTime * (this.Uv.Y/100)) * 0.01 + 1;
+        var newUV = Real2(this.Uv.X + (sinWave * 10),this.Uv.Y + sinWave + this.Time/10);
+        newUV += Real2(this.Time/10,0);
+        var bumpTex = 2.0 * this.DistortionTexture.Sample(newUV).XY - Real2(1.0,1.0);
+        var newRef = (this.PixelPosition.XY/this.PixelPosition.Z) + bumpTex.XY * this.Scalar;
+        this.Refraction = newRef;
+    }
+}

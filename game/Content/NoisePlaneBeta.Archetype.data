@@ -6,17 +6,17 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "NoisePlane",
+		string Name = "NoisePlaneBeta",
 	},
 	Archetyped = 
 	{
-		string Name = "548d0c843b528a66:NoisePlane",
+		string Name = "541c38e0d961133b:NoisePlaneBeta",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, -2.09879],
-		Vec3 Scale = [0.11, 0.11, 0.11],
-		Quat Rotation = [0.707107, 0, 0, 0.707107],
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
 	},
 	Model = 
 	{
@@ -24,8 +24,8 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = false,
 		bool CastShadows = true,
-		string MaterialName = "5481b84e008be766:mat_gradient",
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
 		string MeshName = "541c38e3d958c3b1:NoisePlaneBeta",
-		Vec4 Color = [0, 0, 0, 1],
+		Vec4 Color = [1, 1, 1, 1],
 	},
 },
