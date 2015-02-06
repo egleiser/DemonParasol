@@ -151,7 +151,7 @@ Level =
 						{
 							bool StartPlaying = true,
 							int ExtraPriority = 0,
-							string CueName = "54be4e5ee0f95b63:BlackRain",
+							string CueName = "54fc7096f93b5812:DreamWorld_Forest_LostLoop",
 							float Volume = 1,
 							float Pitch = 1,
 							bool Positional = false,
@@ -177,7 +177,7 @@ Level =
 						{
 							bool StartPlaying = true,
 							int ExtraPriority = 0,
-							string CueName = "54be4e5ee0fc5688:BlackRainEnemy",
+							string CueName = "54fc7096f93b9e50:DreamWorld_Forest_MainLoop",
 							float Volume = 1,
 							float Pitch = 1,
 							bool Positional = false,
@@ -199,9 +199,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [23.8548, 89.8757, 70.3604],
+			Vec3 Translation = [28.0713, -67.7606, 19.5607],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.246064, -0.026159, 0.00664357, 0.968878],
+			Quat Rotation = [0.5, 0.0015645, -0.000903252, 0.866024],
 		},
 		Camera = 
 		{
@@ -216,10 +216,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 90.7181,
-			float VerticalAngle = -0.49742,
-			float HorizontalAngle = -6.2292,
-			Vec3 LookTarget = [28.1567, 133.163, -9.24803],
+			float LookDistance = 122.457,
+			float VerticalAngle = -1.0472,
+			float HorizontalAngle = -6.2868,
+			Vec3 LookTarget = [27.85, 38.2902, -41.6672],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -247,7 +247,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [26.1632, -67.4913, 0],
+			Vec3 Translation = [26.1632, -54.482, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -351,6 +351,10 @@ Level =
 		TextBoxTester = 
 		{
 			CogPath DiagSegPath = "",
+		},
+		Microphone = 
+		{
+			bool Active = true,
 		},
 		Hierarchy = 
 		{
@@ -1466,10 +1470,6 @@ Level =
 			Vec3 ForwardVector = [0, 0, 1],
 			OrientationBases DefaultBases = ForwardZUpY,
 		},
-		Microphone = 
-		{
-			bool Active = true,
-		},
 		Hierarchy = 
 		{
 			Cog = 
@@ -2465,7 +2465,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [45.703, -50.6409, 1],
+			Vec3 Translation = [45.703, 172.374, 1],
 			Vec3 Scale = [0.5, 0.5, 0.5],
 			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
@@ -18001,6 +18001,37 @@ Level =
 				{
 				},
 			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 519,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [25.7464, -42.6341, 5.25203],
+			Vec3 Scale = [13.2896, 13.1634, 0.519705],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "54ce4e18dbe67679:Gate",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
+		},
+		FootstepSurface = 
+		{
+			Enum SurfaceType = Dirt,
 		},
 	},
 },
