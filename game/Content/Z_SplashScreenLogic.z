@@ -41,7 +41,7 @@ class Z_SplashScreenLogic:ZilchComponent
     {
         if(this.GameSession.InEditor == false)
         {
-            Zero.Mouse.Cursor = -1;
+            Zero.Mouse.Cursor = Cursor.Invisible;
         }
         //keep track of the Timer
         this.Timer += event.Dt;

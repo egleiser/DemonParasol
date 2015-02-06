@@ -49,6 +49,9 @@ class PlayerController : ZilchComponent
     var Target:Cog = null;
     var TargetIndicator:Cog = null;
     var EnterTargetMode:Boolean = false;
+    
+    //Pick Up Throw Object
+    var PickUp:Cog = null;
     function Initialize(init : CogInitializer)
     {
         this.Owner.DynamicMotor.MaxMoveForce = this.MaxMoveForce;
@@ -60,20 +63,28 @@ class PlayerController : ZilchComponent
 
     function OnDeath(event : Event)
     {
-        this.Space.LevelSettings.Z_WinLoseTrigger.DisplayMessage("YouLose");
+        //this.Space.LevelSettings.Z_WinLoseTrigger.DisplayMessage("YouLose");
         
-        var aDead = Action.Sequence(this.Owner.Actions);
+        //var aDead = Action.Sequence(this.Owner.Actions);
         
-        Action.Delay(aDead, 3.0);
+        //Action.Delay(aDead, 3.0);
         
-        Action.Call(aDead, this.Space.TimeSpace.TogglePause);
+        //Action.Call(aDead, this.Space.TimeSpace.TogglePause);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        if(this.Owner.InputController.Gamepad.IsButtonHeld(Buttons.LeftShoulder))
+        {
+            this.MovmentSpeed = 1500;
+        }
+        else
+        {
+            this.MovmentSpeed = 700;
+        }
         if(this.GameSession.InEditor == false)
         {
-            Zero.Mouse.Cursor = -1;
+            Zero.Mouse.Cursor = Cursor.Invisible;
         }
         if(this.FreezeMovement == true)
         {
@@ -84,7 +95,8 @@ class PlayerController : ZilchComponent
             //if(this.TongueFinder == null)
             //{
                 this.MovementUpdate(event);
-                this.AttackUpdate(event);
+                this.PickUpUpdate(event);
+                //this.AttackUpdate(event);
                 this.BlockUpdate(event);
                 this.SwitchTargetUpdate(event);
             //}
@@ -110,6 +122,18 @@ class PlayerController : ZilchComponent
             {
                 this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed * 1000, this.Orientation.WorldUp);
             }
+        }
+    }
+    // Used for Picking Up and Throwing Objects
+    function PickUpUpdate(event : UpdateEvent)
+    {
+        if(this.PickUp != null)
+        {
+            var wantedTranslation:Real3 =
+            this.Owner.Transform.WorldTranslation + (this.Orientation.WorldForward * 1) + Real3(0,0,2);
+            this.PickUp.Transform.WorldTranslation = Math.Lerp(this.PickUp.Transform.WorldTranslation, wantedTranslation, event.Dt * 35.0);
+            this.PickUp.Transform.WorldRotation = this.Owner.Transform.WorldRotation;
+            
         }
     }
     function BlockUpdate(event : UpdateEvent)

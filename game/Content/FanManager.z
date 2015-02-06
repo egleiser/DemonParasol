@@ -1,0 +1,47 @@
+class FanManager : ZilchComponent
+{
+    var FanBlade:Cog = null;
+    var WindSystem:Cog = null;
+    var WindA:Cog = null;
+    var WindB:Cog = null;
+    [Property]
+    var Active:Boolean = true;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.FanBlade = this.Owner.FindChildByName("EnolaProp");
+        this.WindSystem = this.Owner.FindChildByName("Wind");
+        this.WindA = this.Owner.FindChildByName("FXWindA");
+        this.WindB = this.Owner.FindChildByName("FXWindB");
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsPressed(Keys.U))
+        {
+            this.Active = !this.Active;
+        }
+        if(this.Active)
+        {
+            this.FanBlade.AudioPitchOff.Active = true;
+            this.FanBlade.SimpleRotate.Active = true;
+            this.WindSystem.BoxParticleEmitter.Active = true;
+            this.WindSystem.FlowEffect.Active = true;
+            this.WindSystem.DragEffect.Active = true;
+            this.WindA.Model.Color = Math.Lerp(this.WindA.Model.Color, Real4(1,1,1,0.05), event.Dt);
+            this.WindB.Model.Color = Math.Lerp(this.WindB.Model.Color, Real4(1,1,1,0.05), event.Dt);
+        }
+        else
+        {
+            this.FanBlade.AudioPitchOff.Active = false;
+            this.FanBlade.SimpleRotate.Active = false;
+            this.WindSystem.BoxParticleEmitter.Active = false;
+            this.WindSystem.FlowEffect.Active = false;
+            this.WindSystem.DragEffect.Active = false;
+            this.WindA.Model.Color = Math.Lerp(this.WindA.Model.Color, Real4(1,1,1,0.0), event.Dt * 2.0);
+            this.WindB.Model.Color = Math.Lerp(this.WindB.Model.Color, Real4(1,1,1,0.0), event.Dt * 2.0);
+        }
+    }
+}

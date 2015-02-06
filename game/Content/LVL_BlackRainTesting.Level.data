@@ -162,7 +162,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [32.2738, -39.8434, 34.4171],
+			Vec3 Translation = [76.1386, -80.8553, 53.6712],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.520259, 0.00378627, -0.00230661, 0.853997],
 		},
@@ -179,10 +179,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 70.0653,
+			float LookDistance = 115.518,
 			float VerticalAngle = -1.09432,
 			float HorizontalAngle = -0.00886712,
-			Vec3 LookTarget = [31.9889, 22.4178, 2.28289],
+			Vec3 LookTarget = [75.6688, 21.796, 0.690789],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -206,7 +206,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [25.0968, 14.1501, 0],
+			Vec3 Translation = [91.3717, -8.39928, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -222,6 +222,8 @@ Level =
 			float MaxMoveForce = 1000,
 			float Deceleration = 1.5,
 			CogPath CameraPath = ":/Camera",
+			bool WindActive = true,
+			bool FreezeMovement = false,
 		},
 		FootstepDetector = 
 		{
@@ -5537,6 +5539,125 @@ Level =
 			string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 			string MeshName = "5481fffe3b4f9c65:ToriiGate.pCube7",
 			Vec4 Color = [0.295, 0.0531, 0.0531, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 160,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [92.1785, -7.14889, -10],
+			Vec3 Scale = [25, 25, 20],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = true,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "548d61033e57e7c9:WaterBlock",
+		LinkId = 
+		{
+			uint Id = 161,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [84.6003, -17.8188, -1.04295],
+			Vec3 Scale = [1, 1, 0.5],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "WaterBlock",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "548d61033e57e7c9:WaterBlock",
+		LinkId = 
+		{
+			uint Id = 162,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [84.6003, 7.04432, -1.04295],
+			Vec3 Scale = [1, 1, 0.5],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "WaterBlock",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "548d61033e57e7c9:WaterBlock",
+		LinkId = 
+		{
+			uint Id = 163,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [109.929, 7.04432, -1.04295],
+			Vec3 Scale = [1, 1, 0.5],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "WaterBlock",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "548d61033e57e7c9:WaterBlock",
+		LinkId = 
+		{
+			uint Id = 164,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [109.929, -17.8188, -1.04295],
+			Vec3 Scale = [1, 1, 0.5],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "WaterBlock",
 		},
 	},
 },

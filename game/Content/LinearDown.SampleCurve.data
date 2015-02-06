@@ -1,0 +1,23 @@
+SampleCurve = 
+{
+	Vec2 WidthRange = [0, 1],
+	Vec2 HeightRange = [0, 1],
+	float Error = 0.01,
+	Array ControlPoints = 
+	[
+		{
+			float Time = 0,
+			float Value = 1,
+			Vec2 TangentIn = [-0.0707107, -0.0707107],
+			Vec2 TangentOut = [0.333333, -0.322005],
+			uint EditorFlags = 1,
+		},
+		{
+			float Time = 1,
+			float Value = -0,
+			Vec2 TangentIn = [-0.333333, 0.311413],
+			Vec2 TangentOut = [0.333333, -0.311413],
+			uint EditorFlags = 0,
+		},
+	],
+},

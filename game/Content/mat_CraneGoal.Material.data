@@ -1,0 +1,28 @@
+Material = 
+{
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Additive,
+	},
+	Refractivity = 
+	{
+	},
+	MaskedRefraction = 
+	{
+		string DistortionTexture = "5403cd5ca1c0b953:Chrome2_NRM",
+		string MaskTexture = "5310e87a46e703cc:ShockWave",
+		Vec2 Scalar = [1, 2],
+		Vec2 Scroll = [0, 0.4],
+		Vec4 ScreenPosition = [1, 1, 1, 1],
+	},
+	ModulateModelColor = 
+	{
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "5310e87a46e703cc:ShockWave",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

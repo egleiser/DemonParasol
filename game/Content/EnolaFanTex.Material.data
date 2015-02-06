@@ -1,0 +1,21 @@
+Material = 
+{
+	Phong = 
+	{
+		float SpecularExponent = 16,
+		float SpecularScalar = 0.25,
+	},
+	Reflective = 
+	{
+		float Reflectivity = 0.5,
+		string Environment = "549077307893025c:Chrome2",
+		Vec2 ReflectiveScroll = [0, 0],
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "54aba3b53e5b4021:Enola_Prop_Tex",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

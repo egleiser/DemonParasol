@@ -1,0 +1,31 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "NoisePlaneB",
+	},
+	Archetyped = 
+	{
+		string Name = "54042b04889dcb36:NoisePlaneB",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [72.0236, -54.2253, -2.12241],
+		Vec3 Scale = [0.12, 0.06, 0.12],
+		Quat Rotation = [0.5, 0.5, 0.5, 0.5],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "54694528e625aa08:mat_ground",
+		string MeshName = "541c38e3d958c3b1:NoisePlaneBeta",
+		Vec4 Color = [0.205, 0.205, 0.205, 1],
+	},
+},

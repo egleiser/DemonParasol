@@ -1,0 +1,97 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: PickUpInteractVolume.z   ////
+////    Written by: Eric Gleiser     ////
+////                                 ////
+////     Last Updated: 01-06-15      ////
+////                                 ////
+/////////////////////////////////////////
+class PickUpInteractVolume : ZilchComponent
+{
+    [Property]
+    var ThrowForce:Real = 50000.0;
+    var Player: Cog = null;
+    var Timer:Integer = 10;
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Space.FindObjectByName("Player");
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+        Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player")
+        {
+            otherObject.PlayerController.ContextString = "Pick Up";
+        }
+    }
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player")
+        {
+            otherObject.PlayerController.ContextString = "";
+        }
+    }
+    function OnCollisionPersisted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player")
+        {
+            //Console.WriteLine(this.TextBox.TextBoxManager.Owner.Sprite.Color.W);
+            if(
+            (this.Player.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space)))
+            {
+                if(this.Player.PlayerController.PickUp == null)
+                {
+                    this.Player.PlayerController.PickUp = this.Owner.Parent;
+                    this.Timer = 0;
+                    
+                }
+            }
+            if(this.Player.PlayerController.PickUp == this.Owner.Parent)
+            {
+                if(Math.Length(this.Player.RigidBody.Velocity) < 3)
+                {
+                    this.Player.PlayerController.ContextString = "Drop";
+                }
+                else
+                {
+                    this.Player.PlayerController.ContextString = "Throw";
+                }
+                this.Player.PlayerController.PickUp.GravityEffect.Active = false;
+                this.Player.PlayerController.PickUp.Collider.Ghost = true;
+            }
+            if(this.Player.PlayerController.PickUp == null)
+            {
+                otherObject.PlayerController.ContextString = "Pick Up";
+            }
+        }
+    }
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Timer += 1;
+        if(this.Timer > 10 &&
+        (this.Player.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space)))
+        {
+
+            if(this.Player.PlayerController.PickUp == this.Owner.Parent)
+            {
+                this.Player.PlayerController.PickUp.GravityEffect.Active = true;
+                this.Player.PlayerController.PickUp.Collider.Ghost = false;
+                
+                if(this.Player.PlayerController.ContextString == "Throw")
+                {
+                    var force = this.Player.Orientation.WorldForward * this.ThrowForce;
+                    this.Player.PlayerController.PickUp.RigidBody.ApplyForce(force);
+                }
+                this.Player.PlayerController.PickUp = null;
+                
+            }
+        }
+    }
+}

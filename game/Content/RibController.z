@@ -45,11 +45,13 @@ class RibController : ZilchComponent
         var wantedScale = this.ClosedScale;
         if(this.Open)
         {
+            this.Owner.Collider.Ghost = false;
             wantedScale = this.OpenScale;
             this.Owner.Transform.LocalScale = Math.Lerp(this.Owner.Transform.LocalScale, wantedScale, event.Dt * 15.0);
         }
         else
         {
+            this.Owner.Collider.Ghost = true;
             this.Owner.Transform.LocalScale = Math.Lerp(this.Owner.Transform.LocalScale, wantedScale, event.Dt * 10.0);
         }
         

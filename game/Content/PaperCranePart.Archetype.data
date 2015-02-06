@@ -1,0 +1,112 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "PaperCranePart",
+	},
+	Archetyped = 
+	{
+		string Name = "546063c0374e5a52:PaperCranePart",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [2, 2, 2],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "54510363ad53c2ee:mat_gradientDarkDS",
+		string MeshName = "54606c2b552de2ef:PaperCrane",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	SphereCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 0.15,
+	},
+	DragEffect = 
+	{
+		bool Active = true,
+		bool WakeUpOnChange = true,
+		float Drag = 0.15,
+	},
+	Light = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		LightType LightType = Point,
+		Vec4 Color = [1, 1, 1, 1],
+		float Intensity = 1.13,
+		float Range = 3,
+		float Falloff = 1,
+		float Angle = 45,
+		float Size = 20,
+	},
+	SoundEmitter = 
+	{
+		bool StartPlaying = true,
+		int ExtraPriority = 0,
+		string CueName = "5460754aba32c3c7:CraneWoosh",
+		float Volume = 0.5,
+		float Pitch = 1,
+		bool Positional = true,
+	},
+	MassOverride = 
+	{
+		bool Active = true,
+		float invMass = 100,
+		Vec3 invInertiaX = [2777.78, 0, 0],
+		Vec3 invInertiaY = [0, 2777.78, 0],
+		Vec3 invInertiaZ = [0, 0, 2777.78],
+		Vec3 LocalCenterOfMass = [0, 0, 0],
+	},
+	Hierarchy = 
+	{
+		ArchetypeInstance = 
+		{
+			string Name = "54abc270d6f65f7b:LitCranePart",
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "LitCranePart",
+			},
+		},
+	},
+},

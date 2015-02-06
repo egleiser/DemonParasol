@@ -14,16 +14,18 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Translation = [0, 0, -2.09879],
+		Vec3 Scale = [0.11, 0.11, 0.11],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
 	},
 	Model = 
 	{
 		bool Visible = true,
 		bool VisibilityCulling = true,
-		string MaterialName = "4de020863e85bb61:DefaultMaterial",
-		string MeshName = "548d0c843b5adc80:NoisePlane",
-		Vec4 Color = [1, 1, 1, 1],
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5481b84e008be766:mat_gradient",
+		string MeshName = "541c38e3d958c3b1:NoisePlaneBeta",
+		Vec4 Color = [0, 0, 0, 1],
 	},
 },

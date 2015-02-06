@@ -33,7 +33,7 @@ class SwordController : ZilchComponent
         }
         if(this.SlashCount == 0 && this.Ribs.RibController.Open == false)
         {
-            this.Owner.SimpleAnimation.CrossBlend(Animation.Find("IdleSlash"),0.5,0);
+            this.Owner.SimpleAnimation.CrossBlend(Animation.Find("IdleSlash"),0.5, AnimPlayMode.PlayOnce);
         }
         if(this.SlashCount == 0)
         {
@@ -49,7 +49,7 @@ class SwordController : ZilchComponent
         }
         if(this.Ribs.RibController.Open)
         {
-            this.Owner.SimpleAnimation.CrossBlend(Animation.Find("Blocking"),0.5,0);
+            this.Owner.SimpleAnimation.CrossBlend(Animation.Find("Blocking"),0.5, AnimPlayMode.PlayOnce);
         }
     }
     function OnAttack(event : AttackEvent)
@@ -65,21 +65,21 @@ class SwordController : ZilchComponent
             this.Timer = 2;
             if(this.SlashCount == 1)
             {
-                this.Owner.SimpleAnimation.PlaySingle(Animation.Find("HorizontalSlash1"),0);
+                this.Owner.SimpleAnimation.PlaySingle(Animation.Find("HorizontalSlash1"),AnimPlayMode.PlayOnce);
             }
             else if(this.SlashCount == 2)
             {
-                this.Owner.SimpleAnimation.PlaySingle(Animation.Find("HorizontalSlash2"),0);
+                this.Owner.SimpleAnimation.PlaySingle(Animation.Find("HorizontalSlash2"),AnimPlayMode.PlayOnce);
             }
             else if(this.SlashCount == 3)
             {
-                this.Owner.SimpleAnimation.PlaySingle(Animation.Find("VerticalSlash1"),0);
+                this.Owner.SimpleAnimation.PlaySingle(Animation.Find("VerticalSlash1"),AnimPlayMode.PlayOnce);
                 //Play Player Grunt
                 this.Space.SoundSpace.PlayCueAt(this.GruntSound, this.Owner.Transform.Translation);
             }
             else
             {
-                this.Owner.SimpleAnimation.PlaySingle(Animation.Find("HorizontalSlash1"),0);
+                this.Owner.SimpleAnimation.PlaySingle(Animation.Find("HorizontalSlash1"),AnimPlayMode.PlayOnce);
                 this.SlashCount = 0;
             }
         }

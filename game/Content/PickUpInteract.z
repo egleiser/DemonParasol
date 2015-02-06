@@ -1,0 +1,49 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: PickUpInteract.z         ////
+////    Written by: Eric Gleiser     ////
+////                                 ////
+////     Last Updated: 01-06-15      ////
+////                                 ////
+/////////////////////////////////////////
+class PickUpInteract : ZilchComponent
+{
+    [Property]
+    var SmokeParticle:Archetype = null;
+    var CurrentSurface : FootstepType = FootstepType.Dirt;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        
+        if(otherObject.FootstepSurface != null)
+        {
+            this.CurrentSurface = otherObject.FootstepSurface.SurfaceType;
+            if(this.CurrentSurface == FootstepType.Wood)
+            {
+                this.Owner.SoundEmitter.PlayCue(SoundCue.Find("FootstepsWood"));
+            }
+            else if(this.CurrentSurface == FootstepType.Water)
+            {
+                this.Owner.SoundEmitter.PlayCue(SoundCue.Find("FootstepsWater"));
+            }
+            else if(this.CurrentSurface == FootstepType.Gravel)
+            {
+                this.Owner.SoundEmitter.PlayCue(SoundCue.Find("FootstepsGravel"));
+            }
+            else
+            {
+                this.Owner.SoundEmitter.PlayCue(SoundCue.Find("FootstepsDirt"));
+            }
+            this.Space.CreateAtPosition(this.SmokeParticle, event.FirstPoint.WorldPoint + Real3(0,0,0.5));
+        }
+    }
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}
