@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [101.939, -2.79197, 1.32578],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [2, 2, 2],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -22,6 +22,8 @@ Cog =
 	{
 		bool Visible = true,
 		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
 		string MaterialName = "54510363ad53c2ee:mat_gradientDarkDS",
 		string MeshName = "54606c2b552de2ef:PaperCrane",
 		Vec4 Color = [1, 1, 1, 1],
@@ -58,6 +60,8 @@ Cog =
 	{
 		bool Visible = true,
 		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
 		LightType LightType = Point,
 		Vec4 Color = [1, 1, 1, 1],
 		float Intensity = 1.13,
@@ -74,6 +78,15 @@ Cog =
 		float Volume = 0.5,
 		float Pitch = 1,
 		bool Positional = true,
+	},
+	MassOverride = 
+	{
+		bool Active = true,
+		float invMass = 100,
+		Vec3 invInertiaX = [2777.78, 0, 0],
+		Vec3 invInertiaY = [0, 2777.78, 0],
+		Vec3 invInertiaZ = [0, 0, 2777.78],
+		Vec3 LocalCenterOfMass = [0, 0, 0],
 	},
 	Hierarchy = 
 	{

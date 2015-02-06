@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [85.5145, -63.9036, 4.17562],
+		Vec3 Translation = [20.3041, 71.9848, 4.17562],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0.707107, 0.707107],
 	},
@@ -54,6 +54,8 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
 				SystemChildMode ChildMode = Independent,
 				SystemSpace SystemSpace = WorldSpace,
 				uint DrawOrder = 0,
@@ -133,6 +135,12 @@ Cog =
 				float AttractSpeed = 5,
 				float MaxAttractForce = 50,
 			},
+			DragEffect = 
+			{
+				bool Active = true,
+				bool WakeUpOnChange = true,
+				float Drag = 1.2,
+			},
 		},
 		Cog = 
 		{
@@ -154,6 +162,8 @@ Cog =
 			{
 				bool Visible = false,
 				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
 				string MaterialName = "4de020863e85bb61:DefaultMaterial",
 				string MeshName = "4de0354322b345ae:Cube",
 				Vec4 Color = [1, 1, 1, 0.135],
@@ -204,6 +214,8 @@ Cog =
 					{
 						bool Visible = true,
 						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
 						string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 						string MeshName = "54aba3f6e879b855:EnolaFan.EnolaEngine",
 						Vec4 Color = [0.23, 0.23, 0.23, 1],
@@ -229,6 +241,8 @@ Cog =
 					{
 						bool Visible = true,
 						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
 						string MaterialName = "54aba201dd78822b:EnolaFanTex",
 						string MeshName = "54aba3f6e879b880:EnolaFan.EnolaProp",
 						Vec4 Color = [1, 1, 1, 1],
@@ -281,6 +295,8 @@ Cog =
 							{
 								bool Visible = true,
 								bool VisibilityCulling = true,
+								bool VisibilityEvents = false,
+								bool CastShadows = true,
 								string MaterialName = "54695d6e3b54733b:mat_wind",
 								string MeshName = "54695f8fd516a133:FXWind",
 								Vec4 Color = [1, 1, 1, 0.24],
@@ -315,6 +331,8 @@ Cog =
 							{
 								bool Visible = true,
 								bool VisibilityCulling = true,
+								bool VisibilityEvents = false,
+								bool CastShadows = true,
 								string MaterialName = "54695d6e3b54733b:mat_wind",
 								string MeshName = "54695f8fd516a133:FXWind",
 								Vec4 Color = [1, 1, 1, 0.24],
@@ -347,6 +365,8 @@ Cog =
 					{
 						bool Visible = true,
 						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
 						string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 						string MeshName = "54aba3f6e879b88f:EnolaFan.EnolaRing",
 						Vec4 Color = [1, 0.966, 0.15, 1],
@@ -372,6 +392,8 @@ Cog =
 					{
 						bool Visible = true,
 						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
 						string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 						string MeshName = "54aba3f6e879b8a5:EnolaFan.EnolaBase",
 						Vec4 Color = [0.29, 0.29, 0.29, 1],
@@ -397,6 +419,8 @@ Cog =
 					{
 						bool Visible = true,
 						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
 						string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 						string MeshName = "54aba3f6e879b8bb:EnolaFan.EnolaRing2",
 						Vec4 Color = [1, 0.9, 0, 1],

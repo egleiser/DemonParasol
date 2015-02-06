@@ -1,0 +1,39 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: SetsukoAnimation.z       ////
+////    Written by: Eric Gleiser     ////
+////                                 ////
+////     Last Updated: 02-05-15      ////
+////                                 ////
+/////////////////////////////////////////
+class SetsukoAnimation : ZilchComponent
+{
+    [Property]
+    var AniIdle:Animation = null;
+    [Property]
+    var AniWalk:Animation = null;
+    [Property]
+    var AniRun:Animation = null;
+    [Property]
+    var AniJump:Animation = null;
+    [Property]
+    var AniFall:Animation = null;
+    [Property]
+    var AniParasol:Animation = null;
+    [Property]
+    var AniLatch:Animation = null;
+    
+    //Cinematic Priority Animations
+    [Property]
+    var AniHappy:Animation = null;
+    [Property]
+    var AniSad:Animation = null;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

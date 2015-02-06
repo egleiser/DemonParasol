@@ -1,0 +1,50 @@
+[Pixel][AutoBlock]
+class MaskedRefraction
+{
+    // Custom Inputs
+    [Input]
+    var DistortionTexture : Sampler2d = null;
+    [Input]
+    var MaskTexture : Sampler2d = null;
+    [Input]
+    var Scalar : Real2 = Real2(0.0,0.0);
+    [Input]
+    var Scroll : Real2 = Real2(0.0,0.0);
+    //Built In
+    // View Space Normal
+    [Input]
+    var Normal : Real3 = Real3();
+    // Us from mesh
+    [Input]
+    var Uv : Real2 = Real2();
+    // Time in seconds
+    [Input]
+    var Time : Real = 0.0;
+    // Object color from model
+    //[Input]
+    //var ObjectColor : Real4 = Real4();
+    // Position in view space
+    [Input]
+    var PixelPosition : Real3 = Real3();
+    [Input]
+    var ScreenPosition : Real4 = Real4();
+    //Eye is at 0,0,0  
+    
+    //Color added to the surface
+    [Output]
+    var Refraction : Real2 = Real2();
+    
+    //Surface effected by lighting
+    //[Output]
+    //var SurfaceColor : Real4 = Real4();
+    
+    function Main()
+    {
+        // Simple edge glow
+        var timeVec = Real2(this.Time, this.Time) * this.Scroll;
+        var bumpTex = 2.0 * this.DistortionTexture.Sample(this.Uv + timeVec).XY - Real2(1.0,1.0);
+        bumpTex *= this.MaskTexture.Sample(this.Uv).XY;
+        var newUv = (this.PixelPosition.XY/this.PixelPosition.Z) + bumpTex.XY  * this.Scalar;
+        this.Refraction = newUv;
+    }
+}

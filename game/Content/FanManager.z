@@ -29,6 +29,7 @@ class FanManager : ZilchComponent
             this.FanBlade.SimpleRotate.Active = true;
             this.WindSystem.BoxParticleEmitter.Active = true;
             this.WindSystem.FlowEffect.Active = true;
+            this.WindSystem.DragEffect.Active = true;
             this.WindA.Model.Color = Math.Lerp(this.WindA.Model.Color, Real4(1,1,1,0.05), event.Dt);
             this.WindB.Model.Color = Math.Lerp(this.WindB.Model.Color, Real4(1,1,1,0.05), event.Dt);
         }
@@ -38,6 +39,7 @@ class FanManager : ZilchComponent
             this.FanBlade.SimpleRotate.Active = false;
             this.WindSystem.BoxParticleEmitter.Active = false;
             this.WindSystem.FlowEffect.Active = false;
+            this.WindSystem.DragEffect.Active = false;
             this.WindA.Model.Color = Math.Lerp(this.WindA.Model.Color, Real4(1,1,1,0.0), event.Dt * 2.0);
             this.WindB.Model.Color = Math.Lerp(this.WindB.Model.Color, Real4(1,1,1,0.0), event.Dt * 2.0);
         }
