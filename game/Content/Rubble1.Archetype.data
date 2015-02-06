@@ -14,9 +14,9 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-9.05358, -4.95911e-005, 0.553292],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [-0.477242, -0.515064, 0.561548, 0.437737],
+		Quat Rotation = [0, 0, 0, 1],
 	},
 	Model = 
 	{
@@ -24,11 +24,8 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = false,
 		bool CastShadows = true,
-		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
 		string MeshName = "5403d72c4b0ea471:Rubble1",
-		Vec4 Color = [0.725, 0.725, 0.725, 1],
-	},
-	Hierarchy = 
-	{
+		Vec4 Color = [1, 1, 1, 1],
 	},
 },

@@ -14,9 +14,9 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [48.5723, -17.8101, -2.14521],
-		Vec3 Scale = [0.5, 0.5, 0.5],
-		Quat Rotation = [0.5, -0.5, -0.5, 0.5],
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
 	},
 	Model = 
 	{
@@ -24,117 +24,8 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = false,
 		bool CastShadows = true,
-		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
 		string MeshName = "54042346ee2e8873:BurntBuilding1",
-		Vec4 Color = [0.31, 0.31, 0.31, 1],
-	},
-	Hierarchy = 
-	{
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 2,
-			},
-			Named = 
-			{
-				string Name = "CollisionCube",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [13.2664, 17.068, -4.875],
-				Vec3 Scale = [60.1672, 2.38351, 37.0343],
-				Quat Rotation = [-0.5, 0.5, 0.5, 0.5],
-			},
-			Model = 
-			{
-				bool Visible = false,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = false,
-				bool CastShadows = true,
-				string MaterialName = "4de020863e85bb61:DefaultMaterial",
-				string MeshName = "4de0354322b345ae:Cube",
-				Vec4 Color = [1, 1, 1, 1],
-			},
-			RigidBody = 
-			{
-				bool Static = true,
-				bool Asleep = false,
-				bool Kinematic = false,
-				bool RotationLocked = false,
-				bool Mode2D = false,
-				bool AllowSleep = true,
-				bool Inherit2DMode = true,
-				Vec3 Velocity = [0, 0, 0],
-				Vec3 AngularVelocity = [0, 0, 0],
-			},
-			BoxCollider = 
-			{
-				bool Ghost = false,
-				bool SendsMessages = true,
-				bool Seamless = true,
-				string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
-				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, 0, 0],
-				Vec3 Size = [0.5, 0.5, 0.5],
-			},
-			FootstepSurface = 
-			{
-				Enum SurfaceType = Dirt,
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 3,
-			},
-			Named = 
-			{
-				string Name = "CollisionCube",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [-2.3566, 17.068, 25.4786],
-				Vec3 Scale = [1.25955, 32.647, 37.0344],
-				Quat Rotation = [-0.5, 0.5, 0.5, 0.5],
-			},
-			Model = 
-			{
-				bool Visible = false,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = false,
-				bool CastShadows = true,
-				string MaterialName = "4de020863e85bb61:DefaultMaterial",
-				string MeshName = "4de0354322b345ae:Cube",
-				Vec4 Color = [1, 1, 1, 1],
-			},
-			RigidBody = 
-			{
-				bool Static = true,
-				bool Asleep = false,
-				bool Kinematic = false,
-				bool RotationLocked = false,
-				bool Mode2D = false,
-				bool AllowSleep = true,
-				bool Inherit2DMode = true,
-				Vec3 Velocity = [0, 0, 0],
-				Vec3 AngularVelocity = [0, 0, 0],
-			},
-			BoxCollider = 
-			{
-				bool Ghost = false,
-				bool SendsMessages = true,
-				bool Seamless = true,
-				string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
-				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, 0, 0],
-				Vec3 Size = [0.5, 0.5, 0.5],
-			},
-			FootstepSurface = 
-			{
-				Enum SurfaceType = Dirt,
-			},
-		},
+		Vec4 Color = [1, 1, 1, 1],
 	},
 },
