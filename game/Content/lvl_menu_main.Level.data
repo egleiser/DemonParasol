@@ -41,6 +41,11 @@ Level =
 		ForwardRenderer = 
 		{
 			Vec4 ClearColor = [0.155, 0.155, 0.155, 1],
+			bool DrawNonVisible = false,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool EditorIconDepth = true,
+			bool Wireframe = false,
 		},
 		GridDraw = 
 		{
@@ -88,7 +93,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [79.5142, 40.7041, 49.999],
+			Vec3 Translation = [-0.375378, -1.49799, 51],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -100,7 +105,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 27.2532,
+			float Size = 18.2684,
 		},
 		EditorCameraController = 
 		{
@@ -108,12 +113,16 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [79.5142, 40.7041, -0.000996794],
+			Vec3 LookTarget = [-0.375378, -1.49799, 1],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
 		{
 			Vec4 ClearColor = [0.155, 0.155, 0.155, 1],
+			bool DrawNonVisible = true,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool Wireframe = false,
 		},
 	},
 	ArchetypeInstance = 
@@ -163,6 +172,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
 			Vec4 Color = [1, 1, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
@@ -228,6 +239,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
 			Vec4 Color = [1, 1, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
@@ -298,6 +311,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
 			Vec4 Color = [1, 1, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
@@ -368,6 +383,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
 			Vec4 Color = [1, 1, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
@@ -438,6 +455,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
 			Vec4 Color = [0.862745, 0.823529, 0.823529, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
@@ -472,6 +491,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
 			Vec4 Color = [1, 1, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
@@ -484,6 +505,15 @@ Level =
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = true,
+			int ExtraPriority = 0,
+			string CueName = "5481ac82888ddb24:Setsuko_Theme",
+			float Volume = 0.5,
+			float Pitch = 1,
+			bool Positional = false,
 		},
 	},
 	Cog = 
@@ -510,6 +540,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
 			Vec4 Color = [1, 1, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
@@ -603,6 +635,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
 			Vec4 Color = [1, 1, 1, 0],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,

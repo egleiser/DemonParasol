@@ -14,16 +14,19 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, -0.502327],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1.33333, 1.33333, 0.25],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	SkinnedModel = 
 	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
 		string Material = "5481bef9b2f955f1:mat_ThornTentacle",
 		string Mesh = "5481552a36e3aa3a:ThornArm",
-		Vec4 Color = [0.25, 0.102, 0.01875, 1],
-		bool Visible = true,
+		Vec4 Color = [0, 0, 0, 1],
 	},
 	AnimationGraph = 
 	{
@@ -54,7 +57,7 @@ Cog =
 			{
 				Vec3 Translation = [-0.00161852, 0.0110272, 4.82016e-010],
 				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [-3.04478e-006, -3.24612e-006, 0.712974, 0.70119],
+				Quat Rotation = [-3.1008e-006, -3.30166e-006, 0.712975, 0.70119],
 			},
 			Hierarchy = 
 			{
@@ -79,6 +82,7 @@ Cog =
 						float SinSpeedX = 3,
 						float SinSpeedY = 3,
 						float Intensity = 0.05,
+						bool UseInitialRot = false,
 					},
 					Hierarchy = 
 					{
@@ -103,6 +107,7 @@ Cog =
 								float SinSpeedX = 2,
 								float SinSpeedY = 2,
 								float Intensity = 0.07,
+								bool UseInitialRot = false,
 							},
 							Hierarchy = 
 							{
@@ -127,6 +132,7 @@ Cog =
 										float SinSpeedX = 5,
 										float SinSpeedY = 5,
 										float Intensity = 0.1,
+										bool UseInitialRot = false,
 									},
 									Hierarchy = 
 									{
@@ -151,6 +157,7 @@ Cog =
 												float SinSpeedX = 3,
 												float SinSpeedY = 3,
 												float Intensity = 0.05,
+												bool UseInitialRot = false,
 											},
 											Hierarchy = 
 											{
@@ -168,13 +175,14 @@ Cog =
 													{
 														Vec3 Translation = [0.587933, 1.07288e-007, 6.08334e-008],
 														Vec3 Scale = [1, 1, 1],
-														Quat Rotation = [9.54792e-015, -1.89085e-018, -0.000198039, 1],
+														Quat Rotation = [9.54792e-015, -1.89086e-018, -0.000198039, 1],
 													},
 													SinRotate = 
 													{
 														float SinSpeedX = 5,
 														float SinSpeedY = 5,
 														float Intensity = 0.07,
+														bool UseInitialRot = false,
 													},
 													Hierarchy = 
 													{
@@ -199,6 +207,7 @@ Cog =
 																float SinSpeedX = 6,
 																float SinSpeedY = 6,
 																float Intensity = 0.05,
+																bool UseInitialRot = false,
 															},
 														},
 													},

@@ -8,10 +8,14 @@ Cog =
 	{
 		string Name = "CraneGoal",
 	},
+	Archetyped = 
+	{
+		string Name = "5403dddb91ad964c:CraneGoal",
+	},
 	Transform = 
 	{
-		Vec3 Translation = [105.072, -8.24964, 8.09139],
-		Vec3 Scale = [13.8223, 15.1836, 0.0001],
+		Vec3 Translation = [23.4721, 102.524, 2.83667],
+		Vec3 Scale = [11.3456, 12.463, 0.0001],
 		Quat Rotation = [0.707107, 0, 0, 0.707107],
 	},
 	Model = 
@@ -22,7 +26,7 @@ Cog =
 		bool CastShadows = true,
 		string MaterialName = "5403d9ca58fd60f3:mat_CraneGoal",
 		string MeshName = "4de0354322b345ae:Cube",
-		Vec4 Color = [1, 0.9623, 0.71, 0],
+		Vec4 Color = [1, 0.71, 0.710174, 0],
 	},
 	RigidBody = 
 	{
@@ -48,7 +52,7 @@ Cog =
 		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 		Vec3 Offset = [0, 0, 0],
-		Vec3 Size = [0.15, 0.15, 5000],
+		Vec3 Size = [0.3, 0.3, 5000],
 	},
 	Hierarchy = 
 	{
@@ -188,7 +192,7 @@ Cog =
 				uint EmitCount = 0,
 				float EmitRate = 10,
 				float EmitVariance = 0,
-				float Size = 15,
+				float Size = 11,
 				float SizeVariance = 0.5,
 				float Lifetime = 1,
 				float LifetimeVariance = 0.2,
@@ -202,6 +206,33 @@ Cog =
 				Vec3 TangentVelocity = [0, 0, 0],
 				Vec3 EmitterSize = [0, 0, 0],
 				bool FastMovingEmitter = false,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "pCube7",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -0.553113, -9195.92],
+				Vec3 Scale = [0.130179, 0.183098, 16229.2],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "5481fffe3b4f9c65:ToriiGate.pCube7",
+				Vec4 Color = [0.295, 0.0531, 0.0531, 1],
 			},
 		},
 	},

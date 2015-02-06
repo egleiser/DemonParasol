@@ -1,0 +1,38 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: ActivateFanOnCollide.z   ////
+////    Written by: Eric Gleiser     ////
+////                                 ////
+////     Last Updated: 02-06-15      ////
+////                                 ////
+/////////////////////////////////////////
+class ActivateFanOnCollide : ZilchComponent
+{
+    [Property]
+    var ObjectName:String = "PickUpBlock";
+    [Property]
+    var TargetFan:CogPath = null;
+    function Initialize(init : CogInitializer)
+    {
+        this.Owner.Model.Visible = false;
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+    }
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == this.ObjectName)
+        {
+            this.TargetFan.Cog.FanManager.Active = true;
+            this.Owner.Model.Visible = true;
+            this.Space.SoundSpace.PlayCue(SoundCue.Find("Select_B_06"));
+        }
+    }
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == this.ObjectName)
+        {
+            this.TargetFan.Cog.FanManager.Active = false;
+            this.Owner.Model.Visible = false;
+        }
+    }
+}

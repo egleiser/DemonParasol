@@ -1,0 +1,236 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "CraneIcon",
+	},
+	Archetyped = 
+	{
+		string Name = "5460610dbb58079a:CraneSystem",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [30.36, 94.4989, 0.673366],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	ObjectSystem = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		SystemChildMode ChildMode = Independent,
+		SystemSpace SystemSpace = WorldSpace,
+		uint DrawOrder = 0,
+		float WarmUpTime = 0,
+		Vec3 StartRotation = [0, 0, 0],
+		Vec3 RandomRotation = [5, 5, 5],
+		Vec3 StartTorque = [0, 0, 0],
+		Vec3 RandomTorque = [0, 0, 0],
+		bool FaceVelocity = true,
+		bool EffectsTransform = false,
+		bool EffectsColor = true,
+		bool ControlsLifetime = true,
+		string SpawnArchetype = "546063c0374e5a52:PaperCranePart",
+		Vec3 SystemSize = [15, 15, 15],
+	},
+	SphericalParticleEmitter = 
+	{
+		bool Active = true,
+		uint EmitCount = 0,
+		float EmitRate = 30,
+		float EmitVariance = 0,
+		float Size = 2,
+		float SizeVariance = 0.2,
+		float Lifetime = 2,
+		float LifetimeVariance = 0,
+		float Spin = 0,
+		float SpinVariance = 50,
+		bool RandomSpin = true,
+		float Fill = 1,
+		float EmitterVelocityPercent = 0,
+		Vec3 StartVelocity = [0, 0, 0],
+		Vec3 RandomVelocity = [1, 1, 1],
+		Vec3 TangentVelocity = [0, 0, 0],
+		Vec3 EmitterSize = [1.5, 1.5, 1.5],
+		bool FastMovingEmitter = false,
+	},
+	LinearParticleAnimator = 
+	{
+		Vec3 Force = [2000, 0, 0],
+		Vec3 RandomForce = [0, 0, 0],
+		float Torque = 0,
+		float Growth = 0,
+		float Dampening = -2,
+		Vec3 Twist = [0, 0, 0],
+	},
+	ParticleColorAnimator = 
+	{
+		Vec4 Color0 = [1, 0.9186, 0.63, 0],
+		Vec4 Color1 = [1, 1, 1, 1],
+		Vec4 Color2 = [1, 1, 1, 1],
+		Vec4 Color3 = [1, 1, 1, 1],
+		Vec4 Color4 = [0, 0, 0, 0],
+	},
+	Light = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		LightType LightType = Point,
+		Vec4 Color = [0.9905, 1, 0.81, 1],
+		float Intensity = 1,
+		float Range = 10,
+		float Falloff = 1,
+		float Angle = 45,
+		float Size = 20,
+	},
+	GodRayLight = 
+	{
+		GodRayLightType LightType = Point,
+		bool Active = true,
+		int Samples = 80,
+		Vec4 Color = [0.98, 0.90454, 0.7105, 1],
+		float Intensity = 0.5,
+		float ScreenRadius = 0.17,
+		float OccluderClarity = 0.1,
+		bool ScreenEdgeFade = false,
+		float BeginFade = -0.1,
+		float EndFade = 0.1,
+		float DepthOffset = 0,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Model",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [4, 4, 4],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "54abcc59dd337700:mat_GoldDS",
+				string MeshName = "54606c2b552de2ef:PaperCrane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			SoundEmitter = 
+			{
+				bool StartPlaying = true,
+				int ExtraPriority = 0,
+				string CueName = "54604e1b6fdb1b02:CraneSpawner",
+				float Volume = 1,
+				float Pitch = 1,
+				bool Positional = true,
+			},
+			SinRotate = 
+			{
+				float SinSpeedX = 20,
+				float SinSpeedY = 5,
+				float Intensity = 0.2,
+				bool UseInitialRot = true,
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "BasicParticleEffect",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [0.25, 0.25, 0.25],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					SpriteParticleSystem = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = false,
+						SystemChildMode ChildMode = Independent,
+						SystemSpace SystemSpace = WorldSpace,
+						uint DrawOrder = 0,
+						float WarmUpTime = 0,
+						ParticleGeometry GeometryMode = Billboarded,
+						ParticleRenderMode RenderMode = Additive,
+						ParticleSortMode SortMode = Youngest,
+						ParticleAnimation ParticleAnimation = Single,
+						string Texture = "5310e87946ed955b:Twinkle",
+						Vec4 Tint = [1, 0.9544, 0.715, 0.555],
+						float VelocityScale = 1,
+						float LengthScale = 1,
+						float MaxParticleSize = 100,
+						Vec3 SystemSize = [2, 2, 2],
+					},
+					LinearParticleAnimator = 
+					{
+						Vec3 Force = [0, 0, 0],
+						Vec3 RandomForce = [0, 0, 0],
+						float Torque = 0,
+						float Growth = 0,
+						float Dampening = 0,
+						Vec3 Twist = [0, 0, 0],
+					},
+					ParticleColorAnimator = 
+					{
+						Vec4 Color0 = [1, 1, 1, 0],
+						Vec4 Color1 = [1, 1, 1, 1],
+						Vec4 Color2 = [1, 1, 1, 1],
+						Vec4 Color3 = [1, 1, 1, 1],
+						Vec4 Color4 = [1, 1, 1, 0],
+					},
+					MeshParticleEmitter = 
+					{
+						bool Active = true,
+						uint EmitCount = 0,
+						float EmitRate = 10,
+						float EmitVariance = 0,
+						float Size = 0.7,
+						float SizeVariance = 0.1,
+						float Lifetime = 1,
+						float LifetimeVariance = 0.2,
+						float Spin = 0,
+						float SpinVariance = 50,
+						bool RandomSpin = true,
+						float Fill = 1,
+						float EmitterVelocityPercent = 0,
+						Vec3 StartVelocity = [0, 0, 0],
+						Vec3 RandomVelocity = [0, 0, 0],
+						Vec3 TangentVelocity = [0, 0, 0],
+						Vec3 EmitterSize = [0, 0, 0],
+						bool FastMovingEmitter = false,
+						string MeshName = "54606c2b552de2ef:PaperCrane",
+						MeshEmitMode MeshEmitMode = Faces,
+						bool UseModelComponent = true,
+					},
+				},
+			},
+		},
+	},
+},

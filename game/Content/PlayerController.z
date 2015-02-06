@@ -74,6 +74,14 @@ class PlayerController : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        if(this.Owner.InputController.Gamepad.IsButtonHeld(Buttons.LeftShoulder))
+        {
+            this.MovmentSpeed = 1500;
+        }
+        else
+        {
+            this.MovmentSpeed = 700;
+        }
         if(this.GameSession.InEditor == false)
         {
             Zero.Mouse.Cursor = Cursor.Invisible;

@@ -1,0 +1,31 @@
+Material = 
+{
+	Lambert = 
+	{
+	},
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Additive,
+	},
+	Refractivity = 
+	{
+	},
+	MaskedRefraction = 
+	{
+		string DistortionTexture = "5403cd5ca1c0b953:Chrome2_NRM",
+		string MaskTexture = "4fab71e8bcb7a8ce:DefaultTexture",
+		Vec2 Scalar = [1, 10],
+		Vec2 Scroll = [0, 0.1],
+		Vec4 ScreenPosition = [1, 1, 1, 1],
+	},
+	ModulateModelColor = 
+	{
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "549077307893025c:Chrome2",
+		Vec2 DiffuseScroll = [0, 0.1],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

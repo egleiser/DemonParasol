@@ -1,0 +1,57 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: CraneGoalPuzzle.z        ////
+////    Written by: Eric Gleiser     ////
+////                                 ////
+////     Last Updated: 02-06-15      ////
+////                                 ////
+/////////////////////////////////////////
+class CraneGoalPuzzle : ZilchComponent
+{
+    [Property]
+    var ObjectName:String = "PaperCranePart";
+    var CraneCount:Integer = 0;
+    var CraneIncrement:Integer = 4;
+    var CraneText:Cog = null;
+    var PartWin:Cog = null;
+    [Property]
+    var TargetSpawner:CogPath = null;
+    var Active:Boolean = true;
+    function Initialize(init : CogInitializer)
+    {
+        this.CraneText = this.Owner.FindChildByName("CraneText");
+        this.PartWin = this.Owner.FindChildByName("PartWin");
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.CraneText.SpriteText.Text = "`this.CraneCount`";
+        if(this.CraneCount > 1000 && this.Active == true)
+        {
+            this.CraneCount = 1000;
+            this.TargetSpawner.Cog.Destroy();
+            this.CraneText.SpriteText.Color = Real4(1.0,0.9,0.3,1.0);
+            this.Active = false;
+            this.Space.SoundSpace.PlayCue(SoundCue.Find("PuzzleSolved_A"));
+            this.PartWin.SphericalParticleEmitter.Active = true;
+            this.Space.FindObjectByName("ThornTriggerCircle").Destroy();
+            this.Owner.Collider.Ghost = true;
+        }
+    }
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(this.Active == true && event.OtherObject.Name == this.ObjectName)
+        {
+            if((this.CraneCount/this.CraneIncrement) % 5 == 0)
+            {
+                this.Owner.SoundEmitter.Play();
+            }
+            this.CraneCount += this.CraneIncrement;
+            this.Owner.SoundEmitter.Pitch += 0.01;
+            Console.WriteLine("Crane Count: `this.CraneCount`");
+            
+        }
+    }
+}
