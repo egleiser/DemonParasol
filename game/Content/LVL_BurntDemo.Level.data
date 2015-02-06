@@ -151,11 +151,7 @@ Level =
 						{
 							bool StartPlaying = true,
 							int ExtraPriority = 0,
-<<<<<<< HEAD
 							string CueName = "54052acac6675076:BurntCity",
-=======
-							string CueName = "54fc7096f93b5812:DreamWorld_Forest_LostLoop",
->>>>>>> 462be356a578c5e492737075d8e411e14d43ba3a
 							float Volume = 1,
 							float Pitch = 1,
 							bool Positional = false,
@@ -203,15 +199,9 @@ Level =
 		},
 		Transform = 
 		{
-<<<<<<< HEAD
-			Vec3 Translation = [23.0474, 72.2439, 35.272],
+			Vec3 Translation = [17.0847, 30.8173, 118.848],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.371965, -0.0687052, 0.0276194, 0.925289],
-=======
-			Vec3 Translation = [28.0713, -67.7606, 19.5607],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.5, 0.0015645, -0.000903252, 0.866024],
->>>>>>> 462be356a578c5e492737075d8e411e14d43ba3a
+			Quat Rotation = [0.197368, 0.0530692, -0.0107007, 0.978833],
 		},
 		Camera = 
 		{
@@ -226,17 +216,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-<<<<<<< HEAD
-			float LookDistance = 45.0495,
-			float VerticalAngle = -0.764456,
-			float HorizontalAngle = -6.13495,
-			Vec3 LookTarget = [27.8496, 103.425, 3.11372],
-=======
-			float LookDistance = 122.457,
-			float VerticalAngle = -1.0472,
-			float HorizontalAngle = -6.2868,
-			Vec3 LookTarget = [27.85, 38.2902, -41.6672],
->>>>>>> 462be356a578c5e492737075d8e411e14d43ba3a
+			float LookDistance = 149.569,
+			float VerticalAngle = -0.397937,
+			float HorizontalAngle = -6.39151,
+			Vec3 LookTarget = [2.17746, 88.778, -18.2264],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -264,11 +247,7 @@ Level =
 		},
 		Transform = 
 		{
-<<<<<<< HEAD
-			Vec3 Translation = [26.1632, 60.1086, 0],
-=======
-			Vec3 Translation = [26.1632, -54.482, 0],
->>>>>>> 462be356a578c5e492737075d8e411e14d43ba3a
+			Vec3 Translation = [26.1632, -47.8501, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2464,13 +2443,8 @@ Level =
 		},
 		Transform = 
 		{
-<<<<<<< HEAD
 			Vec3 Translation = [31.6219, 66.048, -1.46466],
 			Vec3 Scale = [0.16, 0.12, 0.16],
-=======
-			Vec3 Translation = [45.703, 172.374, 1],
-			Vec3 Scale = [0.5, 0.5, 0.5],
->>>>>>> 462be356a578c5e492737075d8e411e14d43ba3a
 			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
 		Model = 
@@ -13819,7 +13793,7 @@ Level =
 					bool StartPlaying = true,
 					int ExtraPriority = 0,
 					string CueName = "54604e1b6fdb1b02:CraneSpawner",
-					float Volume = 0.5,
+					float Volume = 0.3,
 					float Pitch = 1,
 					bool Positional = true,
 				},
@@ -14539,7 +14513,7 @@ Level =
 						{
 							bool StartPlaying = false,
 							int ExtraPriority = 0,
-							string CueName = "54694b26a3ca72c7:Plane_Prop_Loop02",
+							string CueName = "4e1bd44008b4dc2a:DefaultCue",
 							float Volume = 1,
 							float Pitch = 1,
 							bool Positional = false,
@@ -14971,7 +14945,7 @@ Level =
 						{
 							bool StartPlaying = false,
 							int ExtraPriority = 0,
-							string CueName = "54694b26a3ca72c7:Plane_Prop_Loop02",
+							string CueName = "4e1bd44008b4dc2a:DefaultCue",
 							float Volume = 1,
 							float Pitch = 1,
 							bool Positional = false,
@@ -17719,12 +17693,19 @@ Level =
 			},
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
 			uint Id = 510,
+		},
+		Named = 
+		{
+			string Name = "TorchLit",
+		},
+		Archetyped = 
+		{
+			string Name = "54bfd150c81b3a60:TorchLit",
 		},
 		Transform = 
 		{
@@ -17732,17 +17713,261 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CylinderCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 2.8, 0],
+			float Radius = 0.7,
+			float Height = 5.2,
+			uint Direction = 1,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 511,
+				},
+				Named = 
+				{
+					string Name = "Box005",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.0711966, 0, 0.0702215],
+					Vec3 Scale = [0.840656, 1, 0.521172],
+					Quat Rotation = [0, -0.379496, 0, 0.925193],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+					string MeshName = "54bfddaeb4274bc2:Torch.Box005",
+					Vec4 Color = [0.195, 0.131362, 0.090675, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 512,
+				},
+				Named = 
+				{
+					string Name = "Torus001",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.00729713, 3.37667, 0.00892897],
+					Vec3 Scale = [1.1548, 1.1548, 1.1548],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481b84e008be766:mat_gradient",
+					string MeshName = "54bfddaeb4274bc7:Torch.Torus001",
+					Vec4 Color = [0.705, 0.0987, 0.0990637, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 513,
+				},
+				Named = 
+				{
+					string Name = "GeoSphere001",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.00729713, 3.42347, 0.00892897],
+					Vec3 Scale = [0.831134, 1.05159, 0.831134],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5404506d3dd2a41e:mat_Light",
+					string MeshName = "54bfddaeb4274bca:Torch.GeoSphere001",
+					Vec4 Color = [1, 0.7148, 0.08, 1],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 514,
+						},
+						Named = 
+						{
+							string Name = "TorchFire",
+						},
+						Archetyped = 
+						{
+							string Name = "54bfdcef7551a22a:TorchFire",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [-0.707107, 0, 0, 0.707107],
+						},
+						SpriteParticleSystem = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = false,
+							SystemChildMode ChildMode = Independent,
+							SystemSpace SystemSpace = WorldSpace,
+							uint DrawOrder = 0,
+							float WarmUpTime = 0,
+							ParticleGeometry GeometryMode = Billboarded,
+							ParticleRenderMode RenderMode = Additive,
+							ParticleSortMode SortMode = Youngest,
+							ParticleAnimation ParticleAnimation = Single,
+							string Texture = "5481a3be505a50f6:wind-particles-glow-02",
+							Vec4 Tint = [1, 1, 1, 0.87],
+							float VelocityScale = 1,
+							float LengthScale = 1,
+							float MaxParticleSize = 100,
+							Vec3 SystemSize = [4, 4, 4],
+						},
+						SphericalParticleEmitter = 
+						{
+							bool Active = true,
+							uint EmitCount = 0,
+							float EmitRate = 50,
+							float EmitVariance = 0,
+							float Size = 1,
+							float SizeVariance = 0.5,
+							float Lifetime = 1,
+							float LifetimeVariance = 0.2,
+							float Spin = 360,
+							float SpinVariance = 50,
+							bool RandomSpin = true,
+							float Fill = 1,
+							float EmitterVelocityPercent = 0,
+							Vec3 StartVelocity = [0, 0, 4],
+							Vec3 RandomVelocity = [1, 1, 1],
+							Vec3 TangentVelocity = [0, 0, 0],
+							Vec3 EmitterSize = [0.4, 0.4, 0.4],
+							bool FastMovingEmitter = true,
+						},
+						LinearParticleAnimator = 
+						{
+							Vec3 Force = [0, 0, 0],
+							Vec3 RandomForce = [0, 0, 0],
+							float Torque = 0,
+							float Growth = -1,
+							float Dampening = 0,
+							Vec3 Twist = [0, 0, 0],
+						},
+						ParticleColorAnimator = 
+						{
+							Vec4 Color0 = [1, 0.75, 0, 0],
+							Vec4 Color1 = [1, 0.69, 0, 1],
+							Vec4 Color2 = [0.985, 0.426209, 0.06895, 1],
+							Vec4 Color3 = [1, 0.15, 0, 1],
+							Vec4 Color4 = [1, 0.15, 0, 0],
+						},
+						SoundEmitter = 
+						{
+							bool StartPlaying = true,
+							int ExtraPriority = 0,
+							string CueName = "54bfd2f6148a1f7b:Fire_Torch_Loop1",
+							float Volume = 0.3,
+							float Pitch = 1,
+							bool Positional = true,
+						},
+						Light = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = false,
+							LightType LightType = Point,
+							Vec4 Color = [1, 0.50285, 0.185, 1],
+							float Intensity = 0.8,
+							float Range = 8,
+							float Falloff = 1,
+							float Angle = 45,
+							float Size = 20,
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 515,
+				},
+				Named = 
+				{
+					string Name = "Refraction",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 5.46501, 1.10299],
+					Vec3 Scale = [2.97856, 5, 0.0001],
+					Quat Rotation = [-2.99499e-014, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5403c63148566380:TorchRefraction",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0.21, 0.2058, 0.2058, 1],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 516,
+		},
 		Named = 
 		{
 			string Name = "TorchLit",
 		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "54bfd150c81b3a60:TorchLit",
-		LinkId = 
+		Archetyped = 
 		{
-			uint Id = 511,
+			string Name = "54bfd150c81b3a60:TorchLit",
 		},
 		Transform = 
 		{
@@ -17750,17 +17975,261 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CylinderCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 2.8, 0],
+			float Radius = 0.7,
+			float Height = 5.2,
+			uint Direction = 1,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 517,
+				},
+				Named = 
+				{
+					string Name = "Box005",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.0711966, 0, 0.0702215],
+					Vec3 Scale = [0.840656, 1, 0.521172],
+					Quat Rotation = [0, -0.379496, 0, 0.925193],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+					string MeshName = "54bfddaeb4274bc2:Torch.Box005",
+					Vec4 Color = [0.195, 0.131362, 0.090675, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 518,
+				},
+				Named = 
+				{
+					string Name = "Torus001",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.00729713, 3.37667, 0.00892897],
+					Vec3 Scale = [1.1548, 1.1548, 1.1548],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481b84e008be766:mat_gradient",
+					string MeshName = "54bfddaeb4274bc7:Torch.Torus001",
+					Vec4 Color = [0.705, 0.0987, 0.0990637, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 519,
+				},
+				Named = 
+				{
+					string Name = "GeoSphere001",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.00729713, 3.42347, 0.00892897],
+					Vec3 Scale = [0.831134, 1.05159, 0.831134],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5404506d3dd2a41e:mat_Light",
+					string MeshName = "54bfddaeb4274bca:Torch.GeoSphere001",
+					Vec4 Color = [1, 0.7148, 0.08, 1],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 520,
+						},
+						Named = 
+						{
+							string Name = "TorchFire",
+						},
+						Archetyped = 
+						{
+							string Name = "54bfdcef7551a22a:TorchFire",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [-0.707107, 0, 0, 0.707107],
+						},
+						SpriteParticleSystem = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = false,
+							SystemChildMode ChildMode = Independent,
+							SystemSpace SystemSpace = WorldSpace,
+							uint DrawOrder = 0,
+							float WarmUpTime = 0,
+							ParticleGeometry GeometryMode = Billboarded,
+							ParticleRenderMode RenderMode = Additive,
+							ParticleSortMode SortMode = Youngest,
+							ParticleAnimation ParticleAnimation = Single,
+							string Texture = "5481a3be505a50f6:wind-particles-glow-02",
+							Vec4 Tint = [1, 1, 1, 0.87],
+							float VelocityScale = 1,
+							float LengthScale = 1,
+							float MaxParticleSize = 100,
+							Vec3 SystemSize = [4, 4, 4],
+						},
+						SphericalParticleEmitter = 
+						{
+							bool Active = true,
+							uint EmitCount = 0,
+							float EmitRate = 50,
+							float EmitVariance = 0,
+							float Size = 1,
+							float SizeVariance = 0.5,
+							float Lifetime = 1,
+							float LifetimeVariance = 0.2,
+							float Spin = 360,
+							float SpinVariance = 50,
+							bool RandomSpin = true,
+							float Fill = 1,
+							float EmitterVelocityPercent = 0,
+							Vec3 StartVelocity = [0, 0, 4],
+							Vec3 RandomVelocity = [1, 1, 1],
+							Vec3 TangentVelocity = [0, 0, 0],
+							Vec3 EmitterSize = [0.4, 0.4, 0.4],
+							bool FastMovingEmitter = true,
+						},
+						LinearParticleAnimator = 
+						{
+							Vec3 Force = [0, 0, 0],
+							Vec3 RandomForce = [0, 0, 0],
+							float Torque = 0,
+							float Growth = -1,
+							float Dampening = 0,
+							Vec3 Twist = [0, 0, 0],
+						},
+						ParticleColorAnimator = 
+						{
+							Vec4 Color0 = [1, 0.75, 0, 0],
+							Vec4 Color1 = [1, 0.69, 0, 1],
+							Vec4 Color2 = [0.985, 0.426209, 0.06895, 1],
+							Vec4 Color3 = [1, 0.15, 0, 1],
+							Vec4 Color4 = [1, 0.15, 0, 0],
+						},
+						SoundEmitter = 
+						{
+							bool StartPlaying = true,
+							int ExtraPriority = 0,
+							string CueName = "54bfd2f6148a1f7b:Fire_Torch_Loop1",
+							float Volume = 0.3,
+							float Pitch = 1,
+							bool Positional = true,
+						},
+						Light = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = false,
+							LightType LightType = Point,
+							Vec4 Color = [1, 0.50285, 0.185, 1],
+							float Intensity = 0.8,
+							float Range = 8,
+							float Falloff = 1,
+							float Angle = 45,
+							float Size = 20,
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 521,
+				},
+				Named = 
+				{
+					string Name = "Refraction",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 5.46501, 1.10299],
+					Vec3 Scale = [2.97856, 5, 0.0001],
+					Quat Rotation = [-2.99499e-014, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5403c63148566380:TorchRefraction",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0.21, 0.2058, 0.2058, 1],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 522,
+		},
 		Named = 
 		{
 			string Name = "TorchLit",
 		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "54bfd150c81b3a60:TorchLit",
-		LinkId = 
+		Archetyped = 
 		{
-			uint Id = 512,
+			string Name = "54bfd150c81b3a60:TorchLit",
 		},
 		Transform = 
 		{
@@ -17768,17 +18237,261 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CylinderCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 2.8, 0],
+			float Radius = 0.7,
+			float Height = 5.2,
+			uint Direction = 1,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 523,
+				},
+				Named = 
+				{
+					string Name = "Box005",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.0711966, 0, 0.0702215],
+					Vec3 Scale = [0.840656, 1, 0.521172],
+					Quat Rotation = [0, -0.379496, 0, 0.925193],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+					string MeshName = "54bfddaeb4274bc2:Torch.Box005",
+					Vec4 Color = [0.195, 0.131362, 0.090675, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 524,
+				},
+				Named = 
+				{
+					string Name = "Torus001",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.00729713, 3.37667, 0.00892897],
+					Vec3 Scale = [1.1548, 1.1548, 1.1548],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481b84e008be766:mat_gradient",
+					string MeshName = "54bfddaeb4274bc7:Torch.Torus001",
+					Vec4 Color = [0.705, 0.0987, 0.0990637, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 525,
+				},
+				Named = 
+				{
+					string Name = "GeoSphere001",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.00729713, 3.42347, 0.00892897],
+					Vec3 Scale = [0.831134, 1.05159, 0.831134],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5404506d3dd2a41e:mat_Light",
+					string MeshName = "54bfddaeb4274bca:Torch.GeoSphere001",
+					Vec4 Color = [1, 0.7148, 0.08, 1],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 526,
+						},
+						Named = 
+						{
+							string Name = "TorchFire",
+						},
+						Archetyped = 
+						{
+							string Name = "54bfdcef7551a22a:TorchFire",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [-0.707107, 0, 0, 0.707107],
+						},
+						SpriteParticleSystem = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = false,
+							SystemChildMode ChildMode = Independent,
+							SystemSpace SystemSpace = WorldSpace,
+							uint DrawOrder = 0,
+							float WarmUpTime = 0,
+							ParticleGeometry GeometryMode = Billboarded,
+							ParticleRenderMode RenderMode = Additive,
+							ParticleSortMode SortMode = Youngest,
+							ParticleAnimation ParticleAnimation = Single,
+							string Texture = "5481a3be505a50f6:wind-particles-glow-02",
+							Vec4 Tint = [1, 1, 1, 0.87],
+							float VelocityScale = 1,
+							float LengthScale = 1,
+							float MaxParticleSize = 100,
+							Vec3 SystemSize = [4, 4, 4],
+						},
+						SphericalParticleEmitter = 
+						{
+							bool Active = true,
+							uint EmitCount = 0,
+							float EmitRate = 50,
+							float EmitVariance = 0,
+							float Size = 1,
+							float SizeVariance = 0.5,
+							float Lifetime = 1,
+							float LifetimeVariance = 0.2,
+							float Spin = 360,
+							float SpinVariance = 50,
+							bool RandomSpin = true,
+							float Fill = 1,
+							float EmitterVelocityPercent = 0,
+							Vec3 StartVelocity = [0, 0, 4],
+							Vec3 RandomVelocity = [1, 1, 1],
+							Vec3 TangentVelocity = [0, 0, 0],
+							Vec3 EmitterSize = [0.4, 0.4, 0.4],
+							bool FastMovingEmitter = true,
+						},
+						LinearParticleAnimator = 
+						{
+							Vec3 Force = [0, 0, 0],
+							Vec3 RandomForce = [0, 0, 0],
+							float Torque = 0,
+							float Growth = -1,
+							float Dampening = 0,
+							Vec3 Twist = [0, 0, 0],
+						},
+						ParticleColorAnimator = 
+						{
+							Vec4 Color0 = [1, 0.75, 0, 0],
+							Vec4 Color1 = [1, 0.69, 0, 1],
+							Vec4 Color2 = [0.985, 0.426209, 0.06895, 1],
+							Vec4 Color3 = [1, 0.15, 0, 1],
+							Vec4 Color4 = [1, 0.15, 0, 0],
+						},
+						SoundEmitter = 
+						{
+							bool StartPlaying = true,
+							int ExtraPriority = 0,
+							string CueName = "54bfd2f6148a1f7b:Fire_Torch_Loop1",
+							float Volume = 0.3,
+							float Pitch = 1,
+							bool Positional = true,
+						},
+						Light = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = false,
+							LightType LightType = Point,
+							Vec4 Color = [1, 0.50285, 0.185, 1],
+							float Intensity = 0.8,
+							float Range = 8,
+							float Falloff = 1,
+							float Angle = 45,
+							float Size = 20,
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 527,
+				},
+				Named = 
+				{
+					string Name = "Refraction",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 5.46501, 1.10299],
+					Vec3 Scale = [2.97856, 5, 0.0001],
+					Quat Rotation = [-2.99499e-014, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5403c63148566380:TorchRefraction",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0.21, 0.2058, 0.2058, 1],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 528,
+		},
 		Named = 
 		{
 			string Name = "TorchLit",
 		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "54bfd150c81b3a60:TorchLit",
-		LinkId = 
+		Archetyped = 
 		{
-			uint Id = 513,
+			string Name = "54bfd150c81b3a60:TorchLit",
 		},
 		Transform = 
 		{
@@ -17786,16 +18499,253 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
-		Named = 
+		RigidBody = 
 		{
-			string Name = "TorchLit",
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CylinderCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 2.8, 0],
+			float Radius = 0.7,
+			float Height = 5.2,
+			uint Direction = 1,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 529,
+				},
+				Named = 
+				{
+					string Name = "Box005",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.0711966, 0, 0.0702215],
+					Vec3 Scale = [0.840656, 1, 0.521172],
+					Quat Rotation = [0, -0.379496, 0, 0.925193],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+					string MeshName = "54bfddaeb4274bc2:Torch.Box005",
+					Vec4 Color = [0.195, 0.131362, 0.090675, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 530,
+				},
+				Named = 
+				{
+					string Name = "Torus001",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.00729713, 3.37667, 0.00892897],
+					Vec3 Scale = [1.1548, 1.1548, 1.1548],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481b84e008be766:mat_gradient",
+					string MeshName = "54bfddaeb4274bc7:Torch.Torus001",
+					Vec4 Color = [0.705, 0.0987, 0.0990637, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 531,
+				},
+				Named = 
+				{
+					string Name = "GeoSphere001",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.00729713, 3.42347, 0.00892897],
+					Vec3 Scale = [0.831134, 1.05159, 0.831134],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5404506d3dd2a41e:mat_Light",
+					string MeshName = "54bfddaeb4274bca:Torch.GeoSphere001",
+					Vec4 Color = [1, 0.7148, 0.08, 1],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 532,
+						},
+						Named = 
+						{
+							string Name = "TorchFire",
+						},
+						Archetyped = 
+						{
+							string Name = "54bfdcef7551a22a:TorchFire",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [-0.707107, 0, 0, 0.707107],
+						},
+						SpriteParticleSystem = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = false,
+							SystemChildMode ChildMode = Independent,
+							SystemSpace SystemSpace = WorldSpace,
+							uint DrawOrder = 0,
+							float WarmUpTime = 0,
+							ParticleGeometry GeometryMode = Billboarded,
+							ParticleRenderMode RenderMode = Additive,
+							ParticleSortMode SortMode = Youngest,
+							ParticleAnimation ParticleAnimation = Single,
+							string Texture = "5481a3be505a50f6:wind-particles-glow-02",
+							Vec4 Tint = [1, 1, 1, 0.87],
+							float VelocityScale = 1,
+							float LengthScale = 1,
+							float MaxParticleSize = 100,
+							Vec3 SystemSize = [4, 4, 4],
+						},
+						SphericalParticleEmitter = 
+						{
+							bool Active = true,
+							uint EmitCount = 0,
+							float EmitRate = 50,
+							float EmitVariance = 0,
+							float Size = 1,
+							float SizeVariance = 0.5,
+							float Lifetime = 1,
+							float LifetimeVariance = 0.2,
+							float Spin = 360,
+							float SpinVariance = 50,
+							bool RandomSpin = true,
+							float Fill = 1,
+							float EmitterVelocityPercent = 0,
+							Vec3 StartVelocity = [0, 0, 4],
+							Vec3 RandomVelocity = [1, 1, 1],
+							Vec3 TangentVelocity = [0, 0, 0],
+							Vec3 EmitterSize = [0.4, 0.4, 0.4],
+							bool FastMovingEmitter = true,
+						},
+						LinearParticleAnimator = 
+						{
+							Vec3 Force = [0, 0, 0],
+							Vec3 RandomForce = [0, 0, 0],
+							float Torque = 0,
+							float Growth = -1,
+							float Dampening = 0,
+							Vec3 Twist = [0, 0, 0],
+						},
+						ParticleColorAnimator = 
+						{
+							Vec4 Color0 = [1, 0.75, 0, 0],
+							Vec4 Color1 = [1, 0.69, 0, 1],
+							Vec4 Color2 = [0.985, 0.426209, 0.06895, 1],
+							Vec4 Color3 = [1, 0.15, 0, 1],
+							Vec4 Color4 = [1, 0.15, 0, 0],
+						},
+						SoundEmitter = 
+						{
+							bool StartPlaying = true,
+							int ExtraPriority = 0,
+							string CueName = "54bfd2f6148a1f7b:Fire_Torch_Loop1",
+							float Volume = 0.3,
+							float Pitch = 1,
+							bool Positional = true,
+						},
+						Light = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = false,
+							LightType LightType = Point,
+							Vec4 Color = [1, 0.50285, 0.185, 1],
+							float Intensity = 0.8,
+							float Range = 8,
+							float Falloff = 1,
+							float Angle = 45,
+							float Size = 20,
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 533,
+				},
+				Named = 
+				{
+					string Name = "Refraction",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 5.46501, 1.10299],
+					Vec3 Scale = [2.97856, 5, 0.0001],
+					Quat Rotation = [-2.99499e-014, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5403c63148566380:TorchRefraction",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0.21, 0.2058, 0.2058, 1],
+				},
+			},
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 514,
+			uint Id = 534,
 		},
 		Named = 
 		{
@@ -17823,7 +18773,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 515,
+					uint Id = 535,
 				},
 				Named = 
 				{
@@ -17878,7 +18828,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 516,
+					uint Id = 536,
 				},
 				Named = 
 				{
@@ -17907,7 +18857,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 517,
+			uint Id = 537,
 		},
 		Named = 
 		{
@@ -17984,7 +18934,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 518,
+					uint Id = 538,
 				},
 				Named = 
 				{
@@ -18011,7 +18961,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 519,
+					uint Id = 539,
 				},
 				Named = 
 				{
@@ -18055,7 +19005,7 @@ Level =
 				string Name = "547c5da6ade3e04f:DustSmokeTrail",
 				LinkId = 
 				{
-					uint Id = 520,
+					uint Id = 540,
 				},
 				Transform = 
 				{
@@ -18074,7 +19024,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 521,
+			uint Id = 541,
 		},
 		Named = 
 		{
@@ -18151,7 +19101,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 522,
+					uint Id = 542,
 				},
 				Named = 
 				{
@@ -18178,7 +19128,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 523,
+					uint Id = 543,
 				},
 				Named = 
 				{
@@ -18222,7 +19172,7 @@ Level =
 				string Name = "547c5da6ade3e04f:DustSmokeTrail",
 				LinkId = 
 				{
-					uint Id = 524,
+					uint Id = 544,
 				},
 				Transform = 
 				{
@@ -18241,7 +19191,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 525,
+			uint Id = 545,
 		},
 		Named = 
 		{
@@ -18318,7 +19268,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 526,
+					uint Id = 546,
 				},
 				Named = 
 				{
@@ -18345,7 +19295,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 527,
+					uint Id = 547,
 				},
 				Named = 
 				{
@@ -18389,7 +19339,7 @@ Level =
 				string Name = "547c5da6ade3e04f:DustSmokeTrail",
 				LinkId = 
 				{
-					uint Id = 528,
+					uint Id = 548,
 				},
 				Transform = 
 				{
@@ -18408,7 +19358,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 529,
+			uint Id = 549,
 		},
 		Named = 
 		{
@@ -18485,7 +19435,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 530,
+					uint Id = 550,
 				},
 				Named = 
 				{
@@ -18512,7 +19462,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 531,
+					uint Id = 551,
 				},
 				Named = 
 				{
@@ -18556,7 +19506,7 @@ Level =
 				string Name = "547c5da6ade3e04f:DustSmokeTrail",
 				LinkId = 
 				{
-					uint Id = 532,
+					uint Id = 552,
 				},
 				Transform = 
 				{
@@ -18575,7 +19525,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 533,
+			uint Id = 553,
 		},
 		Named = 
 		{
@@ -18629,7 +19579,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 534,
+			uint Id = 554,
 		},
 		Named = 
 		{
@@ -18683,7 +19633,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 535,
+			uint Id = 555,
 		},
 		Named = 
 		{
@@ -18705,664 +19655,6 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 536,
-				},
-				Named = 
-				{
-					string Name = "ThornTrigger",
-				},
-				Archetyped = 
-				{
-					string Name = "549acad12d225074:ThornTrigger",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-3.96748, 8.53322, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = false,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b376ae:Sphere",
-					Vec4 Color = [0.02, 0.0032, 0.0032, 1],
-				},
-				PlayerProximityTrigger = 
-				{
-					float TriggerDistance = 6,
-				},
-				Hierarchy = 
-				{
-					Cog = 
-					{
-						LinkId = 
-						{
-							uint Id = 537,
-						},
-						Named = 
-						{
-							string Name = "ThornBarrier",
-						},
-						Transform = 
-						{
-							Vec3 Translation = [-9.53674e-007, 3.8147e-006, -21.3744],
-							Vec3 Scale = [1.5, 1.5, 40],
-							Quat Rotation = [0, 0, 0, 1],
-						},
-						Model = 
-						{
-							bool Visible = false,
-							bool VisibilityCulling = true,
-							bool VisibilityEvents = false,
-							bool CastShadows = true,
-							string MaterialName = "54ff27758d4308c1:mat_Ghost",
-							string MeshName = "4de0354322b345ae:Cube",
-							Vec4 Color = [0.825, 0.235125, 0.30591, 1],
-						},
-						RigidBody = 
-						{
-							bool Static = false,
-							bool Asleep = false,
-							bool Kinematic = true,
-							bool RotationLocked = false,
-							bool Mode2D = false,
-							bool AllowSleep = true,
-							bool Inherit2DMode = true,
-							Vec3 Velocity = [0, 0, 0],
-							Vec3 AngularVelocity = [0, 0, 0],
-						},
-						BoxCollider = 
-						{
-							bool Ghost = false,
-							bool SendsMessages = true,
-							bool Seamless = true,
-							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [1, 1, 0.5],
-						},
-						SoundEmitter = 
-						{
-							bool StartPlaying = false,
-							int ExtraPriority = 0,
-							string CueName = "549acac421083877:ThornBurst",
-							float Volume = 0.3,
-							float Pitch = 1,
-							bool Positional = true,
-						},
-						GroundBurst = 
-						{
-							Vec3 Offset = [0, 0, 4],
-						},
-						Hierarchy = 
-						{
-							Cog = 
-							{
-								LinkId = 
-								{
-									uint Id = 538,
-								},
-								Named = 
-								{
-									string Name = "ThornArmBlocker",
-								},
-								Archetyped = 
-								{
-									string Name = "5481aab6bc2f2a6e:ThornArmBlocker",
-								},
-								Transform = 
-								{
-									Vec3 Translation = [0, 0, -0.502327],
-									Vec3 Scale = [1.5, 1.5, 0.25],
-									Quat Rotation = [0, 0, 0, 1],
-								},
-								SkinnedModel = 
-								{
-									bool Visible = true,
-									bool VisibilityCulling = true,
-									bool VisibilityEvents = false,
-									bool CastShadows = true,
-									string Material = "5481bef9b2f955f1:mat_ThornTentacle",
-									string Mesh = "5481552a36e3aa3a:ThornArm",
-									Vec4 Color = [0, 0, 0, 1],
-								},
-								AnimationGraph = 
-								{
-									bool Active = true,
-									AnimPlayMode PlayMode = PlayOnce,
-									float TimeScale = 1,
-									string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
-									uint64 DebugPreviewId = 2072657463617261,
-								},
-								SimpleAnimation = 
-								{
-									string AnimationName = "5481552a36e0cddc:ThornArm.All",
-									AnimPlayMode PlayMode = PlayOnce,
-								},
-								Hierarchy = 
-								{
-									Cog = 
-									{
-										LinkId = 
-										{
-											uint Id = 539,
-										},
-										Named = 
-										{
-											string Name = "Bone001",
-										},
-										Transform = 
-										{
-											Vec3 Translation = [-0.00161852, 0.0110272, 4.82016e-010],
-											Vec3 Scale = [1, 1, 1],
-											Quat Rotation = [-3.04478e-006, -3.24612e-006, 0.712974, 0.70119],
-										},
-										Hierarchy = 
-										{
-											Cog = 
-											{
-												LinkId = 
-												{
-													uint Id = 540,
-												},
-												Named = 
-												{
-													string Name = "Bone002",
-												},
-												Transform = 
-												{
-													Vec3 Translation = [0.503941, -2.17371e-007, -2.40279e-008],
-													Vec3 Scale = [1, 1, 1],
-													Quat Rotation = [4.44859e-006, 1.72344e-007, -0.00833311, 0.999965],
-												},
-												SinRotate = 
-												{
-													float SinSpeedX = 3,
-													float SinSpeedY = 3,
-													float Intensity = 0.05,
-													bool UseInitialRot = false,
-												},
-												Hierarchy = 
-												{
-													Cog = 
-													{
-														LinkId = 
-														{
-															uint Id = 541,
-														},
-														Named = 
-														{
-															string Name = "Bone003",
-														},
-														Transform = 
-														{
-															Vec3 Translation = [0.579464, -7.00355e-008, -1.13687e-014],
-															Vec3 Scale = [1, 1, 1],
-															Quat Rotation = [1.84855e-009, -3.30017e-011, -0.0178499, 0.999841],
-														},
-														SinRotate = 
-														{
-															float SinSpeedX = 2,
-															float SinSpeedY = 2,
-															float Intensity = 0.07,
-															bool UseInitialRot = false,
-														},
-														Hierarchy = 
-														{
-															Cog = 
-															{
-																LinkId = 
-																{
-																	uint Id = 542,
-																},
-																Named = 
-																{
-																	string Name = "Bone004",
-																},
-																Transform = 
-																{
-																	Vec3 Translation = [0.470583, 2.47359e-007, 4.87536e-008],
-																	Vec3 Scale = [1, 1, 1],
-																	Quat Rotation = [9.47316e-015, 7.13107e-015, 0.00270387, 0.999996],
-																},
-																SinRotate = 
-																{
-																	float SinSpeedX = 5,
-																	float SinSpeedY = 5,
-																	float Intensity = 0.1,
-																	bool UseInitialRot = false,
-																},
-																Hierarchy = 
-																{
-																	Cog = 
-																	{
-																		LinkId = 
-																		{
-																			uint Id = 543,
-																		},
-																		Named = 
-																		{
-																			string Name = "Bone005",
-																		},
-																		Transform = 
-																		{
-																			Vec3 Translation = [0.554519, 2.71201e-007, 5.74486e-008],
-																			Vec3 Scale = [1, 1, 1],
-																			Quat Rotation = [9.46637e-015, 3.76463e-015, 0.0222873, 0.999752],
-																		},
-																		SinRotate = 
-																		{
-																			float SinSpeedX = 3,
-																			float SinSpeedY = 3,
-																			float Intensity = 0.05,
-																			bool UseInitialRot = false,
-																		},
-																		Hierarchy = 
-																		{
-																			Cog = 
-																			{
-																				LinkId = 
-																				{
-																					uint Id = 544,
-																				},
-																				Named = 
-																				{
-																					string Name = "Bone006",
-																				},
-																				Transform = 
-																				{
-																					Vec3 Translation = [0.587933, 1.07288e-007, 6.08334e-008],
-																					Vec3 Scale = [1, 1, 1],
-																					Quat Rotation = [9.54792e-015, -1.89085e-018, -0.000198039, 1],
-																				},
-																				SinRotate = 
-																				{
-																					float SinSpeedX = 5,
-																					float SinSpeedY = 5,
-																					float Intensity = 0.07,
-																					bool UseInitialRot = false,
-																				},
-																				Hierarchy = 
-																				{
-																					Cog = 
-																					{
-																						LinkId = 
-																						{
-																							uint Id = 545,
-																						},
-																						Named = 
-																						{
-																							string Name = "Bone007",
-																						},
-																						Transform = 
-																						{
-																							Vec3 Translation = [0.60464, 3.57628e-008, 6.25725e-008],
-																							Vec3 Scale = [1, 1, 1],
-																							Quat Rotation = [-4.36469e-007, 3.03118e-009, -0.0069446, 0.999976],
-																						},
-																						SinRotate = 
-																						{
-																							float SinSpeedX = 6,
-																							float SinSpeedY = 6,
-																							float Intensity = 0.05,
-																							bool UseInitialRot = false,
-																						},
-																					},
-																				},
-																			},
-																		},
-																	},
-																},
-															},
-														},
-													},
-												},
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 546,
-				},
-				Named = 
-				{
-					string Name = "ThornTrigger",
-				},
-				Archetyped = 
-				{
-					string Name = "549acad12d225074:ThornTrigger",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [3.07249, 8.10928, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = false,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b376ae:Sphere",
-					Vec4 Color = [0.02, 0.0032, 0.0032, 1],
-				},
-				PlayerProximityTrigger = 
-				{
-					float TriggerDistance = 6,
-				},
-				Hierarchy = 
-				{
-					Cog = 
-					{
-						LinkId = 
-						{
-							uint Id = 547,
-						},
-						Named = 
-						{
-							string Name = "ThornBarrier",
-						},
-						Transform = 
-						{
-							Vec3 Translation = [-9.53674e-007, 3.8147e-006, -21.3744],
-							Vec3 Scale = [1.5, 1.5, 40],
-							Quat Rotation = [0, 0, 0, 1],
-						},
-						Model = 
-						{
-							bool Visible = false,
-							bool VisibilityCulling = true,
-							bool VisibilityEvents = false,
-							bool CastShadows = true,
-							string MaterialName = "54ff27758d4308c1:mat_Ghost",
-							string MeshName = "4de0354322b345ae:Cube",
-							Vec4 Color = [0.825, 0.235125, 0.30591, 1],
-						},
-						RigidBody = 
-						{
-							bool Static = false,
-							bool Asleep = false,
-							bool Kinematic = true,
-							bool RotationLocked = false,
-							bool Mode2D = false,
-							bool AllowSleep = true,
-							bool Inherit2DMode = true,
-							Vec3 Velocity = [0, 0, 0],
-							Vec3 AngularVelocity = [0, 0, 0],
-						},
-						BoxCollider = 
-						{
-							bool Ghost = false,
-							bool SendsMessages = true,
-							bool Seamless = true,
-							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
-						},
-						SoundEmitter = 
-						{
-							bool StartPlaying = false,
-							int ExtraPriority = 0,
-							string CueName = "549acac421083877:ThornBurst",
-							float Volume = 0.3,
-							float Pitch = 1,
-							bool Positional = true,
-						},
-						GroundBurst = 
-						{
-							Vec3 Offset = [0, 0, 4],
-						},
-						Hierarchy = 
-						{
-							Cog = 
-							{
-								LinkId = 
-								{
-									uint Id = 548,
-								},
-								Named = 
-								{
-									string Name = "ThornArmBlocker",
-								},
-								Archetyped = 
-								{
-									string Name = "5481aab6bc2f2a6e:ThornArmBlocker",
-								},
-								Transform = 
-								{
-									Vec3 Translation = [0, 0, -0.502327],
-									Vec3 Scale = [1.5, 1.5, 0.25],
-									Quat Rotation = [0, 0, 0, 1],
-								},
-								SkinnedModel = 
-								{
-									bool Visible = true,
-									bool VisibilityCulling = true,
-									bool VisibilityEvents = false,
-									bool CastShadows = true,
-									string Material = "5481bef9b2f955f1:mat_ThornTentacle",
-									string Mesh = "5481552a36e3aa3a:ThornArm",
-									Vec4 Color = [0, 0, 0, 1],
-								},
-								AnimationGraph = 
-								{
-									bool Active = true,
-									AnimPlayMode PlayMode = PlayOnce,
-									float TimeScale = 1,
-									string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
-									uint64 DebugPreviewId = 2072657463617261,
-								},
-								SimpleAnimation = 
-								{
-									string AnimationName = "5481552a36e0cddc:ThornArm.All",
-									AnimPlayMode PlayMode = PlayOnce,
-								},
-								Hierarchy = 
-								{
-									Cog = 
-									{
-										LinkId = 
-										{
-											uint Id = 549,
-										},
-										Named = 
-										{
-											string Name = "Bone001",
-										},
-										Transform = 
-										{
-											Vec3 Translation = [-0.00161852, 0.0110272, 4.82016e-010],
-											Vec3 Scale = [1, 1, 1],
-											Quat Rotation = [-3.04478e-006, -3.24612e-006, 0.712974, 0.70119],
-										},
-										Hierarchy = 
-										{
-											Cog = 
-											{
-												LinkId = 
-												{
-													uint Id = 550,
-												},
-												Named = 
-												{
-													string Name = "Bone002",
-												},
-												Transform = 
-												{
-													Vec3 Translation = [0.503941, -2.17371e-007, -2.40279e-008],
-													Vec3 Scale = [1, 1, 1],
-													Quat Rotation = [4.44859e-006, 1.72344e-007, -0.00833311, 0.999965],
-												},
-												SinRotate = 
-												{
-													float SinSpeedX = 3,
-													float SinSpeedY = 3,
-													float Intensity = 0.05,
-													bool UseInitialRot = false,
-												},
-												Hierarchy = 
-												{
-													Cog = 
-													{
-														LinkId = 
-														{
-															uint Id = 551,
-														},
-														Named = 
-														{
-															string Name = "Bone003",
-														},
-														Transform = 
-														{
-															Vec3 Translation = [0.579464, -7.00355e-008, -1.13687e-014],
-															Vec3 Scale = [1, 1, 1],
-															Quat Rotation = [1.84855e-009, -3.30017e-011, -0.0178499, 0.999841],
-														},
-														SinRotate = 
-														{
-															float SinSpeedX = 2,
-															float SinSpeedY = 2,
-															float Intensity = 0.07,
-															bool UseInitialRot = false,
-														},
-														Hierarchy = 
-														{
-															Cog = 
-															{
-																LinkId = 
-																{
-																	uint Id = 552,
-																},
-																Named = 
-																{
-																	string Name = "Bone004",
-																},
-																Transform = 
-																{
-																	Vec3 Translation = [0.470583, 2.47359e-007, 4.87536e-008],
-																	Vec3 Scale = [1, 1, 1],
-																	Quat Rotation = [9.47316e-015, 7.13107e-015, 0.00270387, 0.999996],
-																},
-																SinRotate = 
-																{
-																	float SinSpeedX = 5,
-																	float SinSpeedY = 5,
-																	float Intensity = 0.1,
-																	bool UseInitialRot = false,
-																},
-																Hierarchy = 
-																{
-																	Cog = 
-																	{
-																		LinkId = 
-																		{
-																			uint Id = 553,
-																		},
-																		Named = 
-																		{
-																			string Name = "Bone005",
-																		},
-																		Transform = 
-																		{
-																			Vec3 Translation = [0.554519, 2.71201e-007, 5.74486e-008],
-																			Vec3 Scale = [1, 1, 1],
-																			Quat Rotation = [9.46637e-015, 3.76463e-015, 0.0222873, 0.999752],
-																		},
-																		SinRotate = 
-																		{
-																			float SinSpeedX = 3,
-																			float SinSpeedY = 3,
-																			float Intensity = 0.05,
-																			bool UseInitialRot = false,
-																		},
-																		Hierarchy = 
-																		{
-																			Cog = 
-																			{
-																				LinkId = 
-																				{
-																					uint Id = 554,
-																				},
-																				Named = 
-																				{
-																					string Name = "Bone006",
-																				},
-																				Transform = 
-																				{
-																					Vec3 Translation = [0.587933, 1.07288e-007, 6.08334e-008],
-																					Vec3 Scale = [1, 1, 1],
-																					Quat Rotation = [9.54792e-015, -1.89085e-018, -0.000198039, 1],
-																				},
-																				SinRotate = 
-																				{
-																					float SinSpeedX = 5,
-																					float SinSpeedY = 5,
-																					float Intensity = 0.07,
-																					bool UseInitialRot = false,
-																				},
-																				Hierarchy = 
-																				{
-																					Cog = 
-																					{
-																						LinkId = 
-																						{
-																							uint Id = 555,
-																						},
-																						Named = 
-																						{
-																							string Name = "Bone007",
-																						},
-																						Transform = 
-																						{
-																							Vec3 Translation = [0.60464, 3.57628e-008, 6.25725e-008],
-																							Vec3 Scale = [1, 1, 1],
-																							Quat Rotation = [-4.36469e-007, 3.03118e-009, -0.0069446, 0.999976],
-																						},
-																						SinRotate = 
-																						{
-																							float SinSpeedX = 6,
-																							float SinSpeedY = 6,
-																							float Intensity = 0.05,
-																							bool UseInitialRot = false,
-																						},
-																					},
-																				},
-																			},
-																		},
-																	},
-																},
-															},
-														},
-													},
-												},
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
 					uint Id = 556,
 				},
 				Named = 
@@ -19375,7 +19667,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [-6.78479, -6.51068, 0],
+					Vec3 Translation = [-3.96748, 8.53322, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -19441,7 +19733,7 @@ Level =
 							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
+							Vec3 Size = [1, 1, 0.5],
 						},
 						SoundEmitter = 
 						{
@@ -19704,7 +19996,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [-10.0618, 0.216478, 0],
+					Vec3 Translation = [3.07249, 8.10928, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -20033,7 +20325,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [-9.00007, 3.60675, 0],
+					Vec3 Translation = [-6.78479, -6.51068, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -20362,7 +20654,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [7.82727, -3.75622, 0],
+					Vec3 Translation = [-10.0618, 0.216478, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -20691,7 +20983,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [9.53674e-007, -9.84735, 0],
+					Vec3 Translation = [-9.00007, 3.60675, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -21020,7 +21312,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [6.60721, -7.14628, 0],
+					Vec3 Translation = [7.82727, -3.75622, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -21349,7 +21641,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [7.72682, 3.13008, 0],
+					Vec3 Translation = [9.53674e-007, -9.84735, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -21678,7 +21970,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [8.30685, 0.216572, 0],
+					Vec3 Translation = [6.60721, -7.14628, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -22007,7 +22299,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [3.48243, -9.15926, 0],
+					Vec3 Translation = [7.72682, 3.13008, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -22336,7 +22628,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [-3.7162, -8.57648, 0],
+					Vec3 Translation = [8.30685, 0.216572, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -22665,7 +22957,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [5.71765, 6.04348, 0],
+					Vec3 Translation = [3.48243, -9.15926, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -22994,7 +23286,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [3.8147e-006, 8.72306, 0],
+					Vec3 Translation = [-3.7162, -8.57648, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -23323,7 +23615,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [-8.84665, -3.27935, 0],
+					Vec3 Translation = [5.71765, 6.04348, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -23652,7 +23944,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [-6.9863, 6.57327, 0],
+					Vec3 Translation = [3.8147e-006, 8.72306, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -23965,6 +24257,664 @@ Level =
 					},
 				},
 			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 696,
+				},
+				Named = 
+				{
+					string Name = "ThornTrigger",
+				},
+				Archetyped = 
+				{
+					string Name = "549acad12d225074:ThornTrigger",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-8.84665, -3.27935, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b376ae:Sphere",
+					Vec4 Color = [0.02, 0.0032, 0.0032, 1],
+				},
+				PlayerProximityTrigger = 
+				{
+					float TriggerDistance = 6,
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 697,
+						},
+						Named = 
+						{
+							string Name = "ThornBarrier",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-9.53674e-007, 3.8147e-006, -21.3744],
+							Vec3 Scale = [1.5, 1.5, 40],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = false,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "54ff27758d4308c1:mat_Ghost",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [0.825, 0.235125, 0.30591, 1],
+						},
+						RigidBody = 
+						{
+							bool Static = false,
+							bool Asleep = false,
+							bool Kinematic = true,
+							bool RotationLocked = false,
+							bool Mode2D = false,
+							bool AllowSleep = true,
+							bool Inherit2DMode = true,
+							Vec3 Velocity = [0, 0, 0],
+							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.5, 0.5],
+						},
+						SoundEmitter = 
+						{
+							bool StartPlaying = false,
+							int ExtraPriority = 0,
+							string CueName = "549acac421083877:ThornBurst",
+							float Volume = 0.3,
+							float Pitch = 1,
+							bool Positional = true,
+						},
+						GroundBurst = 
+						{
+							Vec3 Offset = [0, 0, 4],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 698,
+								},
+								Named = 
+								{
+									string Name = "ThornArmBlocker",
+								},
+								Archetyped = 
+								{
+									string Name = "5481aab6bc2f2a6e:ThornArmBlocker",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, -0.502327],
+									Vec3 Scale = [1.5, 1.5, 0.25],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								SkinnedModel = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string Material = "5481bef9b2f955f1:mat_ThornTentacle",
+									string Mesh = "5481552a36e3aa3a:ThornArm",
+									Vec4 Color = [0, 0, 0, 1],
+								},
+								AnimationGraph = 
+								{
+									bool Active = true,
+									AnimPlayMode PlayMode = PlayOnce,
+									float TimeScale = 1,
+									string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+									uint64 DebugPreviewId = 2072657463617261,
+								},
+								SimpleAnimation = 
+								{
+									string AnimationName = "5481552a36e0cddc:ThornArm.All",
+									AnimPlayMode PlayMode = PlayOnce,
+								},
+								Hierarchy = 
+								{
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 699,
+										},
+										Named = 
+										{
+											string Name = "Bone001",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [-0.00161852, 0.0110272, 4.82016e-010],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [-3.04478e-006, -3.24612e-006, 0.712974, 0.70119],
+										},
+										Hierarchy = 
+										{
+											Cog = 
+											{
+												LinkId = 
+												{
+													uint Id = 700,
+												},
+												Named = 
+												{
+													string Name = "Bone002",
+												},
+												Transform = 
+												{
+													Vec3 Translation = [0.503941, -2.17371e-007, -2.40279e-008],
+													Vec3 Scale = [1, 1, 1],
+													Quat Rotation = [4.44859e-006, 1.72344e-007, -0.00833311, 0.999965],
+												},
+												SinRotate = 
+												{
+													float SinSpeedX = 3,
+													float SinSpeedY = 3,
+													float Intensity = 0.05,
+													bool UseInitialRot = false,
+												},
+												Hierarchy = 
+												{
+													Cog = 
+													{
+														LinkId = 
+														{
+															uint Id = 701,
+														},
+														Named = 
+														{
+															string Name = "Bone003",
+														},
+														Transform = 
+														{
+															Vec3 Translation = [0.579464, -7.00355e-008, -1.13687e-014],
+															Vec3 Scale = [1, 1, 1],
+															Quat Rotation = [1.84855e-009, -3.30017e-011, -0.0178499, 0.999841],
+														},
+														SinRotate = 
+														{
+															float SinSpeedX = 2,
+															float SinSpeedY = 2,
+															float Intensity = 0.07,
+															bool UseInitialRot = false,
+														},
+														Hierarchy = 
+														{
+															Cog = 
+															{
+																LinkId = 
+																{
+																	uint Id = 702,
+																},
+																Named = 
+																{
+																	string Name = "Bone004",
+																},
+																Transform = 
+																{
+																	Vec3 Translation = [0.470583, 2.47359e-007, 4.87536e-008],
+																	Vec3 Scale = [1, 1, 1],
+																	Quat Rotation = [9.47316e-015, 7.13107e-015, 0.00270387, 0.999996],
+																},
+																SinRotate = 
+																{
+																	float SinSpeedX = 5,
+																	float SinSpeedY = 5,
+																	float Intensity = 0.1,
+																	bool UseInitialRot = false,
+																},
+																Hierarchy = 
+																{
+																	Cog = 
+																	{
+																		LinkId = 
+																		{
+																			uint Id = 703,
+																		},
+																		Named = 
+																		{
+																			string Name = "Bone005",
+																		},
+																		Transform = 
+																		{
+																			Vec3 Translation = [0.554519, 2.71201e-007, 5.74486e-008],
+																			Vec3 Scale = [1, 1, 1],
+																			Quat Rotation = [9.46637e-015, 3.76463e-015, 0.0222873, 0.999752],
+																		},
+																		SinRotate = 
+																		{
+																			float SinSpeedX = 3,
+																			float SinSpeedY = 3,
+																			float Intensity = 0.05,
+																			bool UseInitialRot = false,
+																		},
+																		Hierarchy = 
+																		{
+																			Cog = 
+																			{
+																				LinkId = 
+																				{
+																					uint Id = 704,
+																				},
+																				Named = 
+																				{
+																					string Name = "Bone006",
+																				},
+																				Transform = 
+																				{
+																					Vec3 Translation = [0.587933, 1.07288e-007, 6.08334e-008],
+																					Vec3 Scale = [1, 1, 1],
+																					Quat Rotation = [9.54792e-015, -1.89085e-018, -0.000198039, 1],
+																				},
+																				SinRotate = 
+																				{
+																					float SinSpeedX = 5,
+																					float SinSpeedY = 5,
+																					float Intensity = 0.07,
+																					bool UseInitialRot = false,
+																				},
+																				Hierarchy = 
+																				{
+																					Cog = 
+																					{
+																						LinkId = 
+																						{
+																							uint Id = 705,
+																						},
+																						Named = 
+																						{
+																							string Name = "Bone007",
+																						},
+																						Transform = 
+																						{
+																							Vec3 Translation = [0.60464, 3.57628e-008, 6.25725e-008],
+																							Vec3 Scale = [1, 1, 1],
+																							Quat Rotation = [-4.36469e-007, 3.03118e-009, -0.0069446, 0.999976],
+																						},
+																						SinRotate = 
+																						{
+																							float SinSpeedX = 6,
+																							float SinSpeedY = 6,
+																							float Intensity = 0.05,
+																							bool UseInitialRot = false,
+																						},
+																					},
+																				},
+																			},
+																		},
+																	},
+																},
+															},
+														},
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 706,
+				},
+				Named = 
+				{
+					string Name = "ThornTrigger",
+				},
+				Archetyped = 
+				{
+					string Name = "549acad12d225074:ThornTrigger",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-6.9863, 6.57327, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b376ae:Sphere",
+					Vec4 Color = [0.02, 0.0032, 0.0032, 1],
+				},
+				PlayerProximityTrigger = 
+				{
+					float TriggerDistance = 6,
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 707,
+						},
+						Named = 
+						{
+							string Name = "ThornBarrier",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-9.53674e-007, 3.8147e-006, -21.3744],
+							Vec3 Scale = [1.5, 1.5, 40],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = false,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "54ff27758d4308c1:mat_Ghost",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [0.825, 0.235125, 0.30591, 1],
+						},
+						RigidBody = 
+						{
+							bool Static = false,
+							bool Asleep = false,
+							bool Kinematic = true,
+							bool RotationLocked = false,
+							bool Mode2D = false,
+							bool AllowSleep = true,
+							bool Inherit2DMode = true,
+							Vec3 Velocity = [0, 0, 0],
+							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.5, 0.5],
+						},
+						SoundEmitter = 
+						{
+							bool StartPlaying = false,
+							int ExtraPriority = 0,
+							string CueName = "549acac421083877:ThornBurst",
+							float Volume = 0.3,
+							float Pitch = 1,
+							bool Positional = true,
+						},
+						GroundBurst = 
+						{
+							Vec3 Offset = [0, 0, 4],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 708,
+								},
+								Named = 
+								{
+									string Name = "ThornArmBlocker",
+								},
+								Archetyped = 
+								{
+									string Name = "5481aab6bc2f2a6e:ThornArmBlocker",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, -0.502327],
+									Vec3 Scale = [1.5, 1.5, 0.25],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								SkinnedModel = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string Material = "5481bef9b2f955f1:mat_ThornTentacle",
+									string Mesh = "5481552a36e3aa3a:ThornArm",
+									Vec4 Color = [0, 0, 0, 1],
+								},
+								AnimationGraph = 
+								{
+									bool Active = true,
+									AnimPlayMode PlayMode = PlayOnce,
+									float TimeScale = 1,
+									string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+									uint64 DebugPreviewId = 2072657463617261,
+								},
+								SimpleAnimation = 
+								{
+									string AnimationName = "5481552a36e0cddc:ThornArm.All",
+									AnimPlayMode PlayMode = PlayOnce,
+								},
+								Hierarchy = 
+								{
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 709,
+										},
+										Named = 
+										{
+											string Name = "Bone001",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [-0.00161852, 0.0110272, 4.82016e-010],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [-3.04478e-006, -3.24612e-006, 0.712974, 0.70119],
+										},
+										Hierarchy = 
+										{
+											Cog = 
+											{
+												LinkId = 
+												{
+													uint Id = 710,
+												},
+												Named = 
+												{
+													string Name = "Bone002",
+												},
+												Transform = 
+												{
+													Vec3 Translation = [0.503941, -2.17371e-007, -2.40279e-008],
+													Vec3 Scale = [1, 1, 1],
+													Quat Rotation = [4.44859e-006, 1.72344e-007, -0.00833311, 0.999965],
+												},
+												SinRotate = 
+												{
+													float SinSpeedX = 3,
+													float SinSpeedY = 3,
+													float Intensity = 0.05,
+													bool UseInitialRot = false,
+												},
+												Hierarchy = 
+												{
+													Cog = 
+													{
+														LinkId = 
+														{
+															uint Id = 711,
+														},
+														Named = 
+														{
+															string Name = "Bone003",
+														},
+														Transform = 
+														{
+															Vec3 Translation = [0.579464, -7.00355e-008, -1.13687e-014],
+															Vec3 Scale = [1, 1, 1],
+															Quat Rotation = [1.84855e-009, -3.30017e-011, -0.0178499, 0.999841],
+														},
+														SinRotate = 
+														{
+															float SinSpeedX = 2,
+															float SinSpeedY = 2,
+															float Intensity = 0.07,
+															bool UseInitialRot = false,
+														},
+														Hierarchy = 
+														{
+															Cog = 
+															{
+																LinkId = 
+																{
+																	uint Id = 712,
+																},
+																Named = 
+																{
+																	string Name = "Bone004",
+																},
+																Transform = 
+																{
+																	Vec3 Translation = [0.470583, 2.47359e-007, 4.87536e-008],
+																	Vec3 Scale = [1, 1, 1],
+																	Quat Rotation = [9.47316e-015, 7.13107e-015, 0.00270387, 0.999996],
+																},
+																SinRotate = 
+																{
+																	float SinSpeedX = 5,
+																	float SinSpeedY = 5,
+																	float Intensity = 0.1,
+																	bool UseInitialRot = false,
+																},
+																Hierarchy = 
+																{
+																	Cog = 
+																	{
+																		LinkId = 
+																		{
+																			uint Id = 713,
+																		},
+																		Named = 
+																		{
+																			string Name = "Bone005",
+																		},
+																		Transform = 
+																		{
+																			Vec3 Translation = [0.554519, 2.71201e-007, 5.74486e-008],
+																			Vec3 Scale = [1, 1, 1],
+																			Quat Rotation = [9.46637e-015, 3.76463e-015, 0.0222873, 0.999752],
+																		},
+																		SinRotate = 
+																		{
+																			float SinSpeedX = 3,
+																			float SinSpeedY = 3,
+																			float Intensity = 0.05,
+																			bool UseInitialRot = false,
+																		},
+																		Hierarchy = 
+																		{
+																			Cog = 
+																			{
+																				LinkId = 
+																				{
+																					uint Id = 714,
+																				},
+																				Named = 
+																				{
+																					string Name = "Bone006",
+																				},
+																				Transform = 
+																				{
+																					Vec3 Translation = [0.587933, 1.07288e-007, 6.08334e-008],
+																					Vec3 Scale = [1, 1, 1],
+																					Quat Rotation = [9.54792e-015, -1.89085e-018, -0.000198039, 1],
+																				},
+																				SinRotate = 
+																				{
+																					float SinSpeedX = 5,
+																					float SinSpeedY = 5,
+																					float Intensity = 0.07,
+																					bool UseInitialRot = false,
+																				},
+																				Hierarchy = 
+																				{
+																					Cog = 
+																					{
+																						LinkId = 
+																						{
+																							uint Id = 715,
+																						},
+																						Named = 
+																						{
+																							string Name = "Bone007",
+																						},
+																						Transform = 
+																						{
+																							Vec3 Translation = [0.60464, 3.57628e-008, 6.25725e-008],
+																							Vec3 Scale = [1, 1, 1],
+																							Quat Rotation = [-4.36469e-007, 3.03118e-009, -0.0069446, 0.999976],
+																						},
+																						SinRotate = 
+																						{
+																							float SinSpeedX = 6,
+																							float SinSpeedY = 6,
+																							float Intensity = 0.05,
+																							bool UseInitialRot = false,
+																						},
+																					},
+																				},
+																			},
+																		},
+																	},
+																},
+															},
+														},
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
 		},
 	},
 	ArchetypeInstance = 
@@ -23972,7 +24922,7 @@ Level =
 		string Name = "54042b04889dcb36:NoisePlaneB",
 		LinkId = 
 		{
-			uint Id = 696,
+			uint Id = 716,
 		},
 		Transform = 
 		{
@@ -23989,7 +24939,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 697,
+			uint Id = 717,
 		},
 		Named = 
 		{
@@ -24023,7 +24973,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 698,
+			uint Id = 718,
 		},
 		Named = 
 		{
@@ -24076,7 +25026,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 699,
+			uint Id = 719,
 		},
 		Named = 
 		{
@@ -24118,7 +25068,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 700,
+					uint Id = 720,
 				},
 				Named = 
 				{
@@ -24199,7 +25149,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 701,
+			uint Id = 721,
 		},
 		Named = 
 		{
@@ -24276,7 +25226,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 702,
+					uint Id = 722,
 				},
 				Named = 
 				{
@@ -24303,7 +25253,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 703,
+					uint Id = 723,
 				},
 				Named = 
 				{
@@ -24347,7 +25297,7 @@ Level =
 				string Name = "547c5da6ade3e04f:DustSmokeTrail",
 				LinkId = 
 				{
-					uint Id = 704,
+					uint Id = 724,
 				},
 				Transform = 
 				{
@@ -24366,7 +25316,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 519,
+			uint Id = 725,
 		},
 		Named = 
 		{

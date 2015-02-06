@@ -8,6 +8,10 @@ Cog =
 	{
 		string Name = "SetsukoRigged_Umbrella",
 	},
+	Archetyped = 
+	{
+		string Name = "54b4fc49e600970c:SetsukoRigged_Umbrella",
+	},
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
@@ -20,7 +24,7 @@ Cog =
 		AnimPlayMode PlayMode = PlayOnce,
 		float TimeScale = 1,
 		string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
-		uint64 DebugPreviewId = 2072657463617261,
+		uint64 DebugPreviewId = 2f2270f82f2271f8,
 	},
 	Hierarchy = 
 	{
@@ -98,6 +102,8 @@ Cog =
 									{
 										bool Visible = true,
 										bool VisibilityCulling = true,
+										bool VisibilityEvents = false,
+										bool CastShadows = true,
 										string MaterialName = "54b4fc76e60e1abd:SetsukoRigged_UmbrellaTorsoMulti",
 										string MeshName = "54b4fc49e60547b4:SetsukoRigged_Umbrella.Torso",
 										Vec4 Color = [1, 1, 1, 1],
@@ -198,6 +204,8 @@ Cog =
 					{
 						bool Visible = true,
 						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
 						string MaterialName = "542a2a2f54addb6a:DogFirstPassHindLeftMulti",
 						string MeshName = "54b4fc49e60547bc:SetsukoRigged_Umbrella.LeftArm",
 						Vec4 Color = [1, 1, 1, 1],
@@ -243,6 +251,8 @@ Cog =
 					{
 						bool Visible = true,
 						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
 						string MaterialName = "542a2a2f54addb6a:DogFirstPassHindLeftMulti",
 						string MeshName = "54b4fc49e60547bf:SetsukoRigged_Umbrella.LeftArm1",
 						Vec4 Color = [1, 1, 1, 1],
@@ -269,6 +279,8 @@ Cog =
 							{
 								bool Visible = true,
 								bool VisibilityCulling = true,
+								bool VisibilityEvents = false,
+								bool CastShadows = true,
 								string MaterialName = "544380cb7820af93:lambert1",
 								string MeshName = "54b4fc49e60547c1:SetsukoRigged_Umbrella.pasted__pasted__pCylinder5",
 								Vec4 Color = [1, 1, 1, 1],
@@ -316,6 +328,8 @@ Cog =
 					{
 						bool Visible = true,
 						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
 						string MaterialName = "543c8f5dc0f6f2be:lambert3",
 						string MeshName = "54b4fc49e60547c3:SetsukoRigged_Umbrella.Head",
 						Vec4 Color = [1, 1, 1, 1],
@@ -342,6 +356,8 @@ Cog =
 							{
 								bool Visible = true,
 								bool VisibilityCulling = true,
+								bool VisibilityEvents = false,
+								bool CastShadows = true,
 								string MaterialName = "543c8f5dc0f6013e:lambert2",
 								string MeshName = "54b4fc49e60547c4:SetsukoRigged_Umbrella.Hair",
 								Vec4 Color = [1, 1, 1, 1],

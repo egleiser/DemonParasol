@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [105.762, -32.3455, 5.49062],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -22,13 +22,10 @@ Cog =
 	{
 		bool Visible = true,
 		bool VisibilityCulling = true,
-		string MaterialName = "54694528e625aa08:mat_gradientDarkAlphaDS",
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5481a16ac2bcf5d3:01___Default",
 		string MeshName = "54695f8fd516a133:FXWind",
-		Vec4 Color = [1, 1, 1, 0.24],
-	},
-	SimpleRotate = 
-	{
-		Vec3 RotateSpeed = [0, 0.5, 0],
-		bool Active = true,
+		Vec4 Color = [1, 1, 1, 1],
 	},
 },

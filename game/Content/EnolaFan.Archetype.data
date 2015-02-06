@@ -14,9 +14,9 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-3.88574, -7.62939e-006, -4.24203],
-		Vec3 Scale = [0.8, 0.8, 0.8],
-		Quat Rotation = [-2.10734e-007, 0.707107, 0.707107, -2.10734e-007],
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
 	},
 	Hierarchy = 
 	{
@@ -40,9 +40,11 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
 				string MeshName = "54aba3f6e879b855:EnolaFan.EnolaEngine",
-				Vec4 Color = [0.23, 0.23, 0.23, 1],
+				Vec4 Color = [1, 1, 1, 1],
 			},
 		},
 		Cog = 
@@ -65,30 +67,11 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				string MaterialName = "54aba201dd78822b:EnolaFanTex",
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5405372d5c21580c:Material__26",
 				string MeshName = "54aba3f6e879b880:EnolaFan.EnolaProp",
 				Vec4 Color = [1, 1, 1, 1],
-			},
-			SimpleRotate = 
-			{
-				Vec3 RotateSpeed = [0, 0, -0.25],
-			},
-			SoundEmitter = 
-			{
-				bool StartPlaying = true,
-				int ExtraPriority = 0,
-				string CueName = "54694b26a3ca72c7:Plane_Prop_Loop02",
-				float Volume = 1,
-				float Pitch = 1,
-				bool Positional = true,
-			},
-			AudioPitchOff = 
-			{
-				float RateVolume = 1.5,
-				float DestVolume = 0,
-				float RatePitch = 1.5,
-				float DestPitch = 0.4,
-				bool Active = true,
 			},
 		},
 		Cog = 
@@ -111,9 +94,11 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
 				string MeshName = "54aba3f6e879b88f:EnolaFan.EnolaRing",
-				Vec4 Color = [1, 0.966, 0.15, 1],
+				Vec4 Color = [1, 1, 1, 1],
 			},
 		},
 		Cog = 
@@ -136,9 +121,11 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
 				string MeshName = "54aba3f6e879b8a5:EnolaFan.EnolaBase",
-				Vec4 Color = [0.29, 0.29, 0.29, 1],
+				Vec4 Color = [1, 1, 1, 1],
 			},
 		},
 		Cog = 
@@ -161,9 +148,11 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
 				string MeshName = "54aba3f6e879b8bb:EnolaFan.EnolaRing2",
-				Vec4 Color = [1, 0.9, 0, 1],
+				Vec4 Color = [1, 1, 1, 1],
 			},
 		},
 	},
