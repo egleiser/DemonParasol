@@ -199,9 +199,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [17.0847, 30.8173, 118.848],
+			Vec3 Translation = [26.0379, 75.7679, 34.6579],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.197368, 0.0530692, -0.0107007, 0.978833],
+			Quat Rotation = [0.328864, 0.00417376, -0.00145345, 0.944367],
 		},
 		Camera = 
 		{
@@ -216,10 +216,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 149.569,
-			float VerticalAngle = -0.397937,
-			float HorizontalAngle = -6.39151,
-			Vec3 LookTarget = [2.17746, 88.778, -18.2264],
+			float LookDistance = 36.8834,
+			float VerticalAngle = -0.670208,
+			float HorizontalAngle = -6.29202,
+			Vec3 LookTarget = [25.7824, 98.678, 5.75377],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -2455,7 +2455,7 @@ Level =
 			bool CastShadows = true,
 			string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 			string MeshName = "54afcfd2e5fa7165:BlackRainMainLobby.CenterStage",
-			Vec4 Color = [0.321569, 0.0588235, 0.0588235, 1],
+			Vec4 Color = [0.0588235, 0.061451, 0.321569, 1],
 		},
 		Hierarchy = 
 		{
@@ -2538,7 +2538,7 @@ Level =
 					bool CastShadows = true,
 					string MaterialName = "5404506d3dd2a41e:mat_Light",
 					string MeshName = "4de0354322b3572e:Cylinder",
-					Vec4 Color = [1, 0, 0, 1],
+					Vec4 Color = [0.14, 0, 1, 1],
 				},
 			},
 		},
@@ -18861,7 +18861,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "PickUpBlock",
+			string Name = "PickUpBlockB",
 		},
 		Archetyped = 
 		{
@@ -18869,7 +18869,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [24.72, 77.3487, 1.72258],
+			Vec3 Translation = [28.9123, 86.2084, 1.72258],
 			Vec3 Scale = [1.5, 1.5, 1.5],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -18954,7 +18954,7 @@ Level =
 					bool CastShadows = true,
 					string MaterialName = "54a3db5a3ddb6b52:mat_LightIntense",
 					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 0, 0, 1],
+					Vec4 Color = [0.0199995, 0, 1, 1],
 				},
 			},
 			Cog = 
@@ -19036,7 +19036,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [31.1874, 71.9065, 1.72258],
+			Vec3 Translation = [1.87993, 78.6269, 1.72258],
 			Vec3 Scale = [1.5, 1.5, 1.5],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -19195,340 +19195,6 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "PickUpBlock",
-		},
-		Archetyped = 
-		{
-			string Name = "547c4ebe0c764def:PickUpBlock",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [28.9123, 86.2084, 1.72258],
-			Vec3 Scale = [1.5, 1.5, 1.5],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "54354c0fcd1df229:PlayerFriction",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-		Targetable = 
-		{
-			Enum IndicatorType = Standard,
-			Vec3 IndicatorOffset = [0, 0, 2],
-			float Range = 20,
-		},
-		GravityEffect = 
-		{
-			bool Active = true,
-			bool WakeUpOnChange = true,
-			bool LocalSpaceDirection = false,
-			float Strength = 35,
-			Vec3 Direction = [0, 0, -1],
-		},
-		PickUpInteract = 
-		{
-			string SmokeParticle = "547c59ae76e9024f:DustSmoke",
-		},
-		DragEffect = 
-		{
-			bool Active = true,
-			bool WakeUpOnChange = true,
-			float Drag = 0.7,
-		},
-		SoundEmitter = 
-		{
-			bool StartPlaying = false,
-			int ExtraPriority = 0,
-			string CueName = "4e1bd44008b4dc2a:DefaultCue",
-			float Volume = 1,
-			float Pitch = 0.5,
-			bool Positional = true,
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 546,
-				},
-				Named = 
-				{
-					string Name = "Model",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = true,
-					string MaterialName = "54a3db5a3ddb6b52:mat_LightIntense",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 0, 0, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 547,
-				},
-				Named = 
-				{
-					string Name = "PickUpVolume",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				RigidBody = 
-				{
-					bool Static = false,
-					bool Asleep = false,
-					bool Kinematic = true,
-					bool RotationLocked = false,
-					bool Mode2D = false,
-					bool AllowSleep = true,
-					bool Inherit2DMode = true,
-					Vec3 Velocity = [0, 0, 0],
-					Vec3 AngularVelocity = [0, 0, 0],
-				},
-				SphereCollider = 
-				{
-					bool Ghost = true,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "54ff0eb5b975b8c8:CG_Tongue",
-					Vec3 Offset = [0, 0, 0],
-					float Radius = 2.5,
-				},
-				PickUpInteractVolume = 
-				{
-					float ThrowForce = 100000,
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "547c5da6ade3e04f:DustSmokeTrail",
-				LinkId = 
-				{
-					uint Id = 548,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, -0.443131],
-					Vec3 Scale = [1.5, 1.5, 1.5],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "DustSmokeTrail",
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 549,
-		},
-		Named = 
-		{
-			string Name = "PickUpBlock",
-		},
-		Archetyped = 
-		{
-			string Name = "547c4ebe0c764def:PickUpBlock",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [1.87993, 78.6269, 1.72258],
-			Vec3 Scale = [1.5, 1.5, 1.5],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "54354c0fcd1df229:PlayerFriction",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-		Targetable = 
-		{
-			Enum IndicatorType = Standard,
-			Vec3 IndicatorOffset = [0, 0, 2],
-			float Range = 20,
-		},
-		GravityEffect = 
-		{
-			bool Active = true,
-			bool WakeUpOnChange = true,
-			bool LocalSpaceDirection = false,
-			float Strength = 35,
-			Vec3 Direction = [0, 0, -1],
-		},
-		PickUpInteract = 
-		{
-			string SmokeParticle = "547c59ae76e9024f:DustSmoke",
-		},
-		DragEffect = 
-		{
-			bool Active = true,
-			bool WakeUpOnChange = true,
-			float Drag = 0.7,
-		},
-		SoundEmitter = 
-		{
-			bool StartPlaying = false,
-			int ExtraPriority = 0,
-			string CueName = "4e1bd44008b4dc2a:DefaultCue",
-			float Volume = 1,
-			float Pitch = 0.5,
-			bool Positional = true,
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 550,
-				},
-				Named = 
-				{
-					string Name = "Model",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = true,
-					string MaterialName = "54a3db5a3ddb6b52:mat_LightIntense",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 0, 0, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 551,
-				},
-				Named = 
-				{
-					string Name = "PickUpVolume",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				RigidBody = 
-				{
-					bool Static = false,
-					bool Asleep = false,
-					bool Kinematic = true,
-					bool RotationLocked = false,
-					bool Mode2D = false,
-					bool AllowSleep = true,
-					bool Inherit2DMode = true,
-					Vec3 Velocity = [0, 0, 0],
-					Vec3 AngularVelocity = [0, 0, 0],
-				},
-				SphereCollider = 
-				{
-					bool Ghost = true,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "54ff0eb5b975b8c8:CG_Tongue",
-					Vec3 Offset = [0, 0, 0],
-					float Radius = 2.5,
-				},
-				PickUpInteractVolume = 
-				{
-					float ThrowForce = 100000,
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "547c5da6ade3e04f:DustSmokeTrail",
-				LinkId = 
-				{
-					uint Id = 552,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, -0.443131],
-					Vec3 Scale = [1.5, 1.5, 1.5],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "DustSmokeTrail",
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 553,
-		},
-		Named = 
-		{
 			string Name = "PuzzleFan",
 		},
 		Transform = 
@@ -19579,7 +19245,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 554,
+			uint Id = 546,
 		},
 		Named = 
 		{
@@ -19599,7 +19265,7 @@ Level =
 			bool CastShadows = true,
 			string MaterialName = "54053c0059c37ad9:mat_RefOrb",
 			string MeshName = "4de0354322b376ae:Sphere",
-			Vec4 Color = [1, 0.24, 0.24, 0.9999],
+			Vec4 Color = [0.24, 0.3388, 1, 0.9999],
 		},
 		RigidBody = 
 		{
@@ -19625,7 +19291,7 @@ Level =
 		},
 		ActivateFanOnCollide = 
 		{
-			string ObjectName = "PickUpBlock",
+			string ObjectName = "PickUpBlockB",
 			CogPath TargetFan = ":/WindFanA",
 		},
 	},
@@ -19633,7 +19299,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 555,
+			uint Id = 547,
 		},
 		Named = 
 		{
@@ -19655,7 +19321,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 556,
+					uint Id = 548,
 				},
 				Named = 
 				{
@@ -19691,7 +19357,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 557,
+							uint Id = 549,
 						},
 						Named = 
 						{
@@ -19754,7 +19420,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 558,
+									uint Id = 550,
 								},
 								Named = 
 								{
@@ -19799,7 +19465,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 559,
+											uint Id = 551,
 										},
 										Named = 
 										{
@@ -19817,7 +19483,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 560,
+													uint Id = 552,
 												},
 												Named = 
 												{
@@ -19842,7 +19508,7 @@ Level =
 													{
 														LinkId = 
 														{
-															uint Id = 561,
+															uint Id = 553,
 														},
 														Named = 
 														{
@@ -19867,7 +19533,7 @@ Level =
 															{
 																LinkId = 
 																{
-																	uint Id = 562,
+																	uint Id = 554,
 																},
 																Named = 
 																{
@@ -19892,7 +19558,7 @@ Level =
 																	{
 																		LinkId = 
 																		{
-																			uint Id = 563,
+																			uint Id = 555,
 																		},
 																		Named = 
 																		{
@@ -19917,7 +19583,7 @@ Level =
 																			{
 																				LinkId = 
 																				{
-																					uint Id = 564,
+																					uint Id = 556,
 																				},
 																				Named = 
 																				{
@@ -19942,7 +19608,7 @@ Level =
 																					{
 																						LinkId = 
 																						{
-																							uint Id = 565,
+																							uint Id = 557,
 																						},
 																						Named = 
 																						{
@@ -19984,7 +19650,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 566,
+					uint Id = 558,
 				},
 				Named = 
 				{
@@ -20020,7 +19686,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 567,
+							uint Id = 559,
 						},
 						Named = 
 						{
@@ -20083,7 +19749,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 568,
+									uint Id = 560,
 								},
 								Named = 
 								{
@@ -20128,7 +19794,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 569,
+											uint Id = 561,
 										},
 										Named = 
 										{
@@ -20146,7 +19812,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 570,
+													uint Id = 562,
 												},
 												Named = 
 												{
@@ -20171,7 +19837,7 @@ Level =
 													{
 														LinkId = 
 														{
-															uint Id = 571,
+															uint Id = 563,
 														},
 														Named = 
 														{
@@ -20196,7 +19862,7 @@ Level =
 															{
 																LinkId = 
 																{
-																	uint Id = 572,
+																	uint Id = 564,
 																},
 																Named = 
 																{
@@ -20221,7 +19887,7 @@ Level =
 																	{
 																		LinkId = 
 																		{
-																			uint Id = 573,
+																			uint Id = 565,
 																		},
 																		Named = 
 																		{
@@ -20246,7 +19912,7 @@ Level =
 																			{
 																				LinkId = 
 																				{
-																					uint Id = 574,
+																					uint Id = 566,
 																				},
 																				Named = 
 																				{
@@ -20271,7 +19937,7 @@ Level =
 																					{
 																						LinkId = 
 																						{
-																							uint Id = 575,
+																							uint Id = 567,
 																						},
 																						Named = 
 																						{
@@ -20313,7 +19979,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 576,
+					uint Id = 568,
 				},
 				Named = 
 				{
@@ -20349,7 +20015,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 577,
+							uint Id = 569,
 						},
 						Named = 
 						{
@@ -20412,7 +20078,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 578,
+									uint Id = 570,
 								},
 								Named = 
 								{
@@ -20457,7 +20123,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 579,
+											uint Id = 571,
 										},
 										Named = 
 										{
@@ -20475,7 +20141,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 580,
+													uint Id = 572,
 												},
 												Named = 
 												{
@@ -20500,7 +20166,7 @@ Level =
 													{
 														LinkId = 
 														{
-															uint Id = 581,
+															uint Id = 573,
 														},
 														Named = 
 														{
@@ -20525,7 +20191,7 @@ Level =
 															{
 																LinkId = 
 																{
-																	uint Id = 582,
+																	uint Id = 574,
 																},
 																Named = 
 																{
@@ -20550,7 +20216,7 @@ Level =
 																	{
 																		LinkId = 
 																		{
-																			uint Id = 583,
+																			uint Id = 575,
 																		},
 																		Named = 
 																		{
@@ -20575,7 +20241,7 @@ Level =
 																			{
 																				LinkId = 
 																				{
-																					uint Id = 584,
+																					uint Id = 576,
 																				},
 																				Named = 
 																				{
@@ -20600,7 +20266,7 @@ Level =
 																					{
 																						LinkId = 
 																						{
-																							uint Id = 585,
+																							uint Id = 577,
 																						},
 																						Named = 
 																						{
@@ -20642,7 +20308,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 586,
+					uint Id = 578,
 				},
 				Named = 
 				{
@@ -20678,7 +20344,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 587,
+							uint Id = 579,
 						},
 						Named = 
 						{
@@ -20741,7 +20407,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 588,
+									uint Id = 580,
 								},
 								Named = 
 								{
@@ -20786,7 +20452,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 589,
+											uint Id = 581,
 										},
 										Named = 
 										{
@@ -20804,7 +20470,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 590,
+													uint Id = 582,
 												},
 												Named = 
 												{
@@ -20829,7 +20495,7 @@ Level =
 													{
 														LinkId = 
 														{
-															uint Id = 591,
+															uint Id = 583,
 														},
 														Named = 
 														{
@@ -20854,7 +20520,7 @@ Level =
 															{
 																LinkId = 
 																{
-																	uint Id = 592,
+																	uint Id = 584,
 																},
 																Named = 
 																{
@@ -20879,7 +20545,7 @@ Level =
 																	{
 																		LinkId = 
 																		{
-																			uint Id = 593,
+																			uint Id = 585,
 																		},
 																		Named = 
 																		{
@@ -20904,7 +20570,7 @@ Level =
 																			{
 																				LinkId = 
 																				{
-																					uint Id = 594,
+																					uint Id = 586,
 																				},
 																				Named = 
 																				{
@@ -20929,7 +20595,7 @@ Level =
 																					{
 																						LinkId = 
 																						{
-																							uint Id = 595,
+																							uint Id = 587,
 																						},
 																						Named = 
 																						{
@@ -20971,7 +20637,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 596,
+					uint Id = 588,
 				},
 				Named = 
 				{
@@ -21007,7 +20673,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 597,
+							uint Id = 589,
 						},
 						Named = 
 						{
@@ -21070,7 +20736,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 598,
+									uint Id = 590,
 								},
 								Named = 
 								{
@@ -21115,7 +20781,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 599,
+											uint Id = 591,
 										},
 										Named = 
 										{
@@ -21133,7 +20799,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 600,
+													uint Id = 592,
 												},
 												Named = 
 												{
@@ -21158,7 +20824,7 @@ Level =
 													{
 														LinkId = 
 														{
-															uint Id = 601,
+															uint Id = 593,
 														},
 														Named = 
 														{
@@ -21183,7 +20849,7 @@ Level =
 															{
 																LinkId = 
 																{
-																	uint Id = 602,
+																	uint Id = 594,
 																},
 																Named = 
 																{
@@ -21208,7 +20874,7 @@ Level =
 																	{
 																		LinkId = 
 																		{
-																			uint Id = 603,
+																			uint Id = 595,
 																		},
 																		Named = 
 																		{
@@ -21233,7 +20899,7 @@ Level =
 																			{
 																				LinkId = 
 																				{
-																					uint Id = 604,
+																					uint Id = 596,
 																				},
 																				Named = 
 																				{
@@ -21258,7 +20924,7 @@ Level =
 																					{
 																						LinkId = 
 																						{
-																							uint Id = 605,
+																							uint Id = 597,
 																						},
 																						Named = 
 																						{
@@ -21300,7 +20966,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 606,
+					uint Id = 598,
 				},
 				Named = 
 				{
@@ -21336,7 +21002,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 607,
+							uint Id = 599,
 						},
 						Named = 
 						{
@@ -21399,7 +21065,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 608,
+									uint Id = 600,
 								},
 								Named = 
 								{
@@ -21444,7 +21110,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 609,
+											uint Id = 601,
 										},
 										Named = 
 										{
@@ -21462,7 +21128,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 610,
+													uint Id = 602,
 												},
 												Named = 
 												{
@@ -21487,7 +21153,7 @@ Level =
 													{
 														LinkId = 
 														{
-															uint Id = 611,
+															uint Id = 603,
 														},
 														Named = 
 														{
@@ -21512,7 +21178,7 @@ Level =
 															{
 																LinkId = 
 																{
-																	uint Id = 612,
+																	uint Id = 604,
 																},
 																Named = 
 																{
@@ -21537,7 +21203,7 @@ Level =
 																	{
 																		LinkId = 
 																		{
-																			uint Id = 613,
+																			uint Id = 605,
 																		},
 																		Named = 
 																		{
@@ -21562,7 +21228,7 @@ Level =
 																			{
 																				LinkId = 
 																				{
-																					uint Id = 614,
+																					uint Id = 606,
 																				},
 																				Named = 
 																				{
@@ -21587,7 +21253,7 @@ Level =
 																					{
 																						LinkId = 
 																						{
-																							uint Id = 615,
+																							uint Id = 607,
 																						},
 																						Named = 
 																						{
@@ -21629,7 +21295,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 616,
+					uint Id = 608,
 				},
 				Named = 
 				{
@@ -21665,7 +21331,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 617,
+							uint Id = 609,
 						},
 						Named = 
 						{
@@ -21728,7 +21394,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 618,
+									uint Id = 610,
 								},
 								Named = 
 								{
@@ -21773,7 +21439,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 619,
+											uint Id = 611,
 										},
 										Named = 
 										{
@@ -21791,7 +21457,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 620,
+													uint Id = 612,
 												},
 												Named = 
 												{
@@ -21816,7 +21482,7 @@ Level =
 													{
 														LinkId = 
 														{
-															uint Id = 621,
+															uint Id = 613,
 														},
 														Named = 
 														{
@@ -21841,7 +21507,7 @@ Level =
 															{
 																LinkId = 
 																{
-																	uint Id = 622,
+																	uint Id = 614,
 																},
 																Named = 
 																{
@@ -21866,7 +21532,7 @@ Level =
 																	{
 																		LinkId = 
 																		{
-																			uint Id = 623,
+																			uint Id = 615,
 																		},
 																		Named = 
 																		{
@@ -21891,7 +21557,7 @@ Level =
 																			{
 																				LinkId = 
 																				{
-																					uint Id = 624,
+																					uint Id = 616,
 																				},
 																				Named = 
 																				{
@@ -21916,7 +21582,7 @@ Level =
 																					{
 																						LinkId = 
 																						{
-																							uint Id = 625,
+																							uint Id = 617,
 																						},
 																						Named = 
 																						{
@@ -21958,7 +21624,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 626,
+					uint Id = 618,
 				},
 				Named = 
 				{
@@ -21994,7 +21660,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 627,
+							uint Id = 619,
 						},
 						Named = 
 						{
@@ -22057,7 +21723,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 628,
+									uint Id = 620,
 								},
 								Named = 
 								{
@@ -22102,7 +21768,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 629,
+											uint Id = 621,
 										},
 										Named = 
 										{
@@ -22120,7 +21786,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 630,
+													uint Id = 622,
 												},
 												Named = 
 												{
@@ -22145,7 +21811,7 @@ Level =
 													{
 														LinkId = 
 														{
-															uint Id = 631,
+															uint Id = 623,
 														},
 														Named = 
 														{
@@ -22170,7 +21836,7 @@ Level =
 															{
 																LinkId = 
 																{
-																	uint Id = 632,
+																	uint Id = 624,
 																},
 																Named = 
 																{
@@ -22195,7 +21861,7 @@ Level =
 																	{
 																		LinkId = 
 																		{
-																			uint Id = 633,
+																			uint Id = 625,
 																		},
 																		Named = 
 																		{
@@ -22220,7 +21886,7 @@ Level =
 																			{
 																				LinkId = 
 																				{
-																					uint Id = 634,
+																					uint Id = 626,
 																				},
 																				Named = 
 																				{
@@ -22245,7 +21911,7 @@ Level =
 																					{
 																						LinkId = 
 																						{
-																							uint Id = 635,
+																							uint Id = 627,
 																						},
 																						Named = 
 																						{
@@ -22287,7 +21953,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 636,
+					uint Id = 628,
 				},
 				Named = 
 				{
@@ -22323,7 +21989,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 637,
+							uint Id = 629,
 						},
 						Named = 
 						{
@@ -22386,7 +22052,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 638,
+									uint Id = 630,
 								},
 								Named = 
 								{
@@ -22431,7 +22097,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 639,
+											uint Id = 631,
 										},
 										Named = 
 										{
@@ -22449,7 +22115,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 640,
+													uint Id = 632,
 												},
 												Named = 
 												{
@@ -22474,7 +22140,7 @@ Level =
 													{
 														LinkId = 
 														{
-															uint Id = 641,
+															uint Id = 633,
 														},
 														Named = 
 														{
@@ -22499,7 +22165,7 @@ Level =
 															{
 																LinkId = 
 																{
-																	uint Id = 642,
+																	uint Id = 634,
 																},
 																Named = 
 																{
@@ -22524,7 +22190,7 @@ Level =
 																	{
 																		LinkId = 
 																		{
-																			uint Id = 643,
+																			uint Id = 635,
 																		},
 																		Named = 
 																		{
@@ -22549,7 +22215,7 @@ Level =
 																			{
 																				LinkId = 
 																				{
-																					uint Id = 644,
+																					uint Id = 636,
 																				},
 																				Named = 
 																				{
@@ -22574,7 +22240,7 @@ Level =
 																					{
 																						LinkId = 
 																						{
-																							uint Id = 645,
+																							uint Id = 637,
 																						},
 																						Named = 
 																						{
@@ -22616,7 +22282,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 646,
+					uint Id = 638,
 				},
 				Named = 
 				{
@@ -22652,7 +22318,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 647,
+							uint Id = 639,
 						},
 						Named = 
 						{
@@ -22715,7 +22381,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 648,
+									uint Id = 640,
 								},
 								Named = 
 								{
@@ -22760,7 +22426,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 649,
+											uint Id = 641,
 										},
 										Named = 
 										{
@@ -22778,7 +22444,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 650,
+													uint Id = 642,
 												},
 												Named = 
 												{
@@ -22803,7 +22469,7 @@ Level =
 													{
 														LinkId = 
 														{
-															uint Id = 651,
+															uint Id = 643,
 														},
 														Named = 
 														{
@@ -22828,7 +22494,7 @@ Level =
 															{
 																LinkId = 
 																{
-																	uint Id = 652,
+																	uint Id = 644,
 																},
 																Named = 
 																{
@@ -22853,7 +22519,7 @@ Level =
 																	{
 																		LinkId = 
 																		{
-																			uint Id = 653,
+																			uint Id = 645,
 																		},
 																		Named = 
 																		{
@@ -22878,7 +22544,7 @@ Level =
 																			{
 																				LinkId = 
 																				{
-																					uint Id = 654,
+																					uint Id = 646,
 																				},
 																				Named = 
 																				{
@@ -22903,7 +22569,7 @@ Level =
 																					{
 																						LinkId = 
 																						{
-																							uint Id = 655,
+																							uint Id = 647,
 																						},
 																						Named = 
 																						{
@@ -22945,7 +22611,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 656,
+					uint Id = 648,
 				},
 				Named = 
 				{
@@ -22981,7 +22647,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 657,
+							uint Id = 649,
 						},
 						Named = 
 						{
@@ -23044,7 +22710,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 658,
+									uint Id = 650,
 								},
 								Named = 
 								{
@@ -23089,7 +22755,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 659,
+											uint Id = 651,
 										},
 										Named = 
 										{
@@ -23107,7 +22773,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 660,
+													uint Id = 652,
 												},
 												Named = 
 												{
@@ -23132,7 +22798,7 @@ Level =
 													{
 														LinkId = 
 														{
-															uint Id = 661,
+															uint Id = 653,
 														},
 														Named = 
 														{
@@ -23157,7 +22823,7 @@ Level =
 															{
 																LinkId = 
 																{
-																	uint Id = 662,
+																	uint Id = 654,
 																},
 																Named = 
 																{
@@ -23182,7 +22848,7 @@ Level =
 																	{
 																		LinkId = 
 																		{
-																			uint Id = 663,
+																			uint Id = 655,
 																		},
 																		Named = 
 																		{
@@ -23207,7 +22873,7 @@ Level =
 																			{
 																				LinkId = 
 																				{
-																					uint Id = 664,
+																					uint Id = 656,
 																				},
 																				Named = 
 																				{
@@ -23232,7 +22898,7 @@ Level =
 																					{
 																						LinkId = 
 																						{
-																							uint Id = 665,
+																							uint Id = 657,
 																						},
 																						Named = 
 																						{
@@ -23274,7 +22940,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 666,
+					uint Id = 658,
 				},
 				Named = 
 				{
@@ -23310,7 +22976,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 667,
+							uint Id = 659,
 						},
 						Named = 
 						{
@@ -23373,7 +23039,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 668,
+									uint Id = 660,
 								},
 								Named = 
 								{
@@ -23418,7 +23084,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 669,
+											uint Id = 661,
 										},
 										Named = 
 										{
@@ -23436,7 +23102,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 670,
+													uint Id = 662,
 												},
 												Named = 
 												{
@@ -23461,7 +23127,7 @@ Level =
 													{
 														LinkId = 
 														{
-															uint Id = 671,
+															uint Id = 663,
 														},
 														Named = 
 														{
@@ -23486,7 +23152,7 @@ Level =
 															{
 																LinkId = 
 																{
-																	uint Id = 672,
+																	uint Id = 664,
 																},
 																Named = 
 																{
@@ -23511,7 +23177,7 @@ Level =
 																	{
 																		LinkId = 
 																		{
-																			uint Id = 673,
+																			uint Id = 665,
 																		},
 																		Named = 
 																		{
@@ -23536,7 +23202,7 @@ Level =
 																			{
 																				LinkId = 
 																				{
-																					uint Id = 674,
+																					uint Id = 666,
 																				},
 																				Named = 
 																				{
@@ -23561,7 +23227,7 @@ Level =
 																					{
 																						LinkId = 
 																						{
-																							uint Id = 675,
+																							uint Id = 667,
 																						},
 																						Named = 
 																						{
@@ -23603,7 +23269,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 676,
+					uint Id = 668,
 				},
 				Named = 
 				{
@@ -23639,7 +23305,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 677,
+							uint Id = 669,
 						},
 						Named = 
 						{
@@ -23702,7 +23368,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 678,
+									uint Id = 670,
 								},
 								Named = 
 								{
@@ -23747,7 +23413,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 679,
+											uint Id = 671,
 										},
 										Named = 
 										{
@@ -23765,7 +23431,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 680,
+													uint Id = 672,
 												},
 												Named = 
 												{
@@ -23790,7 +23456,7 @@ Level =
 													{
 														LinkId = 
 														{
-															uint Id = 681,
+															uint Id = 673,
 														},
 														Named = 
 														{
@@ -23815,7 +23481,7 @@ Level =
 															{
 																LinkId = 
 																{
-																	uint Id = 682,
+																	uint Id = 674,
 																},
 																Named = 
 																{
@@ -23840,7 +23506,7 @@ Level =
 																	{
 																		LinkId = 
 																		{
-																			uint Id = 683,
+																			uint Id = 675,
 																		},
 																		Named = 
 																		{
@@ -23865,7 +23531,7 @@ Level =
 																			{
 																				LinkId = 
 																				{
-																					uint Id = 684,
+																					uint Id = 676,
 																				},
 																				Named = 
 																				{
@@ -23890,7 +23556,7 @@ Level =
 																					{
 																						LinkId = 
 																						{
-																							uint Id = 685,
+																							uint Id = 677,
 																						},
 																						Named = 
 																						{
@@ -23932,7 +23598,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 686,
+					uint Id = 678,
 				},
 				Named = 
 				{
@@ -23968,7 +23634,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 687,
+							uint Id = 679,
 						},
 						Named = 
 						{
@@ -24031,7 +23697,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 688,
+									uint Id = 680,
 								},
 								Named = 
 								{
@@ -24076,7 +23742,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 689,
+											uint Id = 681,
 										},
 										Named = 
 										{
@@ -24094,7 +23760,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 690,
+													uint Id = 682,
 												},
 												Named = 
 												{
@@ -24119,7 +23785,7 @@ Level =
 													{
 														LinkId = 
 														{
-															uint Id = 691,
+															uint Id = 683,
 														},
 														Named = 
 														{
@@ -24144,7 +23810,7 @@ Level =
 															{
 																LinkId = 
 																{
-																	uint Id = 692,
+																	uint Id = 684,
 																},
 																Named = 
 																{
@@ -24169,7 +23835,7 @@ Level =
 																	{
 																		LinkId = 
 																		{
-																			uint Id = 693,
+																			uint Id = 685,
 																		},
 																		Named = 
 																		{
@@ -24194,7 +23860,7 @@ Level =
 																			{
 																				LinkId = 
 																				{
-																					uint Id = 694,
+																					uint Id = 686,
 																				},
 																				Named = 
 																				{
@@ -24219,7 +23885,7 @@ Level =
 																					{
 																						LinkId = 
 																						{
-																							uint Id = 695,
+																							uint Id = 687,
 																						},
 																						Named = 
 																						{
@@ -24261,7 +23927,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 696,
+					uint Id = 688,
 				},
 				Named = 
 				{
@@ -24297,7 +23963,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 697,
+							uint Id = 689,
 						},
 						Named = 
 						{
@@ -24360,7 +24026,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 698,
+									uint Id = 690,
 								},
 								Named = 
 								{
@@ -24405,7 +24071,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 699,
+											uint Id = 691,
 										},
 										Named = 
 										{
@@ -24423,7 +24089,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 700,
+													uint Id = 692,
 												},
 												Named = 
 												{
@@ -24448,7 +24114,7 @@ Level =
 													{
 														LinkId = 
 														{
-															uint Id = 701,
+															uint Id = 693,
 														},
 														Named = 
 														{
@@ -24473,7 +24139,7 @@ Level =
 															{
 																LinkId = 
 																{
-																	uint Id = 702,
+																	uint Id = 694,
 																},
 																Named = 
 																{
@@ -24498,7 +24164,7 @@ Level =
 																	{
 																		LinkId = 
 																		{
-																			uint Id = 703,
+																			uint Id = 695,
 																		},
 																		Named = 
 																		{
@@ -24523,7 +24189,7 @@ Level =
 																			{
 																				LinkId = 
 																				{
-																					uint Id = 704,
+																					uint Id = 696,
 																				},
 																				Named = 
 																				{
@@ -24548,7 +24214,7 @@ Level =
 																					{
 																						LinkId = 
 																						{
-																							uint Id = 705,
+																							uint Id = 697,
 																						},
 																						Named = 
 																						{
@@ -24590,7 +24256,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 706,
+					uint Id = 698,
 				},
 				Named = 
 				{
@@ -24626,7 +24292,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 707,
+							uint Id = 699,
 						},
 						Named = 
 						{
@@ -24689,7 +24355,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 708,
+									uint Id = 700,
 								},
 								Named = 
 								{
@@ -24734,7 +24400,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 709,
+											uint Id = 701,
 										},
 										Named = 
 										{
@@ -24752,7 +24418,7 @@ Level =
 											{
 												LinkId = 
 												{
-													uint Id = 710,
+													uint Id = 702,
 												},
 												Named = 
 												{
@@ -24777,7 +24443,7 @@ Level =
 													{
 														LinkId = 
 														{
-															uint Id = 711,
+															uint Id = 703,
 														},
 														Named = 
 														{
@@ -24802,7 +24468,7 @@ Level =
 															{
 																LinkId = 
 																{
-																	uint Id = 712,
+																	uint Id = 704,
 																},
 																Named = 
 																{
@@ -24827,7 +24493,7 @@ Level =
 																	{
 																		LinkId = 
 																		{
-																			uint Id = 713,
+																			uint Id = 705,
 																		},
 																		Named = 
 																		{
@@ -24852,7 +24518,7 @@ Level =
 																			{
 																				LinkId = 
 																				{
-																					uint Id = 714,
+																					uint Id = 706,
 																				},
 																				Named = 
 																				{
@@ -24877,7 +24543,7 @@ Level =
 																					{
 																						LinkId = 
 																						{
-																							uint Id = 715,
+																							uint Id = 707,
 																						},
 																						Named = 
 																						{
@@ -24917,29 +24583,11 @@ Level =
 			},
 		},
 	},
-	ArchetypeInstance = 
-	{
-		string Name = "54042b04889dcb36:NoisePlaneB",
-		LinkId = 
-		{
-			uint Id = 716,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [18.574, 15.0214, -1.21089],
-			Vec3 Scale = [0.12, 0.06, 0.12],
-			Quat Rotation = [0.707107, 0, 0, 0.707106],
-		},
-		Named = 
-		{
-			string Name = "NoisePlaneB",
-		},
-	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 717,
+			uint Id = 708,
 		},
 		Named = 
 		{
@@ -24973,7 +24621,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 718,
+			uint Id = 709,
 		},
 		Named = 
 		{
@@ -25026,7 +24674,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 719,
+			uint Id = 710,
 		},
 		Named = 
 		{
@@ -25068,7 +24716,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 720,
+					uint Id = 711,
 				},
 				Named = 
 				{
@@ -25149,7 +24797,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 721,
+			uint Id = 712,
 		},
 		Named = 
 		{
@@ -25162,6 +24810,371 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [13.0396, 87.2271, 1.72258],
+			Vec3 Scale = [1.5, 1.5, 1.5],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "54354c0fcd1df229:PlayerFriction",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		Targetable = 
+		{
+			Enum IndicatorType = Standard,
+			Vec3 IndicatorOffset = [0, 0, 2],
+			float Range = 20,
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 35,
+			Vec3 Direction = [0, 0, -1],
+		},
+		PickUpInteract = 
+		{
+			string SmokeParticle = "547c59ae76e9024f:DustSmoke",
+		},
+		DragEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			float Drag = 0.7,
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "4e1bd44008b4dc2a:DefaultCue",
+			float Volume = 1,
+			float Pitch = 0.5,
+			bool Positional = true,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 713,
+				},
+				Named = 
+				{
+					string Name = "Model",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54a3db5a3ddb6b52:mat_LightIntense",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 0, 0, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 714,
+				},
+				Named = 
+				{
+					string Name = "PickUpVolume",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				RigidBody = 
+				{
+					bool Static = false,
+					bool Asleep = false,
+					bool Kinematic = true,
+					bool RotationLocked = false,
+					bool Mode2D = false,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				SphereCollider = 
+				{
+					bool Ghost = true,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "54ff0eb5b975b8c8:CG_Tongue",
+					Vec3 Offset = [0, 0, 0],
+					float Radius = 2.5,
+				},
+				PickUpInteractVolume = 
+				{
+					float ThrowForce = 100000,
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "547c5da6ade3e04f:DustSmokeTrail",
+				LinkId = 
+				{
+					uint Id = 715,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, -0.443131],
+					Vec3 Scale = [1.5, 1.5, 1.5],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Named = 
+				{
+					string Name = "DustSmokeTrail",
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 716,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [25.7464, -42.6341, 5.25203],
+			Vec3 Scale = [13.2896, 13.1634, 0.519705],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "54ce4e18dbe67679:Gate",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
+		},
+		FootstepSurface = 
+		{
+			Enum SurfaceType = Dirt,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 717,
+		},
+		Named = 
+		{
+			string Name = "PickUpBlockB",
+		},
+		Archetyped = 
+		{
+			string Name = "547c4ebe0c764def:PickUpBlock",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [31.8595, 78.0428, 1.72258],
+			Vec3 Scale = [1.5, 1.5, 1.5],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "54354c0fcd1df229:PlayerFriction",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		Targetable = 
+		{
+			Enum IndicatorType = Standard,
+			Vec3 IndicatorOffset = [0, 0, 2],
+			float Range = 20,
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 35,
+			Vec3 Direction = [0, 0, -1],
+		},
+		PickUpInteract = 
+		{
+			string SmokeParticle = "547c59ae76e9024f:DustSmoke",
+		},
+		DragEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			float Drag = 0.7,
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "4e1bd44008b4dc2a:DefaultCue",
+			float Volume = 1,
+			float Pitch = 0.5,
+			bool Positional = true,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 718,
+				},
+				Named = 
+				{
+					string Name = "Model",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54a3db5a3ddb6b52:mat_LightIntense",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0.0199995, 0, 1, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 719,
+				},
+				Named = 
+				{
+					string Name = "PickUpVolume",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				RigidBody = 
+				{
+					bool Static = false,
+					bool Asleep = false,
+					bool Kinematic = true,
+					bool RotationLocked = false,
+					bool Mode2D = false,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				SphereCollider = 
+				{
+					bool Ghost = true,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "54ff0eb5b975b8c8:CG_Tongue",
+					Vec3 Offset = [0, 0, 0],
+					float Radius = 2.5,
+				},
+				PickUpInteractVolume = 
+				{
+					float ThrowForce = 100000,
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "547c5da6ade3e04f:DustSmokeTrail",
+				LinkId = 
+				{
+					uint Id = 720,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, -0.443131],
+					Vec3 Scale = [1.5, 1.5, 1.5],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Named = 
+				{
+					string Name = "DustSmokeTrail",
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 721,
+		},
+		Named = 
+		{
+			string Name = "PickUpBlockB",
+		},
+		Archetyped = 
+		{
+			string Name = "547c4ebe0c764def:PickUpBlock",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [24.4747, 74.6465, 1.72258],
 			Vec3 Scale = [1.5, 1.5, 1.5],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -25246,7 +25259,7 @@ Level =
 					bool CastShadows = true,
 					string MaterialName = "54a3db5a3ddb6b52:mat_LightIntense",
 					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 0, 0, 1],
+					Vec4 Color = [0.0199995, 0, 1, 1],
 				},
 			},
 			Cog = 
@@ -25310,37 +25323,6 @@ Level =
 					string Name = "DustSmokeTrail",
 				},
 			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 725,
-		},
-		Named = 
-		{
-			string Name = "Cube",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [25.7464, -42.6341, 5.25203],
-			Vec3 Scale = [13.2896, 13.1634, 0.519705],
-			Quat Rotation = [0.707107, 0, 0, 0.707107],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "54ce4e18dbe67679:Gate",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
-		},
-		FootstepSurface = 
-		{
-			Enum SurfaceType = Dirt,
 		},
 	},
 },

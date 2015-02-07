@@ -1,35 +1,24 @@
 Material = 
 {
-	Lambert = 
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Additive,
+	},
+	Refractivity = 
 	{
 	},
 	DoubledSide = 
 	{
 	},
+	MaskedRefraction = 
+	{
+		string DistortionTexture = "5403cd5ca1c0b953:Chrome2_NRM",
+		string MaskTexture = "4fab71e8bcb7a8ce:DefaultTexture",
+		Vec2 Scalar = [0, 5],
+		Vec2 Scroll = [0, 0.1],
+		Vec4 ScreenPosition = [1, 1, 1, 1],
+	},
 	ModulateModelColor = 
 	{
-	},
-	NormalMapping = 
-	{
-		float Bumpiness = 0.8,
-		string NormalMapTexture = "549a9dd7ad7c3001:basicFabric_NRM",
-		Vec2 NormalScroll = [0, 0],
-		Vec2 NormalTiling = [1, 1],
-		Vec2 NormalOffset = [0, 0],
-	},
-	Reflective = 
-	{
-		float Reflectivity = 0.1,
-		string Environment = "54ff30eba2dbc7b6:Stone_Spec",
-		Vec2 ReflectiveScroll = [0, 1],
-	},
-	Transparency = 
-	{
-		MaterialBlendMode BlendMode = Additive,
-		bool CastShadow = true,
-	},
-	ColorDiffuse = 
-	{
-		Vec4 DiffuseColor = [0, 0, 0, 1],
 	},
 },
