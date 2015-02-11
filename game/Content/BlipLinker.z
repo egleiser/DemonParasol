@@ -1,0 +1,80 @@
+class BlipLinker : ZilchComponent
+{
+    var MainSpace:Space = null;
+    var TargetingSystem:Cog = null;
+    var BlipTarget:Cog = null;
+    var Blip:Cog = null;
+    var Player:Cog = null;
+    var BlipAngle:Real = 90;
+    var BlipRadius:Real = 9.5;
+    var DistanceVec:Real3 = Real3(0,0,0);
+    function Initialize(init : CogInitializer)
+    {
+        this.MainSpace = this.GameSession.FindSpaceByName("Main");
+        this.Blip = this.Owner.FindChildByName("Blip");
+        this.Player = this.MainSpace.FindObjectByName("Player");
+        this.BlipTarget = this.MainSpace.FindObjectByName("TargetLock");
+        this.TargetingSystem = this.Space.FindObjectByName("TargetingSystem");
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.BlipTarget != null)
+        {
+                this.DistanceVec = this.BlipTarget.Transform.WorldTranslation - this.Player.Transform.WorldTranslation;
+                var normalizedVec = Math.Normalize(this.DistanceVec);
+                this.BlipAngle = Math.ATan2(normalizedVec.Y, normalizedVec.X);
+
+            //Console.WriteLine("`Math.Length(this.DistanceVec)`");
+            
+            //Blip Radius
+            if(Math.Length(this.DistanceVec) < 20)
+            {
+                this.BlipRadius = Math.Length(this.DistanceVec)* 0.6;
+                var wtsVec = this.BlipTarget.LevelSettings.CameraViewport.WorldToScreen(this.BlipTarget.Transform.WorldTranslation + this.BlipTarget.Targetable.IndicatorOffset);
+                var stwVec = this.Owner.LevelSettings.CameraViewport.ScreenToWorldZPlane(wtsVec,0);
+                //Console.WriteLine("`stwVec`");
+                this.Owner.Transform.Translation = 
+                Math.Lerp(this.Owner.Transform.Translation, 
+                Real3(stwVec.X,stwVec.Y,3) ,
+                event.Dt * 10);
+                
+                this.DistanceVec = this.Owner.Transform.WorldTranslation - this.TargetingSystem.Transform.WorldTranslation;
+                var normalizedVecHUD = Math.Normalize(this.DistanceVec);
+                this.BlipAngle = Math.ATan2(normalizedVecHUD.Y, normalizedVecHUD.X);
+            }
+            else
+            {
+                this.BlipRadius = 9.5;
+                this.Owner.Transform.Translation = 
+                Math.Lerp(this.Owner.Transform.Translation, 
+                Real3(Math.Cos(this.BlipAngle) * this.BlipRadius,Math.Sin(this.BlipAngle) * this.BlipRadius,3),
+                event.Dt * 10);
+            }
+            if(this.BlipTarget.Targetable.GetDistanceToPlayer() > this.BlipTarget.Targetable.Range || this.TargetingSystem.HUDTargeting.Visible == false)
+            {
+                this.BlipRadius = 35;
+                this.Owner.Transform.Translation = 
+                Math.Lerp(this.Owner.Transform.Translation, 
+                Real3(Math.Cos(this.BlipAngle) * this.BlipRadius,Math.Sin(this.BlipAngle) * this.BlipRadius,3),
+                event.Dt * 10);
+            }
+            
+
+            
+            
+            if(this.Player.PlayerController.Target == this.BlipTarget)
+            {
+                this.Blip.Model.Color = this.Player.PlayerController.TargetIndicator.Model.Color;
+                this.Owner.SimpleRotate.Active = true;
+                
+            }
+            else
+            {
+                this.Blip.Model.Color = Real4(0.3,0.3,0.3,1);
+                this.Owner.SimpleRotate.Active = false;
+            }
+        }
+    }
+}

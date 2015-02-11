@@ -17,6 +17,9 @@ class Targetable : ZilchComponent
     var Range:Real = 20.0;
     var Player:Cog = null;
     var BGMManager:Cog = null;
+    var HUDTargeting:Cog = null;
+    var MyBlip:Cog = null;
+    var HUDSpace:Space = null;
     var AddedToEnemyArray: Boolean = false;
     var PlayerDistance:Real = 0.0;
     
@@ -24,7 +27,16 @@ class Targetable : ZilchComponent
     {
         this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
         this.Player.PlayerController.TargetList.Add(this.Owner);
+        this.HUDSpace = this.LevelSettings.HudCreator.HudSpace;
+        this.HUDTargeting = this.HUDSpace.FindObjectByName("TargetingSystem");
         this.BGMManager = this.LevelSettings.FindChildByName("BGMManager");
+        
+        //Create Targeting Blip
+        this.MyBlip = this.HUDSpace.CreateAtPosition(Archetype.Find("TargetBlip"), Real3(1000,1000,1000));
+        this.MyBlip.BlipLinker.BlipTarget = this.Owner;
+        this.HUDTargeting.HUDTargeting.BlipList.Add(this.MyBlip);
+        
+        
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.Death, this.OnDeath);
     }

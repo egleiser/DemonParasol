@@ -29,7 +29,7 @@ class TongueFinder : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if((this.Player.InputController.Gamepad.LeftTrigger < 0.5 && (!Zero.Keyboard.KeyIsDown(Keys.A))) && this.Latched)
+        if((!this.Player.PlayerController.TargetingActive && (!Zero.Keyboard.KeyIsDown(Keys.A))) && this.Latched)
         {
             this.Owner.Destroy();
         }

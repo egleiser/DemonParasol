@@ -1,0 +1,86 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "TargetBlip",
+	},
+	Archetyped = 
+	{
+		string Name = "540a5da72684c91f:TargetBlip",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [9.21594, 1.28062, 0.694323],
+		Vec3 Scale = [0.261429, 0.261429, 0.261527],
+		Quat Rotation = [-0.721719, 0, 0, 0.692186],
+	},
+	SimpleRotate = 
+	{
+		Vec3 RotateSpeed = [0, 0.05, 0],
+		bool Active = true,
+	},
+	BlipLinker = 
+	{
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Blip",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1.06672, 0.224174, 1.06672],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "54057e4cb1eb9137:mat_gradientTrans",
+				string MeshName = "54a1a33a13959b79:Button.Button",
+				Vec4 Color = [0.995, 0.04975, 0.04975, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "BlipBorder",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1.1522, 0.193086, 1.1522],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5481b84e008be766:mat_gradient",
+				string MeshName = "54a1a33a13959b7d:Button.ButtonBorder",
+				Vec4 Color = [0.08, 0.08, 0.08, 1],
+			},
+		},
+	},
+},

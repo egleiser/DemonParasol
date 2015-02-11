@@ -49,6 +49,8 @@ class PlayerController : ZilchComponent
     var Target:Cog = null;
     var TargetIndicator:Cog = null;
     var EnterTargetMode:Boolean = false;
+    var TargetingActive:Boolean = false;
+    var GetEvent:UpdateEvent = null;
     
     //Pick Up Throw Object
     var PickUp:Cog = null;
@@ -74,6 +76,9 @@ class PlayerController : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        
+        this.GetEvent = event;
+        this.TargetingActive = Math.Length(this.Owner.InputController.GetMovementRight()) > 0.3;
         if(this.Owner.InputController.Gamepad.IsButtonHeld(Buttons.LeftShoulder))
         {
             this.MovmentSpeed = 1500;
@@ -145,19 +150,35 @@ class PlayerController : ZilchComponent
             
         }
     }
+    function ZTargetingGoTo(target : Cog)
+    {
+        this.TargetIndex = this.TargetList.FindFirstIndex(target);
+        this.Target = this.TargetList.Get(this.TargetIndex);
+        if(this.TongueFinder == null || this.TongueFinder.TongueFinder.PullPlayer == true)
+        {
+            var targetDistanceVec = this.Target.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
+            Math.Normalize(targetDistanceVec);
+            this.TargetAngle = Math.ATan2(targetDistanceVec.Y,targetDistanceVec.X) - 1.57079633;
+            this.MoveAngle = this.TargetAngle;
+            this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation,Math.Euler(Real3(0.0,0.0,this.TargetAngle)),this.GetEvent.Dt*this.RotateSpeed);
+        }
+    }
+    
     function ZTargetingUpdate(event : UpdateEvent)
     {
+    
         this.TargetIndicator.IndicatorLock.Target = this.Target;
-        if(this.Owner.InputController.Gamepad.LeftTrigger > 0.5 || Zero.Keyboard.KeyIsDown(Keys.A))
+        
+        if(this.Owner.InputController.Gamepad.LeftTrigger > 0.5 || Zero.Keyboard.KeyIsDown(Keys.A) ||  this.TargetingActive)
         {
             if(this.EnterTargetMode == false)
             {
-                this.UpdateTargets();
+                
                 this.EnterTargetMode = true;
             }
             if(this.TargetProximity.Count > 0)
             {
-                this.Target = this.TargetProximity.Get(this.TargetIndex);
+                //this.Target = this.TargetProximity.Get(this.TargetIndex);
             }
         }
         else
@@ -297,14 +318,9 @@ class PlayerController : ZilchComponent
             this.Owner.GravityEffect.Active = true;
             //this.Owner.AutoHopper.Active = true;
         }
-        
-        //When the A Button is pressed
-        if(this.Owner.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space))
+        //When the Trigger is released
+        if(this.Owner.InputController.Gamepad.LeftTrigger <= 0.5)
         {
-            if(this.TongueFinder != null && this.TongueFinder.TongueFinder.Latched == false )
-            {
-                this.TongueFinder.Destroy();
-            }
             //Pull the player to the object
             if(this.TongueFinder != null && this.TongueFinder.TongueFinder.Latched == true && this.TongueFinder.TongueFinder.Destroy == false
             && this.ContextButton.ContextButtonManager.WantedText == "Pull")
@@ -312,6 +328,16 @@ class PlayerController : ZilchComponent
                 this.TongueFinder.TongueFinder.PullPlayer = true;
                 Console.WriteLine("Tongue Pull: `this.TongueFinder.TongueFinder.PullPlayer`");
             }
+        }
+        
+        //When the Trigger is pressed
+        if(this.Owner.InputController.Gamepad.LeftTrigger > 0.5 || Zero.Keyboard.KeyIsPressed(Keys.Space))
+        {
+            if(this.TongueFinder != null && this.TongueFinder.TongueFinder.Latched == false )
+            {
+                //this.TongueFinder.Destroy();
+            }
+
             //Yank an Object Apart
             if(this.TongueFinder != null && this.TongueFinder.TongueFinder.Latched == true && this.TongueFinder.TongueFinder.Destroy == true
             && this.ContextButton.ContextButtonManager.WantedText == "Yank")

@@ -22,6 +22,8 @@ Cog =
 	{
 		bool Visible = true,
 		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
 		string MaterialName = "54ff27758d4308c1:mat_Ghost",
 		string MeshName = "4de0354322b376ae:Sphere",
 		Vec4 Color = [1, 0, 0.000599861, 1],
@@ -50,6 +52,7 @@ Cog =
 	},
 	DebugDrawLineToParent = 
 	{
+		bool DrawFrameUpdate = true,
 	},
 	MassOverride = 
 	{
@@ -64,6 +67,8 @@ Cog =
 	{
 		bool Visible = true,
 		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
 		LightType LightType = Point,
 		Vec4 Color = [1, 0, 0, 1],
 		float Intensity = 0.27,
@@ -86,9 +91,9 @@ Cog =
 	},
 	TongueController = 
 	{
-		float MovmentSpeed = 20,
+		float MovmentSpeed = 0,
 		float RotateSpeed = 25,
-		float MaxMoveForce = 100,
+		float MaxMoveForce = 0,
 		float Deceleration = 1.5,
 		CogPath CameraPath = ":/Camera",
 	},
