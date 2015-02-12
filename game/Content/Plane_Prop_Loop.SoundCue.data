@@ -1,0 +1,22 @@
+SoundCue = 
+{
+	SoundPlayMode PlayMode = Looping,
+	float Volume = 0.29,
+	float VolumeVariation = 0,
+	float Pitch = 0.1,
+	float PitchVariation = 0.1,
+	float MinDistance = 10,
+	float MaxDistance = 80,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 128,
+	bool LinearRollOff = false,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "54694b26a3f69988:Plane_Prop_Loop02",
+			float Weight = 1,
+		},
+	],
+	string RolloffCurveName = "",
+},
