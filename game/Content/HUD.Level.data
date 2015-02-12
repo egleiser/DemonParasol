@@ -93,9 +93,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [6.85504, 0.703022, 31.7652],
+			Vec3 Translation = [-41.5968, 23.3053, 107.138],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0217114, 0.0235572, 0.000511723, 0.999487],
+			Quat Rotation = [-0.0979045, -0.206863, -0.0208098, 0.973236],
 		},
 		Camera = 
 		{
@@ -110,10 +110,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 24.8296,
-			float VerticalAngle = 0.0434383,
-			float HorizontalAngle = -0.0471299,
-			Vec3 LookTarget = [5.68636, -0.375196, 6.9866],
+			float LookDistance = 111.279,
+			float VerticalAngle = 0.200519,
+			float HorizontalAngle = 0.41887,
+			Vec3 LookTarget = [2.75668, 1.14099, 7.5156],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -1392,7 +1392,7 @@ Level =
 					bool VisibilityCulling = true,
 					bool VisibilityEvents = false,
 					bool CastShadows = true,
-					string MaterialName = "5404506d3dd2a41e:mat_Light",
+					string MaterialName = "54057e4cb1eb9137:mat_gradientTrans",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 0.11, 0.2969, 1],
 				},
@@ -1411,18 +1411,23 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [5.04958, 0, 0],
-							Vec3 Scale = [0.2509, 0.422989, 0.824923],
+							Vec3 Scale = [0.2509, 0.20874, 0.824923],
 							Quat Rotation = [-0.5, 0.5, -0.5, 0.5],
 						},
 						Model = 
 						{
-							bool Visible = true,
+							bool Visible = false,
 							bool VisibilityCulling = true,
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "5404506d3dd2a41e:mat_Light",
 							string MeshName = "54af8334a8b06f89:Arrow",
-							Vec4 Color = [1, 0.11, 0.2969, 0.33],
+							Vec4 Color = [1, 0.11, 0.2969, 0],
+						},
+						SimpleRotate = 
+						{
+							Vec3 RotateSpeed = [0, 0, 0.1],
+							bool Active = true,
 						},
 					},
 				},
@@ -1445,13 +1450,13 @@ Level =
 				},
 				Model = 
 				{
-					bool Visible = true,
+					bool Visible = false,
 					bool VisibilityCulling = true,
 					bool VisibilityEvents = false,
 					bool CastShadows = true,
-					string MaterialName = "5404506d3dd2a41e:mat_Light",
+					string MaterialName = "54057e4cb1eb9137:mat_gradientTrans",
 					string MeshName = "540a58fdabb1f6b3:HUDRing",
-					Vec4 Color = [1, 0.11, 0.2969, 0.33],
+					Vec4 Color = [1, 0.11, 0.2969, 0],
 				},
 				Hierarchy = 
 				{

@@ -32,7 +32,7 @@ class Targetable : ZilchComponent
         this.BGMManager = this.LevelSettings.FindChildByName("BGMManager");
         
         //Create Targeting Blip
-        this.MyBlip = this.HUDSpace.CreateAtPosition(Archetype.Find("TargetBlip"), Real3(1000,1000,1000));
+        this.MyBlip = this.HUDSpace.CreateAtPosition(Archetype.Find("TargetBlip"), Real3(0,0,1000));
         this.MyBlip.BlipLinker.BlipTarget = this.Owner;
         this.HUDTargeting.HUDTargeting.BlipList.Add(this.MyBlip);
         
@@ -74,10 +74,13 @@ class Targetable : ZilchComponent
     function CleanUp()
     {
         var indexToRemove = this.Player.PlayerController.TargetList.FindFirstIndex(this.Owner);
-        this.Player.PlayerController.TargetList.RemoveAt(indexToRemove);
-        if(this.AddedToEnemyArray == true)
+        if(indexToRemove >= 0)
         {
-            Console.WriteLine("Killed");
+            this.Player.PlayerController.TargetList.RemoveAt(indexToRemove);
+        }
+        if(this.AddedToEnemyArray == true && indexToRemove >= 0)
+        {
+            //Console.WriteLine("Killed");
             indexToRemove = this.BGMManager.DungeonSoundManager.EnemyList.FindFirstIndex(this.Owner);
             this.BGMManager.DungeonSoundManager.EnemyList.RemoveAt(indexToRemove);
         }
