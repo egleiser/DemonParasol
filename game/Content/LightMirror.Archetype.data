@@ -64,6 +64,12 @@ Cog =
 		bool WakeUpOnChange = true,
 		float Drag = 30,
 	},
+	Targetable = 
+	{
+		Enum IndicatorType = Standard,
+		Vec3 IndicatorOffset = [0, 0, 3],
+		float Range = 30,
+	},
 	Hierarchy = 
 	{
 		Cog = 
@@ -78,7 +84,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [-1.90735e-006, -0.516647, -1.07288e-006],
+				Vec3 Translation = [0, -0.5, 0],
 				Vec3 Scale = [0.925, 0.1, 0.925],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -196,6 +202,53 @@ Cog =
 				Vec3 BodyPointB = [0, 0, 0],
 				Quat ReferenceAngleA = [1, 0, 0, 0],
 				Quat ReferenceAngleB = [1, 0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "MirrorLight",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -0.5, 0],
+				Vec3 Scale = [0.9, 0.0001, 0.9],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 6,
+					},
+					Named = 
+					{
+						string Name = "MirrorLightModel",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, -0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 1.90735e-006, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "540e564611437118:mat_LightBeam",
+						string MeshName = "4de0354322b345ae:Cube",
+						Vec4 Color = [0.9685, 1, 0.37, 0.415],
+					},
+				},
 			},
 		},
 	},

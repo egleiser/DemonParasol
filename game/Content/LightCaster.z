@@ -25,6 +25,7 @@ class LightCaster : ZilchComponent
     var Active : Boolean = false;
     var RayDistance : Real = 0;
     var Timer : Real = 0;
+    var MirrorLight : Cog = null;
     [Property]
     var DebugDraw : Boolean = false;
     [Property]
@@ -32,6 +33,7 @@ class LightCaster : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         this.InitialPosition = this.Owner.Parent.Transform.WorldTranslation;
+        this.MirrorLight = this.Owner.Parent.FindChildByName("MirrorLight");
         if(this.Source)
         {
             this.Active = true;
@@ -46,9 +48,11 @@ class LightCaster : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        this.MirrorLight.Transform.Scale = Real3(0.9,this.RayDistance,0.9);
         if(this.Active)
         {
             this.CastRay(event);
+            
         }
         if(this.LockXYPosition)
         {
@@ -57,6 +61,7 @@ class LightCaster : ZilchComponent
         if(this.Timer > 0 && this.Source != true)
         {
             this.Active = false;
+            this.RayDistance = 0;
         }
         this.Timer += 1;
 
@@ -83,6 +88,9 @@ class LightCaster : ZilchComponent
         {
             this.DrawArrow(rayCast.Start, endPosition, this.DebugColor);
         }
+        
+        //ScaleModel
+        
         
     }
     function DrawArrow(startPos : Real3, endPos : Real3, arrowColor : Real4)

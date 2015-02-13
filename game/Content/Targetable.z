@@ -14,7 +14,7 @@ class Targetable : ZilchComponent
     [Property]
     var IndicatorOffset:Real3 = Real3(0,0,0);
     [Property]
-    var Range:Real = 20.0;
+    var Range:Real = 30.0;
     var Player:Cog = null;
     var BGMManager:Cog = null;
     var HUDTargeting:Cog = null;
