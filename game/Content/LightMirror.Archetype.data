@@ -1,0 +1,202 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "LightMirror",
+	},
+	Archetyped = 
+	{
+		string Name = "540e74ad2729d6b9:LightMirror",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [68.7378, -39.9909, 2.57253],
+		Vec3 Scale = [4, 1, 4],
+		Quat Rotation = [0, 0, 0.326635, 0.945151],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [0.5, 0.5, 0.5],
+	},
+	GravityEffect = 
+	{
+		bool Active = true,
+		bool WakeUpOnChange = true,
+		bool LocalSpaceDirection = false,
+		float Strength = 100,
+		Vec3 Direction = [0, 0, -1],
+	},
+	DragEffect = 
+	{
+		bool Active = true,
+		bool WakeUpOnChange = true,
+		float Drag = 30,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Mirror",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.90735e-006, -0.516647, -1.07288e-006],
+				Vec3 Scale = [0.925, 0.1, 0.925],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5481b84e008be766:mat_gradient",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			BoxCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				Vec3 Size = [0.5, 0.5, 0.5],
+			},
+			Orientation = 
+			{
+				Vec3 GlobalUp = [0, 1, 0],
+				Vec3 UpVector = [0, 1, 0],
+				Vec3 ForwardVector = [0, 0, 1],
+				OrientationBases DefaultBases = ForwardZUpY,
+			},
+			LightCaster = 
+			{
+				bool LockXYRotation = true,
+				bool LockXYPosition = true,
+				bool Source = true,
+				bool DebugDraw = true,
+				Vec4 DebugColor = [1, 0, 0.000599861, 0.7],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "MirrorAxis",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 2],
+				Vec3 Scale = [0.25, 1, 0.25],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			RigidBody = 
+			{
+				bool Static = false,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = true,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			BoxCollider = 
+			{
+				bool Ghost = true,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				Vec3 Size = [0.5, 0.5, 0.5],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "MirrorJoint",
+			},
+			ObjectLink = 
+			{
+				uint ObjectA = 3,
+				uint ObjectB = 1,
+				Vec3 BodyPointA = [0, 0, 0],
+				Vec3 BodyPointB = [0, 0, 0],
+			},
+			RevoluteJoint = 
+			{
+				bool Active = true,
+				bool SendsEvents = false,
+				bool AutoSnaps = false,
+				bool CollideConnected = true,
+				float MaxForce = 0,
+				uint PrimaryFrameIndex = 0,
+				Vec3 BodyPointA = [0, 0, 0],
+				Vec3 BodyPointB = [0, 0, 0],
+				Quat ReferenceAngleA = [1, 0, 0, 0],
+				Quat ReferenceAngleB = [1, 0, 0, 0],
+			},
+		},
+	},
+},
