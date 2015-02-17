@@ -77,7 +77,7 @@ class PlayerController : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        this.Owner.FootstepDetector.WalkRate = ((180 / (Math.Length(this.Owner.RigidBody.Velocity)+ 0.001)) as Integer) + 1;
+        this.Owner.FootstepDetector.WalkRate = ((200 / (Math.Length(this.Owner.RigidBody.Velocity)+ 0.001)) as Integer) + 1;
         
         this.GetEvent = event;
         this.TargetingActive = Math.Length(this.Owner.InputController.GetMovementRight()) > 0.3;

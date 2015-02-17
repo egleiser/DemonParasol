@@ -1,0 +1,207 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "SpiritSphere",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [26.8965, 6.84625, 0.957512],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "54ff27758d4308c1:mat_Ghost",
+		string MeshName = "4de0354322b376ae:Sphere",
+		Vec4 Color = [0.035, 0.8263, 1, 1],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	SphereCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 1,
+	},
+	AutoOrientToVelocity = 
+	{
+		float AngleOffset = 0,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Ribbon",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			DynamicMesh = 
+			{
+				bool GenerateNormals = true,
+				bool GenerateUVs = false,
+				bool GenerateAdjacencyInfo = false,
+			},
+			DynamicModel = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string Material = "5433b545862c8fae:mat_GhostDS",
+				Vec4 Color = [0.0352941, 0.827451, 1, 0.04],
+			},
+			Ribbon = 
+			{
+				bool Spawning = true,
+				Vec3 LocalSpawnPointA = [1, 0, 0],
+				Vec3 LocalSpawnPointB = [-1, -0, -0],
+				uint MaxLength = 25,
+				float LengthBetweenSpawn = 0.1,
+				float TimeBetweenSpawn = 0.2,
+				CurveType CurveType = BSpline,
+				uint CurveResolution = 5,
+				Vec2 TextureScalar = [1, 1],
+				bool FlipTextureX = false,
+				bool FlipTextureY = false,
+				bool UseDecayCurve = true,
+				string DecayCurveName = "5433b43f53151fbe:SpiritCurve",
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "SpiritFire",
+			},
+			Archetyped = 
+			{
+				string Name = "54338bb0444bf65c:SpiritFire",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [0.831134, 0.831135, 1.05159],
+				Quat Rotation = [-7.90498e-008, 0, 0, 1],
+			},
+			SpriteParticleSystem = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				SystemChildMode ChildMode = Independent,
+				SystemSpace SystemSpace = LocalSpace,
+				uint DrawOrder = 0,
+				float WarmUpTime = 0,
+				ParticleGeometry GeometryMode = Billboarded,
+				ParticleRenderMode RenderMode = Additive,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Single,
+				string Texture = "5481a3be505a50f6:wind-particles-glow-02",
+				Vec4 Tint = [1, 1, 1, 0.87],
+				float VelocityScale = 1,
+				float LengthScale = 1,
+				float MaxParticleSize = 100,
+				Vec3 SystemSize = [4, 4, 4],
+			},
+			SphericalParticleEmitter = 
+			{
+				bool Active = true,
+				uint EmitCount = 0,
+				float EmitRate = 35,
+				float EmitVariance = 0,
+				float Size = 2,
+				float SizeVariance = 0.5,
+				float Lifetime = 0.4,
+				float LifetimeVariance = 0.1,
+				float Spin = 360,
+				float SpinVariance = 50,
+				bool RandomSpin = true,
+				float Fill = 1,
+				float EmitterVelocityPercent = 0,
+				Vec3 StartVelocity = [0, 0, 2],
+				Vec3 RandomVelocity = [2, 2, 2],
+				Vec3 TangentVelocity = [0, 0, 0],
+				Vec3 EmitterSize = [0.8, 0.8, 0.6],
+				bool FastMovingEmitter = true,
+			},
+			LinearParticleAnimator = 
+			{
+				Vec3 Force = [0, 0, 0],
+				Vec3 RandomForce = [0, 0, 0],
+				float Torque = 0,
+				float Growth = -1,
+				float Dampening = 0,
+				Vec3 Twist = [0, 0, 0],
+			},
+			ParticleColorAnimator = 
+			{
+				Vec4 Color0 = [0, 0.79, 1, 0],
+				Vec4 Color1 = [0, 0.58, 1, 1],
+				Vec4 Color2 = [0.06895, 0.407888, 0.985, 1],
+				Vec4 Color3 = [0, 0.31, 1, 1],
+				Vec4 Color4 = [0.0199995, 0, 1, 0],
+			},
+			SoundEmitter = 
+			{
+				bool StartPlaying = true,
+				int ExtraPriority = 0,
+				string CueName = "54bfd2f6148a1f7b:Fire_Torch_Loop1",
+				float Volume = 0.3,
+				float Pitch = 1,
+				bool Positional = true,
+			},
+			Light = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				LightType LightType = Point,
+				Vec4 Color = [1, 0.50285, 0.185, 1],
+				float Intensity = 0.8,
+				float Range = 8,
+				float Falloff = 1,
+				float Angle = 45,
+				float Size = 20,
+			},
+		},
+	},
+},
