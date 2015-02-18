@@ -1,0 +1,115 @@
+class HUDTargeting : ZilchComponent
+{
+    var SlowsTime:Boolean = false;
+    
+    [Dependency]
+    var Transform: Transform = null;
+    
+    [Dependency]
+    var InputController: InputController = null;
+    var MainSpace:Space = null;
+    var Pointer:Cog = null;
+    var PointerModel:Cog = null;
+    var Ring:Cog = null;
+    var Player:Cog = null;
+    var BlipList:Array[Cog] = new Array[Cog]();
+    var PointerAngle:Real = 0;
+    var Visible:Boolean = false;
+    var HUDColor:Real4 = Real4(1.0, 0.1098, 0.298, 0.0);
+    var WantedColor:Real4 = Real4(1.0, 0.1098, 0.298, 0.33);
+    var BGMManager:Cog = null;
+    function Initialize(init : CogInitializer)
+    {
+        this.MainSpace = this.GameSession.FindSpaceByName("Main");
+        this.Pointer = this.Owner.FindChildByName("Pointer");
+        this.PointerModel = this.Owner.FindChildByName("PointerModel");
+        this.Ring = this.Owner.FindChildByName("Ring");
+        this.Player = this.MainSpace.FindObjectByName("Player");
+        this.PointerModel.Model.Visible = true;
+        this.Ring.Model.Visible = true;
+        if(this.Player != null)
+        {
+            this.BGMManager = this.Player.LevelSettings.FindChildByName("BGMManager");
+        }
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var inputVec = this.InputController.GetMovementRight();
+        this.PointerAngle = Math.ATan2(inputVec.Y,-inputVec.X);
+        var pointerVec = Real3(0,0,this.PointerAngle);
+
+        
+        //Determine Visibility
+        if(Math.Length(inputVec) > 0.3)
+        {
+            this.Visible = true;
+        }
+        else
+        {
+            this.Visible = false;
+        }
+        
+        //Update Hud Colors
+        var wantedColor = Real4(0, 0, 0, 0);
+        if(this.Visible)
+        {
+            if(this.SlowsTime == true)
+            {
+                this.MainSpace.TimeSpace.TimeScale = 0.5;
+                if(this.BGMManager != null)
+                {
+                    this.BGMManager.DungeonSoundManager.MasterPitch = 0.8;
+                }
+            }
+            wantedColor = Real4(1.0, 0.1098, 0.298, 0.33);
+        }
+        else
+        {
+            if(this.SlowsTime == true)
+            {
+                this.MainSpace.TimeSpace.TimeScale = 1.0;
+                if(this.BGMManager != null)
+                {
+                    this.BGMManager.DungeonSoundManager.MasterPitch = 1.0;
+                }
+            }
+            wantedColor = Real4(1.0, 0.1098, 0.298, 0.0);
+        }
+        this.HUDColor = Math.Lerp(this.HUDColor, wantedColor, event.Dt * 7.0);
+        //Update Colors in Models
+        this.PointerModel.Model.Color = this.HUDColor;
+        this.Ring.Model.Color = this.HUDColor * Real4(1,1,1,0.5);
+        if(this.PointerModel.Model.Color.W < 0.001)
+        {
+            this.PointerModel.Model.Visible = false;
+            this.Ring.Model.Visible = false;
+        }
+        else
+        {
+            this.PointerModel.Model.Visible = true;
+            this.Ring.Model.Visible = true;
+        }
+        
+        //Update Model Position
+        if(this.Visible)
+        {
+            
+            this.Pointer.Transform.LocalRotation = Math.Euler(pointerVec);
+            //Console.WriteLine("Pointer Angle: `Math.ToDegrees(this.PointerAngle)`");
+            foreach(var cog in this.BlipList)
+            {
+                if(cog.BlipLinker.BlipAngle < this.PointerAngle + 0.12 && cog.BlipLinker.BlipAngle > this.PointerAngle - 0.12
+                )
+                {
+                    
+                    if(cog.BlipLinker.BlipTarget != null && cog.BlipLinker.BlipTarget.Targetable.GetDistanceToPlayer() < cog.BlipLinker.BlipTarget.Targetable.Range)
+                    {
+                        this.Player.PlayerController.ZTargetingGoTo(cog.BlipLinker.BlipTarget);
+                    }
+                }
+            }
+        }
+    }
+}

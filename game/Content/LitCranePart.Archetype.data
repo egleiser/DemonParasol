@@ -20,8 +20,10 @@ Cog =
 	},
 	SpriteParticleSystem = 
 	{
-		bool Visible = true,
+		bool Visible = false,
 		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
 		SystemChildMode ChildMode = Independent,
 		SystemSpace SystemSpace = WorldSpace,
 		uint DrawOrder = 0,
@@ -39,7 +41,7 @@ Cog =
 	},
 	SphericalParticleEmitter = 
 	{
-		bool Active = true,
+		bool Active = false,
 		uint EmitCount = 0,
 		float EmitRate = 10,
 		float EmitVariance = 0,

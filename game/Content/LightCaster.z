@@ -1,0 +1,107 @@
+/////////////////////////////////////////
+////                                 ////
+////    Name: LightCaster.z          ////
+////    Written by: Eric Gleiser     ////
+////                                 ////
+////     Last Updated: 02-13-15      ////
+////                                 ////
+/////////////////////////////////////////
+//NOTE: Must always be attached to the 
+//child of a rigidbody
+
+class LightCaster : ZilchComponent
+{
+    [Dependency]
+    var Orientation: Orientation = null;
+    [Dependency]
+    var Transform: Transform = null;
+    [Property]
+    var LockXYRotation : Boolean = true;
+    [Property]
+    var LockXYPosition : Boolean = true;
+    var InitialPosition : Real3 = Real3(0,0,0);
+    [Property]
+    var Source : Boolean = false;
+    var Active : Boolean = false;
+    var RayDistance : Real = 0;
+    var Timer : Real = 0;
+    var MirrorLight : Cog = null;
+    [Property]
+    var DebugDraw : Boolean = false;
+    [Property]
+    var DebugColor : Real4 = Real4(0,1,0,0.7);
+    function Initialize(init : CogInitializer)
+    {
+        this.InitialPosition = this.Owner.Parent.Transform.WorldTranslation;
+        this.MirrorLight = this.Owner.Parent.FindChildByName("MirrorLight");
+        if(this.Source)
+        {
+            this.Active = true;
+        }
+        if(!this.LockXYRotation)
+        {
+            this.Owner.Parent.FindChildByName("MirrorJoint").Destroy();
+            this.Owner.Parent.FindChildByName("MirrorAxis").Destroy();
+        }
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.MirrorLight.Transform.Scale = Real3(0.9,this.RayDistance,0.9);
+        if(this.Active)
+        {
+            this.CastRay(event);
+            
+        }
+        if(this.LockXYPosition)
+        {
+            this.Owner.Parent.Transform.WorldTranslation = this.InitialPosition;
+        }
+        if(this.Timer > 0 && this.Source != true)
+        {
+            this.Active = false;
+            this.RayDistance = 0;
+        }
+        this.Timer += 1;
+
+    }
+    function CastRay(event : UpdateEvent)
+    {
+        var rayCast = Ray();
+        rayCast.Start = this.Transform.WorldTranslation + Real3(0,0,0);
+        rayCast.Direction = -this.Orientation.WorldUp;
+        
+        var objectHit = this.Space.PhysicsSpace.CastRayFirst(rayCast).ObjectHit;
+        if(objectHit != null)
+        {
+            this.RayDistance = Math.Length(this.Space.PhysicsSpace.CastRayFirst(rayCast).WorldPosition - this.Owner.Transform.WorldTranslation);
+            if(objectHit.LightCaster != null && objectHit.LightCaster.Source == false)
+            {
+                objectHit.LightCaster.Timer = 0;
+                objectHit.LightCaster.Active = true;
+            }
+            
+        }
+        var endPosition = rayCast.Start + rayCast.Direction * this.RayDistance;
+        if(this.DebugDraw == true)
+        {
+            this.DrawArrow(rayCast.Start, endPosition, this.DebugColor);
+        }
+        
+        //ScaleModel
+        
+        
+    }
+    function DrawArrow(startPos : Real3, endPos : Real3, arrowColor : Real4)
+    {
+        var line = DebugLine();
+        line.Start(startPos);
+        line.End(endPos);
+        line.Filled(true);
+        line.Width(10.0);
+        line.HeadSize(0.25);
+        line.Float4Color(arrowColor);
+        line.Draw();
+    }
+}

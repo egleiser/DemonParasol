@@ -14,9 +14,12 @@ class Targetable : ZilchComponent
     [Property]
     var IndicatorOffset:Real3 = Real3(0,0,0);
     [Property]
-    var Range:Real = 20.0;
+    var Range:Real = 30.0;
     var Player:Cog = null;
     var BGMManager:Cog = null;
+    var HUDTargeting:Cog = null;
+    var MyBlip:Cog = null;
+    var HUDSpace:Space = null;
     var AddedToEnemyArray: Boolean = false;
     var PlayerDistance:Real = 0.0;
     
@@ -24,7 +27,16 @@ class Targetable : ZilchComponent
     {
         this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
         this.Player.PlayerController.TargetList.Add(this.Owner);
+        this.HUDSpace = this.LevelSettings.HudCreator.HudSpace;
+        this.HUDTargeting = this.HUDSpace.FindObjectByName("TargetingSystem");
         this.BGMManager = this.LevelSettings.FindChildByName("BGMManager");
+        
+        //Create Targeting Blip
+        this.MyBlip = this.HUDSpace.CreateAtPosition(Archetype.Find("TargetBlip"), Real3(0,0,1000));
+        this.MyBlip.BlipLinker.BlipTarget = this.Owner;
+        this.HUDTargeting.HUDTargeting.BlipList.Add(this.MyBlip);
+        
+        
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.Death, this.OnDeath);
     }
@@ -62,10 +74,13 @@ class Targetable : ZilchComponent
     function CleanUp()
     {
         var indexToRemove = this.Player.PlayerController.TargetList.FindFirstIndex(this.Owner);
-        this.Player.PlayerController.TargetList.RemoveAt(indexToRemove);
-        if(this.AddedToEnemyArray == true)
+        if(indexToRemove >= 0)
         {
-            Console.WriteLine("Killed");
+            this.Player.PlayerController.TargetList.RemoveAt(indexToRemove);
+        }
+        if(this.AddedToEnemyArray == true && indexToRemove >= 0)
+        {
+            //Console.WriteLine("Killed");
             indexToRemove = this.BGMManager.DungeonSoundManager.EnemyList.FindFirstIndex(this.Owner);
             this.BGMManager.DungeonSoundManager.EnemyList.RemoveAt(indexToRemove);
         }

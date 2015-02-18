@@ -10,6 +10,7 @@ class DungeonSoundManager : ZilchComponent
 {
     [Property]
     var MasterVolume: Real = 0.5;
+    var MasterPitch: Real = 1.0;
     var MusicNormal: Cog = null;
     var MusicEnemy: Cog = null;
     var EnemyList: Array[Cog] = null;
@@ -27,7 +28,8 @@ class DungeonSoundManager : ZilchComponent
     function OnLogicUpdate(event : UpdateEvent)
     {
 
-        //Console.WriteLine(this.EnemyList.Count);
+        this.MusicNormal.SoundEmitter.Pitch = Math.Lerp(this.MusicNormal.SoundEmitter.Pitch, this.MasterPitch, event.Dt * 4.0);
+        this.MusicEnemy.SoundEmitter.Pitch = Math.Lerp(this.MusicEnemy.SoundEmitter.Pitch, this.MasterPitch, event.Dt * 4.0);
         if(this.EnemyList.Count > 0)
         {
             this.MusicNormal.SoundEmitter.Volume = Math.Lerp(this.MusicNormal.SoundEmitter.Volume, 0.0, event.Dt);

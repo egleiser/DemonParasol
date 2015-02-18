@@ -32,7 +32,7 @@ class AI_Fatman : ZilchComponent
         }
         if(Math.Length(this.GetPlayerVector(1.0)) < 3.0 && this.Rise == false)
         {
-            this.Owner.Transform.WorldTranslation += this.GetPlayerVector(0.1);
+            this.Owner.Transform.WorldTranslation += this.GetPlayerVector(5) * event.Dt;
         }
 
     }
