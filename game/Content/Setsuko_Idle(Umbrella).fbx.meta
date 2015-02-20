@@ -1,0 +1,28 @@
+GeometryContent = 
+{
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	AnimationBuilder = 
+	{
+		string Name = "Setsuko_Idle(Umbrella)",
+		uint64 ResourceId = 5437a7dba633716f,
+		bool MakeAnimationSet = false,
+		ResourceCompression CompressAnimation = None,
+		string PreviewArchetype = "",
+		Array Clips = 
+		[
+			{
+				string Name = "All",
+				uint64 ResourceId = 5437a7dba63954af,
+				int StartFrame = 0,
+				int EndFrame = 80,
+				LoopingMode LoopingMode = Default,
+			},
+		],
+	},
+},

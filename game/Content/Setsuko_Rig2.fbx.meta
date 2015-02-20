@@ -1,0 +1,49 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 5437a7bfa3da64eb,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "Setsuko_Rig2.pasted__LeftArm",
+				uint64 ResourceId = 5437a7bfa3a0123a,
+			},
+			{
+				string Name = "Setsuko_Rig2.pCylinder5",
+				uint64 ResourceId = 5437a7bfa3a0123e,
+			},
+			{
+				string Name = "Setsuko_Rig2.LeftArm",
+				uint64 ResourceId = 5437a7bfa3a01240,
+			},
+			{
+				string Name = "Setsuko_Rig2.pasted__Head",
+				uint64 ResourceId = 5437a7bfa3a01243,
+			},
+			{
+				string Name = "Setsuko_Rig2.pasted__Hair",
+				uint64 ResourceId = 5437a7bfa3a01245,
+			},
+			{
+				string Name = "Setsuko_Rig2.Torso",
+				uint64 ResourceId = 5437a7bfa3a01247,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},
