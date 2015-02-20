@@ -22,9 +22,11 @@ Cog =
 	{
 		bool Visible = true,
 		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
 		string MaterialName = "549ae288f43387b9:mat_PushWind",
 		string MeshName = "549a90678d6bf01f:BaseParasol",
-		Vec4 Color = [1, 1, 1, 1],
+		Vec4 Color = [1, 1, 1, 0.43],
 	},
 	TimedDeath = 
 	{
@@ -99,6 +101,8 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
 				SystemChildMode ChildMode = Independent,
 				SystemSpace SystemSpace = WorldSpace,
 				uint DrawOrder = 0,

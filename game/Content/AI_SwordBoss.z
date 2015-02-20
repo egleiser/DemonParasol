@@ -174,7 +174,7 @@ class AI_SwordBoss : ZilchComponent
                 this.Owner.DispatchDown("hitEvent", hitEvent);
                 this.Owner.DispatchEvent("hitEvent", hitEvent);
                 this.Space.CreateAtPosition(Archetype.Find("PullSparksBig"), this.FootCollider.Transform.WorldTranslation);
-                this.Owner.Health.ApplyDamage(2);
+                this.Owner.Health.ApplyDamage(1);
                 Console.WriteLine("Boss HP: `this.Owner.Health.CurrentHealth`");
                 //Get Faster
                 this.StompSpeed /= 1.5;
@@ -265,7 +265,7 @@ class AI_SwordBoss : ZilchComponent
             {
                 if(!this.StuckBlackRain)
                 {
-                    i += 3;
+                    i += 8;
                 }
                 else
                 {

@@ -1,0 +1,27 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "HUDWitchTime",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0.983089, 0.551934, -2.85482],
+		Vec3 Scale = [44.5215, 37.1636, 0.382035],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "541c2458928bacfd:matToriiPortal",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [0.255, 0.255, 0.255, 1],
+	},
+},

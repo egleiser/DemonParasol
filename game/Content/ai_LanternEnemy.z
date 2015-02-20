@@ -107,7 +107,7 @@ class Ai_LanternEnemy : ZilchComponent
     function MoveToPlayer(event : UpdateEvent)
     {
         var playerVec = this.Player.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
-        this.Owner.Transform.WorldTranslation += Math.Normalize(playerVec) * 0.05;
+        this.Owner.Transform.WorldTranslation += Math.Normalize(playerVec) * 3.0 * event.Dt;
     }
     function UpdateLights(event : UpdateEvent)
     {

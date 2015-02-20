@@ -29,8 +29,9 @@ class TongueFinder : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if((this.Player.InputController.Gamepad.LeftTrigger < 0.5 && (!Zero.Keyboard.KeyIsDown(Keys.A))) && this.Latched)
+        if((!this.Player.PlayerController.TargetingActive && (!Zero.Keyboard.KeyIsDown(Keys.A))) && this.Latched)
         {
+            Console.WriteLine("Destroyed Wrong");
             this.Owner.Destroy();
         }
 
@@ -41,15 +42,15 @@ class TongueFinder : ZilchComponent
             this.Owner.Destroy();
         }
         
-        if(this.PullPlayer == true && this.GetDistanceToPlayer() < 3.0)
+        if(this.PullPlayer == true && this.GetDistanceToPlayer() < 3.5)
         {
-            
+            Console.WriteLine("Destroyed Correct 1");
             this.Owner.Destroy();
         }
         
         if(this.PullToPlayer == true && this.GetDistanceToPlayer() < 5.0)
         {
-            
+            Console.WriteLine("Destroyed Correct 2");
             this.Owner.Destroy();
         }
         
