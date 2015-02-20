@@ -199,9 +199,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [56.0472, 1.33545, 15.988],
+			Vec3 Translation = [30.0462, -135.497, 100.138],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.153861, 0.439593, -0.0767207, 0.881589],
+			Quat Rotation = [0.374386, 0.124896, -0.0509689, 0.917408],
 		},
 		Camera = 
 		{
@@ -216,10 +216,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 40.7624,
-			float VerticalAngle = -0.345573,
-			float HorizontalAngle = -7.2083,
-			Vec3 LookTarget = [25.4154, 15.1431, -7.09044],
+			float LookDistance = 149.57,
+			float VerticalAngle = -0.774924,
+			float HorizontalAngle = -6.5538,
+			Vec3 LookTarget = [1.47884, -30.8493, -2.83664],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -580,9 +580,9 @@ Level =
 													bool VisibilityCulling = true,
 													bool VisibilityEvents = false,
 													bool CastShadows = true,
-													string MaterialName = "5437a55220fe721a:mat_plainGlossRim",
+													string MaterialName = "543799aa24ce787a:mat_playerArm",
 													string MeshName = "5437a7bfa3a0123a:Setsuko_Rig2.pasted__LeftArm",
-													Vec4 Color = [0.88, 0.484, 0.8404, 1],
+													Vec4 Color = [1, 1, 1, 1],
 												},
 												Hierarchy = 
 												{
@@ -1043,9 +1043,9 @@ Level =
 													bool VisibilityCulling = true,
 													bool VisibilityEvents = false,
 													bool CastShadows = true,
-													string MaterialName = "5437a55220fe721a:mat_plainGlossRim",
+													string MaterialName = "543799aa24ce787a:mat_playerArm",
 													string MeshName = "5437a7bfa3a01240:Setsuko_Rig2.LeftArm",
-													Vec4 Color = [0.878431, 0.482353, 0.839216, 1],
+													Vec4 Color = [1, 1, 1, 1],
 												},
 											},
 										},
@@ -1090,7 +1090,7 @@ Level =
 													bool VisibilityCulling = true,
 													bool VisibilityEvents = false,
 													bool CastShadows = true,
-													string MaterialName = "5437a55220fe721a:mat_plainGlossRim",
+													string MaterialName = "54379a5a330d6024:mat_playerFaceA",
 													string MeshName = "5437a7bfa3a01243:Setsuko_Rig2.pasted__Head",
 													Vec4 Color = [0.985, 0.911322, 0.7683, 1],
 												},
@@ -1151,9 +1151,9 @@ Level =
 									bool VisibilityCulling = true,
 									bool VisibilityEvents = false,
 									bool CastShadows = true,
-									string MaterialName = "5437a55220fe721a:mat_plainGlossRim",
+									string MaterialName = "54379a4830435dac:mat_playerBody",
 									string MeshName = "5437a7bfa3a01247:Setsuko_Rig2.Torso",
-									Vec4 Color = [0.878431, 0.482353, 0.839216, 1],
+									Vec4 Color = [1, 1, 1, 1],
 								},
 							},
 						},
@@ -1381,7 +1381,7 @@ Level =
 							ParticleSortMode SortMode = Youngest,
 							ParticleAnimation ParticleAnimation = Single,
 							string Texture = "54382d46a1e2190e:soft",
-							Vec4 Tint = [1, 1, 1, 0.225],
+							Vec4 Tint = [1, 1, 1, 0.15],
 							float VelocityScale = 0.2,
 							float LengthScale = 0.2,
 							float MaxParticleSize = 100,
@@ -26482,7 +26482,7 @@ Level =
 		},
 		Model = 
 		{
-			bool Visible = true,
+			bool Visible = false,
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = false,
 			bool CastShadows = false,

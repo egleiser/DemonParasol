@@ -1,0 +1,444 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "SetsukoRigged_Umbrella",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	AnimationGraph = 
+	{
+		bool Active = true,
+		AnimPlayMode PlayMode = PlayOnce,
+		float TimeScale = 1,
+		string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+		uint64 DebugPreviewId = 2d55d1782d55cff8,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "nurbsCircle3",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.00435664, 0.0116461, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "transform5",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.00435664, -0.0116461, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 4,
+							},
+							Named = 
+							{
+								string Name = "joint1",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0.0105454, 2.27553, 2.53805e-016],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0.00719369, 0.999974, 6.12308e-017, 4.40486e-019],
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 5,
+									},
+									Named = 
+									{
+										string Name = "Torso",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [-1.72262e-005, -0.734175, -7.23835e-018],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [1.2326e-032, -0, -0, 1],
+									},
+									Model = 
+									{
+										bool Visible = true,
+										bool VisibilityCulling = true,
+										bool VisibilityEvents = false,
+										bool CastShadows = true,
+										string MaterialName = "54b4fc76e60e1abd:SetsukoRigged_UmbrellaTorsoMulti",
+										string MeshName = "54b4fc49e60547b4:SetsukoRigged_Umbrella.Torso",
+										Vec4 Color = [1, 1, 1, 1],
+									},
+								},
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 6,
+					},
+					Named = 
+					{
+						string Name = "nurbsCircle4",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 3.68208, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 7,
+					},
+					Named = 
+					{
+						string Name = "nurbsCircle1",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.994645, 2.27392, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 8,
+					},
+					Named = 
+					{
+						string Name = "nurbsCircle2",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [1.02286, 2.27392, 1.76553e-018],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 9,
+			},
+			Named = 
+			{
+				string Name = "joint3",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [1.01631, 2.26829, 3.64664e-016],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0.00719369, 0.999974, 6.12308e-017, 4.40486e-019],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 10,
+					},
+					Named = 
+					{
+						string Name = "LeftArm",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.112407, 0.2086, 3.38349e-008],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [1.2326e-032, -0, -0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "542a2a2f54addb6a:DogFirstPassHindLeftMulti",
+						string MeshName = "54b4fc49e60547bc:SetsukoRigged_Umbrella.LeftArm",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 11,
+			},
+			Named = 
+			{
+				string Name = "joint2",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.995221, 2.29, 1.43749e-016],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 12,
+					},
+					Named = 
+					{
+						string Name = "LeftArm1",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.123651, 0.188488, -3.38349e-008],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "542a2a2f54addb6a:DogFirstPassHindLeftMulti",
+						string MeshName = "54b4fc49e60547bf:SetsukoRigged_Umbrella.LeftArm1",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 13,
+							},
+							Named = 
+							{
+								string Name = "pasted__pasted__pCylinder5",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [-0.191404, -1.50786, -0.737192],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0.732613, -0.0903606, 0.0660766, 0.671377],
+							},
+							Model = 
+							{
+								bool Visible = true,
+								bool VisibilityCulling = true,
+								bool VisibilityEvents = false,
+								bool CastShadows = true,
+								string MaterialName = "544380cb7820af93:lambert1",
+								string MeshName = "54b4fc49e60547c1:SetsukoRigged_Umbrella.pasted__pasted__pCylinder5",
+								Vec4 Color = [1, 1, 1, 1],
+							},
+						},
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 14,
+			},
+			Named = 
+			{
+				string Name = "joint4",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.00330962, 3.69373, 4.10454e-016],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0.00719369, 0.999974, 6.12308e-017, 4.40486e-019],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 15,
+					},
+					Named = 
+					{
+						string Name = "Head",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.00394054, 0.0438252, 8.63116e-019],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [1.2326e-032, -0, -0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "543c8f5dc0f6f2be:lambert3",
+						string MeshName = "54b4fc49e60547c3:SetsukoRigged_Umbrella.Head",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 16,
+							},
+							Named = 
+							{
+								string Name = "Hair",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0.000268398, 0.0186536, 2.13464e-019],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [1.2326e-032, -9.62965e-035, -0, 1],
+							},
+							Model = 
+							{
+								bool Visible = true,
+								bool VisibilityCulling = true,
+								bool VisibilityEvents = false,
+								bool CastShadows = true,
+								string MaterialName = "543c8f5dc0f6013e:lambert2",
+								string MeshName = "54b4fc49e60547c4:SetsukoRigged_Umbrella.Hair",
+								Vec4 Color = [1, 1, 1, 1],
+							},
+						},
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 17,
+			},
+			Named = 
+			{
+				string Name = "group",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.23895, 2.43928, 1.42611],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 18,
+					},
+					Named = 
+					{
+						string Name = "pasted__nurbsCircle3",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [1.23459, -2.42764, -1.42611],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.0516189, -0.0432309, 0.00858642, 0.997694],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 19,
+							},
+							Named = 
+							{
+								string Name = "pasted__transform5",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0.00435664, -0.0116461, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 20,
+									},
+									Named = 
+									{
+										string Name = "pasted__joint1",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0.0105454, 2.27553, 1.84314e-016],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0.00719369, 0.999974, -6.12308e-017, -4.40486e-019],
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	},
+},
