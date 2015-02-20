@@ -69,7 +69,7 @@ class DebugDrawLineToParent : ZilchComponent
         line.Start(startPos);
         line.End(endPos);
         line.Filled(true);
-        line.Width(10.0);
+        line.Width(5.0);
         line.Float4Color(lineColor);
         line.Draw();
     }
