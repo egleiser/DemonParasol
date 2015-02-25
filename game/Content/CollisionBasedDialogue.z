@@ -54,25 +54,16 @@ class CollisionBasedDialogue : ZilchComponent
     function OnLogicUpdate(event : UpdateEvent)
     {
         Console.WriteLine("Collision Based Dialogue Boolean = `this.HasDialogueStarted`");
-        if(this.HasDialogueStarted)
-        {
-            //this.Owner.Destroy();
-        }
     }
     
     function OnCollisionStarted(event : CollisionEvent)
     {
         if(event.OtherObject.Name == "Player")
         {
-            Console.WriteLine(this.Owner);
-            //this.Owner.Destroy();
+            //Sends the collider off into nowhere so it doesn't activate again
+            //Note: can't destroy otherwise results in error later on.
             this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y, -500);
             Console.WriteLine("Collision Based Dialogue Is Working");
-            if(this.HasDialogueStarted == true)
-            {
-                Console.WriteLine("Should Destroy This = `this.Owner`");
-                //this.Owner.Destroy();
-            }
             
             var textBoxEvent = new TextBoxEvent();
             textBoxEvent.DialogueSegmentToUse = this.DiagSeg;
