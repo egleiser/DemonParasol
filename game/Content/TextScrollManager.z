@@ -10,6 +10,8 @@ class TextScrollManager : ZilchComponent
     //TextBlock taken from TextBlockInfo
     var TextBlockToPrint : TextBlock = null;
     
+    var DialogueSequence : Boolean = false;
+    
     //The complete string that will be printed
     var GoalString : String = null;
     //The string as it exists each moment while it is printed
@@ -30,8 +32,6 @@ class TextScrollManager : ZilchComponent
     var GamepadIndex:Integer = 0;
     var Gamepad:Gamepad = null;
     
-    var EmptyText : TextBlock = null;
-    
     var PlayerDeactivated : Boolean = false;
     
     var TextDelay : Real = 0.0;
@@ -48,6 +48,10 @@ class TextScrollManager : ZilchComponent
     //Used if player wishes to have text scroll very quickly
     var TextIsScrolling : Boolean = false;
     
+    var TextIsCancelled : Boolean = false;
+    
+    var DialogueSpeedIncreased : Boolean = false;
+    
     var ButtonAPresses : Integer = 0;
     
     //The Action Set that controls the delays
@@ -61,31 +65,32 @@ class TextScrollManager : ZilchComponent
     {
         this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
         this.TextBox = this.TextBoxPath.Cog;
-        this.EmptyText = TextBlock.Find("EmptyBlock");
+
         
         this.TextIsScrolling = true;
         
         Zero.Connect(this.Owner, "textScrollEvent", this.OntextScrollEvent);
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Space, "dialogueFinished", this.OnDialogueFinished);
+        Zero.Connect(this.Space, "CancelDialogue", this.OnCancelDialogue);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        Console.WriteLine(this.Owner.SpriteText.Text);
-        if(this.PlayerDeactivated == true)
+        //Console.WriteLine(this.Owner.SpriteText.Text);
+        
+        if(this.DialogueSequence == true)
         {
             var textManager = this.Space.FindObjectByName("TextBox").TextBoxManager;
             var diagSeg = textManager.DialogueSegment;
             //Console.WriteLine("Current Dialogue Segment = `diagSeg`");
             if(textManager.DialogueFinished == true)
             {
-                Console.WriteLine("This prints if dialogue is finsihed");
                 this.Owner.SpriteText.Text = "";
-                var mainSpace = this.GameSession.FindSpaceByName("Main");
-                var dialogueFinished = new DialogueEventFinished();
-                dialogueFinished.CurrentDialogueSegment = diagSeg;
-                mainSpace.DispatchEvent("dialogueFinished", dialogueFinished);
+                //var mainSpace = this.GameSession.FindSpaceByName("Main");
+                //var dialogueFinished = new DialogueEventFinished();
+                //dialogueFinished.CurrentDialogueSegment = diagSeg;
+                //mainSpace.DispatchEvent("dialogueFinished", dialogueFinished);
                 textManager.DialogueFinished = false;
             }
             
@@ -103,20 +108,15 @@ class TextScrollManager : ZilchComponent
                 }
                 else
                 {
-                    Console.WriteLine("Not the problem area");
                     this.LetterDelay = 0.0;
                     this.PunctuationDelay = 0.0;
+                    this.DialogueSpeedIncreased = true;
                 }
             }
-            //if(this.Gamepad.IsButtonPressed(Buttons.B))
-            //{
-                //var e = new TextScrollEvent();
-                //e.TextToWrite = this.EmptyText;
-                //this.Owner.DispatchEvent("textScrollEvent", e);
-                //this.TextIsScrolling = true;
-                //this.Owner.SpriteText.Text = "";
-                //this.CurrentString = "";
-            //}
+            if(this.Gamepad.IsButtonPressed(Buttons.B))
+            {
+                this.TextIsCancelled = true;
+            }
         }
     }
 
@@ -132,6 +132,7 @@ class TextScrollManager : ZilchComponent
         this.CurrentString = null;
         this.GoalString = event.TextToWrite.Text;
         //this.Owner.SpriteText.Text = "";
+        this.TextIsScrolling = true;
         
         this.TextSeq = Action.Sequence(this.Owner.Actions);
         
@@ -153,15 +154,23 @@ class TextScrollManager : ZilchComponent
         
         if(Zero.Keyboard.KeyIsPressed(Keys.Space) || this.Gamepad.IsButtonPressed(Buttons.A))
         {
-            this.CurrentString = this.GoalString;
-        }
-        else
-        {
-            if(this.GoalString != this.CurrentString)
+            if(this.DialogueSpeedIncreased == true)
             {
-                this.CurrentString = this.GoalString.SubString(0, this.CurrentIndex + 1);
+                Console.WriteLine("Should complete dialogue");
+                this.Owner.SpriteText.Text = this.GoalString;
+                this.DialogueSpeedIncreased = false;
+                this.TextIsScrolling = false;
+                return;
             }
         }
+        
+        if(this.TextIsCancelled == true)
+        {
+            this.DialogueSequence = false;
+            return;
+        }
+        
+        this.CurrentString = this.GoalString.SubString(0, this.CurrentIndex + 1);
         
         var currentCharacterInt:Integer = this.GoalString.Get(this.CurrentIndex);
         var currentCharacter:String = null;
@@ -182,19 +191,15 @@ class TextScrollManager : ZilchComponent
         
         this.CurrentIndex += 1;
         
-        //this is where the extra screen wrapping code would go
-        if(this.CurrentIndex > 1)
+        if(this.TextIsScrolling)
         {
             this.Owner.SpriteText.Text = this.CurrentString;
-        }
-        else
-        {
-            this.Owner.SpriteText.Text = "";
         }
         
         this.TextSeq = Action.Sequence(this.Owner.Actions);
         
         Actions.Delay(this.TextSeq, this.TextDelay);
+        
         Actions.Call(this.TextSeq, this.TextScroll);
         //this.ParticleScroll(this.CurrentIndex);
     }
@@ -209,6 +214,21 @@ class TextScrollManager : ZilchComponent
     {
         Console.WriteLine("Not sure this should happen");
         this.Owner.SpriteText.Text = "";
+    }
+    
+    function OnCancelDialogue(event : CancelDialogueEvent)
+    {
+        this.GoalString = this.CurrentString;
+        var seq = Action.Sequence(this.Owner.Actions);
+        Action.Delay(seq, 0.2);
+        Action.Call(seq, this.ChangeCancelDialogueBool);
+        this.DialogueSequence = false;
+    }
+    
+    function ChangeCancelDialogueBool()
+    {
+        Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!");
+        this.TextIsCancelled = false;
     }
     
     

@@ -55,34 +55,21 @@ class TextBoxManager : ZilchComponent
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, "startDialogue", this.OnStartDialogueEvent);
         Zero.Connect(this.Owner, "continueDialogue", this.OnContinueDialogueEvent);
+        Zero.Connect(this.Owner, "CancelDialogue", this.OnCancelDialogue);
     }
     
     function OnLogicUpdate(event : UpdateEvent)
     {
         if(Zero.Keyboard.KeyIsPressed(Keys.N) || this.Gamepad.IsButtonPressed(Buttons.B))
         {
-            var seq = Action.Sequence(this.Owner.Actions);
-            var grp = Action.Group(seq);
-            //this.DialogueFinished = true;
-            //Action.Call(seq, this.ChangeDiagSeqEndedBool);
-            Action.Property(grp,
-                            @this.Owner.Transform.Translation,
-                            Real3(this.Owner.Transform.Translation.X, -13.0, this.Owner.Transform.Translation.Z),
-                            0.3,
-                            Ease.QuadIn);
-                            
-            Action.Property(grp,
-                            @this.Owner.Sprite.Color,
-                            Real4(this.Owner.Sprite.Color.X, this.Owner.Sprite.Color.Y, this.Owner.Sprite.Color.Z, 0),
-                            0.3,
-                            Ease.Linear);
-            Action.Call(seq, this.ClearDialogue);
+            this.CancelDialogue();
         }
     }
 
     function OnStartDialogueEvent(event : TextBoxEvent)
     {
         this.DialogueStarted = true;
+        this.TextBoxText.TextScrollManager.DialogueSequence = true;
         //this.ClearDialogue();
         var mainSpace = this.GameSession.FindSpaceByName("Main");
             
@@ -104,7 +91,7 @@ class TextBoxManager : ZilchComponent
         
         var seq = Action.Sequence(this.Owner.Actions);
         var grp = Action.Group(seq);
-        Action.Call(seq, this.FirstTextScroll);
+        //Action.Call(seq, this.FirstTextScroll);
         Action.Property(grp,
                         @this.Owner.Transform.Translation,
                         Real3(this.Owner.Transform.Translation.X, event.DistanceOnScreen, this.Owner.Transform.Translation.Z),
@@ -115,7 +102,7 @@ class TextBoxManager : ZilchComponent
                         Real4(this.Owner.Sprite.Color.X, this.Owner.Sprite.Color.Y, this.Owner.Sprite.Color.Z, event.Opacity),
                         event.OpacityTimeIn,
                         event.OpacityEase);
-        //Action.Call(seq, this.FirstTextScroll);
+        Action.Call(seq, this.FirstTextScroll);
     }
     
     function OnContinueDialogueEvent(event : ContinueDialogueEvent)
@@ -126,8 +113,8 @@ class TextBoxManager : ZilchComponent
         {
             var seq = Action.Sequence(this.Owner.Actions);
             var grp = Action.Group(seq);
+            this.TextBoxText.TextScrollManager.DialogueSequence = false;
             this.DialogueFinished = true;
-            Action.Call(seq, this.ChangeDiagSeqEndedBool);
             Action.Property(grp,
                             @this.Owner.Transform.Translation,
                             Real3(this.Owner.Transform.Translation.X, -13.0, this.Owner.Transform.Translation.Z),
@@ -139,8 +126,6 @@ class TextBoxManager : ZilchComponent
                             Real4(this.Owner.Sprite.Color.X, this.Owner.Sprite.Color.Y, this.Owner.Sprite.Color.Z, 0),
                             0.3,
                             Ease.Linear);
-            //Action.Call(seq, this.ClearDialogue);
-            
         }
         else
         {
@@ -208,14 +193,32 @@ class TextBoxManager : ZilchComponent
         this.TextBoxText.DispatchEvent("textScrollEvent", e);
     }
     
-    function ClearDialogue()
+    function CancelDialogue()
     {
         Console.WriteLine("Dialogue Should Be Clear");
         this.TextBoxText.SpriteText.Text = "";
-        this.TextBoxText.TextScrollManager.CurrentString = "";
-        this.TextBoxText.TextScrollManager.GoalString = "";
-        //this.ChildTexts.Clear();
-        //this.TextBoxText.TextScrollManager.CurrentString = this.TextBoxText.TextScrollManager.GoalString;
+        var e = new CancelDialogueEvent();
+        this.Owner.DispatchEvent("CancelDialogue", e);
+        this.Space.DispatchEvent("CancelDialogue", e);
+    }
+    
+    function OnCancelDialogue(event : CancelDialogueEvent)
+    {
+        this.DialogueFinished = true;
+        var grp = Action.Group(this.Owner.Actions);
+        Action.Property(grp,
+                            @this.Owner.Transform.Translation,
+                            Real3(this.Owner.Transform.Translation.X, -13.0, this.Owner.Transform.Translation.Z),
+                            0.3,
+                            Ease.QuadIn);
+                            
+        Action.Property(grp,
+                        @this.Owner.Sprite.Color,
+                        Real4(this.Owner.Sprite.Color.X, this.Owner.Sprite.Color.Y, this.Owner.Sprite.Color.Z, 0),
+                        0.3,
+                        Ease.Linear);
+                        
+        this.CurrentTextIdx = this.ChildTexts.Count;
     }
     
     function ReactivateTongue()
@@ -237,9 +240,6 @@ class TextBoxManager : ZilchComponent
         this.TextBoxText.DispatchEvent("textScrollEvent", e);
     }
     
-    function ChangeDiagSeqEndedBool()
-    {
-        //this.DialogueFinished = true;
-    }
+
 }
 
