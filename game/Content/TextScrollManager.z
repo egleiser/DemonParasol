@@ -44,6 +44,9 @@ class TextScrollManager : ZilchComponent
     //The standard delay for printing characters
     [Property]
     var LetterDelay : Real = 0.05;
+    
+    [Property]
+    var Particle : Archetype = null;
     //Boolean to check whether text is currently scrolling
     //Used if player wishes to have text scroll very quickly
     var TextIsScrolling : Boolean = false;
@@ -117,6 +120,17 @@ class TextScrollManager : ZilchComponent
             {
                 this.TextIsCancelled = true;
             }
+            
+            //var localPos = Real3(this.Owner.SpriteText.MeasureGivenText(this.Owner.SpriteText.Text), 0);
+            //var worldPos = this.Owner.Transform.TransformPoint(localPos);
+            
+            var worldPos = this.Owner.SpriteText.GetCharacterPosition(this.CurrentIndex - 1);
+            
+            this.Space.CreateAtPosition(this.Particle, worldPos + Real3(1,-0.4,5));
+            
+            
+            
+            Console.WriteLine();
         }
     }
 
@@ -194,6 +208,7 @@ class TextScrollManager : ZilchComponent
         if(this.TextIsScrolling)
         {
             this.Owner.SpriteText.Text = this.CurrentString;
+            
         }
         
         this.TextSeq = Action.Sequence(this.Owner.Actions);
@@ -236,12 +251,12 @@ class TextScrollManager : ZilchComponent
     //{
     //    var particle:Cog = this.Space.FindObjectByName("TextBoxParticle");
         
-    //    var currentCharacterPosition:Real3 = this.Owner.SpriteText.GetCharacterPosition(this.CurrentIndex);
+    //    var currentCharacterPosition:Real3 = Real3(this.Owner.SpriteText.MeasureText().X, this.Owner.SpriteText.MeasureText().Y, this.Owner.Transform.Translation.Z);
     //    Console.WriteLine("Pos: `currentCharacterPosition`");
     //    //currentCharacterPosition = this.Owner.Transform.TransformPoint(currentCharacterPosition);
         
     //    //particle.SpriteParticleSystem.Visible = true;
-    //    particle.Transform.Translation = currentCharacterPosition;// = Math.Lerp(particle.Transform.Translation, currentCharacterPosition, 1.0);
+    //    particle.Transform.Translation = Math.Lerp(particle.Transform.Translation, currentCharacterPosition, 1.0);
     //}
 }
     

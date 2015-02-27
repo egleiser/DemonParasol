@@ -221,16 +221,6 @@ class TextBoxManager : ZilchComponent
         this.CurrentTextIdx = this.ChildTexts.Count;
     }
     
-    function ReactivateTongue()
-    {
-        //var textBoxText = this.Space.FindObjectByName("TextBoxText");
-        //textBoxText.TextScrollManager.PlayerDeactivated = false;
-        
-        //var mainSpace = this.GameSession.FindSpaceByName("Main");
-        //var player = mainSpace.FindObjectByName("Player");
-        //player.PlayerController.Active = true;
-    }
-    
     function FirstTextScroll()
     {
         this.DialogueStarted = true;
