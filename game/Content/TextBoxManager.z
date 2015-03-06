@@ -43,11 +43,15 @@ class TextBoxManager : ZilchComponent
     var CurrentSprite : SpriteSource = null;
     var SpriteToLoad : SpriteSource = null;
     
+    var MainSpace : Space = null;
+    
     function Initialize(init : CogInitializer)
     {
         this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
         
         this.ChildTexts = new Array[Cog]();
+        
+        this.MainSpace = this.GameSession.FindSpaceByName("Main");
         
         this.TextBoxText = this.TextBoxTextPath.Cog;
         this.ContinueButton = this.ContinueButtonPath.Cog;
@@ -111,6 +115,8 @@ class TextBoxManager : ZilchComponent
         
         if(this.CurrentTextIdx == this.ChildTexts.Count)
         {
+            this.MainSpace.TimeSpace.Paused = false;
+            
             var seq = Action.Sequence(this.Owner.Actions);
             var grp = Action.Group(seq);
             this.TextBoxText.TextScrollManager.DialogueSequence = false;
@@ -204,6 +210,8 @@ class TextBoxManager : ZilchComponent
     
     function OnCancelDialogue(event : CancelDialogueEvent)
     {
+        this.MainSpace.TimeSpace.Paused = false;
+        
         this.DialogueFinished = true;
         var grp = Action.Group(this.Owner.Actions);
         Action.Property(grp,

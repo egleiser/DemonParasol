@@ -45,8 +45,7 @@ class TextScrollManager : ZilchComponent
     [Property]
     var LetterDelay : Real = 0.05;
     
-    [Property]
-    var Particle : Archetype = null;
+    var Particle : Cog  = null;
     //Boolean to check whether text is currently scrolling
     //Used if player wishes to have text scroll very quickly
     var TextIsScrolling : Boolean = false;
@@ -64,13 +63,24 @@ class TextScrollManager : ZilchComponent
     
     var ChangeDelay : Real = 0.5;
     
+    var CharWorldPos : Real3 = Real3();
+    
+    var MainSpace : Space = null;
+    
     function Initialize(init : CogInitializer)
     {
         this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
         this.TextBox = this.TextBoxPath.Cog;
-
         
         this.TextIsScrolling = true;
+        
+        this.MainSpace = this.GameSession.FindSpaceByName("Main");
+        
+        this.CharWorldPos = this.Owner.SpriteText.GetCharacterPosition(this.CurrentIndex - 1);
+        this.Particle = this.Space.FindObjectByName("TextBoxParticle");
+        this.Particle.Transform.Translation = this.CharWorldPos + Real3(1, -0.4, 5);
+        
+        //this.Space.CreateAtPosition(this.Particle, this.CharWorldPos + Real3(1,-0.4,5));
         
         Zero.Connect(this.Owner, "textScrollEvent", this.OntextScrollEvent);
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -80,7 +90,6 @@ class TextScrollManager : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        //Console.WriteLine(this.Owner.SpriteText.Text);
         
         if(this.DialogueSequence == true)
         {
@@ -124,13 +133,11 @@ class TextScrollManager : ZilchComponent
             //var localPos = Real3(this.Owner.SpriteText.MeasureGivenText(this.Owner.SpriteText.Text), 0);
             //var worldPos = this.Owner.Transform.TransformPoint(localPos);
             
-            var worldPos = this.Owner.SpriteText.GetCharacterPosition(this.CurrentIndex - 1);
+            this.CharWorldPos = this.Owner.SpriteText.GetCharacterPosition(this.CurrentIndex - 1);
             
-            this.Space.CreateAtPosition(this.Particle, worldPos + Real3(1,-0.4,5));
+            this.Particle.Transform.Translation = Math.Lerp(this.Particle.Transform.Translation,
+             this.CharWorldPos + Real3(1, -0.4, 5), 1.0);
             
-            
-            
-            Console.WriteLine();
         }
     }
 
@@ -142,17 +149,17 @@ class TextScrollManager : ZilchComponent
         }
         this.PlayerDeactivated = true;
         
+        this.MainSpace.TimeSpace.Paused = true;
+        
         this.CurrentIndex = 0;
         this.CurrentString = null;
         this.GoalString = event.TextToWrite.Text;
-        //this.Owner.SpriteText.Text = "";
         this.TextIsScrolling = true;
         
         this.TextSeq = Action.Sequence(this.Owner.Actions);
         
         Actions.Delay(this.TextSeq, this.TextDelay);
         Actions.Call(this.TextSeq, this.TextScroll);
-        //this.ParticleScroll(this.CurrentIndex);
     }
     
     function TextScroll()
@@ -245,18 +252,5 @@ class TextScrollManager : ZilchComponent
         Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!");
         this.TextIsCancelled = false;
     }
-    
-    
-    //function ParticleScroll(currentCharacterIndex:Integer)
-    //{
-    //    var particle:Cog = this.Space.FindObjectByName("TextBoxParticle");
-        
-    //    var currentCharacterPosition:Real3 = Real3(this.Owner.SpriteText.MeasureText().X, this.Owner.SpriteText.MeasureText().Y, this.Owner.Transform.Translation.Z);
-    //    Console.WriteLine("Pos: `currentCharacterPosition`");
-    //    //currentCharacterPosition = this.Owner.Transform.TransformPoint(currentCharacterPosition);
-        
-    //    //particle.SpriteParticleSystem.Visible = true;
-    //    particle.Transform.Translation = Math.Lerp(particle.Transform.Translation, currentCharacterPosition, 1.0);
-    //}
 }
     

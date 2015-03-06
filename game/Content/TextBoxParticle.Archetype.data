@@ -14,8 +14,8 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [1, 0.999998, 0.0001],
+		Vec3 Translation = [5.84124, -3.33807, 3.34329],
+		Vec3 Scale = [0.625, 0.624999, 0.0001],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	SpriteParticleSystem = 
@@ -42,8 +42,8 @@ Cog =
 	SphericalParticleEmitter = 
 	{
 		bool Active = true,
-		uint EmitCount = 1,
-		float EmitRate = 1.5,
+		uint EmitCount = 10,
+		float EmitRate = 20,
 		float EmitVariance = 0,
 		float Size = 0.5,
 		float SizeVariance = 0.1,
@@ -76,11 +76,5 @@ Cog =
 		Vec4 Color2 = [1, 0, 0, 1],
 		Vec4 Color3 = [0.46, 0, 0, 1],
 		Vec4 Color4 = [0, 0, 0, 0],
-	},
-	TimedDeath = 
-	{
-		float Lifetime = 0.75,
-		bool SendsDeathEvent = true,
-		bool AutoDestroy = true,
 	},
 },
