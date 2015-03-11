@@ -115,8 +115,6 @@ class TextBoxManager : ZilchComponent
         
         if(this.CurrentTextIdx == this.ChildTexts.Count)
         {
-            this.MainSpace.TimeSpace.Paused = false;
-            
             var seq = Action.Sequence(this.Owner.Actions);
             var grp = Action.Group(seq);
             this.TextBoxText.TextScrollManager.DialogueSequence = false;
@@ -132,6 +130,7 @@ class TextBoxManager : ZilchComponent
                             Real4(this.Owner.Sprite.Color.X, this.Owner.Sprite.Color.Y, this.Owner.Sprite.Color.Z, 0),
                             0.3,
                             Ease.Linear);
+            Action.Call(seq, this.TextBoxText.TextScrollManager.DialogueEndSettings);
         }
         else
         {
@@ -210,8 +209,6 @@ class TextBoxManager : ZilchComponent
     
     function OnCancelDialogue(event : CancelDialogueEvent)
     {
-        this.MainSpace.TimeSpace.Paused = false;
-        
         this.DialogueFinished = true;
         var grp = Action.Group(this.Owner.Actions);
         Action.Property(grp,
@@ -225,6 +222,7 @@ class TextBoxManager : ZilchComponent
                         Real4(this.Owner.Sprite.Color.X, this.Owner.Sprite.Color.Y, this.Owner.Sprite.Color.Z, 0),
                         0.3,
                         Ease.Linear);
+        Action.Call(grp, this.TextBoxText.TextScrollManager.DialogueEndSettings);
                         
         this.CurrentTextIdx = this.ChildTexts.Count;
     }

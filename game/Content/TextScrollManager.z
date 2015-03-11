@@ -147,9 +147,9 @@ class TextScrollManager : ZilchComponent
         {
             this.TextSeq.Cancel();
         }
-        this.PlayerDeactivated = true;
+        //this.PlayerDeactivated = true;
         
-        this.MainSpace.TimeSpace.Paused = true;
+        this.DialogueStartSettings();
         
         this.CurrentIndex = 0;
         this.CurrentString = null;
@@ -252,5 +252,14 @@ class TextScrollManager : ZilchComponent
         Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!");
         this.TextIsCancelled = false;
     }
-}
     
+    function DialogueStartSettings()
+    {
+        this.MainSpace.TimeSpace.Paused = true;
+    }
+    
+    function DialogueEndSettings()
+    {
+        this.MainSpace.TimeSpace.Paused = false;
+    }
+}
