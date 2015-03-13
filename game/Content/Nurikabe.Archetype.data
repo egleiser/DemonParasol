@@ -1,0 +1,191 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Nurikabe",
+	},
+	Archetyped = 
+	{
+		string Name = "55d3038ca30ba1c0:Nurikabe",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [48.9697, -95.3448, 1.83317],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = false,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = true,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [0.5, 0.5, 0.5],
+	},
+	AI_Nurikabe = 
+	{
+		CogPath StaringNode = ":/PatrolNodeA",
+		float SightRange = 20,
+		float SightAngle = 60,
+		Vec4 LightColor = [0.2, 0.9, 0.9, 1],
+		Vec4 LightColorFound = [1, 0.2, 0.20048, 1],
+		Vec4 LightColorCaution = [1, 0.8, 0.1, 1],
+		float SweepSpeed = 2,
+		float Forgetfulness = 7,
+		float RotateSpeed = 2.5,
+		bool DebugDraw = false,
+		Vec4 DebugColor = [1, 0.2, 0.20048, 0.7],
+	},
+	Orientation = 
+	{
+		Vec3 GlobalUp = [0, 1, 0],
+		Vec3 UpVector = [0, 0, 1],
+		Vec3 ForwardVector = [1, 0, 0],
+		OrientationBases DefaultBases = ForwardXUpZ,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "NurikabeModel",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.0509109, 7.62939e-006, 3.61113],
+				Vec3 Scale = [1, 5.75929, 8.25376],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "54057e4cb1eb9137:mat_gradientTrans",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [0.375, 1, 0.7375, 0.825],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "NurikabeModel",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.432575, 0, 0.184153],
+						Vec3 Scale = [1, 0.844056, 0.627201],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "54057e4cb1eb9137:mat_gradientTrans",
+						string MeshName = "4de0354322b345ae:Cube",
+						Vec4 Color = [0.375, 1, 0.7375, 0.825],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "NurikabeLight",
+			},
+			Archetyped = 
+			{
+				string Name = "55d314ce095fe99b:NurikabeLight",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-3.43323e-005, 7.62939e-006, 3.93391e-006],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [6.60209e-008, -0.655505, 5.73061e-008, 0.755191],
+			},
+			Model = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			Light = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				LightType LightType = Spot,
+				Vec4 Color = [0.405, 1, 0.98215, 1],
+				float Intensity = 50,
+				float Range = 23,
+				float Falloff = 1,
+				float Angle = 74,
+				float Size = 20,
+			},
+			Shadow = 
+			{
+				bool Active = false,
+				Quality Quality = HighQuality,
+				ShadowMapping ShadowMapping = Standard,
+				ShadowSoftening ShadowSoftening = Pcf5x5,
+				Vec4 Color = [0, 0, 0, 1],
+				float SplitPlaneDistribution = 0.8,
+			},
+			Hierarchy = 
+			{
+			},
+		},
+	},
+},
