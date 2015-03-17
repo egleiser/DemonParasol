@@ -97,6 +97,7 @@ class AI_Nurikabe : ZilchComponent
             this.FacePlayer(event);
             this.StepTowardsPlayer(event);
             this.Space.CreateAtPosition(Archetype.Find("ExclamBase"), this.Owner.Transform.WorldTranslation + Real3(0,0,9.5));
+            this.Space.SoundSpace.PlayCue(SoundCue.Find("Alert"));
             var found = Action.Sequence(this.Owner.Actions);
             //found.Cancel();
             Action.Property(found, @this.Owner.Transform.WorldScale, Real3(1.3,1.3,1.3) , 0.2 , Ease.QuadIn);

@@ -166,9 +166,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [51.9332, -111.68, 69.7936],
+			Vec3 Translation = [15.3696, -127.663, 38.5465],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [2.23005e-006, -0.000801681, 1.78784e-009, 1],
+			Quat Rotation = [0.145705, -0.359516, 0.0569426, 0.919932],
 		},
 		Camera = 
 		{
@@ -183,10 +183,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 60.8106,
-			float VerticalAngle = -4.4601e-006,
-			float HorizontalAngle = 0.00160332,
-			Vec3 LookTarget = [52.0307, -111.68, 8.983],
+			float LookDistance = 55.0237,
+			float VerticalAngle = -0.314164,
+			float HorizontalAngle = 0.745113,
+			Vec3 LookTarget = [50.8526, -110.659, 0.0829257],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -214,7 +214,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [82.6682, -113.883, 0],
+			Vec3 Translation = [82.6682, -118.774, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -823,7 +823,7 @@ Level =
 			float Radius = 30,
 			float AngleChange = 90,
 			float AngleOrigin = 0,
-			Vec3 CamLerp = [0, 0, 27],
+			Vec3 CamLerp = [0, 0, 35],
 		},
 		Orientation = 
 		{
@@ -8127,7 +8127,7 @@ Level =
 		{
 			Vec3 Translation = [68.7378, -39.9909, 2.57253],
 			Vec3 Scale = [4, 1, 4],
-			Quat Rotation = [0, 0, 0.326635, 0.945151],
+			Quat Rotation = [0, 0, -0.0312985, 0.99951],
 		},
 		Model = 
 		{
@@ -8351,7 +8351,7 @@ Level =
 						},
 						Model = 
 						{
-							bool Visible = false,
+							bool Visible = true,
 							bool VisibilityCulling = true,
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
@@ -8422,7 +8422,7 @@ Level =
 		{
 			Vec3 Translation = [68.7378, -53.3147, 2.57253],
 			Vec3 Scale = [4, 1, 4],
-			Quat Rotation = [0, 0, -0.862148, 0.506657],
+			Quat Rotation = [0, 0, -0.835996, 0.548735],
 		},
 		Model = 
 		{
@@ -8712,12 +8712,19 @@ Level =
 			Enum SurfaceType = Dirt,
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "55d30d3df415e24e:PatrolNode",
 		LinkId = 
 		{
 			uint Id = 222,
+		},
+		Named = 
+		{
+			string Name = "PatrolNodeA",
+		},
+		Archetyped = 
+		{
+			string Name = "55d30d3df415e24e:PatrolNode",
 		},
 		Transform = 
 		{
@@ -8725,9 +8732,45 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Named = 
+		Model = 
 		{
-			string Name = "PatrolNodeA",
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b376ae:Sphere",
+			Vec4 Color = [0, 1, 0.00999975, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = true,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		SphereCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 0.1,
+		},
+		PatrolNode = 
+		{
+			CogPath NextNode = ":/PatrolNodeB",
+			float MoveSpeed = 5,
+			float WaitTime = 3,
+			bool DebugDraw = true,
+			Vec4 DebugColor = [0, 1, 0, 0.7],
 		},
 	},
 	Cog = 
@@ -8752,7 +8795,7 @@ Level =
 		},
 		Model = 
 		{
-			bool Visible = false,
+			bool Visible = true,
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = false,
 			bool CastShadows = true,
@@ -8813,7 +8856,7 @@ Level =
 		},
 		Model = 
 		{
-			bool Visible = false,
+			bool Visible = true,
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = false,
 			bool CastShadows = true,
@@ -8874,7 +8917,7 @@ Level =
 		},
 		Model = 
 		{
-			bool Visible = false,
+			bool Visible = true,
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = false,
 			bool CastShadows = true,
@@ -8976,7 +9019,7 @@ Level =
 			float SweepSpeed = 2,
 			float Forgetfulness = 7,
 			float RotateSpeed = 2.5,
-			bool DebugDraw = false,
+			bool DebugDraw = true,
 			Vec4 DebugColor = [1, 0.2, 0.20048, 0.7],
 		},
 		Orientation = 
@@ -9158,67 +9201,6 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "PatrolNodeD",
-		},
-		Archetyped = 
-		{
-			string Name = "55d30d3df415e24e:PatrolNode",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [60.7718, -96.3769, 2.42889],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Model = 
-		{
-			bool Visible = false,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "5404506d3dd2a41e:mat_Light",
-			string MeshName = "4de0354322b376ae:Sphere",
-			Vec4 Color = [0, 1, 0.00999975, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = true,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		SphereCollider = 
-		{
-			bool Ghost = true,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			float Radius = 0.1,
-		},
-		PatrolNode = 
-		{
-			CogPath NextNode = ":/PatrolNodeA",
-			float MoveSpeed = 5,
-			float WaitTime = 3,
-			bool DebugDraw = true,
-			Vec4 DebugColor = [0, 1, 0, 0.7],
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 232,
-		},
-		Named = 
-		{
 			string Name = "Cube",
 		},
 		Transform = 
@@ -9270,7 +9252,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 233,
+			uint Id = 232,
 		},
 		Named = 
 		{
@@ -9282,7 +9264,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [48.9697, -119.067, 1.83317],
+			Vec3 Translation = [49.1823, -118.798, 1.83317],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -9329,7 +9311,7 @@ Level =
 			float SweepSpeed = 2,
 			float Forgetfulness = 7,
 			float RotateSpeed = 2.5,
-			bool DebugDraw = false,
+			bool DebugDraw = true,
 			Vec4 DebugColor = [1, 0.2, 0.20048, 0.7],
 		},
 		Orientation = 
@@ -9351,7 +9333,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 234,
+					uint Id = 233,
 				},
 				Named = 
 				{
@@ -9379,7 +9361,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 235,
+							uint Id = 234,
 						},
 						Named = 
 						{
@@ -9408,7 +9390,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 236,
+					uint Id = 235,
 				},
 				Named = 
 				{
@@ -9465,7 +9447,991 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 237,
+					uint Id = 236,
+				},
+				Named = 
+				{
+					string Name = "NurikabeCollider",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.0509109, 7.62939e-006, 3.61113],
+					Vec3 Scale = [1, 5.75929, 8.25376],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54057e4cb1eb9137:mat_gradientTrans",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0.375, 1, 0.7375, 0.825],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				Hierarchy = 
+				{
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 237,
+		},
+		Named = 
+		{
+			string Name = "LightMirror",
+		},
+		Archetyped = 
+		{
+			string Name = "540e74ad2729d6b9:LightMirror",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [46.7368, -42.6652, 2.57253],
+			Vec3 Scale = [4, 1, 4],
+			Quat Rotation = [0, 0, 0.239516, 0.970893],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 100,
+			Vec3 Direction = [0, 0, -1],
+		},
+		DragEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			float Drag = 30,
+		},
+		Targetable = 
+		{
+			Enum IndicatorType = Standard,
+			Vec3 IndicatorOffset = [0, 0, 3],
+			float Range = 30,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 238,
+				},
+				Named = 
+				{
+					string Name = "Mirror",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -0.5, 0],
+					Vec3 Scale = [0.925, 0.1, 0.925],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481b84e008be766:mat_gradient",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 1],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				Orientation = 
+				{
+					Vec3 GlobalUp = [0, 1, 0],
+					Vec3 UpVector = [0, 1, 0],
+					Vec3 ForwardVector = [0, 0, 1],
+					OrientationBases DefaultBases = ForwardZUpY,
+				},
+				LightCaster = 
+				{
+					bool LockXYRotation = true,
+					bool LockXYPosition = true,
+					bool Source = false,
+					bool DebugDraw = true,
+					Vec4 DebugColor = [1, 0, 0.000599861, 0.7],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 239,
+				},
+				Named = 
+				{
+					string Name = "MirrorAxis",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 2],
+					Vec3 Scale = [0.25, 1, 0.25],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "4de020863e85bb61:DefaultMaterial",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 1],
+				},
+				RigidBody = 
+				{
+					bool Static = false,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = true,
+					bool Mode2D = false,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = true,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 240,
+				},
+				Named = 
+				{
+					string Name = "MirrorJoint",
+				},
+				ObjectLink = 
+				{
+					uint ObjectA = 239,
+					uint ObjectB = 237,
+					Vec3 BodyPointA = [0, 0, 0],
+					Vec3 BodyPointB = [0, 0, 0],
+				},
+				RevoluteJoint = 
+				{
+					bool Active = true,
+					bool SendsEvents = false,
+					bool AutoSnaps = false,
+					bool CollideConnected = true,
+					float MaxForce = 0,
+					uint PrimaryFrameIndex = 0,
+					Vec3 BodyPointA = [0, 0, 0],
+					Vec3 BodyPointB = [0, 0, 0],
+					Quat ReferenceAngleA = [1, 0, 0, 0],
+					Quat ReferenceAngleB = [1, 0, 0, 0],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 241,
+				},
+				Named = 
+				{
+					string Name = "MirrorLight",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -0.5, 0],
+					Vec3 Scale = [0.9, 0.0001, 0.9],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 242,
+						},
+						Named = 
+						{
+							string Name = "MirrorLightModel",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, -0.5, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 1.90735e-006, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "540e564611437118:mat_LightBeam",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [0.9685, 1, 0.37, 0.415],
+						},
+					},
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 243,
+		},
+		Named = 
+		{
+			string Name = "LightMirror",
+		},
+		Archetyped = 
+		{
+			string Name = "540e74ad2729d6b9:LightMirror",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [54.3295, -53.3147, 2.57253],
+			Vec3 Scale = [4, 1, 4],
+			Quat Rotation = [0, 0, -0.835996, 0.548735],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 100,
+			Vec3 Direction = [0, 0, -1],
+		},
+		DragEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			float Drag = 30,
+		},
+		Targetable = 
+		{
+			Enum IndicatorType = Standard,
+			Vec3 IndicatorOffset = [0, 0, 3],
+			float Range = 30,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 244,
+				},
+				Named = 
+				{
+					string Name = "Mirror",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -0.5, 0],
+					Vec3 Scale = [0.925, 0.1, 0.925],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481b84e008be766:mat_gradient",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 1],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				Orientation = 
+				{
+					Vec3 GlobalUp = [0, 1, 0],
+					Vec3 UpVector = [0, 1, 0],
+					Vec3 ForwardVector = [0, 0, 1],
+					OrientationBases DefaultBases = ForwardZUpY,
+				},
+				LightCaster = 
+				{
+					bool LockXYRotation = true,
+					bool LockXYPosition = true,
+					bool Source = false,
+					bool DebugDraw = true,
+					Vec4 DebugColor = [1, 0, 0.000599861, 0.7],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 245,
+				},
+				Named = 
+				{
+					string Name = "MirrorAxis",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 2],
+					Vec3 Scale = [0.25, 1, 0.25],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "4de020863e85bb61:DefaultMaterial",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 1],
+				},
+				RigidBody = 
+				{
+					bool Static = false,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = true,
+					bool Mode2D = false,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = true,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 246,
+				},
+				Named = 
+				{
+					string Name = "MirrorJoint",
+				},
+				ObjectLink = 
+				{
+					uint ObjectA = 245,
+					uint ObjectB = 243,
+					Vec3 BodyPointA = [0, 0, 0],
+					Vec3 BodyPointB = [0, 0, 0],
+				},
+				RevoluteJoint = 
+				{
+					bool Active = true,
+					bool SendsEvents = false,
+					bool AutoSnaps = false,
+					bool CollideConnected = true,
+					float MaxForce = 0,
+					uint PrimaryFrameIndex = 0,
+					Vec3 BodyPointA = [0, 0, 0],
+					Vec3 BodyPointB = [0, 0, 0],
+					Quat ReferenceAngleA = [1, 0, 0, 0],
+					Quat ReferenceAngleB = [1, 0, 0, 0],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 247,
+				},
+				Named = 
+				{
+					string Name = "MirrorLight",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -0.5, 0],
+					Vec3 Scale = [0.9, 0.0001, 0.9],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 248,
+						},
+						Named = 
+						{
+							string Name = "MirrorLightModel",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, -0.5, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 1.90735e-006, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "540e564611437118:mat_LightBeam",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [0.9685, 1, 0.37, 0.415],
+						},
+					},
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 249,
+		},
+		Named = 
+		{
+			string Name = "Nurikabe",
+		},
+		Archetyped = 
+		{
+			string Name = "55d3038ca30ba1c0:Nurikabe",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [60.3803, -107.815, 1.83317],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = true,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		AI_Nurikabe = 
+		{
+			CogPath StaringNode = ":/PatrolNodeD",
+			float SightRange = 20,
+			float SightAngle = 60,
+			Vec4 LightColor = [0.2, 0.9, 0.9, 1],
+			Vec4 LightColorFound = [1, 0.2, 0.20048, 1],
+			Vec4 LightColorCaution = [1, 0.8, 0.1, 1],
+			float SweepSpeed = 2,
+			float Forgetfulness = 7,
+			float RotateSpeed = 2.5,
+			bool DebugDraw = true,
+			Vec4 DebugColor = [1, 0.2, 0.20048, 0.7],
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 1, 0],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [1, 0, 0],
+			OrientationBases DefaultBases = ForwardXUpZ,
+		},
+		Targetable = 
+		{
+			Enum IndicatorType = Enemy,
+			Vec3 IndicatorOffset = [0, 0, 8],
+			float Range = 30,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 250,
+				},
+				Named = 
+				{
+					string Name = "NurikabeModel",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.0509109, 7.62939e-006, 3.61113],
+					Vec3 Scale = [1, 5.75929, 8.25376],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54057e4cb1eb9137:mat_gradientTrans",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0.375, 1, 0.7375, 0.825],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 251,
+						},
+						Named = 
+						{
+							string Name = "NurikabeModel",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0.432575, 0, 0.184153],
+							Vec3 Scale = [1, 0.844056, 0.627201],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "54057e4cb1eb9137:mat_gradientTrans",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [0.375, 1, 0.7375, 0.825],
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 252,
+				},
+				Named = 
+				{
+					string Name = "NurikabeLight",
+				},
+				Archetyped = 
+				{
+					string Name = "55d314ce095fe99b:NurikabeLight",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-3.43323e-005, 7.62939e-006, 3.93391e-006],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [6.60209e-008, -0.655505, 5.73061e-008, 0.755191],
+				},
+				Model = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "4de020863e85bb61:DefaultMaterial",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 1],
+				},
+				Light = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					LightType LightType = Spot,
+					Vec4 Color = [0.405, 1, 0.98215, 1],
+					float Intensity = 50,
+					float Range = 23,
+					float Falloff = 1,
+					float Angle = 74,
+					float Size = 20,
+				},
+				Shadow = 
+				{
+					bool Active = false,
+					Quality Quality = HighQuality,
+					ShadowMapping ShadowMapping = Standard,
+					ShadowSoftening ShadowSoftening = Pcf5x5,
+					Vec4 Color = [0, 0, 0, 1],
+					float SplitPlaneDistribution = 0.8,
+				},
+				Hierarchy = 
+				{
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 253,
+				},
+				Named = 
+				{
+					string Name = "NurikabeCollider",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.0509109, 7.62939e-006, 3.61113],
+					Vec3 Scale = [1, 5.75929, 8.25376],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54057e4cb1eb9137:mat_gradientTrans",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0.375, 1, 0.7375, 0.825],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				Hierarchy = 
+				{
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 254,
+		},
+		Named = 
+		{
+			string Name = "Nurikabe",
+		},
+		Archetyped = 
+		{
+			string Name = "55d3038ca30ba1c0:Nurikabe",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [38.3773, -107.815, 1.83317],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = true,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		AI_Nurikabe = 
+		{
+			CogPath StaringNode = ":/PatrolNodeB",
+			float SightRange = 20,
+			float SightAngle = 60,
+			Vec4 LightColor = [0.2, 0.9, 0.9, 1],
+			Vec4 LightColorFound = [1, 0.2, 0.20048, 1],
+			Vec4 LightColorCaution = [1, 0.8, 0.1, 1],
+			float SweepSpeed = 2,
+			float Forgetfulness = 7,
+			float RotateSpeed = 2.5,
+			bool DebugDraw = true,
+			Vec4 DebugColor = [1, 0.2, 0.20048, 0.7],
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 1, 0],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [1, 0, 0],
+			OrientationBases DefaultBases = ForwardXUpZ,
+		},
+		Targetable = 
+		{
+			Enum IndicatorType = Enemy,
+			Vec3 IndicatorOffset = [0, 0, 8],
+			float Range = 30,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 255,
+				},
+				Named = 
+				{
+					string Name = "NurikabeModel",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.0509109, 7.62939e-006, 3.61113],
+					Vec3 Scale = [1, 5.75929, 8.25376],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54057e4cb1eb9137:mat_gradientTrans",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0.375, 1, 0.7375, 0.825],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 256,
+						},
+						Named = 
+						{
+							string Name = "NurikabeModel",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0.432575, 0, 0.184153],
+							Vec3 Scale = [1, 0.844056, 0.627201],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "54057e4cb1eb9137:mat_gradientTrans",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [0.375, 1, 0.7375, 0.825],
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 257,
+				},
+				Named = 
+				{
+					string Name = "NurikabeLight",
+				},
+				Archetyped = 
+				{
+					string Name = "55d314ce095fe99b:NurikabeLight",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-3.43323e-005, 7.62939e-006, 3.93391e-006],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [6.60209e-008, -0.655505, 5.73061e-008, 0.755191],
+				},
+				Model = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "4de020863e85bb61:DefaultMaterial",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 1],
+				},
+				Light = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					LightType LightType = Spot,
+					Vec4 Color = [0.405, 1, 0.98215, 1],
+					float Intensity = 50,
+					float Range = 23,
+					float Falloff = 1,
+					float Angle = 74,
+					float Size = 20,
+				},
+				Shadow = 
+				{
+					bool Active = false,
+					Quality Quality = HighQuality,
+					ShadowMapping ShadowMapping = Standard,
+					ShadowSoftening ShadowSoftening = Pcf5x5,
+					Vec4 Color = [0, 0, 0, 1],
+					float SplitPlaneDistribution = 0.8,
+				},
+				Hierarchy = 
+				{
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 258,
 				},
 				Named = 
 				{
