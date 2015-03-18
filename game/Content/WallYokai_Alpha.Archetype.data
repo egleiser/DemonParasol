@@ -100,6 +100,20 @@ Cog =
 				string MeshName = "55d9df6f54a25389:WallYokai_Alpha.WallYokai_Nose",
 				Vec4 Color = [0.312, 0.6, 0.478642, 1],
 			},
+			Light = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				LightType LightType = Point,
+				Vec4 Color = [1, 1, 1, 1],
+				float Intensity = 1,
+				float Range = 5,
+				float Falloff = 1,
+				float Angle = 45,
+				float Size = 20,
+			},
 		},
 		Cog = 
 		{
