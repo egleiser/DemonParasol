@@ -72,7 +72,7 @@ class AI_Nurikabe : ZilchComponent
     }
     function OnLogicUpdate(event : UpdateEvent)
     {
-        Console.WriteLine("Current State: `this.CurrentState`");
+        //Console.WriteLine("Current State: `this.CurrentState`");
         this.CastRay(event);
         if(this.CurrentState == NurikabeState.Patrol)
         {
@@ -209,6 +209,16 @@ class AI_Nurikabe : ZilchComponent
                     this.CurrentState = NurikabeState.Found;
                 }
                 this.ForgetfulnessTimer = 0.0;
+            }
+           
+            if(objectHit.Parent != null && objectHit.Parent.AI_Nurikabe != null && realRayDistance < this.RayDistance )
+            {
+                //Console.Write("Object Hit: `objectHit`");
+                if(this.CurrentState == NurikabeState.Chase && objectHit.Parent.AI_Nurikabe.CurrentState != NurikabeState.Chase)
+                {
+                    objectHit.Parent.AI_Nurikabe.CurrentState = NurikabeState.Found;
+                }
+                objectHit.Parent.AI_Nurikabe.ForgetfulnessTimer = 0.0;
             }
             
         }
