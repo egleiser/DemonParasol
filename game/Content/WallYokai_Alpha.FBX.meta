@@ -1,0 +1,53 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 55d9df6f54dd7fa6,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [0.2, 0.2, 0.2],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "WallYokai_Alpha.WallYokai_Body",
+				uint64 ResourceId = 55d9df6f54a25383,
+			},
+			{
+				string Name = "WallYokai_Alpha.WallYokai_Head",
+				uint64 ResourceId = 55d9df6f54a25387,
+			},
+			{
+				string Name = "WallYokai_Alpha.WallYokai_Nose",
+				uint64 ResourceId = 55d9df6f54a25389,
+			},
+			{
+				string Name = "WallYokai_Alpha.WallYokai_EarL",
+				uint64 ResourceId = 55d9df6f54a2538c,
+			},
+			{
+				string Name = "WallYokai_Alpha.Box001",
+				uint64 ResourceId = 55d9df6f54a2538e,
+			},
+			{
+				string Name = "WallYokai_Alpha.WallYokai_FootR",
+				uint64 ResourceId = 55d9df6f54a25390,
+			},
+			{
+				string Name = "WallYokai_Alpha.WallYokai_FootL",
+				uint64 ResourceId = 55d9df6f54a25392,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},

@@ -166,9 +166,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [15.3696, -127.663, 38.5465],
+			Vec3 Translation = [50.2359, -83.1244, 146.301],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.145705, -0.359516, 0.0569426, 0.919932],
+			Quat Rotation = [0.0155892, -0.123515, 0.0019406, 0.992218],
 		},
 		Camera = 
 		{
@@ -183,10 +183,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 55.0237,
-			float VerticalAngle = -0.314164,
-			float HorizontalAngle = 0.745113,
-			Vec3 LookTarget = [50.8526, -110.659, 0.0829257],
+			float LookDistance = 165.3,
+			float VerticalAngle = -0.0314202,
+			float HorizontalAngle = 0.247694,
+			Vec3 LookTarget = [90.7424, -77.9315, -13.875],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -214,7 +214,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [82.6682, -118.774, 0],
+			Vec3 Translation = [82.6682, -70.9242, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -9055,7 +9055,7 @@ Level =
 				},
 				Model = 
 				{
-					bool Visible = true,
+					bool Visible = false,
 					bool VisibilityCulling = true,
 					bool VisibilityEvents = false,
 					bool CastShadows = true,
@@ -9073,23 +9073,209 @@ Level =
 						},
 						Named = 
 						{
-							string Name = "NurikabeModel",
+							string Name = "WallYokai_Alpha",
+						},
+						Archetyped = 
+						{
+							string Name = "55d9df6f54dd7fa6:WallYokai_Alpha",
 						},
 						Transform = 
 						{
-							Vec3 Translation = [0.432575, 0, 0.184153],
-							Vec3 Scale = [1, 0.844056, 0.627201],
-							Quat Rotation = [0, 0, 0, 1],
+							Vec3 Translation = [0, 0, -0.509795],
+							Vec3 Scale = [0.121565, 0.0848252, 0.700127],
+							Quat Rotation = [0.5, 0.5, 0.5, 0.5],
 						},
-						Model = 
+						Hierarchy = 
 						{
-							bool Visible = true,
-							bool VisibilityCulling = true,
-							bool VisibilityEvents = false,
-							bool CastShadows = true,
-							string MaterialName = "54057e4cb1eb9137:mat_gradientTrans",
-							string MeshName = "4de0354322b345ae:Cube",
-							Vec4 Color = [0.375, 1, 0.7375, 0.825],
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 229,
+								},
+								Named = 
+								{
+									string Name = "WallYokai_Body",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0.188104, 0.330022, -1.11842],
+									Vec3 Scale = [0.990418, 0.990418, 0.990418],
+									Quat Rotation = [8.14603e-008, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "55d9de6524311e6b:mat_WallYokaiMain",
+									string MeshName = "55d9df6f54a25383:WallYokai_Alpha.WallYokai_Body",
+									Vec4 Color = [0.312, 0.6, 0.478642, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 230,
+								},
+								Named = 
+								{
+									string Name = "WallYokai_Head",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0.682776, 6.93335, 0.440716],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [8.14603e-008, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "55d9df6f54b654f4:WallYokai_AlphaWallYokai_HeadMulti",
+									string MeshName = "55d9df6f54a25387:WallYokai_Alpha.WallYokai_Head",
+									Vec4 Color = [0.376471, 1, 0.737255, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 231,
+								},
+								Named = 
+								{
+									string Name = "WallYokai_Nose",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0.569104, 9.94259, 3.1117],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [1.54543e-008, -0.707107, 1.54543e-008, 0.707107],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "55d9de6524311e6b:mat_WallYokaiMain",
+									string MeshName = "55d9df6f54a25389:WallYokai_Alpha.WallYokai_Nose",
+									Vec4 Color = [0.312, 0.6, 0.478642, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 232,
+								},
+								Named = 
+								{
+									string Name = "WallYokai_EarL",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [5.00206, 9.1359, -0.35779],
+									Vec3 Scale = [1, 0.667929, 0.776996],
+									Quat Rotation = [2.18557e-008, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "55d9de6524311e6b:mat_WallYokaiMain",
+									string MeshName = "55d9df6f54a2538c:WallYokai_Alpha.WallYokai_EarL",
+									Vec4 Color = [0.312, 0.6, 0.478642, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 233,
+								},
+								Named = 
+								{
+									string Name = "Box001",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-4.08092, 10.6057, -0.0556732],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [2.18557e-008, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "55d9de6524311e6b:mat_WallYokaiMain",
+									string MeshName = "55d9df6f54a2538e:WallYokai_Alpha.Box001",
+									Vec4 Color = [0.312, 0.6, 0.478642, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 234,
+								},
+								Named = 
+								{
+									string Name = "WallYokai_FootR",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-2.08815, 0.0376762, 1.27213],
+									Vec3 Scale = [1, 0.700831, 1],
+									Quat Rotation = [-0.707107, -0, 0, 0.707107],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "55d9de6524311e6b:mat_WallYokaiMain",
+									string MeshName = "55d9df6f54a25390:WallYokai_Alpha.WallYokai_FootR",
+									Vec4 Color = [0.312, 0.6, 0.478642, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 235,
+								},
+								Named = 
+								{
+									string Name = "WallYokai_FootL",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [2.41535, 0.0376762, 1.27213],
+									Vec3 Scale = [1, 0.700831, 1],
+									Quat Rotation = [-0.707107, 0, -0, 0.707107],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "55d9de6524311e6b:mat_WallYokaiMain",
+									string MeshName = "55d9df6f54a25392:WallYokai_Alpha.WallYokai_FootL",
+									Vec4 Color = [0.312, 0.6, 0.478642, 1],
+								},
+							},
 						},
 					},
 				},
@@ -9098,7 +9284,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 229,
+					uint Id = 236,
 				},
 				Named = 
 				{
@@ -9155,7 +9341,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 230,
+					uint Id = 237,
 				},
 				Named = 
 				{
@@ -9197,7 +9383,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 231,
+			uint Id = 238,
 		},
 		Named = 
 		{
@@ -9252,7 +9438,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 232,
+			uint Id = 239,
 		},
 		Named = 
 		{
@@ -9333,7 +9519,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 233,
+					uint Id = 240,
 				},
 				Named = 
 				{
@@ -9347,7 +9533,7 @@ Level =
 				},
 				Model = 
 				{
-					bool Visible = true,
+					bool Visible = false,
 					bool VisibilityCulling = true,
 					bool VisibilityEvents = false,
 					bool CastShadows = true,
@@ -9361,27 +9547,213 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 234,
+							uint Id = 241,
 						},
 						Named = 
 						{
-							string Name = "NurikabeModel",
+							string Name = "WallYokai_Alpha",
+						},
+						Archetyped = 
+						{
+							string Name = "55d9df6f54dd7fa6:WallYokai_Alpha",
 						},
 						Transform = 
 						{
-							Vec3 Translation = [0.432575, 0, 0.184153],
-							Vec3 Scale = [1, 0.844056, 0.627201],
-							Quat Rotation = [0, 0, 0, 1],
+							Vec3 Translation = [0, 0, -0.509795],
+							Vec3 Scale = [0.121565, 0.0848252, 0.700127],
+							Quat Rotation = [0.5, 0.5, 0.5, 0.5],
 						},
-						Model = 
+						Hierarchy = 
 						{
-							bool Visible = true,
-							bool VisibilityCulling = true,
-							bool VisibilityEvents = false,
-							bool CastShadows = true,
-							string MaterialName = "54057e4cb1eb9137:mat_gradientTrans",
-							string MeshName = "4de0354322b345ae:Cube",
-							Vec4 Color = [0.375, 1, 0.7375, 0.825],
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 242,
+								},
+								Named = 
+								{
+									string Name = "WallYokai_Body",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0.188104, 0.330022, -1.11842],
+									Vec3 Scale = [0.990418, 0.990418, 0.990418],
+									Quat Rotation = [8.14603e-008, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "55d9de6524311e6b:mat_WallYokaiMain",
+									string MeshName = "55d9df6f54a25383:WallYokai_Alpha.WallYokai_Body",
+									Vec4 Color = [0.312, 0.6, 0.478642, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 243,
+								},
+								Named = 
+								{
+									string Name = "WallYokai_Head",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0.682776, 6.93335, 0.440716],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [8.14603e-008, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "55d9df6f54b654f4:WallYokai_AlphaWallYokai_HeadMulti",
+									string MeshName = "55d9df6f54a25387:WallYokai_Alpha.WallYokai_Head",
+									Vec4 Color = [0.376471, 1, 0.737255, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 244,
+								},
+								Named = 
+								{
+									string Name = "WallYokai_Nose",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0.569104, 9.94259, 3.1117],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [1.54543e-008, -0.707107, 1.54543e-008, 0.707107],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "55d9de6524311e6b:mat_WallYokaiMain",
+									string MeshName = "55d9df6f54a25389:WallYokai_Alpha.WallYokai_Nose",
+									Vec4 Color = [0.312, 0.6, 0.478642, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 245,
+								},
+								Named = 
+								{
+									string Name = "WallYokai_EarL",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [5.00206, 9.1359, -0.35779],
+									Vec3 Scale = [1, 0.667929, 0.776996],
+									Quat Rotation = [2.18557e-008, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "55d9de6524311e6b:mat_WallYokaiMain",
+									string MeshName = "55d9df6f54a2538c:WallYokai_Alpha.WallYokai_EarL",
+									Vec4 Color = [0.312, 0.6, 0.478642, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 246,
+								},
+								Named = 
+								{
+									string Name = "Box001",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-4.08092, 10.6057, -0.0556732],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [2.18557e-008, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "55d9de6524311e6b:mat_WallYokaiMain",
+									string MeshName = "55d9df6f54a2538e:WallYokai_Alpha.Box001",
+									Vec4 Color = [0.312, 0.6, 0.478642, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 247,
+								},
+								Named = 
+								{
+									string Name = "WallYokai_FootR",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-2.08815, 0.0376762, 1.27213],
+									Vec3 Scale = [1, 0.700831, 1],
+									Quat Rotation = [-0.707107, -0, 0, 0.707107],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "55d9de6524311e6b:mat_WallYokaiMain",
+									string MeshName = "55d9df6f54a25390:WallYokai_Alpha.WallYokai_FootR",
+									Vec4 Color = [0.312, 0.6, 0.478642, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 248,
+								},
+								Named = 
+								{
+									string Name = "WallYokai_FootL",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [2.41535, 0.0376762, 1.27213],
+									Vec3 Scale = [1, 0.700831, 1],
+									Quat Rotation = [-0.707107, 0, -0, 0.707107],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "55d9de6524311e6b:mat_WallYokaiMain",
+									string MeshName = "55d9df6f54a25392:WallYokai_Alpha.WallYokai_FootL",
+									Vec4 Color = [0.312, 0.6, 0.478642, 1],
+								},
+							},
 						},
 					},
 				},
@@ -9390,7 +9762,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 235,
+					uint Id = 249,
 				},
 				Named = 
 				{
@@ -9447,7 +9819,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 236,
+					uint Id = 250,
 				},
 				Named = 
 				{
@@ -9489,7 +9861,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 237,
+			uint Id = 251,
 		},
 		Named = 
 		{
@@ -9563,7 +9935,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 238,
+					uint Id = 252,
 				},
 				Named = 
 				{
@@ -9615,7 +9987,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 239,
+					uint Id = 253,
 				},
 				Named = 
 				{
@@ -9664,7 +10036,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 240,
+					uint Id = 254,
 				},
 				Named = 
 				{
@@ -9672,8 +10044,8 @@ Level =
 				},
 				ObjectLink = 
 				{
-					uint ObjectA = 239,
-					uint ObjectB = 237,
+					uint ObjectA = 253,
+					uint ObjectB = 251,
 					Vec3 BodyPointA = [0, 0, 0],
 					Vec3 BodyPointB = [0, 0, 0],
 				},
@@ -9695,7 +10067,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 241,
+					uint Id = 255,
 				},
 				Named = 
 				{
@@ -9713,7 +10085,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 242,
+							uint Id = 256,
 						},
 						Named = 
 						{
@@ -9744,7 +10116,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 243,
+			uint Id = 257,
 		},
 		Named = 
 		{
@@ -9818,7 +10190,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 244,
+					uint Id = 258,
 				},
 				Named = 
 				{
@@ -9870,7 +10242,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 245,
+					uint Id = 259,
 				},
 				Named = 
 				{
@@ -9919,7 +10291,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 246,
+					uint Id = 260,
 				},
 				Named = 
 				{
@@ -9927,8 +10299,8 @@ Level =
 				},
 				ObjectLink = 
 				{
-					uint ObjectA = 245,
-					uint ObjectB = 243,
+					uint ObjectA = 259,
+					uint ObjectB = 257,
 					Vec3 BodyPointA = [0, 0, 0],
 					Vec3 BodyPointB = [0, 0, 0],
 				},
@@ -9950,7 +10322,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 247,
+					uint Id = 261,
 				},
 				Named = 
 				{
@@ -9968,7 +10340,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 248,
+							uint Id = 262,
 						},
 						Named = 
 						{
@@ -9999,7 +10371,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 249,
+			uint Id = 263,
 		},
 		Named = 
 		{
@@ -10080,7 +10452,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 250,
+					uint Id = 264,
 				},
 				Named = 
 				{
@@ -10094,7 +10466,7 @@ Level =
 				},
 				Model = 
 				{
-					bool Visible = true,
+					bool Visible = false,
 					bool VisibilityCulling = true,
 					bool VisibilityEvents = false,
 					bool CastShadows = true,
@@ -10104,31 +10476,22 @@ Level =
 				},
 				Hierarchy = 
 				{
-					Cog = 
+					ArchetypeInstance = 
 					{
+						string Name = "55d9df6f54dd7fa6:WallYokai_Alpha",
 						LinkId = 
 						{
-							uint Id = 251,
-						},
-						Named = 
-						{
-							string Name = "NurikabeModel",
+							uint Id = 265,
 						},
 						Transform = 
 						{
-							Vec3 Translation = [0.432575, 0, 0.184153],
-							Vec3 Scale = [1, 0.844056, 0.627201],
-							Quat Rotation = [0, 0, 0, 1],
+							Vec3 Translation = [0, 0, -0.509795],
+							Vec3 Scale = [0.121565, 0.0848252, 0.700127],
+							Quat Rotation = [0.5, 0.5, 0.5, 0.5],
 						},
-						Model = 
+						Named = 
 						{
-							bool Visible = true,
-							bool VisibilityCulling = true,
-							bool VisibilityEvents = false,
-							bool CastShadows = true,
-							string MaterialName = "54057e4cb1eb9137:mat_gradientTrans",
-							string MeshName = "4de0354322b345ae:Cube",
-							Vec4 Color = [0.375, 1, 0.7375, 0.825],
+							string Name = "WallYokai_Alpha",
 						},
 					},
 				},
@@ -10137,7 +10500,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 252,
+					uint Id = 266,
 				},
 				Named = 
 				{
@@ -10194,7 +10557,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 253,
+					uint Id = 267,
 				},
 				Named = 
 				{
@@ -10232,19 +10595,12 @@ Level =
 			},
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "55d3038ca30ba1c0:Nurikabe",
 		LinkId = 
 		{
-			uint Id = 254,
-		},
-		Named = 
-		{
-			string Name = "Nurikabe",
-		},
-		Archetyped = 
-		{
-			string Name = "55d3038ca30ba1c0:Nurikabe",
+			uint Id = 268,
 		},
 		Transform = 
 		{
@@ -10252,221 +10608,9 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Model = 
+		Named = 
 		{
-			bool Visible = false,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "4de020863e85bb61:DefaultMaterial",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = true,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-		AI_Nurikabe = 
-		{
-			CogPath StaringNode = ":/PatrolNodeB",
-			float SightRange = 20,
-			float SightAngle = 60,
-			Vec4 LightColor = [0.2, 0.9, 0.9, 1],
-			Vec4 LightColorFound = [1, 0.2, 0.20048, 1],
-			Vec4 LightColorCaution = [1, 0.8, 0.1, 1],
-			float SweepSpeed = 2,
-			float Forgetfulness = 7,
-			float RotateSpeed = 2.5,
-			bool DebugDraw = true,
-			Vec4 DebugColor = [1, 0.2, 0.20048, 0.7],
-		},
-		Orientation = 
-		{
-			Vec3 GlobalUp = [0, 1, 0],
-			Vec3 UpVector = [0, 0, 1],
-			Vec3 ForwardVector = [1, 0, 0],
-			OrientationBases DefaultBases = ForwardXUpZ,
-		},
-		Targetable = 
-		{
-			Enum IndicatorType = Enemy,
-			Vec3 IndicatorOffset = [0, 0, 8],
-			float Range = 30,
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 255,
-				},
-				Named = 
-				{
-					string Name = "NurikabeModel",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-0.0509109, 7.62939e-006, 3.61113],
-					Vec3 Scale = [1, 5.75929, 8.25376],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = true,
-					string MaterialName = "54057e4cb1eb9137:mat_gradientTrans",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [0.375, 1, 0.7375, 0.825],
-				},
-				Hierarchy = 
-				{
-					Cog = 
-					{
-						LinkId = 
-						{
-							uint Id = 256,
-						},
-						Named = 
-						{
-							string Name = "NurikabeModel",
-						},
-						Transform = 
-						{
-							Vec3 Translation = [0.432575, 0, 0.184153],
-							Vec3 Scale = [1, 0.844056, 0.627201],
-							Quat Rotation = [0, 0, 0, 1],
-						},
-						Model = 
-						{
-							bool Visible = true,
-							bool VisibilityCulling = true,
-							bool VisibilityEvents = false,
-							bool CastShadows = true,
-							string MaterialName = "54057e4cb1eb9137:mat_gradientTrans",
-							string MeshName = "4de0354322b345ae:Cube",
-							Vec4 Color = [0.375, 1, 0.7375, 0.825],
-						},
-					},
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 257,
-				},
-				Named = 
-				{
-					string Name = "NurikabeLight",
-				},
-				Archetyped = 
-				{
-					string Name = "55d314ce095fe99b:NurikabeLight",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-3.43323e-005, 7.62939e-006, 3.93391e-006],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [6.60209e-008, -0.655505, 5.73061e-008, 0.755191],
-				},
-				Model = 
-				{
-					bool Visible = false,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = true,
-					string MaterialName = "4de020863e85bb61:DefaultMaterial",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 1, 1, 1],
-				},
-				Light = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = false,
-					LightType LightType = Spot,
-					Vec4 Color = [0.405, 1, 0.98215, 1],
-					float Intensity = 50,
-					float Range = 23,
-					float Falloff = 1,
-					float Angle = 74,
-					float Size = 20,
-				},
-				Shadow = 
-				{
-					bool Active = false,
-					Quality Quality = HighQuality,
-					ShadowMapping ShadowMapping = Standard,
-					ShadowSoftening ShadowSoftening = Pcf5x5,
-					Vec4 Color = [0, 0, 0, 1],
-					float SplitPlaneDistribution = 0.8,
-				},
-				Hierarchy = 
-				{
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 258,
-				},
-				Named = 
-				{
-					string Name = "NurikabeCollider",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-0.0509109, 7.62939e-006, 3.61113],
-					Vec3 Scale = [1, 5.75929, 8.25376],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = false,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = true,
-					string MaterialName = "54057e4cb1eb9137:mat_gradientTrans",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [0.375, 1, 0.7375, 0.825],
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
-				},
-				Hierarchy = 
-				{
-				},
-			},
+			string Name = "Nurikabe",
 		},
 	},
 },

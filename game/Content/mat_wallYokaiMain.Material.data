@@ -1,0 +1,26 @@
+Material = 
+{
+	Phong = 
+	{
+		float SpecularExponent = 40,
+		float SpecularScalar = 1,
+	},
+	EmissiveMapping = 
+	{
+		float EmissiveScale = 0.1,
+		string EmissiveMapTexture = "5481a22f014e180f:tex_dark_gradient",
+		Vec2 EmissiveScroll = [0, 0],
+		Vec2 EmissiveTiling = [1, 1],
+		Vec2 EmissiveOffset = [0, 0],
+	},
+	ModulateModelColor = 
+	{
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "5481a22f014e3367:tex_light_gradient",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},
