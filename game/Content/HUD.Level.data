@@ -1411,7 +1411,7 @@ Level =
 			bool VisibilityEvents = false,
 			bool CastShadows = false,
 			SystemChildMode ChildMode = Independent,
-			SystemSpace SystemSpace = LocalSpace,
+			SystemSpace SystemSpace = WorldSpace,
 			uint DrawOrder = 0,
 			float WarmUpTime = 0.7,
 			ParticleGeometry GeometryMode = Billboarded,
@@ -1431,9 +1431,9 @@ Level =
 			uint EmitCount = 0,
 			float EmitRate = 200,
 			float EmitVariance = 5,
-			float Size = 1,
+			float Size = 0.2,
 			float SizeVariance = 0.1,
-			float Lifetime = 0.5,
+			float Lifetime = 0.3,
 			float LifetimeVariance = 0.1,
 			float Spin = 0,
 			float SpinVariance = 50,
@@ -1443,7 +1443,7 @@ Level =
 			Vec3 StartVelocity = [-0.75, 0, 0],
 			Vec3 RandomVelocity = [-0.55, 0.2, 0],
 			Vec3 TangentVelocity = [0, 0, 0],
-			Vec3 EmitterSize = [0, 0, 0],
+			Vec3 EmitterSize = [0, 0.2, 0.2],
 			bool FastMovingEmitter = false,
 		},
 		LinearParticleAnimator = 
@@ -1463,85 +1463,88 @@ Level =
 			Vec4 Color3 = [0, 1, 1, 1],
 			Vec4 Color4 = [1, 1, 1, 0],
 		},
-	},
-	Cog = 
-	{
-		LinkId = 
+		Hierarchy = 
 		{
-			uint Id = 34,
-		},
-		Named = 
-		{
-			string Name = "TextBoxParticle",
-		},
-		Archetyped = 
-		{
-			string Name = "54f40ddd5694ae61:TextBoxParticle",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [2.84598, -19.3409, 16.9583],
-			Vec3 Scale = [1, 0.999998, 0.00016],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		SpriteParticleSystem = 
-		{
-			bool Visible = false,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = false,
-			SystemChildMode ChildMode = Independent,
-			SystemSpace SystemSpace = LocalSpace,
-			uint DrawOrder = 0,
-			float WarmUpTime = 0.7,
-			ParticleGeometry GeometryMode = Billboarded,
-			ParticleRenderMode RenderMode = Blended,
-			ParticleSortMode SortMode = Youngest,
-			ParticleAnimation ParticleAnimation = Single,
-			string Texture = "5310e87946edb371:WhiteCloud",
-			Vec4 Tint = [1, 1, 1, 1],
-			float VelocityScale = 0,
-			float LengthScale = 0,
-			float MaxParticleSize = 100,
-			Vec3 SystemSize = [4, 4, 4],
-		},
-		SphericalParticleEmitter = 
-		{
-			bool Active = true,
-			uint EmitCount = 0,
-			float EmitRate = 200,
-			float EmitVariance = 5,
-			float Size = 1,
-			float SizeVariance = 0.1,
-			float Lifetime = 0.5,
-			float LifetimeVariance = 0.1,
-			float Spin = 0,
-			float SpinVariance = 50,
-			bool RandomSpin = true,
-			float Fill = 1,
-			float EmitterVelocityPercent = 0,
-			Vec3 StartVelocity = [-0.75, 0, 0],
-			Vec3 RandomVelocity = [-0.55, 0.2, 0],
-			Vec3 TangentVelocity = [0, 0, 0],
-			Vec3 EmitterSize = [0, 0, 0],
-			bool FastMovingEmitter = false,
-		},
-		LinearParticleAnimator = 
-		{
-			Vec3 Force = [0, 0, 0],
-			Vec3 RandomForce = [0, 0, 0],
-			float Torque = 20,
-			float Growth = 0,
-			float Dampening = 0,
-			Vec3 Twist = [0, 0, 0],
-		},
-		ParticleColorAnimator = 
-		{
-			Vec4 Color0 = [1, 1, 1, 0],
-			Vec4 Color1 = [0, 0.82, 1, 1],
-			Vec4 Color2 = [1, 1, 1, 1],
-			Vec4 Color3 = [0, 1, 1, 1],
-			Vec4 Color4 = [1, 1, 1, 0],
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 34,
+				},
+				Named = 
+				{
+					string Name = "TextBoxParticleChild",
+				},
+				Archetyped = 
+				{
+					string Name = "54f40ddd5694ae61:TextBoxParticle",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -1.90735e-006, 260.625],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteParticleSystem = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					SystemChildMode ChildMode = Independent,
+					SystemSpace SystemSpace = WorldSpace,
+					uint DrawOrder = 0,
+					float WarmUpTime = 0.7,
+					ParticleGeometry GeometryMode = Billboarded,
+					ParticleRenderMode RenderMode = Blended,
+					ParticleSortMode SortMode = Youngest,
+					ParticleAnimation ParticleAnimation = Single,
+					string Texture = "5310e87946edb371:WhiteCloud",
+					Vec4 Tint = [1, 1, 1, 1],
+					float VelocityScale = 0,
+					float LengthScale = 0,
+					float MaxParticleSize = 100,
+					Vec3 SystemSize = [4, 4, 4],
+				},
+				SphericalParticleEmitter = 
+				{
+					bool Active = true,
+					uint EmitCount = 0,
+					float EmitRate = 200,
+					float EmitVariance = 5,
+					float Size = 0.2,
+					float SizeVariance = 0.1,
+					float Lifetime = 0.3,
+					float LifetimeVariance = 0.1,
+					float Spin = 0,
+					float SpinVariance = 50,
+					bool RandomSpin = true,
+					float Fill = 1,
+					float EmitterVelocityPercent = 0,
+					Vec3 StartVelocity = [-0.75, 0, 0],
+					Vec3 RandomVelocity = [-0.55, 0.2, 0],
+					Vec3 TangentVelocity = [0, 0, 0],
+					Vec3 EmitterSize = [0, 0.2, 0.2],
+					bool FastMovingEmitter = false,
+				},
+				LinearParticleAnimator = 
+				{
+					Vec3 Force = [0, 0, 0],
+					Vec3 RandomForce = [0, 0, 0],
+					float Torque = 20,
+					float Growth = 0,
+					float Dampening = 0,
+					Vec3 Twist = [0, 0, 0],
+				},
+				ParticleColorAnimator = 
+				{
+					Vec4 Color0 = [1, 1, 1, 0],
+					Vec4 Color1 = [0, 0.82, 1, 1],
+					Vec4 Color2 = [1, 1, 1, 1],
+					Vec4 Color3 = [0, 1, 1, 1],
+					Vec4 Color4 = [1, 1, 1, 0],
+				},
+			},
 		},
 	},
 },

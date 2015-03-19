@@ -46,6 +46,7 @@ class TextScrollManager : ZilchComponent
     var LetterDelay : Real = 0.05;
     
     var Particle : Cog  = null;
+    var ParticleChild : Cog = null;
     //Boolean to check whether text is currently scrolling
     //Used if player wishes to have text scroll very quickly
     var TextIsScrolling : Boolean = false;
@@ -78,9 +79,8 @@ class TextScrollManager : ZilchComponent
         
         this.CharWorldPos = this.Owner.SpriteText.GetCharacterPosition(this.CurrentIndex - 1);
         this.Particle = this.Space.FindObjectByName("TextBoxParticle");
+        this.ParticleChild = this.Particle.FindChildByName("TextBoxParticleChild");
         this.Particle.Transform.Translation = this.CharWorldPos + Real3(1, -0.4, 5);
-        
-        //this.Space.CreateAtPosition(this.Particle, this.CharWorldPos + Real3(1,-0.4,5));
         
         Zero.Connect(this.Owner, "textScrollEvent", this.OntextScrollEvent);
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -95,7 +95,7 @@ class TextScrollManager : ZilchComponent
         {
             var textManager = this.Space.FindObjectByName("TextBox").TextBoxManager;
             var diagSeg = textManager.DialogueSegment;
-            //Console.WriteLine("Current Dialogue Segment = `diagSeg`");
+            
             if(textManager.DialogueFinished == true)
             {
                 this.Owner.SpriteText.Text = "";
@@ -111,7 +111,6 @@ class TextScrollManager : ZilchComponent
                 //Change this to a different button.
                 if(this.TextIsScrolling == false)
                 {
-                    Console.WriteLine("This is the problem area");
                     this.TextSeq.Cancel();
                     this.ChangeSeq = Action.Sequence(this.Owner.Actions);
                     Actions.Delay(this.ChangeSeq, this.ChangeDelay);
@@ -135,9 +134,11 @@ class TextScrollManager : ZilchComponent
             
             this.CharWorldPos = this.Owner.SpriteText.GetCharacterPosition(this.CurrentIndex - 1);
             
-            this.Particle.Transform.Translation = Math.Lerp(this.Particle.Transform.Translation,
-             this.CharWorldPos + Real3(1, -0.4, 5), 1.0);
-            
+            if(textManager.DialogueFinished == false)
+            {
+                this.Particle.Transform.Translation = Math.Lerp(this.Particle.Transform.Translation,
+                this.CharWorldPos + Real3(1, -0.4, 5), 1.0);
+            }
         }
     }
 
@@ -148,6 +149,9 @@ class TextScrollManager : ZilchComponent
             this.TextSeq.Cancel();
         }
         //this.PlayerDeactivated = true;
+        
+        this.Particle.SpriteParticleSystem.Visible = true;
+        this.Particle.FindChildByName("TextBoxParticleChild").SpriteParticleSystem.Visible = true;
         
         this.DialogueStartSettings();
         
@@ -170,6 +174,8 @@ class TextScrollManager : ZilchComponent
             this.PunctuationDelay = 0.1;
             this.LetterDelay = 0.05;
             this.TextIsScrolling = false;
+            this.Particle.SpriteParticleSystem.Visible = false;
+            this.ParticleChild.SpriteParticleSystem.Visible = false;
             return;
         }
         
@@ -181,6 +187,8 @@ class TextScrollManager : ZilchComponent
                 this.Owner.SpriteText.Text = this.GoalString;
                 this.DialogueSpeedIncreased = false;
                 this.TextIsScrolling = false;
+                this.Particle.SpriteParticleSystem.Visible = false;
+                this.ParticleChild.SpriteParticleSystem.Visible = false;
                 return;
             }
         }
@@ -188,6 +196,8 @@ class TextScrollManager : ZilchComponent
         if(this.TextIsCancelled == true)
         {
             this.DialogueSequence = false;
+            this.Particle.SpriteParticleSystem.Visible = false;
+            this.ParticleChild.SpriteParticleSystem.Visible = false;
             return;
         }
         

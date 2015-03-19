@@ -135,7 +135,6 @@ class TextBoxManager : ZilchComponent
         else
         {
             var speakerSprite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerSprite;
-            Console.WriteLine(this.TextBoxSprite);
             if(this.TextBoxSprite != speakerSprite)
             {
                 //Fades out current speaker's text box sprite
