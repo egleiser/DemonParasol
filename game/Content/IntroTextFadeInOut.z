@@ -1,0 +1,55 @@
+class IntroTextFadeInOut : ZilchComponent
+{
+    var Hudcamera : Cog = null;
+    var JapanSprite : Cog = null;
+    var YearSprite : Cog = null;
+    
+    var MainSpace : Space = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.MainSpace = this.GameSession.FindSpaceByName("Main");
+        
+        this.Hudcamera = this.Space.FindObjectByName("Camera");
+        this.JapanSprite = this.Hudcamera.FindChildByName("JapanGameStart");
+        this.YearSprite = this.Hudcamera.FindChildByName("1946GameStart");
+        Zero.Connect(this.Owner, "IntroTextFade", this.OnIntroTextFade);
+    }
+
+    function OnIntroTextFade(event : IntroTextFades)
+    {
+        var seq = Action.Sequence(this.Owner.Actions);
+        
+        Action.Property(seq, @this.JapanSprite.SpriteText.Color, Real4(1,1,1,1), 2.0, Ease.QuadInOut);
+        Action.Delay(seq, 1.0);
+        Action.Property(seq, @this.YearSprite.SpriteText.Color, Real4(1,1,1,1), 2.0, Ease.QuadInOut);
+        Action.Delay(seq, 1.5);
+        Action.Property(seq, @this.JapanSprite.SpriteText.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
+        Action.Delay(seq, 1.0);
+        Action.Property(seq, @this.YearSprite.SpriteText.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
+        Action.Delay(seq, 1.5);
+        Action.Call(seq, this.FadingIn);
+        Action.Delay(seq, 6.0);
+        Action.Call(seq, this.StartIntroDialogue);
+    }
+    
+    function TestAction()
+    {
+        Console.WriteLine("The Action is Working");
+    }
+    
+    function FadingIn()
+    {
+        Console.WriteLine("Game Start Fade In Should Go");
+        var startFadeIn = new FadeToBlackEvent();
+        startFadeIn.IsFadeIn = true;
+        startFadeIn.TimeToFade = 5.0;
+        this.Hudcamera.DispatchDown("startFadeIn", startFadeIn);
+    }
+    
+    function StartIntroDialogue()
+    {
+        var mainSpace = this.GameSession.FindSpaceByName("Main");
+        mainSpace.FindObjectByName("IntroDiagCube1").CollisionBasedDialogue.IntroOver = true;
+    }
+}

@@ -80,6 +80,9 @@ Level =
 			bool Glow = true,
 			float GlowThreshold = 0.7,
 		},
+		IntroTextFadeInOut = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -93,7 +96,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.60714, -17.4858, 26.0822],
+			Vec3 Translation = [-0.649221, 2.04261, 62.8013],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0.100083, -0.0130194, -0.00130971, 0.994893],
 		},
@@ -110,10 +113,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 9.31364,
+			float LookDistance = 25.3171,
 			float VerticalAngle = 0.200519,
 			float HorizontalAngle = 0.0261709,
-			Vec3 LookTarget = [2.84598, -19.3409, 16.9583],
+			Vec3 LookTarget = [0, -3, 38],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -179,11 +182,11 @@ Level =
 				},
 				Sprite = 
 				{
-					bool Visible = false,
+					bool Visible = true,
 					bool VisibilityCulling = true,
 					bool VisibilityEvents = false,
 					bool CastShadows = false,
-					Vec4 Color = [0, 0, 0, 0],
+					Vec4 Color = [0, 0, 0, 1],
 					BlendMode BlendMode = Alpha,
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
@@ -195,6 +198,10 @@ Level =
 					bool AnimationActive = true,
 					float AnimationSpeed = 1,
 					uint StartFrame = 0,
+				},
+				FadeOut = 
+				{
+					float FadeOutTime = 5,
 				},
 			},
 			Cog = 
@@ -275,13 +282,87 @@ Level =
 				{
 				},
 			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 7,
+				},
+				Named = 
+				{
+					string Name = "JapanGameStart",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 2, -2],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 0],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					TextPositionMode Position = Centered,
+					string FontName = "552fc1b3889e15ef:FONTSHUI",
+					uint FontSize = 120,
+					string Text = "Japan",
+					bool OnTop = false,
+					Vec2 Size = [0, 0],
+					TextAlign Align = Center,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 8,
+				},
+				Named = 
+				{
+					string Name = "1946GameStart",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -3, -2],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 0],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					TextPositionMode Position = Centered,
+					string FontName = "552fc1b3889e15ef:FONTSHUI",
+					uint FontSize = 120,
+					string Text = "1946",
+					bool OnTop = false,
+					Vec2 Size = [0, 0],
+					TextAlign Align = Center,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+			},
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 7,
+			uint Id = 9,
 		},
 		Named = 
 		{
@@ -325,7 +406,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 8,
+					uint Id = 10,
 				},
 				Named = 
 				{
@@ -370,7 +451,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 9,
+							uint Id = 11,
 						},
 						Named = 
 						{
@@ -410,7 +491,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 10,
+			uint Id = 12,
 		},
 		Named = 
 		{
@@ -454,7 +535,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 11,
+					uint Id = 13,
 				},
 				Named = 
 				{
@@ -517,7 +598,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 12,
+					uint Id = 14,
 				},
 				Named = 
 				{
@@ -580,7 +661,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 13,
+					uint Id = 15,
 				},
 				Named = 
 				{
@@ -643,7 +724,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 14,
+					uint Id = 16,
 				},
 				Named = 
 				{
@@ -706,7 +787,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 15,
+					uint Id = 17,
 				},
 				Named = 
 				{
@@ -772,7 +853,7 @@ Level =
 		string Name = "54a1a36b03f9edca:ContextButton",
 		LinkId = 
 		{
-			uint Id = 16,
+			uint Id = 18,
 		},
 		Transform = 
 		{
@@ -789,7 +870,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 17,
+			uint Id = 19,
 		},
 		Named = 
 		{
@@ -820,7 +901,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 18,
+			uint Id = 20,
 		},
 		Named = 
 		{
@@ -851,7 +932,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 19,
+			uint Id = 21,
 		},
 		Named = 
 		{
@@ -890,7 +971,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 20,
+					uint Id = 22,
 				},
 				Named = 
 				{
@@ -939,7 +1020,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 21,
+					uint Id = 23,
 				},
 				Named = 
 				{
@@ -988,7 +1069,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 22,
+					uint Id = 24,
 				},
 				Named = 
 				{
@@ -1037,7 +1118,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 23,
+					uint Id = 25,
 				},
 				Named = 
 				{
@@ -1064,7 +1145,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 24,
+							uint Id = 26,
 						},
 						Named = 
 						{
@@ -1091,7 +1172,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 25,
+							uint Id = 27,
 						},
 						Named = 
 						{
@@ -1120,7 +1201,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 26,
+					uint Id = 28,
 				},
 				Named = 
 				{
@@ -1169,7 +1250,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 27,
+					uint Id = 29,
 				},
 				Named = 
 				{
@@ -1207,7 +1288,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 28,
+					uint Id = 30,
 				},
 				Named = 
 				{
@@ -1258,7 +1339,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 29,
+			uint Id = 31,
 		},
 		Named = 
 		{
@@ -1294,7 +1375,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 30,
+					uint Id = 32,
 				},
 				Named = 
 				{
@@ -1322,7 +1403,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 31,
+							uint Id = 33,
 						},
 						Named = 
 						{
@@ -1356,7 +1437,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 32,
+					uint Id = 34,
 				},
 				Named = 
 				{
@@ -1388,7 +1469,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 33,
+			uint Id = 35,
 		},
 		Named = 
 		{
@@ -1469,7 +1550,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 34,
+					uint Id = 36,
 				},
 				Named = 
 				{
@@ -1545,6 +1626,20 @@ Level =
 					Vec4 Color4 = [1, 1, 1, 0],
 				},
 			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 37,
+		},
+		Named = 
+		{
+			string Name = "IntroTextObject",
+		},
+		IntroTextFadeInOut = 
+		{
 		},
 	},
 },

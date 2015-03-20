@@ -101,6 +101,10 @@ class FadeToBlackEvent : Event
     var TimeToFade : Real = 0.0;
     var EaseCurve : Ease = Ease.QuadOut;
 }
+//Event for intro text fades
+class IntroTextFades : Event
+{
+}
 //Event for when camera pan has finished
 class PanFinishedEvent : Event
 {

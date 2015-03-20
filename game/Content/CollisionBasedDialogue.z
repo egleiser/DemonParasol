@@ -16,6 +16,9 @@ class CollisionBasedDialogue : ZilchComponent
     var OnCollideEnd : Boolean = false;
     
     [Property]
+    var OnCollidePersist : Boolean = false;
+    
+    [Property]
     var DiagSegPath : CogPath = null;
     var DiagSeg : Cog = null;
     
@@ -27,6 +30,8 @@ class CollisionBasedDialogue : ZilchComponent
     var HasDialogueStarted : Boolean = false;
     
     var HudSpaceRef : Space = null;
+    
+    var IntroOver : Boolean = false;
     
     
     function Initialize(init : CogInitializer)
@@ -49,6 +54,10 @@ class CollisionBasedDialogue : ZilchComponent
         {
             Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
         }
+        if(this.OnCollidePersist)
+        {
+            Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+        }
     }
     
     function OnLogicUpdate(event : UpdateEvent)
@@ -63,7 +72,7 @@ class CollisionBasedDialogue : ZilchComponent
             //Sends the collider off into nowhere so it doesn't activate again
             //Note: can't destroy otherwise results in error later on.
             this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y, -500);
-            Console.WriteLine("Collision Based Dialogue Is Working");
+            //Console.WriteLine("Collision Based Dialogue Is Working");
             
             var textBoxEvent = new TextBoxEvent();
             textBoxEvent.DialogueSegmentToUse = this.DiagSeg;
@@ -126,5 +135,26 @@ class CollisionBasedDialogue : ZilchComponent
     function OnDialogueStarted(event : DialogueStartedEvent)
     {
         
+    }
+    
+    function OnCollisionPersisted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player" && this.IntroOver == true)
+        {
+            this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y, -500);
+            //Console.WriteLine("Collision Based Dialogue Is Working");
+            
+            var textBoxEvent = new TextBoxEvent();
+            textBoxEvent.DialogueSegmentToUse = this.DiagSeg;
+            textBoxEvent.DistanceOnScreen = -2.0;
+            textBoxEvent.InOutTime = 0.5;
+            textBoxEvent.EaseCurve = Ease.QuadOut;
+            textBoxEvent.Opacity = 0.85;
+            textBoxEvent.OpacityTimeIn = 0.5;
+            textBoxEvent.OpacityEase = Ease.Linear;
+            var levelSettings = this.Space.LevelSettings;
+            var textBox = levelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
+            textBox.DispatchEvent("startDialogue", textBoxEvent);
+        }
     }
 }
