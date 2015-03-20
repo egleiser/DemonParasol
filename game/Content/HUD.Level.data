@@ -96,7 +96,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.515689, 2.65668, 70.846],
+			Vec3 Translation = [-0.850227, 4.70448, 92.1539],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0.0478799, -0.00784038, -0.00037584, 0.998822],
 		},
@@ -113,7 +113,7 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 33.0014,
+			float LookDistance = 54.4101,
 			float VerticalAngle = 0.0957993,
 			float HorizontalAngle = 0.0156989,
 			Vec3 LookTarget = [0, -0.5, 38],
@@ -187,7 +187,7 @@ Level =
 				},
 				Sprite = 
 				{
-					bool Visible = true,
+					bool Visible = false,
 					bool VisibilityCulling = true,
 					bool VisibilityEvents = false,
 					bool CastShadows = false,
@@ -1131,6 +1131,7 @@ Level =
 			float SinSpeedY = 1,
 			float Intensity = 0.1,
 			bool UseInitialRot = true,
+			bool UseLocal = false,
 		},
 		Hierarchy = 
 		{
@@ -1449,6 +1450,7 @@ Level =
 					float SinSpeedY = 1,
 					float Intensity = 0.1,
 					bool UseInitialRot = true,
+					bool UseLocal = false,
 				},
 			},
 			Cog = 

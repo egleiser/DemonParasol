@@ -11,6 +11,7 @@ class NarrativeDemoStartGame : ZilchComponent
     {
         this.Hudspace = this.GameSession.FindSpaceByName("HudSpace");
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.Hudspace.FindObjectByName("FadeToBlackSprite").Sprite.Visible = true;
         Zero.Connect(this.Space, Events.GameStarted, this.OnGameStarted);
     }
 

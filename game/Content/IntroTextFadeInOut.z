@@ -21,6 +21,7 @@ class IntroTextFadeInOut : ZilchComponent
         this.UnscarredSprite = this.Hudcamera.FindChildByName("UnscarredLands");
         this.DenialSprite = this.Hudcamera.FindChildByName("DenialText");
         this.UnscarredLine = this.UnscarredSprite.FindChildByName("UnscarredLine");
+        
         Zero.Connect(this.Owner, "IntroTextFade", this.OnIntroTextFade);
     }
 
