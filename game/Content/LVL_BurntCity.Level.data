@@ -229,9 +229,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [67.0988, -362.087, 491.476],
+			Vec3 Translation = [29.5656, -118.582, 279.891],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.243586, 0.0144323, -0.00362511, 0.969765],
+			Quat Rotation = [0.243587, 0.0144335, -0.00362541, 0.969765],
 		},
 		Camera = 
 		{
@@ -246,10 +246,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 670.32,
+			float LookDistance = 367.88,
 			float VerticalAngle = -0.49218,
 			float HorizontalAngle = -6.31295,
-			Vec3 LookTarget = [49.5191, -45.3288, -99.0188],
+			Vec3 LookTarget = [19.9168, 55.259, -44.1792],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -1488,13 +1488,13 @@ Level =
 						},
 						Light = 
 						{
-							bool Visible = false,
+							bool Visible = true,
 							bool VisibilityCulling = true,
 							bool VisibilityEvents = false,
 							bool CastShadows = false,
 							LightType LightType = Directional,
-							Vec4 Color = [0.925, 0.888832, 0.846375, 1],
-							float Intensity = 1.5,
+							Vec4 Color = [0, 0, 0, 1],
+							float Intensity = 0.07,
 							float Range = 50,
 							float Falloff = 1,
 							float Angle = 107,
@@ -1516,10 +1516,10 @@ Level =
 						},
 						DreamLighting = 
 						{
-							bool DreamWorld = false,
+							bool DreamWorld = true,
 							Vec4 DayLightColor = [0.3078, 0.389082, 0.57, 1],
-							Vec4 DreamLightColor = [0.8, 0.8, 0.8, 1],
-							float TransitionSpeed = 0.4,
+							Vec4 DreamLightColor = [0.055, 0.0033, 0.00333101, 1],
+							float TransitionSpeed = 2,
 						},
 					},
 				},
