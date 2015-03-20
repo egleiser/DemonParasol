@@ -1,10 +1,10 @@
 SoundCue = 
 {
 	SoundPlayMode PlayMode = Single,
-	float Volume = 1,
-	float VolumeVariation = 0,
+	float Volume = 0.19,
+	float VolumeVariation = 0.13,
 	float Pitch = 0,
-	float PitchVariation = 0,
+	float PitchVariation = 0.1,
 	float MinDistance = 10,
 	float MaxDistance = 10000,
 	float PositionRandomization = 0,
@@ -13,5 +13,26 @@ SoundCue =
 	bool LinearRollOff = true,
 	Array Sounds = 
 	[
+		{
+			string SoundName = "54fc549bd963b7c3:Foot_Gravel_BootRun01",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fc549bd963cc81:Foot_Gravel_BootRun02",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fc549bd963dc8c:Foot_Gravel_BootRun03",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fc549bd963eddb:Foot_Gravel_BootRun04",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fc549bd96001bf:Foot_Gravel_BootRun05",
+			float Weight = 1,
+		},
 	],
+	string RolloffCurveName = "",
 },

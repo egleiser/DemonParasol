@@ -9,7 +9,12 @@ class AI_Nurikabe : ZilchComponent
     var CurrentState : NurikabeState = NurikabeState.Patrol;
     var CurrentNode : Cog = null;
     var SpotLight : Cog = null;
+    var BGMManager : Cog = null;
     var BodyCollider : Cog = null;
+    var Timer : Integer = 0;
+    var HitTimer : Integer = 0;
+    [Property]
+    var FireRate : Integer = 10;
     var Waiting : Boolean = false;
     var WaitTimer : Real = 0.0;
     var WaitValue : Real = 0.0;
@@ -35,6 +40,10 @@ class AI_Nurikabe : ZilchComponent
     var ForgetfulnessTimer : Real = 0.0;
     [Property]
     var RotateSpeed : Real = 2.5;
+    [Property]
+    var ChaseSpeed : Real = 8.0;
+    [Property]
+    var SpeedMultiplier : Real = 1.0;
     var Player:Cog = null;
     [Property]
     var DebugDraw : Boolean = false;
@@ -47,6 +56,7 @@ class AI_Nurikabe : ZilchComponent
         this.CurrentNode = this.StaringNode.Cog;
         this.SpotLight = this.Owner.FindChildByName("NurikabeLight");
         this.BodyCollider = this.Owner.FindChildByName("NurikabeCollider");
+        this.BGMManager = this.LevelSettings.FindChildByName("BGMManager");
         this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.BodyCollider, Events.CollisionStarted, this.OnCollisionStarted);
@@ -54,7 +64,7 @@ class AI_Nurikabe : ZilchComponent
     function OnCollisionStarted(event : CollisionEvent)
     {
         var otherObject = event.OtherObject;
-        if(otherObject.PatrolNode != null && this.CurrentState != NurikabeState.Chase)
+        if(otherObject.PatrolNode != null && otherObject == this.CurrentNode && this.CurrentState != NurikabeState.Chase)
         {
             this.CurrentState = NurikabeState.Patrol;
             this.CurrentNode = otherObject.PatrolNode.NextNode.Cog;
@@ -72,6 +82,11 @@ class AI_Nurikabe : ZilchComponent
     }
     function OnLogicUpdate(event : UpdateEvent)
     {
+        if(Zero.Keyboard.KeyIsDown(Keys.Control) && Zero.Keyboard.KeyIsPressed(Keys.D))
+        {
+            this.DebugDraw = !this.DebugDraw;
+        }
+        this.Timer += 1;
         //Console.WriteLine("Current State: `this.CurrentState`");
         this.CastRay(event);
         if(this.CurrentState == NurikabeState.Patrol)
@@ -98,6 +113,7 @@ class AI_Nurikabe : ZilchComponent
             this.StepTowardsPlayer(event);
             this.Space.CreateAtPosition(Archetype.Find("ExclamBase"), this.Owner.Transform.WorldTranslation + Real3(0,0,9.5));
             this.Space.SoundSpace.PlayCue(SoundCue.Find("Alert"));
+            
             var found = Action.Sequence(this.Owner.Actions);
             //found.Cancel();
             Action.Property(found, @this.Owner.Transform.WorldScale, Real3(1.3,1.3,1.3) , 0.2 , Ease.QuadIn);
@@ -109,11 +125,12 @@ class AI_Nurikabe : ZilchComponent
             this.SpotLight.Light.Color = this.LightColorFound;
             this.FacePlayer(event);
             this.StepTowardsPlayer(event);
-           
+            this.BGMManager.DungeonSoundManager.Spotted = true;
             if(this.ForgetfulnessTimer >= this.Forgetfulness)
             {
                 this.ForgetfulnessTimer = 0.0;
                 this.CurrentState = NurikabeState.Returning;
+                this.BGMManager.DungeonSoundManager.Spotted = false;
             }
             this.ForgetfulnessTimer += event.Dt;
         }
@@ -150,7 +167,7 @@ class AI_Nurikabe : ZilchComponent
         //Console.WriteLine("Move Vector Initial: `this.MoveVec`");
         this.MoveVec = Math.Normalize(this.MoveVec);
         //Console.WriteLine("Move Vector Normalized: `this.MoveVec`");
-        this.MoveVec *= this.CurrentNode.PatrolNode.MoveSpeed * 0.01;
+        this.MoveVec *= this.CurrentNode.PatrolNode.MoveSpeed * 0.01 * this.SpeedMultiplier;
         //Console.WriteLine("Move Vector Final: `this.MoveVec`");
         this.Owner.Transform.WorldTranslation += this.MoveVec;
     }
@@ -160,7 +177,7 @@ class AI_Nurikabe : ZilchComponent
         //Console.WriteLine("Move Vector Initial: `this.MoveVec`");
         this.MoveVec = Math.Normalize(this.MoveVec);
         //Console.WriteLine("Move Vector Normalized: `this.MoveVec`");
-        this.MoveVec *= this.CurrentNode.PatrolNode.MoveSpeed * 0.015;
+        this.MoveVec *= this.ChaseSpeed * 0.015;
         //Console.WriteLine("Move Vector Final: `this.MoveVec`");
         this.Owner.Transform.WorldTranslation += this.MoveVec;
     }
@@ -169,7 +186,14 @@ class AI_Nurikabe : ZilchComponent
         var targetRotation = this.Owner.Orientation.GetLookAtPointWithUpRotation(
             Real3(this.Player.Transform.WorldTranslation.X,this.Player.Transform.WorldTranslation.Y,this.Owner.Transform.WorldTranslation.Z),this.Owner.Orientation.WorldUp);
         targetRotation = Math.Multiply(targetRotation, Math.Euler(Real3(0,0,0)));
-        this.Owner.Transform.WorldRotation = Math.Slerp(this.Owner.Transform.WorldRotation, targetRotation, event.Dt * this.RotateSpeed/2.0);
+        if(this.CurrentState == NurikabeState.Chase)
+        {
+            this.Owner.Transform.WorldRotation = Math.Slerp(this.Owner.Transform.WorldRotation, targetRotation, event.Dt * this.RotateSpeed/3.0);
+        }
+        else
+        {
+            this.Owner.Transform.WorldRotation = Math.Slerp(this.Owner.Transform.WorldRotation, targetRotation, event.Dt * this.RotateSpeed/1.5);
+        }
     }
     function SmoothDirectionLook(event : UpdateEvent)
     {
@@ -201,6 +225,7 @@ class AI_Nurikabe : ZilchComponent
         if(objectHit != null)
         {
             var realRayDistance = Math.Length(this.Space.PhysicsSpace.CastRayFirst(rayCast).WorldPosition - this.Owner.Transform.WorldTranslation);
+            
             this.RayDistance = this.SightRange;
             if(objectHit.PlayerController != null && realRayDistance < this.RayDistance)
             {
@@ -208,13 +233,22 @@ class AI_Nurikabe : ZilchComponent
                 {
                     this.CurrentState = NurikabeState.Found;
                 }
+                this.HitTimer += 1;
+                if(this.CurrentState == NurikabeState.Chase && this.HitTimer == this.FireRate)
+                {
+                   var damageSphere = this.Space.CreateAtPosition(Archetype.Find("HurtBall"), this.Owner.Transform.WorldTranslation);
+                   damageSphere.DamagePlayerOnCollide.Damage = 0.5;
+                   damageSphere.Transform.WorldScale *= 1.5;
+                   this.HitTimer = 0;
+                }
                 this.ForgetfulnessTimer = 0.0;
             }
            
             if(objectHit.Parent != null && objectHit.Parent.AI_Nurikabe != null && realRayDistance < this.RayDistance )
             {
                 //Console.Write("Object Hit: `objectHit`");
-                if(this.CurrentState == NurikabeState.Chase && objectHit.Parent.AI_Nurikabe.CurrentState != NurikabeState.Chase)
+                if(this.CurrentState == NurikabeState.Chase && objectHit.Parent.AI_Nurikabe.CurrentState != NurikabeState.Chase
+                && objectHit.Parent.AI_Nurikabe.CurrentState != NurikabeState.Returning)
                 {
                     objectHit.Parent.AI_Nurikabe.CurrentState = NurikabeState.Found;
                 }

@@ -16,13 +16,23 @@ class SinRotate : ZilchComponent
     var Intensity:Real = 1.0;
     [Property]
     var UseInitialRot:Boolean = false;
+    [Property]
+    var UseLocal:Boolean = false;
     var Active:Boolean = true;
     var RotationOffset:Quaternion = Quaternion(0,0,0,0);
     var RotationInitial:Quaternion = Quaternion(0,0,0,0);
     var InitTrans:Real = 0.0;
     function Initialize(init : CogInitializer)
     {
-        this.RotationInitial = this.Owner.Transform.WorldRotation;
+        if(this.UseLocal)
+        {
+            this.RotationInitial = this.Owner.Transform.LocalRotation;
+        }
+        else
+        {
+            this.RotationInitial = this.Owner.Transform.WorldRotation;
+        }
+        
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.EnterView, this.OnEnterView);
         Zero.Connect(this.Owner, Events.ExitView, this.OnExitView);
@@ -43,13 +53,27 @@ class SinRotate : ZilchComponent
         if(this.Active == true)
         {
             this.RotationOffset = Math.Euler(Real3(Math.Sin(this.InitTrans + event.TimePassed * this.SinSpeedX) * this.Intensity,Math.Sin(this.InitTrans + event.TimePassed * this.SinSpeedY )* this.Intensity,0));
-            if(this.UseInitialRot)
+            if(this.UseLocal)
             {
-                this.Owner.Transform.WorldRotation = Math.Transform(this.RotationInitial, this.RotationOffset);
+                if(this.UseInitialRot)
+                {
+                    this.Owner.Transform.LocalRotation = Math.Transform(this.RotationInitial, this.RotationOffset);
+                }
+                else
+                {
+                    this.Owner.Transform.LocalRotation = Math.Transform(this.Owner.Transform.LocalRotation, this.RotationOffset);
+                }
             }
             else
             {
-                this.Owner.Transform.WorldRotation = Math.Transform(this.Owner.Transform.WorldRotation, this.RotationOffset);
+                if(this.UseInitialRot)
+                {
+                    this.Owner.Transform.WorldRotation = Math.Transform(this.RotationInitial, this.RotationOffset);
+                }
+                else
+                {
+                    this.Owner.Transform.WorldRotation = Math.Transform(this.Owner.Transform.WorldRotation, this.RotationOffset);
+                }
             }
         }
         

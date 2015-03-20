@@ -17,6 +17,10 @@ class PatrolNode : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        if(Zero.Keyboard.KeyIsDown(Keys.Control) && Zero.Keyboard.KeyIsPressed(Keys.D))
+        {
+            this.DebugDraw = !this.DebugDraw;
+        }
         if(this.DebugDraw == true)
         {
             this.DrawArrow(this.Owner.Transform.WorldTranslation, this.NextNode.Cog.Transform.WorldTranslation, this.DebugColor);
