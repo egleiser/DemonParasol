@@ -3,7 +3,10 @@ class IntroTextFadeInOut : ZilchComponent
     var Hudcamera : Cog = null;
     var JapanSprite : Cog = null;
     var YearSprite : Cog = null;
+    var LineSprite : Cog = null;
     var UnscarredSprite : Cog = null;
+    var DenialSprite : Cog = null;
+    var UnscarredLine : Cog = null;
     
     var MainSpace : Space = null;
     
@@ -14,30 +17,47 @@ class IntroTextFadeInOut : ZilchComponent
         this.Hudcamera = this.Space.FindObjectByName("Camera");
         this.JapanSprite = this.Hudcamera.FindChildByName("JapanGameStart");
         this.YearSprite = this.Hudcamera.FindChildByName("1946GameStart");
+        this.LineSprite = this.JapanSprite.FindChildByName("IntroTextLine");
         this.UnscarredSprite = this.Hudcamera.FindChildByName("UnscarredLands");
+        this.DenialSprite = this.Hudcamera.FindChildByName("DenialText");
+        this.UnscarredLine = this.UnscarredSprite.FindChildByName("UnscarredLine");
         Zero.Connect(this.Owner, "IntroTextFade", this.OnIntroTextFade);
     }
 
     function OnIntroTextFade(event : IntroTextFades)
     {
         var seq = Action.Sequence(this.Owner.Actions);
+        var grp = Action.Group(seq);
         
-        Action.Property(seq, @this.JapanSprite.SpriteText.Color, Real4(1,1,1,1), 2.0, Ease.QuadInOut);
+        Action.Property(grp, @this.JapanSprite.SpriteText.Color, Real4(1,1,1,1), 2.0, Ease.QuadInOut);
+        Action.Property(grp, @this.LineSprite.Sprite.Color, Real4(1,1,1,1), 2.0, Ease.QuadInOut);
         Action.Delay(seq, 1.5);
         Action.Property(seq, @this.YearSprite.SpriteText.Color, Real4(1,1,1,1), 2.0, Ease.QuadInOut);
         Action.Delay(seq, 2.0);
-        Action.Property(seq, @this.JapanSprite.SpriteText.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
+        
+        var grp2 = Action.Group(seq);
+        Action.Property(grp2, @this.JapanSprite.SpriteText.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
+        Action.Property(grp2, @this.LineSprite.Sprite.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
         Action.Delay(seq, 1.5);
         Action.Property(seq, @this.YearSprite.SpriteText.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
         Action.Delay(seq, 2.0);
         Action.Call(seq, this.FadingIn);
         Action.Delay(seq, 6.0);
-        Action.Property(seq, @this.UnscarredSprite.SpriteText.Color, Real4(1,1,1,1), 1.25, Ease.QuadInOut);
+        
+        var grp3 = Action.Group(seq);
+        Action.Property(grp3, @this.UnscarredSprite.SpriteText.Color, Real4(1,1,1,1), 1.25, Ease.QuadInOut);
+        Action.Property(grp3, @this.UnscarredLine.Sprite.Color, Real4(1,1,1,1), 1.25, Ease.QuadInOut);
+        Action.Delay(seq, 0.75);
+        Action.Property(seq, @this.DenialSprite.SpriteText.Color, Real4(1,1,1,1), 1.25, Ease.QuadInOut);
         Action.Delay(seq, 1.5);
-        Action.Property(seq, @this.UnscarredSprite.SpriteText.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
-        Action.Delay(seq, 1.5);
+        
+        var grp4 = Action.Group(seq);
+        Action.Property(grp4, @this.UnscarredSprite.SpriteText.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
+        Action.Property(grp4, @this.UnscarredLine.Sprite.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
+        Action.Property(grp4, @this.DenialSprite.SpriteText.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
+        
+        Action.Delay(seq, 7.0);
         Action.Call(seq, this.GhostIntroColliders);
-        Action.Delay(seq, 10.0);
         Action.Call(seq, this.StartIntroDialogue);
     }
     
