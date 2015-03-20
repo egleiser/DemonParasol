@@ -356,13 +356,50 @@ Level =
 					bool Smoothing = true,
 				},
 			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 9,
+				},
+				Named = 
+				{
+					string Name = "UnscarredLands",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 2, -2],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 0],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					TextPositionMode Position = Centered,
+					string FontName = "545d0deafc601f9d:Canaro",
+					uint FontSize = 150,
+					string Text = "The Unscarred Lands",
+					bool OnTop = false,
+					Vec2 Size = [0, 0],
+					TextAlign Align = Center,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+			},
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 9,
+			uint Id = 10,
 		},
 		Named = 
 		{
@@ -406,7 +443,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 10,
+					uint Id = 11,
 				},
 				Named = 
 				{
@@ -430,7 +467,7 @@ Level =
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 					TextPositionMode Position = UpperLeft,
 					string FontName = "545d0deafc601f9d:Canaro",
-					uint FontSize = 23,
+					uint FontSize = 30,
 					string Text = "",
 					bool OnTop = true,
 					Vec2 Size = [9, 5],
@@ -451,7 +488,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 11,
+							uint Id = 12,
 						},
 						Named = 
 						{
@@ -491,7 +528,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 12,
+			uint Id = 13,
 		},
 		Named = 
 		{
@@ -535,7 +572,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 13,
+					uint Id = 14,
 				},
 				Named = 
 				{
@@ -598,7 +635,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 14,
+					uint Id = 15,
 				},
 				Named = 
 				{
@@ -661,7 +698,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 15,
+					uint Id = 16,
 				},
 				Named = 
 				{
@@ -724,7 +761,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 16,
+					uint Id = 17,
 				},
 				Named = 
 				{
@@ -787,7 +824,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 17,
+					uint Id = 18,
 				},
 				Named = 
 				{
@@ -853,7 +890,7 @@ Level =
 		string Name = "54a1a36b03f9edca:ContextButton",
 		LinkId = 
 		{
-			uint Id = 18,
+			uint Id = 19,
 		},
 		Transform = 
 		{
@@ -870,7 +907,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 19,
+			uint Id = 20,
 		},
 		Named = 
 		{
@@ -901,7 +938,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 20,
+			uint Id = 21,
 		},
 		Named = 
 		{
@@ -932,7 +969,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 21,
+			uint Id = 22,
 		},
 		Named = 
 		{
@@ -971,7 +1008,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 22,
+					uint Id = 23,
 				},
 				Named = 
 				{
@@ -1020,7 +1057,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 23,
+					uint Id = 24,
 				},
 				Named = 
 				{
@@ -1069,7 +1106,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 24,
+					uint Id = 25,
 				},
 				Named = 
 				{
@@ -1118,7 +1155,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 25,
+					uint Id = 26,
 				},
 				Named = 
 				{
@@ -1145,7 +1182,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 26,
+							uint Id = 27,
 						},
 						Named = 
 						{
@@ -1172,7 +1209,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 27,
+							uint Id = 28,
 						},
 						Named = 
 						{
@@ -1201,7 +1238,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 28,
+					uint Id = 29,
 				},
 				Named = 
 				{
@@ -1250,7 +1287,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 29,
+					uint Id = 30,
 				},
 				Named = 
 				{
@@ -1288,7 +1325,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 30,
+					uint Id = 31,
 				},
 				Named = 
 				{
@@ -1339,7 +1376,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 31,
+			uint Id = 32,
 		},
 		Named = 
 		{
@@ -1375,7 +1412,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 32,
+					uint Id = 33,
 				},
 				Named = 
 				{
@@ -1403,7 +1440,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 33,
+							uint Id = 34,
 						},
 						Named = 
 						{
@@ -1437,7 +1474,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 34,
+					uint Id = 35,
 				},
 				Named = 
 				{
@@ -1469,7 +1506,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 35,
+			uint Id = 36,
 		},
 		Named = 
 		{
@@ -1500,7 +1537,7 @@ Level =
 			ParticleSortMode SortMode = Youngest,
 			ParticleAnimation ParticleAnimation = Single,
 			string Texture = "54dda232936eca77:blackSmoke08",
-			Vec4 Tint = [1, 1, 1, 1],
+			Vec4 Tint = [1, 1, 1, 0.4],
 			float VelocityScale = 0,
 			float LengthScale = 0,
 			float MaxParticleSize = 100,
@@ -1550,7 +1587,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 36,
+					uint Id = 37,
 				},
 				Named = 
 				{
@@ -1581,7 +1618,7 @@ Level =
 					ParticleSortMode SortMode = Youngest,
 					ParticleAnimation ParticleAnimation = Single,
 					string Texture = "5310e87946edb371:WhiteCloud",
-					Vec4 Tint = [1, 1, 1, 1],
+					Vec4 Tint = [1, 1, 1, 0.4],
 					float VelocityScale = 0,
 					float LengthScale = 0,
 					float MaxParticleSize = 100,
@@ -1632,7 +1669,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 37,
+			uint Id = 38,
 		},
 		Named = 
 		{

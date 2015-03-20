@@ -3,6 +3,7 @@ class IntroTextFadeInOut : ZilchComponent
     var Hudcamera : Cog = null;
     var JapanSprite : Cog = null;
     var YearSprite : Cog = null;
+    var UnscarredSprite : Cog = null;
     
     var MainSpace : Space = null;
     
@@ -13,6 +14,7 @@ class IntroTextFadeInOut : ZilchComponent
         this.Hudcamera = this.Space.FindObjectByName("Camera");
         this.JapanSprite = this.Hudcamera.FindChildByName("JapanGameStart");
         this.YearSprite = this.Hudcamera.FindChildByName("1946GameStart");
+        this.UnscarredSprite = this.Hudcamera.FindChildByName("UnscarredLands");
         Zero.Connect(this.Owner, "IntroTextFade", this.OnIntroTextFade);
     }
 
@@ -21,26 +23,26 @@ class IntroTextFadeInOut : ZilchComponent
         var seq = Action.Sequence(this.Owner.Actions);
         
         Action.Property(seq, @this.JapanSprite.SpriteText.Color, Real4(1,1,1,1), 2.0, Ease.QuadInOut);
-        Action.Delay(seq, 1.0);
+        Action.Delay(seq, 1.5);
         Action.Property(seq, @this.YearSprite.SpriteText.Color, Real4(1,1,1,1), 2.0, Ease.QuadInOut);
-        Action.Delay(seq, 1.5);
+        Action.Delay(seq, 2.0);
         Action.Property(seq, @this.JapanSprite.SpriteText.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
-        Action.Delay(seq, 1.0);
-        Action.Property(seq, @this.YearSprite.SpriteText.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
         Action.Delay(seq, 1.5);
+        Action.Property(seq, @this.YearSprite.SpriteText.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
+        Action.Delay(seq, 2.0);
         Action.Call(seq, this.FadingIn);
         Action.Delay(seq, 6.0);
+        Action.Property(seq, @this.UnscarredSprite.SpriteText.Color, Real4(1,1,1,1), 1.25, Ease.QuadInOut);
+        Action.Delay(seq, 1.5);
+        Action.Property(seq, @this.UnscarredSprite.SpriteText.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
+        Action.Delay(seq, 1.5);
+        Action.Call(seq, this.GhostIntroColliders);
+        Action.Delay(seq, 10.0);
         Action.Call(seq, this.StartIntroDialogue);
-    }
-    
-    function TestAction()
-    {
-        Console.WriteLine("The Action is Working");
     }
     
     function FadingIn()
     {
-        Console.WriteLine("Game Start Fade In Should Go");
         var startFadeIn = new FadeToBlackEvent();
         startFadeIn.IsFadeIn = true;
         startFadeIn.TimeToFade = 5.0;
@@ -51,5 +53,13 @@ class IntroTextFadeInOut : ZilchComponent
     {
         var mainSpace = this.GameSession.FindSpaceByName("Main");
         mainSpace.FindObjectByName("IntroDiagCube1").CollisionBasedDialogue.IntroOver = true;
+    }
+    
+    function GhostIntroColliders()
+    {
+        foreach(var block in this.MainSpace.FindAllObjectsByName("IntroBlockCube"))
+        {
+            block.BoxCollider.Ghost = true;
+        }
     }
 }
