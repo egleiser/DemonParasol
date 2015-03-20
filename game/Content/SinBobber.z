@@ -1,0 +1,35 @@
+class SinBobber : ZilchComponent
+{
+    [Property]
+    var SinSpeedX:Real = 5.0;
+    [Property]
+    var SinSpeedY:Real = 5.0;
+    [Property]
+    var SinSpeedZ:Real = 5.0;
+    [Property]
+    var SinAmountX:Real = 5.0;
+    [Property]
+    var SinAmountY:Real = 5.0;
+    [Property]
+    var SinAmountZ:Real = 5.0;
+    [Property]
+    var TimeOffset:Real = 0.0;
+    [Property]
+    var AffectedByVelocity:Boolean = false;
+    var RotationOffset:Quaternion = Quaternion(0,0,0,0);
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var timePassed = event.TimePassed;
+        if(this.AffectedByVelocity)
+        {
+            timePassed = timePassed * Math.Length(this.Owner.FindRoot().RigidBody.Velocity);
+        }
+        this.RotationOffset = Math.Euler(Real3(Math.Sin((timePassed + this.TimeOffset) * this.SinSpeedX) * this.SinAmountX,Math.Sin((timePassed  + this.TimeOffset) * this.SinSpeedY )* this.SinAmountY,Math.Sin((timePassed + this.TimeOffset) * this.SinSpeedZ) * this.SinAmountZ));
+        this.Owner.Transform.LocalRotation = Math.Multiply(this.Owner.Transform.LocalRotation, this.RotationOffset);
+    }
+}

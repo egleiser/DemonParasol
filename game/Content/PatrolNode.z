@@ -1,0 +1,41 @@
+class PatrolNode : ZilchComponent
+{
+    [Property]
+    var NextNode : CogPath = null;
+    [Property]
+    var MoveSpeed : Real = 5.0;
+    [Property]
+    var WaitTime : Real = 3.0;
+    [Property]
+    var DebugDraw : Boolean = false;
+    [Property]
+    var DebugColor : Real4 = Real4(0.2,1,0.2,0.7);
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsDown(Keys.Control) && Zero.Keyboard.KeyIsPressed(Keys.D))
+        {
+            this.DebugDraw = !this.DebugDraw;
+        }
+        if(this.DebugDraw == true)
+        {
+            this.DrawArrow(this.Owner.Transform.WorldTranslation, this.NextNode.Cog.Transform.WorldTranslation, this.DebugColor);
+        }
+    }
+    
+    function DrawArrow(startPos : Real3, endPos : Real3, arrowColor : Real4)
+    {
+        var line = DebugLine();
+        line.Start(startPos);
+        line.End(endPos);
+        line.Filled(true);
+        line.Width(5.0);
+        line.HeadSize(1.0);
+        line.Float4Color(arrowColor);
+        line.Draw();
+    }
+}

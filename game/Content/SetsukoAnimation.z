@@ -6,8 +6,13 @@
 ////     Last Updated: 02-05-15      ////
 ////                                 ////
 /////////////////////////////////////////
+enum PlayerAnimState{Idle, Walking, Running, Sneaking,  Latched, Pulling, Pushing, Falling, Happy}
+enum CutsceneState{Off, Idle, Happy, Sad, Shocked, Falling}
 class SetsukoAnimation : ZilchComponent
 {
+    var AniState:PlayerAnimState = PlayerAnimState.Idle;
+    [Property]
+    var CutState:CutsceneState = CutsceneState.Off;
     [Property]
     var AniIdle:Animation = null;
     [Property]
@@ -22,7 +27,7 @@ class SetsukoAnimation : ZilchComponent
     var AniParasol:Animation = null;
     [Property]
     var AniLatch:Animation = null;
-    
+
     //Cinematic Priority Animations
     [Property]
     var AniHappy:Animation = null;
@@ -32,8 +37,76 @@ class SetsukoAnimation : ZilchComponent
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
-
     function OnLogicUpdate(event : UpdateEvent)
     {
+        this.Owner.AnimationGraph.TimeScale = 1 + (Math.Length(this.Owner.Parent.RigidBody.Velocity) /8);
+        //Console.WriteLine("Time Scale: `this.Owner.AnimationGraph.TimeScale`");
+        //Animate the Model for Walking/Running/Sneaking/Idle
+        if(this.CutState == CutsceneState.Off)
+        {
+            this.MoveUpdate(event);
+        }
+        else
+        {
+            this.CinematicUpdate(event);
+        }
     }
+    function CinematicUpdate(event : UpdateEvent)
+    {
+        if(this.CutState == CutsceneState.Happy)
+        {
+            if(this.AniState != PlayerAnimState.Happy)
+            {
+                this.AniState = PlayerAnimState.Happy;
+                this.Owner.SimpleAnimation.CrossBlend(this.AniHappy,1.0, AnimPlayMode.Loop);
+            }
+        }
+    }
+    function MoveUpdate(event : UpdateEvent)
+    {
+        if(this.Owner.Parent.PlayerController.FreezeMovement)
+        {
+            this.Owner.AnimationGraph.TimeScale = 0;
+        }
+        if((Math.Length(this.Owner.Parent.InputController.GetMovement()) > 0) && this.Owner.Parent.PlayerController.Active)
+        {
+                //Walk
+                if(this.Owner.AnimationGraph.TimeScale > 1.5 && this.Owner.AnimationGraph.TimeScale <= 2.4 && this.AniState != PlayerAnimState.Walking)
+                {
+                    this.AniState = PlayerAnimState.Walking;
+                    this.Owner.SimpleAnimation.CrossBlend(this.AniWalk,1.0, AnimPlayMode.Loop);
+                    Console.WriteLine("Walking");
+                }
+                //Run!
+                else if(this.Owner.AnimationGraph.TimeScale > 2.4 && this.AniState != PlayerAnimState.Running)
+                {
+                    this.AniState = PlayerAnimState.Running;
+                    this.Owner.SimpleAnimation.CrossBlend(this.AniRun,1.0, AnimPlayMode.Loop);
+                    Console.WriteLine("Running");
+                }
+                //Sneak Walk
+                
+                else if(this.Owner.AnimationGraph.TimeScale <= 1.5 && this.AniState != PlayerAnimState.Sneaking)
+                {
+                    this.AniState = PlayerAnimState.Sneaking;
+                    this.Owner.SimpleAnimation.CrossBlend(this.AniWalk,1.0, AnimPlayMode.Loop);
+                    Console.WriteLine("Sneaking");
+                }
+
+        }
+        else if(!this.Owner.Parent.PlayerController.Active)
+        {
+                this.AniState = PlayerAnimState.Falling;
+                this.Owner.SimpleAnimation.CrossBlend(this.AniFall,0.8,AnimPlayMode.Loop);
+        }
+        else
+        {
+            if(this.AniState != PlayerAnimState.Idle)
+            {
+                this.AniState = PlayerAnimState.Idle;
+                this.Owner.SimpleAnimation.CrossBlend(this.AniIdle,0.3,AnimPlayMode.Loop);
+            }
+        }
+    }
+
 }

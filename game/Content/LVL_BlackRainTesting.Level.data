@@ -41,14 +41,18 @@ Level =
 		DeferredRenderer = 
 		{
 			Vec4 ClearColor = [0.12, 0.12, 0.12, 1],
+			bool DrawNonVisible = false,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool EditorIconDepth = true,
 			bool Hdr = true,
-			bool Glow = true,
-			bool RenderMasks = false,
-			bool ToneMapping = false,
-			float BrightThreshold = 0.4,
-			float Exposure = 0.5,
-			bool Refraction = true,
 			bool Shadows = true,
+			bool AntiAliasing = false,
+			bool Refraction = true,
+			bool GodRays = true,
+			bool RenderMasks = false,
+			bool Glow = true,
+			float GlowThreshold = 0.4,
 		},
 		Transform = 
 		{
@@ -162,7 +166,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [76.1386, -80.8553, 53.6712],
+			Vec3 Translation = [76.1386, -80.8552, 53.6711],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.520259, 0.00378627, -0.00230661, 0.853997],
 		},
@@ -188,21 +192,18 @@ Level =
 		EditorRenderer = 
 		{
 			Vec4 ClearColor = [0.155, 0.155, 0.155, 1],
+			bool DrawNonVisible = true,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool Wireframe = false,
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "53765c31a01574f5:Player",
 		LinkId = 
 		{
 			uint Id = 7,
-		},
-		Named = 
-		{
-			string Name = "Player",
-		},
-		Archetyped = 
-		{
-			string Name = "53765c31a01574f5:Player",
 		},
 		Transform = 
 		{
@@ -210,997 +211,16 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		InputController = 
+		Named = 
 		{
-			bool Active = false,
-			int GamepadIndex = 0,
-		},
-		PlayerController = 
-		{
-			float MovmentSpeed = 700,
-			float RotateSpeed = 25,
-			float MaxMoveForce = 1000,
-			float Deceleration = 1.5,
-			CogPath CameraPath = ":/Camera",
-			bool WindActive = true,
-			bool FreezeMovement = false,
-		},
-		FootstepDetector = 
-		{
-			int WalkRate = 15,
-			bool DebugDraw = false,
-			Vec4 DebugColor = [0, 1, 0, 0.7],
-		},
-		Orientation = 
-		{
-			Vec3 GlobalUp = [0, 1, 0],
-			Vec3 UpVector = [0, 0, 1],
-			Vec3 ForwardVector = [0, 1, 0],
-			OrientationBases DefaultBases = ForwardYUpZ,
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = true,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		CapsuleCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
-			string SerializedGroupName = "54bebd865c1562ee:CG_Player",
-			Vec3 Offset = [0, 0, 1],
-			float Radius = 1,
-			float Height = 1,
-			uint Direction = 2,
-		},
-		DynamicMotor = 
-		{
-		},
-		GravityEffect = 
-		{
-			bool Active = true,
-			bool WakeUpOnChange = true,
-			bool LocalSpaceDirection = false,
-			float Strength = 100,
-			Vec3 Direction = [0, 0, -1],
-		},
-		SoundEmitter = 
-		{
-			bool StartPlaying = false,
-			int ExtraPriority = 0,
-			string CueName = "4e1bd44008b4dc2a:DefaultCue",
-			float Volume = 2.5,
-			float Pitch = 1,
-			bool Positional = true,
-		},
-		WaterSplasher = 
-		{
-			int SplashRate = 20,
-			float SplashIntensity = 1,
-		},
-		Z_Teleport = 
-		{
-			Vec3 TeleportToLocation = [3, 7.5, 0],
-		},
-		AutoHopper = 
-		{
-			float JumpDistance = 2,
-			bool Active = true,
-			bool DebugDraw = false,
-			Vec4 DebugColorA = [0.17, 0, 1, 0.7],
-			Vec4 DebugColorB = [1, 0, 0.000599861, 0.7],
-			string GruntSound = "54fc772fa224f98d:PlayerAttackGrunt",
-		},
-		Health = 
-		{
-			float MaxHealth = 5,
-			bool DestroyAtZeroHealth = false,
-			bool SendsHealthModified = true,
-			float DamageScalar = 1,
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 8,
-				},
-				Named = 
-				{
-					string Name = "PlayerModel",
-				},
-				Archetyped = 
-				{
-					string Name = "53f50b788ef864f3:BoxMan",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [2, 2, 2],
-					Quat Rotation = [-3.09086e-008, 0.707107, 0.707107, -3.09086e-008],
-				},
-				AnimationGraph = 
-				{
-					bool Active = true,
-					AnimPlayMode PlayMode = PlayOnce,
-					float TimeScale = 1,
-					string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
-					uint64 DebugPreviewId = 03b11c3c086e7898,
-				},
-				SimpleAnimation = 
-				{
-					string AnimationName = "53f50b9fbfe71185:BoxManIdleBreathing.All",
-					AnimPlayMode PlayMode = Loop,
-				},
-				PlayerAnimator = 
-				{
-					string AniIdle = "53f50b9fbfe71185:BoxManIdleBreathing.All",
-					string AniWalk = "53f50ba0bfb0cbbd:BoxManWalk.All",
-					string AniJump = "53f50b9fbfecf34d:BoxManHop.All",
-					string AniFall = "53f50b9fbfc4b7e5:BoxManFall.All",
-					string AniAttack = "53f50ba0bfb0cbbd:BoxManWalk.All",
-					string AniLatch = "53f50ba1bf84ad4e:BoxManKickWall.All",
-				},
-				Hierarchy = 
-				{
-					Cog = 
-					{
-						LinkId = 
-						{
-							uint Id = 9,
-						},
-						Named = 
-						{
-							string Name = "Stomach",
-						},
-						Transform = 
-						{
-							Vec3 Translation = [0, 0.622383, 1.19209e-007],
-							Vec3 Scale = [1, 1, 1],
-							Quat Rotation = [-0.707107, 0, 0, 0.707107],
-						},
-						Model = 
-						{
-							bool Visible = true,
-							bool VisibilityCulling = true,
-							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
-							string MeshName = "53f50b788ef4a1b7:BoxMan.Stomach",
-							Vec4 Color = [0.458824, 0.77647, 0.819608, 1],
-						},
-						Hierarchy = 
-						{
-							Cog = 
-							{
-								LinkId = 
-								{
-									uint Id = 10,
-								},
-								Named = 
-								{
-									string Name = "Chest",
-								},
-								Transform = 
-								{
-									Vec3 Translation = [1.79638e-016, -5.32755e-008, 0.104358],
-									Vec3 Scale = [1, 1, 1],
-									Quat Rotation = [7.10543e-015, -7.52316e-037, 6.31088e-030, 1],
-								},
-								Model = 
-								{
-									bool Visible = true,
-									bool VisibilityCulling = true,
-									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
-									string MeshName = "53f50b788ef4a1bc:BoxMan.Chest",
-									Vec4 Color = [0.458824, 0.776471, 0.819608, 1],
-								},
-								Hierarchy = 
-								{
-									Cog = 
-									{
-										LinkId = 
-										{
-											uint Id = 11,
-										},
-										Named = 
-										{
-											string Name = "Head",
-										},
-										Transform = 
-										{
-											Vec3 Translation = [-6.01702e-018, -2.02938e-007, 0.473109],
-											Vec3 Scale = [1, 1, 1],
-											Quat Rotation = [-8.23312e-019, 1.86265e-009, 4.42013e-010, 1],
-										},
-										Model = 
-										{
-											bool Visible = true,
-											bool VisibilityCulling = true,
-											string MaterialName = "544380cb7820af93:lambert1",
-											string MeshName = "53f50b788ef4a1bf:BoxMan.Head",
-											Vec4 Color = [0.815, 0.678161, 0.517525, 1],
-										},
-										Hierarchy = 
-										{
-											Cog = 
-											{
-												LinkId = 
-												{
-													uint Id = 12,
-												},
-												Named = 
-												{
-													string Name = "Hat",
-												},
-												Transform = 
-												{
-													Vec3 Translation = [0, -9.53674e-007, 0.353713],
-													Vec3 Scale = [0.499999, 0.5, 0.0879925],
-													Quat Rotation = [-1.86265e-009, 3.47047e-015, 1, 4.41533e-008],
-												},
-												Model = 
-												{
-													bool Visible = true,
-													bool VisibilityCulling = true,
-													string MaterialName = "549a9f71f45ed652:mat_Fabric",
-													string MeshName = "4de0354322b376ae:Sphere",
-													Vec4 Color = [1, 0.59795, 0.065, 1],
-												},
-												RigidBody = 
-												{
-													bool Static = false,
-													bool Asleep = false,
-													bool Kinematic = true,
-													bool RotationLocked = false,
-													bool Mode2D = false,
-													bool AllowSleep = true,
-													bool Inherit2DMode = true,
-													Vec3 Velocity = [0, 0, 0],
-													Vec3 AngularVelocity = [0, 0, 0],
-												},
-												SphereCollider = 
-												{
-													bool Ghost = false,
-													bool SendsMessages = true,
-													bool Seamless = true,
-													string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-													string SerializedGroupName = "54bebd865c1562ee:CG_Player",
-													Vec3 Offset = [0, 0, 0],
-													float Radius = 1,
-												},
-												Hierarchy = 
-												{
-													Cog = 
-													{
-														LinkId = 
-														{
-															uint Id = 13,
-														},
-														Named = 
-														{
-															string Name = "HatB",
-														},
-														Transform = 
-														{
-															Vec3 Translation = [2.98023e-008, 3.43323e-005, 1.45729],
-															Vec3 Scale = [0.486087, 0.486087, 1.81245],
-															Quat Rotation = [0, 0, 0, 1],
-														},
-														Model = 
-														{
-															bool Visible = true,
-															bool VisibilityCulling = true,
-															string MaterialName = "549a9f71f45ed652:mat_Fabric",
-															string MeshName = "4de0354322b376ae:Sphere",
-															Vec4 Color = [1, 0.59795, 0.065, 1],
-														},
-														RigidBody = 
-														{
-															bool Static = false,
-															bool Asleep = false,
-															bool Kinematic = true,
-															bool RotationLocked = false,
-															bool Mode2D = false,
-															bool AllowSleep = true,
-															bool Inherit2DMode = true,
-															Vec3 Velocity = [0, 0, 0],
-															Vec3 AngularVelocity = [0, 0, 0],
-														},
-														SphereCollider = 
-														{
-															bool Ghost = false,
-															bool SendsMessages = true,
-															bool Seamless = true,
-															string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-															string SerializedGroupName = "54bebd865c1562ee:CG_Player",
-															Vec3 Offset = [0, 0, 0],
-															float Radius = 1,
-														},
-													},
-												},
-											},
-										},
-									},
-									Cog = 
-									{
-										LinkId = 
-										{
-											uint Id = 14,
-										},
-										Named = 
-										{
-											string Name = "LArm",
-										},
-										Transform = 
-										{
-											Vec3 Translation = [0.337381, -1.75468e-007, 0.408789],
-											Vec3 Scale = [1, 1, 1],
-											Quat Rotation = [0, 0, 0, 1],
-										},
-										Model = 
-										{
-											bool Visible = true,
-											bool VisibilityCulling = true,
-											string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
-											string MeshName = "53f50b788ef4a1c0:BoxMan.LArm",
-											Vec4 Color = [0.458824, 0.776471, 0.819608, 1],
-										},
-										Hierarchy = 
-										{
-											Cog = 
-											{
-												LinkId = 
-												{
-													uint Id = 15,
-												},
-												Named = 
-												{
-													string Name = "LArm01",
-												},
-												Transform = 
-												{
-													Vec3 Translation = [2.98023e-008, 1.28688e-007, -0.299804],
-													Vec3 Scale = [1, 1, 1],
-													Quat Rotation = [0, 0, 0, 1],
-												},
-												Model = 
-												{
-													bool Visible = true,
-													bool VisibilityCulling = true,
-													string MaterialName = "5481b84e008be766:mat_gradient",
-													string MeshName = "53f50b788ef4a1c2:BoxMan.LArm01",
-													Vec4 Color = [0.815686, 0.678431, 0.517647, 1],
-												},
-												Hierarchy = 
-												{
-													Cog = 
-													{
-														LinkId = 
-														{
-															uint Id = 16,
-														},
-														Named = 
-														{
-															string Name = "Lantern",
-														},
-														Archetyped = 
-														{
-															string Name = "54045e28b8fa15b8:Lantern",
-														},
-														Transform = 
-														{
-															Vec3 Translation = [0.0509315, -0.0418033, -0.365054],
-															Vec3 Scale = [0.35, 0.35, 0.35],
-															Quat Rotation = [-0.214771, -0.0184185, 0.965249, -0.147744],
-														},
-														Model = 
-														{
-															bool Visible = true,
-															bool VisibilityCulling = true,
-															string MaterialName = "5404506d3dd2a41e:mat_Light",
-															string MeshName = "4de0354322b345ae:Cube",
-															Vec4 Color = [1, 0.5712, 0.36, 1],
-														},
-														Light = 
-														{
-															bool Visible = true,
-															bool VisibilityCulling = true,
-															LightType LightType = Point,
-															Vec4 Color = [0.99, 0.409613, 0.12375, 1],
-															float Intensity = 1,
-															float Range = 15,
-															float Falloff = 1,
-															float Angle = 45,
-															float Size = 20,
-														},
-														GodRayLight = 
-														{
-															GodRayLightType LightType = Point,
-															bool Active = true,
-															int Samples = 80,
-															Vec4 Color = [1, 0.4575, 0.225, 1],
-															float Intensity = 1,
-															float ScreenRadius = 0.11,
-															float OccluderClarity = 0.27,
-															bool ScreenEdgeFade = false,
-															float BeginFade = -0.1,
-															float EndFade = 0.1,
-															float DepthOffset = 0,
-														},
-														Hierarchy = 
-														{
-														},
-													},
-												},
-											},
-										},
-									},
-									Cog = 
-									{
-										LinkId = 
-										{
-											uint Id = 17,
-										},
-										Named = 
-										{
-											string Name = "RArm",
-										},
-										Transform = 
-										{
-											Vec3 Translation = [-0.337996, -1.75468e-007, 0.408789],
-											Vec3 Scale = [1, 1, 1],
-											Quat Rotation = [0, 0, 0, 1],
-										},
-										Model = 
-										{
-											bool Visible = true,
-											bool VisibilityCulling = true,
-											string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
-											string MeshName = "53f50b788ef4a1c4:BoxMan.RArm",
-											Vec4 Color = [0.458824, 0.776471, 0.819608, 1],
-										},
-										Hierarchy = 
-										{
-											Cog = 
-											{
-												LinkId = 
-												{
-													uint Id = 18,
-												},
-												Named = 
-												{
-													string Name = "RArm01",
-												},
-												Transform = 
-												{
-													Vec3 Translation = [-2.98023e-008, 1.28688e-007, -0.299804],
-													Vec3 Scale = [1, 1, 1],
-													Quat Rotation = [0, 0, 0, 1],
-												},
-												Model = 
-												{
-													bool Visible = true,
-													bool VisibilityCulling = true,
-													string MaterialName = "5481b84e008be766:mat_gradient",
-													string MeshName = "53f50b788ef4a1c6:BoxMan.RArm01",
-													Vec4 Color = [0.815686, 0.678431, 0.517647, 1],
-												},
-												Hierarchy = 
-												{
-												},
-											},
-										},
-									},
-								},
-							},
-							Cog = 
-							{
-								LinkId = 
-								{
-									uint Id = 19,
-								},
-								Named = 
-								{
-									string Name = "LLeg",
-								},
-								Transform = 
-								{
-									Vec3 Translation = [0.130405, -2.20144e-008, 0.028952],
-									Vec3 Scale = [1, 1, 1],
-									Quat Rotation = [7.10543e-015, -7.52316e-037, 6.31088e-030, 1],
-								},
-								Model = 
-								{
-									bool Visible = true,
-									bool VisibilityCulling = true,
-									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
-									string MeshName = "53f50b788ef4a1c7:BoxMan.LLeg",
-									Vec4 Color = [0.4592, 0.776704, 0.82, 1],
-								},
-								Hierarchy = 
-								{
-									Cog = 
-									{
-										LinkId = 
-										{
-											uint Id = 20,
-										},
-										Named = 
-										{
-											string Name = "LLeg01",
-										},
-										Transform = 
-										{
-											Vec3 Translation = [0, 1.28688e-007, -0.299807],
-											Vec3 Scale = [1, 1, 1],
-											Quat Rotation = [0, 0, 0, 1],
-										},
-										Model = 
-										{
-											bool Visible = true,
-											bool VisibilityCulling = true,
-											string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
-											string MeshName = "53f50b788ef4a1c9:BoxMan.LLeg01",
-											Vec4 Color = [0.0885, 0.27462, 0.3, 1],
-										},
-									},
-								},
-							},
-							Cog = 
-							{
-								LinkId = 
-								{
-									uint Id = 21,
-								},
-								Named = 
-								{
-									string Name = "RLeg",
-								},
-								Transform = 
-								{
-									Vec3 Translation = [-0.13, -1.67773e-008, 0.028952],
-									Vec3 Scale = [1, 1, 1],
-									Quat Rotation = [7.10543e-015, -7.52316e-037, 6.31088e-030, 1],
-								},
-								Model = 
-								{
-									bool Visible = true,
-									bool VisibilityCulling = true,
-									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
-									string MeshName = "53f50b788ef4a1cb:BoxMan.RLeg",
-									Vec4 Color = [0.4592, 0.776704, 0.82, 1],
-								},
-								Hierarchy = 
-								{
-									Cog = 
-									{
-										LinkId = 
-										{
-											uint Id = 22,
-										},
-										Named = 
-										{
-											string Name = "RLeg01",
-										},
-										Transform = 
-										{
-											Vec3 Translation = [0, 1.28688e-007, -0.299807],
-											Vec3 Scale = [1, 1, 1],
-											Quat Rotation = [0, 0, 0, 1],
-										},
-										Model = 
-										{
-											bool Visible = true,
-											bool VisibilityCulling = true,
-											string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
-											string MeshName = "53f50b788ef4a1cd:BoxMan.RLeg01",
-											Vec4 Color = [0.0885, 0.27462, 0.3, 1],
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 23,
-				},
-				Named = 
-				{
-					string Name = "OnFire",
-				},
-				Archetyped = 
-				{
-					string Name = "549a983f28a95fba:OnFire",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0.0153871, 0.459993, 0.334081],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				SpriteParticleSystem = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					SystemChildMode ChildMode = Independent,
-					SystemSpace SystemSpace = WorldSpace,
-					uint DrawOrder = 0,
-					float WarmUpTime = 0,
-					ParticleGeometry GeometryMode = Billboarded,
-					ParticleRenderMode RenderMode = Blended,
-					ParticleSortMode SortMode = Youngest,
-					ParticleAnimation ParticleAnimation = Single,
-					string Texture = "5481a3be505a50f6:wind-particles-glow-02",
-					Vec4 Tint = [1, 1, 1, 0.87],
-					float VelocityScale = 1,
-					float LengthScale = 1,
-					float MaxParticleSize = 100,
-					Vec3 SystemSize = [4, 4, 4],
-				},
-				SphericalParticleEmitter = 
-				{
-					bool Active = false,
-					uint EmitCount = 0,
-					float EmitRate = 150,
-					float EmitVariance = 0,
-					float Size = 1,
-					float SizeVariance = 0.5,
-					float Lifetime = 1,
-					float LifetimeVariance = 0.2,
-					float Spin = 360,
-					float SpinVariance = 50,
-					bool RandomSpin = true,
-					float Fill = 1,
-					float EmitterVelocityPercent = 0,
-					Vec3 StartVelocity = [0, 0, 8],
-					Vec3 RandomVelocity = [1, 1, 1],
-					Vec3 TangentVelocity = [0, 0, 0],
-					Vec3 EmitterSize = [1, 1, 1],
-					bool FastMovingEmitter = true,
-				},
-				LinearParticleAnimator = 
-				{
-					Vec3 Force = [0, 0, 0],
-					Vec3 RandomForce = [0, 0, 0],
-					float Torque = 0,
-					float Growth = -1,
-					float Dampening = 0,
-					Vec3 Twist = [0, 0, 0],
-				},
-				ParticleColorAnimator = 
-				{
-					Vec4 Color0 = [1, 0.75, 0, 0],
-					Vec4 Color1 = [1, 0.69, 0, 1],
-					Vec4 Color2 = [0.985, 0.426209, 0.06895, 1],
-					Vec4 Color3 = [1, 0.15, 0, 1],
-					Vec4 Color4 = [1, 0.15, 0, 0],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 24,
-				},
-				Named = 
-				{
-					string Name = "Parasol",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0.613419, 0.22648, 1.08852],
-					Vec3 Scale = [0.5, 0.5, 0.5],
-					Quat Rotation = [0.126604, 0.12717, 0.0260524, 0.983423],
-				},
-				Model = 
-				{
-					bool Visible = false,
-					bool VisibilityCulling = true,
-					string MaterialName = "537644533dba9ae8:mat_Plain",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [0.26, 0.135447, 0.0741, 1],
-				},
-				SwordController = 
-				{
-					string GruntSound = "54fc772fa224f98d:PlayerAttackGrunt",
-					string SwishSound = "54fc4f740d467ada:Swish",
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "54bebd865c1562ee:CG_Player",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
-				},
-				AnimationGraph = 
-				{
-					bool Active = true,
-					AnimPlayMode PlayMode = PlayOnce,
-					float TimeScale = 3,
-					string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
-					uint64 DebugPreviewId = 5443d743ccc2e60d,
-				},
-				SimpleAnimation = 
-				{
-					string AnimationName = "549aeec1abd86258:Blocking",
-					AnimPlayMode PlayMode = PlayOnce,
-				},
-				SoundEmitter = 
-				{
-					bool StartPlaying = false,
-					int ExtraPriority = 0,
-					string CueName = "54fc4f740d467ada:Swish",
-					float Volume = 1,
-					float Pitch = 1,
-					bool Positional = true,
-				},
-				Hierarchy = 
-				{
-					Cog = 
-					{
-						LinkId = 
-						{
-							uint Id = 25,
-						},
-						Named = 
-						{
-							string Name = "Blade",
-						},
-						Transform = 
-						{
-							Vec3 Translation = [-0.00796628, 1.85248, 0],
-							Vec3 Scale = [0.3, 4, 0.3],
-							Quat Rotation = [0, 0, 0, 1],
-						},
-						Model = 
-						{
-							bool Visible = true,
-							bool VisibilityCulling = true,
-							string MaterialName = "5404506d3dd2a41e:mat_Light",
-							string MeshName = "4de0354322b345ae:Cube",
-							Vec4 Color = [0.19, 0.0627, 0, 1],
-						},
-						BoxCollider = 
-						{
-							bool Ghost = false,
-							bool SendsMessages = true,
-							bool Seamless = true,
-							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-							string SerializedGroupName = "54bebd865c1562ee:CG_Player",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
-						},
-						DynamicMesh = 
-						{
-							bool GenerateNormals = true,
-							bool GenerateUVs = false,
-							bool GenerateAdjacencyInfo = false,
-						},
-						Ribbon = 
-						{
-							bool Spawning = true,
-							Vec3 LocalSpawnPointA = [0, 0.6, 0],
-							Vec3 LocalSpawnPointB = [0, -0.6, -0],
-							uint MaxLength = 25,
-							float LengthBetweenSpawn = 0.01,
-							float TimeBetweenSpawn = 0.01,
-							CurveType CurveType = BSpline,
-							uint CurveResolution = 5,
-							Vec2 TextureScalar = [1, 1],
-							bool FlipTextureX = false,
-							bool FlipTextureY = false,
-							bool UseDecayCurve = true,
-							string DecayCurveName = "54fcfaaf9f68a225:BladeCurve",
-						},
-						DynamicModel = 
-						{
-							bool Visible = true,
-							bool VisibilityCulling = false,
-							string Material = "5404506d3dd2a41e:mat_Light",
-							Vec4 Color = [1, 1, 1, 1],
-						},
-						RigidBody = 
-						{
-							bool Static = false,
-							bool Asleep = false,
-							bool Kinematic = true,
-							bool RotationLocked = false,
-							bool Mode2D = false,
-							bool AllowSleep = true,
-							bool Inherit2DMode = true,
-							Vec3 Velocity = [0, 0, 0],
-							Vec3 AngularVelocity = [0, 0, 0],
-						},
-						Hierarchy = 
-						{
-						},
-					},
-					Cog = 
-					{
-						LinkId = 
-						{
-							uint Id = 26,
-						},
-						Named = 
-						{
-							string Name = "EyeBall",
-						},
-						Transform = 
-						{
-							Vec3 Translation = [0.21215, 2.96657, 0.0114838],
-							Vec3 Scale = [0.3, 0.3, 0.2],
-							Quat Rotation = [-2.7319e-008, 0.571195, 3.98945e-008, 0.820815],
-						},
-						Model = 
-						{
-							bool Visible = true,
-							bool VisibilityCulling = true,
-							string MaterialName = "54ff05a7f658ee25:mat_EyeBall",
-							string MeshName = "4de0354322b376ae:Sphere",
-							Vec4 Color = [1, 1, 1, 1],
-						},
-					},
-					Cog = 
-					{
-						LinkId = 
-						{
-							uint Id = 27,
-						},
-						Named = 
-						{
-							string Name = "Ribs",
-						},
-						Archetyped = 
-						{
-							string Name = "549a958d188e088b:Ribs",
-						},
-						Transform = 
-						{
-							Vec3 Translation = [0.0594798, 4.03428, -0.0567631],
-							Vec3 Scale = [0.3, 4.5, 0.3],
-							Quat Rotation = [0, 0, 0, 1],
-						},
-						Model = 
-						{
-							bool Visible = true,
-							bool VisibilityCulling = true,
-							string MaterialName = "549a946bb9e88da4:mat_Parasol",
-							string MeshName = "549a90678d6bf01f:BaseParasol",
-							Vec4 Color = [0.660215, 0.378775, 0.695, 1],
-						},
-						RibController = 
-						{
-							float WindSpeed = 20,
-						},
-						BoxCollider = 
-						{
-							bool Ghost = true,
-							bool SendsMessages = true,
-							bool Seamless = true,
-							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-							string SerializedGroupName = "54bebd865c1562ee:CG_Player",
-							Vec3 Offset = [0, -0.5, 0],
-							Vec3 Size = [2.5, 0.5, 2.5],
-						},
-						RigidBody = 
-						{
-							bool Static = false,
-							bool Asleep = false,
-							bool Kinematic = true,
-							bool RotationLocked = false,
-							bool Mode2D = false,
-							bool AllowSleep = true,
-							bool Inherit2DMode = true,
-							Vec3 Velocity = [0, 0, 0],
-							Vec3 AngularVelocity = [0, 0, 0],
-						},
-						SoundEmitter = 
-						{
-							bool StartPlaying = false,
-							int ExtraPriority = 0,
-							string CueName = "549afd4c3301db44:Whoosh_ParasolOpen",
-							float Volume = 1,
-							float Pitch = 1,
-							bool Positional = true,
-						},
-						Hierarchy = 
-						{
-							Cog = 
-							{
-								LinkId = 
-								{
-									uint Id = 28,
-								},
-								Named = 
-								{
-									string Name = "TongueMount",
-								},
-								Transform = 
-								{
-									Vec3 Translation = [1.76814, -0.424878, 0.42237],
-									Vec3 Scale = [0.666667, 0.0444444, 0.666667],
-									Quat Rotation = [-3.35276e-007, 1.11759e-008, 3.747e-015, 1],
-								},
-								Model = 
-								{
-									bool Visible = false,
-									bool VisibilityCulling = true,
-									string MaterialName = "54ff27758d4308c1:mat_Ghost",
-									string MeshName = "4de0354322b376ae:Sphere",
-									Vec4 Color = [1, 0, 0, 1],
-								},
-								SphereCollider = 
-								{
-									bool Ghost = false,
-									bool SendsMessages = true,
-									bool Seamless = true,
-									string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-									string SerializedGroupName = "54ff0eb5b975b8c8:CG_Tongue",
-									Vec3 Offset = [0, 0, 0],
-									float Radius = 1,
-								},
-								TongueManager = 
-								{
-									bool Enable = true,
-								},
-							},
-							Cog = 
-							{
-								LinkId = 
-								{
-									uint Id = 29,
-								},
-								Named = 
-								{
-									string Name = "Eye",
-								},
-								Transform = 
-								{
-									Vec3 Translation = [-0.569626, -0.397944, 1.2287],
-									Vec3 Scale = [0.666667, 0.0444444, 0.666667],
-									Quat Rotation = [-3.35276e-007, 1.11759e-008, 3.747e-015, 1],
-								},
-								Model = 
-								{
-									bool Visible = true,
-									bool VisibilityCulling = true,
-									string MaterialName = "54ff05a7f658ee25:mat_EyeBall",
-									string MeshName = "4de0354322b376ae:Sphere",
-									Vec4 Color = [1, 1, 1, 1],
-								},
-								UseWorldScale = 
-								{
-									Vec3 Scale = [0.5, 0.5, 0.5],
-								},
-							},
-						},
-					},
-				},
-			},
+			string Name = "Player",
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 30,
+			uint Id = 8,
 		},
 		Named = 
 		{
@@ -1304,7 +324,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 31,
+					uint Id = 9,
 				},
 				Named = 
 				{
@@ -1342,7 +362,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 32,
+							uint Id = 10,
 						},
 						Named = 
 						{
@@ -1367,6 +387,8 @@ Level =
 						{
 							bool Visible = false,
 							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
 							string MaterialName = "543828feeb5b6cf5:DreamFog",
 							string MeshName = "4de0354322b345ae:Cube",
 							Vec4 Color = [0.586881, 0.169275, 0.915, 0.045],
@@ -1385,7 +407,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 33,
+							uint Id = 11,
 						},
 						Named = 
 						{
@@ -1406,6 +428,8 @@ Level =
 						{
 							bool Visible = true,
 							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = false,
 							SystemChildMode ChildMode = Independent,
 							SystemSpace SystemSpace = WorldSpace,
 							uint DrawOrder = 0,
@@ -1473,7 +497,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 34,
+							uint Id = 12,
 						},
 						Named = 
 						{
@@ -1494,6 +518,8 @@ Level =
 						{
 							bool Visible = true,
 							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = false,
 							LightType LightType = Directional,
 							Vec4 Color = [0.925, 0.888832, 0.846375, 1],
 							float Intensity = 1.5,
@@ -1532,7 +558,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 35,
+			uint Id = 13,
 		},
 		Named = 
 		{
@@ -1560,7 +586,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 36,
+			uint Id = 14,
 		},
 		Named = 
 		{
@@ -1576,6 +602,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
@@ -1607,7 +635,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 37,
+			uint Id = 15,
 		},
 		Named = 
 		{
@@ -1623,6 +651,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
@@ -1654,7 +684,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 38,
+			uint Id = 16,
 		},
 		Named = 
 		{
@@ -1670,6 +700,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 0.870001, 0, 1],
@@ -1680,7 +712,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 39,
+					uint Id = 17,
 				},
 				Named = 
 				{
@@ -1696,6 +728,8 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [0, 0, 0, 1],
@@ -1705,7 +739,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 40,
+					uint Id = 18,
 				},
 				Named = 
 				{
@@ -1721,6 +755,8 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 0.870001, 0, 1],
@@ -1730,7 +766,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 41,
+					uint Id = 19,
 				},
 				Named = 
 				{
@@ -1746,6 +782,702 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0, 0, 0, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 20,
+				},
+				Named = 
+				{
+					string Name = "Ruler",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [4.00543e-005, 2, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 0.870001, 0, 1],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 21,
+		},
+		Named = 
+		{
+			string Name = "Ruler",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [9.53823, -4.42737, 0],
+			Vec3 Scale = [1, 1, 0.0001],
+			Quat Rotation = [0, 0, 0.707107, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0.870001, 0, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 22,
+				},
+				Named = 
+				{
+					string Name = "Ruler",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [4.00543e-005, 1, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0, 0, 0, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 23,
+				},
+				Named = 
+				{
+					string Name = "Ruler",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [4.00543e-005, 4, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 0.870001, 0, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 24,
+				},
+				Named = 
+				{
+					string Name = "Ruler",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [4.00543e-005, 3, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0, 0, 0, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 25,
+				},
+				Named = 
+				{
+					string Name = "Ruler",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [4.00543e-005, 2, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 0.870001, 0, 1],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 26,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [10.522, -1.44813, -10],
+			Vec3 Scale = [5, 5, 20],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = true,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 27,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [18.4672, -1.44813, -10],
+			Vec3 Scale = [5, 5, 20],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = true,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 28,
+		},
+		Named = 
+		{
+			string Name = "Ruler",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [17.4834, -4.42737, 0],
+			Vec3 Scale = [1, 1, 0.0001],
+			Quat Rotation = [0, 0, 0.707107, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0.870001, 0, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 29,
+				},
+				Named = 
+				{
+					string Name = "Ruler",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [4.00543e-005, 1, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0, 0, 0, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 30,
+				},
+				Named = 
+				{
+					string Name = "Ruler",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [4.00543e-005, 4, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 0.870001, 0, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 31,
+				},
+				Named = 
+				{
+					string Name = "Ruler",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [4.00543e-005, 3, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0, 0, 0, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 32,
+				},
+				Named = 
+				{
+					string Name = "Ruler",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [4.00543e-005, 2, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 0.870001, 0, 1],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 33,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [26.3911, -1.44813, -10],
+			Vec3 Scale = [5, 5, 20],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = true,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 34,
+		},
+		Named = 
+		{
+			string Name = "Ruler",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [25.4073, -4.42737, 0],
+			Vec3 Scale = [1, 1, 0.0001],
+			Quat Rotation = [0, 0, 0.707107, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0.870001, 0, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 35,
+				},
+				Named = 
+				{
+					string Name = "Ruler",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [4.00543e-005, 1, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0, 0, 0, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 36,
+				},
+				Named = 
+				{
+					string Name = "Ruler",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [4.00543e-005, 4, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 0.870001, 0, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 37,
+				},
+				Named = 
+				{
+					string Name = "Ruler",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [4.00543e-005, 3, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0, 0, 0, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 38,
+				},
+				Named = 
+				{
+					string Name = "Ruler",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [4.00543e-005, 2, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 0.870001, 0, 1],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 39,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [34.3732, -1.44813, -10],
+			Vec3 Scale = [5, 5, 20],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = true,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 40,
+		},
+		Named = 
+		{
+			string Name = "Ruler",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [33.3894, -4.42737, 0],
+			Vec3 Scale = [1, 1, 0.0001],
+			Quat Rotation = [0, 0, 0.707107, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0.870001, 0, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 41,
+				},
+				Named = 
+				{
+					string Name = "Ruler",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [4.00543e-005, 1, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [0, 0, 0, 1],
@@ -1763,84 +1495,6 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [4.00543e-005, 2, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 0.870001, 0, 1],
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 43,
-		},
-		Named = 
-		{
-			string Name = "Ruler",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [9.53823, -4.42737, 0],
-			Vec3 Scale = [1, 1, 0.0001],
-			Quat Rotation = [0, 0, 0.707107, 0.707107],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 0.870001, 0, 1],
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 44,
-				},
-				Named = 
-				{
-					string Name = "Ruler",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [4.00543e-005, 1, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [0, 0, 0, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 45,
-				},
-				Named = 
-				{
-					string Name = "Ruler",
-				},
-				Transform = 
-				{
 					Vec3 Translation = [4.00543e-005, 4, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
@@ -1849,6 +1503,8 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 0.870001, 0, 1],
@@ -1858,7 +1514,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 46,
+					uint Id = 43,
 				},
 				Named = 
 				{
@@ -1874,6 +1530,92 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0, 0, 0, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 44,
+				},
+				Named = 
+				{
+					string Name = "Ruler",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [4.00543e-005, 2, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 0.870001, 0, 1],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 45,
+		},
+		Named = 
+		{
+			string Name = "Ruler",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [41.367, -4.42737, 0],
+			Vec3 Scale = [1, 1, 0.0001],
+			Quat Rotation = [0, 0, 0.707107, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0.870001, 0, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 46,
+				},
+				Named = 
+				{
+					string Name = "Ruler",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [4.00543e-005, 1, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [0, 0, 0, 1],
@@ -1891,6 +1633,60 @@ Level =
 				},
 				Transform = 
 				{
+					Vec3 Translation = [4.00543e-005, 4, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 0.870001, 0, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 48,
+				},
+				Named = 
+				{
+					string Name = "Ruler",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [4.00543e-005, 3, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0, 0, 0, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 49,
+				},
+				Named = 
+				{
+					string Name = "Ruler",
+				},
+				Transform = 
+				{
 					Vec3 Translation = [4.00543e-005, 2, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
@@ -1899,105 +1695,13 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 0.870001, 0, 1],
 				},
 			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 48,
-		},
-		Named = 
-		{
-			string Name = "Cube",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [10.522, -1.44813, -10],
-			Vec3 Scale = [5, 5, 20],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = true,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 49,
-		},
-		Named = 
-		{
-			string Name = "Cube",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [18.4672, -1.44813, -10],
-			Vec3 Scale = [5, 5, 20],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = true,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
 		},
 	},
 	Cog = 
@@ -2005,612 +1709,6 @@ Level =
 		LinkId = 
 		{
 			uint Id = 50,
-		},
-		Named = 
-		{
-			string Name = "Ruler",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [17.4834, -4.42737, 0],
-			Vec3 Scale = [1, 1, 0.0001],
-			Quat Rotation = [0, 0, 0.707107, 0.707107],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 0.870001, 0, 1],
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 51,
-				},
-				Named = 
-				{
-					string Name = "Ruler",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [4.00543e-005, 1, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [0, 0, 0, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 52,
-				},
-				Named = 
-				{
-					string Name = "Ruler",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [4.00543e-005, 4, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 0.870001, 0, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 53,
-				},
-				Named = 
-				{
-					string Name = "Ruler",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [4.00543e-005, 3, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [0, 0, 0, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 54,
-				},
-				Named = 
-				{
-					string Name = "Ruler",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [4.00543e-005, 2, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 0.870001, 0, 1],
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 55,
-		},
-		Named = 
-		{
-			string Name = "Cube",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [26.3911, -1.44813, -10],
-			Vec3 Scale = [5, 5, 20],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = true,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 56,
-		},
-		Named = 
-		{
-			string Name = "Ruler",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [25.4073, -4.42737, 0],
-			Vec3 Scale = [1, 1, 0.0001],
-			Quat Rotation = [0, 0, 0.707107, 0.707107],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 0.870001, 0, 1],
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 57,
-				},
-				Named = 
-				{
-					string Name = "Ruler",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [4.00543e-005, 1, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [0, 0, 0, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 58,
-				},
-				Named = 
-				{
-					string Name = "Ruler",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [4.00543e-005, 4, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 0.870001, 0, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 59,
-				},
-				Named = 
-				{
-					string Name = "Ruler",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [4.00543e-005, 3, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [0, 0, 0, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 60,
-				},
-				Named = 
-				{
-					string Name = "Ruler",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [4.00543e-005, 2, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 0.870001, 0, 1],
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 61,
-		},
-		Named = 
-		{
-			string Name = "Cube",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [34.3732, -1.44813, -10],
-			Vec3 Scale = [5, 5, 20],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = true,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 62,
-		},
-		Named = 
-		{
-			string Name = "Ruler",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [33.3894, -4.42737, 0],
-			Vec3 Scale = [1, 1, 0.0001],
-			Quat Rotation = [0, 0, 0.707107, 0.707107],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 0.870001, 0, 1],
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 63,
-				},
-				Named = 
-				{
-					string Name = "Ruler",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [4.00543e-005, 1, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [0, 0, 0, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 64,
-				},
-				Named = 
-				{
-					string Name = "Ruler",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [4.00543e-005, 4, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 0.870001, 0, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 65,
-				},
-				Named = 
-				{
-					string Name = "Ruler",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [4.00543e-005, 3, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [0, 0, 0, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 66,
-				},
-				Named = 
-				{
-					string Name = "Ruler",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [4.00543e-005, 2, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 0.870001, 0, 1],
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 67,
-		},
-		Named = 
-		{
-			string Name = "Ruler",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [41.367, -4.42737, 0],
-			Vec3 Scale = [1, 1, 0.0001],
-			Quat Rotation = [0, 0, 0.707107, 0.707107],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 0.870001, 0, 1],
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 68,
-				},
-				Named = 
-				{
-					string Name = "Ruler",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [4.00543e-005, 1, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [0, 0, 0, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 69,
-				},
-				Named = 
-				{
-					string Name = "Ruler",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [4.00543e-005, 4, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 0.870001, 0, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 70,
-				},
-				Named = 
-				{
-					string Name = "Ruler",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [4.00543e-005, 3, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [0, 0, 0, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 71,
-				},
-				Named = 
-				{
-					string Name = "Ruler",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [4.00543e-005, 2, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 0.870001, 0, 1],
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 72,
 		},
 		Named = 
 		{
@@ -2626,6 +1724,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
@@ -2657,7 +1757,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 73,
+			uint Id = 51,
 		},
 		Named = 
 		{
@@ -2673,6 +1773,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
@@ -2704,7 +1806,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 74,
+			uint Id = 52,
 		},
 		Named = 
 		{
@@ -2722,7 +1824,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 75,
+					uint Id = 53,
 				},
 				Named = 
 				{
@@ -2738,6 +1840,8 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [0, 0, 0, 1],
@@ -2747,7 +1851,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 76,
+					uint Id = 54,
 				},
 				Named = 
 				{
@@ -2763,6 +1867,8 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 0.870001, 0, 1],
@@ -2772,7 +1878,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 77,
+					uint Id = 55,
 				},
 				Named = 
 				{
@@ -2788,6 +1894,8 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [0, 0, 0, 1],
@@ -2797,7 +1905,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 78,
+					uint Id = 56,
 				},
 				Named = 
 				{
@@ -2813,6 +1921,8 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 0.870001, 0, 1],
@@ -2824,7 +1934,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 79,
+			uint Id = 57,
 		},
 		Named = 
 		{
@@ -2840,6 +1950,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 0, 0.000599861, 1],
@@ -2850,7 +1962,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 80,
+					uint Id = 58,
 				},
 				Named = 
 				{
@@ -2866,6 +1978,8 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [0, 0, 0, 1],
@@ -2875,7 +1989,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 81,
+					uint Id = 59,
 				},
 				Named = 
 				{
@@ -2891,6 +2005,8 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 0, 0, 1],
@@ -2900,7 +2016,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 82,
+					uint Id = 60,
 				},
 				Named = 
 				{
@@ -2916,6 +2032,8 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [0, 0, 0, 1],
@@ -2925,7 +2043,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 83,
+					uint Id = 61,
 				},
 				Named = 
 				{
@@ -2941,6 +2059,8 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 0, 0.000599861, 1],
@@ -2952,7 +2072,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 84,
+			uint Id = 62,
 		},
 		Named = 
 		{
@@ -2968,6 +2088,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b3572e:Cylinder",
 			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
@@ -3001,7 +2123,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 85,
+			uint Id = 63,
 		},
 		Named = 
 		{
@@ -3017,6 +2139,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b3572e:Cylinder",
 			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
@@ -3050,7 +2174,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 86,
+			uint Id = 64,
 		},
 		Named = 
 		{
@@ -3066,6 +2190,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b3572e:Cylinder",
 			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
@@ -3099,7 +2225,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 87,
+			uint Id = 65,
 		},
 		Named = 
 		{
@@ -3115,6 +2241,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b3572e:Cylinder",
 			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
@@ -3148,7 +2276,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 88,
+			uint Id = 66,
 		},
 		Named = 
 		{
@@ -3164,6 +2292,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b3572e:Cylinder",
 			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
@@ -3197,7 +2327,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 89,
+			uint Id = 67,
 		},
 		Named = 
 		{
@@ -3213,6 +2343,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b3572e:Cylinder",
 			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
@@ -3246,7 +2378,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 90,
+			uint Id = 68,
 		},
 		Named = 
 		{
@@ -3262,6 +2394,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.1496, 0.44132, 0.68, 1],
@@ -3314,7 +2448,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 91,
+			uint Id = 69,
 		},
 		Named = 
 		{
@@ -3330,6 +2464,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.1496, 0.44132, 0.68, 1],
@@ -3382,7 +2518,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 92,
+			uint Id = 70,
 		},
 		Named = 
 		{
@@ -3398,6 +2534,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.1496, 0.44132, 0.68, 1],
@@ -3450,7 +2588,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 93,
+			uint Id = 71,
 		},
 		Named = 
 		{
@@ -3466,6 +2604,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.1496, 0.44132, 0.68, 1],
@@ -3518,7 +2658,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 94,
+			uint Id = 72,
 		},
 		Named = 
 		{
@@ -3613,7 +2753,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 95,
+					uint Id = 73,
 				},
 				Named = 
 				{
@@ -3631,7 +2771,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 96,
+							uint Id = 74,
 						},
 						Named = 
 						{
@@ -3647,6 +2787,8 @@ Level =
 						{
 							bool Visible = true,
 							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = false,
 							SystemChildMode ChildMode = Independent,
 							SystemSpace SystemSpace = WorldSpace,
 							uint DrawOrder = 0,
@@ -3704,6 +2846,8 @@ Level =
 						{
 							bool Visible = true,
 							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = false,
 							LightType LightType = Point,
 							Vec4 Color = [1, 0.2333, 0.065, 1],
 							float Intensity = 1,
@@ -3732,7 +2876,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 97,
+									uint Id = 75,
 								},
 								Named = 
 								{
@@ -3748,6 +2892,8 @@ Level =
 								{
 									bool Visible = true,
 									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = false,
 									SystemChildMode ChildMode = Independent,
 									SystemSpace SystemSpace = WorldSpace,
 									uint DrawOrder = 0,
@@ -3806,7 +2952,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 98,
+									uint Id = 76,
 								},
 								Named = 
 								{
@@ -3822,6 +2968,8 @@ Level =
 								{
 									bool Visible = true,
 									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = false,
 									SystemChildMode ChildMode = Independent,
 									SystemSpace SystemSpace = WorldSpace,
 									uint DrawOrder = 0,
@@ -3891,7 +3039,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 99,
+							uint Id = 77,
 						},
 						Named = 
 						{
@@ -3909,7 +3057,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 100,
+									uint Id = 78,
 								},
 								Named = 
 								{
@@ -3934,7 +3082,7 @@ Level =
 									{
 										LinkId = 
 										{
-											uint Id = 101,
+											uint Id = 79,
 										},
 										Named = 
 										{
@@ -3962,7 +3110,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 102,
+							uint Id = 80,
 						},
 						Named = 
 						{
@@ -3978,6 +3126,8 @@ Level =
 						{
 							bool Visible = true,
 							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
 							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 							string MeshName = "548d36630a005b61:LanternDemon.GeoSphere001",
 							Vec4 Color = [0, 0, 0, 1],
@@ -3987,7 +3137,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 103,
+							uint Id = 81,
 						},
 						Named = 
 						{
@@ -4003,6 +3153,8 @@ Level =
 						{
 							bool Visible = true,
 							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
 							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 							string MeshName = "548d36630a005b6e:LanternDemon.Base",
 							Vec4 Color = [1, 0.616, 0.4, 1],
@@ -4012,7 +3164,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 104,
+							uint Id = 82,
 						},
 						Named = 
 						{
@@ -4030,7 +3182,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 105,
+									uint Id = 83,
 								},
 								Named = 
 								{
@@ -4049,7 +3201,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 106,
+							uint Id = 84,
 						},
 						Named = 
 						{
@@ -4065,6 +3217,8 @@ Level =
 						{
 							bool Visible = true,
 							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
 							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 							string MeshName = "548d36630a005b6a:LanternDemon.MouthBlack",
 							Vec4 Color = [0.13, 0.13, 0.13, 1],
@@ -4074,7 +3228,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 107,
+							uint Id = 85,
 						},
 						Named = 
 						{
@@ -4090,6 +3244,8 @@ Level =
 						{
 							bool Visible = true,
 							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
 							string Material = "548d6afe0d0f20a4:mat_Lantern",
 							string Mesh = "548d36630a005b6c:LanternDemon.Box001",
 							Vec4 Color = [0.705, 0.1833, 0.292857, 1],
@@ -4099,7 +3255,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 108,
+							uint Id = 86,
 						},
 						Named = 
 						{
@@ -4115,6 +3271,8 @@ Level =
 						{
 							bool Visible = true,
 							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = false,
 							SystemChildMode ChildMode = Independent,
 							SystemSpace SystemSpace = WorldSpace,
 							uint DrawOrder = 0,
@@ -4173,7 +3331,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 109,
+							uint Id = 87,
 						},
 						Named = 
 						{
@@ -4189,6 +3347,8 @@ Level =
 						{
 							bool Visible = true,
 							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
 							string MaterialName = "5404506d3dd2a41e:mat_Light",
 							string MeshName = "548d36630a005b68:LanternDemon.Pupil",
 							Vec4 Color = [1, 0, 0, 1],
@@ -4198,7 +3358,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 110,
+							uint Id = 88,
 						},
 						Named = 
 						{
@@ -4214,6 +3374,8 @@ Level =
 						{
 							bool Visible = true,
 							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
 							string MaterialName = "54ff27758d4308c1:mat_Ghost",
 							string MeshName = "548d36630a005b61:LanternDemon.GeoSphere001",
 							Vec4 Color = [1, 1, 1, 1],
@@ -4223,7 +3385,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 111,
+							uint Id = 89,
 						},
 						Named = 
 						{
@@ -4239,6 +3401,8 @@ Level =
 						{
 							bool Visible = true,
 							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
 							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 							string MeshName = "548d36630a005b64:LanternDemon.Pyramid001",
 							Vec4 Color = [1, 1, 1, 1],
@@ -4248,7 +3412,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 112,
+							uint Id = 90,
 						},
 						Named = 
 						{
@@ -4264,6 +3428,8 @@ Level =
 						{
 							bool Visible = true,
 							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
 							string Material = "548d6afe0d0f20a4:mat_Lantern",
 							string Mesh = "548d36630a005b5c:LanternDemon.ChamferCyl001",
 							Vec4 Color = [0.835, 0.782645, 0.597025, 1],
@@ -4280,7 +3446,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 113,
+							uint Id = 91,
 						},
 						Named = 
 						{
@@ -4296,6 +3462,8 @@ Level =
 						{
 							bool Visible = true,
 							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
 							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 							string MeshName = "548d36630a005b66:LanternDemon.Pyramid002",
 							Vec4 Color = [1, 1, 1, 1],
@@ -4310,7 +3478,7 @@ Level =
 		string Name = "548d61033e57e7c9:WaterBlock",
 		LinkId = 
 		{
-			uint Id = 114,
+			uint Id = 92,
 		},
 		Transform = 
 		{
@@ -4328,7 +3496,7 @@ Level =
 		string Name = "548d111662b8afd0:haunted_Particle",
 		LinkId = 
 		{
-			uint Id = 115,
+			uint Id = 93,
 		},
 		Transform = 
 		{
@@ -4346,7 +3514,7 @@ Level =
 		string Name = "548d61033e57e7c9:WaterBlock",
 		LinkId = 
 		{
-			uint Id = 116,
+			uint Id = 94,
 		},
 		Transform = 
 		{
@@ -4363,7 +3531,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 117,
+			uint Id = 95,
 		},
 		Named = 
 		{
@@ -4395,7 +3563,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 118,
+					uint Id = 96,
 				},
 				Named = 
 				{
@@ -4411,6 +3579,8 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3b2289af798:LanternPost.LanternPost_Body",
 					Vec4 Color = [0.75, 0.195, 0.195, 1],
@@ -4420,7 +3590,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 119,
+					uint Id = 97,
 				},
 				Named = 
 				{
@@ -4436,6 +3606,8 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "5481b3b2289af79f:LanternPost.LanternPost_Hook",
 					Vec4 Color = [1, 1, 1, 1],
@@ -4445,7 +3617,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 120,
+					uint Id = 98,
 				},
 				Named = 
 				{
@@ -4487,7 +3659,7 @@ Level =
 		string Name = "54bebc5606a21d42:TongueTarget",
 		LinkId = 
 		{
-			uint Id = 121,
+			uint Id = 99,
 		},
 		Transform = 
 		{
@@ -4504,7 +3676,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 122,
+			uint Id = 100,
 		},
 		Named = 
 		{
@@ -4524,6 +3696,8 @@ Level =
 		{
 			bool Visible = false,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "4de020863e85bb61:DefaultMaterial",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
@@ -4551,7 +3725,7 @@ Level =
 				string Name = "54bfd4ebd919d6f3:TongueTargetTarget",
 				LinkId = 
 				{
-					uint Id = 123,
+					uint Id = 101,
 				},
 				Transform = 
 				{
@@ -4568,7 +3742,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 124,
+					uint Id = 102,
 				},
 				Named = 
 				{
@@ -4584,6 +3758,8 @@ Level =
 				{
 					bool Visible = false,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "4de020863e85bb61:DefaultMaterial",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
@@ -4617,7 +3793,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 125,
+			uint Id = 103,
 		},
 		Named = 
 		{
@@ -4637,6 +3813,8 @@ Level =
 		{
 			bool Visible = false,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "4de020863e85bb61:DefaultMaterial",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
@@ -4664,7 +3842,7 @@ Level =
 				string Name = "54bfd4ebd919d6f3:TongueTargetTarget",
 				LinkId = 
 				{
-					uint Id = 126,
+					uint Id = 104,
 				},
 				Transform = 
 				{
@@ -4681,7 +3859,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 127,
+					uint Id = 105,
 				},
 				Named = 
 				{
@@ -4697,6 +3875,8 @@ Level =
 				{
 					bool Visible = false,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "4de020863e85bb61:DefaultMaterial",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
@@ -4730,7 +3910,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 128,
+			uint Id = 106,
 		},
 		Named = 
 		{
@@ -4750,6 +3930,8 @@ Level =
 		{
 			bool Visible = false,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "4de020863e85bb61:DefaultMaterial",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
@@ -4777,7 +3959,7 @@ Level =
 				string Name = "54bfd4ebd919d6f3:TongueTargetTarget",
 				LinkId = 
 				{
-					uint Id = 129,
+					uint Id = 107,
 				},
 				Transform = 
 				{
@@ -4794,7 +3976,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 130,
+					uint Id = 108,
 				},
 				Named = 
 				{
@@ -4810,6 +3992,8 @@ Level =
 				{
 					bool Visible = false,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "4de020863e85bb61:DefaultMaterial",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
@@ -4843,7 +4027,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 131,
+			uint Id = 109,
 		},
 		Named = 
 		{
@@ -4859,6 +4043,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
@@ -4891,7 +4077,7 @@ Level =
 		string Name = "548d61033e57e7c9:WaterBlock",
 		LinkId = 
 		{
-			uint Id = 132,
+			uint Id = 110,
 		},
 		Transform = 
 		{
@@ -4909,7 +4095,7 @@ Level =
 		string Name = "548d61033e57e7c9:WaterBlock",
 		LinkId = 
 		{
-			uint Id = 133,
+			uint Id = 111,
 		},
 		Transform = 
 		{
@@ -4927,7 +4113,7 @@ Level =
 		string Name = "548d61033e57e7c9:WaterBlock",
 		LinkId = 
 		{
-			uint Id = 134,
+			uint Id = 112,
 		},
 		Transform = 
 		{
@@ -4945,7 +4131,7 @@ Level =
 		string Name = "548d61033e57e7c9:WaterBlock",
 		LinkId = 
 		{
-			uint Id = 135,
+			uint Id = 113,
 		},
 		Transform = 
 		{
@@ -4963,7 +4149,7 @@ Level =
 		string Name = "548d61033e57e7c9:WaterBlock",
 		LinkId = 
 		{
-			uint Id = 136,
+			uint Id = 114,
 		},
 		Transform = 
 		{
@@ -4981,7 +4167,7 @@ Level =
 		string Name = "548d61033e57e7c9:WaterBlock",
 		LinkId = 
 		{
-			uint Id = 137,
+			uint Id = 115,
 		},
 		Transform = 
 		{
@@ -4999,7 +4185,7 @@ Level =
 		string Name = "548d61033e57e7c9:WaterBlock",
 		LinkId = 
 		{
-			uint Id = 138,
+			uint Id = 116,
 		},
 		Transform = 
 		{
@@ -5017,7 +4203,7 @@ Level =
 		string Name = "5481a2f612bcc3ec:TargetLock",
 		LinkId = 
 		{
-			uint Id = 139,
+			uint Id = 117,
 		},
 		Transform = 
 		{
@@ -5035,7 +4221,7 @@ Level =
 		string Name = "548d61033e57e7c9:WaterBlock",
 		LinkId = 
 		{
-			uint Id = 140,
+			uint Id = 118,
 		},
 		Transform = 
 		{
@@ -5053,7 +4239,7 @@ Level =
 		string Name = "548d61033e57e7c9:WaterBlock",
 		LinkId = 
 		{
-			uint Id = 141,
+			uint Id = 119,
 		},
 		Transform = 
 		{
@@ -5071,7 +4257,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 142,
+			uint Id = 120,
 		},
 		Transform = 
 		{
@@ -5089,7 +4275,7 @@ Level =
 		string Name = "54bebc5606a21d42:TongueTarget",
 		LinkId = 
 		{
-			uint Id = 143,
+			uint Id = 121,
 		},
 		Transform = 
 		{
@@ -5106,7 +4292,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 144,
+			uint Id = 122,
 		},
 		Named = 
 		{
@@ -5128,7 +4314,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 145,
+					uint Id = 123,
 				},
 				Named = 
 				{
@@ -5144,6 +4330,8 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "54bfd084bf659d75:TongueTargetMesh.TargetBase",
 					Vec4 Color = [0.193518, 0.1911, 0.195, 1],
@@ -5153,7 +4341,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 146,
+					uint Id = 124,
 				},
 				Named = 
 				{
@@ -5169,6 +4357,8 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 					string MeshName = "54bfd084bf659d79:TongueTargetMesh.TargetRings",
 					Vec4 Color = [0.32, 0.3024, 0.302411, 1],
@@ -5181,7 +4371,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 147,
+			uint Id = 125,
 		},
 		Transform = 
 		{
@@ -5199,7 +4389,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 148,
+			uint Id = 126,
 		},
 		Transform = 
 		{
@@ -5217,7 +4407,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 149,
+			uint Id = 127,
 		},
 		Transform = 
 		{
@@ -5234,7 +4424,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 150,
+			uint Id = 128,
 		},
 		Named = 
 		{
@@ -5250,6 +4440,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
@@ -5281,7 +4473,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 151,
+			uint Id = 129,
 		},
 		Named = 
 		{
@@ -5297,6 +4489,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
@@ -5328,7 +4522,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 152,
+			uint Id = 130,
 		},
 		Named = 
 		{
@@ -5348,6 +4542,8 @@ Level =
 		{
 			bool Visible = false,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "4de020863e85bb61:DefaultMaterial",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
@@ -5375,7 +4571,7 @@ Level =
 				string Name = "54bfd4ebd919d6f3:TongueTargetTarget",
 				LinkId = 
 				{
-					uint Id = 153,
+					uint Id = 131,
 				},
 				Transform = 
 				{
@@ -5392,7 +4588,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 154,
+					uint Id = 132,
 				},
 				Named = 
 				{
@@ -5408,6 +4604,8 @@ Level =
 				{
 					bool Visible = false,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
 					string MaterialName = "4de020863e85bb61:DefaultMaterial",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 1],
@@ -5442,7 +4640,7 @@ Level =
 		string Name = "54a029453736b437:TorchUnlit",
 		LinkId = 
 		{
-			uint Id = 155,
+			uint Id = 133,
 		},
 		Transform = 
 		{
@@ -5460,7 +4658,7 @@ Level =
 		string Name = "54a029453736b437:TorchUnlit",
 		LinkId = 
 		{
-			uint Id = 156,
+			uint Id = 134,
 		},
 		Transform = 
 		{
@@ -5478,7 +4676,7 @@ Level =
 		string Name = "54a02f4cc8357f67:StairsTest",
 		LinkId = 
 		{
-			uint Id = 157,
+			uint Id = 135,
 		},
 		Transform = 
 		{
@@ -5495,7 +4693,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 158,
+			uint Id = 136,
 		},
 		Named = 
 		{
@@ -5511,6 +4709,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54819fe496791aa4:mat_DecalPentaStar",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
@@ -5520,7 +4720,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 159,
+			uint Id = 137,
 		},
 		Named = 
 		{
@@ -5536,6 +4736,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 			string MeshName = "5481fffe3b4f9c65:ToriiGate.pCube7",
 			Vec4 Color = [0.295, 0.0531, 0.0531, 1],
@@ -5545,7 +4747,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 160,
+			uint Id = 138,
 		},
 		Named = 
 		{
@@ -5561,6 +4763,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "54ff3ee6d325ef83:TerrainMat2",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.21, 0.2058, 0.2058, 1],
@@ -5593,7 +4797,7 @@ Level =
 		string Name = "548d61033e57e7c9:WaterBlock",
 		LinkId = 
 		{
-			uint Id = 161,
+			uint Id = 139,
 		},
 		Transform = 
 		{
@@ -5611,7 +4815,7 @@ Level =
 		string Name = "548d61033e57e7c9:WaterBlock",
 		LinkId = 
 		{
-			uint Id = 162,
+			uint Id = 140,
 		},
 		Transform = 
 		{
@@ -5629,7 +4833,7 @@ Level =
 		string Name = "548d61033e57e7c9:WaterBlock",
 		LinkId = 
 		{
-			uint Id = 163,
+			uint Id = 141,
 		},
 		Transform = 
 		{
@@ -5647,7 +4851,7 @@ Level =
 		string Name = "548d61033e57e7c9:WaterBlock",
 		LinkId = 
 		{
-			uint Id = 164,
+			uint Id = 142,
 		},
 		Transform = 
 		{

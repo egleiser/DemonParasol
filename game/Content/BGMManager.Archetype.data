@@ -1,0 +1,102 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BGMManager",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	DungeonSoundManager = 
+	{
+		float MasterVolume = 0.65,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "BGMNormal",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SoundEmitter = 
+			{
+				bool StartPlaying = true,
+				int ExtraPriority = 0,
+				string CueName = "55dbbe3be22313e0:BurntCityDarknessPiano",
+				float Volume = 0,
+				float Pitch = 1,
+				bool Positional = false,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "BGMEnemy",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SoundEmitter = 
+			{
+				bool StartPlaying = true,
+				int ExtraPriority = 0,
+				string CueName = "55dbbe3be224fb9b:BurntCityDarknessMin",
+				float Volume = 0,
+				float Pitch = 1,
+				bool Positional = false,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "BGMSpotted",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SoundEmitter = 
+			{
+				bool StartPlaying = true,
+				int ExtraPriority = 0,
+				string CueName = "55dbbde9b9864dfb:BurntCityLightDrums",
+				float Volume = 0,
+				float Pitch = 1,
+				bool Positional = false,
+			},
+		},
+	},
+},

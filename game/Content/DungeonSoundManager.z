@@ -13,32 +13,64 @@ class DungeonSoundManager : ZilchComponent
     var MasterPitch: Real = 1.0;
     var MusicNormal: Cog = null;
     var MusicEnemy: Cog = null;
+    var MusicSpotted: Cog = null;
+    var Spotted: Boolean = false;
     var EnemyList: Array[Cog] = null;
     
     function Initialize(init : CogInitializer)
     {
         this.MusicNormal = this.Owner.FindChildByName("BGMNormal");
         this.MusicEnemy = this.Owner.FindChildByName("BGMEnemy");
+        this.MusicSpotted = this.Owner.FindChildByName("BGMSpotted");
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.MusicNormal.SoundEmitter.Volume = 0.001;
         this.MusicEnemy.SoundEmitter.Volume = 0.001;
+        if(this.MusicSpotted != null)
+        {
+            this.MusicSpotted.SoundEmitter.Volume = 0.001;
+        }
         this.EnemyList = new Array[Cog]();
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-
         this.MusicNormal.SoundEmitter.Pitch = Math.Lerp(this.MusicNormal.SoundEmitter.Pitch, this.MasterPitch, event.Dt * 4.0);
         this.MusicEnemy.SoundEmitter.Pitch = Math.Lerp(this.MusicEnemy.SoundEmitter.Pitch, this.MasterPitch, event.Dt * 4.0);
-        if(this.EnemyList.Count > 0)
+        if(this.MusicSpotted != null)
         {
-            this.MusicNormal.SoundEmitter.Volume = Math.Lerp(this.MusicNormal.SoundEmitter.Volume, 0.0, event.Dt);
-            this.MusicEnemy.SoundEmitter.Volume = Math.Lerp(this.MusicEnemy.SoundEmitter.Volume, this.MasterVolume, event.Dt);
+            this.MusicSpotted.SoundEmitter.Pitch = Math.Lerp(this.MusicSpotted.SoundEmitter.Pitch, this.MasterPitch, event.Dt * 4.0);
         }
+        if(this.Spotted == false)
+        {
+            if(this.EnemyList.Count > 0)
+            {
+                this.MusicNormal.SoundEmitter.Volume = Math.Lerp(this.MusicNormal.SoundEmitter.Volume, 0.0, event.Dt);
+                this.MusicEnemy.SoundEmitter.Volume = Math.Lerp(this.MusicEnemy.SoundEmitter.Volume, this.MasterVolume, event.Dt);
+                if(this.MusicSpotted != null)
+                {
+                    this.MusicSpotted.SoundEmitter.Volume = Math.Lerp(this.MusicSpotted.SoundEmitter.Volume, 0.0, event.Dt);
+                }
+            }
+            else
+            {
+                this.MusicNormal.SoundEmitter.Volume = Math.Lerp(this.MusicNormal.SoundEmitter.Volume, this.MasterVolume, event.Dt);
+                this.MusicEnemy.SoundEmitter.Volume = Math.Lerp(this.MusicEnemy.SoundEmitter.Volume, 0.0, event.Dt);
+                
+                if(this.MusicSpotted != null)
+                {
+                    this.MusicSpotted.SoundEmitter.Volume = Math.Lerp(this.MusicSpotted.SoundEmitter.Volume, 0.0, event.Dt);
+                }
+            }
+        }
+        //If in Alert Phase
         else
         {
-            this.MusicNormal.SoundEmitter.Volume = Math.Lerp(this.MusicNormal.SoundEmitter.Volume, this.MasterVolume, event.Dt);
+            this.MusicNormal.SoundEmitter.Volume = Math.Lerp(this.MusicNormal.SoundEmitter.Volume, 0.0, event.Dt);
             this.MusicEnemy.SoundEmitter.Volume = Math.Lerp(this.MusicEnemy.SoundEmitter.Volume, 0.0, event.Dt);
+            if(this.MusicSpotted != null)
+            {
+                this.MusicSpotted.SoundEmitter.Volume = Math.Lerp(this.MusicSpotted.SoundEmitter.Volume, this.MasterVolume, event.Dt * 2.0);
+            }
         }
     }
 }

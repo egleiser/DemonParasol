@@ -48,11 +48,11 @@ class PlayerAnimator : ZilchComponent
                 this.Owner.SimpleAnimation.CrossBlend(this.AniFall,0.8,AnimPlayMode.Loop);
         }
 
-        else if(this.Owner.Parent.FindChildByName("Parasol").SwordController.SlashCount > 0)
+        /*else if(this.Owner.Parent.FindChildByName("Parasol").SwordController.SlashCount > 0)
         {
                 //this.AniState = 3;
                 //this.Owner.SimpleAnimation.CrossBlend(this.AniAttack,0.8,1);
-        }
+        }*/
         else
         {
             if(this.AniState != 1)

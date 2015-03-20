@@ -3,12 +3,16 @@
 ////  Name: CustomEvents.z           ////
 ////    Written by: Eric Gleiser     ////
 ////               Jason Clark       ////
-////     Last Updated: 12-11-14      ////
+////     Last Updated: 03-18-15      ////
 ////                                 ////
 /////////////////////////////////////////
 class ContextEvent : Event
 {
     var Context : ContextState = ContextState.Sleep;
+}  
+class AlertEvent : Event
+{
+    var InfoToSend : String = "";
 }  
 class BlockEvent : Event
 {

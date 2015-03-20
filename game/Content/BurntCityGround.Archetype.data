@@ -1,0 +1,74 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BurntCityGround",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "BurntCityLayout",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 4.48199],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "55dbba23ab3c2924:burntCityMap",
+				string MeshName = "55dbba3eabc44b81:BurntCityGround.BurntCityLayout",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "BurntCityFloor",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 0.881676],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "55d9df6f54abdd0a:02___Default",
+				string MeshName = "55dbba3eabc44b86:BurntCityGround.BurntCityFloor",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+	},
+},
