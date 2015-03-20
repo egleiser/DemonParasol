@@ -1,0 +1,33 @@
+class NarrativeDemoStartGame : ZilchComponent
+{
+    var Hudspace : Space = null;
+    
+    var HudCamera : Cog = null;
+    
+    var JapanSprite : Cog = null;
+    var YearSprite : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Hudspace = this.GameSession.FindSpaceByName("HudSpace");
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, Events.GameStarted, this.OnGameStarted);
+    }
+
+    function OnGameStarted(event : GameEvent)
+    {
+        this.TextFades();
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        
+    }
+    
+    function TextFades()
+    {
+        var introTextFade = new IntroTextFades();
+        this.Hudspace.FindObjectByName("IntroTextObject").DispatchEvent("IntroTextFade", introTextFade);
+    }
+
+}

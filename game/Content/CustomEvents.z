@@ -101,6 +101,10 @@ class FadeToBlackEvent : Event
     var TimeToFade : Real = 0.0;
     var EaseCurve : Ease = Ease.QuadOut;
 }
+//Event for intro text fades
+class IntroTextFades : Event
+{
+}
 //Event for when camera pan has finished
 class PanFinishedEvent : Event
 {
@@ -150,6 +154,11 @@ class TextScrollEvent : Event
 //Event for continue dialogue past the initial text block
 class ContinueDialogueEvent : Event
 {
+}
+//Event for cancelling dialogue if skipped by player
+class CancelDialogueEvent : Event
+{
+    
 }
 //Event for dialogue event started
 class DialogueStartedEvent : Event

@@ -80,6 +80,9 @@ Level =
 			bool Glow = true,
 			float GlowThreshold = 0.7,
 		},
+		IntroTextFadeInOut = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -93,9 +96,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-41.5968, 23.3053, 107.138],
+			Vec3 Translation = [-0.515689, 2.65668, 70.846],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0979045, -0.206863, -0.0208098, 0.973236],
+			Quat Rotation = [-0.0478799, -0.00784038, -0.00037584, 0.998822],
 		},
 		Camera = 
 		{
@@ -110,10 +113,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 111.279,
-			float VerticalAngle = 0.200519,
-			float HorizontalAngle = 0.41887,
-			Vec3 LookTarget = [2.75668, 1.14099, 7.5156],
+			float LookDistance = 33.0014,
+			float VerticalAngle = 0.0957993,
+			float HorizontalAngle = 0.0156989,
+			Vec3 LookTarget = [0, -0.5, 38],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -171,6 +174,11 @@ Level =
 				{
 					string Name = "FadeToBlackSprite",
 				},
+				EditorFlags = 
+				{
+					bool Locked = false,
+					bool Hidden = true,
+				},
 				Transform = 
 				{
 					Vec3 Translation = [0, 0, -2.71598],
@@ -179,11 +187,11 @@ Level =
 				},
 				Sprite = 
 				{
-					bool Visible = false,
+					bool Visible = true,
 					bool VisibilityCulling = true,
 					bool VisibilityEvents = false,
 					bool CastShadows = false,
-					Vec4 Color = [0, 0, 0, 0],
+					Vec4 Color = [0, 0, 0, 1],
 					BlendMode BlendMode = Alpha,
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
@@ -195,6 +203,10 @@ Level =
 					bool AnimationActive = true,
 					float AnimationSpeed = 1,
 					uint StartFrame = 0,
+				},
+				FadeOut = 
+				{
+					float FadeOutTime = 5,
 				},
 			},
 			Cog = 
@@ -275,13 +287,249 @@ Level =
 				{
 				},
 			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 7,
+				},
+				Named = 
+				{
+					string Name = "JapanGameStart",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 3.27873, -2],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 0],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					TextPositionMode Position = Centered,
+					string FontName = "54a39471e2ac1c24:SMODERN",
+					uint FontSize = 145,
+					string Text = "Japan",
+					bool OnTop = false,
+					Vec2 Size = [0, 0],
+					TextAlign Align = Center,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 8,
+						},
+						Named = 
+						{
+							string Name = "IntroTextLine",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0.190375, -1.96689, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Sprite = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = false,
+							Vec4 Color = [1, 1, 1, 0],
+							BlendMode BlendMode = Alpha,
+							SpriteGeometryMode GeometryMode = ZPlane,
+							string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+							string SpriteSource = "5275aa4d802dd6dc:Square",
+							bool RenderMask = false,
+							bool FlipX = false,
+							bool FlipY = false,
+							bool OnTop = false,
+							bool AnimationActive = true,
+							float AnimationSpeed = 1,
+							uint StartFrame = 0,
+						},
+						Area = 
+						{
+							Vec2 Size = [10, 0.2],
+							Location Origin = Center,
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 9,
+				},
+				Named = 
+				{
+					string Name = "1946GameStart",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -0.865203, -2],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 0],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					TextPositionMode Position = Centered,
+					string FontName = "54a39471e2ac1c24:SMODERN",
+					uint FontSize = 100,
+					string Text = "1949",
+					bool OnTop = false,
+					Vec2 Size = [0, 0],
+					TextAlign Align = Center,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 10,
+				},
+				Named = 
+				{
+					string Name = "UnscarredLands",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 2, -2],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 0],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					TextPositionMode Position = Centered,
+					string FontName = "54a39471e2ac1c24:SMODERN",
+					uint FontSize = 150,
+					string Text = "The Unscarred Lands",
+					bool OnTop = false,
+					Vec2 Size = [0, 0],
+					TextAlign Align = Center,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 11,
+						},
+						Named = 
+						{
+							string Name = "UnscarredLine",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, -1.84687, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Sprite = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = false,
+							Vec4 Color = [1, 1, 1, 0],
+							BlendMode BlendMode = Alpha,
+							SpriteGeometryMode GeometryMode = ZPlane,
+							string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+							string SpriteSource = "5275aa4d802dd6dc:Square",
+							bool RenderMask = false,
+							bool FlipX = false,
+							bool FlipY = false,
+							bool OnTop = false,
+							bool AnimationActive = true,
+							float AnimationSpeed = 1,
+							uint StartFrame = 0,
+						},
+						Area = 
+						{
+							Vec2 Size = [22, 0.2],
+							Location Origin = Center,
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 12,
+				},
+				Named = 
+				{
+					string Name = "DenialText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -1.37482, -2],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 0],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					TextPositionMode Position = Centered,
+					string FontName = "54a39471e2ac1c24:SMODERN",
+					uint FontSize = 120,
+					string Text = "Denial",
+					bool OnTop = false,
+					Vec2 Size = [0, 0],
+					TextAlign Align = Center,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+			},
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 7,
+			uint Id = 13,
 		},
 		Named = 
 		{
@@ -325,7 +573,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 8,
+					uint Id = 14,
 				},
 				Named = 
 				{
@@ -349,7 +597,7 @@ Level =
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 					TextPositionMode Position = UpperLeft,
 					string FontName = "545d0deafc601f9d:Canaro",
-					uint FontSize = 23,
+					uint FontSize = 30,
 					string Text = "",
 					bool OnTop = true,
 					Vec2 Size = [9, 5],
@@ -370,87 +618,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 9,
-						},
-						Named = 
-						{
-							string Name = "TextBoxParticle",
-						},
-						Archetyped = 
-						{
-							string Name = "54f40ddd5694ae61:TextBoxParticle",
-						},
-						Transform = 
-						{
-							Vec3 Translation = [0, 0, 0],
-							Vec3 Scale = [1, 0.999998, 1],
-							Quat Rotation = [0, 0, 0, 1],
-						},
-						SpriteParticleSystem = 
-						{
-							bool Visible = false,
-							bool VisibilityCulling = true,
-							bool VisibilityEvents = false,
-							bool CastShadows = false,
-							SystemChildMode ChildMode = Independent,
-							SystemSpace SystemSpace = WorldSpace,
-							uint DrawOrder = 0,
-							float WarmUpTime = 0,
-							ParticleGeometry GeometryMode = Billboarded,
-							ParticleRenderMode RenderMode = Additive,
-							ParticleSortMode SortMode = Youngest,
-							ParticleAnimation ParticleAnimation = Single,
-							string Texture = "5310e87946ed955b:Twinkle",
-							Vec4 Tint = [0.6, 0.114, 0.114, 1],
-							float VelocityScale = 1,
-							float LengthScale = 1,
-							float MaxParticleSize = 100,
-							Vec3 SystemSize = [4, 4, 4],
-						},
-						SphericalParticleEmitter = 
-						{
-							bool Active = true,
-							uint EmitCount = 0,
-							float EmitRate = 100,
-							float EmitVariance = 0,
-							float Size = 1,
-							float SizeVariance = 0.5,
-							float Lifetime = 1,
-							float LifetimeVariance = 0.2,
-							float Spin = 0,
-							float SpinVariance = 50,
-							bool RandomSpin = true,
-							float Fill = 1,
-							float EmitterVelocityPercent = 0,
-							Vec3 StartVelocity = [0, 0, 0],
-							Vec3 RandomVelocity = [1, 1, 1],
-							Vec3 TangentVelocity = [0, 0, 0],
-							Vec3 EmitterSize = [0, 0, 0],
-							bool FastMovingEmitter = false,
-						},
-						LinearParticleAnimator = 
-						{
-							Vec3 Force = [0, 0, 0],
-							Vec3 RandomForce = [0, 0, 0],
-							float Torque = 0,
-							float Growth = 0,
-							float Dampening = 0,
-							Vec3 Twist = [0, 0, 0],
-						},
-						ParticleColorAnimator = 
-						{
-							Vec4 Color0 = [1, 1, 1, 0],
-							Vec4 Color1 = [1, 1, 1, 1],
-							Vec4 Color2 = [1, 1, 1, 1],
-							Vec4 Color3 = [1, 1, 1, 1],
-							Vec4 Color4 = [1, 1, 1, 0],
-						},
-					},
-					Cog = 
-					{
-						LinkId = 
-						{
-							uint Id = 10,
+							uint Id = 15,
 						},
 						Named = 
 						{
@@ -490,7 +658,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 11,
+			uint Id = 16,
 		},
 		Named = 
 		{
@@ -534,7 +702,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 12,
+					uint Id = 17,
 				},
 				Named = 
 				{
@@ -597,7 +765,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 13,
+					uint Id = 18,
 				},
 				Named = 
 				{
@@ -660,7 +828,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 14,
+					uint Id = 19,
 				},
 				Named = 
 				{
@@ -723,7 +891,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 15,
+					uint Id = 20,
 				},
 				Named = 
 				{
@@ -786,7 +954,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 16,
+					uint Id = 21,
 				},
 				Named = 
 				{
@@ -852,7 +1020,7 @@ Level =
 		string Name = "54a1a36b03f9edca:ContextButton",
 		LinkId = 
 		{
-			uint Id = 17,
+			uint Id = 22,
 		},
 		Transform = 
 		{
@@ -869,7 +1037,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 18,
+			uint Id = 23,
 		},
 		Named = 
 		{
@@ -900,7 +1068,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 19,
+			uint Id = 24,
 		},
 		Named = 
 		{
@@ -931,7 +1099,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 20,
+			uint Id = 25,
 		},
 		Named = 
 		{
@@ -970,7 +1138,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 21,
+					uint Id = 26,
 				},
 				Named = 
 				{
@@ -1019,7 +1187,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 22,
+					uint Id = 27,
 				},
 				Named = 
 				{
@@ -1068,7 +1236,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 23,
+					uint Id = 28,
 				},
 				Named = 
 				{
@@ -1117,7 +1285,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 24,
+					uint Id = 29,
 				},
 				Named = 
 				{
@@ -1144,7 +1312,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 25,
+							uint Id = 30,
 						},
 						Named = 
 						{
@@ -1171,7 +1339,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 26,
+							uint Id = 31,
 						},
 						Named = 
 						{
@@ -1200,7 +1368,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 27,
+					uint Id = 32,
 				},
 				Named = 
 				{
@@ -1249,7 +1417,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 28,
+					uint Id = 33,
 				},
 				Named = 
 				{
@@ -1287,7 +1455,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 29,
+					uint Id = 34,
 				},
 				Named = 
 				{
@@ -1338,7 +1506,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 30,
+			uint Id = 35,
 		},
 		Named = 
 		{
@@ -1374,7 +1542,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 31,
+					uint Id = 36,
 				},
 				Named = 
 				{
@@ -1402,7 +1570,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 32,
+							uint Id = 37,
 						},
 						Named = 
 						{
@@ -1436,7 +1604,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 33,
+					uint Id = 38,
 				},
 				Named = 
 				{
@@ -1462,6 +1630,183 @@ Level =
 				{
 				},
 			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 39,
+		},
+		Named = 
+		{
+			string Name = "TextBoxParticle",
+		},
+		Archetyped = 
+		{
+			string Name = "54f40ddd5694ae61:TextBoxParticle",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [2.84598, -19.3409, 16.9583],
+			Vec3 Scale = [1, 0.999998, 0.00016],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SpriteParticleSystem = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			SystemChildMode ChildMode = Independent,
+			SystemSpace SystemSpace = WorldSpace,
+			uint DrawOrder = 0,
+			float WarmUpTime = 0.7,
+			ParticleGeometry GeometryMode = Billboarded,
+			ParticleRenderMode RenderMode = Blended,
+			ParticleSortMode SortMode = Youngest,
+			ParticleAnimation ParticleAnimation = Single,
+			string Texture = "54dda232936eca77:blackSmoke08",
+			Vec4 Tint = [1, 1, 1, 0.4],
+			float VelocityScale = 0,
+			float LengthScale = 0,
+			float MaxParticleSize = 100,
+			Vec3 SystemSize = [4, 4, 4],
+		},
+		SphericalParticleEmitter = 
+		{
+			bool Active = true,
+			uint EmitCount = 0,
+			float EmitRate = 200,
+			float EmitVariance = 5,
+			float Size = 0.2,
+			float SizeVariance = 0.1,
+			float Lifetime = 0.3,
+			float LifetimeVariance = 0.1,
+			float Spin = 0,
+			float SpinVariance = 50,
+			bool RandomSpin = true,
+			float Fill = 1,
+			float EmitterVelocityPercent = 0,
+			Vec3 StartVelocity = [-0.75, 0, 0],
+			Vec3 RandomVelocity = [-0.55, 0.2, 0],
+			Vec3 TangentVelocity = [0, 0, 0],
+			Vec3 EmitterSize = [0, 0.2, 0.2],
+			bool FastMovingEmitter = false,
+		},
+		LinearParticleAnimator = 
+		{
+			Vec3 Force = [0, 0, 0],
+			Vec3 RandomForce = [0, 0, 0],
+			float Torque = 20,
+			float Growth = 0,
+			float Dampening = 0,
+			Vec3 Twist = [0, 0, 0],
+		},
+		ParticleColorAnimator = 
+		{
+			Vec4 Color0 = [1, 1, 1, 0],
+			Vec4 Color1 = [0, 0.82, 1, 1],
+			Vec4 Color2 = [1, 1, 1, 1],
+			Vec4 Color3 = [0, 1, 1, 1],
+			Vec4 Color4 = [1, 1, 1, 0],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 40,
+				},
+				Named = 
+				{
+					string Name = "TextBoxParticleChild",
+				},
+				Archetyped = 
+				{
+					string Name = "54f40ddd5694ae61:TextBoxParticle",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -1.90735e-006, 260.625],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteParticleSystem = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					SystemChildMode ChildMode = Independent,
+					SystemSpace SystemSpace = WorldSpace,
+					uint DrawOrder = 0,
+					float WarmUpTime = 0.7,
+					ParticleGeometry GeometryMode = Billboarded,
+					ParticleRenderMode RenderMode = Blended,
+					ParticleSortMode SortMode = Youngest,
+					ParticleAnimation ParticleAnimation = Single,
+					string Texture = "5310e87946edb371:WhiteCloud",
+					Vec4 Tint = [1, 1, 1, 0.4],
+					float VelocityScale = 0,
+					float LengthScale = 0,
+					float MaxParticleSize = 100,
+					Vec3 SystemSize = [4, 4, 4],
+				},
+				SphericalParticleEmitter = 
+				{
+					bool Active = true,
+					uint EmitCount = 0,
+					float EmitRate = 200,
+					float EmitVariance = 5,
+					float Size = 0.2,
+					float SizeVariance = 0.1,
+					float Lifetime = 0.3,
+					float LifetimeVariance = 0.1,
+					float Spin = 0,
+					float SpinVariance = 50,
+					bool RandomSpin = true,
+					float Fill = 1,
+					float EmitterVelocityPercent = 0,
+					Vec3 StartVelocity = [-0.75, 0, 0],
+					Vec3 RandomVelocity = [-0.55, 0.2, 0],
+					Vec3 TangentVelocity = [0, 0, 0],
+					Vec3 EmitterSize = [0, 0.2, 0.2],
+					bool FastMovingEmitter = false,
+				},
+				LinearParticleAnimator = 
+				{
+					Vec3 Force = [0, 0, 0],
+					Vec3 RandomForce = [0, 0, 0],
+					float Torque = 20,
+					float Growth = 0,
+					float Dampening = 0,
+					Vec3 Twist = [0, 0, 0],
+				},
+				ParticleColorAnimator = 
+				{
+					Vec4 Color0 = [1, 1, 1, 0],
+					Vec4 Color1 = [0, 0.82, 1, 1],
+					Vec4 Color2 = [1, 1, 1, 1],
+					Vec4 Color3 = [0, 1, 1, 1],
+					Vec4 Color4 = [1, 1, 1, 0],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 41,
+		},
+		Named = 
+		{
+			string Name = "IntroTextObject",
+		},
+		IntroTextFadeInOut = 
+		{
 		},
 	},
 },
