@@ -96,7 +96,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.850227, 4.70448, 92.1539],
+			Vec3 Translation = [-0.475995, 7.22447, 91.9176],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0.0478799, -0.00784038, -0.00037584, 0.998822],
 		},
@@ -116,7 +116,7 @@ Level =
 			float LookDistance = 54.4101,
 			float VerticalAngle = 0.0957993,
 			float HorizontalAngle = 0.0156989,
-			Vec3 LookTarget = [0, -0.5, 38],
+			Vec3 LookTarget = [0.374232, 2.01999, 37.7637],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -441,6 +441,18 @@ Level =
 					float PixelsPerUnit = 64,
 					bool Smoothing = true,
 				},
+				Outliner = 
+				{
+					int ShadowCount = 4,
+					float SpreadPercent = 3,
+					Vec2 KnobOffsetPercent = [0, 0],
+					float ShadowDepth = -0.5,
+					float OffsetAngle = -45,
+					bool MatchOpacity = true,
+					Vec4 Color = [0.0625, 0.0625, 0.0625, 0.75],
+					string KnobArchetype = "4de020863e84941e:Transform",
+					string TextArchetype = "1f33806740421259:SpriteText",
+				},
 				Hierarchy = 
 				{
 					Cog = 
@@ -521,6 +533,18 @@ Level =
 					TextAlign Align = Center,
 					float PixelsPerUnit = 64,
 					bool Smoothing = true,
+				},
+				Outliner = 
+				{
+					int ShadowCount = 4,
+					float SpreadPercent = 3,
+					Vec2 KnobOffsetPercent = [0, 0],
+					float ShadowDepth = -0.5,
+					float OffsetAngle = -45,
+					bool MatchOpacity = true,
+					Vec4 Color = [0.0625, 0.0625, 0.0625, 0.75],
+					string KnobArchetype = "4de020863e84941e:Transform",
+					string TextArchetype = "1f33806740421259:SpriteText",
 				},
 			},
 		},
@@ -1809,6 +1833,21 @@ Level =
 		},
 		IntroTextFadeInOut = 
 		{
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "55dcba240846310a:Narration-LeavingTheHouse-A",
+			float Volume = 2,
+			float Pitch = 1,
+			bool Positional = false,
 		},
 	},
 },
