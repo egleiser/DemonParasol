@@ -9,6 +9,12 @@ class TextBlockInfo : ZilchComponent
     [Property]
     var SpeakerTextBlock : TextBlock = null;
     
+    [Property]
+    var SpeakerSong : SoundCue = null;
+    
+    [Property]
+    var SpeakerParticleColor : Real4 = Real4(0,0,0,0);
+    
     function Initialize(init : CogInitializer)
     {
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);

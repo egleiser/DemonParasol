@@ -1,0 +1,28 @@
+GeometryContent = 
+{
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	AnimationBuilder = 
+	{
+		string Name = "Setsuko_Victory",
+		uint64 ResourceId = 5437b9d1705d3b97,
+		bool MakeAnimationSet = false,
+		ResourceCompression CompressAnimation = None,
+		string PreviewArchetype = "",
+		Array Clips = 
+		[
+			{
+				string Name = "All",
+				uint64 ResourceId = 5437b9d17023b46c,
+				int StartFrame = 0,
+				int EndFrame = 35,
+				LoopingMode LoopingMode = Default,
+			},
+		],
+	},
+},

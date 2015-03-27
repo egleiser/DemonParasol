@@ -1,0 +1,17 @@
+class NarrationPlayer : ZilchComponent
+{
+    var DialogueStarted : Boolean = false;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player" && this.DialogueStarted == false)
+        {
+            this.DialogueStarted = true;
+            this.Owner.SoundEmitter.Play();
+        }
+    }
+}

@@ -18,7 +18,9 @@ class DamagePlayerOnCollide : ZilchComponent
     // Whether or not we die when we collide with something.
     [Property]
     var DieOnCollide : Boolean = true;
-    
+
+    [Property]
+    var SpawnOnDeath : Archetype = null;
     // The root cog we originated from (we ignore damage to this cog and its descendents).
     // Set this to null to damage everything
     var OriginRoot : Cog = null;
@@ -60,10 +62,15 @@ class DamagePlayerOnCollide : ZilchComponent
             this.Space.SoundSpace.PlayCue(SoundCue.Find("PlayerHurt"));
             this.LevelSettings.HudCreator.HudSpace.Create(Archetype.Find("HurtOverlay"));
             
-        if(this.DieOnCollide)
-        {
-            this.Owner.Destroy();
-        }
+            if(this.DieOnCollide)
+            {
+                if(this.SpawnOnDeath != null)
+                {
+                    this.Space.CreateAtPosition(this.SpawnOnDeath, this.Owner.Transform.WorldTranslation);
+                    
+                }
+                this.Owner.Destroy();
+            }
         }
         
         if(this.SendsDeathEvent)

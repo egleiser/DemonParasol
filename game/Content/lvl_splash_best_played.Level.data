@@ -41,6 +41,11 @@ Level =
 		ForwardRenderer = 
 		{
 			Vec4 ClearColor = [0.155, 0.155, 0.155, 1],
+			bool DrawNonVisible = false,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool EditorIconDepth = true,
+			bool Wireframe = false,
 		},
 		GridDraw = 
 		{
@@ -59,8 +64,9 @@ Level =
 		},
 		Z_SplashScreenLogic = 
 		{
+			int GamepadIndex = 0,
 			float SplashScreenDelayTimer = 4.5,
-			string NextLevel = "54682326dd6dfdb8:lvl_splash_start",
+			string NextLevel = "54682358d686e046:lvl_menu_main",
 		},
 	},
 	Cog = 
@@ -101,6 +107,10 @@ Level =
 		EditorRenderer = 
 		{
 			Vec4 ClearColor = [0.155, 0.155, 0.155, 1],
+			bool DrawNonVisible = true,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool Wireframe = false,
 		},
 	},
 	Cog = 
@@ -161,6 +171,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
 			Vec4 Color = [1, 1, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
@@ -209,6 +221,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
 			Vec4 Color = [0.0666667, 0.0666667, 0.0666667, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
@@ -236,6 +250,24 @@ Level =
 		{
 			Vec2 Size = [32, 18],
 			Location Origin = Center,
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "550feaf7af3185b7:MenuSphereParticleEffect",
+		LinkId = 
+		{
+			uint Id = 6,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.375378, -9.33731, 1],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "MenuSphereParticleEffect",
 		},
 	},
 },

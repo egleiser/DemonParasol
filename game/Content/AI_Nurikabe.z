@@ -1,0 +1,306 @@
+enum NurikabeState{Idle, Patrol, Chase, Searching, Found, Shrug, Returning}
+class AI_Nurikabe : ZilchComponent
+{
+    [Dependency]
+    var Orientation: Orientation = null;
+    //The First Node the Nurikabe will follow
+    [Property]
+    var StaringNode : CogPath = null;
+    var CurrentState : NurikabeState = NurikabeState.Patrol;
+    var CurrentNode : Cog = null;
+    var SpotLight : Cog = null;
+    var BGMManager : Cog = null;
+    var BodyCollider : Cog = null;
+    var Timer : Integer = 0;
+    var HitTimer : Integer = 0;
+    [Property]
+    var FireRate : Integer = 10;
+    var Waiting : Boolean = false;
+    var WaitTimer : Real = 0.0;
+    var WaitValue : Real = 0.0;
+    var MoveVec : Real3 = Real3(0,0,0);
+    //How Far the Nurikabe can spot the player
+    [Property]
+    var SightRange : Real = 10.0;
+    //How Wide the Nurikabe can spot the player
+    [Property]
+    var SightAngle : Real = 45.0;
+    var CurSightAngle : Real = 0.0;
+    [Property]
+    var LightColor : Real4 = Real4(0.2,0.9,0.9,1.0);
+    [Property]
+    var LightColorFound : Real4 = Real4(1.0,0.1,0.1,1.0);
+    [Property]
+    var LightColorCaution : Real4 = Real4(1.0,0.8,0.1,1.0);
+    [Property]
+    var SweepSpeed : Real = 2.0;
+    var SweepFlip : Boolean = false;
+    [Property]
+    var Forgetfulness : Real = 7.0;
+    var ForgetfulnessTimer : Real = 0.0;
+    [Property]
+    var RotateSpeed : Real = 2.5;
+    [Property]
+    var ChaseSpeed : Real = 8.0;
+    [Property]
+    var SpeedMultiplier : Real = 1.0;
+    var Player:Cog = null;
+    [Property]
+    var DebugDraw : Boolean = false;
+    [Property]
+    var DebugColor : Real4 = Real4(0.2,1,0.2,0.7);
+    var RayDistance : Real = 0;
+    function Initialize(init : CogInitializer)
+    {
+        this.SightAngle = this.SightAngle * 0.5;
+        this.CurrentNode = this.StaringNode.Cog;
+        this.SpotLight = this.Owner.FindChildByName("NurikabeLight");
+        this.BodyCollider = this.Owner.FindChildByName("NurikabeCollider");
+        this.BGMManager = this.LevelSettings.FindChildByName("BGMManager");
+        this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.BodyCollider, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.PatrolNode != null && otherObject == this.CurrentNode && this.CurrentState != NurikabeState.Chase)
+        {
+            this.CurrentState = NurikabeState.Patrol;
+            this.CurrentNode = otherObject.PatrolNode.NextNode.Cog;
+            this.WaitValue = otherObject.PatrolNode.WaitTime;
+            this.Waiting = true;
+            Console.WriteLine("New Node is: `this.CurrentNode`");
+        }
+        if(otherObject.TongueFinder != null && this.CurrentState != NurikabeState.Chase)
+        {
+            this.CurrentState = NurikabeState.Searching;
+            this.WaitValue = this.CurrentNode.PatrolNode.WaitTime;
+            this.Waiting = true;
+            Console.WriteLine("New Node is: `this.CurrentNode`");
+        }
+    }
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsDown(Keys.Control) && Zero.Keyboard.KeyIsPressed(Keys.D))
+        {
+            this.DebugDraw = !this.DebugDraw;
+        }
+        this.Timer += 1;
+        //Console.WriteLine("Current State: `this.CurrentState`");
+        this.CastRay(event);
+        if(this.CurrentState == NurikabeState.Patrol)
+        {
+            this.SpotLight.Light.Color = this.LightColor;
+            if(this.Waiting == false)
+            {
+                this.Patrol(event);
+            }
+            if(this.Waiting == true)
+            {
+                if(this.WaitTimer >= this.WaitValue)
+                {
+                    this.WaitTimer = 0.0;
+                    this.Waiting = false;
+                }
+                this.WaitTimer += event.Dt;
+            }
+        }
+        if(this.CurrentState == NurikabeState.Found)
+        {
+            this.SpotLight.Light.Color = this.LightColorFound;
+            this.FacePlayer(event);
+            this.StepTowardsPlayer(event);
+            this.Space.CreateAtPosition(Archetype.Find("ExclamBase"), this.Owner.Transform.WorldTranslation + Real3(0,0,9.5));
+            this.Space.SoundSpace.PlayCue(SoundCue.Find("Alert"));
+            
+            var found = Action.Sequence(this.Owner.Actions);
+            //found.Cancel();
+            Action.Property(found, @this.Owner.Transform.WorldScale, Real3(1.3,1.3,1.3) , 0.2 , Ease.QuadIn);
+            Action.Property(found, @this.Owner.Transform.WorldScale, Real3(1.0,1.0,1.0), 1.0 , Ease.Linear);
+            this.CurrentState = NurikabeState.Chase;
+        }
+        if(this.CurrentState == NurikabeState.Chase)
+        {
+            this.SpotLight.Light.Color = this.LightColorFound;
+            this.FacePlayer(event);
+            this.StepTowardsPlayer(event);
+            this.BGMManager.DungeonSoundManager.Spotted = true;
+            if(this.ForgetfulnessTimer >= this.Forgetfulness)
+            {
+                this.ForgetfulnessTimer = 0.0;
+                this.CurrentState = NurikabeState.Returning;
+                this.BGMManager.DungeonSoundManager.Spotted = false;
+            }
+            this.ForgetfulnessTimer += event.Dt;
+        }
+        if(this.CurrentState == NurikabeState.Returning)
+        {
+            this.SpotLight.Light.Color = this.LightColorCaution;
+            this.Patrol(event);
+        }
+        if(this.CurrentState == NurikabeState.Searching)
+        {
+            this.SpotLight.Light.Color = this.LightColorCaution;
+            this.FacePlayer(event);
+            if(this.Waiting == true)
+            {
+                if(this.WaitTimer >= this.WaitValue)
+                {
+                    this.CurrentState = NurikabeState.Patrol;
+                    this.WaitTimer = 0.0;
+                    this.Waiting = false;
+                }
+                this.WaitTimer += event.Dt;
+            }
+        }
+    }
+    
+    function Patrol(event : UpdateEvent)
+    {
+        this.StepTowardsNode(event);
+        this.SmoothDirectionLook(event);
+    }
+    function StepTowardsNode(event : UpdateEvent)
+    {
+        this.MoveVec = this.CurrentNode.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
+        //Console.WriteLine("Move Vector Initial: `this.MoveVec`");
+        this.MoveVec = Math.Normalize(this.MoveVec);
+        //Console.WriteLine("Move Vector Normalized: `this.MoveVec`");
+        this.MoveVec *= this.CurrentNode.PatrolNode.MoveSpeed * 0.01 * this.SpeedMultiplier;
+        //Console.WriteLine("Move Vector Final: `this.MoveVec`");
+        this.Owner.Transform.WorldTranslation += this.MoveVec;
+    }
+    function StepTowardsPlayer(event : UpdateEvent)
+    {
+        this.MoveVec = this.Player.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
+        //Console.WriteLine("Move Vector Initial: `this.MoveVec`");
+        this.MoveVec = Math.Normalize(this.MoveVec);
+        //Console.WriteLine("Move Vector Normalized: `this.MoveVec`");
+        this.MoveVec *= this.ChaseSpeed * 0.015;
+        //Console.WriteLine("Move Vector Final: `this.MoveVec`");
+        this.Owner.Transform.WorldTranslation += this.MoveVec;
+    }
+    function FacePlayer(event : UpdateEvent)
+    {
+        var targetRotation = this.Owner.Orientation.GetLookAtPointWithUpRotation(
+            Real3(this.Player.Transform.WorldTranslation.X,this.Player.Transform.WorldTranslation.Y,this.Owner.Transform.WorldTranslation.Z),this.Owner.Orientation.WorldUp);
+        targetRotation = Math.Multiply(targetRotation, Math.Euler(Real3(0,0,0)));
+        if(this.CurrentState == NurikabeState.Chase)
+        {
+            this.Owner.Transform.WorldRotation = Math.Slerp(this.Owner.Transform.WorldRotation, targetRotation, event.Dt * this.RotateSpeed/3.0);
+        }
+        else
+        {
+            this.Owner.Transform.WorldRotation = Math.Slerp(this.Owner.Transform.WorldRotation, targetRotation, event.Dt * this.RotateSpeed/1.5);
+        }
+    }
+    function SmoothDirectionLook(event : UpdateEvent)
+    {
+        var vel = this.Owner.RigidBody.Velocity;
+        if(Math.Length(vel) < 0.0001)
+        {
+            return;
+        }
+        var up = Real3(0, 0, 1);
+        //this.Owner.Orientation.LookAtDirectionWithUp(vel, up);
+        var wantedRotation = this.Orientation.GetLookAtDirectionWithUpRotation(vel, up);
+        this.Owner.Transform.WorldRotation = Math.Slerp(this.Owner.Transform.WorldRotation, wantedRotation, event.Dt * this.RotateSpeed);
+    }
+    
+    function CastRay(event : UpdateEvent)
+    {
+        this.SweepVision(event);
+        
+        var rayCast = Ray();
+        rayCast.Start = this.Owner.Transform.WorldTranslation + Real3(0,0,0);
+
+        var sweepOffset = Real3(Math.Cos(Math.ToRadians(this.CurSightAngle)),Math.Sin(Math.ToRadians(this.CurSightAngle)),0.0);
+        //Console.WriteLine("World Forward: `this.Orientation.WorldForward`");
+        //Console.WriteLine("Sweep Offset: `sweepOffset`");
+
+        rayCast.Direction = Math.Normalize(Math.Reflect(this.Orientation.WorldForward * Real3(1,-1,1), sweepOffset));
+        
+        var objectHit = this.Space.PhysicsSpace.CastRayFirst(rayCast).ObjectHit;
+        if(objectHit != null)
+        {
+            var realRayDistance = Math.Length(this.Space.PhysicsSpace.CastRayFirst(rayCast).WorldPosition - this.Owner.Transform.WorldTranslation);
+            
+            this.RayDistance = this.SightRange;
+            if(objectHit.PlayerController != null && realRayDistance < this.RayDistance)
+            {
+                if(this.CurrentState != NurikabeState.Chase)
+                {
+                    this.CurrentState = NurikabeState.Found;
+                }
+                this.HitTimer += 1;
+                if(this.CurrentState == NurikabeState.Chase && this.HitTimer == this.FireRate)
+                {
+                   var damageSphere = this.Space.CreateAtPosition(Archetype.Find("HurtBall"), this.Owner.Transform.WorldTranslation);
+                   damageSphere.DamagePlayerOnCollide.Damage = 0.5;
+                   damageSphere.Transform.WorldScale *= 1.5;
+                   this.HitTimer = 0;
+                }
+                this.ForgetfulnessTimer = 0.0;
+            }
+           
+            if(objectHit.Parent != null && objectHit.Parent.AI_Nurikabe != null && realRayDistance < this.RayDistance )
+            {
+                //Console.Write("Object Hit: `objectHit`");
+                if(this.CurrentState == NurikabeState.Chase && objectHit.Parent.AI_Nurikabe.CurrentState != NurikabeState.Chase
+                && objectHit.Parent.AI_Nurikabe.CurrentState != NurikabeState.Returning)
+                {
+                    objectHit.Parent.AI_Nurikabe.CurrentState = NurikabeState.Found;
+                }
+                objectHit.Parent.AI_Nurikabe.ForgetfulnessTimer = 0.0;
+            }
+            
+        }
+        var endPosition = rayCast.Start + rayCast.Direction * this.RayDistance;
+        if(this.DebugDraw == true)
+        {
+            this.DrawArrow(rayCast.Start, endPosition, this.DebugColor);
+            //Draw Max Range for Sweep
+            
+            //Draw the Left Arrow
+            var sweepOffsetL = Real3(Math.Cos(Math.ToRadians(this.SightAngle/2.0)),Math.Sin(Math.ToRadians(this.SightAngle/2.0)),0.0);
+            var maxOffsetL = Math.Normalize(Math.Reflect(this.Orientation.WorldForward * Real3(1,-1,1), sweepOffsetL));
+            this.DrawArrow(rayCast.Start, rayCast.Start + (maxOffsetL ) * this.RayDistance, Real4(0.8,0.0,0.8,0.5));
+            //Draw the Left Arrow
+            var sweepOffsetR = Real3(Math.Cos(Math.ToRadians(-this.SightAngle/2.0)),Math.Sin(Math.ToRadians(-this.SightAngle/2.0)),0.0);
+            var maxOffsetR = Math.Normalize(Math.Reflect(this.Orientation.WorldForward * Real3(1,-1,1), sweepOffsetR));
+            this.DrawArrow(rayCast.Start, rayCast.Start + (maxOffsetR ) * this.RayDistance, Real4(0,0.8,0.8,0.5));
+        }
+    }
+    function SweepVision(event : UpdateEvent)
+    {
+        //Console.WriteLine("Sweep Angle: `this.CurSightAngle`");
+        if(this.SweepFlip)
+        {
+            this.CurSightAngle -= this.SweepSpeed;
+            if(this.CurSightAngle <= (0 - (this.SightAngle/2.0) + this.SweepSpeed))
+            {
+                this.SweepFlip = false;
+            }
+        }
+        else
+        {
+            this.CurSightAngle += this.SweepSpeed;
+            if(this.CurSightAngle >= (0 + (this.SightAngle/2.0) - this.SweepSpeed))
+            {
+                this.SweepFlip = true;
+            }
+        }
+    }
+    function DrawArrow(startPos : Real3, endPos : Real3, arrowColor : Real4)
+    {
+        var line = DebugLine();
+        line.Start(startPos);
+        line.End(endPos);
+        line.Filled(true);
+        line.Width(5.0);
+        line.HeadSize(0.25);
+        line.Float4Color(arrowColor);
+        line.Draw();
+    }
+}

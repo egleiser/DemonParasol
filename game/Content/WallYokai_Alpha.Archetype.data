@@ -1,0 +1,213 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "WallYokai_Alpha",
+	},
+	Archetyped = 
+	{
+		string Name = "55d9df6f54dd7fa6:WallYokai_Alpha",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "WallYokai_Body",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.188104, 0.330022, -1.11842],
+				Vec3 Scale = [0.990418, 0.990418, 0.990418],
+				Quat Rotation = [8.14603e-008, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55d9df6f54a25383:WallYokai_Alpha.WallYokai_Body",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "WallYokai_Head",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.682776, 6.93335, 0.440716],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [8.14603e-008, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "",
+				string MeshName = "55d9df6f54a25387:WallYokai_Alpha.WallYokai_Head",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "WallYokai_Nose",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.569104, 9.94259, 3.1117],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [1.54543e-008, -0.707107, 1.54543e-008, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "55d9df6f54abdd0a:02___Default",
+				string MeshName = "55d9df6f54a25389:WallYokai_Alpha.WallYokai_Nose",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "WallYokai_EarL",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [5.00206, 9.1359, -0.35779],
+				Vec3 Scale = [1, 0.667929, 0.776996],
+				Quat Rotation = [2.18557e-008, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "55d9df6f54abdd0a:02___Default",
+				string MeshName = "55d9df6f54a2538c:WallYokai_Alpha.WallYokai_EarL",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "Box001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-4.08092, 10.6057, -0.0556732],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [2.18557e-008, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "55d9df6f54abdd0a:02___Default",
+				string MeshName = "55d9df6f54a2538e:WallYokai_Alpha.Box001",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 7,
+			},
+			Named = 
+			{
+				string Name = "WallYokai_FootR",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-2.08815, 0.0376762, 1.27213],
+				Vec3 Scale = [1, 0.700831, 1],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "55d9df6f54abdd0a:02___Default",
+				string MeshName = "55d9df6f54a25390:WallYokai_Alpha.WallYokai_FootR",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 8,
+			},
+			Named = 
+			{
+				string Name = "WallYokai_FootL",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [2.41535, 0.0376762, 1.27213],
+				Vec3 Scale = [1, 0.700831, 1],
+				Quat Rotation = [-0.707107, 0, -0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "55d9df6f54abdd0a:02___Default",
+				string MeshName = "55d9df6f54a25392:WallYokai_Alpha.WallYokai_FootL",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+	},
+},

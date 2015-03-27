@@ -1,0 +1,202 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "HurtBall",
+	},
+	Archetyped = 
+	{
+		string Name = "55db80677927de25:HurtBall",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [69.4674, -120.719, 1.78127],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SpriteParticleSystem = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		SystemChildMode ChildMode = Independent,
+		SystemSpace SystemSpace = LocalSpace,
+		uint DrawOrder = 0,
+		float WarmUpTime = 0,
+		ParticleGeometry GeometryMode = Billboarded,
+		ParticleRenderMode RenderMode = Additive,
+		ParticleSortMode SortMode = Youngest,
+		ParticleAnimation ParticleAnimation = Single,
+		string Texture = "548d76e779a3aea4:tex_light_ray",
+		Vec4 Tint = [1, 1, 1, 1],
+		float VelocityScale = 1,
+		float LengthScale = 1,
+		float MaxParticleSize = 100,
+		Vec3 SystemSize = [4, 4, 4],
+	},
+	SphericalParticleEmitter = 
+	{
+		bool Active = true,
+		uint EmitCount = 0,
+		float EmitRate = 10,
+		float EmitVariance = 0,
+		float Size = 5,
+		float SizeVariance = 0.5,
+		float Lifetime = 0.5,
+		float LifetimeVariance = 0.02,
+		float Spin = 0,
+		float SpinVariance = 50,
+		bool RandomSpin = true,
+		float Fill = 1,
+		float EmitterVelocityPercent = 0,
+		Vec3 StartVelocity = [0, 0, 0],
+		Vec3 RandomVelocity = [0, 0, 0],
+		Vec3 TangentVelocity = [0, 0, 0],
+		Vec3 EmitterSize = [0, 0, 0],
+		bool FastMovingEmitter = false,
+	},
+	LinearParticleAnimator = 
+	{
+		Vec3 Force = [0, 0, 0],
+		Vec3 RandomForce = [0, 0, 0],
+		float Torque = 0,
+		float Growth = 0,
+		float Dampening = 0,
+		Vec3 Twist = [0, 0, 0],
+	},
+	ParticleColorAnimator = 
+	{
+		Vec4 Color0 = [1, 1, 1, 0],
+		Vec4 Color1 = [1, 0.385, 0.385, 1],
+		Vec4 Color2 = [1, 0, 0, 1],
+		Vec4 Color3 = [1, 0, 0, 1],
+		Vec4 Color4 = [1, 0.035, 0.81665, 0],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = true,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	SphereCollider = 
+	{
+		bool Ghost = true,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 1.6,
+	},
+	SoundEmitter = 
+	{
+		bool StartPlaying = true,
+		int ExtraPriority = 0,
+		string CueName = "548d7c5a98a230e2:Magic_AuraLoop03",
+		float Volume = 1,
+		float Pitch = 1,
+		bool Positional = true,
+	},
+	DamagePlayerOnCollide = 
+	{
+		float Damage = 1,
+		bool SendsDeathEvent = true,
+		bool DieOnCollide = true,
+		string SpawnOnDeath = "55db8142b2aea955:HurtBallBurst",
+	},
+	FollowPlayer = 
+	{
+		float SpeedMultiplier = 20,
+		Vec3 Offset = [0, 0, 3],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "HurtBallTrail",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, -0.0323734],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteParticleSystem = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				SystemChildMode ChildMode = Independent,
+				SystemSpace SystemSpace = WorldSpace,
+				uint DrawOrder = 0,
+				float WarmUpTime = 0,
+				ParticleGeometry GeometryMode = Billboarded,
+				ParticleRenderMode RenderMode = Blended,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Single,
+				string Texture = "4fab71e8bcb7a8ce:DefaultTexture",
+				Vec4 Tint = [1, 1, 1, 1],
+				float VelocityScale = 1,
+				float LengthScale = 1,
+				float MaxParticleSize = 100,
+				Vec3 SystemSize = [10, 10, 10],
+			},
+			SphericalParticleEmitter = 
+			{
+				bool Active = true,
+				uint EmitCount = 0,
+				float EmitRate = 35,
+				float EmitVariance = 0,
+				float Size = 0.5,
+				float SizeVariance = 0.2,
+				float Lifetime = 0.6,
+				float LifetimeVariance = 0.1,
+				float Spin = 0,
+				float SpinVariance = 50,
+				bool RandomSpin = true,
+				float Fill = 1,
+				float EmitterVelocityPercent = 0,
+				Vec3 StartVelocity = [0, 0, 0],
+				Vec3 RandomVelocity = [2, 2, 2],
+				Vec3 TangentVelocity = [0, 0, 0],
+				Vec3 EmitterSize = [2, 2, 2],
+				bool FastMovingEmitter = false,
+			},
+			LinearParticleAnimator = 
+			{
+				Vec3 Force = [0, 0, 0],
+				Vec3 RandomForce = [0, 0, 0],
+				float Torque = 0,
+				float Growth = 0,
+				float Dampening = 0,
+				Vec3 Twist = [0, 0, 0],
+			},
+			ParticleColorAnimator = 
+			{
+				Vec4 Color0 = [0, 0, 0, 0],
+				Vec4 Color1 = [1, 0, 0, 1],
+				Vec4 Color2 = [0, 0, 0, 1],
+				Vec4 Color3 = [1, 0, 0, 1],
+				Vec4 Color4 = [0, 0, 0, 0],
+			},
+		},
+	},
+},

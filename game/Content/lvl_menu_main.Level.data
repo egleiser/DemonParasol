@@ -105,7 +105,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 18.2684,
+			float Size = 30.1195,
 		},
 		EditorCameraController = 
 		{
@@ -212,7 +212,7 @@ Level =
 			int GamepadIndex = 0,
 			bool Active = true,
 			float Timer = 0,
-			string LevelToLoad = "5481a28b21c79b8d:LVL_HomeSegment",
+			string LevelToLoad = "545136ccf7f93c63:LVL_BlackRainMainLobby",
 		},
 	},
 	Cog = 
@@ -510,8 +510,8 @@ Level =
 		{
 			bool StartPlaying = true,
 			int ExtraPriority = 0,
-			string CueName = "5481ac82888ddb24:Setsuko_Theme",
-			float Volume = 0.5,
+			string CueName = "55dcb49a6d1d5ee1:MothersThemeDaiko",
+			float Volume = 0.35,
 			float Pitch = 1,
 			bool Positional = false,
 		},
@@ -654,6 +654,195 @@ Level =
 		{
 			Vec2 Size = [20, 2.5],
 			Location Origin = Center,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 13,
+		},
+		Named = 
+		{
+			string Name = "MenuCloudParticleEffect",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.375378, -9.33731, 1],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SpriteParticleSystem = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			SystemChildMode ChildMode = Independent,
+			SystemSpace SystemSpace = WorldSpace,
+			uint DrawOrder = 0,
+			float WarmUpTime = 0,
+			ParticleGeometry GeometryMode = Billboarded,
+			ParticleRenderMode RenderMode = Blended,
+			ParticleSortMode SortMode = Youngest,
+			ParticleAnimation ParticleAnimation = Single,
+			string Texture = "5310e87946eb1d76:Cloud",
+			Vec4 Tint = [1, 1, 1, 0.11],
+			float VelocityScale = 1,
+			float LengthScale = 1,
+			float MaxParticleSize = 100,
+			Vec3 SystemSize = [4, 4, 4],
+		},
+		LinearParticleAnimator = 
+		{
+			Vec3 Force = [0, 0, 0],
+			Vec3 RandomForce = [0, 0, 0],
+			float Torque = 0,
+			float Growth = 0,
+			float Dampening = 0,
+			Vec3 Twist = [0, 0, 0],
+		},
+		ParticleColorAnimator = 
+		{
+			Vec4 Color0 = [0.465, 0.2976, 0.2976, 0],
+			Vec4 Color1 = [1, 0.44, 0.44, 1],
+			Vec4 Color2 = [1, 1, 1, 1],
+			Vec4 Color3 = [0.23, 0.23, 0.23, 0.475],
+			Vec4 Color4 = [0, 0, 0, 0],
+		},
+		BoxParticleEmitter = 
+		{
+			bool Active = false,
+			uint EmitCount = 0,
+			float EmitRate = 10,
+			float EmitVariance = 0,
+			float Size = 8,
+			float SizeVariance = 0.5,
+			float Lifetime = 6,
+			float LifetimeVariance = 0.2,
+			float Spin = 0,
+			float SpinVariance = 50,
+			bool RandomSpin = true,
+			float Fill = 1,
+			float EmitterVelocityPercent = 0,
+			Vec3 StartVelocity = [0, 2, 0],
+			Vec3 RandomVelocity = [0.2, 0.2, 0],
+			Vec3 TangentVelocity = [0, 0, 0],
+			Vec3 EmitterSize = [20, 0, 0],
+			bool FastMovingEmitter = false,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 14,
+		},
+		Named = 
+		{
+			string Name = "MenuSphereParticleEffect",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.375378, -9.33731, 1],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SpriteParticleSystem = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			SystemChildMode ChildMode = Independent,
+			SystemSpace SystemSpace = WorldSpace,
+			uint DrawOrder = 0,
+			float WarmUpTime = 5,
+			ParticleGeometry GeometryMode = Billboarded,
+			ParticleRenderMode RenderMode = Additive,
+			ParticleSortMode SortMode = Youngest,
+			ParticleAnimation ParticleAnimation = Single,
+			string Texture = "5274db4c2e7c11f9:Circle",
+			Vec4 Tint = [1, 1, 1, 0.12],
+			float VelocityScale = 1,
+			float LengthScale = 1,
+			float MaxParticleSize = 100,
+			Vec3 SystemSize = [4, 4, 4],
+		},
+		LinearParticleAnimator = 
+		{
+			Vec3 Force = [0, 0, 0],
+			Vec3 RandomForce = [0, 0, 0],
+			float Torque = 0,
+			float Growth = 0,
+			float Dampening = 0,
+			Vec3 Twist = [0, 0, 0],
+		},
+		ParticleColorAnimator = 
+		{
+			Vec4 Color0 = [0.465, 0.2976, 0.2976, 0],
+			Vec4 Color1 = [1, 0.44, 0.44, 1],
+			Vec4 Color2 = [1, 0.3, 0.3, 1],
+			Vec4 Color3 = [0.23, 0.23, 0.23, 0.475],
+			Vec4 Color4 = [0, 0, 0, 0],
+		},
+		BoxParticleEmitter = 
+		{
+			bool Active = true,
+			uint EmitCount = 0,
+			float EmitRate = 10,
+			float EmitVariance = 0,
+			float Size = 0.25,
+			float SizeVariance = 0.3,
+			float Lifetime = 8,
+			float LifetimeVariance = 0.2,
+			float Spin = 0,
+			float SpinVariance = 50,
+			bool RandomSpin = true,
+			float Fill = 1,
+			float EmitterVelocityPercent = 0,
+			Vec3 StartVelocity = [0, 2, 0],
+			Vec3 RandomVelocity = [0.6, 0.2, 0],
+			Vec3 TangentVelocity = [0, 0, 0],
+			Vec3 EmitterSize = [35, 0, 0],
+			bool FastMovingEmitter = false,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 15,
+		},
+		Named = 
+		{
+			string Name = "DebugVersionSpriteText",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-15.1463, -7.56315, 1],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SpriteText = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			Vec4 Color = [0.25, 0.25, 0.25, 0.425],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			TextPositionMode Position = UpperLeft,
+			string FontName = "54a39471e2ac1c24:SMODERN",
+			uint FontSize = 150,
+			string Text = "Debug Testing Build v0.7",
+			bool OnTop = false,
+			Vec2 Size = [0, 0],
+			TextAlign Align = Left,
+			float PixelsPerUnit = 300,
+			bool Smoothing = true,
 		},
 	},
 },

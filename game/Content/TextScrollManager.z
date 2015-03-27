@@ -10,6 +10,8 @@ class TextScrollManager : ZilchComponent
     //TextBlock taken from TextBlockInfo
     var TextBlockToPrint : TextBlock = null;
     
+    var DialogueSequence : Boolean = false;
+    
     //The complete string that will be printed
     var GoalString : String = null;
     //The string as it exists each moment while it is printed
@@ -42,9 +44,18 @@ class TextScrollManager : ZilchComponent
     //The standard delay for printing characters
     [Property]
     var LetterDelay : Real = 0.05;
+    
+    var Particle : Cog  = null;
+    var ParticleChild : Cog = null;
     //Boolean to check whether text is currently scrolling
     //Used if player wishes to have text scroll very quickly
     var TextIsScrolling : Boolean = false;
+    
+    var TextIsCancelled : Boolean = false;
+    
+    var DialogueSpeedIncreased : Boolean = false;
+    
+    var ButtonAPresses : Integer = 0;
     
     //The Action Set that controls the delays
     var TextSeq : ActionSet = null;
@@ -53,6 +64,10 @@ class TextScrollManager : ZilchComponent
     
     var ChangeDelay : Real = 0.5;
     
+    var CharWorldPos : Real3 = Real3();
+    
+    var MainSpace : Space = null;
+    
     function Initialize(init : CogInitializer)
     {
         this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
@@ -60,30 +75,40 @@ class TextScrollManager : ZilchComponent
         
         this.TextIsScrolling = true;
         
+        this.MainSpace = this.GameSession.FindSpaceByName("Main");
+        
+        this.CharWorldPos = this.Owner.SpriteText.GetCharacterPosition(this.CurrentIndex - 1);
+        this.Particle = this.Space.FindObjectByName("TextBoxParticle");
+        this.ParticleChild = this.Particle.FindChildByName("TextBoxParticleChild");
+        this.Particle.Transform.Translation = this.CharWorldPos + Real3(1, -0.4, 5);
+        
         Zero.Connect(this.Owner, "textScrollEvent", this.OntextScrollEvent);
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Space, "dialogueFinished", this.OnDialogueFinished);
+        Zero.Connect(this.Space, "CancelDialogue", this.OnCancelDialogue);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(this.PlayerDeactivated == true)
+        
+        if(this.DialogueSequence == true)
         {
             var textManager = this.Space.FindObjectByName("TextBox").TextBoxManager;
             var diagSeg = textManager.DialogueSegment;
-            //Console.WriteLine("Current Dialogue Segment = `diagSeg`");
+            
             if(textManager.DialogueFinished == true)
             {
-                Console.WriteLine("This prints if dialogue is finsihed");
-                var mainSpace = this.GameSession.FindSpaceByName("Main");
-                var dialogueFinished = new DialogueEventFinished();
-                dialogueFinished.CurrentDialogueSegment = diagSeg;
-                mainSpace.DispatchEvent("dialogueFinished", dialogueFinished);
+                this.Owner.SpriteText.Text = "";
+                //var mainSpace = this.GameSession.FindSpaceByName("Main");
+                //var dialogueFinished = new DialogueEventFinished();
+                //dialogueFinished.CurrentDialogueSegment = diagSeg;
+                //mainSpace.DispatchEvent("dialogueFinished", dialogueFinished);
                 textManager.DialogueFinished = false;
             }
             
             if(this.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space))
             {
+                //Change this to a different button.
                 if(this.TextIsScrolling == false)
                 {
                     this.TextSeq.Cancel();
@@ -96,7 +121,23 @@ class TextScrollManager : ZilchComponent
                 {
                     this.LetterDelay = 0.0;
                     this.PunctuationDelay = 0.0;
+                    this.DialogueSpeedIncreased = true;
                 }
+            }
+            if(this.Gamepad.IsButtonPressed(Buttons.B))
+            {
+                this.TextIsCancelled = true;
+            }
+            
+            //var localPos = Real3(this.Owner.SpriteText.MeasureGivenText(this.Owner.SpriteText.Text), 0);
+            //var worldPos = this.Owner.Transform.TransformPoint(localPos);
+            
+            this.CharWorldPos = this.Owner.SpriteText.GetCharacterPosition(this.CurrentIndex - 1);
+            
+            if(textManager.DialogueFinished == false)
+            {
+                this.Particle.Transform.Translation = Math.Lerp(this.Particle.Transform.Translation,
+                this.CharWorldPos + Real3(1, -0.4, 5), 1.0);
             }
         }
     }
@@ -107,26 +148,56 @@ class TextScrollManager : ZilchComponent
         {
             this.TextSeq.Cancel();
         }
-        this.PlayerDeactivated = true;
+        //this.PlayerDeactivated = true;
+        
+        this.Particle.SpriteParticleSystem.Visible = true;
+        this.Particle.FindChildByName("TextBoxParticleChild").SpriteParticleSystem.Visible = true;
+        
+        this.DialogueStartSettings();
         
         this.CurrentIndex = 0;
         this.CurrentString = null;
         this.GoalString = event.TextToWrite.Text;
+        this.TextIsScrolling = true;
         
         this.TextSeq = Action.Sequence(this.Owner.Actions);
         
         Actions.Delay(this.TextSeq, this.TextDelay);
         Actions.Call(this.TextSeq, this.TextScroll);
-        //this.ParticleScroll(this.CurrentIndex);
     }
     
     function TextScroll()
     {
         if(this.GoalString == this.CurrentString)
         {
+            Console.WriteLine("Text Scroll End Condition Is Met");
             this.PunctuationDelay = 0.1;
             this.LetterDelay = 0.05;
             this.TextIsScrolling = false;
+            this.Particle.SpriteParticleSystem.Visible = false;
+            this.ParticleChild.SpriteParticleSystem.Visible = false;
+            return;
+        }
+        
+        if(Zero.Keyboard.KeyIsPressed(Keys.Space) || this.Gamepad.IsButtonPressed(Buttons.A))
+        {
+            if(this.DialogueSpeedIncreased == true)
+            {
+                Console.WriteLine("Should complete dialogue");
+                this.Owner.SpriteText.Text = this.GoalString;
+                this.DialogueSpeedIncreased = false;
+                this.TextIsScrolling = false;
+                this.Particle.SpriteParticleSystem.Visible = false;
+                this.ParticleChild.SpriteParticleSystem.Visible = false;
+                return;
+            }
+        }
+        
+        if(this.TextIsCancelled == true)
+        {
+            this.DialogueSequence = false;
+            this.Particle.SpriteParticleSystem.Visible = false;
+            this.ParticleChild.SpriteParticleSystem.Visible = false;
             return;
         }
         
@@ -151,13 +222,16 @@ class TextScrollManager : ZilchComponent
         
         this.CurrentIndex += 1;
         
-        //this is where the extra screen wrapping code would go
-        
-        this.Owner.SpriteText.Text = this.CurrentString;
+        if(this.TextIsScrolling)
+        {
+            this.Owner.SpriteText.Text = this.CurrentString;
+            
+        }
         
         this.TextSeq = Action.Sequence(this.Owner.Actions);
         
         Actions.Delay(this.TextSeq, this.TextDelay);
+        
         Actions.Call(this.TextSeq, this.TextScroll);
         //this.ParticleScroll(this.CurrentIndex);
     }
@@ -170,20 +244,32 @@ class TextScrollManager : ZilchComponent
     
     function OnDialogueFinished(event : DialogueEventFinished)
     {
+        Console.WriteLine("Not sure this should happen");
         this.Owner.SpriteText.Text = "";
     }
     
+    function OnCancelDialogue(event : CancelDialogueEvent)
+    {
+        this.GoalString = this.CurrentString;
+        var seq = Action.Sequence(this.Owner.Actions);
+        Action.Delay(seq, 0.2);
+        Action.Call(seq, this.ChangeCancelDialogueBool);
+        this.DialogueSequence = false;
+    }
     
-    //function ParticleScroll(currentCharacterIndex:Integer)
-    //{
-    //    var particle:Cog = this.Space.FindObjectByName("TextBoxParticle");
-        
-    //    var currentCharacterPosition:Real3 = this.Owner.SpriteText.GetCharacterPosition(this.CurrentIndex);
-    //    Console.WriteLine("Pos: `currentCharacterPosition`");
-    //    //currentCharacterPosition = this.Owner.Transform.TransformPoint(currentCharacterPosition);
-        
-    //    //particle.SpriteParticleSystem.Visible = true;
-    //    particle.Transform.Translation = currentCharacterPosition;// = Math.Lerp(particle.Transform.Translation, currentCharacterPosition, 1.0);
-    //}
+    function ChangeCancelDialogueBool()
+    {
+        Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!");
+        this.TextIsCancelled = false;
+    }
+    
+    function DialogueStartSettings()
+    {
+        this.MainSpace.TimeSpace.Paused = true;
+    }
+    
+    function DialogueEndSettings()
+    {
+        this.MainSpace.TimeSpace.Paused = false;
+    }
 }
-    
