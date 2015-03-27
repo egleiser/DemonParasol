@@ -9,6 +9,10 @@ class Z_SplashScreenLogic:ZilchComponent
 {
     //PROPERTIES
     [Property]
+    var GamepadIndex:Integer = 0;
+    
+    var Gamepad:Gamepad = null;
+    [Property]
     var SplashScreenDelayTimer:Real = 4;
     [Property]
     var NextLevel:Level = null;
@@ -28,7 +32,7 @@ class Z_SplashScreenLogic:ZilchComponent
     {
         //variable to hook to current level
         this.LvlCurrentLevel = this.Space.CurrentLevel;
-        
+        this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
         //connect to LogicUpdate event
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
@@ -45,9 +49,19 @@ class Z_SplashScreenLogic:ZilchComponent
         }
         //keep track of the Timer
         this.Timer += event.Dt;
-        
+
         //continue to next level
         if(this.Timer >= this.SplashScreenDelayTimer)
+        {
+            this.Space.LoadLevel(this.NextLevel);
+        }
+        // via keyboard
+        if(Zero.Keyboard.KeyIsPressed(Keys.Enter) || Zero.Keyboard.KeyIsPressed(Keys.Space) || Zero.Keyboard.KeyIsPressed(Keys.Escape))
+        {
+            this.Space.LoadLevel(this.NextLevel);
+        }
+        //via game pad
+        if(this.Gamepad.IsButtonPressed(Buttons.B)|| this.Gamepad.IsButtonPressed(Buttons.Back) || this.Gamepad.IsButtonPressed(Buttons.Start))
         {
             this.Space.LoadLevel(this.NextLevel);
         }

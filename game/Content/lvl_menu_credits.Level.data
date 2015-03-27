@@ -41,6 +41,11 @@ Level =
 		ForwardRenderer = 
 		{
 			Vec4 ClearColor = [0.155, 0.155, 0.155, 1],
+			bool DrawNonVisible = false,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool EditorIconDepth = true,
+			bool Wireframe = false,
 		},
 		GridDraw = 
 		{
@@ -89,7 +94,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 81.8733,
+			float Size = 33.2872,
 		},
 		EditorCameraController = 
 		{
@@ -103,6 +108,10 @@ Level =
 		EditorRenderer = 
 		{
 			Vec4 ClearColor = [0.155, 0.155, 0.155, 1],
+			bool DrawNonVisible = true,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool Wireframe = false,
 		},
 	},
 	ArchetypeInstance = 
@@ -147,7 +156,9 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
-			Vec4 Color = [0.862745, 0.823529, 0.823529, 1],
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			Vec4 Color = [0, 0, 0, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
@@ -181,6 +192,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
 			Vec4 Color = [1, 1, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
@@ -200,6 +213,15 @@ Level =
 			float ScrollTime = 15,
 			float EndingYPosition = 50,
 			Enum EaseType = Linear,
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = true,
+			int ExtraPriority = 0,
+			string CueName = "55dbbe3be22313e0:BurntCityDarknessPiano",
+			float Volume = 0.5,
+			float Pitch = 1,
+			bool Positional = false,
 		},
 		Hierarchy = 
 		{
@@ -232,6 +254,8 @@ Level =
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
 					Vec4 Color = [1, 1, 1, 0],
 					BlendMode BlendMode = Alpha,
 					SpriteGeometryMode GeometryMode = ZPlane,
@@ -296,6 +320,24 @@ Level =
 		Named = 
 		{
 			string Name = "bg-white",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "550feaf7af3185b7:MenuSphereParticleEffect",
+		LinkId = 
+		{
+			uint Id = 8,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.375378, -9.33731, 1],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "MenuSphereParticleEffect",
 		},
 	},
 },
