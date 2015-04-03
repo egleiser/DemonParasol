@@ -13,7 +13,7 @@ class Z_SplashScreenLogic:ZilchComponent
     
     var Gamepad:Gamepad = null;
     [Property]
-    var SplashScreenDelayTimer:Real = 4;
+    var SplashScreenDelayTimer:Real = Real(4.0);
     [Property]
     var NextLevel:Level = null;
     
@@ -61,7 +61,7 @@ class Z_SplashScreenLogic:ZilchComponent
             this.Space.LoadLevel(this.NextLevel);
         }
         //via game pad
-        if(this.Gamepad.IsButtonPressed(Buttons.B)|| this.Gamepad.IsButtonPressed(Buttons.Back) || this.Gamepad.IsButtonPressed(Buttons.Start))
+        if(this.Gamepad.IsButtonPressed(Buttons.AnyButton))
         {
             this.Space.LoadLevel(this.NextLevel);
         }

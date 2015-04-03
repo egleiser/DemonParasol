@@ -41,6 +41,11 @@ Level =
 		ForwardRenderer = 
 		{
 			Vec4 ClearColor = [0.155, 0.155, 0.155, 1],
+			bool DrawNonVisible = false,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool EditorIconDepth = true,
+			bool Wireframe = false,
 		},
 		GridDraw = 
 		{
@@ -59,7 +64,8 @@ Level =
 		},
 		Z_SplashScreenLogic = 
 		{
-			float SplashScreenDelayTimer = 4.5,
+			int GamepadIndex = 0,
+			float SplashScreenDelayTimer = 4,
 			string NextLevel = "545d0e2c41120b5e:lvl_splash_zero_engine",
 		},
 	},
@@ -101,6 +107,10 @@ Level =
 		EditorRenderer = 
 		{
 			Vec4 ClearColor = [0.155, 0.155, 0.155, 1],
+			bool DrawNonVisible = true,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool Wireframe = false,
 		},
 	},
 	Cog = 
@@ -161,6 +171,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
 			Vec4 Color = [1, 1, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
@@ -199,6 +211,8 @@ Level =
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
 			Vec4 Color = [0.0666667, 0.0666667, 0.0666667, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
@@ -217,10 +231,9 @@ Level =
 			float FadeInTime = 1,
 			float FadeOutTime = 1,
 			float WaitTime = 2,
-			Vec3 ScaleOutSize = [0.75, 0.75, 0.75],
 			float ScaleOutTime = 0.2,
-			Vec3 ScaleInSize = [1, 1, 1],
 			float ScaleInTime = 0.8,
+			float ScaleBiggerSize = 1.1,
 			Enum EaseType = Linear,
 		},
 		Area = 

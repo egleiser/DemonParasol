@@ -1,0 +1,73 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FILE-Z_MenuAnimations.z
+//AUTHOR-Travis Moore
+//COURSE-GAM205
+//COPYRIGHT-© 2015 DigiPen, All Rights Reserved.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+class Z_MenuAnimations:ZilchComponent
+{
+    //ANIMATION
+    var AActiveAnimation:ActionSet = null;
+    var AResetAnimation:ActionSet = null;
+    var ActiveColor:Real4 = Real4();
+    [Property]
+    var ActiveEaseType:Ease = Ease.QuadInOut;
+    [Property]
+    var ActiveTiming:Real = Real();
+    
+    //DARK MENU
+    var DarkMenu:Cog = null;
+    var IsDarkMenuActive:Boolean = Boolean(true);
+    var DarkMenuOriginalColor:Real4 = Real4();
+    var DarkMenuOriginalPos:Real3 = Real3();
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Initialize()
+    //EXPLANATION-
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Initialize(init:CogInitializer):Void
+    {
+        //get the dark menu
+        this.DarkMenu = this.Space.FindObjectByName("goMenuBackgroundDark");
+        
+        //set this button's starring properties
+        this.DarkMenuOriginalColor = this.DarkMenu.Sprite.Color;
+        this.DarkMenuOriginalPos = this.DarkMenu.Transform.Translation;
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-FadeInDarkMenuAnimation()
+    //EXPLANATION-Fade in the DarkMenu
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function FadeInDarkMenuAnimation():Void
+    {
+        //set AActiveAnimation
+        this.AActiveAnimation = Action.Group(this.Owner.Actions);
+        
+        //change color
+        Action.Property(this.AActiveAnimation,
+                        @this.Owner.Sprite.Color,
+                        this.DarkMenuOriginalColor,
+                        this.ActiveTiming,
+                        this.ActiveEaseType);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-FadeOutDarkMenuAnimation()
+    //EXPLANATION-Fade out the DarkMenu
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function FadeOutDarkMenuAnimation():Void
+    {
+        //set AActiveAnimation
+        this.AResetAnimation = Action.Group(this.Owner.Actions);
+        
+        //change back to original color
+        Action.Property(this.AResetAnimation,
+                        @this.DarkMenu.Sprite.Color,
+                        this.ActiveColor,
+                        this.ActiveTiming,
+                        this.ActiveEaseType);
+        
+        Console.WriteLine(this.DarkMenu.Sprite.Color);
+    }
+}

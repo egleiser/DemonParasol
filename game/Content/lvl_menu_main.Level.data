@@ -105,7 +105,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 30.1195,
+			float Size = 33.2872,
 		},
 		EditorCameraController = 
 		{
@@ -208,6 +208,7 @@ Level =
 			CogPath DownButton = ":/BtnMenuControls",
 			CogPath LeftButton = "",
 			CogPath RightButton = "",
+			Enum GamepadConfirmationButton = A,
 			string AltSprite = "545d044a249a3c23:btn-new-game-active",
 			int GamepadIndex = 0,
 			bool Active = true,
@@ -280,6 +281,7 @@ Level =
 			CogPath DownButton = ":/BtnMenuCredits",
 			CogPath LeftButton = "",
 			CogPath RightButton = "",
+			Enum GamepadConfirmationButton = A,
 			string AltSprite = "545d022f95859340:btn-menu-options-active",
 			int GamepadIndex = 0,
 			bool Active = false,
@@ -352,6 +354,7 @@ Level =
 			CogPath DownButton = ":/BtnGameQuit",
 			CogPath LeftButton = "",
 			CogPath RightButton = "",
+			Enum GamepadConfirmationButton = A,
 			string AltSprite = "545d044a249ddf34:btn-menu-credits-active",
 			int GamepadIndex = 0,
 			bool Active = false,
@@ -424,6 +427,7 @@ Level =
 			CogPath DownButton = ":/BtnGameNew",
 			CogPath LeftButton = "",
 			CogPath RightButton = "",
+			Enum GamepadConfirmationButton = A,
 			string AltSprite = "545d044a249a79c2:btn-quit-game-active",
 			int GamepadIndex = 0,
 			bool Active = false,
@@ -436,46 +440,6 @@ Level =
 		LinkId = 
 		{
 			uint Id = 8,
-		},
-		Named = 
-		{
-			string Name = "bg-menu-red",
-		},
-		Archetyped = 
-		{
-			string Name = "545d0ce33b4dab02:arc_bg_menu_red",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0, 0, 0],
-			Vec3 Scale = [82.1718, 44.1504, 34.1574],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = false,
-			Vec4 Color = [0.862745, 0.823529, 0.823529, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5275aa4d802dd6dc:Square",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool OnTop = false,
-			bool AnimationActive = false,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 9,
 		},
 		Named = 
 		{
@@ -520,7 +484,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 10,
+			uint Id = 9,
 		},
 		Named = 
 		{
@@ -581,6 +545,7 @@ Level =
 			CogPath DownButton = ":/BtnMenuOptions",
 			CogPath LeftButton = "",
 			CogPath RightButton = "",
+			Enum GamepadConfirmationButton = A,
 			string AltSprite = "545d044a249d9d93:btn-menu-controls-active",
 			int GamepadIndex = 0,
 			bool Active = false,
@@ -593,7 +558,7 @@ Level =
 		string Name = "545d477758b1a37e:arc_bg_white_fade",
 		LinkId = 
 		{
-			uint Id = 11,
+			uint Id = 10,
 		},
 		Transform = 
 		{
@@ -615,7 +580,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 12,
+			uint Id = 11,
 		},
 		Named = 
 		{
@@ -660,7 +625,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 13,
+			uint Id = 12,
 		},
 		Named = 
 		{
@@ -736,7 +701,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 14,
+			uint Id = 13,
 		},
 		Named = 
 		{
@@ -812,7 +777,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 15,
+			uint Id = 14,
 		},
 		Named = 
 		{
@@ -843,6 +808,51 @@ Level =
 			TextAlign Align = Left,
 			float PixelsPerUnit = 300,
 			bool Smoothing = true,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 15,
+		},
+		Named = 
+		{
+			string Name = "bg-menu-red",
+		},
+		Archetyped = 
+		{
+			string Name = "545d0ce33b4dab02:arc_bg_menu_red",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, -10],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "55966c4e6ae6c5ff:scn-splash-start-02",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Area = 
+		{
+			Vec2 Size = [32, 18],
+			Location Origin = Center,
 		},
 	},
 },

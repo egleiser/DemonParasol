@@ -4,7 +4,7 @@
 //COURSE-GAM205
 //COPYRIGHT-© 2014 DigiPen, All Rights Reserved.
 //////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-class Z_GamepadButtonController : ZilchComponent
+class Z_GamepadButtonController:ZilchComponent
 {
     [Property]
     var UpButton:CogPath = null;
@@ -14,6 +14,8 @@ class Z_GamepadButtonController : ZilchComponent
     var LeftButton:CogPath = null;
     [Property]
     var RightButton:CogPath = null;
+    [Property]
+    var GamepadConfirmationButton:Buttons = Buttons.A;
     
     [Property]
     var AltSprite:SpriteSource = null;
@@ -37,7 +39,7 @@ class Z_GamepadButtonController : ZilchComponent
     //FUNCTION-Initialize()
     //EXPLANATION-Initializes variables and events
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    function Initialize(init : CogInitializer):Void
+    function Initialize(init:CogInitializer):Void
     {
         this.InitSprite = this.Owner.Sprite.SpriteSource;
         
@@ -58,7 +60,7 @@ class Z_GamepadButtonController : ZilchComponent
         }
         if(this.Active)
         {
-            if(this.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Enter))
+            if(this.Gamepad.IsButtonPressed(this.GamepadConfirmationButton) || Zero.Keyboard.KeyIsPressed(Keys.Enter))
             {
                 if(this.LevelToLoad != null)
                 {
@@ -70,6 +72,13 @@ class Z_GamepadButtonController : ZilchComponent
                     }
                     mainSpace.LoadLevel(this.LevelToLoad);
                     this.Space.SoundSpace.PlayCue(SoundCue.Find("Select_B_05"));
+                }
+                //START SPLASH SCREEN
+                //--START GAME
+                if(this.Owner.Name == "BtnGameStart")
+                {
+                    this.Space.LevelSettings.Z_MenuAnimations.FadeOutDarkMenuAnimation();
+                    this.Owner.Z_ButtonAnimations.BtnMoveAwayAndFadeOut(this.Owner.Parent);
                 }
                 
                 if(this.Owner.Name == "BtnArrowRight")
