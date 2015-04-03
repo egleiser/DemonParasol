@@ -1,0 +1,85 @@
+/////////////////////////////////////////
+////                                 ////
+////Name: CollisionBased Narration.z ////
+////    Written by: Jason Clark      ////
+////     Last Updated: 4-2-15        ////
+////                                 ////
+/////////////////////////////////////////
+
+class CollisionBasedNarration : ZilchComponent
+{
+    [Property]
+    var OnStart : Boolean = false;
+    
+    [Property]
+    var OnEnd : Boolean = false;
+    
+    [Property]
+    var OnPersist : Boolean = false;
+    
+    [Property]
+    var NarrationCue : SoundCue = null;
+    
+    [Property]
+    var SubtitleObjectPath : CogPath = null;
+    
+    var SubtitleObject : Cog = null;
+    
+    var HudRef : Space = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.HudRef = this.GameSession.FindSpaceByName("HudSpace");
+        
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        if(this.OnStart)
+        {
+            Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        }
+        if(this.OnEnd)
+        {
+            Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+        }
+        if(this.OnPersist)
+        {
+            Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+        }
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+    
+    function OnCollisionPersisted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player")
+        {
+            var narOnPersist = new NarrationEvent();
+            narOnPersist.SoundCueToPlay = this.NarrationCue;
+            narOnPersist.SubtitleObject = this.SubtitleObject;
+            this.HudRef.DispatchEvent("NarrationEvent", narOnPersist);
+        }
+    }
+
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player")
+        {
+            var narOnPersist = new NarrationEvent();
+            narOnPersist.SoundCueToPlay = this.NarrationCue;
+            narOnPersist.SubtitleObject = this.SubtitleObject;
+            this.HudRef.DispatchEvent("NarrationEvent", narOnPersist);
+        }
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player")
+        {
+            var narOnPersist = new NarrationEvent();
+            narOnPersist.SoundCueToPlay = this.NarrationCue;
+            narOnPersist.SubtitleObject = this.SubtitleObject;
+            this.HudRef.DispatchEvent("NarrationEvent", narOnPersist);
+        }
+    }
+}

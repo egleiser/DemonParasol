@@ -96,9 +96,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.475995, 7.22447, 91.9176],
+			Vec3 Translation = [1.71079, 1.31275, 74.2045],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0478799, -0.00784038, -0.00037584, 0.998822],
+			Quat Rotation = [0.00969444, 0.0183286, -0.000177724, 0.999785],
 		},
 		Camera = 
 		{
@@ -113,9 +113,9 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 54.4101,
-			float VerticalAngle = 0.0957993,
-			float HorizontalAngle = 0.0156989,
+			float LookDistance = 36.4722,
+			float VerticalAngle = -0.0193924,
+			float HorizontalAngle = -0.036661,
 			Vec3 LookTarget = [0.374232, 2.01999, 37.7637],
 			float MoveSensitivity = 1,
 		},
@@ -620,7 +620,7 @@ Level =
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 					TextPositionMode Position = UpperLeft,
-					string FontName = "545d0deafc601f9d:Canaro",
+					string FontName = "54a39471e2ac1c24:SMODERN",
 					uint FontSize = 30,
 					string Text = "",
 					bool OnTop = true,
@@ -1848,6 +1848,48 @@ Level =
 			float Volume = 2,
 			float Pitch = 1,
 			bool Positional = false,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 42,
+		},
+		Named = 
+		{
+			string Name = "SubtitleText",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.374232, -7.89582, 37.7637],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SpriteText = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			TextPositionMode Position = Centered,
+			string FontName = "54a1a7b8629021c8:ChiaroCustom",
+			uint FontSize = 42,
+			string Text = "Sprite Text...",
+			bool OnTop = false,
+			Vec2 Size = [0, 0],
+			TextAlign Align = Center,
+			float PixelsPerUnit = 64,
+			bool Smoothing = true,
+		},
+		Area = 
+		{
+			Vec2 Size = [20, 2],
+			Location Origin = Center,
 		},
 	},
 },

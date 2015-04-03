@@ -1,0 +1,25 @@
+/////////////////////////////////////////
+////                                 ////
+////    Name: SubtitleInfo.z         ////
+////    Written by: Jason Clark      ////
+////     Last Updated: 4-2-15        ////
+////                                 ////
+/////////////////////////////////////////
+
+class SubtitleInfo : ZilchComponent
+{
+    [Property]
+    var SubTextBlock : TextBlock = null;
+    
+    [Property]
+    var TimeVisible : Real = 0.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

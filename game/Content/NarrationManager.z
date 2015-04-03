@@ -1,0 +1,46 @@
+/////////////////////////////////////////
+////                                 ////
+////    Name: NarrationManager.z     ////
+////    Written by: Jason Clark      ////
+////     Last Updated: 4-2-15        ////
+////                                 ////
+/////////////////////////////////////////
+
+class NarrationManager : ZilchComponent
+{
+    var NarrationStarted : Boolean = false;
+    
+    var SubtitleParent : Cog = null;
+    var SubtitleArray : Array[Cog] = null;
+    
+    var SubtitleTextBlock : TextBlock = null;
+    var SubtitleString : String = "";
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.SubtitleArray = new Array[Cog]();
+        
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, "NarrationEvent", this.OnNarrationEvent);
+    }
+
+    function OnNarrationEvent(event : NarrationEvent)
+    {
+        if(this.NarrationStarted == false)
+        {
+            this.NarrationStarted = true;
+            this.Owner.SoundEmitter.Cue = event.SoundCueToPlay;
+            this.Owner.SoundEmitter.Play();
+            
+            this.SubtitleParent = event.SubtitleObject;
+            foreach(var block in this.SubtitleParent.Children)
+            {
+                this.SubtitleArray.Push(block);
+            }
+        }
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

@@ -187,4 +187,11 @@ class FadeOutEndedEvent : Event
     
 }
 
+//Event for playing the voice over narration at specific points (mainly tied to colliders)
+class NarrationEvent : Event
+{
+    var SoundCueToPlay : SoundCue = null;
+    var SubtitleObject : Cog = null;
+}
+
 
