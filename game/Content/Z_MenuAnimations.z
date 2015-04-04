@@ -15,6 +15,17 @@ class Z_MenuAnimations:ZilchComponent
     [Property]
     var ActiveTiming:Real = Real();
     
+    //MOVE AWAY AND FADE OUT ANIMATION
+    var AMoveAwayAndDestroy:ActionSet = null;
+    var FadeOutColor:Real4 = Real4(1,1,1,0.0);
+    var FadeOutTiming:Real = Real(0.5);
+    var FadeOutPos:Real3 = Real3(0,-100,0);
+    var FadeOutEaseType:Ease = Ease.QuadIn;
+    
+    //DESTROY
+    var GroupToDestroy:Cog = null;
+    
+    
     //DARK MENU
     var DarkMenu:Cog = null;
     var IsDarkMenuActive:Boolean = Boolean(true);
@@ -32,8 +43,20 @@ class Z_MenuAnimations:ZilchComponent
         
         //set this button's starring properties
         this.DarkMenuOriginalColor = this.DarkMenu.Sprite.Color;
-        Console.WriteLine(this.DarkMenuOriginalColor);
         this.DarkMenuOriginalPos = this.DarkMenu.Transform.Translation;
+        
+        //event listener to update and perform code every logical frame
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.AMoveAwayAndDestroy != null && this.AMoveAwayAndDestroy.Completed)
+        {
+            this.AMoveAwayAndDestroy = null;
+            this.GroupToDestroy.Destroy();
+            this.GroupToDestroy = null;
+        }
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,11 +70,10 @@ class Z_MenuAnimations:ZilchComponent
         
         //change color
         Action.Property(this.AActiveAnimation,
-                        @this.Owner.Sprite.Color,
-                        Real4(1,1,1,1),
+                        @this.DarkMenu.Sprite.Color,
+                        Real4(1,1,1,1.0),
                         this.ActiveTiming,
                         this.ActiveEaseType);
-        Console.WriteLine(this.DarkMenu.Sprite.Color);
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -75,7 +97,7 @@ class Z_MenuAnimations:ZilchComponent
     //FUNCTION-MoveInMenuGroup()
     //EXPLANATION-Move in the passed menu group
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    function MoveInMenuGroup(group_:Cog):Void
+    function MoveInMenuGroup(group_:Cog, pos_:Real3):Void
     {
         //set AActiveAnimation
         var aMoveInGroup:ActionSet = Action.Group(this.Owner.Actions);
@@ -83,10 +105,28 @@ class Z_MenuAnimations:ZilchComponent
         //change back to original color
         Action.Property(aMoveInGroup,
                         @group_.Transform.Translation,
-                        Real3(0,0,3),
+                        pos_,
                         this.ActiveTiming,
                         this.ActiveEaseType);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-MoveAwayAndDestroy()
+    //EXPLANATION-fade away and move away the passed button
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function MoveAwayAndDestroy(menu_:Cog, pos_:Real3):Void
+    {
+        //set AActiveAnimation
+        this.AMoveAwayAndDestroy = Action.Group(this.Owner.Actions);
         
-        Console.WriteLine(this.DarkMenu.Sprite.Color);
+        //assign menu_ to be destroyed upon animation completion
+        this.GroupToDestroy = menu_;
+        
+        //move position
+        Action.Property(this.AMoveAwayAndDestroy,
+                        @menu_.Transform.Translation,
+                        pos_,
+                        this.FadeOutTiming,
+                        this.FadeOutEaseType);
     }
 }

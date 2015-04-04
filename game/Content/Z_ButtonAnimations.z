@@ -155,27 +155,4 @@ class Z_ButtonAnimations:ZilchComponent
                         this.ActiveTiming,
                         this.ActiveEaseType);
     }
-    
-     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FUNCTION-BtnMoveAwayAndFadeOut()
-    //EXPLANATION-fade away and move away the passed button
-    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    function BtnMoveAwayAndFadeOut(btn_:Cog):Void
-    {
-        //set AActiveAnimation
-        var aBtnMoveAwayAndFadeOut:ActionSet = Action.Group(this.Owner.Actions);
-        
-        //fade out color
-        Action.Property(aBtnMoveAwayAndFadeOut,
-                        @btn_.SpriteText.Color,
-                        this.FadeOutColor,
-                        this.FadeOutTiming,
-                        this.FadeOutEaseType);
-        //move position
-        Action.Property(aBtnMoveAwayAndFadeOut,
-                        @btn_.Transform.Translation,
-                        (btn_.Transform.Translation + this.FadeOutPos),
-                        this.FadeOutTiming,
-                        this.FadeOutEaseType);
-    }
 }
