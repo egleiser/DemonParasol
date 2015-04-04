@@ -16,6 +16,14 @@ class Z_GamepadButtonController:ZilchComponent
     var RightButton:CogPath = null;
     [Property]
     var GamepadConfirmationButton:Buttons = Buttons.A;
+    [Property]
+    var GamepadBackButton:Buttons = Buttons.B;
+    
+    //START MENU
+    var StartMenuGroup:Cog = null;
+    
+    //MAIN MENU
+    var MainMenuGroup:Cog = null;
     
     [Property]
     var AltSprite:SpriteSource = null;
@@ -43,6 +51,12 @@ class Z_GamepadButtonController:ZilchComponent
     {
         this.InitSprite = this.Owner.Sprite.SpriteSource;
         
+        //find the start menu group
+        this.StartMenuGroup = this.Space.FindObjectByName("goStartMenuGroup");
+        
+        //find the main menu group
+        this.MainMenuGroup = this.Space.FindObjectByName("goMainMenuGroup");
+        
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
         
@@ -60,6 +74,30 @@ class Z_GamepadButtonController:ZilchComponent
         }
         if(this.Active)
         {
+            //BACK BUTTON SUPPORT
+            if(this.Gamepad.IsButtonPressed(this.GamepadBackButton))
+            {
+                //if currently on the MAIN MENU
+                if(this.Owner.Name =="BtnNewGame" ||
+                 this.Owner.Name =="BtnHowToPlay" ||
+                 this.Owner.Name =="BtnOptions" ||
+                 this.Owner.Name =="BtnCredits" ||
+                 this.Owner.Name =="BtnQuitGame")
+                 {
+                     //return to the START SCREEN
+                     //fade in the background
+                    this.Space.LevelSettings.Z_MenuAnimations.FadeInDarkMenuAnimation();
+                    //fade out and move the main menu group
+                    this.Owner.Z_ButtonAnimations.BtnMoveAwayAndFadeOut(this.MainMenuGroup);
+                    //make this last button presed inactive
+                    this.Owner.Z_GamepadButtonController.Active = false;
+                    //make the incoming start menu group game start button active
+                    this.StartMenuGroup.FindChildByName("BtnGameStart").Z_GamepadButtonController.Active = true;
+                    //move the entire start menu group into view
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveInMenuGroup(this.StartMenuGroup);
+                 }
+            }
+            
             if(this.Gamepad.IsButtonPressed(this.GamepadConfirmationButton) || Zero.Keyboard.KeyIsPressed(Keys.Enter))
             {
                 if(this.LevelToLoad != null)
@@ -77,8 +115,16 @@ class Z_GamepadButtonController:ZilchComponent
                 //--START GAME
                 if(this.Owner.Name == "BtnGameStart")
                 {
+                    //fade out the background
                     this.Space.LevelSettings.Z_MenuAnimations.FadeOutDarkMenuAnimation();
-                    this.Owner.Z_ButtonAnimations.BtnMoveAwayAndFadeOut(this.Owner.Parent);
+                    //fade out and move the start menu group
+                    this.Owner.Z_ButtonAnimations.BtnMoveAwayAndFadeOut(this.StartMenuGroup);
+                    //make this last button presed inactive
+                    this.Owner.Z_GamepadButtonController.Active = false;
+                    //make the incoming main menu group new game button active
+                    this.MainMenuGroup.FindChildByName("BtnNewGame").Z_GamepadButtonController.Active = true;
+                    //move the entire main menu group into view
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveInMenuGroup(this.MainMenuGroup);
                 }
                 
                 if(this.Owner.Name == "BtnArrowRight")

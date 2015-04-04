@@ -9,7 +9,7 @@ class Z_MenuAnimations:ZilchComponent
     //ANIMATION
     var AActiveAnimation:ActionSet = null;
     var AResetAnimation:ActionSet = null;
-    var ActiveColor:Real4 = Real4();
+    var ActiveColor:Real4 = Real4(1,1,1,0);
     [Property]
     var ActiveEaseType:Ease = Ease.QuadInOut;
     [Property]
@@ -32,6 +32,7 @@ class Z_MenuAnimations:ZilchComponent
         
         //set this button's starring properties
         this.DarkMenuOriginalColor = this.DarkMenu.Sprite.Color;
+        Console.WriteLine(this.DarkMenuOriginalColor);
         this.DarkMenuOriginalPos = this.DarkMenu.Transform.Translation;
     }
     
@@ -47,9 +48,10 @@ class Z_MenuAnimations:ZilchComponent
         //change color
         Action.Property(this.AActiveAnimation,
                         @this.Owner.Sprite.Color,
-                        this.DarkMenuOriginalColor,
+                        Real4(1,1,1,1),
                         this.ActiveTiming,
                         this.ActiveEaseType);
+        Console.WriteLine(this.DarkMenu.Sprite.Color);
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -64,7 +66,24 @@ class Z_MenuAnimations:ZilchComponent
         //change back to original color
         Action.Property(this.AResetAnimation,
                         @this.DarkMenu.Sprite.Color,
-                        this.ActiveColor,
+                        Real4(1,1,1,0),
+                        this.ActiveTiming,
+                        this.ActiveEaseType);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-MoveInMenuGroup()
+    //EXPLANATION-Move in the passed menu group
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function MoveInMenuGroup(group_:Cog):Void
+    {
+        //set AActiveAnimation
+        var aMoveInGroup:ActionSet = Action.Group(this.Owner.Actions);
+        
+        //change back to original color
+        Action.Property(aMoveInGroup,
+                        @group_.Transform.Translation,
+                        Real3(0,0,3),
                         this.ActiveTiming,
                         this.ActiveEaseType);
         

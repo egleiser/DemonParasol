@@ -88,14 +88,13 @@ class Z_ButtonAnimations:ZilchComponent
                 this.BtnActiveAnimation();
             }
         }
-        //else reset everything back to normal, null out animations
         else
         {
-            //if we are currently animating, go straight to reset animation
-            if(this.AActiveAnimation != null || this.AResetAnimation != null)
-            {
-                this.BtnAnimationReset();
-            }
+            this.AActiveAnimation = null;
+            this.AResetAnimation = null;
+            this.Owner.Transform.Translation = this.BtnOriginalPos;
+            this.Owner.SpriteText.Color = this.BtnOriginalColor;
+            this.Owner.Transform.Scale = this.BtnOriginalScale;
         }
     }
     
@@ -175,7 +174,7 @@ class Z_ButtonAnimations:ZilchComponent
         //move position
         Action.Property(aBtnMoveAwayAndFadeOut,
                         @btn_.Transform.Translation,
-                        this.FadeOutPos,
+                        (btn_.Transform.Translation + this.FadeOutPos),
                         this.FadeOutTiming,
                         this.FadeOutEaseType);
     }
