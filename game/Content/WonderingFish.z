@@ -1,0 +1,52 @@
+class WonderingFish : ZilchComponent
+{
+    var TargetPos : Real3 = Real3(0,0,0);
+    var InitPos : Real3 = Real3(0,0,0);
+    var MoveVec : Real3 = Real3(0,0,0);
+    var Timer : Integer = 0;
+    [Property]
+    var SpeedMultiplier : Real = 1.0;
+    [Property]
+    var TimerSpeed : Integer = 240;
+    var TimerRandOffset : Integer = 0;
+    [Property]
+    var MaxDist : Real = 10.0;
+    [Property]
+    var MinDist : Real = 0.0;
+    function Initialize(init : CogInitializer)
+    {
+        this.InitPos = this.Owner.Transform.WorldTranslation;
+        this.GetNewGoal();
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Timer += 1;
+        this.StepTowardsNode(event);
+        this.FaceGoal(event);
+        if(this.Timer % (this.TimerSpeed + this.TimerRandOffset) == 0)
+        {
+            this.GetNewGoal();
+        }
+    }
+    function GetNewGoal()
+    {
+        var random = new Random();
+        this.TimerRandOffset = random.Range(-40, 40) as Integer;
+        this.TargetPos = (this.InitPos + random.Real3(this.MinDist, this.MaxDist)) * Real3(1,1,0);
+        this.TargetPos.Z += this.InitPos.Z;
+    }
+    function StepTowardsNode(event : UpdateEvent)
+    {
+        this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, this.TargetPos, event.Dt * this.SpeedMultiplier);
+    }
+    
+    function FaceGoal(event : UpdateEvent)
+    {
+        var targetRotation = this.Owner.Orientation.GetLookAtPointWithUpRotation(
+            Real3(this.TargetPos.X,this.TargetPos.Y,this.Owner.Transform.WorldTranslation.Z),this.Owner.Orientation.WorldUp);
+        targetRotation = Math.Multiply(targetRotation, Math.Euler(Real3(0,0,0)));
+        this.Owner.Transform.WorldRotation = Math.Slerp(this.Owner.Transform.WorldRotation, targetRotation, event.Dt * 1.5);
+    }
+}

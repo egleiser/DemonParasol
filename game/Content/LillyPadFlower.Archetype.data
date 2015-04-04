@@ -1,0 +1,69 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "LillyPadFlower",
+	},
+	Archetyped = 
+	{
+		string Name = "550a2bac8b987bae:LillyPadFlower",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-183.246, -157.083, -4.3626],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [-0, 0, -0.268587, 0.963256],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+		string MeshName = "550a28f82688787f:LillyPaD",
+		Vec4 Color = [0.09684, 0.36, 0.054, 1],
+	},
+	SinRotate = 
+	{
+		float SinSpeedX = 2,
+		float SinSpeedY = 3,
+		float Intensity = 0.1,
+		bool UseInitialRot = true,
+		bool UseLocal = false,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "LillyFlower",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [2.70839, 2.7084, 2.7084],
+				Quat Rotation = [0, 0, 0.994829, 0.101565],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5481b4ceba3fc9ad:mat_plant",
+				string MeshName = "5481bc523b737db3:Flower1.Flower1_Petals",
+				Vec4 Color = [0.826785, 0.2907, 0.855, 1],
+			},
+		},
+	},
+},

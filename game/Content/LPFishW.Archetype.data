@@ -1,0 +1,31 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "LPFishW",
+	},
+	Archetyped = 
+	{
+		string Name = "550a3b45eb3390ce:LPFish",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-156.752, -154.541, -8.73423],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+		string MeshName = "550a3b77f8d9327e:LPFish",
+		Vec4 Color = [1, 0.115, 0.115, 1],
+	},
+},

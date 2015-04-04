@@ -1,0 +1,76 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "WaterfallEffect",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-331.995, -154.984, 27.5131],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0.366476, 0.930427],
+	},
+	SpriteParticleSystem = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		SystemChildMode ChildMode = Generational,
+		SystemSpace SystemSpace = LocalSpace,
+		uint DrawOrder = 0,
+		float WarmUpTime = 3,
+		ParticleGeometry GeometryMode = Beam,
+		ParticleRenderMode RenderMode = Blended,
+		ParticleSortMode SortMode = Youngest,
+		ParticleAnimation ParticleAnimation = Single,
+		string Texture = "5481a3be505b232b:wind-particles-simple-03",
+		Vec4 Tint = [1, 1, 1, 1],
+		float VelocityScale = 0.1,
+		float LengthScale = 0.01,
+		float MaxParticleSize = 100,
+		Vec3 SystemSize = [20, 20, 50],
+	},
+	LinearParticleAnimator = 
+	{
+		Vec3 Force = [0, -3, -9],
+		Vec3 RandomForce = [0, 0, 0],
+		float Torque = 1,
+		float Growth = 2,
+		float Dampening = 0,
+		Vec3 Twist = [0, 0, 0],
+	},
+	ParticleColorAnimator = 
+	{
+		Vec4 Color0 = [0.26, 0.6226, 1, 0],
+		Vec4 Color1 = [0.27625, 0.454112, 0.85, 1],
+		Vec4 Color2 = [0.5633, 0.664178, 0.86, 1],
+		Vec4 Color3 = [0.654175, 0.801579, 0.955, 1],
+		Vec4 Color4 = [0.541125, 0.779756, 0.975, 0],
+	},
+	BoxParticleEmitter = 
+	{
+		bool Active = true,
+		uint EmitCount = 0,
+		float EmitRate = 100,
+		float EmitVariance = 0,
+		float Size = 5,
+		float SizeVariance = 0.5,
+		float Lifetime = 3,
+		float LifetimeVariance = 0.2,
+		float Spin = 0,
+		float SpinVariance = 50,
+		bool RandomSpin = true,
+		float Fill = 1,
+		float EmitterVelocityPercent = 0,
+		Vec3 StartVelocity = [0, 0, 0],
+		Vec3 RandomVelocity = [2, 2, 2],
+		Vec3 TangentVelocity = [0, 0, 0],
+		Vec3 EmitterSize = [40, 0, 0],
+		bool FastMovingEmitter = false,
+	},
+},
