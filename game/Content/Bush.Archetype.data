@@ -1,0 +1,124 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Bush",
+	},
+	Archetyped = 
+	{
+		string Name = "55358a235511d9d0:Bush",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-204.198, -131.291, -1.34888],
+		Vec3 Scale = [5.68531, 4.41526, 3.9645],
+		Quat Rotation = [0, 0, -0.0818684, -0.996643],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+		string MeshName = "5481b30411ffa6dc:Rock3",
+		Vec4 Color = [0.16464, 0.3, 0.012, 1],
+	},
+	Hierarchy = 
+	{
+		ArchetypeInstance = 
+		{
+			string Name = "55358a2c5b15991f:Berry",
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.288837, -0.0832329, 0.926658],
+				Vec3 Scale = [0.19372, 0.247293, 0.217204],
+				Quat Rotation = [0.609929, 0.130753, 0.324518, 0.71104],
+			},
+			Named = 
+			{
+				string Name = "Berry",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "55358a2c5b15991f:Berry",
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.225128, -0.280146, 0.42647],
+				Vec3 Scale = [0.243449, 0.196679, 0.218881],
+				Quat Rotation = [0.293738, 0.704618, -0.364187, 0.533478],
+			},
+			Named = 
+			{
+				string Name = "Berry",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "55358a2c5b15991f:Berry",
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.0977745, -0.38563, 0.816025],
+				Vec3 Scale = [0.178265, 0.249282, 0.227901],
+				Quat Rotation = [0.614007, -0.101814, 0.0527156, 0.780929],
+			},
+			Named = 
+			{
+				string Name = "Berry",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "55358a2c5b15991f:Berry",
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.486237, -0.0715485, 0.593849],
+				Vec3 Scale = [0.202811, 0.249987, 0.205506],
+				Quat Rotation = [0.534556, -0.331996, -0.275044, 0.726897],
+			},
+			Named = 
+			{
+				string Name = "Berry",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "55358a2c5b15991f:Berry",
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.151981, 0.0243225, 1.32018],
+				Vec3 Scale = [0.247429, 0.192545, 0.218091],
+				Quat Rotation = [0.620503, 0.448262, -0.605203, 0.218556],
+			},
+			Named = 
+			{
+				string Name = "Berry",
+			},
+		},
+	},
+},

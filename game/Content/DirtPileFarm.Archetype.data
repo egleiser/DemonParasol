@@ -1,0 +1,127 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "DirtPileFarm",
+	},
+	Archetyped = 
+	{
+		string Name = "5535bce7831d5ea5:DirtPile",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-231.399, -5.06055, -0.993737],
+		Vec3 Scale = [4.09969, 14.6006, 1.45828],
+		Quat Rotation = [0, 0, -0.697376, -0.716706],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "55cddaab47c83dc9:DirPath",
+		string MeshName = "5481b31f137cdf86:Rock2",
+		Vec4 Color = [0.19, 0.13984, 0.0988, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "DirtPile",
+			},
+			Archetyped = 
+			{
+				string Name = "5535bce7831d5ea5:DirtPile",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-7.15256e-007, 0.478041, 5.96046e-008],
+				Vec3 Scale = [0.989481, 1.12491, 1],
+				Quat Rotation = [0, 0, 0.999783, -0.0208336],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "55cddaab47c83dc9:DirPath",
+				string MeshName = "5481b31f137cdf86:Rock2",
+				Vec4 Color = [0.19, 0.13984, 0.0988, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "DirtPile",
+			},
+			Archetyped = 
+			{
+				string Name = "5535bce7831d5ea5:DirtPile",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [7.15256e-007, 0.945797, 5.96046e-008],
+				Vec3 Scale = [1, 0.999998, 1],
+				Quat Rotation = [0, 0, 1.95811e-007, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "55cddaab47c83dc9:DirPath",
+				string MeshName = "5481b31f137cdf86:Rock2",
+				Vec4 Color = [0.19, 0.13984, 0.0988, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "DirtPile",
+			},
+			Archetyped = 
+			{
+				string Name = "5535bce7831d5ea5:DirtPile",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [7.15256e-007, -0.467771, 5.96046e-008],
+				Vec3 Scale = [0.974798, 1.27719, 1],
+				Quat Rotation = [0, 0, 0.999496, -0.0317621],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "55cddaab47c83dc9:DirPath",
+				string MeshName = "5481b31f137cdf86:Rock2",
+				Vec4 Color = [0.19, 0.13984, 0.0988, 1],
+			},
+		},
+	},
+},

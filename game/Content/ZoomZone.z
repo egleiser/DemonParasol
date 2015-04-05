@@ -2,18 +2,26 @@
 ////                                 ////
 ////  Name: ZoomZone.z               ////
 ////    Written by: JasonClark       ////
-////                                 ////
-////     Last Updated: 12-11-14      ////
+////      AND Eric Gleiser           ////
+////     Last Updated: 04-04-15      ////
 ////                                 ////
 /////////////////////////////////////////
 class ZoomZone : ZilchComponent
 {
-    
+    [Property]
+    var ZoomTime:Real = 1.5;
+
+    [Property]
+    var ZoomAmount:Real = 50.0;
+    var InitZoom:Real = 0.0;
+    var Cam:Cog = null;
     function Initialize(init : CogInitializer)
     {
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
         Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+        this.Cam = this.Space.FindObjectByName("Camera");
+        this.InitZoom = this.Cam.OrbitCameraController.CamLerp.Z;
     }
     //Make it so it only sends the event is the PLAYER collides with its
     function OnCollisionEnded(event : CollisionEvent)
@@ -22,9 +30,9 @@ class ZoomZone : ZilchComponent
         {
             var zoomEvent = new CameraZoomEvent();
             zoomEvent.IsZoomingIn = true;
-            zoomEvent.CamSize = 30;
-            zoomEvent.ZoomTime = 1.5;
-            this.Space.FindObjectByName("Camera").DispatchEvent("zoomEvent", zoomEvent);
+            zoomEvent.CamSize = this.InitZoom;
+            zoomEvent.ZoomTime = this.ZoomTime;
+            this.Cam.DispatchEvent("zoomEvent", zoomEvent);
         }
     }
 
@@ -34,13 +42,10 @@ class ZoomZone : ZilchComponent
         {
             var zoomEvent = new CameraZoomEvent();
             zoomEvent.IsZoomingIn = true;
-            zoomEvent.CamSize = 50;
-            zoomEvent.ZoomTime = 1.5;
-            this.Space.FindObjectByName("Camera").DispatchEvent("zoomEvent", zoomEvent);
+            zoomEvent.CamSize = this.ZoomAmount;
+            zoomEvent.ZoomTime = this.ZoomTime;
+            this.Cam.DispatchEvent("zoomEvent", zoomEvent);
         }
     }
 
-    function OnLogicUpdate(event : UpdateEvent)
-    {
-    }
 }

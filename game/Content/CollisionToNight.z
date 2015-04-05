@@ -97,8 +97,8 @@ class CollisionToNight : ZilchComponent
         //this.Space.FindObjectByName("DreamFogger").Model.Visible = true;
         this.Space.FindObjectByName("Rain").BoxParticleEmitter.Active = true;
         this.Space.CreateAtPosition(Archetype.Find("LightningStrike"),this.Space.FindObjectByName("Rain").Transform.WorldTranslation);
-        var offThePath = this.Space.FindObjectByName("PathDetector");
-        offThePath.ZIL_BridgeCollapse.PathFail = true;
+        //var offThePath = this.Space.FindObjectByName("PathDetector");
+        //offThePath.ZIL_BridgeCollapse.PathFail = true;
     }
     
     function PathFailTextCall()

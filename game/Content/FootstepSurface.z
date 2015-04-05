@@ -3,10 +3,10 @@
 ////  Name: FootstepSurface.z        ////
 ////    Written by: Eric Gleiser     ////
 ////                                 ////
-////     Last Updated: 12-11-14      ////
+////     Last Updated: 04-04-15      ////
 ////                                 ////
 /////////////////////////////////////////
-enum FootstepType{Dirt, Wood, Water, Gravel}
+enum FootstepType{Dirt, Wood, Water, Gravel, Bush, Flowers}
 class FootstepSurface : ZilchComponent
 {
     [Property]
@@ -14,9 +14,5 @@ class FootstepSurface : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-    }
-
-    function OnLogicUpdate(event : UpdateEvent)
-    {
     }
 }

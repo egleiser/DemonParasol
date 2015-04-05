@@ -1,0 +1,31 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "WoodLog",
+	},
+	Archetyped = 
+	{
+		string Name = "5535f7ddd48ab88a:WoodLog",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5535f7dbd6c047f5:13___Default",
+		string MeshName = "5535f7f2e3762ca6:WoodLog",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+},

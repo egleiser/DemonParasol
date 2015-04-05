@@ -1,0 +1,31 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Berry",
+	},
+	Archetyped = 
+	{
+		string Name = "5481b30411f6b027:Rock3",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-196.307, -129.986, -1.34888],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [-0.611788, 0.0502548, -0.0646289, -0.786774],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+		string MeshName = "5481b3171cf67800:Rock1",
+		Vec4 Color = [0.915, 0.0366, 0.16836, 1],
+	},
+},
