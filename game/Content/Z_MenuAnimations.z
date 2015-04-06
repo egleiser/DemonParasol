@@ -25,7 +25,6 @@ class Z_MenuAnimations:ZilchComponent
     //DESTROY
     var GroupToDestroy:Cog = null;
     
-    
     //DARK MENU
     var DarkMenu:Cog = null;
     var IsDarkMenuActive:Boolean = Boolean(true);
@@ -125,6 +124,23 @@ class Z_MenuAnimations:ZilchComponent
         //move position
         Action.Property(this.AMoveAwayAndDestroy,
                         @menu_.Transform.Translation,
+                        pos_,
+                        this.FadeOutTiming,
+                        this.FadeOutEaseType);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Shift()
+    //EXPLANATION-move objects to the left
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Shift(obj_:Cog, pos_:Real3):Void
+    {
+        //set AActiveAnimation
+        var aShift = Action.Group(this.Owner.Actions);
+        
+        //move position
+        Action.Property(aShift,
+                        @obj_.Transform.Translation,
                         pos_,
                         this.FadeOutTiming,
                         this.FadeOutEaseType);

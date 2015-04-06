@@ -10,19 +10,21 @@ Level =
 		{
 			string Name = "LevelSettings",
 		},
-		GravityEffect = 
+		DeferredRenderer = 
 		{
-			bool Active = true,
-			bool WakeUpOnChange = false,
-			bool LocalSpaceDirection = true,
-			float Strength = 10,
-			Vec3 Direction = [0, -1, 0],
-		},
-		DragEffect = 
-		{
-			bool Active = true,
-			bool WakeUpOnChange = false,
-			float Drag = 0.7,
+			Vec4 ClearColor = [1, 1, 1, 0],
+			bool DrawNonVisible = false,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool EditorIconDepth = true,
+			bool Hdr = true,
+			bool Shadows = false,
+			bool AntiAliasing = false,
+			bool Refraction = true,
+			bool GodRays = true,
+			bool RenderMasks = false,
+			bool Glow = true,
+			float GlowThreshold = 0.9,
 		},
 		CameraViewport = 
 		{
@@ -37,15 +39,6 @@ Level =
 			ViewportScaling Scaling = Fill,
 			Vec2 Resolution = [1280, 720],
 			Vec4 MarginColor = [0, 0, 0, 1],
-		},
-		ForwardRenderer = 
-		{
-			Vec4 ClearColor = [0.155, 0.155, 0.155, 1],
-			bool DrawNonVisible = false,
-			bool DrawDebugObjects = true,
-			bool DrawEditorIcons = true,
-			bool EditorIconDepth = true,
-			bool Wireframe = false,
 		},
 		GridDraw = 
 		{
@@ -83,11 +76,52 @@ Level =
 		},
 		Named = 
 		{
+			string Name = "RenderMask",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 5],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = true,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Area = 
+		{
+			Vec2 Size = [32, 18],
+			Location Origin = Center,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 4,
+		},
+		Named = 
+		{
 			string Name = "EditorCamera",
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.85431, -2.45114, 50],
+			Vec3 Translation = [2.10017, -1.13663, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -107,7 +141,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [2.85431, -2.45114, 2.66527e-007],
+			Vec3 LookTarget = [2.10017, -1.13663, -9.11601e-007],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -141,7 +175,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 4,
+			uint Id = 5,
 		},
 		Named = 
 		{
@@ -196,7 +230,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 5,
+			uint Id = 6,
 		},
 		Named = 
 		{
@@ -237,7 +271,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 6,
+			uint Id = 7,
 		},
 		Named = 
 		{
@@ -278,7 +312,53 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 7,
+			uint Id = 8,
+		},
+		Named = 
+		{
+			string Name = "goCreditsBorder",
+		},
+		EditorFlags = 
+		{
+			bool Locked = false,
+			bool Hidden = true,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0.0468836, 4],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5507219152c7b38a:sprMenuCreditsBorder",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Area = 
+		{
+			Vec2 Size = [32, 18],
+			Location Origin = Center,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 9,
 		},
 		Named = 
 		{
@@ -286,7 +366,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, 2],
+			Vec3 Translation = [0, 0, 5],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -310,23 +390,59 @@ Level =
 			uint StartFrame = 0,
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "55070c5e9df78f63:ARC_StartMenu",
 		LinkId = 
 		{
-			uint Id = 8,
+			uint Id = 10,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 3],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
 		},
 		Named = 
 		{
 			string Name = "goStartMenuGroup",
 		},
-		Archetyped = 
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "550feaf7af3185b7:MenuSphereParticleEffect",
+		LinkId = 
 		{
-			string Name = "55965e3b65bc1eef:ARC_StartSplashGroup",
+			uint Id = 11,
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, 2],
+			Vec3 Translation = [-0.375378, -8.99373, 2],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "MenuSphereParticleEffect",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 12,
+		},
+		Named = 
+		{
+			string Name = "goCreditsGroup",
+		},
+		Archetyped = 
+		{
+			string Name = "550729a305d4422a:ARC_Credits",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-41.9284, 0, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -336,15 +452,15 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 9,
+					uint Id = 13,
 				},
 				Named = 
 				{
-					string Name = "goStartTitle",
+					string Name = "goCreditsTitle",
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, 1, 0],
+					Vec3 Translation = [0, 5.75446, 2],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -358,7 +474,7 @@ Level =
 					BlendMode BlendMode = Alpha,
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "559653fca700fd68:sprSetsukoTitle",
+					string SpriteSource = "550729e6147a3115:sprCreditsTitle",
 					bool RenderMask = false,
 					bool FlipX = false,
 					bool FlipY = false,
@@ -372,11 +488,11 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 10,
+					uint Id = 14,
 				},
 				Named = 
 				{
-					string Name = "BtnGameStart",
+					string Name = "BtnCMainMenu",
 				},
 				Archetyped = 
 				{
@@ -384,7 +500,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, -6, 0],
+					Vec3 Translation = [0, -6.53336, 2],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -401,7 +517,7 @@ Level =
 					TextPositionMode Position = Centered,
 					string FontName = "545d0deafc601f9d:Canaro",
 					uint FontSize = 35,
-					string Text = "PRESS ""A"" TO START",
+					string Text = "MAIN MENU",
 					bool OnTop = false,
 					Vec2 Size = [0, 0],
 					TextAlign Align = Center,
@@ -465,9 +581,55 @@ Level =
 					Enum GamepadBackButton = B,
 					string AltSprite = "",
 					int GamepadIndex = 0,
-					bool Active = true,
+					bool Active = false,
 					float Timer = 0,
 					string LevelToLoad = "",
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 15,
+				},
+				Named = 
+				{
+					string Name = "ui_credits",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 11.0563, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "545d0e124f6db9ce:ui_credits",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool OnTop = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				Z_UI_CreditScroll = 
+				{
+					Vec3 StartingPosition = [0, -30, 0],
+					float ScrollTime = 10,
+					Vec3 EndPos = [0, 11, 0],
+					Enum EaseType = Linear,
+				},
+				Hierarchy = 
+				{
 				},
 			},
 		},

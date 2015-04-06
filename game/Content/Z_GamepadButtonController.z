@@ -22,6 +22,8 @@ class Z_GamepadButtonController:ZilchComponent
     //GENERAL MENU POSITIONS
     var AwayPos:Real3 = Real3(0,-100,3);
     var ViewPos:Real3 = Real3(0,0,3);
+    var LeftPos:Real3 = Real3(-100,0,3);
+    var RightPos:Real3 = Real3(100,0,3);
     
     //START MENU
     var ARC_StartMenu:Archetype = Archetype.Find("ARC_StartMenu");
@@ -30,6 +32,18 @@ class Z_GamepadButtonController:ZilchComponent
     //MAIN MENU
     var ARC_MainMenu:Archetype = Archetype.Find("ARC_MainMenu");
     var MainMenuGroup:Cog = null;
+    
+    //HOW TO PLAY
+    var ARC_HowToPlay:Archetype = Archetype.Find("ARC_HowToPlay");
+    var HowToPlayGroup:Cog = null;
+    
+    //OPTIONS MENU
+    var ARC_OptionsMenu:Archetype = Archetype.Find("ARC_OptionsMenu");
+    var OptionsMenuGroup:Cog = null;
+    
+    //CREDITS
+    var ARC_Credits:Archetype = Archetype.Find("ARC_Credits");
+    var CreditsGroup:Cog = null;
     
     [Property]
     var AltSprite:SpriteSource = null;
@@ -85,22 +99,79 @@ class Z_GamepadButtonController:ZilchComponent
                    this.Owner.Name =="BtnOptions" ||
                    this.Owner.Name =="BtnCredits" ||
                    this.Owner.Name =="BtnQuitGame")
-                 {
-                    //return -> START SCREEN
+                {
+                    //return -> START MENU
                     //fade in the background
                     this.Space.LevelSettings.Z_MenuAnimations.FadeInDarkMenuAnimation();
-                    //assign and create the main menu group from its archetype
+                    //assign and create the StartMenuGroup from its archetype
                     this.StartMenuGroup = this.Space.CreateAtPosition(this.ARC_StartMenu, this.AwayPos);
                     //make this last button presed inactive
                     this.Owner.Z_GamepadButtonController.Active = false;
-                    //find the main menu group, then move and destroy the main menu group
+                    //find the MainMenuGroup, then move and destroy it
                     this.MainMenuGroup = this.Space.FindObjectByName("goMainMenuGroup");
                     this.Space.LevelSettings.Z_MenuAnimations.MoveAwayAndDestroy(this.MainMenuGroup, this.AwayPos);
                     //make the incoming start menu group button active
                     this.StartMenuGroup.FindChildByName("BtnGameStart").Z_GamepadButtonController.Active = true;
                     //move the entire start menu group into view
                     this.Space.LevelSettings.Z_MenuAnimations.MoveInMenuGroup(this.StartMenuGroup, this.ViewPos);
-                 }
+                }
+                 
+                //if currently on the HOW TO PLAY MENU
+                if(this.Owner.Name =="BtnHTPMainMenu")
+                {
+                    //return -> MAIN MENU
+                    //fade out the background
+                    this.Space.LevelSettings.Z_MenuAnimations.FadeOutDarkMenuAnimation();
+                    //assign and create the MainMenuGroup from its archetype
+                    this.MainMenuGroup = this.Space.CreateAtPosition(this.ARC_MainMenu, this.AwayPos);
+                    //make this last button presed inactive
+                    this.Owner.Z_GamepadButtonController.Active = false;
+                    //find the HowToPlayGroup, then move and destroy it
+                    this.HowToPlayGroup = this.Space.FindObjectByName("goHowToPlayGroup");
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveAwayAndDestroy(this.HowToPlayGroup, this.AwayPos);
+                    //make the incoming MainMenuGroup BtnNewGame active
+                    this.MainMenuGroup.FindChildByName("BtnNewGame").Z_GamepadButtonController.Active = true;
+                    //move the entire start menu group into view
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveInMenuGroup(this.MainMenuGroup, this.ViewPos);
+                }
+                
+                //if currently on the OPTIONS MENU
+                if(this.Owner.Name =="BtnOMainMenu" || this.Owner.Name =="BtnEraseData")
+                {
+                    //return -> MAIN MENU
+                    //fade out the background
+                    this.Space.LevelSettings.Z_MenuAnimations.FadeOutDarkMenuAnimation();
+                    //assign and create the MainMenuGroup from its archetype
+                    this.MainMenuGroup = this.Space.CreateAtPosition(this.ARC_MainMenu, this.AwayPos);
+                    //make this last button presed inactive
+                    this.Owner.Z_GamepadButtonController.Active = false;
+                    //find the HowToPlayGroup, then move and destroy it
+                    this.OptionsMenuGroup = this.Space.FindObjectByName("goOptionsMenuGroup");
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveAwayAndDestroy(this.OptionsMenuGroup, this.AwayPos);
+                    //make the incoming MainMenuGroup BtnNewGame active
+                    this.MainMenuGroup.FindChildByName("BtnNewGame").Z_GamepadButtonController.Active = true;
+                    //move the entire start menu group into view
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveInMenuGroup(this.MainMenuGroup, this.ViewPos);
+                }
+                
+                //if currently on the CREDITS
+                if(this.Owner.Name =="BtnCMainMenu")
+                {
+                    //return -> MAIN MENU
+                    //fade out the background
+                    this.Space.LevelSettings.Z_MenuAnimations.FadeOutDarkMenuAnimation();
+                    //assign and create the MainMenuGroup from its archetype
+                    this.MainMenuGroup = this.Space.CreateAtPosition(this.ARC_MainMenu, this.AwayPos);
+                    //make this last button presed inactive
+                    this.Owner.Z_GamepadButtonController.Active = false;
+                    //find the CreditsGroup, then move and destroy it
+                    this.CreditsGroup = this.Space.FindObjectByName("goCreditsGroup");
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveAwayAndDestroy(this.CreditsGroup, this.AwayPos);
+                    //make the incoming MainMenuGroup BtnNewGame active
+                    this.MainMenuGroup.FindChildByName("BtnNewGame").Z_GamepadButtonController.Active = true;
+                    //move the entire start menu group into view
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveInMenuGroup(this.MainMenuGroup, this.ViewPos);
+                }
             }
             
             //CONFIRMATION BUTTON PRESSED
@@ -127,7 +198,8 @@ class Z_GamepadButtonController:ZilchComponent
                     this.MainMenuGroup = this.Space.CreateAtPosition(this.ARC_MainMenu, this.AwayPos);
                     //make this last button presed inactive
                     this.Owner.Z_GamepadButtonController.Active = false;
-                    //move and destroy the start menu group
+                    //find move and destroy the StartMenuGroup
+                    this.StartMenuGroup = this.Space.FindObjectByName("goStartMenuGroup");
                     this.Space.LevelSettings.Z_MenuAnimations.MoveAwayAndDestroy(this.StartMenuGroup, this.AwayPos);
                     //make the incoming main menu group new game button active
                     this.MainMenuGroup.FindChildByName("BtnNewGame").Z_GamepadButtonController.Active = true;
@@ -135,30 +207,91 @@ class Z_GamepadButtonController:ZilchComponent
                     this.Space.LevelSettings.Z_MenuAnimations.MoveInMenuGroup(this.MainMenuGroup, this.ViewPos);
                 }
                 
-                if(this.Owner.Name == "BtnArrowRight")
+                //MAIN MENU
+                //--HOWTOPLAY BUTTON
+                if(this.Owner.Name == "BtnHowToPlay")
                 {
-                    //find the things we need and call their shift right
-                    this.Space.FindObjectByName("ui_howtoplay_gamepad").Z_UI_Shift.ShiftOutRight();
-                    this.Space.FindObjectByName("ui_text_gamepad").Z_UI_Shift.ShiftOutRight();
-                    this.Owner.Z_UI_Shift.ShiftOutRight();
-                    
-                    //find the new things we need and call their shift left
-                    this.Space.FindObjectByName("ui_howtoplay_keyboardmouse").Z_UI_Shift.ShiftInLeft();
-                    this.Space.FindObjectByName("ui_text_keyboardmouse").Z_UI_Shift.ShiftInLeft();
-                    this.Space.FindObjectByName("BtnArrowLeft").Z_UI_Shift.ShiftInLeft();
+                    //fade in the background
+                    this.Space.LevelSettings.Z_MenuAnimations.FadeInDarkMenuAnimation();
+                    //assign and create the HowToPlayGroup from its archetype
+                    this.HowToPlayGroup = this.Space.CreateAtPosition(this.ARC_HowToPlay, this.AwayPos);
+                    //make this last button presed inactive
+                    this.Owner.Z_GamepadButtonController.Active = false;
+                    //find move and destroy the MainMenuGroup
+                    this.MainMenuGroup = this.Space.FindObjectByName("goMainMenuGroup");
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveAwayAndDestroy(this.MainMenuGroup, this.AwayPos);
+                    //make the incoming HowToPlayGroup BtnMainMenu active
+                    this.HowToPlayGroup.FindChildByName("BtnHTPMainMenu").Z_GamepadButtonController.Active = true;
+                    //move the entire main menu group into view
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveInMenuGroup(this.HowToPlayGroup, this.ViewPos);
                 }
-                if(this.Owner.Name == "BtnArrowLeft")
+                
+                //HOW TO PLAY MENU
+                //--MAINMENU BUTTON
+                if(this.Owner.Name == "BtnHTPMainMenu")
                 {
-                    //find the things we need and call their shift left
-                    this.Space.FindObjectByName("ui_howtoplay_keyboardmouse").Z_UI_Shift.ShiftOutLeft();
-                    this.Space.FindObjectByName("ui_text_keyboardmouse").Z_UI_Shift.ShiftOutLeft();
-                    this.Owner.Z_UI_Shift.ShiftOutLeft();
-                    
-                    //find the new things we need and call their shift left
-                    this.Space.FindObjectByName("ui_howtoplay_gamepad").Z_UI_Shift.ShiftInRight();
-                    this.Space.FindObjectByName("ui_text_gamepad").Z_UI_Shift.ShiftInRight();
-                    this.Space.FindObjectByName("BtnArrowRight").Z_UI_Shift.ShiftInRight();
+                    //fade out the background
+                    this.Space.LevelSettings.Z_MenuAnimations.FadeOutDarkMenuAnimation();
+                    //assign and create the MainMenuGroup from its archetype
+                    this.MainMenuGroup = this.Space.CreateAtPosition(this.ARC_MainMenu, this.AwayPos);
+                    //make this last button presed inactive
+                    this.Owner.Z_GamepadButtonController.Active = false;
+                    //find move and destroy the HowToPlayGroup
+                    this.HowToPlayGroup = this.Space.FindObjectByName("goHowToPlayGroup");
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveAwayAndDestroy(this.HowToPlayGroup, this.AwayPos);
+                    //make the incoming MainMenuGroup's BtnNewGame active
+                    this.MainMenuGroup.FindChildByName("BtnNewGame").Z_GamepadButtonController.Active = true;
+                    //move the entire main menu group into view
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveInMenuGroup(this.MainMenuGroup, this.ViewPos);
                 }
+                
+                //MAIN MENU
+                //--OPTIONSMENU BUTTON
+                if(this.Owner.Name == "BtnOptions")
+                {
+                    //fade in the background
+                    this.Space.LevelSettings.Z_MenuAnimations.FadeInDarkMenuAnimation();
+                    //assign and create the OptionsMenuGroup from its archetype
+                    this.OptionsMenuGroup = this.Space.CreateAtPosition(this.ARC_OptionsMenu, this.AwayPos);
+                    //make this last button presed inactive
+                    this.Owner.Z_GamepadButtonController.Active = false;
+                    //find move and destroy the MainMenuGroup
+                    this.MainMenuGroup = this.Space.FindObjectByName("goMainMenuGroup");
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveAwayAndDestroy(this.MainMenuGroup, this.AwayPos);
+                    //make the incoming OptionsMenuGroup BtnEraseData active
+                    this.OptionsMenuGroup.FindChildByName("BtnEraseData").Z_GamepadButtonController.Active = true;
+                    //move the entire main menu group into view
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveInMenuGroup(this.OptionsMenuGroup, this.ViewPos);
+                }
+                
+                //MAIN MENU
+                //--CREDITS BUTTON
+                if(this.Owner.Name == "BtnCredits")
+                {
+                    //fade in the background
+                    this.Space.LevelSettings.Z_MenuAnimations.FadeInDarkMenuAnimation();
+                    //assign and create the CreditsGroup from its archetype
+                    this.CreditsGroup = this.Space.CreateAtPosition(this.ARC_Credits, this.AwayPos);
+                    //make this last button presed inactive
+                    this.Owner.Z_GamepadButtonController.Active = false;
+                    //find move and destroy the MainMenuGroup
+                    this.MainMenuGroup = this.Space.FindObjectByName("goMainMenuGroup");
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveAwayAndDestroy(this.MainMenuGroup, this.AwayPos);
+                    //make the incoming OptionsMenuGroup BtnCMainMenu active
+                    this.CreditsGroup.FindChildByName("BtnCMainMenu").Z_GamepadButtonController.Active = true;
+                    //move the entire main menu group into view
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveInMenuGroup(this.CreditsGroup, this.ViewPos);
+                }
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 if(this.Owner.Name == "BtnGameQuit")
                 {
                     this.Space.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox("QuitConfirmation");
@@ -189,7 +322,7 @@ class Z_GamepadButtonController:ZilchComponent
                     this.Timer = 0;
                     this.Active = false;
                 }
-                if(this.Owner.Name == "BtnGameEraseData" )
+                if(this.Owner.Name == "BtnEraseData" )
                 {
                     this.Space.LevelSettings.Z_UI_MenuPopUp.DetermineDialogBox("EraseGameData");
                     this.Timer = 0;
@@ -333,14 +466,12 @@ class Z_GamepadButtonController:ZilchComponent
             if(this.Owner.Name == "BtnArrowRight")
             {
                 //find the things we need and call their shift right
-                this.Space.FindObjectByName("ui_howtoplay_gamepad").Z_UI_Shift.ShiftOutRight();
-                this.Space.FindObjectByName("ui_text_gamepad").Z_UI_Shift.ShiftOutRight();
-                this.Owner.Z_UI_Shift.ShiftOutRight();
+                var keyboardGroup:Cog = this.Space.FindObjectByName("goKeyboardGroup");
+                this.Space.LevelSettings.Z_MenuAnimations.Shift(keyboardGroup, this.RightPos);
+                //find the things we need and call their shift into view
+                var gamepadGroup:Cog = this.Space.FindObjectByName("goGamepadGroup");
+                this.Space.LevelSettings.Z_MenuAnimations.Shift(gamepadGroup, this.ViewPos);
                 
-                //find the new things we need and call their shift left
-                this.Space.FindObjectByName("ui_howtoplay_keyboardmouse").Z_UI_Shift.ShiftInLeft();
-                this.Space.FindObjectByName("ui_text_keyboardmouse").Z_UI_Shift.ShiftInLeft();
-                this.Space.FindObjectByName("BtnArrowLeft").Z_UI_Shift.ShiftInLeft();
             }
         }
         if(this.Gamepad.LeftStick.X < -0.4 || Zero.Keyboard.KeyIsPressed(Keys.Left)|| this.Gamepad.IsButtonPressed(Buttons.DpadLeft))
@@ -349,14 +480,11 @@ class Z_GamepadButtonController:ZilchComponent
             if(this.Owner.Name == "BtnArrowLeft")
             {
                 //find the things we need and call their shift left
-                this.Space.FindObjectByName("ui_howtoplay_keyboardmouse").Z_UI_Shift.ShiftOutLeft();
-                this.Space.FindObjectByName("ui_text_keyboardmouse").Z_UI_Shift.ShiftOutLeft();
-                this.Owner.Z_UI_Shift.ShiftOutLeft();
-                
-                //find the new things we need and call their shift left
-                this.Space.FindObjectByName("ui_howtoplay_gamepad").Z_UI_Shift.ShiftInRight();
-                this.Space.FindObjectByName("ui_text_gamepad").Z_UI_Shift.ShiftInRight();
-                this.Space.FindObjectByName("BtnArrowRight").Z_UI_Shift.ShiftInRight();
+                var gamepadGroup:Cog = this.Space.FindObjectByName("goGamepadGroup");
+                this.Space.LevelSettings.Z_MenuAnimations.Shift(gamepadGroup, this.LeftPos);
+                //find the things we need and call their shift into view
+                var keyboardGroup:Cog = this.Space.FindObjectByName("goKeyboardGroup");
+                this.Space.LevelSettings.Z_MenuAnimations.Shift(keyboardGroup, this.ViewPos);
             }
         }
         ++this.Timer;
