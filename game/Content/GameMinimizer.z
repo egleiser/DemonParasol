@@ -1,0 +1,28 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: GameMinimizer.z          ////
+////    Written by: Eric Gleiser     ////
+////                                 ////
+////     Last Updated: 04-07-15      ////
+////                                 ////
+/////////////////////////////////////////
+class GameMinimizer : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.GameSession, Events.GameFocusIn, this.OnGameFocusIn);
+        Zero.Connect(this.GameSession, Events.GameFocusOut, this.OnGameFocusOut);
+    }
+
+    function OnGameFocusIn(event : GameEvent)
+    {
+        
+        this.Space.SoundSpace.Volume = 1;
+        this.Owner.QuickPause.TogglePauseMenu();
+    }
+    function OnGameFocusOut(event : GameEvent)
+    {
+        this.Space.SoundSpace.Volume = 0;
+        this.Owner.QuickPause.TogglePauseMenu();
+    }
+}

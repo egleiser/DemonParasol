@@ -107,6 +107,9 @@ Level =
 			float TrackingTime = 20,
 			Enum EaseType = QuadIn,
 		},
+		GameMinimizer = 
+		{
+		},
 		Hierarchy = 
 		{
 			Cog = 
@@ -199,9 +202,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [61.4951, -72.9309, 35.407],
+			Vec3 Translation = [61.4954, -72.9309, 35.4068],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.111424, 0.243747, -0.0282026, 0.963004],
+			Quat Rotation = [0.111424, 0.24375, -0.0282028, 0.963003],
 		},
 		Camera = 
 		{
@@ -8707,6 +8710,8 @@ Level =
 							string SpeakerName = "",
 							string SpeakerSprite = "545746f1032fd08a:ui-textbox-kasa-obake",
 							string SpeakerTextBlock = "549351f8b3048f53:DungeonTut1",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
 						},
 					},
 				},
@@ -8930,6 +8935,8 @@ Level =
 							string SpeakerName = "",
 							string SpeakerSprite = "545746f1032fd08a:ui-textbox-kasa-obake",
 							string SpeakerTextBlock = "54f4b0b2c19e47fb:DungeonCentral3",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
 						},
 					},
 				},
