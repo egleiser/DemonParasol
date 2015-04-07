@@ -80,6 +80,16 @@ Level =
 		QuickPause = 
 		{
 		},
+		SetOptions = 
+		{
+		},
+		DataLoader = 
+		{
+		},
+		QuitGameTest = 
+		{
+			bool AllowQuit = false,
+		},
 		Hierarchy = 
 		{
 			Cog = 
@@ -172,7 +182,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-99.1002, -127.103, 151.597],
+			Vec3 Translation = [-140.872, -207.315, 84.9877],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.348379, 0.0311376, -0.0115799, 0.936765],
 		},
@@ -192,7 +202,7 @@ Level =
 			float LookDistance = 301.196,
 			float VerticalAngle = -0.712094,
 			float HorizontalAngle = -6.34964,
-			Vec3 LookTarget = [-114.241, 69.7044, -75.9034],
+			Vec3 LookTarget = [-156.013, -10.5069, -142.513],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -807,8 +817,8 @@ Level =
 		},
 		MotionBlur = 
 		{
-			int Samples = 20,
-			float Density = 2,
+			int Samples = 10,
+			float Density = 1.5,
 			bool RadialOnly = true,
 		},
 		Fog = 
