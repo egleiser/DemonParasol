@@ -8,6 +8,10 @@ Cog =
 	{
 		string Name = "BGMManager",
 	},
+	Archetyped = 
+	{
+		string Name = "55dbb2731482380d:BGMManager",
+	},
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
@@ -16,7 +20,7 @@ Cog =
 	},
 	DungeonSoundManager = 
 	{
-		float MasterVolume = 0.65,
+		float Ducking = 1,
 	},
 	Hierarchy = 
 	{
@@ -40,7 +44,7 @@ Cog =
 			{
 				bool StartPlaying = true,
 				int ExtraPriority = 0,
-				string CueName = "55dbbe3be22313e0:BurntCityDarknessPiano",
+				string CueName = "5481ac82888ddb24:Setsuko_Theme",
 				float Volume = 0,
 				float Pitch = 1,
 				bool Positional = false,
@@ -64,36 +68,10 @@ Cog =
 			},
 			SoundEmitter = 
 			{
-				bool StartPlaying = true,
+				bool StartPlaying = false,
 				int ExtraPriority = 0,
-				string CueName = "55dbbe3be224fb9b:BurntCityDarknessMin",
-				float Volume = 0,
-				float Pitch = 1,
-				bool Positional = false,
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 4,
-			},
-			Named = 
-			{
-				string Name = "BGMSpotted",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [0, 0, 0],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			SoundEmitter = 
-			{
-				bool StartPlaying = true,
-				int ExtraPriority = 0,
-				string CueName = "55dbbde9b9864dfb:BurntCityLightDrums",
-				float Volume = 0,
+				string CueName = "54be4e5ee0fc5688:BlackRainEnemy",
+				float Volume = 1,
 				float Pitch = 1,
 				bool Positional = false,
 			},

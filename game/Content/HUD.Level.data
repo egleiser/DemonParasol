@@ -66,7 +66,7 @@ Level =
 		},
 		DeferredRenderer = 
 		{
-			Vec4 ClearColor = [0.735, 0.37485, 0.375066, 0],
+			Vec4 ClearColor = [0.87, 0.80475, 0.80475, 0],
 			bool DrawNonVisible = false,
 			bool DrawDebugObjects = true,
 			bool DrawEditorIcons = true,
@@ -78,7 +78,7 @@ Level =
 			bool GodRays = false,
 			bool RenderMasks = false,
 			bool Glow = true,
-			float GlowThreshold = 0.7,
+			float GlowThreshold = 0.9,
 		},
 		IntroTextFadeInOut = 
 		{
@@ -96,9 +96,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.475995, 7.22447, 91.9176],
+			Vec3 Translation = [2.11918, 2.4033, 48.0681],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0478799, -0.00784038, -0.00037584, 0.998822],
+			Quat Rotation = [-0.0476688, 0.0940051, 0.00450626, 0.99442],
 		},
 		Camera = 
 		{
@@ -113,10 +113,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 54.4101,
+			float LookDistance = 20.0164,
 			float VerticalAngle = 0.0957993,
-			float HorizontalAngle = 0.0156989,
-			Vec3 LookTarget = [0.374232, 2.01999, 37.7637],
+			float HorizontalAngle = -0.188505,
+			Vec3 LookTarget = [-1.61451, 0.488677, 28.4964],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -1848,6 +1848,29 @@ Level =
 			float Volume = 2,
 			float Pitch = 1,
 			bool Positional = false,
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5531179e89c5c59d:RainPart",
+		LinkId = 
+		{
+			uint Id = 42,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 4.04805, -0.885281],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [-0.261953, 0, 0, 0.965081],
+		},
+		Named = 
+		{
+			string Name = "RainPart",
+		},
+		EditorFlags = 
+		{
+			bool Locked = true,
+			bool Hidden = false,
 		},
 	},
 },

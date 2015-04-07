@@ -18,7 +18,7 @@ class SetOptions : ZilchComponent
     {
         //DEBUG CODE
         /*
-        if(Zero.Keyboard.KeyIsDown(Keys.Control) && Zero.Keyboard.KeyIsPressed(Keys.R))
+        if(Zero.Keyboard.KeyIsDown(Keys.Control) && Zero.Keyboard.KeyIsPressed(Keys.G))
         {
             this.PrefHDR = false;
             this.PrefAA = false;
@@ -28,6 +28,7 @@ class SetOptions : ZilchComponent
             Console.WriteLine("Set Res");
         }
         */
+        
     }
     function OnChangeSettings(event : UpdateEvent)
     {

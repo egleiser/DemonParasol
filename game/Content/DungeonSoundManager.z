@@ -9,6 +9,7 @@
 class DungeonSoundManager : ZilchComponent
 {
     [Property]
+    var Ducking: Real = 1.0;
     var MasterVolume: Real = 0.5;
     var MasterPitch: Real = 1.0;
     var MusicNormal: Cog = null;
@@ -34,6 +35,16 @@ class DungeonSoundManager : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        /*
+        if(Zero.Keyboard.KeyIsDown(Keys.Control) && Zero.Keyboard.KeyIsPressed(Keys.M))
+        {
+            this.Ducking = 0.25;
+        }
+        if(Zero.Keyboard.KeyIsDown(Keys.Shift) && Zero.Keyboard.KeyIsPressed(Keys.M))
+        {
+            this.Ducking = 1.0;
+        }
+        */
         this.MusicNormal.SoundEmitter.Pitch = Math.Lerp(this.MusicNormal.SoundEmitter.Pitch, this.MasterPitch, event.Dt * 4.0);
         this.MusicEnemy.SoundEmitter.Pitch = Math.Lerp(this.MusicEnemy.SoundEmitter.Pitch, this.MasterPitch, event.Dt * 4.0);
         if(this.MusicSpotted != null)
@@ -45,7 +56,7 @@ class DungeonSoundManager : ZilchComponent
             if(this.EnemyList.Count > 0)
             {
                 this.MusicNormal.SoundEmitter.Volume = Math.Lerp(this.MusicNormal.SoundEmitter.Volume, 0.0, event.Dt);
-                this.MusicEnemy.SoundEmitter.Volume = Math.Lerp(this.MusicEnemy.SoundEmitter.Volume, this.MasterVolume, event.Dt);
+                this.MusicEnemy.SoundEmitter.Volume = Math.Lerp(this.MusicEnemy.SoundEmitter.Volume, this.MasterVolume * this.Ducking, event.Dt * 2.0);
                 if(this.MusicSpotted != null)
                 {
                     this.MusicSpotted.SoundEmitter.Volume = Math.Lerp(this.MusicSpotted.SoundEmitter.Volume, 0.0, event.Dt);
@@ -53,7 +64,7 @@ class DungeonSoundManager : ZilchComponent
             }
             else
             {
-                this.MusicNormal.SoundEmitter.Volume = Math.Lerp(this.MusicNormal.SoundEmitter.Volume, this.MasterVolume, event.Dt);
+                this.MusicNormal.SoundEmitter.Volume = Math.Lerp(this.MusicNormal.SoundEmitter.Volume, this.MasterVolume * this.Ducking, event.Dt * 2.0);
                 this.MusicEnemy.SoundEmitter.Volume = Math.Lerp(this.MusicEnemy.SoundEmitter.Volume, 0.0, event.Dt);
                 
                 if(this.MusicSpotted != null)
@@ -69,7 +80,7 @@ class DungeonSoundManager : ZilchComponent
             this.MusicEnemy.SoundEmitter.Volume = Math.Lerp(this.MusicEnemy.SoundEmitter.Volume, 0.0, event.Dt);
             if(this.MusicSpotted != null)
             {
-                this.MusicSpotted.SoundEmitter.Volume = Math.Lerp(this.MusicSpotted.SoundEmitter.Volume, this.MasterVolume, event.Dt * 2.0);
+                this.MusicSpotted.SoundEmitter.Volume = Math.Lerp(this.MusicSpotted.SoundEmitter.Volume, this.MasterVolume * this.Ducking, event.Dt * 2.0);
             }
         }
     }

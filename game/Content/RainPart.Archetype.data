@@ -1,0 +1,91 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "RainPart",
+	},
+	Archetyped = 
+	{
+		string Name = "5531179e89c5c59d:RainPart",
+	},
+	EditorFlags = 
+	{
+		bool Locked = true,
+		bool Hidden = false,
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 4.04805, -0.885281],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [-0.261953, 0, 0, 0.965081],
+	},
+	SpriteParticleSystem = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		SystemChildMode ChildMode = Independent,
+		SystemSpace SystemSpace = WorldSpace,
+		uint DrawOrder = 0,
+		float WarmUpTime = 0,
+		ParticleGeometry GeometryMode = Beam,
+		ParticleRenderMode RenderMode = Additive,
+		ParticleSortMode SortMode = Youngest,
+		ParticleAnimation ParticleAnimation = Single,
+		string Texture = "5310e87946eb1d76:Cloud",
+		Vec4 Tint = [0.24705, 0.47223, 0.81, 0.855],
+		float VelocityScale = 0.3,
+		float LengthScale = 0.2,
+		float MaxParticleSize = 100,
+		Vec3 SystemSize = [20, 20, 5],
+	},
+	LinearParticleAnimator = 
+	{
+		Vec3 Force = [0, 0, 0],
+		Vec3 RandomForce = [0, 0, 0],
+		float Torque = 0,
+		float Growth = 0,
+		float Dampening = 0,
+		Vec3 Twist = [0, 0, 0],
+	},
+	ParticleColorAnimator = 
+	{
+		Vec4 Color0 = [0, 0.46, 1, 0],
+		Vec4 Color1 = [1, 1, 1, 1],
+		Vec4 Color2 = [0.404625, 0.803887, 0.975, 0.9999],
+		Vec4 Color3 = [1, 1, 1, 1],
+		Vec4 Color4 = [0, 0.5808, 0.66, 0],
+	},
+	BoxParticleEmitter = 
+	{
+		bool Active = false,
+		uint EmitCount = 0,
+		float EmitRate = 1500,
+		float EmitVariance = 0,
+		float Size = 0.25,
+		float SizeVariance = 0.1,
+		float Lifetime = 0.3,
+		float LifetimeVariance = 0.1,
+		float Spin = 0,
+		float SpinVariance = 50,
+		bool RandomSpin = true,
+		float Fill = 1,
+		float EmitterVelocityPercent = 0,
+		Vec3 StartVelocity = [-4, 0, -40],
+		Vec3 RandomVelocity = [2, 0, 2],
+		Vec3 TangentVelocity = [1, 0, 0],
+		Vec3 EmitterSize = [45, 25, 5],
+		bool FastMovingEmitter = true,
+	},
+	ParticleAttractor = 
+	{
+		float Strength = 30,
+		float MinDistance = 0,
+		float MaxDistance = 40,
+	},
+},

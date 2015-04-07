@@ -1,0 +1,19 @@
+class FakePositionalAudio : ZilchComponent
+{
+    [Property]
+    var Scale:Real = 100.0;
+    var Player:Cog = null;
+    var Distance: Real = 1000.0;
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Space.FindObjectByName("Player");
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Distance = Math.Length(this.Player.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation);
+        
+        this.Owner.SoundDucking.MasterVolume = 1.0/(this.Distance / this.Scale);
+    }
+}

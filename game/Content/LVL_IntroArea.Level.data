@@ -90,6 +90,15 @@ Level =
 		{
 			bool AllowQuit = false,
 		},
+		SoundDucking = 
+		{
+			float DuckSpeed = 3,
+			bool StartPlaying = true,
+		},
+		FadeIn = 
+		{
+			float FadeTime = 2,
+		},
 		Hierarchy = 
 		{
 			Cog = 
@@ -110,7 +119,7 @@ Level =
 				},
 				DungeonSoundManager = 
 				{
-					float MasterVolume = 0.5,
+					float Ducking = 1,
 				},
 				Hierarchy = 
 				{
@@ -132,10 +141,10 @@ Level =
 						},
 						SoundEmitter = 
 						{
-							bool StartPlaying = false,
+							bool StartPlaying = true,
 							int ExtraPriority = 0,
-							string CueName = "54be4e5ee0f95b63:BlackRain",
-							float Volume = 1,
+							string CueName = "5481ac82888ddb24:Setsuko_Theme",
+							float Volume = 0,
 							float Pitch = 1,
 							bool Positional = false,
 						},
@@ -182,9 +191,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-140.872, -207.315, 84.9877],
+			Vec3 Translation = [-97.312, -63.1681, 193.94],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.348379, 0.0311376, -0.0115799, 0.936765],
+			Quat Rotation = [0.230292, 0.0704775, -0.0167251, 0.970422],
 		},
 		Camera = 
 		{
@@ -199,10 +208,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 301.196,
-			float VerticalAngle = -0.712094,
-			float HorizontalAngle = -6.34964,
-			Vec3 LookTarget = [-156.013, -10.5069, -142.513],
+			float LookDistance = 301.195,
+			float VerticalAngle = -0.466002,
+			float HorizontalAngle = -6.42818,
+			Vec3 LookTarget = [-136.191, 72.1644, -72.3152],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -246,7 +255,7 @@ Level =
 			float MaxMoveForce = 1000,
 			float Deceleration = 1.5,
 			CogPath CameraPath = ":/Camera",
-			bool WindActive = true,
+			bool WindActive = false,
 			bool FreezeMovement = false,
 		},
 		FootstepDetector = 
@@ -412,10 +421,10 @@ Level =
 				ParticleColorAnimator = 
 				{
 					Vec4 Color0 = [1, 1, 1, 0],
-					Vec4 Color1 = [0.495, 1, 0.65155, 1],
-					Vec4 Color2 = [0.269, 1, 0.15, 1],
-					Vec4 Color3 = [0.5, 1, 0, 1],
-					Vec4 Color4 = [0.0500001, 1, 0, 0],
+					Vec4 Color1 = [1, 0.495, 0.495303, 1],
+					Vec4 Color2 = [1, 0.15, 0.15051, 1],
+					Vec4 Color3 = [1, 0, 0.000599861, 1],
+					Vec4 Color4 = [1, 0, 0.000599861, 0],
 				},
 				BoxParticleEmitter = 
 				{
@@ -890,6 +899,11 @@ Level =
 					float Pitch = 1,
 					bool Positional = false,
 				},
+				SoundDucking = 
+				{
+					float DuckSpeed = 3,
+					bool StartPlaying = false,
+				},
 				Hierarchy = 
 				{
 					Cog = 
@@ -936,6 +950,11 @@ Level =
 							float Pitch = 1,
 							bool Positional = false,
 						},
+						SoundDucking = 
+						{
+							float DuckSpeed = 3,
+							bool StartPlaying = false,
+						},
 					},
 					Cog = 
 					{
@@ -958,65 +977,6 @@ Level =
 							Vec3 Scale = [1, 1, 1],
 							Quat Rotation = [0, 0, 0, 1],
 						},
-						SpriteParticleSystem = 
-						{
-							bool Visible = false,
-							bool VisibilityCulling = true,
-							bool VisibilityEvents = false,
-							bool CastShadows = false,
-							SystemChildMode ChildMode = Independent,
-							SystemSpace SystemSpace = WorldSpace,
-							uint DrawOrder = 0,
-							float WarmUpTime = 0,
-							ParticleGeometry GeometryMode = Beam,
-							ParticleRenderMode RenderMode = Additive,
-							ParticleSortMode SortMode = Youngest,
-							ParticleAnimation ParticleAnimation = Single,
-							string Texture = "54382d46a1e2190e:soft",
-							Vec4 Tint = [1, 1, 1, 0.225],
-							float VelocityScale = 0.2,
-							float LengthScale = 0.2,
-							float MaxParticleSize = 100,
-							Vec3 SystemSize = [20, 20, 5],
-						},
-						LinearParticleAnimator = 
-						{
-							Vec3 Force = [0, 0, 0],
-							Vec3 RandomForce = [0, 0, 0],
-							float Torque = 0,
-							float Growth = 0,
-							float Dampening = 0,
-							Vec3 Twist = [0, 0, 0],
-						},
-						ParticleColorAnimator = 
-						{
-							Vec4 Color0 = [0, 0.46, 1, 0],
-							Vec4 Color1 = [1, 1, 1, 1],
-							Vec4 Color2 = [0.404625, 0.803887, 0.975, 0.9999],
-							Vec4 Color3 = [1, 1, 1, 1],
-							Vec4 Color4 = [0, 0.5808, 0.66, 0],
-						},
-						BoxParticleEmitter = 
-						{
-							bool Active = false,
-							uint EmitCount = 0,
-							float EmitRate = 5000,
-							float EmitVariance = 0,
-							float Size = 0.25,
-							float SizeVariance = 0.1,
-							float Lifetime = 0.2,
-							float LifetimeVariance = 0.1,
-							float Spin = 0,
-							float SpinVariance = 50,
-							bool RandomSpin = true,
-							float Fill = 1,
-							float EmitterVelocityPercent = 0,
-							Vec3 StartVelocity = [-4, 0, -30],
-							Vec3 RandomVelocity = [2, 0, 2],
-							Vec3 TangentVelocity = [1, 0, 0],
-							Vec3 EmitterSize = [50, 40, 5],
-							bool FastMovingEmitter = true,
-						},
 						SoundEmitter = 
 						{
 							bool StartPlaying = false,
@@ -1025,6 +985,11 @@ Level =
 							float Volume = 1,
 							float Pitch = 1,
 							bool Positional = false,
+						},
+						SoundDucking = 
+						{
+							float DuckSpeed = 3,
+							bool StartPlaying = false,
 						},
 					},
 					Cog = 
@@ -5459,12 +5424,21 @@ Level =
 		},
 		SoundEmitter = 
 		{
-			bool StartPlaying = true,
+			bool StartPlaying = false,
 			int ExtraPriority = 0,
 			string CueName = "550a60dc55fcdaee:WaterFallSound",
 			float Volume = 1,
 			float Pitch = 1,
-			bool Positional = true,
+			bool Positional = false,
+		},
+		SoundDucking = 
+		{
+			float DuckSpeed = 5,
+			bool StartPlaying = true,
+		},
+		FakePositionalAudio = 
+		{
+			float Scale = 6,
 		},
 	},
 	Cog = 
