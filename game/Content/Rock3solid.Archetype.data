@@ -1,0 +1,53 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Rock3solid",
+	},
+	Archetyped = 
+	{
+		string Name = "553132ca498fac32:Rock3solid",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [22.8141, -51.2802, -25.5266],
+		Vec3 Scale = [7, 7, 18.1544],
+		Quat Rotation = [0, 0, -0.445032, -0.895515],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+		string MeshName = "5481b30411ffa6dc:Rock3",
+		Vec4 Color = [0.26, 0.26, 0.26, 1],
+	},
+	EllipsoidCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0.9],
+		Vec3 Radii = [2, 0.7, 0.3],
+	},
+	RigidBody = 
+	{
+		bool Static = true,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+},

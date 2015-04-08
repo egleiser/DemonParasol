@@ -6,17 +6,17 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "PickUpBlock",
+		string Name = "PickUpRock",
 	},
 	Archetyped = 
 	{
-		string Name = "547c4ebe0c764def:PickUpBlock",
+		string Name = "5531050630c8617a:PickUpRock",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-227.109, -147.639, 1.72258],
+		Vec3 Translation = [-226.835, -137.304, 1.72258],
 		Vec3 Scale = [1.5, 1.5, 1.5],
-		Quat Rotation = [0, 0, 0, 1],
+		Quat Rotation = [0, 0, -0.892224, 0.451593],
 	},
 	RigidBody = 
 	{
@@ -78,6 +78,18 @@ Cog =
 		int SplashRate = 20,
 		float SplashIntensity = 1,
 	},
+	MassOverride = 
+	{
+		bool Active = true,
+		float invMass = 0.05,
+		Vec3 invInertiaX = [0.0101437, 4.7914e-013, -0],
+		Vec3 invInertiaY = [4.7914e-013, 0.0101437, -0],
+		Vec3 invInertiaZ = [-0, -0, 0.0101437],
+		Vec3 LocalCenterOfMass = [0, 0, 0],
+	},
+	ZKiller = 
+	{
+	},
 	Hierarchy = 
 	{
 		Cog = 
@@ -92,7 +104,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, 0, 0],
+				Vec3 Translation = [0, 0, -0.433538],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -102,9 +114,9 @@ Cog =
 				bool VisibilityCulling = true,
 				bool VisibilityEvents = false,
 				bool CastShadows = true,
-				string MaterialName = "54a3db5a3ddb6b52:mat_LightIntense",
-				string MeshName = "4de0354322b345ae:Cube",
-				Vec4 Color = [1, 0, 0, 1],
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "5481b3171cf67800:Rock1",
+				Vec4 Color = [0.75, 0.75, 0.75, 1],
 			},
 		},
 		Cog = 
@@ -147,7 +159,7 @@ Cog =
 			},
 			PickUpInteractVolume = 
 			{
-				float ThrowForce = 100000,
+				float ThrowForce = 40000,
 			},
 		},
 		ArchetypeInstance = 

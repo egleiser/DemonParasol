@@ -30,12 +30,19 @@ Cog =
 	},
 	Hierarchy = 
 	{
-		ArchetypeInstance = 
+		Cog = 
 		{
-			string Name = "5535f6d3e809740c:WoodLogColl",
 			LinkId = 
 			{
 				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "WoodLogColl",
+			},
+			Archetyped = 
+			{
+				string Name = "5535f6d3e809740c:WoodLogColl",
 			},
 			Transform = 
 			{
@@ -43,9 +50,43 @@ Cog =
 				Vec3 Scale = [0.6, 2.04366, 0.6],
 				Quat Rotation = [0.110908, 0.702584, 0.698355, 0.0798445],
 			},
-			Named = 
+			Model = 
 			{
-				string Name = "WoodLogColl",
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5535f74b7608d13d:mat_gradientLowGloss",
+				string MeshName = "5535f7f2e3762ca6:WoodLog",
+				Vec4 Color = [0.235294, 0.172549, 0.109804, 1],
+			},
+			CylinderCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 8.5, 0],
+				float Radius = 2.5,
+				float Height = 17,
+				uint Direction = 1,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			FootstepSurface = 
+			{
+				Enum SurfaceType = Wood,
 			},
 		},
 		Cog = 
@@ -80,9 +121,9 @@ Cog =
 			},
 			RigidBody = 
 			{
-				bool Static = false,
+				bool Static = true,
 				bool Asleep = false,
-				bool Kinematic = true,
+				bool Kinematic = false,
 				bool RotationLocked = false,
 				bool Mode2D = false,
 				bool AllowSleep = true,
@@ -199,9 +240,9 @@ Cog =
 			},
 			RigidBody = 
 			{
-				bool Static = false,
+				bool Static = true,
 				bool Asleep = false,
-				bool Kinematic = true,
+				bool Kinematic = false,
 				bool RotationLocked = false,
 				bool Mode2D = false,
 				bool AllowSleep = true,
@@ -286,12 +327,19 @@ Cog =
 				},
 			},
 		},
-		ArchetypeInstance = 
+		Cog = 
 		{
-			string Name = "5535f6d3e809740c:WoodLogColl",
 			LinkId = 
 			{
 				uint Id = 7,
+			},
+			Named = 
+			{
+				string Name = "WoodLogColl",
+			},
+			Archetyped = 
+			{
+				string Name = "5535f6d3e809740c:WoodLogColl",
 			},
 			Transform = 
 			{
@@ -299,9 +347,43 @@ Cog =
 				Vec3 Scale = [0.6, 2.04366, 0.6],
 				Quat Rotation = [0.65814, 0.25121, 0.258556, 0.660979],
 			},
-			Named = 
+			Model = 
 			{
-				string Name = "WoodLogColl",
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5535f74b7608d13d:mat_gradientLowGloss",
+				string MeshName = "5535f7f2e3762ca6:WoodLog",
+				Vec4 Color = [0.235294, 0.172549, 0.109804, 1],
+			},
+			CylinderCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 8.5, 0],
+				float Radius = 2.5,
+				float Height = 17,
+				uint Direction = 1,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			FootstepSurface = 
+			{
+				Enum SurfaceType = Wood,
 			},
 		},
 		Cog = 
@@ -336,9 +418,9 @@ Cog =
 			},
 			RigidBody = 
 			{
-				bool Static = false,
+				bool Static = true,
 				bool Asleep = false,
-				bool Kinematic = true,
+				bool Kinematic = false,
 				bool RotationLocked = false,
 				bool Mode2D = false,
 				bool AllowSleep = true,
@@ -455,9 +537,9 @@ Cog =
 			},
 			RigidBody = 
 			{
-				bool Static = false,
+				bool Static = true,
 				bool Asleep = false,
-				bool Kinematic = true,
+				bool Kinematic = false,
 				bool RotationLocked = false,
 				bool Mode2D = false,
 				bool AllowSleep = true,
@@ -574,9 +656,9 @@ Cog =
 			},
 			RigidBody = 
 			{
-				bool Static = false,
+				bool Static = true,
 				bool Asleep = false,
-				bool Kinematic = true,
+				bool Kinematic = false,
 				bool RotationLocked = false,
 				bool Mode2D = false,
 				bool AllowSleep = true,
@@ -693,9 +775,9 @@ Cog =
 			},
 			RigidBody = 
 			{
-				bool Static = false,
+				bool Static = true,
 				bool Asleep = false,
-				bool Kinematic = true,
+				bool Kinematic = false,
 				bool RotationLocked = false,
 				bool Mode2D = false,
 				bool AllowSleep = true,
@@ -812,9 +894,9 @@ Cog =
 			},
 			RigidBody = 
 			{
-				bool Static = false,
+				bool Static = true,
 				bool Asleep = false,
-				bool Kinematic = true,
+				bool Kinematic = false,
 				bool RotationLocked = false,
 				bool Mode2D = false,
 				bool AllowSleep = true,
@@ -931,9 +1013,9 @@ Cog =
 			},
 			RigidBody = 
 			{
-				bool Static = false,
+				bool Static = true,
 				bool Asleep = false,
-				bool Kinematic = true,
+				bool Kinematic = false,
 				bool RotationLocked = false,
 				bool Mode2D = false,
 				bool AllowSleep = true,
@@ -1050,9 +1132,9 @@ Cog =
 			},
 			RigidBody = 
 			{
-				bool Static = false,
+				bool Static = true,
 				bool Asleep = false,
-				bool Kinematic = true,
+				bool Kinematic = false,
 				bool RotationLocked = false,
 				bool Mode2D = false,
 				bool AllowSleep = true,
@@ -1169,9 +1251,9 @@ Cog =
 			},
 			RigidBody = 
 			{
-				bool Static = false,
+				bool Static = true,
 				bool Asleep = false,
-				bool Kinematic = true,
+				bool Kinematic = false,
 				bool RotationLocked = false,
 				bool Mode2D = false,
 				bool AllowSleep = true,
@@ -1288,9 +1370,9 @@ Cog =
 			},
 			RigidBody = 
 			{
-				bool Static = false,
+				bool Static = true,
 				bool Asleep = false,
-				bool Kinematic = true,
+				bool Kinematic = false,
 				bool RotationLocked = false,
 				bool Mode2D = false,
 				bool AllowSleep = true,
@@ -1407,9 +1489,9 @@ Cog =
 			},
 			RigidBody = 
 			{
-				bool Static = false,
+				bool Static = true,
 				bool Asleep = false,
-				bool Kinematic = true,
+				bool Kinematic = false,
 				bool RotationLocked = false,
 				bool Mode2D = false,
 				bool AllowSleep = true,
@@ -1526,9 +1608,9 @@ Cog =
 			},
 			RigidBody = 
 			{
-				bool Static = false,
+				bool Static = true,
 				bool Asleep = false,
-				bool Kinematic = true,
+				bool Kinematic = false,
 				bool RotationLocked = false,
 				bool Mode2D = false,
 				bool AllowSleep = true,
@@ -1645,9 +1727,9 @@ Cog =
 			},
 			RigidBody = 
 			{
-				bool Static = false,
+				bool Static = true,
 				bool Asleep = false,
-				bool Kinematic = true,
+				bool Kinematic = false,
 				bool RotationLocked = false,
 				bool Mode2D = false,
 				bool AllowSleep = true,
@@ -1764,9 +1846,9 @@ Cog =
 			},
 			RigidBody = 
 			{
-				bool Static = false,
+				bool Static = true,
 				bool Asleep = false,
-				bool Kinematic = true,
+				bool Kinematic = false,
 				bool RotationLocked = false,
 				bool Mode2D = false,
 				bool AllowSleep = true,
@@ -1883,9 +1965,9 @@ Cog =
 			},
 			RigidBody = 
 			{
-				bool Static = false,
+				bool Static = true,
 				bool Asleep = false,
-				bool Kinematic = true,
+				bool Kinematic = false,
 				bool RotationLocked = false,
 				bool Mode2D = false,
 				bool AllowSleep = true,
@@ -1970,12 +2052,19 @@ Cog =
 				},
 			},
 		},
-		ArchetypeInstance = 
+		Cog = 
 		{
-			string Name = "5535f1df9848f744:BridgeSupp",
 			LinkId = 
 			{
 				uint Id = 36,
+			},
+			Named = 
+			{
+				string Name = "BridgeSupp",
+			},
+			Archetyped = 
+			{
+				string Name = "5535f1df9848f744:BridgeSupp",
 			},
 			Transform = 
 			{
@@ -1983,17 +2072,59 @@ Cog =
 				Vec3 Scale = [2.41726, 1.9603, 0.800206],
 				Quat Rotation = [0.5, 0.5, 0.5, 0.5],
 			},
-			Named = 
+			Model = 
 			{
-				string Name = "BridgeSupp",
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5535f74b7608d13d:mat_gradientLowGloss",
+				string MeshName = "54afcfd2e5fa7177:BlackRainMainLobby.BridgeSegement",
+				Vec4 Color = [0.57, 0.345164, 0.11115, 1],
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			FootstepSurface = 
+			{
+				Enum SurfaceType = Wood,
+			},
+			BoxCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				Vec3 Size = [8, 0.5, 2],
+			},
+			Hierarchy = 
+			{
 			},
 		},
-		ArchetypeInstance = 
+		Cog = 
 		{
-			string Name = "5535f6d3e809740c:WoodLogColl",
 			LinkId = 
 			{
 				uint Id = 37,
+			},
+			Named = 
+			{
+				string Name = "WoodLogColl",
+			},
+			Archetyped = 
+			{
+				string Name = "5535f6d3e809740c:WoodLogColl",
 			},
 			Transform = 
 			{
@@ -2001,17 +2132,58 @@ Cog =
 				Vec3 Scale = [0.6, 2.04366, 0.6],
 				Quat Rotation = [0.702517, -0.0565134, -0.0804389, 0.704845],
 			},
-			Named = 
+			Model = 
 			{
-				string Name = "WoodLogColl",
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5535f74b7608d13d:mat_gradientLowGloss",
+				string MeshName = "5535f7f2e3762ca6:WoodLog",
+				Vec4 Color = [0.235294, 0.172549, 0.109804, 1],
+			},
+			CylinderCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 8.5, 0],
+				float Radius = 2.5,
+				float Height = 17,
+				uint Direction = 1,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			FootstepSurface = 
+			{
+				Enum SurfaceType = Wood,
 			},
 		},
-		ArchetypeInstance = 
+		Cog = 
 		{
-			string Name = "5535f1df9848f744:BridgeSupp",
 			LinkId = 
 			{
 				uint Id = 38,
+			},
+			Named = 
+			{
+				string Name = "BridgeSupp",
+			},
+			Archetyped = 
+			{
+				string Name = "5535f1df9848f744:BridgeSupp",
 			},
 			Transform = 
 			{
@@ -2019,17 +2191,59 @@ Cog =
 				Vec3 Scale = [2.41727, 1.9603, 0.800206],
 				Quat Rotation = [0.5, 0.5, 0.5, 0.5],
 			},
-			Named = 
+			Model = 
 			{
-				string Name = "BridgeSupp",
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5535f74b7608d13d:mat_gradientLowGloss",
+				string MeshName = "54afcfd2e5fa7177:BlackRainMainLobby.BridgeSegement",
+				Vec4 Color = [0.57, 0.345164, 0.11115, 1],
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			FootstepSurface = 
+			{
+				Enum SurfaceType = Wood,
+			},
+			BoxCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				Vec3 Size = [8, 0.5, 2],
+			},
+			Hierarchy = 
+			{
 			},
 		},
-		ArchetypeInstance = 
+		Cog = 
 		{
-			string Name = "5535f6d3e809740c:WoodLogColl",
 			LinkId = 
 			{
 				uint Id = 39,
+			},
+			Named = 
+			{
+				string Name = "WoodLogColl",
+			},
+			Archetyped = 
+			{
+				string Name = "5535f6d3e809740c:WoodLogColl",
 			},
 			Transform = 
 			{
@@ -2037,17 +2251,58 @@ Cog =
 				Vec3 Scale = [0.6, 2.04366, 0.6],
 				Quat Rotation = [0.671443, -0.257538, -0.22173, 0.658539],
 			},
-			Named = 
+			Model = 
 			{
-				string Name = "WoodLogColl",
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5535f74b7608d13d:mat_gradientLowGloss",
+				string MeshName = "5535f7f2e3762ca6:WoodLog",
+				Vec4 Color = [0.235294, 0.172549, 0.109804, 1],
+			},
+			CylinderCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 8.5, 0],
+				float Radius = 2.5,
+				float Height = 17,
+				uint Direction = 1,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			FootstepSurface = 
+			{
+				Enum SurfaceType = Wood,
 			},
 		},
-		ArchetypeInstance = 
+		Cog = 
 		{
-			string Name = "5535f1df9848f744:BridgeSupp",
 			LinkId = 
 			{
 				uint Id = 40,
+			},
+			Named = 
+			{
+				string Name = "BridgeSupp",
+			},
+			Archetyped = 
+			{
+				string Name = "5535f1df9848f744:BridgeSupp",
 			},
 			Transform = 
 			{
@@ -2055,17 +2310,59 @@ Cog =
 				Vec3 Scale = [0.919359, 0.776324, 0.499858],
 				Quat Rotation = [0.964259, 0.0376867, -0.224876, 0.134966],
 			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5535f74b7608d13d:mat_gradientLowGloss",
+				string MeshName = "54afcfd2e5fa7177:BlackRainMainLobby.BridgeSegement",
+				Vec4 Color = [0.57, 0.345164, 0.11115, 1],
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			FootstepSurface = 
+			{
+				Enum SurfaceType = Wood,
+			},
+			BoxCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				Vec3 Size = [8, 0.5, 2],
+			},
+			Hierarchy = 
+			{
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 41,
+			},
 			Named = 
 			{
 				string Name = "BridgeSupp",
 			},
-		},
-		ArchetypeInstance = 
-		{
-			string Name = "5535f1df9848f744:BridgeSupp",
-			LinkId = 
+			Archetyped = 
 			{
-				uint Id = 41,
+				string Name = "5535f1df9848f744:BridgeSupp",
 			},
 			Transform = 
 			{
@@ -2073,9 +2370,44 @@ Cog =
 				Vec3 Scale = [0.919359, 0.776324, 0.499858],
 				Quat Rotation = [0.96521, -0.0253171, 0.220757, 0.137823],
 			},
-			Named = 
+			Model = 
 			{
-				string Name = "BridgeSupp",
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5535f74b7608d13d:mat_gradientLowGloss",
+				string MeshName = "54afcfd2e5fa7177:BlackRainMainLobby.BridgeSegement",
+				Vec4 Color = [0.57, 0.345164, 0.11115, 1],
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			FootstepSurface = 
+			{
+				Enum SurfaceType = Wood,
+			},
+			BoxCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				Vec3 Size = [8, 0.5, 2],
+			},
+			Hierarchy = 
+			{
 			},
 		},
 	},

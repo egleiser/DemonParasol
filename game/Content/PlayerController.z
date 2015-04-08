@@ -31,6 +31,10 @@ class PlayerController : ZilchComponent
     [Property]
     var WindActive:Boolean = true;
     [Property]
+    var HideTongueUI:Boolean = false;
+    [Property]
+    var HideTongueString:String = "Action";
+    [Property]
     var FreezeMovement:Boolean = false;
     var MoveAngle:Real = 0;
     var Camera:Cog = null;
@@ -137,7 +141,7 @@ class PlayerController : ZilchComponent
         if(this.PickUp != null)
         {
             var wantedTranslation:Real3 =
-            this.Owner.Transform.WorldTranslation + (this.Orientation.WorldForward * 1) + Real3(0,0,2);
+            this.Owner.Transform.WorldTranslation + (this.Orientation.WorldForward * 2) + Real3(0,0,2);
             this.PickUp.Transform.WorldTranslation = Math.Lerp(this.PickUp.Transform.WorldTranslation, wantedTranslation, event.Dt * 35.0);
             this.PickUp.Transform.WorldRotation = this.Owner.Transform.WorldRotation;
             
@@ -255,6 +259,10 @@ class PlayerController : ZilchComponent
     }
     function ContextUpdate(event : UpdateEvent)
     {
+                if(this.HideTongueUI && this.ContextButton.ContextButtonManager.WantedText == "Tongue")
+                {
+                    this.ContextString = this.HideTongueString;
+                }        
         if(this.ContextString == "")
         {
             if(this.TongueFinder != null)
@@ -286,6 +294,7 @@ class PlayerController : ZilchComponent
         {
             this.ContextButton.ContextButtonManager.SetButton(this.ContextString);
         }
+
     }
     
     function TongueUpdate(event : UpdateEvent)

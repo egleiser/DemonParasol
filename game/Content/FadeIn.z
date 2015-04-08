@@ -1,15 +1,21 @@
 class FadeIn : ZilchComponent
 {
     [Property]
-    var FadeTime:Real = 2.0;
+    var FadeTime:Real = 1.0;
+    [Property]
+    var Skip:Boolean = false;
     var Hudcamera : Cog = null;
     var Hudspace : Space = null;
     function Initialize(init : CogInitializer)
     {
+        
         this.Hudspace = this.GameSession.FindSpaceByName("HudSpace");
-        this.Hudspace.FindObjectByName("FadeToBlackSprite").Sprite.Visible = true;
         this.Hudcamera = this.Hudspace.FindObjectByName("Camera");
-        this.FadingIn();
+        if(!this.Skip)
+        {
+            this.Hudspace.FindObjectByName("FadeToBlackSprite").Sprite.Visible = true;
+            this.FadingIn();
+        }
     }
 
     function FadingIn()

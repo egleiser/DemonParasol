@@ -1,0 +1,31 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BrgDecoElement",
+	},
+	Archetyped = 
+	{
+		string Name = "5531396a67cdf8bf:BrgDecoElement",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0.133043, 16.7391, -0.0168002],
+		Vec3 Scale = [5, 5, 1],
+		Quat Rotation = [-0.46764, 0.53039, 0.530389, 0.46764],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+		string MeshName = "5481b30411ffa6dc:Rock3",
+		Vec4 Color = [0.315, 0, 0, 1],
+	},
+},

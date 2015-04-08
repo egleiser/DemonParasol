@@ -10,13 +10,13 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "5402de0695518154:PrettyTree",
+		string Name = "550a25153c450187:NormalTree",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-302.534, -118.166, 30.4707],
-		Vec3 Scale = [2.53091, 2.53091, 2.53091],
-		Quat Rotation = [-0.23591, 0.666593, 0.666593, -0.23591],
+		Vec3 Translation = [-289.385, 80.5682, -1.38445],
+		Vec3 Scale = [2.98161, 2.98161, 2.98161],
+		Quat Rotation = [-0.416809, 0.5712, 0.5712, -0.416809],
 	},
 	CylinderCollider = 
 	{
@@ -29,6 +29,18 @@ Cog =
 		float Radius = 1,
 		float Height = 6,
 		uint Direction = 1,
+	},
+	RigidBody = 
+	{
+		bool Static = true,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
 	},
 	Hierarchy = 
 	{
@@ -56,7 +68,7 @@ Cog =
 				bool CastShadows = true,
 				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 				string MeshName = "5481b8fc1f1fcd8d:BasicTree.BasicTree_Leaves",
-				Vec4 Color = [0.88, 0.4928, 0.7832, 1],
+				Vec4 Color = [0.187063, 0.365, 0.09125, 1],
 			},
 		},
 		Cog = 

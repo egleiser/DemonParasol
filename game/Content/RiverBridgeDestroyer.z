@@ -1,0 +1,65 @@
+class RiverBridgeDestroyer : ZilchComponent
+{
+    var Active:Boolean = false;
+    var Timer:Integer = 0;
+    var Player:Cog = null;
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Space.FindObjectByName("Player");
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.FreezeBridge();
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsDown(Keys.Control) && Zero.Keyboard.KeyIsPressed(Keys.P))
+        {
+            this.DestroyBridge();
+        }
+        if(this.Active)
+        {
+            this.Timer += 1;
+        }
+        if(this.Timer == 350)
+        {
+            this.FreezeBridge();
+        }
+        
+    }
+    function DestroyBridge()
+    {
+        this.Owner.FindChildByName("BridgeSmoke").BoxParticleEmitter.Active = true;
+        this.Owner.FindChildByName("BridgeSmoke").SoundEmitter.Play();
+        this.Active = true;
+        this.Player.PlayerController.FreezeMovement = true;
+        this.Player.GravityEffect.Active = false;
+        foreach(var cog in this.Owner.Children)
+        {
+            if(cog.RigidBody != null)
+            {
+                cog.RigidBody.DynamicState = RigidBodyDynamicState.Dynamic;
+            }
+            if(cog.GravityEffect != null)
+            {
+                cog.GravityEffect.Active = true;
+            }
+        }
+    }
+    function FreezeBridge()
+    {
+        this.Active = false;
+        this.Player.PlayerController.FreezeMovement = false;
+        this.Player.GravityEffect.Active = true;        
+        foreach(var cog in this.Owner.Children)
+        {
+            if(cog.RigidBody != null)
+            {
+                cog.RigidBody.DynamicState = RigidBodyDynamicState.Static;
+            }
+            if(cog.GravityEffect != null)
+            {
+                cog.GravityEffect.Active = false;
+            }
+        }
+    }
+}
