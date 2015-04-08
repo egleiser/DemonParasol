@@ -30,6 +30,46 @@ Cog =
 	},
 	RiverBridgeDestroyer = 
 	{
+		string Room = "545136ccf7f93c63:LVL_BlackRainMainLobby",
+	},
+	SoundEmitter = 
+	{
+		bool StartPlaying = false,
+		int ExtraPriority = 0,
+		string CueName = "5531df18d73cf612:BridgeSmash",
+		float Volume = 1,
+		float Pitch = 1,
+		bool Positional = false,
+	},
+	SphereCollider = 
+	{
+		bool Ghost = true,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "5531d33836c91a93:CG_BridgeForce",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 30,
+	},
+	Region = 
+	{
+		bool WakeUpOnEffectChange = false,
+	},
+	PointForceEffect = 
+	{
+		bool Active = false,
+		bool WakeUpOnChange = true,
+		float MinDistance = 1,
+		float MaxDistance = 30,
+		float MinStrength = -10000,
+		float MaxStrength = -1000,
+		Vec3 LocalPositionOffset = [0, 0, 6],
+		bool UseMaxDistance = false,
+		bool LinearInterpolation = false,
+		bool QuadraticInterpolation = true,
+		bool ClampToMax = true,
+		bool ContinueFalloff = false,
+		bool NoEffect = false,
 	},
 	Hierarchy = 
 	{
@@ -3553,9 +3593,9 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [-9.96183, 0.155815, -3.8074],
+				Vec3 Translation = [-9.96183, 0.155815, -1.9153],
 				Vec3 Scale = [1.5211, 0.7, 0.800206],
-				Quat Rotation = [-0.577808, 0.46306, 0.534393, -0.4076],
+				Quat Rotation = [-0.526733, 0.521815, 0.477189, -0.471754],
 			},
 			Model = 
 			{
@@ -3615,8 +3655,8 @@ Cog =
 					},
 					Transform = 
 					{
-						Vec3 Translation = [-3.62257e-006, 0.570906, -2.41119e-006],
-						Vec3 Scale = [0.81327, 1, 1.14788],
+						Vec3 Translation = [2.48723, 0.626653, -0.00487798],
+						Vec3 Scale = [0.530024, 0.991559, 1.14703],
 						Quat Rotation = [-1.09596e-007, -1.2432e-006, 1.00637e-007, 1],
 					},
 					Named = 
@@ -5377,23 +5417,41 @@ Cog =
 				},
 			},
 		},
-		Cog = 
+		ArchetypeInstance = 
 		{
+			string Name = "55312b42e71f52b6:BridgeSmoke",
 			LinkId = 
 			{
 				uint Id = 131,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1.5, 1.5, 1.5],
+				Quat Rotation = [0, 0, 0, 1],
 			},
 			Named = 
 			{
 				string Name = "BridgeSmoke",
 			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 132,
+			},
+			Named = 
+			{
+				string Name = "BridgeLightning",
+			},
 			Archetyped = 
 			{
-				string Name = "55312b42e71f52b6:BridgeSmoke",
+				string Name = "5531d795614c7de2:BridgeLightning",
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, 0, 0],
+				Vec3 Translation = [-0.249414, 0, 1.65223],
 				Vec3 Scale = [1.5, 1.5, 1.5],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -5408,11 +5466,11 @@ Cog =
 				uint DrawOrder = 0,
 				float WarmUpTime = 0,
 				ParticleGeometry GeometryMode = Billboarded,
-				ParticleRenderMode RenderMode = Blended,
+				ParticleRenderMode RenderMode = Additive,
 				ParticleSortMode SortMode = Sorted,
 				ParticleAnimation ParticleAnimation = Single,
-				string Texture = "5481a3be505a50f6:wind-particles-glow-02",
-				Vec4 Tint = [1, 1, 1, 0.5],
+				string Texture = "553126fd99126dd8:LightningBall",
+				Vec4 Tint = [1, 1, 1, 0.915],
 				float VelocityScale = 0.3,
 				float LengthScale = 0.2,
 				float MaxParticleSize = 100,
@@ -5423,50 +5481,103 @@ Cog =
 				Vec3 Force = [0, 0, 2],
 				Vec3 RandomForce = [0, 0, 0],
 				float Torque = 0,
-				float Growth = 5,
+				float Growth = 80,
 				float Dampening = 0,
 				Vec3 Twist = [0, 0, 0],
 			},
 			ParticleColorAnimator = 
 			{
 				Vec4 Color0 = [1, 1, 1, 0],
-				Vec4 Color1 = [0.794086, 0.791025, 0.795, 1],
-				Vec4 Color2 = [0.5, 0.5, 0.5, 0.49],
-				Vec4 Color3 = [0, 0, 0, 0.145],
+				Vec4 Color1 = [1, 0, 0.000599861, 1],
+				Vec4 Color2 = [0.99, 0.87615, 0.87615, 0.745],
+				Vec4 Color3 = [0.98, 0.2303, 0.2303, 0.485],
 				Vec4 Color4 = [0, 0, 0, 0],
-			},
-			BoxParticleEmitter = 
-			{
-				bool Active = false,
-				uint EmitCount = 100,
-				float EmitRate = 1000,
-				float EmitVariance = 0,
-				float Size = 1,
-				float SizeVariance = 0.5,
-				float Lifetime = 2,
-				float LifetimeVariance = 0.2,
-				float Spin = 200,
-				float SpinVariance = 50,
-				bool RandomSpin = true,
-				float Fill = 1,
-				float EmitterVelocityPercent = 0,
-				Vec3 StartVelocity = [0, 0, 0],
-				Vec3 RandomVelocity = [2, 2, 2],
-				Vec3 TangentVelocity = [0, 0, 0],
-				Vec3 EmitterSize = [30, 20, 0],
-				bool FastMovingEmitter = false,
 			},
 			SoundEmitter = 
 			{
 				bool StartPlaying = false,
 				int ExtraPriority = 0,
-				string CueName = "548d7ef212955d1e:Demon_Death",
+				string CueName = "54ae998775538790:EnergySword_Strike1",
 				float Volume = 1,
 				float Pitch = 1,
 				bool Positional = false,
 			},
+			SphericalParticleEmitter = 
+			{
+				bool Active = false,
+				uint EmitCount = 20,
+				float EmitRate = 50,
+				float EmitVariance = 0,
+				float Size = 5,
+				float SizeVariance = 0.5,
+				float Lifetime = 0.2,
+				float LifetimeVariance = 0.02,
+				float Spin = 0,
+				float SpinVariance = 300,
+				bool RandomSpin = true,
+				float Fill = 1,
+				float EmitterVelocityPercent = 0,
+				Vec3 StartVelocity = [0, 0, 0],
+				Vec3 RandomVelocity = [5, 5, 5],
+				Vec3 TangentVelocity = [0, 0, 0],
+				Vec3 EmitterSize = [0, 0, 0],
+				bool FastMovingEmitter = false,
+			},
 			Hierarchy = 
 			{
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 133,
+			},
+			Named = 
+			{
+				string Name = "BridgeTriggerZone",
+			},
+			Archetyped = 
+			{
+				string Name = "5531ce16485b87bf:BridgeTriggerZone",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [1.37577, -0.825687, 4.23453],
+				Vec3 Scale = [12.3796, 42.3952, 10],
+				Quat Rotation = [0, 0, -0.0204112, 0.999792],
+			},
+			Model = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5481b84e008be766:mat_gradient",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [1, 0, 0, 1],
+			},
+			BoxCollider = 
+			{
+				bool Ghost = true,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				Vec3 Size = [0.5, 0.5, 0.5],
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
 			},
 		},
 	},

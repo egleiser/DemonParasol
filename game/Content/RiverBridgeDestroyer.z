@@ -1,38 +1,105 @@
 class RiverBridgeDestroyer : ZilchComponent
 {
+    [Property]
+    var Room:Level = null;
     var Active:Boolean = false;
     var Timer:Integer = 0;
+    var TimeScale:Real = 1.0;
     var Player:Cog = null;
+    var PlayerCollisionGroup:CollisionGroup = null;
     function Initialize(init : CogInitializer)
     {
         this.Player = this.Space.FindObjectByName("Player");
+        this.PlayerCollisionGroup = CollisionGroup.Find("CG_Player");
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner.FindChildByName("BridgeTriggerZone"), Events.CollisionStarted, this.OnTrigger);
         this.FreezeBridge();
     }
-
+    function OnTrigger(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player" && this.Active == false)
+        {
+            this.Active = true;
+        }
+    }
     function OnLogicUpdate(event : UpdateEvent)
     {
         if(Zero.Keyboard.KeyIsDown(Keys.Control) && Zero.Keyboard.KeyIsPressed(Keys.P))
         {
-            this.DestroyBridge();
+            this.Active = true;
+        }
+        if(Zero.Keyboard.KeyIsDown(Keys.Control) && Zero.Keyboard.KeyIsPressed(Keys.I))
+        {
+            this.Lightning();
         }
         if(this.Active)
         {
             this.Timer += 1;
+            this.Space.TimeSpace.TimeScale = Math.Lerp(this.Space.TimeSpace.TimeScale, this.TimeScale, event.Dt * 10 );
+            this.Player.Transform.WorldTranslation += Real3(0,0.2 * this.TimeScale,0);
         }
-        if(this.Timer == 350)
+        if(this.Timer == 2)
         {
+            this.Space.LevelSettings.FindChildByName("BGMManager").DungeonSoundManager.MasterPitch = 1.5;
+            this.TimeScale = 0.08;
+            this.Lightning();
+            this.Owner.PointForceEffect.Active = true;
+        }
+        if(this.Timer == 30)
+        {
+            this.Owner.FindChildByName("BridgeLightning").SoundEmitter.Play();
+            this.Owner.FindChildByName("BridgeLightning").SphericalParticleEmitter.Active = true;
+        }
+        if(this.Timer == 50)
+        {
+            this.Space.LevelSettings.FindChildByName("BGMManager").DungeonSoundManager.MasterPitch = 0.5;
+            this.DestroyBridge();
+        }
+        if(this.Timer == 160)
+        {
+            this.Space.SoundSpace.PlayCue(SoundCue.Find("WaterSplashSound"));
+            this.Space.SoundSpace.PlayCue(SoundCue.Find("WaterSplashSound"));
+            this.Space.CreateAtPosition(Archetype.Find("WaterSplash"), this.Player.Transform.WorldTranslation);
+            this.Space.CreateAtPosition(Archetype.Find("WaterSplash"), this.Player.Transform.WorldTranslation);
+        }
+        if(this.Timer == 600)
+        {
+            this.TimeScale = 0.5;
+            this.Player.GravityEffect.Active = true;
+            this.TeleportWater();
+        }
+
+        if(this.Timer == 850)
+        {
+            //this.Space.LevelSettings.FindChildByName("BGMManager").DungeonSoundManager.MasterPitch = 1.0;
             this.FreezeBridge();
+            this.Space.LevelSettings.FindChildByName("BGMManager").DungeonSoundManager.MasterPitch = 1.0;
+
+        }
+        if(this.Timer == 1000)
+        {
+            this.TimeScale = 1.0;
+            
         }
         
     }
+    function Lightning()
+    {
+        this.Space.CreateAtPosition(Archetype.Find("LightningStrikePart"), this.Owner.Transform.WorldTranslation + Real3(0,0,30));
+    }
     function DestroyBridge()
     {
+        
+        this.Owner.SoundEmitter.Play();
+        this.Owner.SoundEmitter.Play();
+        this.Owner.SoundEmitter.Play();
+        this.Owner.SoundEmitter.Play();
         this.Owner.FindChildByName("BridgeSmoke").BoxParticleEmitter.Active = true;
         this.Owner.FindChildByName("BridgeSmoke").SoundEmitter.Play();
-        this.Active = true;
+
         this.Player.PlayerController.FreezeMovement = true;
-        this.Player.GravityEffect.Active = false;
+        
         foreach(var cog in this.Owner.Children)
         {
             if(cog.RigidBody != null)
@@ -43,11 +110,15 @@ class RiverBridgeDestroyer : ZilchComponent
             {
                 cog.GravityEffect.Active = true;
             }
+            if(cog.Collider != null)
+            {
+                cog.Collider.CollisionGroup = this.PlayerCollisionGroup;
+            }
         }
     }
     function FreezeBridge()
     {
-        this.Active = false;
+        //this.Active = false;
         this.Player.PlayerController.FreezeMovement = false;
         this.Player.GravityEffect.Active = true;        
         foreach(var cog in this.Owner.Children)
@@ -56,10 +127,31 @@ class RiverBridgeDestroyer : ZilchComponent
             {
                 cog.RigidBody.DynamicState = RigidBodyDynamicState.Static;
             }
+
             if(cog.GravityEffect != null)
             {
                 cog.GravityEffect.Active = false;
             }
         }
+        this.Space.TimeSpace.TimeScale = 1.0;
+    }
+    function TeleportWater()
+    {
+            this.Space.SoundSpace.PlayCue(SoundCue.Find("TeleportSound"));
+            var fadeEvent = new FadeToBlackEvent();
+            fadeEvent.EaseCurve = Ease.Linear;
+            fadeEvent.IsFadeIn = false;
+            fadeEvent.TimeToFade = 2.0;
+            this.LevelSettings.CameraViewport.Camera.DispatchEvent("fadeEvent", fadeEvent);
+            var teleport = Action.Sequence(this.Owner.Actions);
+            Action.Delay(teleport, 2.0);
+            Action.Call(teleport, this.Teleport);
+    }
+    function Teleport()
+    {
+        this.Space.TimeSpace.TimeScale = 1.0;
+        this.LevelSettings.DataLoader.SaveFile.SaveData.LastLevel = this.Space.CurrentLevel.Name;
+        this.LevelSettings.DataLoader.StoreSaveFile();
+        this.Space.LoadLevel(this.Room);
     }
 }
