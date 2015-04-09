@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
+		Vec3 Translation = [205.212, 113.724, -80.6911],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -124,8 +124,8 @@ Cog =
 				bool VisibilityEvents = false,
 				bool CastShadows = false,
 				LightType LightType = Directional,
-				Vec4 Color = [1, 0.195, 0.195483, 1],
-				float Intensity = 5,
+				Vec4 Color = [0.995, 0.52735, 0.527631, 1],
+				float Intensity = 40,
 				float Range = 10,
 				float Falloff = 1,
 				float Angle = 45,
@@ -133,14 +133,16 @@ Cog =
 			},
 			TimedDeath = 
 			{
-				float Lifetime = 5,
+				float Lifetime = 2,
 				bool SendsDeathEvent = true,
 				bool AutoDestroy = true,
 			},
 			SampleCurveLight = 
 			{
 				string LightingCurve = "54fde856a6263761:LightningCurve",
-				float LocalTimeScale = 2,
+				bool UseFog = true,
+				float LocalTimeScale = 4,
+				float FogScale = 4,
 			},
 		},
 	},

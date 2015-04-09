@@ -41,7 +41,8 @@ class RiverBridgeDestroyer : ZilchComponent
         }
         if(this.Timer == 2)
         {
-            this.Space.LevelSettings.FindChildByName("BGMManager").DungeonSoundManager.MasterPitch = 1.5;
+            this.Space.FindObjectByName("AmbienceManager").Thunderstorm.Active = false;
+            this.Space.FindObjectByName("InvWallBB").Destroy();
             this.TimeScale = 0.08;
             this.Lightning();
             this.Owner.PointForceEffect.Active = true;
@@ -53,7 +54,7 @@ class RiverBridgeDestroyer : ZilchComponent
         }
         if(this.Timer == 50)
         {
-            this.Space.LevelSettings.FindChildByName("BGMManager").DungeonSoundManager.MasterPitch = 0.5;
+            this.Space.LevelSettings.FindChildByName("BGMManager").DungeonSoundManager.MasterPitch = 0.01;
             this.DestroyBridge();
         }
         if(this.Timer == 160)
@@ -63,24 +64,19 @@ class RiverBridgeDestroyer : ZilchComponent
             this.Space.CreateAtPosition(Archetype.Find("WaterSplash"), this.Player.Transform.WorldTranslation);
             this.Space.CreateAtPosition(Archetype.Find("WaterSplash"), this.Player.Transform.WorldTranslation);
         }
-        if(this.Timer == 600)
+        if(this.Timer == 300)
         {
-            this.TimeScale = 0.5;
+            this.TimeScale = 0.3;
             this.Player.GravityEffect.Active = true;
             this.TeleportWater();
         }
 
-        if(this.Timer == 850)
+        if(this.Timer == 650)
         {
             //this.Space.LevelSettings.FindChildByName("BGMManager").DungeonSoundManager.MasterPitch = 1.0;
             this.FreezeBridge();
             this.Space.LevelSettings.FindChildByName("BGMManager").DungeonSoundManager.MasterPitch = 1.0;
 
-        }
-        if(this.Timer == 1000)
-        {
-            this.TimeScale = 1.0;
-            
         }
         
     }
@@ -97,7 +93,7 @@ class RiverBridgeDestroyer : ZilchComponent
         this.Owner.SoundEmitter.Play();
         this.Owner.FindChildByName("BridgeSmoke").BoxParticleEmitter.Active = true;
         this.Owner.FindChildByName("BridgeSmoke").SoundEmitter.Play();
-
+        this.Player.GravityEffect.Strength = 20;      
         this.Player.PlayerController.FreezeMovement = true;
         
         foreach(var cog in this.Owner.Children)
@@ -120,7 +116,7 @@ class RiverBridgeDestroyer : ZilchComponent
     {
         //this.Active = false;
         this.Player.PlayerController.FreezeMovement = false;
-        this.Player.GravityEffect.Active = true;        
+          
         foreach(var cog in this.Owner.Children)
         {
             if(cog.RigidBody != null)
@@ -141,10 +137,10 @@ class RiverBridgeDestroyer : ZilchComponent
             var fadeEvent = new FadeToBlackEvent();
             fadeEvent.EaseCurve = Ease.Linear;
             fadeEvent.IsFadeIn = false;
-            fadeEvent.TimeToFade = 2.0;
+            fadeEvent.TimeToFade = 1.0;
             this.LevelSettings.CameraViewport.Camera.DispatchEvent("fadeEvent", fadeEvent);
             var teleport = Action.Sequence(this.Owner.Actions);
-            Action.Delay(teleport, 2.0);
+            Action.Delay(teleport, 1.0);
             Action.Call(teleport, this.Teleport);
     }
     function Teleport()

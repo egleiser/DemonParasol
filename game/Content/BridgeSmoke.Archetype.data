@@ -32,7 +32,7 @@ Cog =
 		ParticleRenderMode RenderMode = Blended,
 		ParticleSortMode SortMode = Sorted,
 		ParticleAnimation ParticleAnimation = Single,
-		string Texture = "5481a3be505a50f6:wind-particles-glow-02",
+		string Texture = "5481a22f0141d765:tex_Abe_no_Seimei2Shadow",
 		Vec4 Tint = [1, 1, 1, 0.5],
 		float VelocityScale = 0.3,
 		float LengthScale = 0.2,
@@ -59,7 +59,7 @@ Cog =
 	BoxParticleEmitter = 
 	{
 		bool Active = false,
-		uint EmitCount = 50,
+		uint EmitCount = 20,
 		float EmitRate = 1000,
 		float EmitVariance = 0,
 		float Size = 1,
