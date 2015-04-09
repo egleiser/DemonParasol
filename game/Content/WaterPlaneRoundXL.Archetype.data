@@ -1,0 +1,38 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "WaterPlaneRoundXL",
+	},
+	Archetyped = 
+	{
+		string Name = "54afcedca92f94bb:WaterPlaneRound",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [26.0622, -54.3721, -11.163],
+		Vec3 Scale = [2, 0.366742, 2],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+		string MeshName = "54ae5c0c06089626:BossRoom.WaterPlaneRound",
+		Vec4 Color = [0.095, 0.095, 0.095, 1],
+	},
+	SinTranslate = 
+	{
+		float SinSpeedX = 1,
+		float SinSpeedY = 1,
+		float Intensity = 0.5,
+		bool UseInitialRot = false,
+	},
+},

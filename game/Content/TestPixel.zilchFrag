@@ -1,15 +1,16 @@
 [Pixel][AutoBlock]
-class MaskedRefraction
+class TestPixel
 {
     // Custom Inputs
     [Input]
-    var DistortionTexture : Sampler2d = null;
+    var TestTexture : Sampler2d = null;
     [Input]
-    var MaskTexture : Sampler2d = null;
+    var EdgeFalloffPower : Real = 0.0;
     [Input]
-    var Scalar : Real2 = Real2(0.0,0.0);
+    var EdgeFalloffScale : Real = 0.0;
     [Input]
-    var Scroll : Real2 = Real2(0.0,0.0);
+    var EdgeGlowColor : Real4 = Real4();
+
     //Built In
     // View Space Normal
     [Input]
@@ -26,13 +27,11 @@ class MaskedRefraction
     // Position in view space
     [Input]
     var PixelPosition : Real3 = Real3();
-    [Input]
-    var ScreenPosition : Real4 = Real4();
     //Eye is at 0,0,0  
     
     //Color added to the surface
     [Output]
-    var Refraction : Real2 = Real2();
+    var Additive : Real4 = Real4();
     
     //Surface effected by lighting
     //[Output]
@@ -41,11 +40,9 @@ class MaskedRefraction
     function Main()
     {
         // Simple edge glow
-        var timeVec = Real2(this.Time, this.Time) * this.Scroll;
-        var bumpTex = 2.0 * this.DistortionTexture.Sample(this.Uv + timeVec).XY - Real2(1.0,1.0);
-        bumpTex *= this.MaskTexture.Sample(this.Uv).XY;
-        var newUv = (this.PixelPosition.XY/this.PixelPosition.Z) + bumpTex.XY  * this.Scalar;
-        this.Refraction = newUv;
-
+        var texColor = this.TestTexture.Sample(this.Uv);
+        var scalar = Math.Saturate(1.0 - Math.Dot(-Math.Normalize(this.PixelPosition), this.Normal));
+        scalar = Math.Pow(scalar, this.EdgeFalloffPower) * this.EdgeFalloffScale;
+        this.Additive = scalar * this.EdgeGlowColor * texColor;
     }
 }
