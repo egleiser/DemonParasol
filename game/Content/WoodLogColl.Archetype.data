@@ -1,0 +1,59 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "WoodLogColl",
+	},
+	Archetyped = 
+	{
+		string Name = "5535f6d3e809740c:WoodLogColl",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-137.86, -137.278, -0.432457],
+		Vec3 Scale = [0.6, 2.04366, 0.6],
+		Quat Rotation = [0, 0, 0.707107, 0.707107],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5535f74b7608d13d:mat_gradientLowGloss",
+		string MeshName = "5535f7f2e3762ca6:WoodLog",
+		Vec4 Color = [0.235294, 0.172549, 0.109804, 1],
+	},
+	CylinderCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 8.5, 0],
+		float Radius = 2.5,
+		float Height = 17,
+		uint Direction = 1,
+	},
+	RigidBody = 
+	{
+		bool Static = true,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	FootstepSurface = 
+	{
+		Enum SurfaceType = Wood,
+	},
+},

@@ -8,22 +8,48 @@
 /////////////////////////////////////////
 class SampleCurveLight : ZilchComponent
 {
+
     [Dependency]
     var Light: Light = null;
     [Property]
     var LightingCurve : SampleCurve = null;
+    [Property]
+    var UseFog : Boolean = false;
     var SampleTime : Real = 0;
+    var InitFogValue : Real = 0;
+    var Camera : Cog = null;
     [Property]
     var LocalTimeScale : Real = 1.0;
+    [Property]
+    var FogScale : Real = 100.0;
+    
     function Initialize(init : CogInitializer)
     {
+        if(this.UseFog)
+        {
+            this.Camera = this.LevelSettings.CameraViewport.Camera;
+            this.InitFogValue = this.Camera.Fog.FogDensity;
+        }
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.Death, this.OnDeath);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
         
         this.Light.Intensity = this.LightingCurve.Sample(this.SampleTime);
+        if(this.UseFog)
+        {
+            this.Camera.Fog.FogDensity = this.InitFogValue + (this.InitFogValue * this.FogScale * this.LightingCurve.Sample(this.SampleTime));
+        }
         this.SampleTime += event.Dt * this.LocalTimeScale;
+    }
+    
+    function OnDeath(event : ZilchEvent)
+    {
+        if(this.UseFog)
+        {
+            this.Camera.Fog.FogDensity = this.InitFogValue;
+        }
     }
 }

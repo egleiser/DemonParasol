@@ -1,0 +1,37 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 55cddaa6407ea938,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [0.1, 0.1, 0.1],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "IntroTestLEVEL.Plane001",
+				uint64 ResourceId = 55cddaa9405668ae,
+			},
+			{
+				string Name = "IntroTestLEVEL.MountainSide",
+				uint64 ResourceId = 55cddaa9405668b3,
+			},
+			{
+				string Name = "IntroTestLEVEL.GrassyFields",
+				uint64 ResourceId = 55cddaa9405668b6,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},

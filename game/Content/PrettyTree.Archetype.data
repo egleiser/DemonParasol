@@ -6,17 +6,17 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "BasicTree",
+		string Name = "PrettyTree",
 	},
 	Archetyped = 
 	{
-		string Name = "5481b8fc1f17aab8:BasicTree",
+		string Name = "5402de0695518154:PrettyTree",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [18.6289, 3.71813, -0.674732],
-		Vec3 Scale = [2, 2, 2],
-		Quat Rotation = [0.707107, 0, 0, 0.707107],
+		Vec3 Translation = [-163.51, -188.206, 38.3843],
+		Vec3 Scale = [2.96909, 2.96909, 2.96909],
+		Quat Rotation = [0.279507, 0.64952, 0.64952, 0.279507],
 	},
 	CylinderCollider = 
 	{
@@ -29,6 +29,18 @@ Cog =
 		float Radius = 1,
 		float Height = 6,
 		uint Direction = 1,
+	},
+	RigidBody = 
+	{
+		bool Static = true,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
 	},
 	Hierarchy = 
 	{
@@ -52,6 +64,8 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
 				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 				string MeshName = "5481b8fc1f1fcd88:BasicTree.BasicTree_Trunk",
 				Vec4 Color = [0.27, 0.10719, 0.027, 1],
@@ -77,6 +91,8 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
 				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 				string MeshName = "5481b8fc1f1fcd8d:BasicTree.BasicTree_Leaves",
 				Vec4 Color = [0.88, 0.4928, 0.7832, 1],

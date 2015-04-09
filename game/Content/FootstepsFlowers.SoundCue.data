@@ -1,0 +1,30 @@
+SoundCue = 
+{
+	SoundPlayMode PlayMode = Single,
+	float Volume = 0.13,
+	float VolumeVariation = 0.06,
+	float Pitch = 0.6,
+	float PitchVariation = 0.1,
+	float MinDistance = 10,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 128,
+	bool LinearRollOff = true,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "54fc49437645ae0a:Hit_Bush_Leaves1",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fc49437645d249:Hit_Bush_Leaves3",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "54fc49437645f9ec:Hit_Bush_Leaves5",
+			float Weight = 1,
+		},
+	],
+	string RolloffCurveName = "",
+},

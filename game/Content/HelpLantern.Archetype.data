@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
+		Vec3 Translation = [42.3915, -122.171, -1.67152],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -24,8 +24,172 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = false,
 		bool CastShadows = true,
-		string MaterialName = "4de020863e85bb61:DefaultMaterial",
+		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 		string MeshName = "54c85a20e4d5bf7b:HelpLantern",
-		Vec4 Color = [1, 1, 1, 1],
+		Vec4 Color = [0.335, 0.335, 0.335, 1],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 4],
+		Vec3 Size = [1, 1, 4],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Light",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 4.82555],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Light = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				LightType LightType = Point,
+				Vec4 Color = [1, 0.12549, 0.126015, 1],
+				float Intensity = 2.4,
+				float Range = 15,
+				float Falloff = 1,
+				float Angle = 10,
+				float Size = 20,
+			},
+			GodRayLight = 
+			{
+				GodRayLightType LightType = Point,
+				bool Active = true,
+				int Samples = 80,
+				Vec4 Color = [0.235294, 0.356863, 1, 1],
+				float Intensity = 0.5,
+				float ScreenRadius = 0.29,
+				float OccluderClarity = 0.1,
+				bool ScreenEdgeFade = false,
+				float BeginFade = -0.1,
+				float EndFade = 0.1,
+				float DepthOffset = 0,
+			},
+			Hierarchy = 
+			{
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "LanternFire",
+			},
+			Archetyped = 
+			{
+				string Name = "54c854a41b01eea6:LanternFire",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 4.70619],
+				Vec3 Scale = [0.831134, 0.831135, 1.05159],
+				Quat Rotation = [-7.90498e-008, 0, 0, 1],
+			},
+			SpriteParticleSystem = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				SystemChildMode ChildMode = Independent,
+				SystemSpace SystemSpace = WorldSpace,
+				uint DrawOrder = 0,
+				float WarmUpTime = 0,
+				ParticleGeometry GeometryMode = Billboarded,
+				ParticleRenderMode RenderMode = Additive,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Single,
+				string Texture = "5481a3be505a50f6:wind-particles-glow-02",
+				Vec4 Tint = [1, 1, 1, 0.87],
+				float VelocityScale = 1,
+				float LengthScale = 1,
+				float MaxParticleSize = 100,
+				Vec3 SystemSize = [4, 4, 4],
+			},
+			SphericalParticleEmitter = 
+			{
+				bool Active = true,
+				uint EmitCount = 0,
+				float EmitRate = 65,
+				float EmitVariance = 0,
+				float Size = 1,
+				float SizeVariance = 0.5,
+				float Lifetime = 0.4,
+				float LifetimeVariance = 0.1,
+				float Spin = 360,
+				float SpinVariance = 50,
+				bool RandomSpin = true,
+				float Fill = 1,
+				float EmitterVelocityPercent = 0,
+				Vec3 StartVelocity = [0, 0, 2],
+				Vec3 RandomVelocity = [1, 1, 1],
+				Vec3 TangentVelocity = [0, 0, 0],
+				Vec3 EmitterSize = [0.8, 0.8, 0.6],
+				bool FastMovingEmitter = true,
+			},
+			LinearParticleAnimator = 
+			{
+				Vec3 Force = [0, 0, 0],
+				Vec3 RandomForce = [0, 0, 0],
+				float Torque = 0,
+				float Growth = -1,
+				float Dampening = 0,
+				Vec3 Twist = [0, 0, 0],
+			},
+			ParticleColorAnimator = 
+			{
+				Vec4 Color0 = [1, 0, 0.000599861, 0],
+				Vec4 Color1 = [1, 0, 0.000599861, 1],
+				Vec4 Color2 = [0.985, 0.06895, 0.0694995, 1],
+				Vec4 Color3 = [1, 0, 0.000599861, 1],
+				Vec4 Color4 = [1, 0, 0.000599861, 0],
+			},
+			SoundEmitter = 
+			{
+				bool StartPlaying = true,
+				int ExtraPriority = 0,
+				string CueName = "54bfd2f6148a1f7b:Fire_Torch_Loop1",
+				float Volume = 0.3,
+				float Pitch = 1,
+				bool Positional = true,
+			},
+			Light = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				LightType LightType = Point,
+				Vec4 Color = [1, 0.50285, 0.185, 1],
+				float Intensity = 0.8,
+				float Range = 8,
+				float Falloff = 1,
+				float Angle = 45,
+				float Size = 20,
+			},
+		},
 	},
 },

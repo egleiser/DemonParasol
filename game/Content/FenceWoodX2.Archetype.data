@@ -1,0 +1,31 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "FenceWoodX2",
+	},
+	Archetyped = 
+	{
+		string Name = "5535959260ff7f15:FenceWoodX",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0.33905, 6.47328, -0.518382],
+		Vec3 Scale = [1, 0.5, 1],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5535f74b7608d13d:mat_gradientLowGloss",
+		string MeshName = "55359a6acb834b44:FenceWood",
+		Vec4 Color = [0.87451, 0.184314, 0.203921, 1],
+	},
+},

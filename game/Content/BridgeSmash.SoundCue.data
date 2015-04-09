@@ -1,0 +1,26 @@
+SoundCue = 
+{
+	SoundPlayMode PlayMode = Single,
+	float Volume = 1,
+	float VolumeVariation = 0,
+	float Pitch = -0.3,
+	float PitchVariation = 0.2,
+	float MinDistance = 10,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 128,
+	bool LinearRollOff = false,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "549ac8b5cd75fea4:Smash_LargeStone3",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "5531df08d97c1cd6:Smash_LargeStone2",
+			float Weight = 1,
+		},
+	],
+	string RolloffCurveName = "",
+},

@@ -23,6 +23,7 @@ class PickUpInteract : ZilchComponent
         
         if(otherObject.FootstepSurface != null)
         {
+            this.Owner.SoundEmitter.Stop();
             this.CurrentSurface = otherObject.FootstepSurface.SurfaceType;
             if(this.CurrentSurface == FootstepType.Wood)
             {
@@ -40,7 +41,10 @@ class PickUpInteract : ZilchComponent
             {
                 this.Owner.SoundEmitter.PlayCue(SoundCue.Find("FootstepsDirt"));
             }
-            this.Space.CreateAtPosition(this.SmokeParticle, event.FirstPoint.WorldPoint + Real3(0,0,0.5));
+            if(Math.Length(this.Owner.RigidBody.Velocity) > 3.0)
+            {
+                this.Space.CreateAtPosition(this.SmokeParticle, event.FirstPoint.WorldPoint + Real3(0,0,0.5));
+            }
         }
     }
     function OnLogicUpdate(event : UpdateEvent)

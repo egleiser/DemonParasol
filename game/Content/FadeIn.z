@@ -1,0 +1,31 @@
+class FadeIn : ZilchComponent
+{
+    [Property]
+    var FadeTime:Real = 1.0;
+    [Property]
+    var Skip:Boolean = false;
+    var Hudcamera : Cog = null;
+    var Hudspace : Space = null;
+    function Initialize(init : CogInitializer)
+    {
+        
+        this.Hudspace = this.GameSession.FindSpaceByName("HudSpace");
+        this.Hudcamera = this.Hudspace.FindObjectByName("Camera");
+        if(!this.Skip)
+        {
+            this.Hudspace.FindObjectByName("FadeToBlackSprite").Sprite.Visible = true;
+            this.FadingIn();
+        }
+    }
+
+    function FadingIn()
+    {
+        var startFadeIn = new FadeToBlackEvent();
+        startFadeIn.EaseCurve = Ease.Linear;
+        startFadeIn.IsFadeIn = true;
+        startFadeIn.TimeToFade = this.FadeTime;
+        this.Hudcamera.DispatchDown("startFadeIn", startFadeIn);
+        Console.WriteLine("Fade In");
+    }
+    
+}

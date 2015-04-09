@@ -1,0 +1,60 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BridgeSupp",
+	},
+	Archetyped = 
+	{
+		string Name = "5535f1df9848f744:BridgeSupp",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-215.369, -193.805, -0.101612],
+		Vec3 Scale = [1.39931, 0.5, 0.800206],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5535f74b7608d13d:mat_gradientLowGloss",
+		string MeshName = "54afcfd2e5fa7177:BlackRainMainLobby.BridgeSegement",
+		Vec4 Color = [0.57, 0.345164, 0.11115, 1],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = true,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	FootstepSurface = 
+	{
+		Enum SurfaceType = Wood,
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [8, 0.5, 2],
+	},
+	Hierarchy = 
+	{
+	},
+},

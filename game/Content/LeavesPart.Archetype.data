@@ -1,0 +1,89 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "LeavesPart",
+	},
+	Archetyped = 
+	{
+		string Name = "553592d8bdbab13d:LeavesPart",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-228.34, -149.947, 1.60216],
+		Vec3 Scale = [1.5, 1.5, 1.5],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SpriteParticleSystem = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		SystemChildMode ChildMode = Independent,
+		SystemSpace SystemSpace = WorldSpace,
+		uint DrawOrder = 0,
+		float WarmUpTime = 0,
+		ParticleGeometry GeometryMode = Beam,
+		ParticleRenderMode RenderMode = Blended,
+		ParticleSortMode SortMode = Sorted,
+		ParticleAnimation ParticleAnimation = Single,
+		string Texture = "5310e87a46e589c2:SmallRock1",
+		Vec4 Tint = [1, 1, 1, 0.94],
+		float VelocityScale = 0.3,
+		float LengthScale = 0.2,
+		float MaxParticleSize = 100,
+		Vec3 SystemSize = [4, 4, 4],
+	},
+	SphericalParticleEmitter = 
+	{
+		bool Active = true,
+		uint EmitCount = 20,
+		float EmitRate = 1000,
+		float EmitVariance = 0,
+		float Size = 0.6,
+		float SizeVariance = 0.2,
+		float Lifetime = 0.4,
+		float LifetimeVariance = 0.2,
+		float Spin = 0,
+		float SpinVariance = 200,
+		bool RandomSpin = true,
+		float Fill = 1,
+		float EmitterVelocityPercent = 0,
+		Vec3 StartVelocity = [0, 0, 0],
+		Vec3 RandomVelocity = [4, 4, 4],
+		Vec3 TangentVelocity = [0, 0, 0.5],
+		Vec3 EmitterSize = [0.1, 0.1, 0],
+		bool FastMovingEmitter = false,
+	},
+	LinearParticleAnimator = 
+	{
+		Vec3 Force = [0, 0, -8],
+		Vec3 RandomForce = [0, 0, 0],
+		float Torque = 0,
+		float Growth = 0.5,
+		float Dampening = 0,
+		Vec3 Twist = [0, 0, 0],
+	},
+	ParticleColorAnimator = 
+	{
+		Vec4 Color0 = [0.274861, 0.465, 0.06045, 0],
+		Vec4 Color1 = [0.0916512, 0.425, 0.023375, 1],
+		Vec4 Color2 = [0.439956, 0.505, 0.0404, 0.815],
+		Vec4 Color3 = [0.296257, 0.845, 0.038025, 0.145],
+		Vec4 Color4 = [0.97, 0.961028, 0.07275, 0],
+	},
+	TimedDeath = 
+	{
+		float Lifetime = 1,
+		bool SendsDeathEvent = true,
+		bool AutoDestroy = true,
+	},
+	Hierarchy = 
+	{
+	},
+},

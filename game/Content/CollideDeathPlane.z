@@ -28,7 +28,7 @@ class CollideDeathPlane : ZilchComponent
             if(sparkle.BoxParticleEmitter.Active == false)
             {
                 var reset = Action.Sequence(this.Owner.Actions);
-                this.Space.SoundSpace.PlayCue(SoundCue.Find("PlayerDeath"));
+                this.Space.SoundSpace.PlayCue(SoundCue.Find("PlayerHurt"));
                 this.Player.Health.ApplyDamage(1);
                 this.LevelSettings.HudCreator.HudSpace.Create(Archetype.Find("HurtOverlay"));
                 Console.WriteLine("Player Hurt! HP: `this.Player.Health.CurrentHealth`");

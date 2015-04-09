@@ -1,0 +1,39 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "LillyPad",
+	},
+	Archetyped = 
+	{
+		string Name = "550a280251d6ddcc:LillyPad",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-205.167, -161.965, -4.91829],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, -0.619773, -0.784781],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+		string MeshName = "550a28f82688787f:LillyPaD",
+		Vec4 Color = [0.09684, 0.36, 0.054, 1],
+	},
+	SinRotate = 
+	{
+		float SinSpeedX = 2,
+		float SinSpeedY = 3,
+		float Intensity = 0.1,
+		bool UseInitialRot = true,
+		bool UseLocal = false,
+	},
+},

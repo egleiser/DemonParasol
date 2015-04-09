@@ -14,8 +14,8 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [99.3497, -7.98944, 1.75697],
-		Vec3 Scale = [1, 1, 1],
+		Vec3 Translation = [-227.109, -147.639, 1.72258],
+		Vec3 Scale = [1.5, 1.5, 1.5],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	RigidBody = 
@@ -43,8 +43,8 @@ Cog =
 	Targetable = 
 	{
 		Enum IndicatorType = Standard,
-		Vec3 IndicatorOffset = [0, 0, 5],
-		float Range = 20,
+		Vec3 IndicatorOffset = [0, 0, 2],
+		float Range = 30,
 	},
 	GravityEffect = 
 	{
@@ -73,6 +73,11 @@ Cog =
 		float Pitch = 0.5,
 		bool Positional = true,
 	},
+	WaterSplasher = 
+	{
+		int SplashRate = 20,
+		float SplashIntensity = 1,
+	},
 	Hierarchy = 
 	{
 		Cog = 
@@ -95,7 +100,9 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "54a3db5a3ddb6b52:mat_LightIntense",
 				string MeshName = "4de0354322b345ae:Cube",
 				Vec4 Color = [1, 0, 0, 1],
 			},
@@ -134,13 +141,13 @@ Cog =
 				bool SendsMessages = true,
 				bool Seamless = true,
 				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				string SerializedGroupName = "54ff0eb5b975b8c8:CG_Tongue",
 				Vec3 Offset = [0, 0, 0],
 				float Radius = 2.5,
 			},
 			PickUpInteractVolume = 
 			{
-				float ThrowForce = 90000,
+				float ThrowForce = 100000,
 			},
 		},
 		ArchetypeInstance = 

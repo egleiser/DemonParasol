@@ -1,0 +1,86 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: SetOptions.z             ////
+////    Written by: Eric Gleiser     ////
+////                                 ////
+////     Last Updated: 04-07-15      ////
+////                                 ////
+/////////////////////////////////////////
+enum ScreenResolution{SR1920x1080, SR1600x900, SR1280x720, SR1024x768}
+class SetOptions : ZilchComponent
+{
+
+    var PrefResolution:ScreenResolution = ScreenResolution.SR1920x1080;
+    var PrefWindowed:Boolean = false;
+    var PrefHDR:Boolean = true;
+    var PrefAA:Boolean = true;
+    var PrefRefraction:Boolean = true;
+    var PrefMotionBlur:Real = 1.5;
+    var MusicVolume:Real = 1.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //DEBUG CODE
+        /*
+        if(Zero.Keyboard.KeyIsDown(Keys.Control) && Zero.Keyboard.KeyIsPressed(Keys.G))
+        {
+            this.PrefHDR = false;
+            this.PrefAA = false;
+            this.PrefRefraction = false;
+            this.PrefMotionBlur = 0.0;
+            this.SetGraphicsSettings();
+            Console.WriteLine("Set Res");
+        }
+        */
+        
+    }
+    function OnChangeSettings(event : UpdateEvent)
+    {
+        if(this.LevelSettings.DataLoader.SaveFile != null)
+        {
+            this.LevelSettings.DataLoader.SaveFile.SaveData.Resolution = this.PrefResolution;
+            this.LevelSettings.DataLoader.SaveFile.SaveData.Windowed = this.PrefWindowed;
+            this.LevelSettings.DataLoader.SaveFile.SaveData.HDR = this.PrefHDR;
+            this.LevelSettings.DataLoader.SaveFile.SaveData.AA = this.PrefAA;
+            this.LevelSettings.DataLoader.SaveFile.SaveData.Refraction = this.PrefRefraction;
+            this.LevelSettings.DataLoader.SaveFile.SaveData.MusicVolume = this.MusicVolume;
+            this.LevelSettings.DataLoader.StoreSaveFile();
+        }
+    }
+    function SetGraphicsSettings()
+    {
+        this.LevelSettings.DeferredRenderer.AntiAliasing = this.PrefAA;
+        this.LevelSettings.DeferredRenderer.Glow = this.PrefHDR;
+        this.LevelSettings.DeferredRenderer.Hdr = this.PrefHDR;
+        this.LevelSettings.DeferredRenderer.Refraction = this.PrefRefraction;
+        this.LevelSettings.CameraViewport.Camera.MotionBlur.Density = this.PrefMotionBlur;
+    }
+    function SetScreenResolution()
+    {
+        //Set the screen Resolution
+        if(this.PrefResolution == ScreenResolution.SR1920x1080)
+        {
+            this.GameSession.ChangeResolution(!this.PrefWindowed, Real2(1920,1080));
+        }
+        else if(this.PrefResolution == ScreenResolution.SR1600x900)
+        {
+            this.GameSession.ChangeResolution(!this.PrefWindowed, Real2(1600,900));
+        }
+        else if(this.PrefResolution == ScreenResolution.SR1280x720)
+        {
+            this.GameSession.ChangeResolution(!this.PrefWindowed, Real2(1280,720));
+        }
+        else if(this.PrefResolution == ScreenResolution.SR1024x768)
+        {
+            this.GameSession.ChangeResolution(!this.PrefWindowed, Real2(1024,768));
+        }
+        else
+        {
+            this.GameSession.ChangeResolution(!this.PrefWindowed, Real2(1920,1080));
+        }
+    }
+}

@@ -1,0 +1,32 @@
+class SoundDucking : ZilchComponent
+{
+    [Property]
+    var DuckSpeed:Real = 3.0;
+    [Property]
+    var StartPlaying:Boolean = true;
+    var InitVolume: Real = 0.5;
+    var Ducking: Real = 1.0;
+    var MasterVolume: Real = 1.0;
+    var BGMManager:Cog = null;
+    function Initialize(init : CogInitializer)
+    {
+        this.BGMManager = this.LevelSettings.FindChildByName("BGMManager");
+        this.InitVolume = this.Owner.SoundEmitter.Volume;
+        this.Owner.SoundEmitter.Volume = 0.0;
+        if(this.StartPlaying)
+        {
+            this.Owner.SoundEmitter.Stop();
+            this.Owner.SoundEmitter.Play();
+        }
+        if(this.BGMManager != null)
+        {
+            Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        }
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Ducking = this.BGMManager.DungeonSoundManager.Ducking;
+        this.Owner.SoundEmitter.Volume = Math.Lerp(this.Owner.SoundEmitter.Volume, this.InitVolume * this.Ducking * this.MasterVolume, event.Dt * this.DuckSpeed);
+    }
+}

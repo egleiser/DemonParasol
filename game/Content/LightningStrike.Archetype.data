@@ -16,7 +16,7 @@ Cog =
 	{
 		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0.307798, 0, 0, 0.951452],
+		Quat Rotation = [0, 0, 0, 1],
 	},
 	SoundEmitter = 
 	{
@@ -25,30 +25,33 @@ Cog =
 		string CueName = "54fd9482946965c1:ThunderSound",
 		float Volume = 1,
 		float Pitch = 1,
-		bool Positional = true,
+		bool Positional = false,
 	},
 	Light = 
 	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
 		LightType LightType = Directional,
-		bool Active = true,
+		Vec4 Color = [0.63, 0.7558, 1, 1],
+		float Intensity = 40,
 		float Range = 10,
-		float MinRange = 2,
+		float Falloff = 1,
 		float Angle = 45,
-		float Intensity = 5,
-		Vec4 Color = [0.677625, 0.814417, 0.975, 1],
-		float MinRange = 2,
 		float Size = 20,
-		bool Baked = false,
 	},
 	TimedDeath = 
 	{
-		float Lifetime = 5,
+		float Lifetime = 2,
 		bool SendsDeathEvent = true,
 		bool AutoDestroy = true,
 	},
 	SampleCurveLight = 
 	{
 		string LightingCurve = "54fde856a6263761:LightningCurve",
-		float LocalTimeScale = 2,
+		bool UseFog = false,
+		float LocalTimeScale = 4,
+		float FogScale = 10,
 	},
 },

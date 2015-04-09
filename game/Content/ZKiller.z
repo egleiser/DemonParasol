@@ -1,0 +1,15 @@
+class ZKiller : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.Owner.Transform.Translation.Z < -50)
+        {
+            this.Owner.Destroy();
+        }
+    }
+}

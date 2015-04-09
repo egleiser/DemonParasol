@@ -19,13 +19,17 @@ class FootstepDetector : ZilchComponent
     var DebugDraw : Boolean = false;
     [Property]
     var DebugColor : Real4 = Real4(0,1,0,0.7);
-    
+    var LeaveParticles : Archetype = null;
+    var FlowerParticles : Archetype = null;
     var CurrentSurface : FootstepType = FootstepType.Dirt;
     
     function Initialize(init : CogInitializer)
     {
+        this.LeaveParticles = Archetype.Find("LeavesPart");
+        this.FlowerParticles = Archetype.Find("FlowersPart");
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+
     }
     function OnCollisionPersisted(event : CollisionEvent)
     {
@@ -59,6 +63,16 @@ class FootstepDetector : ZilchComponent
             else if(this.CurrentSurface == FootstepType.Gravel)
             {
                 this.Owner.SoundEmitter.PlayCue(SoundCue.Find("FootstepsGravel"));
+            }
+            else if(this.CurrentSurface == FootstepType.Bush)
+            {
+                this.Owner.SoundEmitter.PlayCue(SoundCue.Find("FootstepsBushes"));
+                this.Space.CreateAtPosition(this.LeaveParticles, this.Owner.Transform.WorldTranslation + Real3(0,0,3));
+            }
+            else if(this.CurrentSurface == FootstepType.Flowers)
+            {
+                this.Owner.SoundEmitter.PlayCue(SoundCue.Find("FootstepsFlowers"));
+                this.Space.CreateAtPosition(this.FlowerParticles, this.Owner.Transform.WorldTranslation + Real3(0,0,3));
             }
             else
             {

@@ -1,0 +1,64 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "FenceBrgCpsm",
+	},
+	Archetyped = 
+	{
+		string Name = "553138decb033e68:FenceBrgCps",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [26.6979, -56.3439, 5.22369],
+		Vec3 Scale = [0.6, 0.4, 0.6],
+		Quat Rotation = [0.011875, -0.0143245, -0.707136, 0.706833],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = true,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [0.88139, 6.3391, 2.98072],
+	},
+	Hierarchy = 
+	{
+		ArchetypeInstance = 
+		{
+			string Name = "55313bb7bb0ef21f:FenceWoodX2",
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.33905, 6.47328, -0.518382],
+				Vec3 Scale = [1, 0.5, 1],
+				Quat Rotation = [0.707107, 0, 0, 0.707107],
+			},
+			Named = 
+			{
+				string Name = "FenceWoodX2",
+			},
+		},
+	},
+},

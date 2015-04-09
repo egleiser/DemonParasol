@@ -1,0 +1,31 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "FencePostX2",
+	},
+	Archetyped = 
+	{
+		string Name = "553595966cca0ff9:FencePostX",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0.320618, 5.74067, -3.92787],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5535f74b7608d13d:mat_gradientLowGloss",
+		string MeshName = "55359a00d9adb61b:FencePost",
+		Vec4 Color = [0.87451, 0.184314, 0.203921, 1],
+	},
+},

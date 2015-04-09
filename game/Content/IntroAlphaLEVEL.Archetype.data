@@ -1,0 +1,145 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "IntroAlphaLEVEL",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Plane001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-71.5271, -0.810449, 0.304276],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "55d9df6f54b60b67:Material__25",
+				string MeshName = "550a44bd5b877d1e:IntroAlphaLEVEL.Plane001",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "MountainSide",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-127.775, 0, 24.9783],
+				Vec3 Scale = [1, 1, 0.5906],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "55cddaab47cbd801:RockyArea",
+				string MeshName = "550a44bd5b877d42:IntroAlphaLEVEL.MountainSide",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "GrassyFields",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-21.7392, 0, 28.9915],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "",
+				string MeshName = "550a44bd5b877d5f:IntroAlphaLEVEL.GrassyFields",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "Line001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [7.17282, -2.54592, 43.6988],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "RiverMain",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-54.8403, -4.73812, 57.074],
+				Vec3 Scale = [1, 1, 298.478],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "550a44feafbbab32:RiverFlow",
+				string MeshName = "550a44bd5b877de5:IntroAlphaLEVEL.RiverMain",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+	},
+},

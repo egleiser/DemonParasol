@@ -15,6 +15,14 @@ class SaveData : ZilchComponent
     var TestInt:Integer = 0;
     [Property]
     var CheatsEneabled:Boolean = false;
+    //Options Data
+    var Resolution:ScreenResolution = ScreenResolution.SR1920x1080;
+    var Windowed:Boolean = false;
+    var HDR:Boolean = true;
+    var AA:Boolean = true;
+    var Refraction:Boolean = true;
+    var MotionBlur:Real = 1.5;
+    var MusicVolume:Real = 1.0;
     
     //Player Data
     [Serialized]

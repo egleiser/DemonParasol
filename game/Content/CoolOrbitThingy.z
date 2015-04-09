@@ -58,8 +58,8 @@ class CoolOrbitThingy : ZilchComponent
             this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.WantedRotation, event.Dt);
             this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, this.WantedPosition, event.Dt * 5);
             
-            this.CamLerp = Math.Lerp(this.CamLerp, this.WantedcamLerp, event.Dt*4);
-            this.Owner.Camera.Size = this.CamLerp.Z ;
+            //this.CamLerp = Math.Lerp(this.CamLerp, this.WantedcamLerp, event.Dt*4);
+            //this.Owner.Camera.Size = this.CamLerp.Z ;
         }
         else
         {
@@ -71,7 +71,7 @@ class CoolOrbitThingy : ZilchComponent
             this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.WantedRotation, event.Dt);
             this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, this.WantedPosition, event.Dt * 5);
             
-            this.CamLerp = Math.Lerp(this.CamLerp, this.WantedcamLerp, event.Dt*4);
+            //this.CamLerp = Math.Lerp(this.CamLerp, this.WantedcamLerp, event.Dt*4);
             //this.Owner.Camera.Size = this.CamLerp.Z ;
         }
     }

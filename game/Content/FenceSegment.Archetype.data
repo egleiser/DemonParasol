@@ -1,0 +1,82 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "FenceSegment",
+	},
+	Archetyped = 
+	{
+		string Name = "5535957ae2a1f6e4:FenceSegment",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-205.476, -127.49, 2.43433],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, -0.638088, 0.769963],
+	},
+	RigidBody = 
+	{
+		bool Static = true,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [0.88139, 6.3391, 2.98072],
+	},
+	Hierarchy = 
+	{
+		ArchetypeInstance = 
+		{
+			string Name = "5535959260ff7f15:FenceWoodX",
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.33905, 6.47328, -3.20407],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0.707107, 0, 0, 0.707107],
+			},
+			Named = 
+			{
+				string Name = "FenceWoodX",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "553595966cca0ff9:FencePostX",
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.320618, 5.74067, -3.92787],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0.707107, 0, 0, 0.707107],
+			},
+			Named = 
+			{
+				string Name = "FencePostX",
+			},
+		},
+	},
+},

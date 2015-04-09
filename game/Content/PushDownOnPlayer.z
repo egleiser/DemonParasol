@@ -11,6 +11,9 @@ class PushDownOnPlayer : ZilchComponent
     var Pushing:Boolean = false;
     var InitialRotation:Quaternion = Quaternion(0,0,0,0);
     var Player:Cog = null;
+    [Property]
+    var SensitivityInv:Real = 6.0;
+    
     function Initialize(init : CogInitializer)
     {
         this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
@@ -22,7 +25,7 @@ class PushDownOnPlayer : ZilchComponent
     function OnLogicUpdate(event : UpdateEvent)
     {
         var wantedRot:Quaternion = Quaternion(0,0,0,0);
-        var xOffset = (this.Player.Transform.WorldTranslation.X - this.Owner.Transform.WorldTranslation.X)/6.0;
+        var xOffset = (this.Player.Transform.WorldTranslation.X - this.Owner.Transform.WorldTranslation.X)/this.SensitivityInv;
         if(this.Pushing)
         {
             //Console.WriteLine("Pushing");

@@ -1,0 +1,123 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BridgeSegementLarge",
+	},
+	Archetyped = 
+	{
+		string Name = "5535f5de0f4f49d3:BridgeSegementLarge",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-241.011, -166.158, -0.101612],
+		Vec3 Scale = [1.39931, 0.5, 0.800206],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+	},
+	Model = 
+	{
+		bool Visible = false,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+		string MeshName = "54afcfd2e5fa7177:BlackRainMainLobby.BridgeSegement",
+		Vec4 Color = [0.195, 0.120471, 0.0429, 1],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = true,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	FootstepSurface = 
+	{
+		Enum SurfaceType = Wood,
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [8, 0.5, 2],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "BridgeSegementGhost",
+			},
+			Archetyped = 
+			{
+				string Name = "54afd70e14740464:BridgeSegementGhost",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-7.62939e-006, -0.205746, 1.90735e-006],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [2.38418e-007, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "54afcfd2e5fa7177:BlackRainMainLobby.BridgeSegement",
+				Vec4 Color = [0.195, 0.120471, 0.0429, 1],
+			},
+			RigidBody = 
+			{
+				bool Static = false,
+				bool Asleep = false,
+				bool Kinematic = true,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			FootstepSurface = 
+			{
+				Enum SurfaceType = Wood,
+			},
+			CapsuleCollider = 
+			{
+				bool Ghost = true,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				float Radius = 3,
+				float Height = 14,
+				uint Direction = 0,
+			},
+			PushDownOnPlayer = 
+			{
+				float SensitivityInv = 500,
+			},
+		},
+	},
+},
