@@ -10,13 +10,16 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "55965e3b65bc1eef:ARC_StartSplashGroup",
+		string Name = "55070c5e9df78f63:ARC_StartMenu",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 2],
+		Vec3 Translation = [0, 0, 3],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
+	},
+	Z_GamepadMenuDetection = 
+	{
 	},
 	Hierarchy = 
 	{
@@ -50,7 +53,6 @@ Cog =
 				bool RenderMask = false,
 				bool FlipX = false,
 				bool FlipY = false,
-				bool OnTop = false,
 				bool AnimationActive = true,
 				float AnimationSpeed = 1,
 				uint StartFrame = 0,
@@ -86,12 +88,9 @@ Cog =
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
 				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				TextPositionMode Position = Centered,
 				string FontName = "545d0deafc601f9d:Canaro",
 				uint FontSize = 35,
 				string Text = "PRESS ""A"" TO START",
-				bool OnTop = false,
-				Vec2 Size = [0, 0],
 				TextAlign Align = Center,
 				float PixelsPerUnit = 64,
 				bool Smoothing = true,
@@ -110,7 +109,6 @@ Cog =
 				bool RenderMask = false,
 				bool FlipX = false,
 				bool FlipY = false,
-				bool OnTop = false,
 				bool AnimationActive = true,
 				float AnimationSpeed = 1,
 				uint StartFrame = 0,

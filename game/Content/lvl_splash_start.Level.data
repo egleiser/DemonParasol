@@ -69,6 +69,9 @@ Level =
 			Enum ActiveEaseType = QuadInOut,
 			float ActiveTiming = 1,
 		},
+		DataLoader = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -122,7 +125,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.10017, -1.13663, 50],
+			Vec3 Translation = [6.51095, -2.38673, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -134,7 +137,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 33.2872,
+			float Size = 49.6586,
 		},
 		EditorCameraController = 
 		{
@@ -142,7 +145,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [2.10017, -1.13663, -9.11601e-007],
+			Vec3 LookTarget = [6.51095, -2.38673, -7.188e-007],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -341,12 +344,19 @@ Level =
 			uint StartFrame = 0,
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "55070c5e9df78f63:ARC_StartMenu",
 		LinkId = 
 		{
 			uint Id = 9,
+		},
+		Named = 
+		{
+			string Name = "goStartMenuGroup",
+		},
+		Archetyped = 
+		{
+			string Name = "55070c5e9df78f63:ARC_StartMenu",
 		},
 		Transform = 
 		{
@@ -354,48 +364,10 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Named = 
+		Z_GamepadMenuDetection = 
 		{
-			string Name = "goStartMenuGroup",
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "550feaf7af3185b7:MenuSphereParticleEffect",
-		LinkId = 
-		{
-			uint Id = 10,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-0.375378, -8.99373, 2],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Named = 
-		{
-			string Name = "MenuSphereParticleEffect",
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 11,
-		},
-		Named = 
-		{
-			string Name = "goCreditsGroup",
-		},
-		Archetyped = 
-		{
-			string Name = "550729a305d4422a:ARC_Credits",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-41.9284, 0, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
+			string KeyboardText = "Press ""Enter"" to Start",
+			string GamepadText = "Press ""A"" to Start",
 		},
 		Hierarchy = 
 		{
@@ -403,15 +375,15 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 12,
+					uint Id = 10,
 				},
 				Named = 
 				{
-					string Name = "goCreditsTitle",
+					string Name = "goStartTitle",
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, 5.75446, 2],
+					Vec3 Translation = [0, 1, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -425,7 +397,7 @@ Level =
 					BlendMode BlendMode = Alpha,
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "550729e6147a3115:sprCreditsTitle",
+					string SpriteSource = "559653fca700fd68:sprSetsukoTitle",
 					bool RenderMask = false,
 					bool FlipX = false,
 					bool FlipY = false,
@@ -438,11 +410,11 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 13,
+					uint Id = 11,
 				},
 				Named = 
 				{
-					string Name = "BtnCMainMenu",
+					string Name = "BtnGameStart",
 				},
 				Archetyped = 
 				{
@@ -450,7 +422,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, -6.53336, 2],
+					Vec3 Translation = [0, -6, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -466,7 +438,7 @@ Level =
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 					string FontName = "545d0deafc601f9d:Canaro",
 					uint FontSize = 35,
-					string Text = "MAIN MENU",
+					string Text = "PRESS ""A"" TO START",
 					TextAlign Align = Center,
 					float PixelsPerUnit = 64,
 					bool Smoothing = true,
@@ -525,58 +497,31 @@ Level =
 					CogPath RightButton = "",
 					Enum GamepadConfirmationButton = A,
 					Enum GamepadBackButton = B,
-					string AltSprite = "4e07948c35993095:DefaultSprite",
+					string AltSprite = "",
 					int GamepadIndex = 0,
-					bool Active = false,
+					bool Active = true,
 					float Timer = 0,
-					string LevelToLoad = "4faa6050b86892a8:DefaultLevel",
+					string LevelToLoad = "",
 				},
 			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 14,
-				},
-				Named = 
-				{
-					string Name = "ui_credits",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 11.0563, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "545d0e124f6db9ce:ui_credits",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				Z_UI_CreditScroll = 
-				{
-					Vec3 StartingPosition = [0, -30, 0],
-					float ScrollTime = 10,
-					Vec3 EndPos = [0, 11, 0],
-					Enum EaseType = Linear,
-				},
-				Hierarchy = 
-				{
-				},
-			},
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "550feaf7af3185b7:MenuSphereParticleEffect",
+		LinkId = 
+		{
+			uint Id = 12,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.375378, -8.99373, 2],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "MenuSphereParticleEffect",
 		},
 	},
 },

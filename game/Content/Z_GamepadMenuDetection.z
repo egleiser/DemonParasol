@@ -1,0 +1,79 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FILE:      Z_GamepadButtonController.z
+//AUTHOR:    Travis Moore
+//COURSE:    GAM205
+//COPYRIGHT: ©2015 DigiPen, All Rights Reserved.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+class Z_GamepadMenuDetection : ZilchComponent
+{
+    //GAMEPAD
+    var Gamepad:Gamepad;
+    var GamepadIndex:Integer = Integer(0);
+    
+    //BUTTON
+    var ButtonToChange:Cog;
+    
+    //CONTROL BOOL
+    var IsTextSwapped:Boolean;
+    
+    //KEYBOARD
+    [Property]
+    var KeyboardText:String = "Press \"Enter\" to Start";
+    [Property]
+    var GamepadText:String = "Press \"A\" to Start";
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Initialize()
+    //EXPLANATION-initializes variables and event listeners
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Initialize(init:CogInitializer):Void
+    {
+        //get the gamepad
+        this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
+        
+        if(this.Owner.Name == "goStartMenuGroup")
+        {
+            this.ButtonToChange = this.Owner.FindChildByName("BtnGameStart");
+        }
+        
+        //event listener to update every logical frame
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-OnLogicUpdate()
+    //EXPLANATION-runs code every logical update
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function OnLogicUpdate(event:UpdateEvent):Void
+    {
+        if(this.Gamepad.IsActive && !this.IsTextSwapped)
+        {
+            this.IsTextSwapped = true;
+            this.SwapOutText("gamepad");
+        }
+        //check to see if gamepad does exist
+        if(!this.Gamepad.IsActive && this.IsTextSwapped)
+        {
+            this.IsTextSwapped = false;
+            this.SwapOutText("keyboard");
+        }
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-SwapOutText()
+    //EXPLANATION-swaps out text depending on passed string of "keyboard" or "gamepad"
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function SwapOutText(type_:String):Void
+    {
+        //if keyboard, swap out text
+        if(type_ == "keyboard")
+        {
+            this.ButtonToChange.SpriteText.Text = this.KeyboardText;
+        }
+        //if gamepad, swap out text
+        if(type_ == "gamepad")
+        {
+            this.ButtonToChange.SpriteText.Text = this.GamepadText;
+        }
+    }
+}
