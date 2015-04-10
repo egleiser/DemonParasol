@@ -21,6 +21,8 @@ Level =
 			bool Shadows = false,
 			bool AntiAliasing = false,
 			bool Refraction = true,
+			bool Reflections = true,
+			string ReflectionEnvironmentName = "4fab71e8bcb7a8ce:DefaultTexture",
 			bool GodRays = true,
 			bool RenderMasks = false,
 			bool Glow = true,
@@ -58,9 +60,9 @@ Level =
 		Z_LevelLogic = 
 		{
 			float SplashScreenDelayTimer = 3,
-			string NextSplashToLoad = "",
+			string NextSplashToLoad = "4faa6050b86892a8:DefaultLevel",
 			bool IsSplash = false,
-			string NextLevelToLoad = "",
+			string NextLevelToLoad = "4faa6050b86892a8:DefaultLevel",
 		},
 		Z_MenuAnimations = 
 		{
@@ -98,7 +100,6 @@ Level =
 			bool RenderMask = true,
 			bool FlipX = false,
 			bool FlipY = false,
-			bool OnTop = false,
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
@@ -133,7 +134,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 90.4838,
+			float Size = 33.2872,
 		},
 		EditorCameraController = 
 		{
@@ -205,7 +206,6 @@ Level =
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
-			bool OnTop = false,
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
@@ -256,7 +256,6 @@ Level =
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
-			bool OnTop = false,
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
@@ -297,7 +296,6 @@ Level =
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
-			bool OnTop = false,
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
@@ -313,52 +311,6 @@ Level =
 		LinkId = 
 		{
 			uint Id = 8,
-		},
-		Named = 
-		{
-			string Name = "goCreditsBorder",
-		},
-		EditorFlags = 
-		{
-			bool Locked = false,
-			bool Hidden = true,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0, 0.0468836, 4],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5507219152c7b38a:sprMenuCreditsBorder",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool OnTop = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-		Area = 
-		{
-			Vec2 Size = [32, 18],
-			Location Origin = Center,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 9,
 		},
 		Named = 
 		{
@@ -384,7 +336,6 @@ Level =
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
-			bool OnTop = false,
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
@@ -395,7 +346,7 @@ Level =
 		string Name = "55070c5e9df78f63:ARC_StartMenu",
 		LinkId = 
 		{
-			uint Id = 10,
+			uint Id = 9,
 		},
 		Transform = 
 		{
@@ -413,7 +364,7 @@ Level =
 		string Name = "550feaf7af3185b7:MenuSphereParticleEffect",
 		LinkId = 
 		{
-			uint Id = 11,
+			uint Id = 10,
 		},
 		Transform = 
 		{
@@ -430,7 +381,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 12,
+			uint Id = 11,
 		},
 		Named = 
 		{
@@ -452,7 +403,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 13,
+					uint Id = 12,
 				},
 				Named = 
 				{
@@ -478,7 +429,6 @@ Level =
 					bool RenderMask = false,
 					bool FlipX = false,
 					bool FlipY = false,
-					bool OnTop = false,
 					bool AnimationActive = true,
 					float AnimationSpeed = 1,
 					uint StartFrame = 0,
@@ -488,7 +438,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 14,
+					uint Id = 13,
 				},
 				Named = 
 				{
@@ -514,12 +464,9 @@ Level =
 					BlendMode BlendMode = Alpha,
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					TextPositionMode Position = Centered,
 					string FontName = "545d0deafc601f9d:Canaro",
 					uint FontSize = 35,
 					string Text = "MAIN MENU",
-					bool OnTop = false,
-					Vec2 Size = [0, 0],
 					TextAlign Align = Center,
 					float PixelsPerUnit = 64,
 					bool Smoothing = true,
@@ -538,7 +485,6 @@ Level =
 					bool RenderMask = false,
 					bool FlipX = false,
 					bool FlipY = false,
-					bool OnTop = false,
 					bool AnimationActive = true,
 					float AnimationSpeed = 1,
 					uint StartFrame = 0,
@@ -579,18 +525,18 @@ Level =
 					CogPath RightButton = "",
 					Enum GamepadConfirmationButton = A,
 					Enum GamepadBackButton = B,
-					string AltSprite = "",
+					string AltSprite = "4e07948c35993095:DefaultSprite",
 					int GamepadIndex = 0,
 					bool Active = false,
 					float Timer = 0,
-					string LevelToLoad = "",
+					string LevelToLoad = "4faa6050b86892a8:DefaultLevel",
 				},
 			},
 			Cog = 
 			{
 				LinkId = 
 				{
-					uint Id = 15,
+					uint Id = 14,
 				},
 				Named = 
 				{
@@ -616,7 +562,6 @@ Level =
 					bool RenderMask = false,
 					bool FlipX = false,
 					bool FlipY = false,
-					bool OnTop = false,
 					bool AnimationActive = true,
 					float AnimationSpeed = 1,
 					uint StartFrame = 0,
