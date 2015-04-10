@@ -270,6 +270,9 @@ class TextScrollManager : ZilchComponent
     
     function DialogueEndSettings()
     {
-        this.MainSpace.TimeSpace.Paused = false;
+        if(this.MainSpace.LevelSettings.QuickPause.IsPauseActive == false)
+        {
+            this.MainSpace.TimeSpace.Paused = false;
+        }
     }
 }
