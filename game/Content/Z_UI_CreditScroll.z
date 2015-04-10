@@ -12,7 +12,7 @@ class Z_UI_CreditScroll:ZilchComponent
     [Property]
     var ScrollTime:Real = 10.0;
     [Property]
-    var EndingYPosition:Real = 17.0;
+    var EndPos:Real3 = Real3(0,11,0);
     [Property]
     var EaseType:Ease = Ease.Linear;
     
@@ -36,20 +36,13 @@ class Z_UI_CreditScroll:ZilchComponent
     {
         
         //create action sequence
-        var aCreditsSequence = Action.Sequence(this.Owner.Actions);
+        var aCreditsSequence:ActionSet = Action.Sequence(this.Owner.Actions);
         
         //start scrolling up
         Action.Property(aCreditsSequence,
                         @this.Owner.Transform.Translation,
-                        (this.Owner.Transform.Translation + Real3(0,this.EndingYPosition,0)),
+                        this.EndPos,
                         this.ScrollTime,
                         this.EaseType);
-                        
-        //fade in main menu button
-        Action.Property(aCreditsSequence,
-                        @this.Owner.FindChildByName("BtnMenuMainRed").Sprite.Color,
-                        Real4(1,1,1,1.0),
-                        1.0,
-                        Ease.Linear);
     }
 }

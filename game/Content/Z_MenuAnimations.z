@@ -1,0 +1,148 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FILE-Z_MenuAnimations.z
+//AUTHOR-Travis Moore
+//COURSE-GAM205
+//COPYRIGHT-© 2015 DigiPen, All Rights Reserved.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+class Z_MenuAnimations:ZilchComponent
+{
+    //ANIMATION
+    var AActiveAnimation:ActionSet = null;
+    var AResetAnimation:ActionSet = null;
+    var ActiveColor:Real4 = Real4(1,1,1,0);
+    [Property]
+    var ActiveEaseType:Ease = Ease.QuadInOut;
+    [Property]
+    var ActiveTiming:Real = Real();
+    
+    //MOVE AWAY AND FADE OUT ANIMATION
+    var AMoveAwayAndDestroy:ActionSet = null;
+    var FadeOutColor:Real4 = Real4(1,1,1,0.0);
+    var FadeOutTiming:Real = Real(0.5);
+    var FadeOutPos:Real3 = Real3(0,-100,0);
+    var FadeOutEaseType:Ease = Ease.QuadIn;
+    
+    //DESTROY
+    var GroupToDestroy:Cog = null;
+    
+    //DARK MENU
+    var DarkMenu:Cog = null;
+    var IsDarkMenuActive:Boolean = Boolean(true);
+    var DarkMenuOriginalColor:Real4 = Real4();
+    var DarkMenuOriginalPos:Real3 = Real3();
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Initialize()
+    //EXPLANATION-
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Initialize(init:CogInitializer):Void
+    {
+        //get the dark menu
+        this.DarkMenu = this.Space.FindObjectByName("goMenuBackgroundDark");
+        
+        //set this button's starring properties
+        this.DarkMenuOriginalColor = this.DarkMenu.Sprite.Color;
+        this.DarkMenuOriginalPos = this.DarkMenu.Transform.Translation;
+        
+        //event listener to update and perform code every logical frame
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.AMoveAwayAndDestroy != null && this.AMoveAwayAndDestroy.Completed)
+        {
+            this.AMoveAwayAndDestroy = null;
+            this.GroupToDestroy.Destroy();
+            this.GroupToDestroy = null;
+        }
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-FadeInDarkMenuAnimation()
+    //EXPLANATION-Fade in the DarkMenu
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function FadeInDarkMenuAnimation():Void
+    {
+        //set AActiveAnimation
+        this.AActiveAnimation = Action.Group(this.Owner.Actions);
+        
+        //change color
+        Action.Property(this.AActiveAnimation,
+                        @this.DarkMenu.Sprite.Color,
+                        Real4(1,1,1,1.0),
+                        this.ActiveTiming,
+                        this.ActiveEaseType);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-FadeOutDarkMenuAnimation()
+    //EXPLANATION-Fade out the DarkMenu
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function FadeOutDarkMenuAnimation():Void
+    {
+        //set AActiveAnimation
+        this.AResetAnimation = Action.Group(this.Owner.Actions);
+        
+        //change back to original color
+        Action.Property(this.AResetAnimation,
+                        @this.DarkMenu.Sprite.Color,
+                        Real4(1,1,1,0),
+                        this.ActiveTiming,
+                        this.ActiveEaseType);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-MoveInMenuGroup()
+    //EXPLANATION-Move in the passed menu group
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function MoveInMenuGroup(group_:Cog, pos_:Real3):Void
+    {
+        //set AActiveAnimation
+        var aMoveInGroup:ActionSet = Action.Group(this.Owner.Actions);
+        
+        //change back to original color
+        Action.Property(aMoveInGroup,
+                        @group_.Transform.Translation,
+                        pos_,
+                        this.ActiveTiming,
+                        this.ActiveEaseType);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-MoveAwayAndDestroy()
+    //EXPLANATION-fade away and move away the passed button
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function MoveAwayAndDestroy(menu_:Cog, pos_:Real3):Void
+    {
+        //set AActiveAnimation
+        this.AMoveAwayAndDestroy = Action.Group(this.Owner.Actions);
+        
+        //assign menu_ to be destroyed upon animation completion
+        this.GroupToDestroy = menu_;
+        
+        //move position
+        Action.Property(this.AMoveAwayAndDestroy,
+                        @menu_.Transform.Translation,
+                        pos_,
+                        this.FadeOutTiming,
+                        this.FadeOutEaseType);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Shift()
+    //EXPLANATION-move objects to the left
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Shift(obj_:Cog, pos_:Real3):Void
+    {
+        //set AActiveAnimation
+        var aShift = Action.Group(this.Owner.Actions);
+        
+        //move position
+        Action.Property(aShift,
+                        @obj_.Transform.Translation,
+                        pos_,
+                        this.FadeOutTiming,
+                        this.FadeOutEaseType);
+    }
+}

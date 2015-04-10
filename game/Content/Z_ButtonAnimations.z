@@ -1,0 +1,158 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FILE-Z_ButtonAnimations.z
+//AUTHOR-Travis Moore
+//COURSE-GAM205
+//COPYRIGHT-© 2015 DigiPen, All Rights Reserved.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+class Z_ButtonAnimations:ZilchComponent
+{
+    //ANIMATION
+    var AActiveAnimation:ActionSet = null;
+    var AResetAnimation:ActionSet = null;
+    [Property]
+    var ActiveColor:Real4 = Real4();
+    [Property]
+    var ActiveSize:Real3 = Real3();
+    [Property]
+    var ActivePos:Real3 = Real3();
+    [Property]
+    var ActiveEaseType:Ease = Ease.QuadInOut;
+    [Property]
+    var ActiveTiming:Real = Real();
+    
+    //MOVE AWAY AND FADE OUT ANIMATION
+    var FadeOutColor:Real4 = Real4(1,1,1,0.0);
+    var FadeOutTiming:Real = Real(0.5);
+    var FadeOutPos:Real3 = Real3(0,-100,0);
+    var FadeOutEaseType:Ease = Ease.QuadIn;
+    
+    //BUTTON STATE
+    var IsButtonActive:Boolean = Boolean(false);
+    
+    //BUTTON PROPERTIES
+    var BtnOriginalScale:Real3 = Real3();
+    var BtnOriginalColor:Real4 = Real4();
+    var BtnOriginalPos:Real3 = Real3();
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-Initialize()
+    //EXPLANATION-
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function Initialize(init:CogInitializer):Void
+    {
+        //set this button's starring properties
+        this.BtnOriginalScale = this.Owner.Transform.Scale;
+        this.BtnOriginalColor = this.Owner.SpriteText.Color;
+        this.BtnOriginalPos = this.Owner.Transform.Translation;
+        
+        //event listener to update every logical frame
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-OnLogicUpdate()
+    //EXPLANATION-
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function OnLogicUpdate(event:UpdateEvent):Void
+    {
+        //update if this button is active
+        this.IsButtonActive = this.Owner.Z_GamepadButtonController.Active;
+        
+        //DEBUG--is button active?
+        //Console.WriteLine(this.IsButtonActive);
+        
+        //if button is active
+        if(this.IsButtonActive)
+        {
+            //if actionset has not been created yet
+            if(this.AActiveAnimation == null && this.AResetAnimation == null)
+            {
+                //DEBUG--where are we in the loop?
+                //Console.WriteLine("STARTING ANIMATION LOOP");
+                
+                //call Active Animation
+                this.BtnActiveAnimation();
+            }
+            if(this.AActiveAnimation != null && this.AActiveAnimation.Completed)
+            {
+                //null out the AActiveAnimation
+                this.AActiveAnimation = null;
+                //start the reset animation
+                this.BtnAnimationReset();
+            }
+            if(this.AResetAnimation != null && this.AResetAnimation.Completed)
+            {
+                //null out the AResetAnimation
+                this.AResetAnimation = null;
+                //start the reset animation
+                this.BtnActiveAnimation();
+            }
+        }
+        else
+        {
+            this.AActiveAnimation = null;
+            this.AResetAnimation = null;
+            this.Owner.Transform.Translation = this.BtnOriginalPos;
+            this.Owner.SpriteText.Color = this.BtnOriginalColor;
+            this.Owner.Transform.Scale = this.BtnOriginalScale;
+        }
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-BtnActiveAnimation()
+    //EXPLANATION-change button properties to something different to appear active
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function BtnActiveAnimation():Void
+    {
+        //set AActiveAnimation
+        this.AActiveAnimation = Action.Group(this.Owner.Actions);
+        
+        //scale up
+        Action.Property(this.AActiveAnimation,
+                        @this.Owner.Transform.Scale,
+                        this.ActiveSize,
+                        this.ActiveTiming,
+                        this.ActiveEaseType);
+        //change color
+        Action.Property(this.AActiveAnimation,
+                        @this.Owner.SpriteText.Color,
+                        this.ActiveColor,
+                        this.ActiveTiming,
+                        this.ActiveEaseType);
+        //change position
+        Action.Property(this.AActiveAnimation,
+                        @this.Owner.Transform.Translation,
+                        (this.BtnOriginalPos + this.ActivePos),
+                        this.ActiveTiming,
+                        this.ActiveEaseType);
+    }
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-BtnAnimationReset()
+    //EXPLANATION-change button properties back to original settings
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function BtnAnimationReset():Void
+    {
+        //set AActiveAnimation
+        this.AResetAnimation = Action.Group(this.Owner.Actions);
+        
+        //scale back to original size
+        Action.Property(this.AResetAnimation,
+                        @this.Owner.Transform.Scale,
+                        this.BtnOriginalScale,
+                        this.ActiveTiming,
+                        this.ActiveEaseType);
+        //change back to original color
+        Action.Property(this.AResetAnimation,
+                        @this.Owner.SpriteText.Color,
+                        this.BtnOriginalColor,
+                        this.ActiveTiming,
+                        this.ActiveEaseType);
+        //change back to original position
+        Action.Property(this.AResetAnimation,
+                        @this.Owner.Transform.Translation,
+                        this.BtnOriginalPos,
+                        this.ActiveTiming,
+                        this.ActiveEaseType);
+    }
+}
