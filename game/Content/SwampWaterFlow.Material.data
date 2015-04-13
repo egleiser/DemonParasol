@@ -1,0 +1,45 @@
+Material = 
+{
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Additive,
+	},
+	Refractivity = 
+	{
+	},
+	EmissiveMapping = 
+	{
+		float EmissiveScale = 0.6,
+		string EmissiveMapTexture = "5530a944e7920ac1:toonwaterBR_verydark",
+		Vec2 EmissiveScroll = [0.001, -0.001],
+		Vec2 EmissiveTiling = [20, 20],
+		Vec2 EmissiveOffset = [0, 0],
+	},
+	MaskedRefractionUV = 
+	{
+		string EmissiveTexture = "5530bf724ff087a9:toonwaterBR_dark",
+		string DistortionTexture = "5403cd5ca1c0b953:Chrome2_NRM",
+		string DistortionTexture2 = "5403cd5ca1c0b953:Chrome2_NRM",
+		string MaskTexture = "549077217d8b12f4:CurseGlow",
+		Vec2 Scalar = [0.3, 0.3],
+		Vec2 Scalar2 = [20, 20],
+		Vec2 TexScalar = [25, 25],
+		Vec2 Scroll = [0, 0],
+		Vec2 Scroll2 = [0, 0],
+		Vec2 TexScroll = [0, -0.03],
+		float Multiplier = 1,
+		float DistortionMultiplier = 0.3,
+		Vec4 ScreenPosition = [1, 1, 1, 1],
+	},
+	ModulateModelColor = 
+	{
+	},
+	NormalMapping = 
+	{
+		float Bumpiness = 1.3,
+		string NormalMapTexture = "5403cd5ca1c0b953:Chrome2_NRM",
+		Vec2 NormalScroll = [-0.02, 0],
+		Vec2 NormalTiling = [10, 2],
+		Vec2 NormalOffset = [0, 0],
+	},
+},

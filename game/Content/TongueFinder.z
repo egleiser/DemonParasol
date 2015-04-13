@@ -19,6 +19,7 @@ class TongueFinder : ZilchComponent
     var Grapple:Boolean = false;
     var PullToPlayer:Boolean = false;
     var Latched:Boolean = false;
+    var Attach:Boolean = false;
     function Initialize(init : CogInitializer)
     {
         this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
@@ -61,7 +62,10 @@ class TongueFinder : ZilchComponent
             this.LatchedObject.Transform.WorldTranslation += playerVector * 1.0;
             this.Owner.Transform.WorldTranslation = this.LatchedObject.Transform.WorldTranslation;
         }
-        
+        if(this.Attach)
+        {
+            this.Owner.Transform.WorldTranslation = this.LatchedObject.Transform.WorldTranslation;
+        }
     }
     
     function OnCollisionStarted(event : CollisionEvent)
@@ -70,6 +74,7 @@ class TongueFinder : ZilchComponent
             {
             if(event.OtherObject.Name == "TongueTarget")
             {
+                this.Attach = true;
                 if(this.PullPlayer == false)
                 {
                     this.LatchedObject = event.OtherObject;
