@@ -1,0 +1,71 @@
+class SwampStart : ZilchComponent
+{
+    var WashedUpSprite : Cog = null;
+    var WashedUpLine : Cog = null;
+    var AngerSprite : Cog = null;
+    var Hud : Space = null;
+    var Camera : Cog = null;
+    var FadeSprite : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Hud = this.LevelSettings.HudCreator.HudSpace;
+        this.Camera = this.Hud.FindObjectByName("Camera");
+        this.FadeSprite = this.Camera.FindChildByName("FadeToBlackSprite");
+        this.WashedUpSprite = this.Camera.FindChildByName("WashedUp");
+        this.WashedUpLine = this.WashedUpSprite.FindChildByName("WashedUpLine");
+        this.AngerSprite = this.Camera.FindChildByName("AngerText");
+        
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, Events.LevelStarted, this.OnLevelStarted);
+    }
+
+    function OnLevelStarted(event : GameEvent)
+    {
+        this.FadeSprite.Sprite.Visible = true;
+        this.FreezePlayer();
+        
+        var seq = Action.Sequence(this.Owner.Actions);
+        
+        Action.Call(seq, this.FadingIn);
+        Action.Delay(seq, 1.5);
+        
+        var grp = Action.Group(seq);
+        Action.Property(grp, @this.WashedUpSprite.SpriteText.Color, Real4(1,1,1,1), 1.25, Ease.QuadInOut);
+        Action.Property(grp, @this.WashedUpLine.Sprite.Color, Real4(1,1,1,1), 1.25, Ease.QuadInOut);
+        
+        Action.Delay(seq, 0.5);
+        Action.Property(seq, @this.AngerSprite.SpriteText.Color, Real4(1,1,1,1), 1.25, Ease.QuadInOut);
+        Action.Delay(seq, 1.0);
+        
+        var grp2 = Action.Group(seq);
+        Action.Property(grp2, @this.WashedUpSprite.SpriteText.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
+        Action.Property(grp2, @this.WashedUpLine.Sprite.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
+        Action.Property(grp2, @this.AngerSprite.SpriteText.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
+        
+        Action.Call(seq, this.UnfreezePlayer);
+    }
+    
+    function FreezePlayer()
+    {
+        this.Space.FindObjectByName("Player").PlayerController.FreezeMovement = true;
+    }
+    
+    function UnfreezePlayer()
+    {
+        this.Space.FindObjectByName("Player").PlayerController.FreezeMovement = false;
+        this.FadeSprite.Sprite.Visible = false;
+    }
+    
+    function FadingIn()
+    {
+        var startFadeIn = new FadeToBlackEvent();
+        startFadeIn.IsFadeIn = true;
+        startFadeIn.TimeToFade = 1.0;
+        this.Camera.DispatchDown("startFadeIn", startFadeIn);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

@@ -129,8 +129,8 @@ class Outliner : ZilchComponent
         shadow.SpriteText.FontSize      = this.SpriteText.FontSize;
         shadow.SpriteText.GeometryMode  = this.SpriteText.GeometryMode;
         shadow.SpriteText.PixelsPerUnit = this.SpriteText.PixelsPerUnit;
-        //shadow.SpriteText.Position      = this.SpriteText.Position;
-        //shadow.SpriteText.Size          = this.SpriteText.Size;
+        shadow.SpriteText.Position      = this.SpriteText.Position;
+        shadow.SpriteText.Size          = this.SpriteText.Size;
         shadow.SpriteText.SpriteLayer   = this.SpriteText.SpriteLayer;
         shadow.SpriteText.Text          = this.SpriteText.Text;
         shadow.SpriteText.Visible       = this.SpriteText.Visible;
