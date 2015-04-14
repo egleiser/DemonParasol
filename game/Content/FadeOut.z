@@ -20,6 +20,7 @@ class FadeOut : ZilchComponent
 
     function OnstartFadeIn(event : FadeToBlackEvent)
     {
+        Console.WriteLine("Fade In Occuring");
         var seq = Action.Sequence(this.Owner.Actions);
         
         this.FadeOutTime = event.TimeToFade;

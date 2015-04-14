@@ -43,6 +43,8 @@ class TextBoxManager : ZilchComponent
     var CurrentSprite : SpriteSource = null;
     var SpriteToLoad : SpriteSource = null;
     
+    var Unskippable : Boolean = false;
+    
     var MainSpace : Space = null;
     
     function Initialize(init : CogInitializer)
@@ -64,14 +66,18 @@ class TextBoxManager : ZilchComponent
     
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(Zero.Keyboard.KeyIsPressed(Keys.N) || this.Gamepad.IsButtonPressed(Buttons.B))
+        if(this.Unskippable == false)
         {
-            this.CancelDialogue();
+            if(Zero.Keyboard.KeyIsPressed(Keys.N) || this.Gamepad.IsButtonPressed(Buttons.B))
+            {
+                this.CancelDialogue();
+            }
         }
     }
 
     function OnStartDialogueEvent(event : TextBoxEvent)
     {
+        this.Unskippable = event.Unskippable;
         this.DialogueStarted = true;
         this.TextBoxText.TextScrollManager.DialogueSequence = true;
         //this.ClearDialogue();
@@ -134,7 +140,14 @@ class TextBoxManager : ZilchComponent
         }
         else
         {
-            var speakerSprite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerSprite;
+            Console.WriteLine("Current Text Index = `this.CurrentTextIdx`");
+            Console.WriteLine("ChildTexts Count = `this.ChildTexts.Count`");
+            
+            var speakerSprite = SpriteSource.Find("ui-textbox-setsuko");
+            if(this.CurrentTextIdx <= this.ChildTexts.Count)
+            {
+                speakerSprite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerSprite;
+            }
             if(this.TextBoxSprite != speakerSprite)
             {
                 //Fades out current speaker's text box sprite
@@ -186,14 +199,24 @@ class TextBoxManager : ZilchComponent
     
     function SwitchSprite()
     {
-        this.TextBoxSprite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerSprite;
+        //BUGGG
+        if(this.CurrentTextIdx <= this.ChildTexts.Count)
+        {
+            Console.WriteLine("Index Part1 `this.CurrentTextIdx`");
+            this.TextBoxSprite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerSprite;
+        }
         this.Owner.Sprite.SpriteSource = this.TextBoxSprite;
     }
     
     function ContinueScrollEventCall()
     {
         var e = new TextScrollEvent();
-        e.TextToWrite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerTextBlock;
+        //BUGGG
+        if(this.CurrentTextIdx <= this.ChildTexts.Count)
+        {
+            Console.WriteLine("Index Part2 `this.CurrentTextIdx`");
+            e.TextToWrite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerTextBlock;
+        }
         this.TextBoxText.DispatchEvent("textScrollEvent", e);
     }
     
@@ -223,7 +246,7 @@ class TextBoxManager : ZilchComponent
                         Ease.Linear);
         Action.Call(grp, this.TextBoxText.TextScrollManager.DialogueEndSettings);
                         
-        this.CurrentTextIdx = this.ChildTexts.Count;
+        this.CurrentTextIdx = 0;
     }
     
     function FirstTextScroll()

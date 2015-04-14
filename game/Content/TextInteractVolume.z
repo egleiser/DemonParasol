@@ -64,6 +64,7 @@ class TextInteractVolume : ZilchComponent
                     textBoxEvent.EaseCurve = Ease.QuadOut;
                     textBoxEvent.Opacity = 0.85;
                     textBoxEvent.OpacityTimeIn = 0.5;
+                    textBoxEvent.Unskippable = true;
                     this.TextBox.DispatchEvent("startDialogue", textBoxEvent);
                 }
 

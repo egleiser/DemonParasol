@@ -51,7 +51,7 @@ class IntroTextFadeInOut : ZilchComponent
         Action.Property(grp3, @this.UnscarredSprite.SpriteText.Color, Real4(1,1,1,1), 1.25, Ease.QuadInOut);
         Action.Property(grp3, @this.UnscarredLine.Sprite.Color, Real4(1,1,1,1), 1.25, Ease.QuadInOut);
         Action.Call(grp3, this.PlayNarrationB);
-        Action.Delay(seq, 0.75);
+        Action.Delay(seq, 0.5);
         Action.Property(seq, @this.DenialSprite.SpriteText.Color, Real4(1,1,1,1), 1.25, Ease.QuadInOut);
         Action.Delay(seq, 1.5);
         

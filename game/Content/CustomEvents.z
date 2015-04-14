@@ -148,12 +148,15 @@ class TextBoxEvent : Event
     var OpacityTimeIn : Real = 0.0;
     //The ease for the opacity to change applied to the action
     var OpacityEase : Ease = Ease.Linear;
+    var Unskippable : Boolean = false;
+    
 }
 //Event for starting text scroll
 class TextScrollEvent : Event
 {
     //The text block with the text that will be scrolled on each scroll event
     var TextToWrite : TextBlock = null;
+    
 }
 //Event for continue dialogue past the initial text block
 class ContinueDialogueEvent : Event
