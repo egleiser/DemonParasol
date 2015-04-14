@@ -1,0 +1,35 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "RedLight",
+	},
+	Archetyped = 
+	{
+		string Name = "54512b90c69d5e0d:StarGlowFX",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [215.452, -19.7385, 5.98202],
+		Vec3 Scale = [5.21342, 2.22409, 5.21342],
+		Quat Rotation = [0.684654, 0.176775, 0.176775, 0.684654],
+	},
+	Light = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		LightType LightType = Point,
+		Vec4 Color = [1, 0.215, 0.215, 1],
+		float Intensity = 1,
+		float Range = 30,
+		float Falloff = 1,
+		float Angle = 45,
+		float Size = 20,
+	},
+},

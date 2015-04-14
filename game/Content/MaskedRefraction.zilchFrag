@@ -46,5 +46,6 @@ class MaskedRefraction
         bumpTex *= this.MaskTexture.Sample(this.Uv).XY;
         var newUv = (this.PixelPosition.XY/this.PixelPosition.Z) + bumpTex.XY  * this.Scalar;
         this.Refraction = newUv;
+
     }
 }

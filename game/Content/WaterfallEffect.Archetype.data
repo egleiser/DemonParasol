@@ -8,9 +8,13 @@ Cog =
 	{
 		string Name = "WaterfallEffect",
 	},
+	Archetyped = 
+	{
+		string Name = "550a7022e2760f85:WaterfallEffect",
+	},
 	Transform = 
 	{
-		Vec3 Translation = [-331.995, -154.984, 27.5131],
+		Vec3 Translation = [-330.79, -156.306, 30.2434],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0.366476, 0.930427],
 	},
@@ -29,7 +33,7 @@ Cog =
 		ParticleSortMode SortMode = Youngest,
 		ParticleAnimation ParticleAnimation = Single,
 		string Texture = "5481a3be505b232b:wind-particles-simple-03",
-		Vec4 Tint = [1, 1, 1, 1],
+		Vec4 Tint = [1, 1, 1, 0.9999],
 		float VelocityScale = 0.1,
 		float LengthScale = 0.01,
 		float MaxParticleSize = 100,
@@ -37,7 +41,7 @@ Cog =
 	},
 	LinearParticleAnimator = 
 	{
-		Vec3 Force = [0, -3, -9],
+		Vec3 Force = [0, -2, -20],
 		Vec3 RandomForce = [0, 0, 0],
 		float Torque = 1,
 		float Growth = 2,
@@ -56,11 +60,11 @@ Cog =
 	{
 		bool Active = true,
 		uint EmitCount = 0,
-		float EmitRate = 100,
+		float EmitRate = 120,
 		float EmitVariance = 0,
-		float Size = 5,
+		float Size = 7,
 		float SizeVariance = 0.5,
-		float Lifetime = 3,
+		float Lifetime = 1.9,
 		float LifetimeVariance = 0.2,
 		float Spin = 0,
 		float SpinVariance = 50,
@@ -70,7 +74,10 @@ Cog =
 		Vec3 StartVelocity = [0, 0, 0],
 		Vec3 RandomVelocity = [2, 2, 2],
 		Vec3 TangentVelocity = [0, 0, 0],
-		Vec3 EmitterSize = [40, 0, 0],
+		Vec3 EmitterSize = [38, 0, 0],
 		bool FastMovingEmitter = false,
+	},
+	Hierarchy = 
+	{
 	},
 },

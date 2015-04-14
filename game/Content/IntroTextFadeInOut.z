@@ -32,6 +32,7 @@ class IntroTextFadeInOut : ZilchComponent
         
         Action.Property(grp, @this.JapanSprite.SpriteText.Color, Real4(1,1,1,1), 2.0, Ease.QuadInOut);
         Action.Property(grp, @this.LineSprite.Sprite.Color, Real4(1,1,1,1), 2.0, Ease.QuadInOut);
+        Action.Call(grp, this.FreezePlayer);
         Action.Call(grp, this.PlayNarrationA);
         Action.Delay(seq, 1.5);
         Action.Property(seq, @this.YearSprite.SpriteText.Color, Real4(1,1,1,1), 2.0, Ease.QuadInOut);
@@ -44,7 +45,7 @@ class IntroTextFadeInOut : ZilchComponent
         Action.Property(seq, @this.YearSprite.SpriteText.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
         Action.Delay(seq, 2.0);
         Action.Call(seq, this.FadingIn);
-        Action.Delay(seq, 8.0);
+        Action.Delay(seq, 3.0);
         
         var grp3 = Action.Group(seq);
         Action.Property(grp3, @this.UnscarredSprite.SpriteText.Color, Real4(1,1,1,1), 1.25, Ease.QuadInOut);
@@ -59,8 +60,9 @@ class IntroTextFadeInOut : ZilchComponent
         Action.Property(grp4, @this.UnscarredLine.Sprite.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
         Action.Property(grp4, @this.DenialSprite.SpriteText.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
         
-        Action.Delay(seq, 8.0);
-        Action.Call(seq, this.GhostIntroColliders);
+        Action.Delay(seq, 5.5);
+        Action.Call(seq, this.ResetDucking);
+        Action.Call(seq, this.UnfreezePlayer);
         Action.Call(seq, this.StartIntroDialogue);
     }
     
@@ -68,31 +70,44 @@ class IntroTextFadeInOut : ZilchComponent
     {
         var startFadeIn = new FadeToBlackEvent();
         startFadeIn.IsFadeIn = true;
-        startFadeIn.TimeToFade = 7.0;
+        startFadeIn.TimeToFade = 2.0;
         this.Hudcamera.DispatchDown("startFadeIn", startFadeIn);
     }
     function PlayNarrationA()
     {
-        this.Owner.SoundEmitter.Volume = 4.0;
+        this.MainSpace.FindObjectByName("BGMManager").DungeonSoundManager.Ducking = 0.2;
+        this.Owner.SoundEmitter.Cue = SoundCue.Find("01 Narrator_Intro to Game");
+        this.Owner.SoundEmitter.Volume = 0.6;
+        //The recording is too quiet so the only way to increase the volume is to call this twice
+        this.Owner.SoundEmitter.Play();
         this.Owner.SoundEmitter.Play();
     }
     function PlayNarrationB()
     {
         this.Owner.SoundEmitter.Stop();
-        this.Owner.SoundEmitter.Cue = SoundCue.Find("Narration-LeavingTheHouse-B");
+        this.Owner.SoundEmitter.Cue = SoundCue.Find("02 Narrator_Setsuko Leaving House");
+        //The recording is too quiet so the only way to increase the volume is to call this twice
+        this.Owner.SoundEmitter.Play();
         this.Owner.SoundEmitter.Play();
     }
     function StartIntroDialogue()
     {
-        var mainSpace = this.GameSession.FindSpaceByName("Main");
-        mainSpace.FindObjectByName("IntroDiagCube1").CollisionBasedDialogue.IntroOver = true;
+        //var mainSpace = this.GameSession.FindSpaceByName("Main");
+        //mainSpace.FindObjectByName("IntroDiagCube1").CollisionBasedDialogue.IntroOver = true;
     }
     
-    function GhostIntroColliders()
+    function ResetDucking()
     {
-        foreach(var block in this.MainSpace.FindAllObjectsByName("IntroBlockCube"))
-        {
-            block.BoxCollider.Ghost = true;
-        }
+        this.MainSpace.FindObjectByName("BGMManager").DungeonSoundManager.Ducking = 0.7;
+    }
+    
+    function FreezePlayer()
+    {
+        this.MainSpace.FindObjectByName("Player").PlayerController.FreezeMovement = true;
+    }
+    
+    function UnfreezePlayer()
+    {
+        this.MainSpace.FindObjectByName("Player").PlayerController.FreezeMovement = false;
     }
 }

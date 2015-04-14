@@ -134,7 +134,7 @@ Level =
 				},
 				DungeonSoundManager = 
 				{
-					float MasterVolume = 0.4,
+					float Ducking = 1,
 				},
 				Hierarchy = 
 				{
@@ -297,6 +297,8 @@ Level =
 			float Deceleration = 1.5,
 			CogPath CameraPath = ":/Camera",
 			bool WindActive = true,
+			bool HideTongueUI = false,
+			string HideTongueString = "Action",
 			bool FreezeMovement = false,
 		},
 		FootstepDetector = 

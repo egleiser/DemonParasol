@@ -204,9 +204,15 @@ Level =
 		},
 		Transform = 
 		{
+<<<<<<< HEAD
 			Vec3 Translation = [333.146, 110.753, -3.33961],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0.0471016, -0.0138746, -0.000654306, 0.998794],
+=======
+			Vec3 Translation = [21.7399, -34.2792, 16.8869],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.452467, -0.0729438, 0.0371668, 0.888015],
+>>>>>>> master
 		},
 		Camera = 
 		{
@@ -221,10 +227,17 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
+<<<<<<< HEAD
 			float LookDistance = 51.9068,
 			float VerticalAngle = 0.0942473,
 			float HorizontalAngle = 0.0277809,
 			Vec3 LookTarget = [334.581, 105.868, -54.9961],
+=======
+			float LookDistance = 85.5797,
+			float VerticalAngle = -0.942479,
+			float HorizontalAngle = 0.163917,
+			Vec3 LookTarget = [29.9485, 34.9563, -32.7412],
+>>>>>>> master
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -236,19 +249,12 @@ Level =
 			bool Wireframe = false,
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "53765c31a01574f5:Player",
 		LinkId = 
 		{
 			uint Id = 7,
-		},
-		Named = 
-		{
-			string Name = "Player",
-		},
-		Archetyped = 
-		{
-			string Name = "53765c31a01574f5:Player",
 		},
 		Transform = 
 		{
@@ -256,6 +262,7 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
+<<<<<<< HEAD
 		InputController = 
 		{
 			bool Active = false,
@@ -1168,13 +1175,18 @@ Level =
 					},
 				},
 			},
+=======
+		Named = 
+		{
+			string Name = "Player",
+>>>>>>> master
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 29,
+			uint Id = 8,
 		},
 		Named = 
 		{
@@ -1278,7 +1290,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 30,
+					uint Id = 9,
 				},
 				Named = 
 				{
@@ -1316,7 +1328,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 31,
+							uint Id = 10,
 						},
 						Named = 
 						{
@@ -1361,7 +1373,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 32,
+							uint Id = 11,
 						},
 						Named = 
 						{
@@ -1451,7 +1463,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 33,
+							uint Id = 12,
 						},
 						Named = 
 						{
@@ -1512,7 +1524,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 34,
+			uint Id = 13,
 		},
 		Named = 
 		{
@@ -1534,7 +1546,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 35,
+					uint Id = 14,
 				},
 				Named = 
 				{
@@ -1556,7 +1568,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 36,
+							uint Id = 15,
 						},
 						Named = 
 						{
@@ -1583,7 +1595,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 37,
+							uint Id = 16,
 						},
 						Named = 
 						{
@@ -1610,7 +1622,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 38,
+							uint Id = 17,
 						},
 						Named = 
 						{
@@ -1633,12 +1645,19 @@ Level =
 							Vec4 Color = [0.46, 0, 0, 1],
 						},
 					},
-					ArchetypeInstance = 
+					Cog = 
 					{
-						string Name = "54afd977f8a916f8:waterfall1",
 						LinkId = 
 						{
-							uint Id = 39,
+							uint Id = 18,
+						},
+						Named = 
+						{
+							string Name = "waterfall1",
+						},
+						Archetyped = 
+						{
+							string Name = "54afd977f8a916f8:waterfall1",
 						},
 						Transform = 
 						{
@@ -1646,16 +1665,25 @@ Level =
 							Vec3 Scale = [0.327699, 1.12349, 0.253482],
 							Quat Rotation = [0.0284349, -0.369736, 0.0431847, 0.927697],
 						},
-						Named = 
+						Model = 
 						{
-							string Name = "waterfall1",
+							bool Visible = false,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "54ae522e920b36f0:WaterFlow",
+							string MeshName = "54ae5c0c06089614:BossRoom.waterfall1",
+							Vec4 Color = [0.235, 0, 0.23265, 1],
+						},
+						Hierarchy = 
+						{
 						},
 					},
 					Cog = 
 					{
 						LinkId = 
 						{
-							uint Id = 40,
+							uint Id = 19,
 						},
 						Named = 
 						{
@@ -1669,7 +1697,7 @@ Level =
 						},
 						Model = 
 						{
-							bool Visible = true,
+							bool Visible = false,
 							bool VisibilityCulling = true,
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
@@ -1682,7 +1710,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 41,
+							uint Id = 20,
 						},
 						Named = 
 						{
@@ -1709,7 +1737,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 42,
+							uint Id = 21,
 						},
 						Named = 
 						{
@@ -1736,7 +1764,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 43,
+							uint Id = 22,
 						},
 						Named = 
 						{
@@ -1750,7 +1778,7 @@ Level =
 						},
 						Model = 
 						{
-							bool Visible = true,
+							bool Visible = false,
 							bool VisibilityCulling = true,
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
@@ -1763,7 +1791,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 44,
+							uint Id = 23,
 						},
 						Named = 
 						{
@@ -1790,7 +1818,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 45,
+							uint Id = 24,
 						},
 						Named = 
 						{
@@ -1817,7 +1845,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 46,
+							uint Id = 25,
 						},
 						Named = 
 						{
@@ -1844,7 +1872,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 47,
+							uint Id = 26,
 						},
 						Named = 
 						{
@@ -1871,7 +1899,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 48,
+							uint Id = 27,
 						},
 						Named = 
 						{
@@ -1879,7 +1907,7 @@ Level =
 						},
 						Transform = 
 						{
-							Vec3 Translation = [0, -6.08253, 0],
+							Vec3 Translation = [0, -24.9584, 0],
 							Vec3 Scale = [1, 0.366742, 1],
 							Quat Rotation = [0, 0, 0, 1],
 						},
@@ -1905,7 +1933,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 49,
+							uint Id = 28,
 						},
 						Named = 
 						{
@@ -1932,7 +1960,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 50,
+							uint Id = 29,
 						},
 						Named = 
 						{
@@ -1959,7 +1987,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 51,
+							uint Id = 30,
 						},
 						Named = 
 						{
@@ -2005,7 +2033,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 52,
+							uint Id = 31,
 						},
 						Named = 
 						{
@@ -2032,7 +2060,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 53,
+							uint Id = 32,
 						},
 						Named = 
 						{
@@ -2081,7 +2109,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 54,
+							uint Id = 33,
 						},
 						Named = 
 						{
@@ -2108,7 +2136,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 55,
+							uint Id = 34,
 						},
 						Named = 
 						{
@@ -2122,7 +2150,7 @@ Level =
 						},
 						Model = 
 						{
-							bool Visible = true,
+							bool Visible = false,
 							bool VisibilityCulling = true,
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
@@ -2135,7 +2163,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 56,
+							uint Id = 35,
 						},
 						Named = 
 						{
@@ -2162,7 +2190,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 57,
+							uint Id = 36,
 						},
 						Named = 
 						{
@@ -2189,7 +2217,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 58,
+							uint Id = 37,
 						},
 						Named = 
 						{
@@ -2216,7 +2244,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 59,
+							uint Id = 38,
 						},
 						Named = 
 						{
@@ -2243,7 +2271,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 60,
+							uint Id = 39,
 						},
 						Named = 
 						{
@@ -2270,7 +2298,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 61,
+							uint Id = 40,
 						},
 						Named = 
 						{
@@ -2297,7 +2325,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 62,
+							uint Id = 41,
 						},
 						Named = 
 						{
@@ -2309,7 +2337,7 @@ Level =
 						},
 						Transform = 
 						{
-							Vec3 Translation = [0, -7.31273, 43.4147],
+							Vec3 Translation = [0, -30.0198, 43.4147],
 							Vec3 Scale = [1.3, 0.366742, 1.3],
 							Quat Rotation = [0, 0, 0, 1],
 						},
@@ -2335,7 +2363,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 63,
+							uint Id = 42,
 						},
 						Named = 
 						{
@@ -2347,7 +2375,7 @@ Level =
 						},
 						Transform = 
 						{
-							Vec3 Translation = [-53.7875, -7.88429, 3.61894],
+							Vec3 Translation = [-53.7875, -30.5913, 3.61894],
 							Vec3 Scale = [1, 0.366742, 1],
 							Quat Rotation = [0, 0, 0, 1],
 						},
@@ -2373,7 +2401,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 64,
+							uint Id = 43,
 						},
 						Named = 
 						{
@@ -2385,7 +2413,7 @@ Level =
 						},
 						Transform = 
 						{
-							Vec3 Translation = [54.0087, -7.88429, 3.61895],
+							Vec3 Translation = [54.0087, -30.5913, 3.61895],
 							Vec3 Scale = [1, 0.366742, 1],
 							Quat Rotation = [0, 0, 0, 1],
 						},
@@ -2411,7 +2439,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 65,
+							uint Id = 44,
 						},
 						Named = 
 						{
@@ -2423,7 +2451,7 @@ Level =
 						},
 						Transform = 
 						{
-							Vec3 Translation = [54.0087, -10.0836, -53.849],
+							Vec3 Translation = [54.0087, -32.7906, -53.849],
 							Vec3 Scale = [1, 0.366742, 1],
 							Quat Rotation = [0, 0, 0, 1],
 						},
@@ -2449,7 +2477,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 66,
+							uint Id = 45,
 						},
 						Named = 
 						{
@@ -2461,7 +2489,7 @@ Level =
 						},
 						Transform = 
 						{
-							Vec3 Translation = [-53.7875, -10.0836, -53.849],
+							Vec3 Translation = [-53.7875, -32.7906, -53.849],
 							Vec3 Scale = [1, 0.366742, 1],
 							Quat Rotation = [0, 0, 0, 1],
 						},
@@ -2491,7 +2519,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 67,
+			uint Id = 46,
 		},
 		Named = 
 		{
@@ -2543,7 +2571,7 @@ Level =
 		string Name = "5481a2f612bcc3ec:TargetLock",
 		LinkId = 
 		{
-			uint Id = 68,
+			uint Id = 47,
 		},
 		Transform = 
 		{
@@ -2560,7 +2588,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 69,
+			uint Id = 48,
 		},
 		Named = 
 		{
@@ -2587,7 +2615,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 70,
+			uint Id = 49,
 		},
 		Named = 
 		{
@@ -2631,7 +2659,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 71,
+					uint Id = 50,
 				},
 				Named = 
 				{
@@ -2670,7 +2698,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 72,
+							uint Id = 51,
 						},
 						Named = 
 						{
@@ -2704,7 +2732,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 73,
+							uint Id = 52,
 						},
 						Named = 
 						{
@@ -2731,7 +2759,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 74,
+							uint Id = 53,
 						},
 						Named = 
 						{
@@ -2766,7 +2794,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 75,
+									uint Id = 54,
 								},
 								Named = 
 								{
@@ -2795,7 +2823,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 76,
+							uint Id = 55,
 						},
 						Named = 
 						{
@@ -2822,7 +2850,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 77,
+							uint Id = 56,
 						},
 						Named = 
 						{
@@ -2850,7 +2878,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 78,
+									uint Id = 57,
 								},
 								Named = 
 								{
@@ -2890,7 +2918,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 79,
+									uint Id = 58,
 								},
 								Named = 
 								{
@@ -2932,7 +2960,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 80,
+									uint Id = 59,
 								},
 								Named = 
 								{
@@ -2961,7 +2989,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 81,
+							uint Id = 60,
 						},
 						Named = 
 						{
@@ -2988,7 +3016,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 82,
+							uint Id = 61,
 						},
 						Named = 
 						{
@@ -3022,7 +3050,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 83,
+							uint Id = 62,
 						},
 						Named = 
 						{
@@ -3056,7 +3084,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 84,
+							uint Id = 63,
 						},
 						Named = 
 						{
@@ -3090,7 +3118,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 85,
+							uint Id = 64,
 						},
 						Named = 
 						{
@@ -3146,7 +3174,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 86,
+							uint Id = 65,
 						},
 						Named = 
 						{
@@ -3195,7 +3223,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 87,
+							uint Id = 66,
 						},
 						Named = 
 						{
@@ -3254,7 +3282,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 88,
+									uint Id = 67,
 								},
 								Named = 
 								{
@@ -3348,7 +3376,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 89,
+							uint Id = 68,
 						},
 						Named = 
 						{
@@ -3406,7 +3434,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 90,
+							uint Id = 69,
 						},
 						Named = 
 						{
@@ -3454,7 +3482,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 91,
+									uint Id = 70,
 								},
 								Named = 
 								{
@@ -3481,7 +3509,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 92,
+									uint Id = 71,
 								},
 								Named = 
 								{
@@ -3508,7 +3536,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 93,
+									uint Id = 72,
 								},
 								Named = 
 								{
@@ -3532,7 +3560,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 94,
+									uint Id = 73,
 								},
 								Named = 
 								{
@@ -3561,7 +3589,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 95,
+							uint Id = 74,
 						},
 						Named = 
 						{
@@ -3644,7 +3672,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 96,
+							uint Id = 75,
 						},
 						Named = 
 						{
@@ -3672,7 +3700,7 @@ Level =
 						string Name = "54af904ddbb24e41:HurtSmoke",
 						LinkId = 
 						{
-							uint Id = 97,
+							uint Id = 76,
 						},
 						Transform = 
 						{
@@ -3693,7 +3721,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 98,
+			uint Id = 77,
 		},
 		Named = 
 		{
@@ -3744,7 +3772,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 99,
+			uint Id = 78,
 		},
 		Named = 
 		{
@@ -3795,7 +3823,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 100,
+			uint Id = 79,
 		},
 		Named = 
 		{
@@ -3846,7 +3874,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 101,
+			uint Id = 80,
 		},
 		Named = 
 		{
@@ -3897,7 +3925,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 102,
+			uint Id = 81,
 		},
 		Named = 
 		{
@@ -3948,7 +3976,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 103,
+			uint Id = 82,
 		},
 		Named = 
 		{
@@ -3999,7 +4027,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 104,
+			uint Id = 83,
 		},
 		Named = 
 		{
@@ -4051,7 +4079,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 105,
+			uint Id = 84,
 		},
 		Transform = 
 		{
@@ -4069,7 +4097,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 106,
+			uint Id = 85,
 		},
 		Transform = 
 		{
@@ -4087,7 +4115,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 107,
+			uint Id = 86,
 		},
 		Transform = 
 		{
@@ -4104,7 +4132,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 108,
+			uint Id = 87,
 		},
 		Named = 
 		{
@@ -4153,7 +4181,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 109,
+			uint Id = 88,
 		},
 		Named = 
 		{
@@ -4202,7 +4230,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 110,
+			uint Id = 89,
 		},
 		Named = 
 		{
@@ -4251,7 +4279,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 111,
+			uint Id = 90,
 		},
 		Named = 
 		{
@@ -4300,7 +4328,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 112,
+			uint Id = 91,
 		},
 		Named = 
 		{
@@ -4349,7 +4377,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 113,
+			uint Id = 92,
 		},
 		Named = 
 		{
@@ -4398,7 +4426,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 114,
+			uint Id = 93,
 		},
 		Named = 
 		{
@@ -4447,7 +4475,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 115,
+			uint Id = 94,
 		},
 		Named = 
 		{
@@ -4496,7 +4524,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 116,
+			uint Id = 95,
 		},
 		Named = 
 		{
@@ -4548,7 +4576,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 117,
+			uint Id = 96,
 		},
 		Named = 
 		{
@@ -4600,7 +4628,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 118,
+			uint Id = 97,
 		},
 		Named = 
 		{
@@ -4653,7 +4681,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 119,
+			uint Id = 98,
 		},
 		Transform = 
 		{
@@ -4671,7 +4699,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 120,
+			uint Id = 99,
 		},
 		Transform = 
 		{
@@ -4688,7 +4716,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 121,
+			uint Id = 100,
 		},
 		Named = 
 		{
@@ -4696,7 +4724,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [7.4897, 38.175, -1.38987],
+			Vec3 Translation = [7.4897, 38.175, -1.24113],
 			Vec3 Scale = [3.31083, 11.9821, 3.31083],
 			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
@@ -4739,7 +4767,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 122,
+			uint Id = 101,
 		},
 		Named = 
 		{
@@ -4790,7 +4818,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 123,
+			uint Id = 102,
 		},
 		Named = 
 		{
@@ -4842,7 +4870,7 @@ Level =
 		string Name = "54af82929de79018:ArrowPoint",
 		LinkId = 
 		{
-			uint Id = 124,
+			uint Id = 103,
 		},
 		Transform = 
 		{
@@ -4860,7 +4888,7 @@ Level =
 		string Name = "54af82929de79018:ArrowPoint",
 		LinkId = 
 		{
-			uint Id = 125,
+			uint Id = 104,
 		},
 		Transform = 
 		{
@@ -4878,7 +4906,7 @@ Level =
 		string Name = "54af82929de79018:ArrowPoint",
 		LinkId = 
 		{
-			uint Id = 126,
+			uint Id = 105,
 		},
 		Transform = 
 		{
@@ -4895,7 +4923,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 127,
+			uint Id = 106,
 		},
 		Named = 
 		{
@@ -4926,7 +4954,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 128,
+			uint Id = 107,
 		},
 		Named = 
 		{
@@ -4976,111 +5004,10 @@ Level =
 	},
 	ArchetypeInstance = 
 	{
-		string Name = "54af9521548f6372:BlackRainSmoke",
-		LinkId = 
-		{
-			uint Id = 129,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [7.82667, 37.9073, -3.03662],
-			Vec3 Scale = [0.999997, 1, 0.999996],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Named = 
-		{
-			string Name = "BlackRainSmoke",
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 130,
-		},
-		Named = 
-		{
-			string Name = "BlackRainSmoke",
-		},
-		Archetyped = 
-		{
-			string Name = "54af9521548f6372:BlackRainSmoke",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [25.2417, 43.8577, -3.03662],
-			Vec3 Scale = [0.999997, 1, 0.999996],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		SpriteParticleSystem = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = false,
-			SystemChildMode ChildMode = Independent,
-			SystemSpace SystemSpace = WorldSpace,
-			uint DrawOrder = 0,
-			float WarmUpTime = 0,
-			ParticleGeometry GeometryMode = Billboarded,
-			ParticleRenderMode RenderMode = Blended,
-			ParticleSortMode SortMode = Sorted,
-			ParticleAnimation ParticleAnimation = Looping,
-			string Texture = "5481a3be505a50f6:wind-particles-glow-02",
-			Vec4 Tint = [1, 1, 1, 1],
-			float VelocityScale = 0.3,
-			float LengthScale = 0.2,
-			float MaxParticleSize = 100,
-			Vec3 SystemSize = [40, 40, 40],
-		},
-		SphericalParticleEmitter = 
-		{
-			bool Active = true,
-			uint EmitCount = 0,
-			float EmitRate = 70,
-			float EmitVariance = 0,
-			float Size = 1,
-			float SizeVariance = 0.2,
-			float Lifetime = 1,
-			float LifetimeVariance = 0.2,
-			float Spin = 100,
-			float SpinVariance = 50,
-			bool RandomSpin = true,
-			float Fill = 1,
-			float EmitterVelocityPercent = 0,
-			Vec3 StartVelocity = [0, 0, 2],
-			Vec3 RandomVelocity = [0.5, 0.5, 0.5],
-			Vec3 TangentVelocity = [0, 0, 0],
-			Vec3 EmitterSize = [3, 3, 3],
-			bool FastMovingEmitter = false,
-		},
-		LinearParticleAnimator = 
-		{
-			Vec3 Force = [0, 0, 2],
-			Vec3 RandomForce = [0, 0, 0],
-			float Torque = 0,
-			float Growth = 2,
-			float Dampening = 0,
-			Vec3 Twist = [0, 0, 0],
-		},
-		ParticleColorAnimator = 
-		{
-			Vec4 Color0 = [0.38, 1, 0, 0],
-			Vec4 Color1 = [0.3298, 0.485, 0, 1],
-			Vec4 Color2 = [0.35, 0, 1, 0.49],
-			Vec4 Color3 = [0.70645, 0, 0.995, 0.235],
-			Vec4 Color4 = [0, 0, 0, 0],
-		},
-		Hierarchy = 
-		{
-		},
-	},
-	ArchetypeInstance = 
-	{
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 131,
+			uint Id = 108,
 		},
 		Transform = 
 		{
@@ -5098,7 +5025,7 @@ Level =
 		string Name = "5481b3171ce3c4b4:Rock1",
 		LinkId = 
 		{
-			uint Id = 132,
+			uint Id = 109,
 		},
 		Transform = 
 		{
@@ -5116,7 +5043,7 @@ Level =
 		string Name = "5481b3171ce3c4b4:Rock1",
 		LinkId = 
 		{
-			uint Id = 133,
+			uint Id = 110,
 		},
 		Transform = 
 		{
@@ -5134,7 +5061,7 @@ Level =
 		string Name = "5481b3171ce3c4b4:Rock1",
 		LinkId = 
 		{
-			uint Id = 134,
+			uint Id = 111,
 		},
 		Transform = 
 		{
@@ -5152,7 +5079,7 @@ Level =
 		string Name = "5481b3171ce3c4b4:Rock1",
 		LinkId = 
 		{
-			uint Id = 135,
+			uint Id = 112,
 		},
 		Transform = 
 		{
@@ -5170,7 +5097,7 @@ Level =
 		string Name = "5481b3171ce3c4b4:Rock1",
 		LinkId = 
 		{
-			uint Id = 136,
+			uint Id = 113,
 		},
 		Transform = 
 		{
@@ -5188,7 +5115,7 @@ Level =
 		string Name = "5481b3171ce3c4b4:Rock1",
 		LinkId = 
 		{
-			uint Id = 137,
+			uint Id = 114,
 		},
 		Transform = 
 		{
@@ -5206,7 +5133,7 @@ Level =
 		string Name = "5481b3171ce3c4b4:Rock1",
 		LinkId = 
 		{
-			uint Id = 138,
+			uint Id = 115,
 		},
 		Transform = 
 		{
@@ -5224,7 +5151,7 @@ Level =
 		string Name = "5481b3171ce3c4b4:Rock1",
 		LinkId = 
 		{
-			uint Id = 139,
+			uint Id = 116,
 		},
 		Transform = 
 		{
@@ -5242,7 +5169,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 140,
+			uint Id = 117,
 		},
 		Transform = 
 		{
@@ -5260,7 +5187,7 @@ Level =
 		string Name = "54bfd150c81b3a60:TorchLit",
 		LinkId = 
 		{
-			uint Id = 141,
+			uint Id = 118,
 		},
 		Transform = 
 		{
@@ -5273,6 +5200,7 @@ Level =
 			string Name = "TorchLit",
 		},
 	},
+<<<<<<< HEAD
 	ArchetypeInstance = 
 	{
 		string Name = "540a8b380e40915e:arc_ui_pause_menu",
@@ -5284,10 +5212,91 @@ Level =
 		{
 			Vec3 Translation = [303.369, 85.1597, 47.7362],
 			Vec3 Scale = [1, 1, 1],
+=======
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 119,
+		},
+		Named = 
+		{
+			string Name = "WaterPlaneBR",
+		},
+		Archetyped = 
+		{
+			string Name = "553087e81b8c33a0:WaterPlaneBR",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [33.4252, 8.6771, -3.94108],
+			Vec3 Scale = [200, 200, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "55308732551b3a58:BlackRainWaterFlow",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		CollideDeathPlane = 
+		{
+		},
+		FootstepSurface = 
+		{
+			Enum SurfaceType = Water,
+		},
+		SinTranslate = 
+		{
+			float SinSpeedX = 0.5,
+			float SinSpeedY = 0.2,
+			float Intensity = 2,
+			bool UseInitialRot = false,
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5530af431592e078:WaterfallEffectBR",
+		LinkId = 
+		{
+			uint Id = 120,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [25.0571, 46.3652, 6.08391],
+			Vec3 Scale = [1, 1.09769, 1.53372],
+>>>>>>> master
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Named = 
 		{
+<<<<<<< HEAD
 			string Name = "ui-pause-menu",
 		},
 	},
@@ -5820,6 +5829,45 @@ Level =
 					string LevelToLoad = "",
 				},
 			},
+=======
+			string Name = "WaterfallEffectBR",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5530af431592e078:WaterfallEffectBR",
+		LinkId = 
+		{
+			uint Id = 121,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [6.6861, 39.1701, 4.65722],
+			Vec3 Scale = [1, 1.09769, 1.53372],
+			Quat Rotation = [0, 0, 0.458248, 0.888824],
+		},
+		Named = 
+		{
+			string Name = "WaterfallEffectBR",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5530af431592e078:WaterfallEffectBR",
+		LinkId = 
+		{
+			uint Id = 122,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [42.6886, 38.2855, 5.28556],
+			Vec3 Scale = [1, 1.09769, 1.53372],
+			Quat Rotation = [0, 0, -0.313912, 0.949452],
+		},
+		Named = 
+		{
+			string Name = "WaterfallEffectBR",
+>>>>>>> master
 		},
 	},
 },

@@ -1,0 +1,110 @@
+/////////////////////////////////////////
+////                                 ////
+////  Name: PickUpParasol.z          ////
+////    Written by: Jason Clark      ////
+////                                 ////
+////     Last Updated: 04-13-15      ////
+////                                 ////
+/////////////////////////////////////////
+
+class PickUpParasol : ZilchComponent
+{
+    [Property]
+    var DiagSegPath : CogPath = null;
+    var Player: Cog = null;
+    var DiagSeg: Cog = null;
+    var TextBox: Cog = null;
+    
+    var BladeRef : Cog = null;
+    var EyeballRef : Cog = null;
+    var RibsRef : Cog = null;
+    var TongueMountRef : Cog = null;
+    var EyeRef : Cog = null;
+    
+    var ThornRef : Cog = null;
+    
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.TextBox = this.Space.LevelSettings.HudCreator.HudSpace.FindObjectByName("TextBox");
+        this.Player = this.Space.FindObjectByName("Player");
+        this.DiagSeg = this.DiagSegPath.Cog;
+        
+        this.BladeRef = this.Space.FindObjectByName("Blade");
+        this.EyeballRef = this.Space.FindObjectByName("EyeBall");
+        this.RibsRef = this.Space.FindObjectByName("Ribs");
+        this.TongueMountRef = this.Space.FindObjectByName("TongueMount");
+        this.EyeRef = this.Space.FindObjectByName("Eye");
+        
+        this.ThornRef = this.Space.FindObjectByName("ThornTriggerCircleS");
+        
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+        Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player")
+        {
+            otherObject.PlayerController.ContextString = "Examine";
+        }
+    }
+    
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player")
+        {
+            otherObject.PlayerController.ContextString = "";
+            if(this.TextBox.TextBoxManager.Owner.Sprite.Color.W > 0.001)
+            {
+                //Clear Text Box
+            }
+        }
+    }
+    function OnCollisionPersisted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player")
+        {
+            //Console.WriteLine(this.TextBox.TextBoxManager.Owner.Sprite.Color.W);
+            if((this.TextBox.TextBoxManager.Owner.Sprite.Color.W < 0.001) &&
+            (this.Player.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space)))
+            {
+                //Dialog is in object called "ReadText"
+                
+                if(this.DiagSeg != null)
+                {
+                    var textBoxEvent = new TextBoxEvent();
+                    textBoxEvent.DialogueSegmentToUse = this.DiagSeg;
+                    textBoxEvent.DistanceOnScreen = -2.0;
+                    textBoxEvent.InOutTime = 0.5;
+                    textBoxEvent.EaseCurve = Ease.QuadOut;
+                    textBoxEvent.Opacity = 0.85;
+                    textBoxEvent.OpacityTimeIn = 0.5;
+                    this.TextBox.DispatchEvent("startDialogue", textBoxEvent);
+                    
+                    this.Owner.Model.Visible = false;
+                    this.BladeRef.Model.Visible = true;
+                    this.EyeballRef.Model.Visible = true;
+                    this.RibsRef.Model.Visible = true;
+                    this.TongueMountRef.Model.Visible = true;
+                    this.EyeRef.Model.Visible = true;
+                    
+                    this.TongueMountRef.TongueManager.InitializeTongue();
+                    this.TongueMountRef.TongueManager.ExtendTongue(10);
+                    this.Player.PlayerController.HideTongueUI = false;
+                    this.ThornRef.Destroy();
+                }
+            }
+        }
+    }
+}
