@@ -199,9 +199,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [187.714, -50.1384, 107.868],
+			Vec3 Translation = [162.33, 22.1532, 59.0277],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.299564, 0.108802, -0.034409, 0.947227],
+			Quat Rotation = [0.331659, -0.106669, 0.0377729, 0.936588],
 		},
 		Camera = 
 		{
@@ -216,10 +216,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 165.3,
-			float VerticalAngle = -0.612602,
-			float HorizontalAngle = -6.51191,
-			Vec3 LookTarget = [157.05, 44.9089, -23.851],
+			float LookDistance = 82.0852,
+			float VerticalAngle = -0.68067,
+			float HorizontalAngle = -6.05638,
+			Vec3 LookTarget = [176.675, 73.8106, -3.13122],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -15253,6 +15253,33 @@ Level =
 		},
 		Hierarchy = 
 		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 445,
+		},
+		Named = 
+		{
+			string Name = "pCube7",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [174.09, 88.9864, -19.6331],
+			Vec3 Scale = [1.8, 1.8, 1.8],
+			Quat Rotation = [0.668006, -0.0783215, -0.0861749, 0.734988],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+			string MeshName = "5481fffe3b4f9c65:ToriiGate.pCube7",
+			Vec4 Color = [0.0531, 0.157117, 0.295, 1],
 		},
 	},
 },
