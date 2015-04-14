@@ -232,9 +232,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [115.381, -245.141, 227.388],
+			Vec3 Translation = [43.146, -213.428, 9.41415],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.235763, 0.0424351, -0.0103052, 0.970829],
+			Quat Rotation = [0.632995, -0.0269698, 0.0220745, 0.773371],
 		},
 		Camera = 
 		{
@@ -249,10 +249,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 332.871,
-			float VerticalAngle = -0.476471,
-			float HorizontalAngle = -6.37055,
-			Vec3 LookTarget = [89.572, -92.4707, -67.2793],
+			float LookDistance = 26.1594,
+			float VerticalAngle = -1.37182,
+			float HorizontalAngle = -6.21347,
+			Vec3 LookTarget = [43.5062, -187.784, 4.25601],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -11960,6 +11960,72 @@ Level =
 					float SplitPlaneDistribution = 0.8,
 				},
 			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 264,
+		},
+		Named = 
+		{
+			string Name = "CityBeginNarration",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [43.5062, -186.759, 0.12773],
+			Vec3 Scale = [5, 5, 5],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "5508df4355a58028:013 Narrator_Upon Entering",
+			float Volume = 1,
+			float Pitch = 1,
+			bool Positional = true,
+		},
+		NarrationPlayer = 
+		{
+			bool OnCollideStart = false,
+			bool OnCollidePersist = false,
+			bool OnCollideEnd = true,
+			CogPath BckGrnManagerPath = ":/LevelSettings/BGMManager",
+			float DuckingTime = 25.5,
 		},
 	},
 },

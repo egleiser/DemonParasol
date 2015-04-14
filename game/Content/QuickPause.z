@@ -7,6 +7,8 @@ class QuickPause : ZilchComponent
     
     var PauseMenuPosition:Real3 = Real3(0,0,20);
     
+    var IsPauseActive:Boolean = false;
+    
     function Initialize(init : CogInitializer)
     {
         this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
@@ -23,7 +25,8 @@ class QuickPause : ZilchComponent
     
     function TogglePauseMenu():Void
     {
-        this.Space.TimeSpace.TogglePause();
+            this.IsPauseActive = true;
+            this.Space.TimeSpace.TogglePause();
             this.Space.SoundSpace.Pause = !this.Space.SoundSpace.Pause;
             if(this.Space.SoundSpace.Pause)
             {
@@ -37,6 +40,7 @@ class QuickPause : ZilchComponent
                 {
                     Console.WriteLine("DESTROY");
                     this.PauseMenu.Destroy();
+                    this.IsPauseActive = false;
                     var pauseConfirm = this.LevelSettings.HudCreator.HudSpace.FindObjectByName("ui-are-you-sure-pause");
                     if(pauseConfirm != null)
                     {

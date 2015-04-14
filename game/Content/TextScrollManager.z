@@ -2,7 +2,7 @@
 ////                                 ////
 ////  Name: TextScrollManager.z      ////
 ////    Written by: Jason Clark      ////
-////     Last Updated: 9-17-14       ////
+////     Last Updated: 04-14-15      ////
 ////                                 ////
 /////////////////////////////////////////
 class TextScrollManager : ZilchComponent
@@ -124,7 +124,7 @@ class TextScrollManager : ZilchComponent
                     this.DialogueSpeedIncreased = true;
                 }
             }
-            if(this.Gamepad.IsButtonPressed(Buttons.B))
+            if(this.Gamepad.IsButtonPressed(Buttons.B) && this.MainSpace.LevelSettings.QuickPause.IsPauseActive == false)
             {
                 this.TextIsCancelled = true;
             }
