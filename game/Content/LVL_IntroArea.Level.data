@@ -95,11 +95,6 @@ Level =
 			float DuckSpeed = 3,
 			bool StartPlaying = true,
 		},
-		FadeIn = 
-		{
-			float FadeTime = 2,
-			bool Skip = false,
-		},
 		Hierarchy = 
 		{
 			Cog = 
@@ -120,7 +115,7 @@ Level =
 				},
 				DungeonSoundManager = 
 				{
-					float Ducking = 1,
+					float Ducking = 0.7,
 				},
 				Hierarchy = 
 				{
@@ -192,9 +187,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-234.506, -441.447, 341.609],
+			Vec3 Translation = [14.5345, -130.288, 70.5219],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.321434, -0.00570051, 0.00193508, 0.946913],
+			Quat Rotation = [0.488307, 0.0312942, -0.0175256, 0.871935],
 		},
 		Camera = 
 		{
@@ -209,10 +204,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 496.586,
-			float VerticalAngle = -0.6545,
-			float HorizontalAngle = -6.27115,
-			Vec3 LookTarget = [-229.762, -139.144, -52.3298],
+			float LookDistance = 190.564,
+			float VerticalAngle = -1.02102,
+			float HorizontalAngle = -6.35494,
+			Vec3 LookTarget = [7.39651, 32.1948, -28.7915],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -12008,7 +12003,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -12061,7 +12056,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -12114,7 +12109,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -12167,7 +12162,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -12220,7 +12215,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -12273,7 +12268,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -12326,7 +12321,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -12379,7 +12374,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -12432,7 +12427,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -12485,7 +12480,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -12538,7 +12533,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -12591,7 +12586,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -12644,7 +12639,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -12697,7 +12692,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -12750,7 +12745,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -12808,7 +12803,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -12861,7 +12856,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -12914,7 +12909,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -12967,7 +12962,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -13020,7 +13015,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -13073,7 +13068,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -13126,7 +13121,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -13179,7 +13174,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -13232,7 +13227,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -13285,7 +13280,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -13338,7 +13333,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -13391,7 +13386,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -17497,7 +17492,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -19519,7 +19514,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -20226,7 +20221,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -24943,7 +24938,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -24996,7 +24991,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -25280,7 +25275,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -25333,7 +25328,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -25386,7 +25381,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -25501,7 +25496,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -25554,7 +25549,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -25607,7 +25602,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -25660,7 +25655,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -25713,7 +25708,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -25766,7 +25761,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -38730,7 +38725,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -38783,7 +38778,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -38836,7 +38831,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -38889,7 +38884,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -38942,7 +38937,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -40776,6 +40771,23 @@ Level =
 			float OffPathLeeway = 0,
 			float ToNightTrigger = 0,
 		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "5508df4355a89670:05 Narrator_The Storm Begins",
+			float Volume = 1,
+			float Pitch = 1,
+			bool Positional = true,
+		},
+		NarrationPlayer = 
+		{
+			bool OnCollideStart = true,
+			bool OnCollidePersist = false,
+			bool OnCollideEnd = false,
+			CogPath BckGrnManagerPath = ":/LevelSettings/BGMManager",
+			float DuckingTime = 8,
+		},
 	},
 	Cog = 
 	{
@@ -42275,7 +42287,7 @@ Level =
 		},
 		RiverBridgeDestroyer = 
 		{
-			string Room = "545136ccf7f93c63:LVL_BlackRainMainLobby",
+			string Room = "553e107315b83606:LVL_SwampArea",
 		},
 		SoundEmitter = 
 		{
@@ -48939,7 +48951,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -48992,7 +49004,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -49045,7 +49057,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -49098,7 +49110,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -49151,7 +49163,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -49679,7 +49691,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -49732,7 +49744,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -49785,7 +49797,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -49961,7 +49973,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "553e0aaec1bc7604:HighFriction",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
@@ -50677,6 +50689,393 @@ Level =
 					float Size = 20,
 				},
 			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 1570,
+		},
+		Named = 
+		{
+			string Name = "LevelStartObject",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-229.762, -139.144, -52.3298],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		NarrativeDemoStartGame = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 1571,
+		},
+		Named = 
+		{
+			string Name = "NarrationFlowers",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-159.054, -75.7613, 0],
+			Vec3 Scale = [7.50963, 39.7786, 4.87655],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = true,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "5508df4355a9e0eb:03 Narrator_Passing the Flowers",
+			float Volume = 1,
+			float Pitch = 1,
+			bool Positional = false,
+		},
+		NarrationPlayer = 
+		{
+			bool OnCollideStart = true,
+			bool OnCollidePersist = false,
+			bool OnCollideEnd = false,
+			CogPath BckGrnManagerPath = ":/LevelSettings/BGMManager",
+			float DuckingTime = 17,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 1572,
+		},
+		Named = 
+		{
+			string Name = "IntroDiagCube1",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-192.817, -111.449, 2.76231],
+			Vec3 Scale = [32, 4, 5],
+			Quat Rotation = [0, 0, -0.906291, -0.422654],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		CollisionBasedDialogue = 
+		{
+			bool OnCollideStart = true,
+			bool OnCollideEnd = false,
+			bool OnCollidePersist = false,
+			CogPath DiagSegPath = ":/IntroDiagSeg1",
+			bool ShouldFadeInOnStart = false,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 1573,
+		},
+		Named = 
+		{
+			string Name = "IntroDiagSeg1",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4.89626, 2.21683, 0.563632],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		DialogueEnds = 
+		{
+			bool ShouldDestroyCollider = true,
+			CogPath ColliderToDestroyPath = ":/IntroDiagCube1",
+			bool ShouldTeleportPlayer = false,
+			Vec3 PosToTeleportTo = [0, 0, 0],
+			CogPath ObjectToTeleportToPath = "",
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 1574,
+				},
+				Named = 
+				{
+					string Name = "IntroBlock1",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "545746f1032fb183:ui-textbox-father",
+					string SpeakerTextBlock = "54f4bae84d2f5ac8:Intro1",
+					string SpeakerSong = "",
+					Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 1575,
+				},
+				Named = 
+				{
+					string Name = "IntroBlock2",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
+					string SpeakerTextBlock = "54f4b93f4465d061:Intro2",
+					string SpeakerSong = "",
+					Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 1576,
+				},
+				Named = 
+				{
+					string Name = "IntroBlock3",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "545746f1032fb183:ui-textbox-father",
+					string SpeakerTextBlock = "54f4b9203a09a737:Intro3",
+					string SpeakerSong = "",
+					Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 1577,
+				},
+				Named = 
+				{
+					string Name = "IntroBlock4",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
+					string SpeakerTextBlock = "54f4b955383d67a8:Intro4",
+					string SpeakerSong = "",
+					Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 1578,
+				},
+				Named = 
+				{
+					string Name = "IntroBlock5",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "545746f1032fb183:ui-textbox-father",
+					string SpeakerTextBlock = "54f4b9413f383bff:Intro5",
+					string SpeakerSong = "",
+					Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 1579,
+				},
+				Named = 
+				{
+					string Name = "IntroBlock6",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
+					string SpeakerTextBlock = "54f4b97d33f50cdd:Intro6",
+					string SpeakerSong = "",
+					Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 1580,
+		},
+		Named = 
+		{
+			string Name = "ForestPathNarration",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-230.863, 38.7821, 2.09325],
+			Vec3 Scale = [15, 10, 5],
+			Quat Rotation = [0, 0, 0.545129, 0.838352],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "5508df4355a83c59:04 Narrator_The Forest Path Blocked",
+			float Volume = 1,
+			float Pitch = 1,
+			bool Positional = true,
+		},
+		NarrationPlayer = 
+		{
+			bool OnCollideStart = false,
+			bool OnCollidePersist = false,
+			bool OnCollideEnd = true,
+			CogPath BckGrnManagerPath = ":/LevelSettings/BGMManager",
+			float DuckingTime = 13,
 		},
 	},
 },

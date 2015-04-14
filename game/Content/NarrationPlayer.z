@@ -1,17 +1,88 @@
 class NarrationPlayer : ZilchComponent
 {
+    [Property]
+    var OnCollideStart : Boolean = false;
+    
+    [Property]
+    var OnCollidePersist : Boolean = false;
+    
+    [Property]
+    var OnCollideEnd : Boolean = false;
+    
+    [Property]
+    var BckGrnManagerPath : CogPath = null;
+    
+    [Property]
+    var DuckingTime : Real = 0.0;
+    
+    var BckGrnManager : Cog = null;
+    
     var DialogueStarted : Boolean = false;
+    
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        this.BckGrnManager = this.BckGrnManagerPath.Cog;
+        
+        if(this.OnCollideStart)
+        {
+            Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        }
+        if(this.OnCollidePersist)
+        {
+            Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+        }
+        if(this.OnCollideEnd)
+        {
+            Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+        }
     }
 
     function OnCollisionStarted(event : CollisionEvent)
     {
         if(event.OtherObject.Name == "Player" && this.DialogueStarted == false)
         {
+            var seq = Action.Sequence(this.Owner.Actions);
+            Action.Call(seq, this.BeginDucking);
+            Action.Delay(seq, this.DuckingTime);
+            Action.Call(seq, this.EndDucking);
             this.DialogueStarted = true;
             this.Owner.SoundEmitter.Play();
         }
+    }
+    
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player" && this.DialogueStarted == false)
+        {
+            var seq = Action.Sequence(this.Owner.Actions);
+            Action.Call(seq, this.BeginDucking);
+            Action.Delay(seq, this.DuckingTime);
+            Action.Call(seq, this.EndDucking);
+            this.DialogueStarted = true;
+            this.Owner.SoundEmitter.Play();
+        }
+    }
+
+    function OnCollisionPersisted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player" && this.DialogueStarted == false)
+        {
+            var seq = Action.Sequence(this.Owner.Actions);
+            Action.Call(seq, this.BeginDucking);
+            Action.Delay(seq, this.DuckingTime);
+            Action.Call(seq, this.EndDucking);
+            this.DialogueStarted = true;
+            this.Owner.SoundEmitter.Play();
+        }
+    }
+    
+    function BeginDucking()
+    {
+        this.BckGrnManager.DungeonSoundManager.Ducking = 0.2;
+    }
+    
+    function EndDucking()
+    {
+        this.BckGrnManager.DungeonSoundManager.Ducking = 0.7;
     }
 }

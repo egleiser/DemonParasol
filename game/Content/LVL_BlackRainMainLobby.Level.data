@@ -209,9 +209,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [32.7215, -83.2787, 20.8042],
+			Vec3 Translation = [26.5349, -4.43263, 23.8312],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.188875, 0.1044, -0.0201987, 0.976227],
+			Quat Rotation = [0.192522, 0.00178398, -0.000349995, 0.981291],
 		},
 		Camera = 
 		{
@@ -226,10 +226,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 85.5797,
-			float VerticalAngle = -0.382227,
-			float HorizontalAngle = -6.49626,
-			Vec3 LookTarget = [15.9303, -51.3585, -56.8041],
+			float LookDistance = 23.7171,
+			float VerticalAngle = -0.387463,
+			float HorizontalAngle = -6.28682,
+			Vec3 LookTarget = [26.4551, 4.52865, 1.87242],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -7864,7 +7864,7 @@ Level =
 						TextBlockInfo = 
 						{
 							string SpeakerName = "",
-							string SpeakerSprite = "545746f1032fd08a:ui-textbox-kasa-obake",
+							string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
 							string SpeakerTextBlock = "549351f8b3048f53:DungeonTut1",
 							string SpeakerSong = "",
 							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
@@ -8621,6 +8621,217 @@ Level =
 		Named = 
 		{
 			string Name = "WaterfallEffectBR",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 276,
+		},
+		Named = 
+		{
+			string Name = "BlackBunkerNarration",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [26.1838, -59.284, 1.99943],
+			Vec3 Scale = [12, 4, 4],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "5508df4355aab544:011 Narrator_First Entering Dungeon",
+			float Volume = 1,
+			float Pitch = 1,
+			bool Positional = true,
+		},
+		NarrationPlayer = 
+		{
+			bool OnCollideStart = true,
+			bool OnCollidePersist = false,
+			bool OnCollideEnd = false,
+			CogPath BckGrnManagerPath = ":/LevelSettings/BGMManager",
+			float DuckingTime = 10.5,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 277,
+		},
+		Named = 
+		{
+			string Name = "LobbyDiagSeg",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [27.4245, -42.8463, 30.5219],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 278,
+				},
+				Named = 
+				{
+					string Name = "LobbyText1",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [2.07431, 12.2379, -16.8141],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 279,
+				},
+				Named = 
+				{
+					string Name = "LobbyText2",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [2.07431, 12.2379, -16.8141],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 280,
+				},
+				Named = 
+				{
+					string Name = "LobbyText3",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [2.07431, 12.2379, -16.8141],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 281,
+				},
+				Named = 
+				{
+					string Name = "LobbyText4",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [2.07431, 12.2379, -16.8141],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 282,
+		},
+		Named = 
+		{
+			string Name = "LobbyDiagObject",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [26.4551, 4.52865, 1.87242],
+			Vec3 Scale = [15, 3, 4],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		CollisionBasedDialogue = 
+		{
+			bool OnCollideStart = true,
+			bool OnCollideEnd = false,
+			bool OnCollidePersist = false,
+			CogPath DiagSegPath = ":/LobbyDiagSeg",
+			bool ShouldFadeInOnStart = false,
 		},
 	},
 },
