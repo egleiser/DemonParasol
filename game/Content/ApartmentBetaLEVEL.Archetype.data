@@ -1,0 +1,2686 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "ApartmentBetaLEVEL",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "WoodDebris",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [8.93797, 0, -0.113452],
+				Vec3 Scale = [0.509194, 0.701453, 1],
+				Quat Rotation = [-0.734351, -0.166186, -0.249418, 0.609017],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df7df:ApartmentBetaLEVEL.WoodDebris",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "Carpet008",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-25.8098, 1.1637, 8.3364],
+				Vec3 Scale = [1.30303, 0.510054, 0.452621],
+				Quat Rotation = [-0.5, 0.5, 0.5, 0.5],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df7e5:ApartmentBetaLEVEL.Carpet008",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "Carpet009",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-25.8098, 1.38593, -12.1983],
+				Vec3 Scale = [1.30303, 0.510054, 0.531109],
+				Quat Rotation = [-0.5, 0.5, 0.5, 0.5],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df7e7:ApartmentBetaLEVEL.Carpet009",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "ChopstickHolder",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-16.1581, 6.39404, 1.39201],
+				Vec3 Scale = [0.203988, 0.183884, 0.0772838],
+				Quat Rotation = [-0.512744, 0.486922, 0.486922, 0.512744],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df7ea:ApartmentBetaLEVEL.ChopstickHolder",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "Carpet005",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-53.778, 1.38593, -21.127],
+				Vec3 Scale = [1.30303, 0.510054, 0.531109],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df7ec:ApartmentBetaLEVEL.Carpet005",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 7,
+			},
+			Named = 
+			{
+				string Name = "Carpet006",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-53.778, 1.38593, -1.29657],
+				Vec3 Scale = [1.30303, 0.510054, 0.531109],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df7ee:ApartmentBetaLEVEL.Carpet006",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 8,
+			},
+			Named = 
+			{
+				string Name = "WoodFlooring001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-36.8597, 0, -0.113452],
+				Vec3 Scale = [0.731538, 1.05245, 1],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df7f0:ApartmentBetaLEVEL.WoodFlooring001",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 9,
+			},
+			Named = 
+			{
+				string Name = "WhiteWall",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-36.314, 13.1802, -4.27689],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.707107, 0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df7f2:ApartmentBetaLEVEL.WhiteWall",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 10,
+			},
+			Named = 
+			{
+				string Name = "WoodWall003",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-33.2264, 9.41152, 35.9962],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.707107, -6.18172e-008, 2.70212e-015, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df7f4:ApartmentBetaLEVEL.WoodWall003",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 11,
+			},
+			Named = 
+			{
+				string Name = "WoodWall001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-48.3848, 13.8032, -38.9612],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.707107, -6.18172e-008, -6.18172e-008, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df7f6:ApartmentBetaLEVEL.WoodWall001",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 12,
+			},
+			Named = 
+			{
+				string Name = "Carpet007",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-53.778, 1.38593, 18.7693],
+				Vec3 Scale = [1.30303, 0.510054, 0.531109],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df7f8:ApartmentBetaLEVEL.Carpet007",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 13,
+			},
+			Named = 
+			{
+				string Name = "Table",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-11.9976, 4.14484, 2.96892],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df7fa:ApartmentBetaLEVEL.Table",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 14,
+			},
+			Named = 
+			{
+				string Name = "FoodBowl",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-14.1222, 6.86585, 2.9496],
+				Vec3 Scale = [0.373667, 0.373667, 0.271028],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df7fc:ApartmentBetaLEVEL.FoodBowl",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 15,
+			},
+			Named = 
+			{
+				string Name = "Chopsticks",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-16.4162, 6.75391, 0.624906],
+				Vec3 Scale = [0.696929, 0.696929, 0.696929],
+				Quat Rotation = [0.0404498, -0.025995, -0.709493, 0.703071],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df7fe:ApartmentBetaLEVEL.Chopsticks",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 16,
+			},
+			Named = 
+			{
+				string Name = "FoodCup",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-12.5217, 7.07213, 0.172428],
+				Vec3 Scale = [0.118093, 0.118093, 0.362924],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df800:ApartmentBetaLEVEL.FoodCup",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 17,
+			},
+			Named = 
+			{
+				string Name = "Pillow002",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-20.1005, 2.55446, 3.1418],
+				Vec3 Scale = [0.65781, 1, 0.843312],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df803:ApartmentBetaLEVEL.Pillow002",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 18,
+			},
+			Named = 
+			{
+				string Name = "Pillow001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-11.1548, 1.99802, -8.73185],
+				Vec3 Scale = [0.65781, 1, 0.843312],
+				Quat Rotation = [-0.630696, -0.319723, -0.319723, 0.630696],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df806:ApartmentBetaLEVEL.Pillow001",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 19,
+			},
+			Named = 
+			{
+				string Name = "Pillow003",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-11.1226, 2.30579, 13.9202],
+				Vec3 Scale = [0.65781, 1, 0.843312],
+				Quat Rotation = [0.261934, 0.656803, 0.656803, -0.261934],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df808:ApartmentBetaLEVEL.Pillow003",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 20,
+			},
+			Named = 
+			{
+				string Name = "WoodWall002",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-13.3932, 11.881, -31.6367],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df80a:ApartmentBetaLEVEL.WoodWall002",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 21,
+			},
+			Named = 
+			{
+				string Name = "WoodFlooringBase",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-74.8151, -0.594164, 6.02104],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.707107, -4.60809e-007, 4.60809e-007, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "55fcb123ea0df80c:ApartmentBetaLEVEL.WoodFlooringBase",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 22,
+			},
+			Named = 
+			{
+				string Name = "StoneWork",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-16.7506, 9.82194, 2.16121],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 23,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox210",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-16.5886, -23.6235, -6.40888],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.142258, 0.00750782, 0.0757556, 0.986898],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df82c:ApartmentBetaLEVEL.ChamferBox210",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 24,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox209",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-29.4745, -30.6309, -5.23592],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-0.136144, -0.0119466, 0.965226, 0.222845],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df82e:ApartmentBetaLEVEL.ChamferBox209",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 25,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox205",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [11.5873, 14.4697, -7.76284],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-3.28268e-017, -2.04219e-017, 0.528233, 0.849099],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df830:ApartmentBetaLEVEL.ChamferBox205",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 26,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox204",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-7.00197, -30.7075, -7.92203],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-1.88273e-017, 9.53155e-018, -0.451678, 0.892181],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df832:ApartmentBetaLEVEL.ChamferBox204",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 27,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox203",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [7.41958, -18.8967, -6.41545],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-3.41373e-017, 2.15153e-017, -0.533194, 0.845993],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df834:ApartmentBetaLEVEL.ChamferBox203",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 28,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox202",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.85488, 26.5839, -7.3067],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-0.0989026, -0.165567, 0.950996, 0.241689],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df837:ApartmentBetaLEVEL.ChamferBox202",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 29,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox201",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-1.31854, 29.9543, -5.83183],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-0.106452, -0.142375, 0.669039, 0.721654],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df838:ApartmentBetaLEVEL.ChamferBox201",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 30,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox200",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [2.36907, 28.7392, -7.50449],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-2.8286e-017, -1.67151e-017, 0.508744, 0.860918],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df83a:ApartmentBetaLEVEL.ChamferBox200",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 31,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox199",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [4.38868, 26.9283, -5.61024],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.378279, -0.0111641, 0.0753036, 0.922556],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df83c:ApartmentBetaLEVEL.ChamferBox199",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 32,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox198",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 19.8045, 7.73245],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df83e:ApartmentBetaLEVEL.ChamferBox198",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 33,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox197",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [11.8472, -24.575, 7.53862],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-0.0284284, 0.0105812, 0.939267, 0.341844],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df840:ApartmentBetaLEVEL.ChamferBox197",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 34,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox196",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [3.62287, -28.2002, 5.68685],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-3.41373e-017, 2.15153e-017, -0.533194, 0.845993],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df841:ApartmentBetaLEVEL.ChamferBox196",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 35,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox195",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-3.32245, -31.4682, 5.68685],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-0.157214, 0.249444, -0.50949, 0.808382],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df843:ApartmentBetaLEVEL.ChamferBox195",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 36,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox194",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-5.21964, -31.8775, 5.68685],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.0703295, -0.257107, -0.513903, 0.815385],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df845:ApartmentBetaLEVEL.ChamferBox194",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 37,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox193",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [1.02838, -30.0148, 5.68685],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.0677754, -0.249895, -0.521063, 0.813297],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df846:ApartmentBetaLEVEL.ChamferBox193",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 38,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox192",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [24.3833, 22.1216, 3.4665],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.845993, 0.533194, 1.5043e-007, 2.3868e-007],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df848:ApartmentBetaLEVEL.ChamferBox192",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 39,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox189",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-4.85396, 36.1027, 3.4665],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.845993, 0.533194, 1.5043e-007, 2.3868e-007],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df84a:ApartmentBetaLEVEL.ChamferBox189",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 40,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox188",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.677939, 34.1058, 3.4665],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.845993, 0.533194, 1.5043e-007, 2.3868e-007],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df84c:ApartmentBetaLEVEL.ChamferBox188",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 41,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox185",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-2.94258, 35.1887, 5.68685],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.977936, 0.208904, 5.89381e-008, 2.75905e-007],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df84d:ApartmentBetaLEVEL.ChamferBox185",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 42,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox184",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [26.2947, 21.2075, 1.28033],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.845993, 0.533194, 1.5043e-007, 2.3868e-007],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df853:ApartmentBetaLEVEL.ChamferBox184",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 43,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox171",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [24.3833, 22.1216, -5.41442],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.845993, 0.533194, 1.5043e-007, 2.3868e-007],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df855:ApartmentBetaLEVEL.ChamferBox171",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 44,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox158",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [26.2947, 21.2075, -7.60059],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.845993, 0.533194, 1.5043e-007, 2.3868e-007],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df857:ApartmentBetaLEVEL.ChamferBox158",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 45,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox155",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [24.3833, 22.1216, -9.82094],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.845993, 0.533194, 1.5043e-007, 2.3868e-007],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df859:ApartmentBetaLEVEL.ChamferBox155",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 46,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox140",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [13.7585, 27.2023, 1.28033],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.845993, 0.533194, 1.5043e-007, 2.3868e-007],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df85b:ApartmentBetaLEVEL.ChamferBox140",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 47,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox134",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [22.1187, 23.2045, 5.68685],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.845993, 0.533194, 1.5043e-007, 2.3868e-007],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df85d:ApartmentBetaLEVEL.ChamferBox134",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 48,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox133",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [26.2947, 21.2075, 5.68685],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.845993, 0.533194, 1.5043e-007, 2.3868e-007],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df85f:ApartmentBetaLEVEL.ChamferBox133",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 49,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox130",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [16.0232, 26.1193, 3.4665],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.845993, 0.533194, 1.5043e-007, 2.3868e-007],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df861:ApartmentBetaLEVEL.ChamferBox130",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 50,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox129",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [20.2073, 24.1185, 3.4665],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.845993, 0.533194, 1.5043e-007, 2.3868e-007],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df863:ApartmentBetaLEVEL.ChamferBox129",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 51,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox124",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [20.2073, -20.5772, 5.68685],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-3.41373e-017, 2.15153e-017, -0.533194, 0.845993],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df864:ApartmentBetaLEVEL.ChamferBox124",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 52,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox120",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [7.68216, -26.5667, 5.68685],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.0703295, -0.257107, -0.513903, 0.815385],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df866:ApartmentBetaLEVEL.ChamferBox120",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 53,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox119",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [16.0232, -22.578, 5.68685],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-0.157214, 0.249444, -0.50949, 0.808382],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df868:ApartmentBetaLEVEL.ChamferBox119",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 54,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox113",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [26.2947, -17.6663, 3.4665],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-3.41373e-017, 2.15153e-017, -0.533194, 0.845993],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df86a:ApartmentBetaLEVEL.ChamferBox113",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 55,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox112",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [22.1187, -19.6632, 3.4665],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-3.41373e-017, 2.15153e-017, -0.533194, 0.845993],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df86c:ApartmentBetaLEVEL.ChamferBox112",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 56,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox110",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [11.8472, -24.575, 5.68685],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.0677754, -0.249895, -0.521063, 0.813297],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df86e:ApartmentBetaLEVEL.ChamferBox110",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 57,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox109",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [24.3833, -18.5803, 5.68685],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.00589278, 0.0403124, 0.954276, -0.296139],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df870:ApartmentBetaLEVEL.ChamferBox109",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 58,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox107",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [24.3833, -18.5803, 1.28033],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-3.41373e-017, 2.15153e-017, -0.533194, 0.845993],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df872:ApartmentBetaLEVEL.ChamferBox107",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 59,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox092",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [26.2947, -17.6663, -5.41442],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-3.41373e-017, 2.15153e-017, -0.533194, 0.845993],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df874:ApartmentBetaLEVEL.ChamferBox092",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 60,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox091",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [22.1187, -19.6632, -5.41442],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.126305, -0.152653, -0.460368, 0.865336],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df876:ApartmentBetaLEVEL.ChamferBox091",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 61,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox086",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [24.3833, -18.5803, -7.60059],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-3.41373e-017, 2.15153e-017, -0.533194, 0.845993],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df879:ApartmentBetaLEVEL.ChamferBox086",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 62,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox076",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [26.2947, -17.6663, -9.82094],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-3.41373e-017, 2.15153e-017, -0.533194, 0.845993],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df87a:ApartmentBetaLEVEL.ChamferBox076",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 63,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox065",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [26.2947, -17.6663, -0.94001],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-3.41373e-017, 2.15153e-017, -0.533194, 0.845993],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df87c:ApartmentBetaLEVEL.ChamferBox065",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 64,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox064",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, -15.6027, 1.28033],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df87e:ApartmentBetaLEVEL.ChamferBox064",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 65,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox062",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, -7.76908, -2.25301],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-0.359443, -0, 0, 0.933167],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df880:ApartmentBetaLEVEL.ChamferBox062",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 66,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox061",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, -13.484, -0.94001],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-5.51852e-018, 1.61694e-018, -0.281182, 0.959655],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df882:ApartmentBetaLEVEL.ChamferBox061",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 67,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox060",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 9.65735, -0.94001],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df884:ApartmentBetaLEVEL.ChamferBox060",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 68,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox055",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 14.2952, -0.94001],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df886:ApartmentBetaLEVEL.ChamferBox055",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 69,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox051",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, -10.9738, 5.68685],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [2.6327e-017, 2.80848e-017, 0.888612, 0.458659],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df888:ApartmentBetaLEVEL.ChamferBox051",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 70,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox050",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, -15.2979, 4.70821],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df889:ApartmentBetaLEVEL.ChamferBox050",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 71,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox046",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, -8.85509, 1.34024],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-0.337623, -0.118844, 0.310035, 0.880775],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df88b:ApartmentBetaLEVEL.ChamferBox046",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 72,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox045",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, -13.484, 3.4665],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df88d:ApartmentBetaLEVEL.ChamferBox045",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 73,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox044",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 7.3518, -7.43886],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.319988, -0.202059, -0.404515, 0.832555],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df88e:ApartmentBetaLEVEL.ChamferBox044",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 74,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox042",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 18.9242, 3.4665],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df890:ApartmentBetaLEVEL.ChamferBox042",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 75,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox041",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 14.2952, 3.4665],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-0.00158209, -0.0143732, -0.0068925, 0.999872],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df892:ApartmentBetaLEVEL.ChamferBox041",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 76,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox038",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 16.8055, 5.68685],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-0.038277, 0.00637016, -0.134482, 0.990156],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df894:ApartmentBetaLEVEL.ChamferBox038",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 77,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox036",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 16.8055, 1.28033],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df896:ApartmentBetaLEVEL.ChamferBox036",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 78,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox035",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 12.1765, 1.28033],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-5.38888e-018, -1.56125e-018, 0.278273, 0.960502],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df89a:ApartmentBetaLEVEL.ChamferBox035",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 79,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox032",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 12.1765, -3.19408],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df89c:ApartmentBetaLEVEL.ChamferBox032",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 80,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox030",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, -10.9738, -3.19408],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df89e:ApartmentBetaLEVEL.ChamferBox030",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 81,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox029",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, -15.6027, -3.19408],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8a0:ApartmentBetaLEVEL.ChamferBox029",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 82,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox026",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, -4.21723, -5.41442],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8a1:ApartmentBetaLEVEL.ChamferBox026",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 83,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox024",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, -13.484, -5.41442],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8a3:ApartmentBetaLEVEL.ChamferBox024",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 84,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox021",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 18.9242, -5.41442],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8a5:ApartmentBetaLEVEL.ChamferBox021",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 85,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox020",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 14.2952, -5.41442],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8a7:ApartmentBetaLEVEL.ChamferBox020",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 86,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox019",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 0.411708, -5.41442],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-1.88273e-017, 9.53155e-018, -0.451678, 0.892181],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8a9:ApartmentBetaLEVEL.ChamferBox019",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 87,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox017",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 16.8055, -3.19408],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-8.34109e-019, 9.70163e-020, -0.115533, 0.993304],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8ab:ApartmentBetaLEVEL.ChamferBox017",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 88,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox014",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 12.1765, -7.60059],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-3.16881e-018, -7.11161e-019, 0.218978, 0.97573],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8ad:ApartmentBetaLEVEL.ChamferBox014",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 89,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox013",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, -1.70698, -7.60059],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8ae:ApartmentBetaLEVEL.ChamferBox013",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 90,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox012",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, -6.33591, -7.60059],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8b0:ApartmentBetaLEVEL.ChamferBox012",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 91,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox011",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, -10.9738, -7.60059],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-1.08432e-017, 4.33978e-018, -0.371576, 0.928402],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8b2:ApartmentBetaLEVEL.ChamferBox011",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 92,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox010",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, -15.6027, -7.60059],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8b4:ApartmentBetaLEVEL.ChamferBox010",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 93,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox008",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, -4.21723, -9.82094],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8b5:ApartmentBetaLEVEL.ChamferBox008",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 94,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox007",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, -8.85509, -9.82094],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8b7:ApartmentBetaLEVEL.ChamferBox007",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 95,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox006",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, -13.484, -9.82094],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8b9:ApartmentBetaLEVEL.ChamferBox006",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 96,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox005",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 0.411708, -9.82094],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-9.65342e-018, 3.66712e-018, -0.355118, 0.934821],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8bb:ApartmentBetaLEVEL.ChamferBox005",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 97,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox004",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 9.65735, -9.82094],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8bc:ApartmentBetaLEVEL.ChamferBox004",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 98,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox003",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 5.02842, -9.82094],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8be:ApartmentBetaLEVEL.ChamferBox003",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 99,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox002",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 18.9242, -9.82094],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8c0:ApartmentBetaLEVEL.ChamferBox002",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 100,
+					},
+					Named = 
+					{
+						string Name = "ChamferBox001",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [27.6583, 14.2952, -9.82094],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "4de020863e85bb61:DefaultMaterial",
+						string MeshName = "55fcb123ea0df8c2:ApartmentBetaLEVEL.ChamferBox001",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+			},
+		},
+	},
+},
