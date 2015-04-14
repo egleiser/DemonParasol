@@ -1,0 +1,69 @@
+class NodeToNodeBoatFollower : ZilchComponent
+{
+    [Dependency]
+    var Orientation: Orientation = null;
+    [Property]
+    var StaringNode : CogPath = null;
+    var CurrentNode : Cog = null;
+    var MoveVec : Real3 = Real3(0,0,0);
+    var Waiting : Boolean = false;
+    var Active : Boolean = false;
+    var WaitTimer : Real = 0.0;
+    var WaitValue : Real = 60.0;
+    function Initialize(init : CogInitializer)
+    {
+        this.CurrentNode = this.StaringNode.Cog;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player")
+        {
+            this.Active = true;
+        }
+        if(otherObject.PatrolNode != null && otherObject == this.CurrentNode)
+        {
+            this.CurrentNode = otherObject.PatrolNode.NextNode.Cog;
+            this.WaitValue = otherObject.PatrolNode.WaitTime;
+            this.Waiting = true;
+            Console.WriteLine("New Node is: `this.CurrentNode`");
+        }
+    }
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.Active)
+        {
+            this.WaitTimer += 1.0;
+            if(this.WaitTimer > this.WaitValue)
+            {
+                this.StepTowardsNode(event);
+                this.SmoothDirectionLook(event);
+            }
+        }
+    }
+    function StepTowardsNode(event : UpdateEvent)
+    {
+        this.MoveVec = this.CurrentNode.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
+        //Console.WriteLine("Move Vector Initial: `this.MoveVec`");
+        this.MoveVec = Math.Normalize(this.MoveVec);
+        //Console.WriteLine("Move Vector Normalized: `this.MoveVec`");
+        this.MoveVec *= this.CurrentNode.PatrolNode.MoveSpeed * 0.025;
+        //Console.WriteLine("Move Vector Final: `this.MoveVec`");
+        this.Owner.Transform.WorldTranslation += this.MoveVec;
+    }
+    
+    function SmoothDirectionLook(event : UpdateEvent)
+    {
+        var vel = this.Owner.RigidBody.Velocity;
+        if(Math.Length(vel) < 0.0001)
+        {
+            return;
+        }
+        var up = Real3(0, 0, 1);
+        //this.Owner.Orientation.LookAtDirectionWithUp(vel, up);
+        var wantedRotation = this.Orientation.GetLookAtDirectionWithUpRotation(vel, up);
+        this.Owner.Transform.WorldRotation = Math.Slerp(this.Owner.Transform.WorldRotation, wantedRotation, event.Dt );
+    }
+}

@@ -46,12 +46,22 @@ class TongueFinder : ZilchComponent
         if(this.PullPlayer == true && this.GetDistanceToPlayer() < 3.5)
         {
             Console.WriteLine("Destroyed Correct 1");
+            this.Player.GravityEffect.Active = true;
+            if(this.Player.AutoHopper != null)
+            {
+                this.Player.AutoHopper.Active = true;
+            }
             this.Owner.Destroy();
         }
         
         if(this.PullToPlayer == true && this.GetDistanceToPlayer() < 5.0)
         {
             Console.WriteLine("Destroyed Correct 2");
+            this.Player.GravityEffect.Active = true;
+            if(this.Player.AutoHopper != null)
+            {
+                this.Player.AutoHopper.Active = true;
+            }
             this.Owner.Destroy();
         }
         

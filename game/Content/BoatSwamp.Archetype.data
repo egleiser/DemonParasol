@@ -1,0 +1,52 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BoatSwamp",
+	},
+	Archetyped = 
+	{
+		string Name = "55397c33da697285:BoatBody",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [57.6235, -100.086, -2.33974],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "55397c31dc265e75:BoatBodyRootNodeMulti",
+		string MeshName = "55397c2ef352932f:BoatBody",
+		Vec4 Color = [0.196078, 0.133333, 0.0196078, 1],
+	},
+	Hierarchy = 
+	{
+		ArchetypeInstance = 
+		{
+			string Name = "553e03872dbfac44:SwampRippleBR",
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.37138, -1.26554, -1.77248],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.636367, 0.308281, 0.308281, 0.636367],
+			},
+			Named = 
+			{
+				string Name = "SwampRippleBR",
+			},
+		},
+	},
+},

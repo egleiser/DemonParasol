@@ -112,6 +112,11 @@ Level =
 			float DuckSpeed = 3,
 			bool StartPlaying = true,
 		},
+		FadeIn = 
+		{
+			float FadeTime = 2,
+			bool Skip = false,
+		},
 		Hierarchy = 
 		{
 			Cog = 
@@ -204,9 +209,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [47.4407, -56.8953, 140.955],
+			Vec3 Translation = [32.7215, -83.2787, 20.8042],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.327432, 0.088121, -0.0306869, 0.940256],
+			Quat Rotation = [0.188875, 0.1044, -0.0201987, 0.976227],
 		},
 		Camera = 
 		{
@@ -221,10 +226,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 190.461,
-			float VerticalAngle = -0.670206,
-			float HorizontalAngle = -6.47008,
-			Vec3 LookTarget = [19.7064, 61.4091, -5.70854],
+			float LookDistance = 85.5797,
+			float VerticalAngle = -0.382227,
+			float HorizontalAngle = -6.49626,
+			Vec3 LookTarget = [15.9303, -51.3585, -56.8041],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -252,7 +257,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [26.2834, 32.9104, 0],
+			Vec3 Translation = [26.2834, -73.2026, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
