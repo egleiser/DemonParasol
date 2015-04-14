@@ -6,18 +6,19 @@ Cog =
 		string ProjectOwner = "",
 		string DefaultLevel = "Level",
 		string ProjectSpace = "Space",
-		uint ProjectEngineRevision = 0,
+		uint ProjectEngineRevision = 10681,
 	},
 	EditorSettings = 
 	{
 		EditorMode EditorMode = Mode3D,
-		bool ViewCube = true,
-		float ViewCubeViewportSize = 150,
-		ScriptReloadMethod ScriptReloadEditor = ReInitializeObjects,
-		ScriptReloadMethod ScriptReloadGame = PatchObjects,
+		float DefaultPixelsPerUnit = 64,
+		bool SpriteSmoothing = true,
+		float DefaultImportScale = 1,
 	},
 	DeveloperConfig = 
 	{
 		bool DoubleEscapeQuit = true,
+		bool EnableDeprecatedTileGrid = false,
+		bool EnableEditorOrientationGizmo = false,
 	},
 },
