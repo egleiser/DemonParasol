@@ -26,6 +26,7 @@ class Z_GamepadButtonController:ZilchComponent
     var ViewPos:Real3 = Real3(0,0,3);
     var LeftPos:Real3 = Real3(-100,0,3);
     var RightPos:Real3 = Real3(100,0,3);
+    var PauseMenuPosition:Real3 = Real3(0,6.25,20);
     
     //START MENU
     var ARC_StartMenu:Archetype = Archetype.Find("ARC_StartMenu");
@@ -50,6 +51,14 @@ class Z_GamepadButtonController:ZilchComponent
     //QUIT GAME
     var ARC_QuitMenu:Archetype = Archetype.Find("ARC_QuitMenu");
     var QuitMenuGroup:Cog = null;
+    
+    //PAUSE MENU
+    var ARC_PauseMenu:Archetype = Archetype.Find("arc_ui_pause_menu");
+    var PauseMenuGroup:Cog = null;
+    
+    //HOW TO PLAY PAUSE
+    var ARC_HowToPlayPause:Archetype = Archetype.Find("ARC_HowToPlayPause");
+    var HowToPlayPauseGroup:Cog = null;
     
     [Property]
     var AltSprite:SpriteSource = null;
@@ -99,6 +108,20 @@ class Z_GamepadButtonController:ZilchComponent
             //BACK BUTTON PRESSED
             if(this.Gamepad.IsButtonPressed(this.GamepadBackButton))
             {
+                if(this.GameSession.FindSpaceByName("HUD") != null)
+                {
+                    if(this.GameSession.FindSpaceByName("HUD").FindObjectByName("ui-pause-menu") != null)
+                    {
+                        this.GameSession.FindSpaceByName("HUD").FindObjectByName("ui-pause-menu").Destroy();
+                    }
+                }
+                
+                //destroy the pause menu if it exists
+                if(this.PauseMenuGroup != null)
+                {
+                    this.PauseMenuGroup.Destroy();
+                }
+                
                 //if currently on the MAIN MENU
                 if(this.Owner.Name =="BtnNewGame" ||
                    this.Owner.Name =="BtnHowToPlay" ||
@@ -211,6 +234,7 @@ class Z_GamepadButtonController:ZilchComponent
                     if(mainSpace.TimeSpace.Paused)
                     {
                         mainSpace.TimeSpace.TogglePause();
+                        Console.WriteLine("this is happening");
                         mainSpace.SoundSpace.Pause = false;
                     }
                     mainSpace.LoadLevel(this.LevelToLoad);
@@ -382,28 +406,87 @@ class Z_GamepadButtonController:ZilchComponent
                     this.GameSession.Quit();
                 }
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                //resume game
+                //PAUSE MENU
+                //--RESUME GAME BUTTON
                 if(this.Owner.Name == "BtnGameResume" && this.GameSession.FindSpaceByName("Main").TimeSpace.Paused)
                 {
                     //this.Space.LevelSettings.Z_UI_MenuPopUp.FadeOut();
                     this.GameSession.FindSpaceByName("Main").LevelSettings.QuickPause.TogglePauseMenu();
+                    this.Space.FindObjectByName("ui-pause-menu").Destroy();
                 }
+                
+                //PAUSE MENU
+                //--HOW TO PLAY PAUSE
+                if(this.Owner.Name == "BtnGameHowPlay")
+                {
+                    //assign and create the HowToPlayGroup from its archetype
+                    this.HowToPlayPauseGroup = this.Space.CreateAtPosition(this.ARC_HowToPlayPause, this.QuitViewPos);
+                    //make this last button presed inactive
+                    this.Owner.Z_GamepadButtonController.Active = false;
+                    //find the QuitMenuGroup, then move and destroy it
+                    this.PauseMenuGroup = this.Space.FindObjectByName("ui-pause-menu");
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveAwayAndDestroy(this.PauseMenuGroup, this.AwayPos);
+                    //make the incoming HowToPlayGroup BtnMainMenu active
+                    this.HowToPlayPauseGroup.FindChildByName("BtnBackToPause").Z_GamepadButtonController.Active = true;
+                }
+                
+                //PAUSE MENU - HOW TO PLAY
+                //--HOW TO PLAY PAUSE
+                if(this.Owner.Name == "BtnBackToPause")
+                {
+                    //assign and create the PauseMenuGroup from its archetype
+                    this.PauseMenuGroup = this.Space.CreateAtPosition(this.ARC_PauseMenu, this.PauseMenuPosition);
+                    //make this last button presed inactive
+                    this.Owner.Z_GamepadButtonController.Active = false;
+                    //find the HowToPlayPauseGroup, then move and destroy it
+                    this.HowToPlayPauseGroup = this.Space.FindObjectByName("goHowToPlayPauseGroup");
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveAwayAndDestroy(this.HowToPlayPauseGroup, this.AwayPos);
+                    //make the incoming PauseMenuGroup BtnGameResume active
+                    this.PauseMenuGroup.FindChildByName("BtnGameResume").Z_GamepadButtonController.Active = true;
+                }
+                
+                
+                
+                
+                
+                
+                
+                
                 
             }
         }
         //Regular
         if(this.Active && this.Timer > 10)
         {
+            if(this.Owner.Name == "BtnGameResume")
+            {
+                this.Owner.Sprite.Visible = true;
+                this.Space.FindObjectByName("BtnGameHowPlay").Sprite.Visible = false;
+                this.Space.FindObjectByName("BtnPauseMenuMain").Sprite.Visible = false;
+                this.Space.FindObjectByName("BtnGameQuit").Sprite.Visible = false;
+            }
+            if(this.Owner.Name == "BtnGameHowPlay")
+            {
+                this.Owner.Sprite.Visible = true;
+                this.Space.FindObjectByName("BtnGameResume").Sprite.Visible = false;
+                this.Space.FindObjectByName("BtnPauseMenuMain").Sprite.Visible = false;
+                this.Space.FindObjectByName("BtnGameQuit").Sprite.Visible = false;
+            }
+            if(this.Owner.Name == "BtnPauseMenuMain")
+            {
+                this.Owner.Sprite.Visible = true;
+                this.Space.FindObjectByName("BtnGameHowPlay").Sprite.Visible = false;
+                this.Space.FindObjectByName("BtnGameResume").Sprite.Visible = false;
+                this.Space.FindObjectByName("BtnGameQuit").Sprite.Visible = false;
+            }
+            if(this.Owner.Name == "BtnGameQuit")
+            {
+                this.Owner.Sprite.Visible = true;
+                this.Space.FindObjectByName("BtnGameHowPlay").Sprite.Visible = false;
+                this.Space.FindObjectByName("BtnPauseMenuMain").Sprite.Visible = false;
+                this.Space.FindObjectByName("BtnGameResume").Sprite.Visible = false;
+            }
+            
             if(this.Gamepad.LeftStick.X > 0.4 || Zero.Keyboard.KeyIsPressed(Keys.Right) || this.Gamepad.IsButtonPressed(Buttons.DpadRight))
             {
                 if(this.RightButton.Cog != null)

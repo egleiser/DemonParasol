@@ -40,7 +40,7 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				bool VisibilityEvents = false,
+				bool VisibilityEvents = true,
 				bool CastShadows = true,
 				string MaterialName = "55d9df6f54b60b67:Material__25",
 				string MeshName = "55cddaa9405668ae:IntroTestLEVEL.Plane001",
@@ -67,7 +67,7 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				bool VisibilityEvents = false,
+				bool VisibilityEvents = true,
 				bool CastShadows = true,
 				string MaterialName = "55cddaab47cbd801:RockyArea",
 				string MeshName = "55cddaa9405668b3:IntroTestLEVEL.MountainSide",
@@ -94,9 +94,13 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
-				bool VisibilityEvents = false,
+				bool VisibilityEvents = true,
 				bool CastShadows = true,
+<<<<<<< HEAD
+				string MaterialName = "55a0aa06eeb114a8:IntroAlphaLEVELGrassyFieldsMulti",
+=======
 				string MaterialName = "55fc41f87f03945e:IntroAlphaLEVELGrassyFieldsMulti",
+>>>>>>> master
 				string MeshName = "55cddaa9405668b6:IntroTestLEVEL.GrassyFields",
 				Vec4 Color = [1, 1, 1, 1],
 			},
