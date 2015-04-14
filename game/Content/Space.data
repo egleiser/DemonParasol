@@ -32,12 +32,13 @@ Space =
 		uint SubStepCount = 1,
 		string CollisionFilterName = "54ff0efdab48c7a7:GlobalCollisionTable",
 		string PhysicsSolverConfigName = "52a967fb4cda91cb:Baumgarte",
+		string DynamicBroadphaseType = "DynamicAabbTree",
+		string StaticBroadphaseType = "StaticAabbTree",
 	},
 	SoundSpace = 
 	{
 	},
 	ReactiveSpace = 
 	{
-		bool Active = true,
 	},
 },

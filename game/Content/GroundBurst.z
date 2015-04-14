@@ -32,7 +32,7 @@ class GroundBurst : ZilchComponent
             if(this.JustBursted == false)
             {
                 this.Owner.SoundEmitter.Play();
-                var wind = this.Space.CreateAtPosition(Archetype.Find("GroundSmoke"),this.Owner.Parent.Transform.WorldTranslation + Real3(0,0,1));
+                var wind = this.Space.CreateAtPosition(Archetype.Find("GroundSmoke"),this.Owner.Parent.Transform.WorldTranslation + Real3(0,0,3));
                 this.JustBursted = true;
             }
         }

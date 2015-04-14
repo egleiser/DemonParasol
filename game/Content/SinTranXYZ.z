@@ -1,0 +1,40 @@
+class SinTranXYZ : ZilchComponent
+{
+    [Property]
+    var SinSpeedX:Real = 5.0;
+    [Property]
+    var SinSpeedY:Real = 5.0;
+    [Property]
+    var SinSpeedZ:Real = 0.0;
+    [Property]
+    var IntensityX:Real = 1.0;
+    [Property]
+    var IntensityY:Real = 1.0;
+    [Property]
+    var IntensityZ:Real = 1.0;
+    [Property]
+    var UseInitialRot:Boolean = false;
+    var Active:Boolean = true;
+    var TranslationOffset:Real3 = Real3(0,0,0);
+    var TranslationInitial:Real3 = Real3(0,0,0);
+    var InitTrans:Real = 0.0;
+    function Initialize(init : CogInitializer)
+    {
+        this.TranslationInitial = this.Owner.Transform.WorldTranslation;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.InitTrans = this.Owner.Transform.WorldTranslation.Z + this.Owner.Transform.WorldTranslation.X + this.Owner.Transform.WorldTranslation.Y;
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+
+        if(this.Active == true)
+        {
+            this.TranslationOffset = this.TranslationInitial+ Real3(Math.Sin(this.InitTrans + event.TimePassed * this.SinSpeedX) * this.IntensityX,
+            Math.Sin(this.InitTrans + event.TimePassed * this.SinSpeedY )* this.IntensityY,
+            Math.Sin(this.InitTrans + event.TimePassed * this.SinSpeedZ) * this.IntensityZ);
+            this.Owner.Transform.WorldTranslation = this.TranslationOffset;
+        }
+        
+    }
+}

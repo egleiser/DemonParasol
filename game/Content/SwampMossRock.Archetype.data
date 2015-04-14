@@ -1,0 +1,75 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "SwampMossRock",
+	},
+	Archetyped = 
+	{
+		string Name = "55396ab90e68ac46:SwampMossRock",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [47.8484, -150.529, 0],
+		Vec3 Scale = [2.28367, 2.5246, 1.44119],
+		Quat Rotation = [0, 0, -0.546303, 0.837588],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+		string MeshName = "5481b30411ffa6dc:Rock3",
+		Vec4 Color = [0.305288, 0.31, 0.2976, 1],
+	},
+	SphereCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0.5],
+		float Radius = 0.7,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "SwampMoss",
+			},
+			Archetyped = 
+			{
+				string Name = "55396b31e986f1ae:SwampMoss",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.0240669, 0.0943222, 1.08565],
+				Vec3 Scale = [0.775728, 0.741156, 0.389842],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5539643565eabbcc:mat_gradientSelfIllumn",
+				string MeshName = "5481b30411ffa6dc:Rock3",
+				Vec4 Color = [0.239216, 0.32549, 0.0980392, 1],
+			},
+		},
+	},
+},

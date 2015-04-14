@@ -1,0 +1,22 @@
+class LightColorFromModel : ZilchComponent
+{
+    var InitInten : Real = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.InitInten = this.Owner.Light.Intensity;
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.Owner.Model.Visible)
+        {
+            this.Owner.Light.Intensity = Math.Lerp(this.Owner.Light.Intensity, this.InitInten, event.Dt * 8.0);
+        }
+        else
+        {
+            this.Owner.Light.Intensity = Math.Lerp(this.Owner.Light.Intensity, 0.0, event.Dt * 8.0);
+        }
+        this.Owner.Light.Color = this.Owner.Model.Color;
+    }
+}

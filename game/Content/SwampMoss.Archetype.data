@@ -1,0 +1,31 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "SwampMoss",
+	},
+	Archetyped = 
+	{
+		string Name = "5481b30411f6b027:Rock3",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [77.5129, -131.374, 63.6427],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+		string MeshName = "5481b30411ffa6dc:Rock3",
+		Vec4 Color = [0.27, 0.205416, 0.1296, 1],
+	},
+},

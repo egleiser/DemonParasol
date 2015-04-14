@@ -1,0 +1,245 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "FloatingRaft",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-20.2456, -158.823, -2.01823],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, -0.569258, 0.822159],
+	},
+	Model = 
+	{
+		bool Visible = false,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = true,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [4.65, 7.5, 1.1],
+	},
+	FootstepSurface = 
+	{
+		Enum SurfaceType = Wood,
+	},
+	SinTranXYZ = 
+	{
+		float SinSpeedX = 0.6,
+		float SinSpeedY = 0.6,
+		float SinSpeedZ = 2,
+		float IntensityX = -4,
+		float IntensityY = 7,
+		float IntensityZ = 0.5,
+		bool UseInitialRot = false,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "RaftPart",
+			},
+			Archetyped = 
+			{
+				string Name = "553e08e1bf81e8f2:RaftPart",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [1.10496, -7.50827, 0],
+				Vec3 Scale = [0.6, 0.858195, 0.6],
+				Quat Rotation = [0, -0.644264, 0, 0.764803],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "5535f7f2e3762ca6:WoodLog",
+				Vec4 Color = [0.195, 0.134999, 0.018525, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "RaftPart",
+			},
+			Archetyped = 
+			{
+				string Name = "553e08e1bf81e8f2:RaftPart",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-3.2934, -7.50789, 0],
+				Vec3 Scale = [0.6, 0.858195, 0.6],
+				Quat Rotation = [0, 0.990122, 0, 0.140212],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "5535f7f2e3762ca6:WoodLog",
+				Vec4 Color = [0.195, 0.134999, 0.018525, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "RaftPart",
+			},
+			Archetyped = 
+			{
+				string Name = "553e08e1bf81e8f2:RaftPart",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [3.18861, -7.50827, 0],
+				Vec3 Scale = [0.6, 0.858195, 0.6],
+				Quat Rotation = [0, -0.138054, 0, 0.990425],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "5535f7f2e3762ca6:WoodLog",
+				Vec4 Color = [0.195, 0.134999, 0.018525, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "RaftPart",
+			},
+			Archetyped = 
+			{
+				string Name = "553e08e1bf81e8f2:RaftPart",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.20976, -7.50827, 0],
+				Vec3 Scale = [0.6, 0.858195, 0.6],
+				Quat Rotation = [0, 0.499107, 0, 0.866541],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+				string MeshName = "5535f7f2e3762ca6:WoodLog",
+				Vec4 Color = [0.195, 0.134999, 0.018525, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "MovingPlatformController",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.000289917, 7.62939e-005, 1.56875],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, -1.3411e-007, 1],
+			},
+			Model = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			RigidBody = 
+			{
+				bool Static = false,
+				bool Asleep = false,
+				bool Kinematic = true,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			BoxCollider = 
+			{
+				bool Ghost = true,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				Vec3 Size = [4.65, 7.5, 1.1],
+			},
+			MovingPlatform = 
+			{
+			},
+			Hierarchy = 
+			{
+			},
+		},
+	},
+},
