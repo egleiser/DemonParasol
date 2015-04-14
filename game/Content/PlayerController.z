@@ -404,7 +404,15 @@ class PlayerController : ZilchComponent
                 {
                     this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation,Math.Euler(Real3(0.0,0.0,this.MoveAngle)),event.Dt*this.RotateSpeed);
                     this.Owner.FootstepDetector.Walk();
-                    this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed * Math.Length(this.Owner.InputController.Gamepad.LeftStick), this.Orientation.WorldUp);
+                    if(Zero.Keyboard.KeyIsDown(Keys.Up) || Zero.Keyboard.KeyIsDown(Keys.Down) || Zero.Keyboard.KeyIsDown(Keys.Left) ||Zero.Keyboard.KeyIsDown(Keys.Right))
+                    {
+                        this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed , this.Orientation.WorldUp);
+                    }
+                    else
+                    {
+                        this.Owner.DynamicMotor.MoveInDirection(this.Orientation.WorldForward * event.Dt * this.MovmentSpeed * Math.Length(this.Owner.InputController.Gamepad.LeftStick), this.Orientation.WorldUp);
+                    }
+                    
                 }
             }
             else
