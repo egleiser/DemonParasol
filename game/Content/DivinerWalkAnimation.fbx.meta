@@ -1,0 +1,28 @@
+GeometryContent = 
+{
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	AnimationBuilder = 
+	{
+		string Name = "DivinerWalkAnimation",
+		uint64 ResourceId = 5558db2a14bc8bdc,
+		bool MakeAnimationSet = false,
+		ResourceCompression CompressAnimation = None,
+		string PreviewArchetype = "",
+		Array Clips = 
+		[
+			{
+				string Name = "All",
+				uint64 ResourceId = 5558db2a14a10fdc,
+				int StartFrame = 1,
+				int EndFrame = 390,
+				LoopingMode LoopingMode = Default,
+			},
+		],
+	},
+},

@@ -1,0 +1,64 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "PillarLantern",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "pCube56",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-39.8947, 28.0057, -31.7198],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5558ea3675214810:Gold",
+				string MeshName = "5558e73bf050b17a:PillarLantern.pCube56",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "curve1",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-37.3883, 27.442, -31.7581],
+				Vec3 Scale = [5.02967, 5.02967, 5.02967],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+		},
+	},
+},

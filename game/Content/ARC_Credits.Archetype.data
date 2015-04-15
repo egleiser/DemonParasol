@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-17.6232, -20.5709, 0],
+		Vec3 Translation = [36.3074, -14.301, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -137,8 +137,8 @@ Cog =
 			},
 			Z_ButtonAnimations = 
 			{
-				Vec4 ActiveColor = [0.768628, 0.309804, 0.313726, 1],
-				Vec3 ActiveSize = [1.1, 1.1, 0],
+				Vec4 ActiveColor = [0.254902, 0.101961, 0.117647, 1],
+				Vec3 ActiveSize = [1.5, 1.5, 0],
 				Vec3 ActivePos = [0, -0.25, 0],
 				Enum ActiveEaseType = QuadInOut,
 				float ActiveTiming = 1,
@@ -151,6 +151,7 @@ Cog =
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,
 				Enum GamepadBackButton = B,
+				Enum KeyboardBackButton = Back,
 				string AltSprite = "",
 				int GamepadIndex = 0,
 				bool Active = false,
@@ -163,50 +164,6 @@ Cog =
 			LinkId = 
 			{
 				uint Id = 4,
-			},
-			Named = 
-			{
-				string Name = "goMask",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [-0.0964966, 0.07687, 5],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Sprite = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = false,
-				bool CastShadows = false,
-				Vec4 Color = [1, 1, 1, 1],
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "5275aa4d802dd6dc:Square",
-				bool RenderMask = true,
-				bool FlipX = false,
-				bool FlipY = false,
-				bool OnTop = false,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-			},
-			Area = 
-			{
-				Vec2 Size = [15, 5],
-				Location Origin = Center,
-			},
-			Hierarchy = 
-			{
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 5,
 			},
 			Named = 
 			{

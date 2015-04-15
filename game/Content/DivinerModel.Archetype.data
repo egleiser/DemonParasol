@@ -1,0 +1,439 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "DivinerModel",
+	},
+	Archetyped = 
+	{
+		string Name = "5558db1b1df50b95:DivinerModel",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-12.0565, -4.1055, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	AnimationGraph = 
+	{
+		bool Active = true,
+		AnimPlayMode PlayMode = PlayOnce,
+		float TimeScale = 0.75,
+		string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+		uint64 DebugPreviewId = 65646461206e6565,
+	},
+	SimpleAnimation = 
+	{
+		string AnimationName = "5558db2a14a10fdc:DivinerWalkAnimation.All",
+		AnimPlayMode PlayMode = Loop,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "group3",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [9.67994, 4.11237, 0.0937454],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "pasted__joint1",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-9.56014, 4.10017, -50.3794],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0.704339, 0.709863, 4.34666e-017, 4.31283e-017],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 4,
+							},
+							Named = 
+							{
+								string Name = "pasted__joint2",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [4.01565, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [-1.90757e-020, 2.38104e-022, -0.0124811, 0.999922],
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 5,
+									},
+									Named = 
+									{
+										string Name = "pasted__joint3",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0.95734, -7.77156e-016, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0.695425, 0.718599, 4.40148e-017, 4.25688e-017],
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 6,
+											},
+											Named = 
+											{
+												string Name = "pasted__pSphere1",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [-0.0199238, 0.131995, 0],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [0, -0, -7.43999e-033, 1],
+											},
+											Model = 
+											{
+												bool Visible = true,
+												bool VisibilityCulling = true,
+												bool VisibilityEvents = false,
+												bool CastShadows = true,
+												string MaterialName = "544380cb7820af93:lambert1",
+												string MeshName = "5558db1b1df7bee8:DivinerModel.pasted__pSphere1",
+												Vec4 Color = [1, 1, 1, 1],
+											},
+											Hierarchy = 
+											{
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 7,
+													},
+													Named = 
+													{
+														string Name = "pasted__pPlane2",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0.015458, -0.513927, 0.962022],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0, -0, -7.43999e-033, 1],
+													},
+													Model = 
+													{
+														bool Visible = true,
+														bool VisibilityCulling = true,
+														bool VisibilityEvents = false,
+														bool CastShadows = true,
+														string MaterialName = "54819610cc522997:pasted__lambert12",
+														string MeshName = "5558db1b1df7beef:DivinerModel.pasted__pPlane2",
+														Vec4 Color = [1, 1, 1, 1],
+													},
+												},
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 8,
+													},
+													Named = 
+													{
+														string Name = "pasted__pCylinder5",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [-6.77342e-009, 0.407785, 0.0264385],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0, -0, -7.43999e-033, 1],
+													},
+													Model = 
+													{
+														bool Visible = true,
+														bool VisibilityCulling = true,
+														bool VisibilityEvents = false,
+														bool CastShadows = true,
+														string MaterialName = "54819610cc522997:pasted__lambert12",
+														string MeshName = "5558db1b1df7bef2:DivinerModel.pasted__pCylinder5",
+														Vec4 Color = [1, 1, 1, 1],
+													},
+												},
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 9,
+													},
+													Named = 
+													{
+														string Name = "pasted__pCylinder8",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [-0.00450595, 0.453991, 0],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0, -0, -7.43999e-033, 1],
+													},
+													Model = 
+													{
+														bool Visible = true,
+														bool VisibilityCulling = true,
+														bool VisibilityEvents = false,
+														bool CastShadows = true,
+														string MaterialName = "54819610cc55c6a7:pasted__lambert11",
+														string MeshName = "5558db1b1df7bef4:DivinerModel.pasted__pCylinder8",
+														Vec4 Color = [1, 1, 1, 1],
+													},
+												},
+											},
+										},
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 10,
+									},
+									Named = 
+									{
+										string Name = "pasted__joint4",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [-0.20586, -0.901313, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [1.2326e-032, 1.34815e-033, -3.46945e-018, 1],
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 11,
+											},
+											Named = 
+											{
+												string Name = "pasted__pCube1",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [-0.139998, -0.262614, 0],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [1.2326e-032, 5.77779e-034, -1.87172e-034, 1],
+											},
+											Model = 
+											{
+												bool Visible = true,
+												bool VisibilityCulling = true,
+												bool VisibilityEvents = false,
+												bool CastShadows = true,
+												string MaterialName = "54819610cc55c6a7:pasted__lambert11",
+												string MeshName = "5558db1b1df7bef7:DivinerModel.pasted__pCube1",
+												Vec4 Color = [1, 1, 1, 1],
+											},
+											Hierarchy = 
+											{
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 12,
+													},
+													Named = 
+													{
+														string Name = "pasted__pCube2",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [-1.46946, -0.211256, 0],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [1.2326e-032, 1.34815e-033, 3.46945e-018, 1],
+													},
+													Model = 
+													{
+														bool Visible = true,
+														bool VisibilityCulling = true,
+														bool VisibilityEvents = false,
+														bool CastShadows = true,
+														string MaterialName = "544380cb7820af93:lambert1",
+														string MeshName = "5558db1b1df7befa:DivinerModel.pasted__pCube2",
+														Vec4 Color = [1, 1, 1, 1],
+													},
+												},
+											},
+										},
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 13,
+									},
+									Named = 
+									{
+										string Name = "pasted__joint5",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [-0.201748, 0.887949, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [1.2326e-032, 1.34815e-033, -3.46945e-018, 1],
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 14,
+											},
+											Named = 
+											{
+												string Name = "pasted__pCube3",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [-0.220246, 0.270271, 0],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [1.2326e-032, 5.77779e-034, -1.87172e-034, 1],
+											},
+											Model = 
+											{
+												bool Visible = true,
+												bool VisibilityCulling = true,
+												bool VisibilityEvents = false,
+												bool CastShadows = true,
+												string MaterialName = "54819610cc55c6a7:pasted__lambert11",
+												string MeshName = "5558db1b1df7befc:DivinerModel.pasted__pCube3",
+												Vec4 Color = [1, 1, 1, 1],
+											},
+											Hierarchy = 
+											{
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 15,
+													},
+													Named = 
+													{
+														string Name = "pasted__pCube4",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [-1.47921, 0.0860397, 0],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [1.23206e-032, 1.52837e-018, 3.46945e-018, 1],
+													},
+													Model = 
+													{
+														bool Visible = true,
+														bool VisibilityCulling = true,
+														bool VisibilityEvents = false,
+														bool CastShadows = true,
+														string MaterialName = "544380cb7820af93:lambert1",
+														string MeshName = "5558db1b1df7befe:DivinerModel.pasted__pCube4",
+														Vec4 Color = [1, 1, 1, 1],
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 16,
+							},
+							Named = 
+							{
+								string Name = "pasted__pCylinder3",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0.0210794, -0.0155214, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							Model = 
+							{
+								bool Visible = true,
+								bool VisibilityCulling = true,
+								bool VisibilityEvents = false,
+								bool CastShadows = true,
+								string MaterialName = "54819610cc55c6a7:pasted__lambert11",
+								string MeshName = "5558db1b1df7bf01:DivinerModel.pasted__pCylinder3",
+								Vec4 Color = [1, 1, 1, 1],
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 17,
+									},
+									Named = 
+									{
+										string Name = "pasted__pCylinder6",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [3.74034, 0.0344807, -0.0684337],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									Model = 
+									{
+										bool Visible = true,
+										bool VisibilityCulling = true,
+										bool VisibilityEvents = false,
+										bool CastShadows = true,
+										string MaterialName = "54819610cc55c6a7:pasted__lambert11",
+										string MeshName = "5558db1b1df7bf04:DivinerModel.pasted__pCylinder6",
+										Vec4 Color = [1, 1, 1, 1],
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	},
+},

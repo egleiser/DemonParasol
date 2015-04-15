@@ -20,6 +20,8 @@ Cog =
 	},
 	Z_GamepadMenuDetection = 
 	{
+		string KeyboardText = "Press ""Enter"" to Start",
+		string GamepadText = "Press ""A"" to Start",
 	},
 	Hierarchy = 
 	{
@@ -53,6 +55,7 @@ Cog =
 				bool RenderMask = false,
 				bool FlipX = false,
 				bool FlipY = false,
+				bool OnTop = false,
 				bool AnimationActive = true,
 				float AnimationSpeed = 1,
 				uint StartFrame = 0,
@@ -88,9 +91,12 @@ Cog =
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
 				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				TextPositionMode Position = UpperLeft,
 				string FontName = "545d0deafc601f9d:Canaro",
 				uint FontSize = 35,
 				string Text = "PRESS ""A"" TO START",
+				bool OnTop = false,
+				Vec2 Size = [0, 0],
 				TextAlign Align = Center,
 				float PixelsPerUnit = 64,
 				bool Smoothing = true,
@@ -109,6 +115,7 @@ Cog =
 				bool RenderMask = false,
 				bool FlipX = false,
 				bool FlipY = false,
+				bool OnTop = false,
 				bool AnimationActive = true,
 				float AnimationSpeed = 1,
 				uint StartFrame = 0,
@@ -135,8 +142,8 @@ Cog =
 			},
 			Z_ButtonAnimations = 
 			{
-				Vec4 ActiveColor = [0.768628, 0.309804, 0.313726, 1],
-				Vec3 ActiveSize = [1.1, 1.1, 0],
+				Vec4 ActiveColor = [0.521569, 0.184314, 0.215686, 1],
+				Vec3 ActiveSize = [1.25, 1.25, 0],
 				Vec3 ActivePos = [0, -0.25, 0],
 				Enum ActiveEaseType = QuadInOut,
 				float ActiveTiming = 1,
@@ -149,6 +156,7 @@ Cog =
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,
 				Enum GamepadBackButton = B,
+				Enum KeyboardBackButton = Back,
 				string AltSprite = "",
 				int GamepadIndex = 0,
 				bool Active = true,

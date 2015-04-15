@@ -116,13 +116,7 @@ class Z_ButtonAnimations:ZilchComponent
         //change color
         Action.Property(this.AActiveAnimation,
                         @this.Owner.SpriteText.Color,
-                        this.ActiveColor,
-                        this.ActiveTiming,
-                        this.ActiveEaseType);
-        //change position
-        Action.Property(this.AActiveAnimation,
-                        @this.Owner.Transform.Translation,
-                        (this.BtnOriginalPos + this.ActivePos),
+                        this.BtnOriginalColor,
                         this.ActiveTiming,
                         this.ActiveEaseType);
     }
@@ -145,13 +139,7 @@ class Z_ButtonAnimations:ZilchComponent
         //change back to original color
         Action.Property(this.AResetAnimation,
                         @this.Owner.SpriteText.Color,
-                        this.BtnOriginalColor,
-                        this.ActiveTiming,
-                        this.ActiveEaseType);
-        //change back to original position
-        Action.Property(this.AResetAnimation,
-                        @this.Owner.Transform.Translation,
-                        this.BtnOriginalPos,
+                        this.ActiveColor,
                         this.ActiveTiming,
                         this.ActiveEaseType);
     }

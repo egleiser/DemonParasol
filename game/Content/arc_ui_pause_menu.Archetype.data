@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [303.369, 85.1597, 47.7362],
+		Vec3 Translation = [27.1986, -14.862, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -32,6 +32,7 @@ Cog =
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
+		bool OnTop = false,
 		bool AnimationActive = true,
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
@@ -55,7 +56,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [-0.186194, -6.22354, -2],
+				Vec3 Translation = [-0.186194, -6.94166, -2],
 				Vec3 Scale = [3, 3, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -73,6 +74,7 @@ Cog =
 				bool RenderMask = false,
 				bool FlipX = false,
 				bool FlipY = false,
+				bool OnTop = false,
 				bool AnimationActive = true,
 				float AnimationSpeed = 1,
 				uint StartFrame = 0,
@@ -99,7 +101,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, -4, 1],
+				Vec3 Translation = [0, -5.28195, 1],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -122,6 +124,7 @@ Cog =
 				bool RenderMask = false,
 				bool FlipX = false,
 				bool FlipY = false,
+				bool OnTop = false,
 				bool AnimationActive = true,
 				float AnimationSpeed = 1,
 				uint StartFrame = 0,
@@ -143,12 +146,13 @@ Cog =
 			},
 			Z_GamepadButtonController = 
 			{
-				CogPath UpButton = "../BtnGameQuit",
+				CogPath UpButton = "../BtnPauseMenuMain",
 				CogPath DownButton = "../BtnGameHowPlay",
 				CogPath LeftButton = "",
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,
 				Enum GamepadBackButton = B,
+				Enum KeyboardBackButton = Back,
 				string AltSprite = "55a09105de751ce9:sprHighlight",
 				int GamepadIndex = 0,
 				bool Active = true,
@@ -165,9 +169,12 @@ Cog =
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
 				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				TextPositionMode Position = UpperLeft,
 				string FontName = "545d0deafc601f9d:Canaro",
 				uint FontSize = 60,
 				string Text = "RESUME GAME",
+				bool OnTop = false,
+				Vec2 Size = [0, 0],
 				TextAlign Align = Center,
 				float PixelsPerUnit = 64,
 				bool Smoothing = true,
@@ -189,7 +196,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, -6.5, 1],
+				Vec3 Translation = [0, -7.78195, 1],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -212,6 +219,7 @@ Cog =
 				bool RenderMask = false,
 				bool FlipX = false,
 				bool FlipY = false,
+				bool OnTop = false,
 				bool AnimationActive = true,
 				float AnimationSpeed = 1,
 				uint StartFrame = 0,
@@ -239,6 +247,7 @@ Cog =
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,
 				Enum GamepadBackButton = B,
+				Enum KeyboardBackButton = Back,
 				string AltSprite = "55a09105de751ce9:sprHighlight",
 				int GamepadIndex = 0,
 				bool Active = false,
@@ -255,9 +264,12 @@ Cog =
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
 				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				TextPositionMode Position = UpperLeft,
 				string FontName = "545d0deafc601f9d:Canaro",
 				uint FontSize = 60,
 				string Text = "HOW TO PlAY",
+				bool OnTop = false,
+				Vec2 Size = [0, 0],
 				TextAlign Align = Center,
 				float PixelsPerUnit = 64,
 				bool Smoothing = true,
@@ -282,7 +294,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, -9, 1],
+				Vec3 Translation = [0, -10.2819, 1],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -305,6 +317,7 @@ Cog =
 				bool RenderMask = false,
 				bool FlipX = false,
 				bool FlipY = false,
+				bool OnTop = false,
 				bool AnimationActive = true,
 				float AnimationSpeed = 1,
 				uint StartFrame = 0,
@@ -327,101 +340,12 @@ Cog =
 			Z_GamepadButtonController = 
 			{
 				CogPath UpButton = "../BtnGameHowPlay",
-				CogPath DownButton = "../BtnGameQuit",
-				CogPath LeftButton = "",
-				CogPath RightButton = "",
-				Enum GamepadConfirmationButton = A,
-				Enum GamepadBackButton = B,
-				string AltSprite = "55a09105de751ce9:sprHighlight",
-				int GamepadIndex = 0,
-				bool Active = false,
-				float Timer = 0,
-				string LevelToLoad = "",
-			},
-			SpriteText = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = true,
-				bool CastShadows = false,
-				Vec4 Color = [1, 1, 1, 1],
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string FontName = "545d0deafc601f9d:Canaro",
-				uint FontSize = 60,
-				string Text = "MAIN MENU",
-				TextAlign Align = Center,
-				float PixelsPerUnit = 64,
-				bool Smoothing = true,
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 6,
-			},
-			Named = 
-			{
-				string Name = "BtnGameQuit",
-			},
-			Archetyped = 
-			{
-				string Name = "549359035ea57e68:arc_menu_button",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [0, -11.5, 1],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Reactive = 
-			{
-				bool Active = true,
-				bool CaptureMouse = true,
-			},
-			Sprite = 
-			{
-				bool Visible = false,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = true,
-				bool CastShadows = false,
-				Vec4 Color = [1, 1, 1, 1],
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "55a09105de751ce9:sprHighlight",
-				bool RenderMask = false,
-				bool FlipX = false,
-				bool FlipY = false,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-			},
-			Area = 
-			{
-				Vec2 Size = [10, 1.5],
-				Location Origin = Center,
-			},
-			Z_UI_Transitions = 
-			{
-				float FadeInTime = 0.5,
-				float FadeOutTime = 0.25,
-				float WaitTime = 2,
-				float ScaleOutTime = 0.2,
-				float ScaleInTime = 0.25,
-				float ScaleBiggerSize = 1.1,
-				Enum EaseType = QuadInOut,
-			},
-			Z_GamepadButtonController = 
-			{
-				CogPath UpButton = "../BtnPauseMenuMain",
 				CogPath DownButton = "../BtnGameResume",
 				CogPath LeftButton = "",
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,
 				Enum GamepadBackButton = B,
+				Enum KeyboardBackButton = Back,
 				string AltSprite = "55a09105de751ce9:sprHighlight",
 				int GamepadIndex = 0,
 				bool Active = false,
@@ -438,9 +362,12 @@ Cog =
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
 				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				TextPositionMode Position = UpperLeft,
 				string FontName = "545d0deafc601f9d:Canaro",
 				uint FontSize = 60,
-				string Text = "QUIT GAME",
+				string Text = "MAIN MENU",
+				bool OnTop = false,
+				Vec2 Size = [0, 0],
 				TextAlign Align = Center,
 				float PixelsPerUnit = 64,
 				bool Smoothing = true,
