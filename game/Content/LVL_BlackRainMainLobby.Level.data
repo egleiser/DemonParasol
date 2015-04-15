@@ -112,10 +112,8 @@ Level =
 			float DuckSpeed = 3,
 			bool StartPlaying = true,
 		},
-		FadeIn = 
+		BunkerStart = 
 		{
-			float FadeTime = 2,
-			bool Skip = false,
 		},
 		Hierarchy = 
 		{
@@ -209,9 +207,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [23.014, -85.9172, 34.6063],
+			Vec3 Translation = [22.1283, -16.4669, 18.0369],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.192522, 0.00178327, -0.000349857, 0.981291],
+			Quat Rotation = [0.303199, -0.0705301, 0.0225091, 0.950047],
 		},
 		Camera = 
 		{
@@ -226,10 +224,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 64.4697,
-			float VerticalAngle = -0.387463,
-			float HorizontalAngle = -6.28682,
-			Vec3 LookTarget = [22.7971, -61.558, -25.0839],
+			float LookDistance = 23.7171,
+			float VerticalAngle = -0.617847,
+			float HorizontalAngle = -6.13498,
+			Vec3 LookTarget = [24.983, -2.72802, -1.08363],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -8723,6 +8721,14 @@ Level =
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "545746f1032fd08a:ui-textbox-kasa-obake",
+					string SpeakerTextBlock = "5509f79cdb32d49a:BunkerLobbyText1",
+					string SpeakerSong = "",
+					Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+				},
 			},
 			Cog = 
 			{
@@ -8739,6 +8745,14 @@ Level =
 					Vec3 Translation = [2.07431, 12.2379, -16.8141],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
+					string SpeakerTextBlock = "5509f7f7c1c06a22:BunkerLobbyText2",
+					string SpeakerSong = "",
+					Vec4 SpeakerParticleColor = [0, 0, 0, 0],
 				},
 			},
 			Cog = 
@@ -8757,22 +8771,13 @@ Level =
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
-			},
-			Cog = 
-			{
-				LinkId = 
+				TextBlockInfo = 
 				{
-					uint Id = 281,
-				},
-				Named = 
-				{
-					string Name = "LobbyText4",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [2.07431, 12.2379, -16.8141],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
+					string SpeakerName = "",
+					string SpeakerSprite = "545746f1032fd08a:ui-textbox-kasa-obake",
+					string SpeakerTextBlock = "5509f705c4d2b554:BunkerLobbyText3",
+					string SpeakerSong = "",
+					Vec4 SpeakerParticleColor = [0, 0, 0, 0],
 				},
 			},
 		},
@@ -8781,7 +8786,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 282,
+			uint Id = 281,
 		},
 		Named = 
 		{

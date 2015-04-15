@@ -40,15 +40,21 @@ class Z_MenuAnimations:ZilchComponent
         //get the dark menu
         this.DarkMenu = this.Space.FindObjectByName("goMenuBackgroundDark");
         
-        //set this button's starring properties
-        this.DarkMenuOriginalColor = this.DarkMenu.Sprite.Color;
-        this.DarkMenuOriginalPos = this.DarkMenu.Transform.Translation;
-        
+        if(this.DarkMenu != null)
+        {
+            //set this button's starring properties
+            this.DarkMenuOriginalColor = this.DarkMenu.Sprite.Color;
+            this.DarkMenuOriginalPos = this.DarkMenu.Transform.Translation;
+        }
         //event listener to update and perform code every logical frame
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
-
-    function OnLogicUpdate(event : UpdateEvent)
+    
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FUNCTION-OnLogicUpdate()
+    //EXPLANATION-run code every logical update
+    //////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    function OnLogicUpdate(event:UpdateEvent):Void
     {
         if(this.AMoveAwayAndDestroy != null && this.AMoveAwayAndDestroy.Completed)
         {

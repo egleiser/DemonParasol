@@ -5,7 +5,9 @@ class QuickPause : ZilchComponent
     var Gamepad:Gamepad = null;
     var PauseMenu:Cog = null;
     
-    var PauseMenuPosition:Real3 = Real3(0,0,20);
+    var PauseMenuPosition:Real3 = Real3(0,6.25,20);
+    
+    var IsPauseActive:Boolean = false;
     
     function Initialize(init : CogInitializer)
     {
@@ -23,11 +25,11 @@ class QuickPause : ZilchComponent
     
     function TogglePauseMenu():Void
     {
-        this.Space.TimeSpace.TogglePause();
+            this.IsPauseActive = true;
+            this.Space.TimeSpace.TogglePause();
             this.Space.SoundSpace.Pause = !this.Space.SoundSpace.Pause;
             if(this.Space.SoundSpace.Pause)
             {
-                Console.WriteLine("MAKE");
                 this.LevelSettings.HudCreator.HudSpace.SoundSpace.PlayCue(SoundCue.Find("Whoosh_ParasolOpen"));
                 this.PauseMenu = this.LevelSettings.HudCreator.HudSpace.CreateAtPosition(Archetype.Find("arc_ui_pause_menu"), this.PauseMenuPosition);
             }
@@ -35,8 +37,8 @@ class QuickPause : ZilchComponent
             {
                 if(this.PauseMenu != null)
                 {
-                    Console.WriteLine("DESTROY");
                     this.PauseMenu.Destroy();
+                    this.IsPauseActive = false;
                     var pauseConfirm = this.LevelSettings.HudCreator.HudSpace.FindObjectByName("ui-are-you-sure-pause");
                     if(pauseConfirm != null)
                     {

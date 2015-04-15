@@ -2,7 +2,7 @@
 ////                                 ////
 ////  Name: TextScrollManager.z      ////
 ////    Written by: Jason Clark      ////
-////     Last Updated: 9-17-14       ////
+////     Last Updated: 04-14-15      ////
 ////                                 ////
 /////////////////////////////////////////
 class TextScrollManager : ZilchComponent
@@ -68,6 +68,12 @@ class TextScrollManager : ZilchComponent
     
     var MainSpace : Space = null;
     
+    var Timer : Integer = 0;
+    var BPressed : Boolean = false;
+    var HasWind : Boolean = false;
+    var Player : Cog = null;
+    var IsUnskippable : Boolean = false;
+    
     function Initialize(init : CogInitializer)
     {
         this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
@@ -76,6 +82,11 @@ class TextScrollManager : ZilchComponent
         this.TextIsScrolling = true;
         
         this.MainSpace = this.GameSession.FindSpaceByName("Main");
+        this.Player = this.MainSpace.FindObjectByName("Player");
+        
+        this.HasWind = this.Player.PlayerController.WindActive;
+        
+        
         
         this.CharWorldPos = this.Owner.SpriteText.GetCharacterPosition(this.CurrentIndex - 1);
         this.Particle = this.Space.FindObjectByName("TextBoxParticle");
@@ -90,7 +101,8 @@ class TextScrollManager : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        
+        this.IsUnskippable = this.Space.FindObjectByName("TextBox").TextBoxManager.Unskippable;
+        Console.WriteLine(this.IsUnskippable);
         if(this.DialogueSequence == true)
         {
             var textManager = this.Space.FindObjectByName("TextBox").TextBoxManager;
@@ -124,9 +136,13 @@ class TextScrollManager : ZilchComponent
                     this.DialogueSpeedIncreased = true;
                 }
             }
-            if(this.Gamepad.IsButtonPressed(Buttons.B))
+            
+            if(this.IsUnskippable == false)
             {
-                this.TextIsCancelled = true;
+                if(this.Gamepad.IsButtonPressed(Buttons.B) && this.MainSpace.LevelSettings.QuickPause.IsPauseActive == false)
+                {
+                    this.TextIsCancelled = true;
+                }
             }
             
             //var localPos = Real3(this.Owner.SpriteText.MeasureGivenText(this.Owner.SpriteText.Text), 0);
@@ -158,6 +174,7 @@ class TextScrollManager : ZilchComponent
         this.CurrentIndex = 0;
         this.CurrentString = null;
         this.GoalString = event.TextToWrite.Text;
+
         this.TextIsScrolling = true;
         
         this.TextSeq = Action.Sequence(this.Owner.Actions);
@@ -265,11 +282,20 @@ class TextScrollManager : ZilchComponent
     
     function DialogueStartSettings()
     {
-        this.MainSpace.TimeSpace.Paused = true;
+        this.Player.PlayerController.FreezeMovement = true;
+        if(this.HasWind == true)
+        {
+            this.Player.PlayerController.WindActive = false;
+        }
+        
     }
     
     function DialogueEndSettings()
     {
-        this.MainSpace.TimeSpace.Paused = false;
+        this.MainSpace.FindObjectByName("Player").PlayerController.FreezeMovement = false;
+        if(this.HasWind == true)
+        {
+            this.Player.PlayerController.WindActive = true;
+        }
     }
 }
