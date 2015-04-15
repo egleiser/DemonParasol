@@ -1,0 +1,36 @@
+class EyeMover : ZilchComponent
+{
+    [Property]
+    var PlayerPath : CogPath = null;
+    var Player : Cog = null;
+    
+    var PlayerPos : Real3 = Real3(0,0,0);
+    var PlayerRot : Quaternion = Quaternion(0,0,0,0);
+    
+    var FollowVec : Real3 = Real3(0,0,0);
+    var FollowRot : Quaternion = Quaternion(0,0,0,0);
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.PlayerPath.Cog;
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.FindPlayerRot();
+        
+        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, this.FollowRot, 1);
+    }
+    
+    function FindPlayerRot()
+    {
+        this.PlayerPos = this.Player.Transform.Translation;
+        var eyePos = this.Owner.Transform.Translation;
+        this.FollowVec = eyePos - this.PlayerPos;
+        this.FollowVec = Math.Normalize(this.FollowVec);
+        this.FollowRot = this.Owner.Orientation.GetLookAtDirectionWithUpRotation(this.FollowVec, Real3(0,0,1));
+        
+    }
+}

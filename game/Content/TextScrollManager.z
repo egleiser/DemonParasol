@@ -123,7 +123,7 @@ class TextScrollManager : ZilchComponent
                 //Change this to a different button.
                 if(this.TextIsScrolling == false)
                 {
-                    //this.TextSeq.Cancel();
+                    this.TextSeq.Cancel();
                     this.ChangeSeq = Action.Sequence(this.Owner.Actions);
                     Actions.Delay(this.ChangeSeq, this.ChangeDelay);
                     Actions.Call(this.ChangeSeq, this.ContinueEventCall);
@@ -268,7 +268,7 @@ class TextScrollManager : ZilchComponent
     {
         this.GoalString = this.CurrentString;
         var seq = Action.Sequence(this.Owner.Actions);
-        Action.Delay(seq, 0.2);
+        Action.Delay(seq, 0.1);
         Action.Call(seq, this.ChangeCancelDialogueBool);
         this.DialogueSequence = false;
     }
@@ -282,19 +282,10 @@ class TextScrollManager : ZilchComponent
     function DialogueStartSettings()
     {
         this.Player.PlayerController.FreezeMovement = true;
-        if(this.HasWind == true)
-        {
-            this.Player.PlayerController.WindActive = false;
-        }
-        
     }
     
     function DialogueEndSettings()
     {
         this.MainSpace.FindObjectByName("Player").PlayerController.FreezeMovement = false;
-        if(this.HasWind == true)
-        {
-            this.Player.PlayerController.WindActive = true;
-        }
     }
 }

@@ -30,9 +30,9 @@ class RibController : ZilchComponent
         {
             this.Owner.SoundEmitter.Play();
             //Create the wind when the umbrella opens
-            var wind = this.Space.CreateAtPosition(Archetype.Find("PushWind"),this.Owner.Transform.WorldTranslation + Real3(0,0,1));
-            wind.Transform.Rotation = Math.Euler(Real3(0,0,this.Player.PlayerController.MoveAngle));
-            wind.RigidBody.Velocity = this.Player.Orientation.WorldForward * this.WindSpeed;
+            //var wind = this.Space.CreateAtPosition(Archetype.Find("PushWind"),this.Owner.Transform.WorldTranslation + Real3(0,0,1));
+            //wind.Transform.Rotation = Math.Euler(Real3(0,0,this.Player.PlayerController.MoveAngle));
+            //wind.RigidBody.Velocity = this.Player.Orientation.WorldForward * this.WindSpeed;
             this.JustOpened = true;
         }
         this.Timer = 0;
