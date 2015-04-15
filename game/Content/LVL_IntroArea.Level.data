@@ -187,9 +187,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-209.204, -153.203, 55.9969],
+			Vec3 Translation = [-69.759, 14.3935, 78.4063],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.379674, -0.0515391, 0.0211904, 0.923441],
+			Quat Rotation = [0.379674, -0.0515377, 0.0211898, 0.923441],
 		},
 		Camera = 
 		{
@@ -204,10 +204,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 190.564,
+			float LookDistance = 77.4776,
 			float VerticalAngle = -0.780165,
 			float HorizontalAngle = -6.17168,
-			Vec3 LookTarget = [-194.131, -19.1609, -78.6143],
+			Vec3 LookTarget = [-63.6311, 68.891, 23.6774],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -39112,9 +39112,11 @@ Level =
 					Vec3 Offset = [0, 0, 0],
 					float Radius = 1,
 				},
-				TextInteractVolume = 
+				SignReader = 
 				{
-					string Text = "54f4128b269c0cad:TestTextBlock",
+					string ColliderToUse = "5509762df1a94a66:SignReadCollider",
+					CogPath DiagSegToUsePath = "../ReadText",
+					CogPath PlayerPath = ":/Player",
 				},
 			},
 			Cog = 
