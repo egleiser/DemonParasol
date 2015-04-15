@@ -11,6 +11,8 @@ class OrbitCameraController : ZilchComponent
     //The target for the camera to follow
     [Property]
     var OrbitTarget : CogPath = null;
+    [Property]
+    var SpeedMod: Real = 1.0;
     
     //The height of the camera, relative to the target
     [Property]
@@ -114,7 +116,7 @@ class OrbitCameraController : ZilchComponent
                 
                 //this.Owner.Transform.Rotation = this.WantedRotation;
                 this.Owner.Transform.Rotation = Math.RotateTowards(this.Owner.Transform.Rotation, this.WantedRotation, 5);
-                this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, this.WantedPosition, event.Dt * 5);
+                this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, this.WantedPosition, event.Dt * 5 * this.SpeedMod);
             }
         }
     }

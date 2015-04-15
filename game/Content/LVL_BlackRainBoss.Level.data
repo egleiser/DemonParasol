@@ -202,7 +202,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [21.7399, -34.2792, 16.8869],
+			Vec3 Translation = [20.9515, -14.9845, 43.6742],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.452467, -0.0729438, 0.0371668, 0.888015],
 		},
@@ -222,7 +222,7 @@ Level =
 			float LookDistance = 85.5797,
 			float VerticalAngle = -0.942479,
 			float HorizontalAngle = 0.163917,
-			Vec3 LookTarget = [29.9485, 34.9563, -32.7412],
+			Vec3 LookTarget = [29.1601, 54.2509, -5.95393],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -337,6 +337,7 @@ Level =
 		OrbitCameraController = 
 		{
 			CogPath OrbitTarget = ":/Player",
+			float SpeedMod = 1,
 			float Height = 30,
 			float Radius = 40,
 			float AngleChange = 90,
@@ -581,6 +582,7 @@ Level =
 						DreamLighting = 
 						{
 							bool DreamWorld = true,
+							bool SetFogColor = false,
 							Vec4 DayLightColor = [0.812776, 0.61975, 0.925, 1],
 							Vec4 DreamLightColor = [0.0483856, 0.002625, 0.075, 1],
 							float TransitionSpeed = 3,

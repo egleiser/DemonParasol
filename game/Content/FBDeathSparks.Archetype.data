@@ -1,0 +1,97 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "FBDeathSparks",
+	},
+	Archetyped = 
+	{
+		string Name = "553b55c66dd6cd62:FBDeathSparks",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [15.6101, 0.965576, -0.232948],
+		Vec3 Scale = [3.03829, 1.51836, 3.87172],
+		Quat Rotation = [-0.0348273, -0.0340614, 0.734687, 0.676655],
+	},
+	SpriteParticleSystem = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		SystemChildMode ChildMode = Independent,
+		SystemSpace SystemSpace = WorldSpace,
+		uint DrawOrder = 0,
+		float WarmUpTime = 0,
+		ParticleGeometry GeometryMode = Beam,
+		ParticleRenderMode RenderMode = Additive,
+		ParticleSortMode SortMode = Youngest,
+		ParticleAnimation ParticleAnimation = Looping,
+		string Texture = "5481a3be505aea94:wind-particles-simple-01",
+		Vec4 Tint = [1, 1, 1, 1],
+		float VelocityScale = 0.3,
+		float LengthScale = 0.3,
+		float MaxParticleSize = 100,
+		Vec3 SystemSize = [40, 40, 40],
+	},
+	SphericalParticleEmitter = 
+	{
+		bool Active = false,
+		uint EmitCount = 0,
+		float EmitRate = 200,
+		float EmitVariance = 0,
+		float Size = 2,
+		float SizeVariance = 0.05,
+		float Lifetime = 0.2,
+		float LifetimeVariance = 0.05,
+		float Spin = -400,
+		float SpinVariance = 50,
+		bool RandomSpin = true,
+		float Fill = 0,
+		float EmitterVelocityPercent = 0,
+		Vec3 StartVelocity = [0, 0, 22],
+		Vec3 RandomVelocity = [2, 2, 0],
+		Vec3 TangentVelocity = [0, 20, 0],
+		Vec3 EmitterSize = [5, 5, 5],
+		bool FastMovingEmitter = false,
+	},
+	LinearParticleAnimator = 
+	{
+		Vec3 Force = [0, 0, 2],
+		Vec3 RandomForce = [0, 0, 0],
+		float Torque = 0,
+		float Growth = 3,
+		float Dampening = 0,
+		Vec3 Twist = [0, 0, 0],
+	},
+	ParticleColorAnimator = 
+	{
+		Vec4 Color0 = [1, 1, 1, 0],
+		Vec4 Color1 = [1, 0.8425, 0.37, 1],
+		Vec4 Color2 = [1, 0.6, 0, 0.755],
+		Vec4 Color3 = [1, 0.36, 0, 0.515],
+		Vec4 Color4 = [1, 0, 0, 0],
+	},
+	Light = 
+	{
+		bool Visible = false,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		LightType LightType = Point,
+		Vec4 Color = [1, 0.51, 0, 1],
+		float Intensity = 5,
+		float Range = 15,
+		float Falloff = 1,
+		float Angle = 45,
+		float Size = 20,
+	},
+	Hierarchy = 
+	{
+	},
+},

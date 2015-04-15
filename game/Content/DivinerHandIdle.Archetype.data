@@ -8,6 +8,10 @@ Cog =
 	{
 		string Name = "DivinerHandIdle",
 	},
+	Archetyped = 
+	{
+		string Name = "55fd49fe6833156a:DivinerHandIdle",
+	},
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
@@ -20,7 +24,7 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = false,
 		bool CastShadows = true,
-		string Material = "55fd49e168158af7:DivinerHandIdleRootNodeMulti",
+		string Material = "55fd49e168158af7:DivinerHandMulti",
 		string Mesh = "55fd49fe683b3792:DivinerHandIdle",
 		Vec4 Color = [1, 1, 1, 1],
 	},
@@ -30,7 +34,7 @@ Cog =
 		AnimPlayMode PlayMode = PlayOnce,
 		float TimeScale = 1,
 		string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
-		uint64 DebugPreviewId = 6542746e656d7472,
+		uint64 DebugPreviewId = 206e6f6974636e75,
 	},
 	SimpleAnimation = 
 	{
