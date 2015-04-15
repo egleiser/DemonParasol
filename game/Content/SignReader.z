@@ -1,0 +1,65 @@
+class SignReader : ZilchComponent
+{
+    [Property]
+    var ColliderToUse : Archetype = null;
+    
+    [Property]
+    var DiagSegToUsePath : CogPath = null;
+    var DiagSegToUse : Cog = null;
+    
+    [Property]
+    var PlayerPath : CogPath = null;
+    var Player : Cog = null;
+    
+    var TextBox : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.DiagSegToUse = this.DiagSegToUsePath.Cog;
+        this.Player = this.PlayerPath.Cog;
+        
+        var hud = this.Space.LevelSettings.HudCreator.HudSpace;
+        this.TextBox = hud.FindObjectByName("TextBox");
+        
+        Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+        Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player")
+        {
+            otherObject.PlayerController.ContextString = "Read";
+        }
+    }
+
+    function OnCollisionPersisted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player")
+        {
+            if((this.TextBox.TextBoxManager.Owner.Sprite.Color.W < 0.001) &&
+                this.Player.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space))
+            {
+                var diagCollider = this.Space.CreateAtPosition(this.ColliderToUse, this.Player.Transform.Translation);
+                diagCollider.CollisionBasedDialogue.DiagSeg = this.DiagSegToUse;
+            }
+        }
+    }
+
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player")
+        {
+            otherObject.PlayerController.ContextString = "";
+        }
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

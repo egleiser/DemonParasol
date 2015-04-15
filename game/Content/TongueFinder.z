@@ -40,6 +40,10 @@ class TongueFinder : ZilchComponent
         this.Owner.Transform.Translation += this.InitialDirection * this.InitialSpeed;
         if(this.GetDistanceToPlayer() > 30.0)
         {
+            if(this.Player.AutoHopper != null)
+            {
+                this.Player.AutoHopper.Active = true;
+            }
             this.Owner.Destroy();
         }
         

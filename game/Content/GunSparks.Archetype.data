@@ -1,0 +1,83 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "GunSparks",
+	},
+	Archetyped = 
+	{
+		string Name = "55fdbbd35fe49b44:GunSparks",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [0.75957, 0.379589, 0.967928],
+		Quat Rotation = [-4.90712e-009, 5.5635e-008, -5.05408e-007, 1],
+	},
+	SpriteParticleSystem = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		SystemChildMode ChildMode = Independent,
+		SystemSpace SystemSpace = LocalSpace,
+		uint DrawOrder = 0,
+		float WarmUpTime = 0,
+		ParticleGeometry GeometryMode = Beam,
+		ParticleRenderMode RenderMode = Additive,
+		ParticleSortMode SortMode = Youngest,
+		ParticleAnimation ParticleAnimation = Looping,
+		string Texture = "5481a3be505aea94:wind-particles-simple-01",
+		Vec4 Tint = [1, 1, 1, 1],
+		float VelocityScale = 0.2,
+		float LengthScale = 0.3,
+		float MaxParticleSize = 100,
+		Vec3 SystemSize = [40, 40, 40],
+	},
+	SphericalParticleEmitter = 
+	{
+		bool Active = true,
+		uint EmitCount = 50,
+		float EmitRate = 600,
+		float EmitVariance = 0,
+		float Size = 0.1,
+		float SizeVariance = 0.05,
+		float Lifetime = 0.2,
+		float LifetimeVariance = 0.05,
+		float Spin = -400,
+		float SpinVariance = 50,
+		bool RandomSpin = true,
+		float Fill = 1,
+		float EmitterVelocityPercent = 0,
+		Vec3 StartVelocity = [0, -30, 0],
+		Vec3 RandomVelocity = [7, 7, 7],
+		Vec3 TangentVelocity = [0, 30, 0],
+		Vec3 EmitterSize = [1, 1, 1],
+		bool FastMovingEmitter = false,
+	},
+	LinearParticleAnimator = 
+	{
+		Vec3 Force = [0, -65, -80],
+		Vec3 RandomForce = [0, 0, 0],
+		float Torque = 0,
+		float Growth = 2,
+		float Dampening = 0,
+		Vec3 Twist = [0, 0, 0],
+	},
+	ParticleColorAnimator = 
+	{
+		Vec4 Color0 = [1, 1, 1, 0],
+		Vec4 Color1 = [1, 0.8425, 0.37, 1],
+		Vec4 Color2 = [1, 0.6, 0, 0.755],
+		Vec4 Color3 = [1, 0.36, 0, 0.515],
+		Vec4 Color4 = [1, 0, 0, 0],
+	},
+	Hierarchy = 
+	{
+	},
+},

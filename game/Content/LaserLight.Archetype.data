@@ -1,0 +1,258 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "LaserLight",
+	},
+	Archetyped = 
+	{
+		string Name = "55fd81863bd397f4:LaserLight",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [154.985, -7.80487, -3.16821],
+		Vec3 Scale = [0.75957, 0.379589, 0.967928],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Light = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		LightType LightType = Point,
+		Vec4 Color = [1, 0.28, 0.280432, 1],
+		float Intensity = 10,
+		float Range = 5,
+		float Falloff = 1,
+		float Angle = 45,
+		float Size = 20,
+	},
+	FollowPlayer = 
+	{
+		float SpeedMultiplier = 12,
+		Vec3 Offset = [0, 0, 2],
+	},
+	SphereCollider = 
+	{
+		bool Ghost = true,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, -3],
+		float Radius = 2,
+	},
+	DamagePlayerOnCollide = 
+	{
+		float Damage = 1,
+		bool SendsDeathEvent = false,
+		bool DieOnCollide = false,
+		string SpawnOnDeath = "",
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = true,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	ObjectSpawner = 
+	{
+		int Count = 50,
+		float Delay = 1,
+		Vec3 Velocity = [0, 0, 0],
+		string ArchetypeToSpawn = "54af925b4c66956d:HurtSphere",
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "GroundSparks",
+			},
+			Archetyped = 
+			{
+				string Name = "55fd82f96668bc4e:GroundSparks",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.000106812, -1.14441e-005, -1.74437],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-1.3094e-027, 1.42108e-014, -9.64465e-014, 1],
+			},
+			SpriteParticleSystem = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				SystemChildMode ChildMode = Independent,
+				SystemSpace SystemSpace = WorldSpace,
+				uint DrawOrder = 0,
+				float WarmUpTime = 0,
+				ParticleGeometry GeometryMode = Beam,
+				ParticleRenderMode RenderMode = Additive,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Looping,
+				string Texture = "5481a3be505aea94:wind-particles-simple-01",
+				Vec4 Tint = [1, 1, 1, 0.36],
+				float VelocityScale = 0.3,
+				float LengthScale = 0.3,
+				float MaxParticleSize = 100,
+				Vec3 SystemSize = [40, 40, 40],
+			},
+			SphericalParticleEmitter = 
+			{
+				bool Active = true,
+				uint EmitCount = 0,
+				float EmitRate = 300,
+				float EmitVariance = 0,
+				float Size = 0.2,
+				float SizeVariance = 0.05,
+				float Lifetime = 0.2,
+				float LifetimeVariance = 0.05,
+				float Spin = -400,
+				float SpinVariance = 50,
+				bool RandomSpin = true,
+				float Fill = 1,
+				float EmitterVelocityPercent = 0,
+				Vec3 StartVelocity = [0, 0, 60],
+				Vec3 RandomVelocity = [2, 2, 2],
+				Vec3 TangentVelocity = [0, 0, 20],
+				Vec3 EmitterSize = [1, 1, 1],
+				bool FastMovingEmitter = false,
+			},
+			LinearParticleAnimator = 
+			{
+				Vec3 Force = [0, 0, -300],
+				Vec3 RandomForce = [0, 0, 0],
+				float Torque = 0,
+				float Growth = 3,
+				float Dampening = 0,
+				Vec3 Twist = [0, 0, 0],
+			},
+			ParticleColorAnimator = 
+			{
+				Vec4 Color0 = [1, 1, 1, 0],
+				Vec4 Color1 = [1, 0.8425, 0.37, 1],
+				Vec4 Color2 = [1, 0.6, 0, 0.755],
+				Vec4 Color3 = [1, 0.36, 0, 0.515],
+				Vec4 Color4 = [1, 0, 0, 0],
+			},
+			Hierarchy = 
+			{
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "LightingFX",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1.31653, 2.63443, 1.03314],
+				Quat Rotation = [4.24772e-008, -4.89044e-008, 1.21447e-006, 1],
+			},
+			SpriteParticleSystem = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				SystemChildMode ChildMode = Independent,
+				SystemSpace SystemSpace = WorldSpace,
+				uint DrawOrder = 0,
+				float WarmUpTime = 0,
+				ParticleGeometry GeometryMode = Beam,
+				ParticleRenderMode RenderMode = Additive,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Single,
+				string Texture = "553126fd99126dd8:LightningBall",
+				Vec4 Tint = [1, 1, 1, 0.35],
+				float VelocityScale = 1,
+				float LengthScale = 0.001,
+				float MaxParticleSize = 100,
+				Vec3 SystemSize = [10, 10, 10],
+			},
+			SphericalParticleEmitter = 
+			{
+				bool Active = true,
+				uint EmitCount = 0,
+				float EmitRate = 40,
+				float EmitVariance = 20,
+				float Size = 6,
+				float SizeVariance = 0.2,
+				float Lifetime = 0.15,
+				float LifetimeVariance = 0.05,
+				float Spin = 0,
+				float SpinVariance = 50,
+				bool RandomSpin = true,
+				float Fill = 1,
+				float EmitterVelocityPercent = 0,
+				Vec3 StartVelocity = [0, 0, 0],
+				Vec3 RandomVelocity = [0, 0, 0],
+				Vec3 TangentVelocity = [0, 0, 0],
+				Vec3 EmitterSize = [1, 1, 1],
+				bool FastMovingEmitter = false,
+			},
+			LinearParticleAnimator = 
+			{
+				Vec3 Force = [0, 0, 20],
+				Vec3 RandomForce = [0, 0, 0],
+				float Torque = 0,
+				float Growth = 3,
+				float Dampening = 0,
+				Vec3 Twist = [0, 0, 0],
+			},
+			ParticleColorAnimator = 
+			{
+				Vec4 Color0 = [1, 1, 1, 0],
+				Vec4 Color1 = [1, 0, 0, 1],
+				Vec4 Color2 = [1, 1, 1, 1],
+				Vec4 Color3 = [1, 0, 0, 1],
+				Vec4 Color4 = [1, 1, 1, 0],
+			},
+			ParticleAttractor = 
+			{
+				float Strength = -10,
+				float MinDistance = 0,
+				float MaxDistance = 20,
+			},
+			Light = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				LightType LightType = Point,
+				Vec4 Color = [1, 0.39, 0.39, 1],
+				float Intensity = 5,
+				float Range = 15,
+				float Falloff = 1,
+				float Angle = 45,
+				float Size = 20,
+			},
+		},
+	},
+},

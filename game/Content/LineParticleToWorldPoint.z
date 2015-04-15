@@ -1,0 +1,22 @@
+class LineParticleToWorldPoint : ZilchComponent
+{
+    [Property]
+    var Target : CogPath = null;
+    var TargetCog : Cog = null;
+    function Initialize(init : CogInitializer)
+    {
+        if(this.Target !=null)
+        {
+            this.TargetCog = this.Target.Cog;
+        }
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.TargetCog != null)
+        {
+            this.Owner.LineParticleEmitter.TargetPosition = this.Target.Cog.Transform.WorldTranslation;
+        }
+    }
+}

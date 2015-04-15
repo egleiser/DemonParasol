@@ -1,0 +1,52 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 55fd49fe6833156a,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "DivinerHandIdle",
+				uint64 ResourceId = 55fd49fe683b3792,
+			},
+		],
+		MeshMode MeshMode = Single,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+	SkeletonBuilder = 
+	{
+		string Name = "DivinerHandIdle",
+		uint64 ResourceId = 55fd49fe68331568,
+	},
+	AnimationBuilder = 
+	{
+		string Name = "DivinerHandIdle",
+		uint64 ResourceId = 55fd49fe68331562,
+		bool MakeAnimationSet = false,
+		ResourceCompression CompressAnimation = None,
+		string PreviewArchetype = "",
+		Array Clips = 
+		[
+			{
+				string Name = "All",
+				uint64 ResourceId = 55fd49fe6805c84e,
+				int StartFrame = 0,
+				int EndFrame = 130,
+				LoopingMode LoopingMode = Default,
+			},
+		],
+	},
+},

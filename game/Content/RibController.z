@@ -11,7 +11,7 @@ class RibController : ZilchComponent
     [Property]
     var WindSpeed:Real = 20.0;
     var OpenScale:Real3 = Real3(2,1.5,2);
-    var ClosedScale:Real3 = Real3(0.3,4.5,0.3);
+    var ClosedScale:Real3 = Real3(0.7,7.0,0.7);
     var Open:Boolean = false;
     var JustOpened:Boolean = false;
     var Timer:Integer = 0;

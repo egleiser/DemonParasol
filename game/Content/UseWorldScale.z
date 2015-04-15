@@ -3,7 +3,7 @@
 ////  Name: UseWorldScale.z          ////
 ////    Written by: Eric Gleiser     ////
 ////                                 ////
-////     Last Updated: 12-11-14      ////
+////     Last Updated: 04-15-15      ////
 ////                                 ////
 /////////////////////////////////////////
 class UseWorldScale : ZilchComponent
@@ -19,5 +19,16 @@ class UseWorldScale : ZilchComponent
     {
         this.Owner.Transform.LocalScale = this.Scale;
         this.Owner.Transform.LocalScale = this.Owner.Transform.LocalScale/this.Owner.Parent.Transform.LocalScale;
+        if(this.Owner.Parent.Name == "Ribs")
+        {
+            if(this.Owner.Parent.RibController.Open)
+            {
+                this.Owner.Transform.LocalRotation = Math.Euler(Real3(2,0,0));
+            }
+            else
+            {
+                this.Owner.Transform.LocalRotation = Math.Euler(Real3(0,0,0));
+            }
+        }
     }
 }
