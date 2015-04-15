@@ -16,6 +16,10 @@ class TextBoxManager : ZilchComponent
     var ContinueButtonPath : CogPath = null;
     var ContinueButton : Cog = null;
     
+    [Property]
+    var CancelButtonPath : CogPath = null;
+    var CancelButton : Cog = null;
+    
     //Gamepad variables
     [Property]
     var GamepadIndex:Integer = 0;
@@ -57,6 +61,7 @@ class TextBoxManager : ZilchComponent
         
         this.TextBoxText = this.TextBoxTextPath.Cog;
         this.ContinueButton = this.ContinueButtonPath.Cog;
+        this.CancelButton = this.CancelButtonPath.Cog;
         
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, "startDialogue", this.OnStartDialogueEvent);
@@ -121,6 +126,7 @@ class TextBoxManager : ZilchComponent
         
         if(this.CurrentTextIdx == this.ChildTexts.Count)
         {
+            Console.WriteLine("Dialogue Ending Normally");
             var seq = Action.Sequence(this.Owner.Actions);
             var grp = Action.Group(seq);
             this.TextBoxText.TextScrollManager.DialogueSequence = false;
@@ -163,6 +169,11 @@ class TextBoxManager : ZilchComponent
                                 Real4(this.ContinueButton.Sprite.Color.X, this.ContinueButton.Sprite.Color.Y, this.ContinueButton.Sprite.Color.Z, 0.0),
                                 0.3,
                                 Ease.QuadIn);
+                Action.Property(grp,
+                                @this.CancelButton.Sprite.Color,
+                                Real4(this.CancelButton.Sprite.Color.X, this.CancelButton.Sprite.Color.Y, this.CancelButton.Sprite.Color.Z, 0.0),
+                                0.3,
+                                Ease.QuadIn);
                                 
                 Action.Call(seq, this.ContinueScrollEventCall);
                 //Call to function changing the text box sprite source to current speaker
@@ -179,6 +190,11 @@ class TextBoxManager : ZilchComponent
                 Action.Property(grp2,
                                 @this.ContinueButton.Sprite.Color,
                                 Real4(this.ContinueButton.Sprite.Color.X, this.ContinueButton.Sprite.Color.Y, this.ContinueButton.Sprite.Color.Z, 0.9),
+                                0.3,
+                                Ease.QuadOut);
+                Action.Property(grp2,
+                                @this.CancelButton.Sprite.Color,
+                                Real4(this.CancelButton.Sprite.Color.X, this.CancelButton.Sprite.Color.Y, this.CancelButton.Sprite.Color.Z, 0.9),
                                 0.3,
                                 Ease.QuadOut);
                                 
@@ -222,8 +238,9 @@ class TextBoxManager : ZilchComponent
     
     function CancelDialogue()
     {
-        Console.WriteLine("Dialogue Should Be Clear");
-        this.TextBoxText.SpriteText.Text = "";
+        
+        Console.WriteLine("Dialogue Cancelled");
+        //this.TextBoxText.SpriteText.Text = "";
         var e = new CancelDialogueEvent();
         this.Owner.DispatchEvent("CancelDialogue", e);
         this.Space.DispatchEvent("CancelDialogue", e);

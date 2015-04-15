@@ -102,7 +102,7 @@ class TextScrollManager : ZilchComponent
     function OnLogicUpdate(event : UpdateEvent)
     {
         this.IsUnskippable = this.Space.FindObjectByName("TextBox").TextBoxManager.Unskippable;
-        Console.WriteLine(this.IsUnskippable);
+        
         if(this.DialogueSequence == true)
         {
             var textManager = this.Space.FindObjectByName("TextBox").TextBoxManager;
@@ -123,7 +123,7 @@ class TextScrollManager : ZilchComponent
                 //Change this to a different button.
                 if(this.TextIsScrolling == false)
                 {
-                    this.TextSeq.Cancel();
+                    //this.TextSeq.Cancel();
                     this.ChangeSeq = Action.Sequence(this.Owner.Actions);
                     Actions.Delay(this.ChangeSeq, this.ChangeDelay);
                     Actions.Call(this.ChangeSeq, this.ContinueEventCall);
@@ -200,7 +200,6 @@ class TextScrollManager : ZilchComponent
         {
             if(this.DialogueSpeedIncreased == true)
             {
-                Console.WriteLine("Should complete dialogue");
                 this.Owner.SpriteText.Text = this.GoalString;
                 this.DialogueSpeedIncreased = false;
                 this.TextIsScrolling = false;
