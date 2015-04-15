@@ -1,0 +1,37 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 5558e73bf0afbd26,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "SilkCurtains.pPlane3",
+				uint64 ResourceId = 5558e738f056572f,
+			},
+			{
+				string Name = "SilkCurtains.pPlane4",
+				uint64 ResourceId = 5558e738f0565735,
+			},
+			{
+				string Name = "SilkCurtains.pPlane5",
+				uint64 ResourceId = 5558e738f0565736,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},

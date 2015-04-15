@@ -1,0 +1,565 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Throne",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "ThroneCore",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 10.3664, -66.1396],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5558ea36753ef40f:DivinerPurple",
+				string MeshName = "5558e738f07724af:Throne.ThroneCore",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "pCube7",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 12.6771, -73.0617],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 4,
+					},
+					Named = 
+					{
+						string Name = "transform31",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0.5, 0.5],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "pCube8",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 12.6771, -73.0617],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [1, -0, 0, -6.12323e-017],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 6,
+					},
+					Named = 
+					{
+						string Name = "transform32",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0.5, 0.5],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 7,
+			},
+			Named = 
+			{
+				string Name = "ThroneEmeblishments",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5558ea3675214810:Gold",
+				string MeshName = "5558e738f07724b5:Throne.ThroneEmeblishments",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 8,
+			},
+			Named = 
+			{
+				string Name = "group2",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.785883, 72.5366, 3.0649],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 9,
+					},
+					Named = 
+					{
+						string Name = "pasted__pCylinder1",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-47.0124, -73.5104, 137.915],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 10,
+							},
+							Named = 
+							{
+								string Name = "pasted__transform125",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 1, -2.84217e-013],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 11,
+					},
+					Named = 
+					{
+						string Name = "pasted__pCube1",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-65.591, -2.99716, 137.915],
+						Vec3 Scale = [65.2689, 6.17595, 4.13414],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 12,
+							},
+							Named = 
+							{
+								string Name = "pasted__transform124",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0.5, -1.92121, -2.84217e-014],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 13,
+					},
+					Named = 
+					{
+						string Name = "pasted__pCube2",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.322073, -2.99716, 137.915],
+						Vec3 Scale = [65.2689, 6.17595, 4.00476],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 14,
+							},
+							Named = 
+							{
+								string Name = "pasted__transform126",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [-0.634739, 0.5, 2.62901e-013],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 15,
+					},
+					Named = 
+					{
+						string Name = "pasted__pCube3",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.322073, 3.17879, 137.915],
+						Vec3 Scale = [67.3086, 2.68366, 7.97823],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 16,
+							},
+							Named = 
+							{
+								string Name = "pasted__transform127",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [-0.634739, 0.5, 2.62901e-013],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 17,
+					},
+					Named = 
+					{
+						string Name = "pasted__pCube4",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.322073, -2.99716, 137.915],
+						Vec3 Scale = [5.30642, 8.7773, 0.877468],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 18,
+							},
+							Named = 
+							{
+								string Name = "pasted__transform123",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [7.45058e-009, -0.5, -2.84217e-014],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 19,
+					},
+					Named = 
+					{
+						string Name = "pasted__pCube5",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.322069, 5.86246, 137.915],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 20,
+							},
+							Named = 
+							{
+								string Name = "pasted__transform128",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [1.10795, -78.399, -140.98],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 21,
+					},
+					Named = 
+					{
+						string Name = "pasted__pCube6",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.322069, 5.86246, 137.915],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [1, -0, 0, -6.12323e-017],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 22,
+							},
+							Named = 
+							{
+								string Name = "pasted__transform129",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [1.10795, -78.399, -140.98],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 23,
+					},
+					Named = 
+					{
+						string Name = "pasted__pCube7",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.785883, -72.5366, -2.00238],
+						Vec3 Scale = [0.709311, 1.0431, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 24,
+							},
+							Named = 
+							{
+								string Name = "pasted__polySurface122",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, -140.98],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 25,
+									},
+									Named = 
+									{
+										string Name = "transform90",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 0, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 26,
+							},
+							Named = 
+							{
+								string Name = "pasted__polySurface123",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, -140.98],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 27,
+									},
+									Named = 
+									{
+										string Name = "transform89",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 0, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 28,
+							},
+							Named = 
+							{
+								string Name = "pasted__transform130",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, -140.98],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 29,
+			},
+			Named = 
+			{
+				string Name = "ThroneTopper",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 31.336, -62.0061],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5558ea36753ef40f:DivinerPurple",
+				string MeshName = "5558e738f07724b7:Throne.ThroneTopper",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+	},
+},
