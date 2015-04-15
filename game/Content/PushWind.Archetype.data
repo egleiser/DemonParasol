@@ -23,10 +23,10 @@ Cog =
 		bool Visible = true,
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = false,
-		bool CastShadows = true,
+		bool CastShadows = false,
 		string MaterialName = "549ae288f43387b9:mat_PushWind",
 		string MeshName = "549a90678d6bf01f:BaseParasol",
-		Vec4 Color = [1, 1, 1, 0.43],
+		Vec4 Color = [1, 1, 1, 0.84],
 	},
 	TimedDeath = 
 	{
@@ -78,6 +78,10 @@ Cog =
 		float Volume = 1,
 		float Pitch = 1,
 		bool Positional = true,
+	},
+	SimpleOpacityFader = 
+	{
+		float MultiplyTime = 0.95,
 	},
 	Hierarchy = 
 	{

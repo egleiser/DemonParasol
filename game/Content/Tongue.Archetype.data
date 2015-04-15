@@ -22,6 +22,8 @@ Cog =
 	{
 		bool Visible = false,
 		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
 		string MaterialName = "54ff27758d4308c1:mat_Ghost",
 		string MeshName = "4de0354322b376ae:Sphere",
 		Vec4 Color = [1, 0, 0.000599861, 1],
@@ -32,7 +34,7 @@ Cog =
 		bool Asleep = false,
 		bool Kinematic = false,
 		bool RotationLocked = false,
-		bool Mode2D = true,
+		bool Mode2D = false,
 		bool AllowSleep = true,
 		bool Inherit2DMode = false,
 		Vec3 Velocity = [0, 0, 0],
@@ -61,20 +63,10 @@ Cog =
 		Vec3 invInertiaZ = [4.0287e-005, -1.60596e-012, 625],
 		Vec3 LocalCenterOfMass = [0, 0, 0],
 	},
-	Light = 
+	FollowTongueMount = 
 	{
-		bool Visible = false,
-		bool VisibilityCulling = true,
-		LightType LightType = Point,
-		Vec4 Color = [1, 0, 0, 1],
-		float Intensity = 0.27,
-		float Range = 8,
-		float Falloff = 1,
-		float Angle = 45,
-		float Size = 20,
-	},
-	LockZ = 
-	{
+		float SpeedMultiplier = 2,
+		Vec3 Offset = [0, 0, 0],
 	},
 	Hierarchy = 
 	{

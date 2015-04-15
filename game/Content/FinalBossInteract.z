@@ -1,0 +1,66 @@
+class FinalBossInteract : ZilchComponent
+{
+    [Property]
+    var ThrowForce:Real = 50000.0;
+    var Player: Cog = null;
+    var Boss: Cog = null;
+    var Timer:Integer = 10;
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Space.FindObjectByName("Player");
+        this.Boss = this.Space.FindObjectByName("DivinerHandFinalBoss");
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+        Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player" && this.Boss.AI_DivinerHand.AiState == DivHandState.Prone)
+        {
+            otherObject.PlayerController.ContextString = "Banish";
+            this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Accept"));
+            this.Space.CreateAtPosition(Archetype.Find("NukeFlare"), this.Owner.Transform.WorldTranslation);
+        }
+    }
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player")
+        {
+            otherObject.PlayerController.ContextString = "";
+        }
+    }
+    function OnCollisionPersisted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player")
+        {
+            //Console.WriteLine(this.TextBox.TextBoxManager.Owner.Sprite.Color.W);
+            if(this.Boss.AI_DivinerHand.AiState == DivHandState.Prone &&
+            (this.Player.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space)))
+            {
+                this.Space.SoundSpace.PlayCue(SoundCue.Find("Demon_H2"));
+                this.Boss.AI_DivinerHand.Kill();
+
+            }
+            if(this.Boss.AI_DivinerHand.AiState == DivHandState.Prone)
+            {
+                otherObject.PlayerController.ContextString = "Banish";
+                
+            }
+        }
+    }
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Timer += 1;
+        if(this.Timer > 10 &&
+        (this.Player.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space)))
+        {
+
+        }
+
+    }
+}

@@ -1,0 +1,28 @@
+GeometryContent = 
+{
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	AnimationBuilder = 
+	{
+		string Name = "DivinerHandDeath",
+		uint64 ResourceId = 55fd8f8e6a10f7f4,
+		bool MakeAnimationSet = false,
+		ResourceCompression CompressAnimation = None,
+		string PreviewArchetype = "",
+		Array Clips = 
+		[
+			{
+				string Name = "All",
+				uint64 ResourceId = 55fd8fb169e74cd4,
+				int StartFrame = 0,
+				int EndFrame = 300,
+				LoopingMode LoopingMode = Default,
+			},
+		],
+	},
+},

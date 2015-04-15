@@ -1,0 +1,33 @@
+Material = 
+{
+	Phong = 
+	{
+		float SpecularExponent = 16,
+		float SpecularScalar = 0.25,
+	},
+	EmissiveMapping = 
+	{
+		float EmissiveScale = 2.2,
+		string EmissiveMapTexture = "5530a944e7920ac1:toonwaterBR_verydark",
+		Vec2 EmissiveScroll = [0, 0.1],
+		Vec2 EmissiveTiling = [3, 3],
+		Vec2 EmissiveOffset = [0, 0],
+	},
+	Fresnel = 
+	{
+		string TestTexture = "5310e87946edd85d:Beam",
+		float EdgeFalloffPower = 0,
+		float EdgeFalloffScale = 2,
+		float PulseTimeScale = 30,
+		float PulseIntensity = 2,
+		float PulseIntensityOffset = 1,
+		Vec4 EdgeGlowColor = [0.05, 0, 2.99931e-005, 1],
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "4fab71e8bcb7a8ce:DefaultTexture",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

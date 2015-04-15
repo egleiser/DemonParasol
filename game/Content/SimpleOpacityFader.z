@@ -1,0 +1,14 @@
+class SimpleOpacityFader : ZilchComponent
+{
+    [Property]
+    var MultiplyTime : Real = 0.9;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Owner.Model.Color = Real4(this.Owner.Model.Color.X, this.Owner.Model.Color.Y, this.Owner.Model.Color.Z, this.Owner.Model.Color.W * this.MultiplyTime);
+    }
+}

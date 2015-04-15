@@ -14,16 +14,19 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [4.33847, 8.74184, 0.299674],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [0.2, 0.2, 0.2],
 		Quat Rotation = [-0.392772, 0.115007, -0.275321, 0.869886],
 	},
 	Model = 
 	{
+		bool Visible = false,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
 		string MaterialName = "54ff27758d4308c1:mat_Ghost",
 		string MeshName = "4de0354322b376ae:Sphere",
-		Vec4 Color = [1, 0, 0, 1],
-		bool Visible = false,
+		Vec4 Color = [0.0200001, 1, 0, 1],
 	},
 	RigidBody = 
 	{

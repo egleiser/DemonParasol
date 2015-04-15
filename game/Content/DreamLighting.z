@@ -11,6 +11,8 @@ class DreamLighting : ZilchComponent
     [Property]
     var DreamWorld:Boolean = false;
     [Property]
+    var SetFogColor:Boolean = false;
+    [Property]
     var DayLightColor:Real4 = Real4(1,0.95,0.9,1);
     [Property]
     var DreamLightColor:Real4 = Real4(0.588,0.251,0.784,1);
@@ -27,6 +29,7 @@ class DreamLighting : ZilchComponent
     {
         if(!this.DreamWorld)
         {
+
             this.Owner.Light.Color = Math.Lerp(this.Owner.Light.Color, this.DayLightColor, event.Dt * this.TransitionSpeed);
         }
         else
@@ -34,5 +37,9 @@ class DreamLighting : ZilchComponent
             this.Owner.Light.Color = Math.Lerp(this.Owner.Light.Color, this.DreamLightColor, event.Dt * this.TransitionSpeed);
         }
         this.Owner.Light.Intensity = 0.5 + this.Owner.Light.Color.X;
+        if(this.SetFogColor)
+        {
+            this.Owner.Parent.Parent.Fog.Color = this.Owner.Light.Color;
+        }
     }
 }

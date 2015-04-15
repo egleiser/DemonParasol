@@ -1,0 +1,32 @@
+class FollowTongueMount : ZilchComponent
+{
+    var Player:Cog = null;
+    var MoveVec : Real3 = Real3(0,0,0);
+    [Property]
+    var SpeedMultiplier : Real = 2.0;
+    [Property]
+    var Offset : Real3 = Real3(0,0,0);
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Space.FindObjectByName("TongueMount");
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(Math.Length((this.Player.Transform.WorldTranslation + this.Offset) - this.Owner.Transform.WorldTranslation) > 1)
+        {
+            this.StepTowardsPlayer(event);
+        }
+    }
+    function StepTowardsPlayer(event : UpdateEvent)
+    {
+        this.MoveVec = (this.Player.Transform.WorldTranslation + this.Offset) - this.Owner.Transform.WorldTranslation;
+        //Console.WriteLine("Move Vector Initial: `this.MoveVec`");
+        this.MoveVec = Math.Normalize(this.MoveVec);
+        //Console.WriteLine("Move Vector Normalized: `this.MoveVec`");
+        this.MoveVec *= this.SpeedMultiplier * 0.015;
+        //Console.WriteLine("Move Vector Final: `this.MoveVec`");
+        this.Owner.Transform.WorldTranslation += this.MoveVec;
+    }
+}

@@ -1,0 +1,28 @@
+GeometryContent = 
+{
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	AnimationBuilder = 
+	{
+		string Name = "DivinerHandGunPoseShoot",
+		uint64 ResourceId = 55fd54719d42d3df,
+		bool MakeAnimationSet = false,
+		ResourceCompression CompressAnimation = None,
+		string PreviewArchetype = "",
+		Array Clips = 
+		[
+			{
+				string Name = "All",
+				uint64 ResourceId = 55fd54719d56f0c7,
+				int StartFrame = 0,
+				int EndFrame = 30,
+				LoopingMode LoopingMode = Default,
+			},
+		],
+	},
+},

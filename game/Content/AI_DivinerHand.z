@@ -1,0 +1,779 @@
+enum DivHandState{Intro, Idle, Gun, Fist, Rocket, Point, Hurt, Resting, Death, Returning, Prone, DeathB}
+class AI_DivinerHand : ZilchComponent
+{
+    var Health : Integer = 100;
+    var AttackCount : Integer = 0;
+    var NumberOfBullets : Integer = 3;
+    var Player:Cog = null;
+    var BGMManager : Cog = null;
+    var HandModel : Cog = null;
+    var ChargeParticle : Cog = null;
+    var RocketParticle : Cog = null;
+    var MuzzlePoint : Cog = null;
+    var Laser : Cog = null;
+    var TongueTarget : Cog = null;
+    [Property]
+    var FlareParticle : Archetype = null;
+    [Property]
+    var GunSmokeParticle : Archetype = null;
+    [Property]
+    var Bullet : Archetype = null;
+    [Property]
+    var LaserLight : Archetype = null;
+    var Light : Cog = null;
+    var Timer : Integer = 0;
+    var ThinkTimer : Integer = 0;
+    var HurtTimer : Integer = 60;
+    var AniTimer : Integer = 0;
+    var ChargeMaterialBool : Boolean = false;
+    var HurtMaterialBool : Boolean = false;
+    var InitPosition : Real3 = Real3(0,0,0);
+    var SinOffset : Real3 = Real3(0,0,0);
+    var MoveVec : Real3 = Real3(0,0,0);
+    [Property]
+    var AiState : DivHandState = DivHandState.Idle;
+    [Property]
+    var AniSpeedMultiplier : Real = 1.0;
+    [Property]
+    var RotateSpeed : Real = 2.0;
+    var CamH : Real = 0.0;
+    var CamR : Real = 0.0;
+    var CamS : Real = 0.0;
+    //Animations
+    [Property]
+    var ChargeMaterial : Material = null;
+    [Property]
+    var RegularMaterial : Material = null;
+    [Property]
+    var HurtMaterial : Material = null;
+    //Animations
+    [Property]
+    var IdleAnim : Animation = null;
+    [Property]
+    var GunAnim : Animation = null;
+    [Property]
+    var FistAnim : Animation = null;
+    [Property]
+    var PointAnim : Animation = null;
+    [Property]
+    var HurtAnim : Animation = null;
+    [Property]
+    var DeathAnim : Animation = null;
+    [Property]
+    var ProneAnim : Animation = null;
+    function Initialize(init : CogInitializer)
+    {
+        
+        this.BGMManager = this.LevelSettings.FindChildByName("BGMManager");
+        this.HandModel = this.Owner.FindChildByName("DivinerHandModel");
+        this.Light = this.HandModel.FindChildByName("HandLight");
+        this.TongueTarget = this.HandModel.FindChildByName("TongueTarget");
+        this.ChargeParticle = this.HandModel.FindChildByName("HandChargeParticle");
+        this.RocketParticle = this.HandModel.FindChildByName("RocketSmokeXL");
+        this.MuzzlePoint = this.HandModel.FindChildByName("MuzzlePoint");
+        this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
+        this.InitPosition = this.Owner.Transform.WorldTranslation;
+        this.CamH = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.Height;
+        this.CamR = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.Radius;
+        this.CamS = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.SpeedMod;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Debug(event);
+        //DecideWhat to do
+        
+        if(this.ThinkTimer == 240)
+        {
+            var random = new Random();
+            var dieRoll = random.RangeInclusiveMax(1,3);
+            Console.WriteLine("Dice Roll: `dieRoll`");
+            if(dieRoll == 1)
+            {
+                this.RocketFist();
+            }
+            else if(dieRoll == 2)
+            {
+                this.StartUpGun();
+            }
+            else if(dieRoll == 3)
+            {
+                this.FireLaser();
+            }
+        }
+        //Checkfor Health
+        if(this.AiState != DivHandState.Death && this.AiState != DivHandState.Prone)
+        {
+            if(this.Health <= 0)
+            {
+                this.MakeProne();
+                
+            }
+        }
+        if(this.AiState == DivHandState.Prone)
+        {
+            this.LevelSettings.CameraViewport.Camera.OrbitCameraController.Height = 30 / ((this.Player.Transform.WorldTranslation.Z +9 ) * 0.2);
+            this.LevelSettings.CameraViewport.Camera.OrbitCameraController.Radius = 40;
+            this.LevelSettings.CameraViewport.Camera.OrbitCameraController.SpeedMod = 0.2;
+            this.TongueTarget.BoxCollider.SendsEvents = true;
+            if(this.Player.Transform.WorldTranslation.Z < this.Owner.Transform.WorldTranslation.Z + 4)
+            {
+                this.Player.PlayerController.MoveUpwards = true;
+            }
+            else
+            {
+                this.Player.PlayerController.MoveUpwards = false;
+                if(this.Player.PlayerController.TongueFinder != null)
+                {
+                    this.Player.PlayerController.TongueFinder.Destroy();
+                }
+            }
+            this.TongueTarget.Targetable.IndicatorType = TargetType.Friendly;
+            this.HandModel.AnimationGraph.TimeScale = 2.5;
+        }
+        else
+        {
+            this.TongueTarget.BoxCollider.SendsEvents = false;
+            this.Player.PlayerController.MoveUpwards = false;
+            this.TongueTarget.Targetable.IndicatorType = TargetType.Enemy;
+            this.HandModel.AnimationGraph.TimeScale = 1.5;
+            
+            if(this.AiState == DivHandState.Death && this.Timer < 350)
+            {
+                this.LevelSettings.CameraViewport.Camera.OrbitCameraController.SpeedMod = 0.3;
+                this.LevelSettings.CameraViewport.Camera.OrbitCameraController.Height = -6;
+                this.LevelSettings.CameraViewport.Camera.OrbitCameraController.Radius = 40;
+            }
+            else if(this.AiState == DivHandState.Death && this.Timer < 700)
+            {
+                this.LevelSettings.CameraViewport.Camera.OrbitCameraController.SpeedMod = 0.05;
+                this.LevelSettings.CameraViewport.Camera.OrbitCameraController.Height = -13;
+                this.LevelSettings.CameraViewport.Camera.OrbitCameraController.Radius = 50;
+
+            }
+            else if(this.AiState == DivHandState.Death )
+            {
+                this.LevelSettings.CameraViewport.Camera.OrbitCameraController.SpeedMod = 0.1;
+                this.LevelSettings.CameraViewport.Camera.OrbitCameraController.Height = 23;
+                this.LevelSettings.CameraViewport.Camera.OrbitCameraController.Radius = 60;
+            }
+            else
+            {
+                this.LevelSettings.CameraViewport.Camera.OrbitCameraController.SpeedMod = this.CamS;
+                this.LevelSettings.CameraViewport.Camera.OrbitCameraController.Height = this.CamH;
+                this.LevelSettings.CameraViewport.Camera.OrbitCameraController.Radius = this.CamR;
+            }
+        }
+        if(this.AiState == DivHandState.Point || this.AiState == DivHandState.Gun || this.AiState == DivHandState.Fist 
+        || this.AiState == DivHandState.Returning ||this.AiState == DivHandState.Idle || this.AiState == DivHandState.Prone)
+        {
+            if(this.LevelSettings.CameraViewport.Camera.OrbitCameraController.SpeedMod <= 1.0)
+            {
+                this.LevelSettings.CameraViewport.Camera.OrbitCameraController.SpeedMod *= 10.0;
+            }
+            this.FacePlayer(event);
+        }
+        if(this.AiState == DivHandState.Rocket)
+        {
+            this.StepTowardsPlayer(event);
+        }
+        this.Animate(event);
+        this.Timer += 1;
+        this.HurtTimer +=1;
+        this.ThinkTimer +=1;
+    }
+    ////////////////////////
+    ////               /////
+    ////Logic Functions/////
+    ////////////////////////
+    function FacePlayer(event : UpdateEvent)
+    {
+        var targetRotation = this.Owner.Orientation.GetLookAtPointWithUpRotation(
+            Real3(this.Player.Transform.WorldTranslation.X,this.Player.Transform.WorldTranslation.Y,this.Owner.Transform.WorldTranslation.Z),this.Owner.Orientation.WorldUp);
+        
+        if(this.AiState == DivHandState.Gun)
+        {
+            targetRotation = this.Owner.Orientation.GetLookAtPointWithUpRotation(
+            Real3(this.Player.Transform.WorldTranslation.X,this.Player.Transform.WorldTranslation.Y,this.Owner.Transform.WorldTranslation.Z),this.Owner.Orientation.WorldUp);
+            targetRotation = Math.Multiply(targetRotation, Math.Euler(Real3(0,0,3.3906585)));
+            this.Owner.Transform.WorldRotation = Math.Slerp(this.Owner.Transform.WorldRotation, targetRotation, event.Dt * this.RotateSpeed);
+        }
+        else if(this.AiState == DivHandState.Fist)
+        {
+            targetRotation = this.Owner.Orientation.GetLookAtPointWithUpRotation(
+            Real3(this.Player.Transform.WorldTranslation.X,this.Player.Transform.WorldTranslation.Y,this.Owner.Transform.WorldTranslation.Z),this.Owner.Orientation.WorldUp);
+            targetRotation = Math.Multiply(targetRotation, Math.Euler(Real3(0,0,3.3906585)));
+            this.Owner.Transform.WorldRotation = Math.Slerp(this.Owner.Transform.WorldRotation, targetRotation, event.Dt * this.RotateSpeed * 3.0);
+        }
+        else if(this.AiState == DivHandState.Prone)
+        {
+            targetRotation = this.Owner.Orientation.GetLookAtPointWithUpRotation(
+            Real3(156.0,-90.0,this.Owner.Transform.WorldTranslation.Z),this.Owner.Orientation.WorldUp);
+            targetRotation = Math.Multiply(targetRotation, Math.Euler(Real3(0,0,3.3906585)));
+            this.Owner.Transform.WorldRotation = Math.Slerp(this.Owner.Transform.WorldRotation, targetRotation, event.Dt * this.RotateSpeed * 6.0);
+        }
+        else if(this.AiState == DivHandState.Returning)
+        {
+            targetRotation = this.Owner.Orientation.GetLookAtPointWithUpRotation(
+            Real3(this.InitPosition.X,this.InitPosition.Y,this.Owner.Transform.WorldTranslation.Z),this.Owner.Orientation.WorldUp);
+            targetRotation = Math.Multiply(targetRotation, Math.Euler(Real3(0,0,3.3906585)));
+            this.Owner.Transform.WorldRotation = Math.Slerp(this.Owner.Transform.WorldRotation, targetRotation, event.Dt * this.RotateSpeed * 3.0);
+        }
+        else
+        {
+            targetRotation = this.Owner.Orientation.GetLookAtPointWithUpRotation(
+            Real3(this.Player.Transform.WorldTranslation.X,this.Player.Transform.WorldTranslation.Y,this.Owner.Transform.WorldTranslation.Z),this.Owner.Orientation.WorldUp);
+            targetRotation = Math.Multiply(targetRotation, Math.Euler(Real3(0,0,3.4906585)));
+            this.Owner.Transform.WorldRotation = Math.Slerp(this.Owner.Transform.WorldRotation, targetRotation, event.Dt * this.RotateSpeed);
+        }
+        
+    }
+    
+    function StepTowardsPlayer(event : UpdateEvent)
+    {
+        
+        //Console.WriteLine("Move Vector Final: `this.MoveVec`");
+        this.Owner.Transform.WorldTranslation += this.MoveVec;
+    }
+    function SetToPlayer(event : UpdateEvent)
+    {
+        this.MoveVec = this.Player.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
+        //Console.WriteLine("Move Vector Initial: `this.MoveVec`");
+        this.MoveVec *= Real3(1,1,0);
+        this.MoveVec = Math.Normalize(this.MoveVec);
+        this.MoveVec *= 0.5;
+        
+    }
+    function RocketFist()
+    {
+        this.AiState = DivHandState.Fist;
+        this.AniTimer = 0;
+        this.AttackCount = 0;
+        this.ActivateFingerParticle(false);
+        this.ActivateRocketParticle(true);
+        this.ChargeMaterialBool = true;
+        this.ActivateLaser(false);
+        this.Space.SoundSpace.PlayCue(SoundCue.Find("Fireball_Launch1"));
+        this.Owner.Transform.WorldTranslation -= Real3(0,0,4);
+    }
+    
+    function StartUpGun()
+    {
+        this.AiState = DivHandState.Gun;
+        this.AniTimer = 0;
+        this.AttackCount = 0;
+        this.ActivateFingerParticle(false);
+        this.ActivateRocketParticle(false);
+        this.ChargeMaterialBool = true;
+        this.ActivateLaser(false);
+    }
+    function FireGun()
+    {
+        this.AiState = DivHandState.Gun;
+        this.AniTimer = 0;
+        this.AttackCount += 1;
+        this.ActivateFingerParticle(false);
+        this.ActivateRocketParticle(false);
+        this.ChargeMaterialBool = true;
+        this.ActivateLaser(false);
+    }
+    function ReturnToIdle()
+    {
+        this.AiState = DivHandState.Returning;
+        this.ActivateFingerParticle(false);
+        this.ActivateRocketParticle(false);
+        this.ChargeMaterialBool = false;
+        this.ActivateLaser(false);
+        this.AttackCount = 0;
+        this.AniTimer = 0;
+        this.ThinkTimer = 0;
+    }
+    
+
+    function FireLaser()
+    {
+        this.AiState = DivHandState.Point;
+        this.AniTimer = 0;
+        this.AttackCount = 0;
+        this.ActivateFingerParticle(true);
+        this.ActivateRocketParticle(false);
+        this.ChargeMaterialBool = true;
+    }
+    
+    function Kill()
+    {
+            this.AiState = DivHandState.Death;
+            this.AniTimer = 0;
+            this.Timer = 0;
+            this.AttackCount = 0;
+            this.ActivateFingerParticle(false);
+            this.ActivateRocketParticle(false);
+            this.ChargeMaterialBool = false;
+            this.ActivateLaser(false);
+            this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog = this.Owner;
+            this.Owner.FindChildByName("MovingPlatformController").Destroy();
+            this.Owner.FindChildByName("PentaGlow").Destroy();
+            this.Space.CreateAtPosition(Archetype.Find("NukeFlare"), this.TongueTarget.Transform.WorldTranslation);
+            this.Space.SoundSpace.PlayCue(SoundCue.Find("Demon_Inyy"));
+            this.Space.SoundSpace.PlayCue(SoundCue.Find("Demon_Intt"));
+            this.Owner.FindChildByName("TargetBase").Model.Visible = false;
+            this.Owner.FindChildByName("TargetRingsA").Model.Visible = false;
+            this.Owner.FindChildByName("TargetRingsB").Model.Visible = false;
+            this.Space.SoundSpace.PlayCue(SoundCue.Find("Setsuko_ThemeEnd"));
+            
+    }
+    //DAMAGE THE BOSS~~~
+    function Damage()
+    {
+            this.HurtTimer = 0;
+            this.Health -= 10;
+            this.Space.SoundSpace.PlayCue(SoundCue.Find("Demon_H2"));
+            if(this.Health <= 50)
+            {
+                this.Owner.FindChildByName("OnFireBoss").SphericalParticleEmitter.Active = true;
+                
+            }
+            if(this.Health <= 30)
+            {
+                this.Owner.FindChildByName("OnFireBossSpark").SphericalParticleEmitter.Active = true;
+                
+            }
+
+            
+    }
+    function MakeProne()
+    {
+        this.AiState = DivHandState.Prone;
+        this.AniTimer = 0;
+        this.AttackCount = 0;
+        this.ActivateFingerParticle(false);
+        this.ActivateRocketParticle(false);
+        this.ChargeMaterialBool = false;
+        this.ActivateLaser(false);
+        this.Space.FindObjectByName("Moon").Model.Visible = true;
+        this.Space.FindObjectByName("StarPlane").Model.Visible = true;
+        this.Owner.FindChildByName("TargetBase").Model.Visible = true;
+        this.Owner.FindChildByName("TargetRingsA").Model.Visible = true;
+        this.Owner.FindChildByName("TargetRingsB").Model.Visible = true;
+        this.BGMManager.DungeonSoundManager.Ducking = 0.3;
+    }
+
+    ////////////////////////
+    ////                ////
+    ////Visual Functions////
+    ////////////////////////
+    function ActivateFingerParticle(activate : Boolean)
+    {
+       this.ChargeParticle.SphericalParticleEmitter.Active = activate;
+       this.ChargeParticle.FindChildByName("SquareTrail").SphericalParticleEmitter.Active = activate;
+       this.ChargeParticle.FindChildByName("LightingBall").SphericalParticleEmitter.Active = activate;
+       this.ChargeParticle.FindChildByName("LightingBall").Light.Visible = activate;
+    }
+    function ActivateRocketParticle(activate : Boolean)
+    {
+       this.RocketParticle.SphericalParticleEmitter.Active = activate;
+       this.RocketParticle.FindChildByName("RocketSparks").SphericalParticleEmitter.Active = activate;
+       this.RocketParticle.FindChildByName("RocketSparks").Light.Visible = activate;
+    }
+    function ActivateLaser(activate : Boolean)
+    {
+       var laserBeam = this.Owner.FindChildByName("LaserBeam");
+       if(this.Laser != null && activate == false)
+       {
+           this.Laser.Destroy();
+           laserBeam.LineParticleEmitter.Active = false;
+           this.ActivateFingerParticle(false);
+       }
+       if(this.Laser == null && activate == false)
+       {
+           laserBeam.LineParticleEmitter.Active = false;
+           this.ActivateFingerParticle(false);
+       }
+       if(this.Laser == null && activate)
+       {
+            this.Laser = this.Space.CreateAtPosition(this.LaserLight, this.ChargeParticle.Transform.WorldTranslation);
+            laserBeam.LineParticleToWorldPoint.TargetCog = this.Laser;
+            laserBeam.LineParticleEmitter.Active = true;
+            this.ActivateFingerParticle(true);
+       }
+       if(this.Laser != null && activate)
+       {
+            laserBeam.LineParticleToWorldPoint.TargetCog = this.Laser;
+            laserBeam.LineParticleEmitter.Active = true;
+            this.ActivateFingerParticle(true);
+       }
+    }
+    ////////////////////////
+    //                   ///
+    //Animation Functions///
+    ////////////////////////
+    function SinBobber(event : UpdateEvent)
+    {
+        this.SinOffset = Real3(0,0,Math.Sin(event.TimePassed * 2.0) * 0.03);
+        this.Owner.Transform.WorldTranslation += this.SinOffset;
+        if(this.AiState == DivHandState.Prone || this.AiState == DivHandState.DeathB)
+        {
+            var zScale =  this.Owner.Transform.WorldTranslation.Z - this.InitPosition.Z;
+            this.Owner.Transform.WorldScale += 0.0005 * Real3(Math.Sin(event.TimePassed * 2.0),Math.Sin(event.TimePassed * 2.0),zScale * 200000);
+        }
+        else
+        {
+            this.Owner.Transform.WorldScale += 0.0005 * Real3(Math.Sin(event.TimePassed * 2.0),Math.Sin(event.TimePassed * 2.0),Math.Sin(event.TimePassed * 2.0));
+        }
+        
+    }
+    function SinShaker(event : UpdateEvent)
+    {
+        if(this.AniTimer <= 80)
+        {
+            this.Owner.Transform.WorldTranslation += (this.AniTimer/4.0) * Real3(Math.Sin(event.TimePassed * -50.0) * 0.005,Math.Sin(event.TimePassed * 50.0) * 0.013,Math.Sin(event.TimePassed * 50.0) * 0.006);
+        }
+        else
+        {
+            this.Owner.Transform.WorldTranslation += 20.0 * Real3(Math.Sin(event.TimePassed * -50.0) * 0.005,Math.Sin(event.TimePassed * 50.0) * 0.013,Math.Sin(event.TimePassed * 50.0) * 0.006);
+        }
+    }
+    ////MAIN ANIMATION
+    function Animate(event : UpdateEvent)
+    {
+        //Set the Material
+        if(this.HurtMaterialBool)
+        {
+            this.HandModel.SkinnedModel.Material = this.HurtMaterial;
+        }
+        else
+        {
+            if(this.ChargeMaterialBool)
+            {
+                this.HandModel.SkinnedModel.Material = this.ChargeMaterial;
+            }
+            else
+            {
+                this.HandModel.SkinnedModel.Material = this.RegularMaterial;
+            }
+        }
+        //Bob up and Down
+        if(this.AiState != DivHandState.Death && this.AiState != DivHandState.Prone)
+        {
+            this.SinBobber(event);
+        }
+        //Idle Anim
+        if(this.AiState == DivHandState.Idle && this.AniTimer <= 20)
+        {
+            this.HandModel.SimpleAnimation.CrossBlend(this.IdleAnim,1.0, AnimPlayMode.Loop);
+        }
+        //GunPose
+        if(this.AiState == DivHandState.Gun && this.AniTimer <= 30)
+        {
+            this.HandModel.SimpleAnimation.CrossBlend(this.GunAnim,0.2, AnimPlayMode.PlayOnce);
+        }
+        if(this.AiState == DivHandState.Gun && this.AniTimer >= 20)
+        {
+            if(this.AniTimer == 35)
+            {
+                var muzzleflare = this.Space.CreateAtPosition(this.FlareParticle, this.MuzzlePoint.Transform.WorldTranslation);
+                muzzleflare.Transform.Rotation = this.MuzzlePoint.Transform.WorldRotation;
+                var bullet = this.Space.CreateAtPosition(this.Bullet, this.MuzzlePoint.Transform.WorldTranslation);
+                this.Space.SoundSpace.PlayCue(SoundCue.Find("GunShot"));
+                var gunsmoke = this.Space.CreateAtPosition(this.GunSmokeParticle, this.MuzzlePoint.Transform.WorldTranslation + Real3(0,0,2));
+                this.ChargeMaterialBool = false;
+            }
+            if(this.AniTimer == 200)
+            {
+                if(this.AttackCount <= this.NumberOfBullets)
+                {
+                    this.FireGun();
+                }
+                else
+                {
+                    this.ReturnToIdle();
+                }
+            }
+        }
+        
+        //FistPose
+        if((this.AiState == DivHandState.Fist || this.AiState == DivHandState.Rocket) && this.AniTimer <= 15)
+        {
+            this.HandModel.SimpleAnimation.CrossBlend(this.FistAnim,1.0, AnimPlayMode.Loop);
+        }
+        if((this.AiState == DivHandState.Fist || this.AiState == DivHandState.Rocket))
+        {
+            this.SinShaker(event);
+            if(this.AttackCount == 4)
+            {
+                this.ReturnToIdle();
+                
+            }
+            
+            if(this.AniTimer == 55 && this.AiState == DivHandState.Fist)
+            {
+                this.SetToPlayer(event);
+                this.Space.SoundSpace.PlayCue(SoundCue.Find("Plane_Jet_Afterburner"));
+                this.AiState = DivHandState.Rocket;
+                this.Timer = 0;
+                this.AttackCount += 1;
+                
+            }
+            if(this.Timer > 120 && this.AiState == DivHandState.Rocket && (Math.Length(this.Player.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation) > 50.0))
+            {
+                this.AiState = DivHandState.Fist;
+                this.AniTimer = 0;
+                this.Space.SoundSpace.PlayCue(SoundCue.Find("Fireball_Launch1"));
+            }
+        }
+        
+        //Point Laser Pose
+        if(this.AiState == DivHandState.Point && this.AniTimer <= 15)
+        {
+            this.ActivateFingerParticle(true);
+            this.HandModel.SimpleAnimation.CrossBlend(this.PointAnim,1.0, AnimPlayMode.Loop);
+            
+            
+        }
+        if(this.AiState == DivHandState.Point && this.AniTimer == 35)
+        {
+            this.ActivateLaser(true);
+        }
+        if(this.AiState == DivHandState.Point && this.AniTimer > 35)
+        {
+            this.AttackCount +=1;
+            if(this.AttackCount >= 1000)
+            {
+                this.ReturnToIdle();
+            }
+        }
+        if(this.AiState == DivHandState.Point)
+        {
+            this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, this.InitPosition, event.Dt);
+        }
+        
+        //Hurt Anim
+        if(this.AiState == DivHandState.Hurt && this.AniTimer <= 20)
+        {
+            this.HandModel.SimpleAnimation.CrossBlend(this.HurtAnim,1.0, AnimPlayMode.Loop);
+            
+        }
+        //Prone Anim
+        if(this.AiState == DivHandState.Prone && this.AniTimer <= 20)
+        {
+            this.HandModel.SimpleAnimation.CrossBlend(this.ProneAnim,1.0, AnimPlayMode.Loop);
+            this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, this.InitPosition + Real3(0,0,-7.5), event.Dt * 8);
+            
+        }
+        //Death Anim
+        if(this.AiState == DivHandState.Death && this.AniTimer <= 10 && this.Timer < 300)
+        {
+            this.HandModel.SimpleAnimation.CrossBlend(this.DeathAnim,1.0, AnimPlayMode.PlayOnce);
+            this.BGMManager.DungeonSoundManager.Ducking = 0.0;
+            this.Player.PlayerController.FreezeMovement = true;
+        }
+        if(this.AiState == DivHandState.Death)
+        {
+            
+            if(this.Timer < 400)
+            {
+                this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, this.InitPosition+ Real3(0,25,6), event.Dt);
+            }
+            else if(this.Timer < 700)
+            {
+                this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, this.InitPosition+ Real3(0,25,10), event.Dt);
+                
+            }
+            else
+            {
+                this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, this.InitPosition+ Real3(0,20,-20), event.Dt);
+                this.Player.PlayerController.FreezeMovement = false;
+            }
+            this.Light.Light.Color = Math.Lerp(this.Light.Light.Color, Real4(0.7,0,0.7,1) , event.Dt * 0.3);
+            this.HandModel.SkinnedModel.Color = Real4(1/((this.AniTimer as Real + 1.0)*0.5),1/((this.AniTimer as Real + 1.0)*0.5),1/((this.AniTimer as Real + 1.0)*0.5),1);
+            if(this.AniTimer == 260 && this.AiState == DivHandState.Death)
+            {
+                this.Space.SoundSpace.PlayCue(SoundCue.Find("Demon_In3"));
+            }
+            if(this.AniTimer == 350 && this.AiState == DivHandState.Death)
+            {
+                //this.AiState = DivHandState.DeathB;
+                //this.Timer = 0;
+                this.AniTimer = 0;
+                this.Space.FindObjectByName("Crane").Model.Visible = true;
+                if(this.Space.FindObjectByName("FlashLight") != null)
+                {
+                    this.Space.FindObjectByName("FlashLight").Destroy();
+                }
+                
+                this.Space.FindObjectByName("SpotLightB").Light.Visible = true;
+                this.Space.FindObjectByName("MainLight").DreamLighting.DreamWorld = true;
+                this.Space.FindObjectByName("CraneParticleEffect").SpriteParticleSystem.Visible = true;
+                //this.Space.SoundSpace.PlayCue(SoundCue.Find("Demon_In3"));
+                
+            }
+            if(this.AniTimer == 50 && this.AiState == DivHandState.Death)
+            {
+                //this.AiState = DivHandState.DeathB;
+                //this.Timer = 0;
+                //this.Owner.FindChildByName("FBDeathSparks").SphericalParticleEmitter.Active = true;
+                
+            }
+            if(this.Timer > 300)
+            {
+                this.HandModel.SimpleAnimation.CrossBlend(this.HurtAnim,10.0, AnimPlayMode.PlayOnce);
+            }
+            if(this.Timer == 400)
+            {
+                this.Space.CreateAtPosition(Archetype.Find("DeathSmokeXL"), this.Owner.Transform.WorldTranslation + Real3(0, -15,-7));
+            }
+            if(this.Timer == 600)
+            {
+                this.HandModel.SkinnedModel.Visible = false;
+                this.Owner.FindChildByName("OnFireBossSpark").SphericalParticleEmitter.Active = false;
+                this.Owner.FindChildByName("OnFireBoss").SphericalParticleEmitter.Active = false;
+                
+                //this.Owner.FindChildByName("FBDeathSparks").SphericalParticleEmitter.Active = false;
+            }
+        }
+        else if(this.AiState == DivHandState.Hurt || this.AiState == DivHandState.Prone)
+        {
+            this.HandModel.SkinnedModel.Color = Math.Lerp(this.HandModel.SkinnedModel.Color, Real4(0.35,0.35,1.2,1) , event.Dt * 4);
+            this.Light.Light.Color = Math.Lerp(this.Light.Light.Color, Real4(0.35,0.35,1.2,1) , event.Dt * 4);
+        }
+        else
+        {
+            this.HandModel.SkinnedModel.Color = Math.Lerp(this.HandModel.SkinnedModel.Color, Real4(1,1,1,1) , event.Dt * 1);
+            this.Light.Light.Color = Math.Lerp(this.Light.Light.Color, Real4(1,0.1,0.1,1) , event.Dt * 2);
+        }
+        /*
+        //Death PART 2 Anim
+        if(this.AiState == DivHandState.DeathB && this.AniTimer <= 10)
+        {
+            this.HandModel.SimpleAnimation.CrossBlend(this.FistAnim,1.0, AnimPlayMode.PlayOnce);
+        }
+        if(this.AiState == DivHandState.DeathB)
+        {
+            this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog = this.Owner;
+            this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, this.InitPosition+ Real3(0,25,-3), event.Dt);
+            this.Light.Light.Color = Math.Lerp(this.Light.Light.Color, Real4(0.7,0,0.7,1) , event.Dt * 0.3);
+            this.HandModel.SkinnedModel.Color = Real4(1/((this.AniTimer as Real + 1.0)*0.5),1/((this.AniTimer as Real + 1.0)*0.5),1/((this.AniTimer as Real + 1.0)*0.5),1);
+        }*/
+        //Returning to Initial Position
+        if(this.AiState == DivHandState.Returning && this.AniTimer <= 10)
+        {
+            this.HandModel.SimpleAnimation.CrossBlend(this.HurtAnim,1.0, AnimPlayMode.PlayOnce);
+        }
+        if(this.AiState == DivHandState.Returning)
+        {
+            this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, this.InitPosition, event.Dt);
+            if((Math.Length(this.InitPosition - this.Owner.Transform.WorldTranslation) < 2.0))
+            {
+                this.AiState = DivHandState.Idle;
+                this.AniTimer = 0;
+                this.ActivateFingerParticle(false);
+                this.ActivateRocketParticle(false);
+                this.ChargeMaterialBool = false;
+                this.ActivateLaser(false);
+            }
+        }
+        
+        if(this.HurtTimer < 60)
+        {
+            this.HurtMaterialBool = true;
+        }
+        else
+        {
+            this.HurtMaterialBool = false;
+        }
+        this.AniTimer += 1;
+    }
+
+    ////////////////////////
+    ////                ////
+    ////Debug Functions/////
+    ////////////////////////
+    function Debug(event : UpdateEvent)
+    {
+        //Idle Anim
+        if(Zero.Keyboard.KeyIsPressed(Keys.One))
+        {
+            this.AiState = DivHandState.Idle;
+            this.AniTimer = 0;
+            this.AttackCount = 0;
+            this.ActivateFingerParticle(false);
+            this.ActivateRocketParticle(false);
+            this.ChargeMaterialBool = false;
+            this.ActivateLaser(false);
+            this.Owner.Transform.WorldTranslation = this.InitPosition;
+        }
+        //GunPose
+        if(Zero.Keyboard.KeyIsPressed(Keys.Two))
+        {
+            this.StartUpGun();
+        }
+        //FistPose
+        if(Zero.Keyboard.KeyIsPressed(Keys.Three))
+        {
+            this.RocketFist();
+        }
+        //PointPose
+        if(Zero.Keyboard.KeyIsPressed(Keys.Four))
+        {
+            this.AiState = DivHandState.Point;
+            this.AniTimer = 0;
+            this.AttackCount = 0;
+            this.ActivateFingerParticle(true);
+            this.ActivateRocketParticle(false);
+            this.ChargeMaterialBool = true;
+        }
+        //HurtPose
+        if(Zero.Keyboard.KeyIsPressed(Keys.Five))
+        {
+            this.AiState = DivHandState.Hurt;
+            this.AniTimer = 0;
+            this.AttackCount = 0;
+            this.ActivateFingerParticle(false);
+            this.ActivateRocketParticle(false);
+            this.ChargeMaterialBool = false;
+            this.ActivateLaser(false);
+        }
+        //DeathPose
+        if(Zero.Keyboard.KeyIsPressed(Keys.Six))
+        {
+            this.AiState = DivHandState.Death;
+            this.AniTimer = 0;
+            this.AttackCount = 0;
+            this.ActivateFingerParticle(false);
+            this.ActivateRocketParticle(false);
+            this.ChargeMaterialBool = false;
+            this.ActivateLaser(false);
+            
+            
+        }
+        //PronePose
+        if(Zero.Keyboard.KeyIsPressed(Keys.Zero))
+        {
+            /*
+            this.AiState = DivHandState.Prone;
+            
+            this.AniTimer = 0;
+            this.AttackCount = 0;
+            this.ActivateFingerParticle(false);
+            this.ActivateRocketParticle(false);
+            this.ChargeMaterialBool = false;
+            this.ActivateLaser(false);
+            this.Space.FindObjectByName("Moon").Model.Visible = true;
+            this.Space.FindObjectByName("StarPlane").Model.Visible = true;
+            this.Owner.FindChildByName("TargetBase").Model.Visible = true;
+            this.Owner.FindChildByName("TargetRingsA").Model.Visible = true;
+            this.Owner.FindChildByName("TargetRingsB").Model.Visible = true;
+            this.BGMManager.DungeonSoundManager.Ducking = 0.3;
+            */
+            this.MakeProne();
+            
+        }
+        //Flip Material
+        if(Zero.Keyboard.KeyIsPressed(Keys.Nine))
+        {
+            this.Damage();
+        }
+        //Console.WriteLine("AI State: `this.AiState` Attack Count: `this.AttackCount`");
+    }
+}

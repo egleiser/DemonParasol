@@ -10,11 +10,11 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "548d7406161e06a8:DeathFlare",
+		string Name = "545026acc300e58f:NukeFlare",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, -3.02893e-007, 0.3909],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -22,6 +22,8 @@ Cog =
 	{
 		bool Visible = true,
 		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
 		SystemChildMode ChildMode = Independent,
 		SystemSpace SystemSpace = WorldSpace,
 		uint DrawOrder = 0,
@@ -74,5 +76,11 @@ Cog =
 		Vec4 Color2 = [0.384314, 0.447059, 1, 1],
 		Vec4 Color3 = [0.384314, 0.447059, 1, 0.9999],
 		Vec4 Color4 = [0.385, 0.4465, 1, 0],
+	},
+	TimedDeath = 
+	{
+		float Lifetime = 3,
+		bool SendsDeathEvent = true,
+		bool AutoDestroy = true,
 	},
 },

@@ -1,0 +1,128 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "MuzzleFlare",
+	},
+	Archetyped = 
+	{
+		string Name = "55fdbbb465a4db02:MuzzleFlare",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [154.406, -5.56437, 4.51361],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SpriteParticleSystem = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		SystemChildMode ChildMode = Independent,
+		SystemSpace SystemSpace = WorldSpace,
+		uint DrawOrder = 0,
+		float WarmUpTime = 0,
+		ParticleGeometry GeometryMode = Beam,
+		ParticleRenderMode RenderMode = Additive,
+		ParticleSortMode SortMode = Youngest,
+		ParticleAnimation ParticleAnimation = Single,
+		string Texture = "5481a3be505b232b:wind-particles-simple-03",
+		Vec4 Tint = [1, 1, 1, 1],
+		float VelocityScale = 1,
+		float LengthScale = 1,
+		float MaxParticleSize = 100,
+		Vec3 SystemSize = [4, 4, 4],
+	},
+	SphericalParticleEmitter = 
+	{
+		bool Active = true,
+		uint EmitCount = 30,
+		float EmitRate = 500,
+		float EmitVariance = 0,
+		float Size = 1,
+		float SizeVariance = 0.5,
+		float Lifetime = 0.15,
+		float LifetimeVariance = 0,
+		float Spin = 0,
+		float SpinVariance = 50,
+		bool RandomSpin = true,
+		float Fill = 1,
+		float EmitterVelocityPercent = 0,
+		Vec3 StartVelocity = [0, 0, 0],
+		Vec3 RandomVelocity = [6, 6, 6],
+		Vec3 TangentVelocity = [0, 0, 0],
+		Vec3 EmitterSize = [0, 0, 0],
+		bool FastMovingEmitter = false,
+	},
+	LinearParticleAnimator = 
+	{
+		Vec3 Force = [0, 0, 0],
+		Vec3 RandomForce = [0, 0, 0],
+		float Torque = 0,
+		float Growth = 8,
+		float Dampening = 0,
+		Vec3 Twist = [0, 0, 0],
+	},
+	ParticleColorAnimator = 
+	{
+		Vec4 Color0 = [1, 1, 1, 0.49],
+		Vec4 Color1 = [0.995, 0.850725, 0.4179, 0.9999],
+		Vec4 Color2 = [1, 0.44055, 0.165, 0.56],
+		Vec4 Color3 = [1, 0.7241, 0.11, 0.31],
+		Vec4 Color4 = [1, 0.7161, 0.165, 0],
+	},
+	TimedDeath = 
+	{
+		float Lifetime = 1,
+		bool SendsDeathEvent = true,
+		bool AutoDestroy = true,
+	},
+	Light = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		LightType LightType = Point,
+		Vec4 Color = [1, 0.63, 0, 1],
+		float Intensity = 5,
+		float Range = 20,
+		float Falloff = 1,
+		float Angle = 45,
+		float Size = 20,
+	},
+	SampleCurveLight = 
+	{
+		string LightingCurve = "54fde856a6263761:LightningCurve",
+		bool UseFog = false,
+		float LocalTimeScale = 3,
+		float FogScale = 100,
+	},
+	Hierarchy = 
+	{
+		ArchetypeInstance = 
+		{
+			string Name = "55fdbbd35fe49b44:GunSparks",
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [0.75957, 0.379589, 0.967928],
+				Quat Rotation = [-4.90712e-009, 5.5635e-008, -5.05408e-007, 1],
+			},
+			Named = 
+			{
+				string Name = "GunSparks",
+			},
+		},
+	},
+},
