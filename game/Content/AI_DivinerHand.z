@@ -1,0 +1,325 @@
+enum DivHandState{Intro, Idle, Gun, Fist, Rocket, Point, Hurt, Resting, Death}
+class AI_DivinerHand : ZilchComponent
+{
+    var Health : Integer = 100;
+    var Player:Cog = null;
+    var BGMManager : Cog = null;
+    var HandModel : Cog = null;
+    var ChargeParticle : Cog = null;
+    var RocketParticle : Cog = null;
+    var MuzzlePoint : Cog = null;
+    var Laser : Cog = null;
+    [Property]
+    var FlareParticle : Archetype = null;
+    [Property]
+    var GunSmokeParticle : Archetype = null;
+    [Property]
+    var Bullet : Archetype = null;
+    [Property]
+    var LaserLight : Archetype = null;
+    var Light : Cog = null;
+    var Timer : Integer = 0;
+    var AniTimer : Integer = 0;
+    var ChargeMaterialBool : Boolean = false;
+    var HurtMaterialBool : Boolean = false;
+    var InitPosition : Real3 = Real3(0,0,0);
+    var SinOffset : Real3 = Real3(0,0,0);
+    [Property]
+    var AiState : DivHandState = DivHandState.Idle;
+    [Property]
+    var AniSpeedMultiplier : Real = 1.0;
+    [Property]
+    var RotateSpeed : Real = 2.0;
+    //Animations
+    [Property]
+    var ChargeMaterial : Material = null;
+    [Property]
+    var RegularMaterial : Material = null;
+    [Property]
+    var HurtMaterial : Material = null;
+    //Animations
+    [Property]
+    var IdleAnim : Animation = null;
+    [Property]
+    var GunAnim : Animation = null;
+    [Property]
+    var FistAnim : Animation = null;
+    [Property]
+    var PointAnim : Animation = null;
+    [Property]
+    var HurtAnim : Animation = null;
+    [Property]
+    var DeathAnim : Animation = null;
+    function Initialize(init : CogInitializer)
+    {
+        
+        this.BGMManager = this.LevelSettings.FindChildByName("BGMManager");
+        this.HandModel = this.Owner.FindChildByName("DivinerHandModel");
+        this.Light = this.HandModel.FindChildByName("HandLight");
+        this.ChargeParticle = this.HandModel.FindChildByName("HandChargeParticle");
+        this.RocketParticle = this.HandModel.FindChildByName("RocketSmokeXL");
+        this.MuzzlePoint = this.HandModel.FindChildByName("MuzzlePoint");
+        this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
+        this.InitPosition = this.Owner.Transform.WorldTranslation;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Debug(event);
+        this.Animate(event);
+        
+        if(this.AiState == DivHandState.Point || this.AiState == DivHandState.Gun)
+        {
+            this.FacePlayer(event);
+        }
+    }
+    ////////////////////////
+    ////               /////
+    ////Logic Functions/////
+    ////////////////////////
+    function FacePlayer(event : UpdateEvent)
+    {
+        var targetRotation = this.Owner.Orientation.GetLookAtPointWithUpRotation(
+            Real3(this.Player.Transform.WorldTranslation.X,this.Player.Transform.WorldTranslation.Y,this.Owner.Transform.WorldTranslation.Z),this.Owner.Orientation.WorldUp);
+        
+        if(this.AiState == DivHandState.Gun)
+        {
+            targetRotation = this.Owner.Orientation.GetLookAtPointWithUpRotation(
+            Real3(this.Player.Transform.WorldTranslation.X,this.Player.Transform.WorldTranslation.Y,this.Owner.Transform.WorldTranslation.Z),this.Owner.Orientation.WorldUp);
+            targetRotation = Math.Multiply(targetRotation, Math.Euler(Real3(0,0,3.3906585)));
+        }
+        else
+        {
+            targetRotation = this.Owner.Orientation.GetLookAtPointWithUpRotation(
+            Real3(this.Player.Transform.WorldTranslation.X,this.Player.Transform.WorldTranslation.Y,this.Owner.Transform.WorldTranslation.Z),this.Owner.Orientation.WorldUp);
+            targetRotation = Math.Multiply(targetRotation, Math.Euler(Real3(0,0,3.4906585)));
+        }
+        this.Owner.Transform.WorldRotation = Math.Slerp(this.Owner.Transform.WorldRotation, targetRotation, event.Dt * this.RotateSpeed);
+    }
+    
+    ////////////////////////
+    ////                ////
+    ////Visual Functions////
+    ////////////////////////
+    function ActivateFingerParticle(activate : Boolean)
+    {
+       this.ChargeParticle.SphericalParticleEmitter.Active = activate;
+       this.ChargeParticle.FindChildByName("SquareTrail").SphericalParticleEmitter.Active = activate;
+       this.ChargeParticle.FindChildByName("LightingBall").SphericalParticleEmitter.Active = activate;
+       this.ChargeParticle.FindChildByName("LightingBall").Light.Visible = activate;
+    }
+    function ActivateRocketParticle(activate : Boolean)
+    {
+       this.RocketParticle.SphericalParticleEmitter.Active = activate;
+       this.RocketParticle.FindChildByName("RocketSparks").SphericalParticleEmitter.Active = activate;
+       this.RocketParticle.FindChildByName("RocketSparks").Light.Visible = activate;
+    }
+    function ActivateLaser(activate : Boolean)
+    {
+       var laserBeam = this.Owner.FindChildByName("LaserBeam");
+       if(this.Laser != null && activate == false)
+       {
+           this.Laser.Destroy();
+           laserBeam.LineParticleEmitter.Active = false;
+           this.ActivateFingerParticle(false);
+       }
+       if(this.Laser == null && activate == false)
+       {
+           laserBeam.LineParticleEmitter.Active = false;
+           this.ActivateFingerParticle(false);
+       }
+       if(this.Laser == null && activate)
+       {
+            this.Laser = this.Space.CreateAtPosition(this.LaserLight, this.ChargeParticle.Transform.WorldTranslation);
+            laserBeam.LineParticleToWorldPoint.TargetCog = this.Laser;
+            laserBeam.LineParticleEmitter.Active = true;
+            this.ActivateFingerParticle(true);
+       }
+       if(this.Laser != null && activate)
+       {
+            laserBeam.LineParticleToWorldPoint.TargetCog = this.Laser;
+            laserBeam.LineParticleEmitter.Active = true;
+            this.ActivateFingerParticle(true);
+       }
+    }
+    ////////////////////////
+    //                   ///
+    //Animation Functions///
+    ////////////////////////
+    function SinBobber(event : UpdateEvent)
+    {
+        this.SinOffset = Real3(0,0,Math.Sin(event.TimePassed * 2.0) * 0.03);
+        this.Owner.Transform.WorldTranslation += this.SinOffset;
+        this.Owner.Transform.WorldScale += 0.0005 * Real3(Math.Sin(event.TimePassed * 2.0),Math.Sin(event.TimePassed * 2.0),Math.Sin(event.TimePassed * 2.0));
+        
+    }
+    function SinShaker(event : UpdateEvent)
+    {
+        if(this.AniTimer <= 80)
+        {
+            this.Owner.Transform.WorldTranslation += (this.AniTimer/4.0) * Real3(Math.Sin(event.TimePassed * -50.0) * 0.005,Math.Sin(event.TimePassed * 50.0) * 0.013,Math.Sin(event.TimePassed * 50.0) * 0.006);
+        }
+        else
+        {
+            this.Owner.Transform.WorldTranslation += 20.0 * Real3(Math.Sin(event.TimePassed * -50.0) * 0.005,Math.Sin(event.TimePassed * 50.0) * 0.013,Math.Sin(event.TimePassed * 50.0) * 0.006);
+        }
+    }
+    function Animate(event : UpdateEvent)
+    {
+        //Set the Material
+        if(this.HurtMaterialBool)
+        {
+            this.HandModel.SkinnedModel.Material = this.HurtMaterial;
+        }
+        else
+        {
+            if(this.ChargeMaterialBool)
+            {
+                this.HandModel.SkinnedModel.Material = this.ChargeMaterial;
+            }
+            else
+            {
+                this.HandModel.SkinnedModel.Material = this.RegularMaterial;
+            }
+        }
+        //Bob up and Down
+        this.SinBobber(event);
+        //Idle Anim
+        if(this.AiState == DivHandState.Idle && this.AniTimer <= 20)
+        {
+            this.HandModel.SimpleAnimation.CrossBlend(this.IdleAnim,1.0, AnimPlayMode.Loop);
+        }
+        //GunPose
+        if(this.AiState == DivHandState.Gun && this.AniTimer <= 30)
+        {
+            this.HandModel.SimpleAnimation.CrossBlend(this.GunAnim,0.2, AnimPlayMode.PlayOnce);
+        }
+        if(this.AiState == DivHandState.Gun && this.AniTimer >= 20)
+        {
+            if(this.AniTimer == 35)
+            {
+                var muzzleflare = this.Space.CreateAtPosition(this.FlareParticle, this.MuzzlePoint.Transform.WorldTranslation);
+                muzzleflare.Transform.Rotation = this.MuzzlePoint.Transform.WorldRotation;
+                var bullet = this.Space.CreateAtPosition(this.Bullet, this.MuzzlePoint.Transform.WorldTranslation);
+                var gunsmoke = this.Space.CreateAtPosition(this.GunSmokeParticle, this.MuzzlePoint.Transform.WorldTranslation + Real3(0,0,2));
+                this.ChargeMaterialBool = false;
+            }
+        }
+        //FistPose
+        if(this.AiState == DivHandState.Fist && this.AniTimer <= 15)
+        {
+            this.HandModel.SimpleAnimation.CrossBlend(this.FistAnim,1.0, AnimPlayMode.Loop);
+        }
+        if(this.AiState == DivHandState.Fist)
+        {
+            this.SinShaker(event);
+        }
+        
+        //Point Laser Pose
+        if(this.AiState == DivHandState.Point && this.AniTimer <= 15)
+        {
+            this.ActivateFingerParticle(true);
+            this.HandModel.SimpleAnimation.CrossBlend(this.PointAnim,1.0, AnimPlayMode.Loop);
+            
+            
+        }
+        if(this.AiState == DivHandState.Point && this.AniTimer == 35)
+        {
+            this.ActivateLaser(true);
+        }
+        //Hurt Anim
+        if(this.AiState == DivHandState.Hurt && this.AniTimer <= 20)
+        {
+            this.HandModel.SimpleAnimation.CrossBlend(this.HurtAnim,1.0, AnimPlayMode.Loop);
+            
+        }
+        //Death Anim
+        if(this.AiState == DivHandState.Death && this.AniTimer <= 10)
+        {
+            this.HandModel.SimpleAnimation.CrossBlend(this.DeathAnim,1.0, AnimPlayMode.PlayOnce);
+        }
+        if(this.AiState == DivHandState.Death)
+        {
+            this.HandModel.SkinnedModel.Color = Real4(1/((this.AniTimer as Real + 1.0)*0.5),1/((this.AniTimer as Real + 1.0)*0.5),1/((this.AniTimer as Real + 1.0)*0.5),1);
+        }
+        else
+        {
+            this.HandModel.SkinnedModel.Color = Real4(1,1,1,1);
+        }
+        this.AniTimer += 1;
+    }
+
+    ////////////////////////
+    ////                ////
+    ////Debug Functions/////
+    ////////////////////////
+    function Debug(event : UpdateEvent)
+    {
+        //Idle Anim
+        if(Zero.Keyboard.KeyIsPressed(Keys.One))
+        {
+            this.AiState = DivHandState.Idle;
+            this.AniTimer = 0;
+            this.ActivateFingerParticle(false);
+            this.ActivateRocketParticle(false);
+            this.ChargeMaterialBool = false;
+            this.ActivateLaser(false);
+        }
+        //GunPose
+        if(Zero.Keyboard.KeyIsPressed(Keys.Two))
+        {
+            this.AiState = DivHandState.Gun;
+            this.AniTimer = 0;
+            this.ActivateFingerParticle(false);
+            this.ActivateRocketParticle(false);
+            this.ChargeMaterialBool = true;
+            this.ActivateLaser(false);
+        }
+        //FistPose
+        if(Zero.Keyboard.KeyIsPressed(Keys.Three))
+        {
+            this.AiState = DivHandState.Fist;
+            this.AniTimer = 0;
+            this.ActivateFingerParticle(false);
+            this.ActivateRocketParticle(true);
+            this.ChargeMaterialBool = true;
+            this.ActivateLaser(false);
+        }
+        //PointPose
+        if(Zero.Keyboard.KeyIsPressed(Keys.Four))
+        {
+            this.AiState = DivHandState.Point;
+            this.AniTimer = 0;
+            this.ActivateFingerParticle(true);
+            this.ActivateRocketParticle(false);
+            this.ChargeMaterialBool = true;
+        }
+        //HurtPose
+        if(Zero.Keyboard.KeyIsPressed(Keys.Five))
+        {
+            this.AiState = DivHandState.Hurt;
+            this.AniTimer = 0;
+            this.ActivateFingerParticle(false);
+            this.ActivateRocketParticle(false);
+            this.ChargeMaterialBool = false;
+            this.ActivateLaser(false);
+        }
+        //DeathPose
+        if(Zero.Keyboard.KeyIsPressed(Keys.Six))
+        {
+            this.AiState = DivHandState.Death;
+            this.AniTimer = 0;
+            this.ActivateFingerParticle(false);
+            this.ActivateRocketParticle(false);
+            this.ChargeMaterialBool = false;
+            this.ActivateLaser(false);
+            
+        }
+        //Flip Material
+        if(Zero.Keyboard.KeyIsPressed(Keys.Seven))
+        {
+            this.HurtMaterialBool = !this.HurtMaterialBool;
+        }
+    }
+}

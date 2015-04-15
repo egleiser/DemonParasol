@@ -1,0 +1,822 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "DivinerHandFinalBoss",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [157.959, -3.76403, 7.32426],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [0.5, 0.5, 0.5],
+	},
+	AI_DivinerHand = 
+	{
+		Enum AiState = Idle,
+		float AniSpeedMultiplier = 1,
+		float RotateSpeed = 2,
+		string ChargeMaterial = "55fd44e2dd38b6fd:DivinerHandCharged",
+		string RegularMaterial = "55fd49e168158af7:DivinerHandMulti",
+		string IdleAnim = "55fd49fe6805c84e:DivinerHandIdle.All",
+		string GunAnim = "55fd497f570b153c:DivinerHandGunPose.All",
+		string FistAnim = "55fd432a297d2fc2:DivinerHandFistPose.All",
+		string PointAnim = "55fd435f2d664eef:DivinerHandPoint.All",
+		string DeathAnim = "55fd497f570b153c:DivinerHandGunPose.All",
+	},
+	Orientation = 
+	{
+		Vec3 GlobalUp = [0, 1, 0],
+		Vec3 UpVector = [0, 0, 1],
+		Vec3 ForwardVector = [0, 1, 0],
+		OrientationBases DefaultBases = ForwardYUpZ,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "DivinerHandModel",
+			},
+			Archetyped = 
+			{
+				string Name = "55fd490e66800f1e:DivinerHandModel",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.5522, 0.937645, -0.897465],
+				Vec3 Scale = [0.25, 0.25, 0.25],
+				Quat Rotation = [0.0175326, 0.671592, 0.740461, 0.0193305],
+			},
+			SkinnedModel = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string Material = "55fd49e168158af7:DivinerHandMulti",
+				string Mesh = "55fd49fe683b3792:DivinerHandIdle",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			AnimationGraph = 
+			{
+				bool Active = true,
+				AnimPlayMode PlayMode = PlayOnce,
+				float TimeScale = 1.5,
+				string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+				uint64 DebugPreviewId = 6542746e656d7472,
+			},
+			SimpleAnimation = 
+			{
+				string AnimationName = "55fd49fe6805c84e:DivinerHandIdle.All",
+				AnimPlayMode PlayMode = Loop,
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "HandPalm001",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-0.661006, 3.74904, 27.1494],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-0.507441, 0.492446, 0.492446, 0.507441],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 4,
+							},
+							Named = 
+							{
+								string Name = "ThumbCt",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [15.1019, 7.95722e-005, -0.205837],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0.00717644, -0.010947, -0.522883, 0.852304],
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 5,
+									},
+									Named = 
+									{
+										string Name = "Thumb001",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [20.1867, -3.8147e-006, -2.38419e-007],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [-0.145753, 0.19318, 0.492757, 0.83584],
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 6,
+											},
+											Named = 
+											{
+												string Name = "Thumb002",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [10.0169, 0, 8.88178e-016],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [-0.0191626, -0.309648, 0.039483, 0.949838],
+											},
+											Hierarchy = 
+											{
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 7,
+													},
+													Named = 
+													{
+														string Name = "Thumb003",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [6.55262, 1.90735e-006, 5.92859e-013],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0.299492, 0.158702, 0.000111404, 0.940807],
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 8,
+							},
+							Named = 
+							{
+								string Name = "IndexCt",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [15.1019, 8.06898e-005, -0.205837],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0.0031517, -0.0127045, -0.211549, 0.97728],
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 9,
+									},
+									Named = 
+									{
+										string Name = "Index001",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [18.4942, 3.8147e-006, 4.44089e-016],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [-0.0198646, 0.0767403, 0.201028, 0.976373],
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 10,
+											},
+											Named = 
+											{
+												string Name = "Index002",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [27.0496, -8.10623e-006, 7.60281e-013],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [-0.00260549, 0.0488837, -0.00301735, 0.998797],
+											},
+											Hierarchy = 
+											{
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 11,
+													},
+													Named = 
+													{
+														string Name = "Index003",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [10.7326, 4.673e-005, -6.60805e-013],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [-0.116978, 0.0820062, -0.0462205, 0.988663],
+													},
+													Hierarchy = 
+													{
+														Cog = 
+														{
+															LinkId = 
+															{
+																uint Id = 12,
+															},
+															Named = 
+															{
+																string Name = "HandChargeParticle",
+															},
+															Archetyped = 
+															{
+																string Name = "55fd582d0416e6e7:HandChargeParticle",
+															},
+															Transform = 
+															{
+																Vec3 Translation = [21.8207, -0.389648, 3.65045],
+																Vec3 Scale = [4.00001, 4.00001, 4.00001],
+																Quat Rotation = [-0.0917027, -0.259607, 0.733564, 0.621353],
+															},
+															SpriteParticleSystem = 
+															{
+																bool Visible = true,
+																bool VisibilityCulling = true,
+																bool VisibilityEvents = false,
+																bool CastShadows = false,
+																SystemChildMode ChildMode = Independent,
+																SystemSpace SystemSpace = LocalSpace,
+																uint DrawOrder = 0,
+																float WarmUpTime = 0,
+																ParticleGeometry GeometryMode = Billboarded,
+																ParticleRenderMode RenderMode = Additive,
+																ParticleSortMode SortMode = Youngest,
+																ParticleAnimation ParticleAnimation = Single,
+																string Texture = "548d76e779a3aea4:tex_light_ray",
+																Vec4 Tint = [1, 1, 1, 1],
+																float VelocityScale = 1,
+																float LengthScale = 1,
+																float MaxParticleSize = 100,
+																Vec3 SystemSize = [4, 4, 4],
+															},
+															SphericalParticleEmitter = 
+															{
+																bool Active = true,
+																uint EmitCount = 0,
+																float EmitRate = 10,
+																float EmitVariance = 0,
+																float Size = 5,
+																float SizeVariance = 0.5,
+																float Lifetime = 0.5,
+																float LifetimeVariance = 0.02,
+																float Spin = 0,
+																float SpinVariance = 50,
+																bool RandomSpin = true,
+																float Fill = 1,
+																float EmitterVelocityPercent = 0,
+																Vec3 StartVelocity = [0, 0, 0],
+																Vec3 RandomVelocity = [0, 0, 0],
+																Vec3 TangentVelocity = [0, 0, 0],
+																Vec3 EmitterSize = [0, 0, 0],
+																bool FastMovingEmitter = false,
+															},
+															LinearParticleAnimator = 
+															{
+																Vec3 Force = [0, 0, 0],
+																Vec3 RandomForce = [0, 0, 0],
+																float Torque = 0,
+																float Growth = 0,
+																float Dampening = 0,
+																Vec3 Twist = [0, 0, 0],
+															},
+															ParticleColorAnimator = 
+															{
+																Vec4 Color0 = [1, 1, 1, 0],
+																Vec4 Color1 = [1, 0.385, 0.385, 1],
+																Vec4 Color2 = [1, 0, 0, 1],
+																Vec4 Color3 = [1, 0, 0, 1],
+																Vec4 Color4 = [1, 0.035, 0.81665, 0],
+															},
+															SoundEmitter = 
+															{
+																bool StartPlaying = true,
+																int ExtraPriority = 0,
+																string CueName = "548d7c5a98a230e2:Magic_AuraLoop03",
+																float Volume = 1,
+																float Pitch = 1,
+																bool Positional = true,
+															},
+															Hierarchy = 
+															{
+																Cog = 
+																{
+																	LinkId = 
+																	{
+																		uint Id = 13,
+																	},
+																	Named = 
+																	{
+																		string Name = "HurtBallTrail",
+																	},
+																	Transform = 
+																	{
+																		Vec3 Translation = [0, 0, -0.0323734],
+																		Vec3 Scale = [1, 1, 1],
+																		Quat Rotation = [0, 0, 0, 1],
+																	},
+																	SpriteParticleSystem = 
+																	{
+																		bool Visible = true,
+																		bool VisibilityCulling = true,
+																		bool VisibilityEvents = false,
+																		bool CastShadows = false,
+																		SystemChildMode ChildMode = Independent,
+																		SystemSpace SystemSpace = WorldSpace,
+																		uint DrawOrder = 0,
+																		float WarmUpTime = 0,
+																		ParticleGeometry GeometryMode = Billboarded,
+																		ParticleRenderMode RenderMode = Blended,
+																		ParticleSortMode SortMode = Youngest,
+																		ParticleAnimation ParticleAnimation = Single,
+																		string Texture = "4fab71e8bcb7a8ce:DefaultTexture",
+																		Vec4 Tint = [1, 1, 1, 1],
+																		float VelocityScale = 1,
+																		float LengthScale = 1,
+																		float MaxParticleSize = 100,
+																		Vec3 SystemSize = [10, 10, 10],
+																	},
+																	SphericalParticleEmitter = 
+																	{
+																		bool Active = true,
+																		uint EmitCount = 0,
+																		float EmitRate = 35,
+																		float EmitVariance = 0,
+																		float Size = 0.5,
+																		float SizeVariance = 0.2,
+																		float Lifetime = 0.6,
+																		float LifetimeVariance = 0.1,
+																		float Spin = 0,
+																		float SpinVariance = 50,
+																		bool RandomSpin = true,
+																		float Fill = 1,
+																		float EmitterVelocityPercent = 0,
+																		Vec3 StartVelocity = [0, 0, 0],
+																		Vec3 RandomVelocity = [2, 2, 2],
+																		Vec3 TangentVelocity = [0, 0, 0],
+																		Vec3 EmitterSize = [2, 2, 2],
+																		bool FastMovingEmitter = false,
+																	},
+																	LinearParticleAnimator = 
+																	{
+																		Vec3 Force = [0, 0, 0],
+																		Vec3 RandomForce = [0, 0, 0],
+																		float Torque = 0,
+																		float Growth = 0,
+																		float Dampening = 0,
+																		Vec3 Twist = [0, 0, 0],
+																	},
+																	ParticleColorAnimator = 
+																	{
+																		Vec4 Color0 = [0, 0, 0, 0],
+																		Vec4 Color1 = [1, 0, 0, 1],
+																		Vec4 Color2 = [0, 0, 0, 1],
+																		Vec4 Color3 = [1, 0, 0, 1],
+																		Vec4 Color4 = [0, 0, 0, 0],
+																	},
+																},
+																Cog = 
+																{
+																	LinkId = 
+																	{
+																		uint Id = 14,
+																	},
+																	Named = 
+																	{
+																		string Name = "HurtBallTrail",
+																	},
+																	Transform = 
+																	{
+																		Vec3 Translation = [0, 0, -0.0323734],
+																		Vec3 Scale = [1, 1, 1],
+																		Quat Rotation = [0, 0, 0, 1],
+																	},
+																	SpriteParticleSystem = 
+																	{
+																		bool Visible = true,
+																		bool VisibilityCulling = true,
+																		bool VisibilityEvents = false,
+																		bool CastShadows = false,
+																		SystemChildMode ChildMode = Independent,
+																		SystemSpace SystemSpace = WorldSpace,
+																		uint DrawOrder = 0,
+																		float WarmUpTime = 0,
+																		ParticleGeometry GeometryMode = Beam,
+																		ParticleRenderMode RenderMode = Additive,
+																		ParticleSortMode SortMode = Youngest,
+																		ParticleAnimation ParticleAnimation = Single,
+																		string Texture = "55312366aa5bb5cd:lightning",
+																		Vec4 Tint = [1, 1, 1, 1],
+																		float VelocityScale = 1,
+																		float LengthScale = 0.001,
+																		float MaxParticleSize = 100,
+																		Vec3 SystemSize = [10, 10, 10],
+																	},
+																	SphericalParticleEmitter = 
+																	{
+																		bool Active = true,
+																		uint EmitCount = 0,
+																		float EmitRate = 160,
+																		float EmitVariance = 20,
+																		float Size = 3,
+																		float SizeVariance = 0.2,
+																		float Lifetime = 0.1,
+																		float LifetimeVariance = 0.05,
+																		float Spin = 0,
+																		float SpinVariance = 50,
+																		bool RandomSpin = true,
+																		float Fill = 1,
+																		float EmitterVelocityPercent = 0,
+																		Vec3 StartVelocity = [0, 0, 0],
+																		Vec3 RandomVelocity = [0, 0, 0],
+																		Vec3 TangentVelocity = [0, 0, 0],
+																		Vec3 EmitterSize = [2, 2, 2],
+																		bool FastMovingEmitter = false,
+																	},
+																	LinearParticleAnimator = 
+																	{
+																		Vec3 Force = [0, 0, 0],
+																		Vec3 RandomForce = [0, 0, 0],
+																		float Torque = 0,
+																		float Growth = 0,
+																		float Dampening = 0,
+																		Vec3 Twist = [0, 0, 0],
+																	},
+																	ParticleColorAnimator = 
+																	{
+																		Vec4 Color0 = [1, 1, 1, 0],
+																		Vec4 Color1 = [1, 0, 0, 1],
+																		Vec4 Color2 = [1, 1, 1, 1],
+																		Vec4 Color3 = [1, 0, 0, 1],
+																		Vec4 Color4 = [1, 1, 1, 0],
+																	},
+																	ParticleAttractor = 
+																	{
+																		float Strength = -20,
+																		float MinDistance = 0,
+																		float MaxDistance = 20,
+																	},
+																	Light = 
+																	{
+																		bool Visible = true,
+																		bool VisibilityCulling = true,
+																		bool VisibilityEvents = false,
+																		bool CastShadows = false,
+																		LightType LightType = Point,
+																		Vec4 Color = [1, 0.39, 0.39, 1],
+																		float Intensity = 5,
+																		float Range = 15,
+																		float Falloff = 1,
+																		float Angle = 45,
+																		float Size = 20,
+																	},
+																},
+															},
+														},
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 15,
+							},
+							Named = 
+							{
+								string Name = "MiddleCt",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [15.1019, 8.06898e-005, -0.205837],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0.000164027, -0.0199788, 0.0368922, 0.99912],
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 16,
+									},
+									Named = 
+									{
+										string Name = "Middle001",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [17.2223, 4.64916e-006, -4.76837e-007],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0.00351251, 0.0929175, -0.00281336, 0.995664],
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 17,
+											},
+											Named = 
+											{
+												string Name = "Middle002",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [27.6393, 1.35899e-005, -4.76837e-007],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [0.00154107, -0.0424385, -0.0743102, 0.996331],
+											},
+											Hierarchy = 
+											{
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 18,
+													},
+													Named = 
+													{
+														string Name = "Middle003",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [10.9335, 4.76837e-007, -2.38032e-013],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [-0.00793576, 0.0812519, 0.0132784, 0.996574],
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 19,
+							},
+							Named = 
+							{
+								string Name = "RingCt",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [15.1019, 8.06898e-005, -0.205837],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [-0.00731649, -1.63847e-005, 0.292818, 0.95614],
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 20,
+									},
+									Named = 
+									{
+										string Name = "Ring001",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [22.8615, 6.19888e-006, -4.44089e-016],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0.0185765, 0.0649338, -0.274549, 0.959198],
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 21,
+											},
+											Named = 
+											{
+												string Name = "Ring002",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [22.6391, 9.53674e-005, -4.76835e-007],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [-0.00219944, 0.0348496, -0.0672998, 0.997122],
+											},
+											Hierarchy = 
+											{
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 22,
+													},
+													Named = 
+													{
+														string Name = "Ring003",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [11.7192, -3.8147e-006, 4.76837e-007],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0.137075, 0.136914, -0.0427702, 0.98012],
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 23,
+							},
+							Named = 
+							{
+								string Name = "PinkyCt",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [15.1019, 8.06898e-005, -0.205837],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [-0.00549274, -0.0118815, 0.446609, 0.894633],
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 24,
+									},
+									Named = 
+									{
+										string Name = "Pinky001",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [27.0593, 4.76837e-006, 2.66454e-015],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [-0.0890611, 0.0758193, -0.410596, 0.904284],
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 25,
+											},
+											Named = 
+											{
+												string Name = "Pinky002",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [16.0435, -2.67029e-005, 9.53668e-007],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [0.00277066, 0.0464427, -0.0469647, 0.997813],
+											},
+											Hierarchy = 
+											{
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 26,
+													},
+													Named = 
+													{
+														string Name = "Pinky003",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [13.4991, -1.10134e-013, 9.53674e-007],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0.158418, 0.164615, -0.0904835, 0.969339],
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 27,
+							},
+							Named = 
+							{
+								string Name = "HandLight",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [26.2884, 1.01235, -12.1851],
+								Vec3 Scale = [4, 4, 4],
+								Quat Rotation = [-0.0348265, -0.0340616, 0.734687, 0.676655],
+							},
+							Light = 
+							{
+								bool Visible = true,
+								bool VisibilityCulling = true,
+								bool VisibilityEvents = false,
+								bool CastShadows = false,
+								LightType LightType = Point,
+								Vec4 Color = [1, 0.11, 0.11, 1],
+								float Intensity = 2.63,
+								float Range = 30,
+								float Falloff = 1,
+								float Angle = 10,
+								float Size = 20,
+							},
+						},
+					},
+				},
+			},
+		},
+	},
+},

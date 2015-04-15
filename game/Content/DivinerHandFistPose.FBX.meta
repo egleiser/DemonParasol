@@ -1,0 +1,28 @@
+GeometryContent = 
+{
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	AnimationBuilder = 
+	{
+		string Name = "DivinerHandFistPose",
+		uint64 ResourceId = 55fda8b4f7d49641,
+		bool MakeAnimationSet = false,
+		ResourceCompression CompressAnimation = None,
+		string PreviewArchetype = "",
+		Array Clips = 
+		[
+			{
+				string Name = "All",
+				uint64 ResourceId = 55fda8b4f7da7e48,
+				int StartFrame = 0,
+				int EndFrame = 60,
+				LoopingMode LoopingMode = Default,
+			},
+		],
+	},
+},
