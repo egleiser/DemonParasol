@@ -21,13 +21,6 @@ class Z_GamepadButtonController:ZilchComponent
     [Property]
     var KeyboardBackButton:Keys = Keys.Back;
     
-    //MOVE AWAY AND FADE OUT ANIMATION
-    var AMoveAwayAndDestroy:ActionSet = null;
-    var FadeOutColor:Real4 = Real4(1,1,1,0.0);
-    var FadeOutTiming:Real = Real(0.5);
-    var FadeOutPos:Real3 = Real3(0,-100,0);
-    var FadeOutEaseType:Ease = Ease.QuadIn;
-    
     //GENERAL MENU POSITIONS
     var AwayPos:Real3 = Real3(0,-100,3);
     var QuitAwayPos:Real3 = Real3(0, -100, 5);
@@ -68,6 +61,10 @@ class Z_GamepadButtonController:ZilchComponent
     //HOW TO PLAY PAUSE
     var ARC_HowToPlayPause:Archetype = Archetype.Find("ARC_HowToPlayPause");
     var HowToPlayPauseGroup:Cog = null;
+    
+    //PAUSE MENU - MAIN MENU GROUP
+    var ARC_MainMenuConfirmation:Archetype = Archetype.Find("ARC_MainMenuConfirmation");
+    var MainMenuConfirmationGroup:Cog = null;
     
     [Property]
     var AltSprite:SpriteSource = null;
@@ -236,6 +233,22 @@ class Z_GamepadButtonController:ZilchComponent
                     //move the entire start menu group into view
                     this.Space.LevelSettings.Z_MenuAnimations.MoveInMenuGroup(this.MainMenuGroup, this.ViewPos);
                 }
+                
+                //PAUSE MENU - MAIN MENU CONFIRMATION
+                //--return -> Pause menu
+                if(this.Owner.Name == "BtnMainMenuNo" ||
+                   this.Owner.Name == "BtnMainMenuYes")
+                {
+                    //assign and create the PauseMenuGroup from its archetype
+                    this.PauseMenuGroup = this.Space.CreateAtPosition(this.ARC_PauseMenu, this.PauseMenuPosition);
+                    //make this last button presed inactive
+                    this.Owner.Z_GamepadButtonController.Active = false;
+                    //find the HowToPlayPauseGroup, then move and destroy it
+                    this.MainMenuConfirmationGroup = this.Space.FindObjectByName("goMainMenuConfirmationGroup");
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveAwayAndDestroy(this.MainMenuConfirmationGroup, this.AwayPos);
+                    //make the incoming PauseMenuGroup BtnGameResume active
+                    this.PauseMenuGroup.FindChildByName("BtnGameResume").Z_GamepadButtonController.Active = true;
+                }
             }
             
             //CONFIRMATION BUTTON PRESSED
@@ -336,6 +349,112 @@ class Z_GamepadButtonController:ZilchComponent
                 {
                     this.Space.LevelSettings.DataLoader.EraseSaveFile();
                 }
+                
+                //OPTIONS MENU
+                //--WINDOWED BUTTON
+                if(this.Owner.Name == "BtnWindowed")
+                {
+                    //name change on the button
+                    if(this.Owner.SpriteText.Text == "FULL SCREEN")
+                    {
+                        this.Owner.SpriteText.Text = "WINDOWED";
+                        //set the game to windowed
+                        this.Space.LevelSettings.SetOptions.PrefWindowed = true;
+                    }
+                    else
+                    {
+                        this.Owner.SpriteText.Text = "FULL SCREEN";
+                        //set the game to full screen
+                        this.Space.LevelSettings.SetOptions.PrefWindowed = false;
+                    }
+                    //reset resolution
+                    this.Space.LevelSettings.SetOptions.SetScreenResolution();
+                }
+                
+                //OPTIONS MENU
+                //--AA BUTTON
+                if(this.Owner.Name == "BtnAA")
+                {
+                    //name change on the button
+                    if(this.Owner.SpriteText.Text == "ANTI-ALIASING ENABLED")
+                    {
+                        this.Owner.SpriteText.Text = "ANTI-ALIASING DISABLED";
+                        //turn AA off
+                        this.Space.LevelSettings.SetOptions.PrefAA = false;
+                    }
+                    else
+                    {
+                        this.Owner.SpriteText.Text = "ANTI-ALIASING ENABLED";
+                        //turn AA on
+                        this.Space.LevelSettings.SetOptions.PrefAA = true;
+                    }
+                    //set the graphics
+                    this.Space.LevelSettings.SetOptions.SetGraphicsSettings();
+                }
+                
+                //OPTIONS MENU
+                //--AA BUTTON
+                if(this.Owner.Name == "BtnMotionBlur")
+                {
+                    //name change on the button
+                    if(this.Owner.SpriteText.Text == "MOTION BLUR ENABLED")
+                    {
+                        this.Owner.SpriteText.Text = "MOTION BLUR DISABLED";
+                        //turn off motion blur
+                        this.Space.LevelSettings.SetOptions.PrefMotionBlur = 0.8;
+                    }
+                    else
+                    {
+                        this.Owner.SpriteText.Text = "MOTION BLUR ENABLED";
+                        //turn on motion blur
+                        this.Space.LevelSettings.SetOptions.PrefMotionBlur = 1.5;
+                    }
+                    //set the graphics
+                    this.Space.LevelSettings.SetOptions.SetGraphicsSettings();
+                }
+                
+                //OPTIONS MENU
+                //--AA BUTTON
+                if(this.Owner.Name == "BtnHDR")
+                {
+                    //name change on the button
+                    if(this.Owner.SpriteText.Text == "HDR ENABLED")
+                    {
+                        this.Owner.SpriteText.Text = "HDR DISABLED";
+                        //turn off hdr
+                        this.Space.LevelSettings.SetOptions.PrefHDR = false;
+                    }
+                    else
+                    {
+                        this.Owner.SpriteText.Text = "HDR ENABLED";
+                        //turn on hdr
+                        this.Space.LevelSettings.SetOptions.PrefHDR = true;
+                    }
+                    //set the graphics
+                    this.Space.LevelSettings.SetOptions.SetGraphicsSettings();
+                }
+                
+                //OPTIONS MENU
+                //--AA BUTTON
+                if(this.Owner.Name == "BtnRefraction")
+                {
+                    //name change on the button
+                    if(this.Owner.SpriteText.Text == "REFRACTION ENABLED")
+                    {
+                        this.Owner.SpriteText.Text = "REFRACTION DISABLED";
+                        //turn off refraction
+                        this.Space.LevelSettings.SetOptions.PrefRefraction = false;
+                    }
+                    else
+                    {
+                        this.Owner.SpriteText.Text = "REFRACTION ENABLED";
+                        //turn on refraction
+                        this.Space.LevelSettings.SetOptions.PrefRefraction = true;
+                    }
+                    //set the graphics
+                    this.Space.LevelSettings.SetOptions.SetGraphicsSettings();
+                }
+                
                 //OPTIONS MENU
                 //--MAIN MENU BUTTON
                 if(this.Owner.Name =="BtnOMainMenu")
@@ -459,9 +578,50 @@ class Z_GamepadButtonController:ZilchComponent
                     this.PauseMenuGroup.FindChildByName("BtnGameResume").Z_GamepadButtonController.Active = true;
                 }
                 
+                ///PAUSE MENU
+                //--MAIN MENU BUTTON
+                if(this.Owner.Name == "BtnPauseMenuMain")
+                {
+                    //assign and create the QuitMenuGroup from its archetype
+                    this.MainMenuConfirmationGroup = this.Space.CreateAtPosition(this.ARC_MainMenuConfirmation, this.QuitAwayPos);
+                    //make this last button presed inactive
+                    this.Owner.Z_GamepadButtonController.Active = false;
+                    //find move and destroy the MainMenuGroup
+                    this.PauseMenuGroup = this.Space.FindObjectByName("ui-pause-menu");
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveAwayAndDestroy(this.PauseMenuGroup, this.AwayPos);
+                    //make the incoming QuitMenuGroup BtnQuitGameNo active
+                    this.MainMenuConfirmationGroup.FindChildByName("BtnMainMenuNo").Z_GamepadButtonController.Active = true;
+                    //move the entire main menu group into view
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveInMenuGroup(this.MainMenuConfirmationGroup, this.QuitViewPos);
+                }
                 
+                //PAUSE MENU - MAIN MENU CONFIRMATION
+                //--NO BUTTON
+                if(this.Owner.Name == "BtnMainMenuNo")
+                {
+                    //assign and create the PauseMenuGroup from its archetype
+                    this.PauseMenuGroup = this.Space.CreateAtPosition(this.ARC_PauseMenu, this.PauseMenuPosition);
+                    //make this last button presed inactive
+                    this.Owner.Z_GamepadButtonController.Active = false;
+                    //find the HowToPlayPauseGroup, then move and destroy it
+                    this.MainMenuConfirmationGroup = this.Space.FindObjectByName("goMainMenuConfirmationGroup");
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveAwayAndDestroy(this.MainMenuConfirmationGroup, this.AwayPos);
+                    //make the incoming PauseMenuGroup BtnGameResume active
+                    this.PauseMenuGroup.FindChildByName("BtnGameResume").Z_GamepadButtonController.Active = true;
+                }
                 
-                
+                //PAUSE MENU - MAIN MENU CONFIRMATION
+                //--YES BUTTON
+                if(this.Owner.Name == "BtnMainMenuYes")
+                {
+                    var mainSpace = this.GameSession.FindSpaceByName("Main");
+                    if(mainSpace.TimeSpace.Paused)
+                    {
+                        mainSpace.TimeSpace.TogglePause();
+                        mainSpace.SoundSpace.Pause = false;
+                    }
+                    mainSpace.LoadLevel(Level.Find("lvl_splash_start"));
+                }
                 
                 
                 
@@ -477,27 +637,17 @@ class Z_GamepadButtonController:ZilchComponent
                 this.Owner.Sprite.Visible = true;
                 this.Space.FindObjectByName("BtnGameHowPlay").Sprite.Visible = false;
                 this.Space.FindObjectByName("BtnPauseMenuMain").Sprite.Visible = false;
-                this.Space.FindObjectByName("BtnGameQuit").Sprite.Visible = false;
             }
             if(this.Owner.Name == "BtnGameHowPlay")
             {
                 this.Owner.Sprite.Visible = true;
                 this.Space.FindObjectByName("BtnGameResume").Sprite.Visible = false;
                 this.Space.FindObjectByName("BtnPauseMenuMain").Sprite.Visible = false;
-                this.Space.FindObjectByName("BtnGameQuit").Sprite.Visible = false;
             }
             if(this.Owner.Name == "BtnPauseMenuMain")
             {
                 this.Owner.Sprite.Visible = true;
                 this.Space.FindObjectByName("BtnGameHowPlay").Sprite.Visible = false;
-                this.Space.FindObjectByName("BtnGameResume").Sprite.Visible = false;
-                this.Space.FindObjectByName("BtnGameQuit").Sprite.Visible = false;
-            }
-            if(this.Owner.Name == "BtnGameQuit")
-            {
-                this.Owner.Sprite.Visible = true;
-                this.Space.FindObjectByName("BtnGameHowPlay").Sprite.Visible = false;
-                this.Space.FindObjectByName("BtnPauseMenuMain").Sprite.Visible = false;
                 this.Space.FindObjectByName("BtnGameResume").Sprite.Visible = false;
             }
             

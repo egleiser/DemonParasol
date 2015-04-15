@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [25.8821, -24.7117, 0],
+		Vec3 Translation = [32.4223, -20.3052, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -146,7 +146,7 @@ Cog =
 			Z_GamepadButtonController = 
 			{
 				CogPath UpButton = "../BtnOMainMenu",
-				CogPath DownButton = "../BtnOMainMenu",
+				CogPath DownButton = "../BtnWindowed",
 				CogPath LeftButton = "",
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,
@@ -249,7 +249,7 @@ Cog =
 			Z_GamepadButtonController = 
 			{
 				CogPath UpButton = "../BtnOMainMenu",
-				CogPath DownButton = "../BtnOMainMenu",
+				CogPath DownButton = "../BtnAA",
 				CogPath LeftButton = "",
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,
@@ -351,8 +351,8 @@ Cog =
 			},
 			Z_GamepadButtonController = 
 			{
-				CogPath UpButton = "../BtnOMainMenu",
-				CogPath DownButton = "../BtnOMainMenu",
+				CogPath UpButton = "../BtnWindowed",
+				CogPath DownButton = "../BtnMotionBlur",
 				CogPath LeftButton = "",
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,
@@ -454,8 +454,8 @@ Cog =
 			},
 			Z_GamepadButtonController = 
 			{
-				CogPath UpButton = "../BtnOMainMenu",
-				CogPath DownButton = "../BtnOMainMenu",
+				CogPath UpButton = "../BtnAA",
+				CogPath DownButton = "../BtnHDR",
 				CogPath LeftButton = "",
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,
@@ -557,8 +557,8 @@ Cog =
 			},
 			Z_GamepadButtonController = 
 			{
-				CogPath UpButton = "../BtnOMainMenu",
-				CogPath DownButton = "../BtnOMainMenu",
+				CogPath UpButton = "../BtnMotionBlur",
+				CogPath DownButton = "../BtnRefraction",
 				CogPath LeftButton = "",
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,
@@ -579,7 +579,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "BtnRefration",
+				string Name = "BtnRefraction",
 			},
 			Archetyped = 
 			{
@@ -660,7 +660,7 @@ Cog =
 			},
 			Z_GamepadButtonController = 
 			{
-				CogPath UpButton = "../BtnOMainMenu",
+				CogPath UpButton = "../BtnHDR",
 				CogPath DownButton = "../BtnOMainMenu",
 				CogPath LeftButton = "",
 				CogPath RightButton = "",
@@ -763,8 +763,8 @@ Cog =
 			},
 			Z_GamepadButtonController = 
 			{
-				CogPath UpButton = "../BtnClearData",
-				CogPath DownButton = "../BtnClearData",
+				CogPath UpButton = "../BtnRefraction",
+				CogPath DownButton = "../BtnEraseData",
 				CogPath LeftButton = "",
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,

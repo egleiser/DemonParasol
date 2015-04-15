@@ -70,6 +70,9 @@ Level =
 		DataLoader = 
 		{
 		},
+		SetOptions = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -136,7 +139,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 27.2532,
+			float Size = 33.2871,
 		},
 		EditorCameraController = 
 		{
@@ -156,12 +159,19 @@ Level =
 			bool Wireframe = false,
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "549361781f6586bc:arc_menuCamera",
 		LinkId = 
 		{
 			uint Id = 2,
+		},
+		Named = 
+		{
+			string Name = "Camera",
+		},
+		Archetyped = 
+		{
+			string Name = "549361781f6586bc:arc_menuCamera",
 		},
 		Transform = 
 		{
@@ -169,9 +179,32 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Named = 
+		Camera = 
 		{
-			string Name = "Camera",
+			ProjectionMode ProjectionMode = Orthographic,
+			Facing Facing = NegativeZ,
+			CameraTransparentSort TransparentSort = InheritFromSpace,
+			float FieldOfView = 45,
+			float NearPlane = 0.5,
+			float FarPlane = 5000,
+			float Size = 16.75,
+		},
+		Microphone = 
+		{
+			bool Active = true,
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 0, 1],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [0, 1, 0],
+			OrientationBases DefaultBases = ForwardYUpZ,
+		},
+		MotionBlur = 
+		{
+			int Samples = 20,
+			float Density = 0.8,
+			bool RadialOnly = true,
 		},
 	},
 	Cog = 

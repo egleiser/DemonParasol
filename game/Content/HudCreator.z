@@ -22,6 +22,7 @@ class HudCreator : ZilchComponent
         // Create the hud space and then load our hud level into it
         this.HudSpace = this.GameSession.CreateNamedSpace("HudSpace", this.SpaceArchetype);
         this.HudSpace.LoadLevel(this.HudLevel);
+        this.HudSpace.LevelSettings.AddComponentByName("Z_MenuAnimations");
     }
     
     function Destroyed()
