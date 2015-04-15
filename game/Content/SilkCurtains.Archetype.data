@@ -1,0 +1,101 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "SilkCurtains",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "pPlane3",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-15.0032, 25.8369, -71.8174],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5558e739f069086d:phong1",
+				string MeshName = "5558e738f056572f:SilkCurtains.pPlane3",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "pPlane4",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [14.9986, 25.8369, -71.8174],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5558e739f069086d:phong1",
+				string MeshName = "5558e738f0565735:SilkCurtains.pPlane4",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "pPlane5",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 28.0892, -77.7202],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5558e739f069086d:phong1",
+				string MeshName = "5558e738f0565736:SilkCurtains.pPlane5",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+	},
+},

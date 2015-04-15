@@ -1,0 +1,74 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "PillarLantern(Actual)",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "pCube57",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-31.0847, 26.2497, -1.57802],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "543c8f5dc0f6f2be:lambert3",
+				string MeshName = "5558da8edfc61b39:PillarLantern(Actual).pCube57",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "pPlane10",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-3.55271e-015, 0.394663, 30.1982],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "543c8f5dc0f6c2e9:lambert4",
+				string MeshName = "5558da8edfc61b40:PillarLantern(Actual).pPlane10",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+	},
+},
