@@ -84,9 +84,6 @@ Level =
 		QuickPause = 
 		{
 		},
-		Z_CheatCodes = 
-		{
-		},
 		Z_WinLoseTrigger = 
 		{
 			Vec3 StartingPosition = [0, 0, 1],
@@ -199,9 +196,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [169.658, -40.2988, 6.12526],
+			Vec3 Translation = [175.198, -16.7314, 38.778],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.707106, 0.00126452, -0.00126452, 0.707106],
+			Quat Rotation = [0.389918, 0.0064681, -0.00273889, 0.920823],
 		},
 		Camera = 
 		{
@@ -216,10 +213,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 36.8835,
-			float VerticalAngle = -1.5708,
-			float HorizontalAngle = -0.00357666,
-			Vec3 LookTarget = [169.658, -3.41533, 6.12526],
+			float LookDistance = 45.0496,
+			float VerticalAngle = -0.801106,
+			float HorizontalAngle = -0.0140483,
+			Vec3 LookTarget = [174.758, 15.6199, 7.43051],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -247,7 +244,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [163.62, -11.9155, 0],
+			Vec3 Translation = [157.903, 11.0915, 11.4334],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -267,6 +264,7 @@ Level =
 			bool HideTongueUI = false,
 			string HideTongueString = "Action",
 			bool FreezeMovement = false,
+			bool MoveUpwards = false,
 		},
 		FootstepDetector = 
 		{
@@ -13016,7 +13014,7 @@ Level =
 		{
 			bool Static = false,
 			bool Asleep = false,
-			bool Kinematic = false,
+			bool Kinematic = true,
 			bool RotationLocked = false,
 			bool Mode2D = false,
 			bool AllowSleep = true,
@@ -13052,6 +13050,7 @@ Level =
 			string PointAnim = "55fd435f2d664eef:DivinerHandPoint.All",
 			string HurtAnim = "55fdb040168113dd:DivinerHandHurtPose.All",
 			string DeathAnim = "55fd8fb169e74cd4:DivinerHandDeath.All",
+			string ProneAnim = "55fdf81a08d8f379:DivinerHandProne.All",
 		},
 		Orientation = 
 		{
@@ -13078,7 +13077,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [-0.5522, 0.937645, -0.897465],
+					Vec3 Translation = [-0.5522, -1.74554, -0.897465],
 					Vec3 Scale = [0.25, 0.25, 0.25],
 					Quat Rotation = [0.0175326, 0.671592, 0.740461, 0.0193305],
 				},
@@ -14005,7 +14004,7 @@ Level =
 										},
 										Transform = 
 										{
-											Vec3 Translation = [-4.8982e-007, -2.91694, 1.103],
+											Vec3 Translation = [-1.70109e-006, -2.91694, 1.73143],
 											Vec3 Scale = [1, 0.999998, 1],
 											Quat Rotation = [-1.92447e-009, 4.6786e-008, -1.08747e-006, 1],
 										},
@@ -14014,6 +14013,295 @@ Level =
 											string Name = "RocketSparks",
 										},
 									},
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 426,
+								},
+								Named = 
+								{
+									string Name = "TongueTarget",
+								},
+								Archetyped = 
+								{
+									string Name = "54bebc5606a21d42:TongueTarget",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [18.8655, -0.717834, 6.0442],
+									Vec3 Scale = [6.89082, 6.89082, 6.89082],
+									Quat Rotation = [0.503093, 0.543587, -0.495418, -0.453841],
+								},
+								Model = 
+								{
+									bool Visible = false,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "4de020863e85bb61:DefaultMaterial",
+									string MeshName = "4de0354322b345ae:Cube",
+									Vec4 Color = [1, 1, 1, 1],
+								},
+								BoxCollider = 
+								{
+									bool Ghost = true,
+									bool SendsMessages = true,
+									bool Seamless = true,
+									string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+									string SerializedGroupName = "54ff0eb5b975b8c8:CG_Tongue",
+									Vec3 Offset = [0, 1, 0],
+									Vec3 Size = [5, 1, 5],
+								},
+								Targetable = 
+								{
+									Enum IndicatorType = Friendly,
+									Vec3 IndicatorOffset = [0, 0, 1],
+									float Range = 45,
+								},
+								Hierarchy = 
+								{
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 427,
+										},
+										Named = 
+										{
+											string Name = "TongueTargetTarget",
+										},
+										Archetyped = 
+										{
+											string Name = "54bfd4ebd919d6f3:TongueTargetTarget",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [0, 0, 0],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [0, 0, 1, -4.37114e-008],
+										},
+										Hierarchy = 
+										{
+											Cog = 
+											{
+												LinkId = 
+												{
+													uint Id = 428,
+												},
+												Named = 
+												{
+													string Name = "TargetBase",
+												},
+												Transform = 
+												{
+													Vec3 Translation = [0, 0, 0],
+													Vec3 Scale = [0.971794, 0.223381, 0.971794],
+													Quat Rotation = [0, 0, 0, 1],
+												},
+												Model = 
+												{
+													bool Visible = false,
+													bool VisibilityCulling = true,
+													bool VisibilityEvents = false,
+													bool CastShadows = true,
+													string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+													string MeshName = "54bfd084bf659d75:TongueTargetMesh.TargetBase",
+													Vec4 Color = [0.207075, 0.09625, 0.275, 1],
+												},
+											},
+											Cog = 
+											{
+												LinkId = 
+												{
+													uint Id = 429,
+												},
+												Named = 
+												{
+													string Name = "TargetRingsA",
+												},
+												Transform = 
+												{
+													Vec3 Translation = [0, 0, 0],
+													Vec3 Scale = [0.971794, 0.223381, 0.971794],
+													Quat Rotation = [0, 0, 0, 1],
+												},
+												Model = 
+												{
+													bool Visible = false,
+													bool VisibilityCulling = true,
+													bool VisibilityEvents = false,
+													bool CastShadows = true,
+													string MaterialName = "54bfd02198c390ed:mat_TargetFlasher",
+													string MeshName = "54bfd084bf659d79:TongueTargetMesh.TargetRings",
+													Vec4 Color = [0.825, 0, 0.000494885, 1],
+												},
+											},
+											Cog = 
+											{
+												LinkId = 
+												{
+													uint Id = 430,
+												},
+												Named = 
+												{
+													string Name = "TargetRingsB",
+												},
+												Transform = 
+												{
+													Vec3 Translation = [6.16457e-010, 0.00705147, 0],
+													Vec3 Scale = [0.310416, 0.101288, 0.310416],
+													Quat Rotation = [-0, 0, 1, -4.37114e-008],
+												},
+												Model = 
+												{
+													bool Visible = false,
+													bool VisibilityCulling = true,
+													bool VisibilityEvents = false,
+													bool CastShadows = true,
+													string MaterialName = "54bfd02198c390ed:mat_TargetFlasher",
+													string MeshName = "54bfd084bf659d79:TongueTargetMesh.TargetRings",
+													Vec4 Color = [0.825, 0, 0.000494885, 1],
+												},
+											},
+										},
+									},
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 431,
+								},
+								Named = 
+								{
+									string Name = "PentaGlow",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [18.8167, -0.719248, 6.5436],
+									Vec3 Scale = [6.34484, 1.13663, 5.81776],
+									Quat Rotation = [0.478867, 0.547709, -0.490372, -0.47983],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "54bfd02198c390ed:mat_TargetFlasher",
+									string MeshName = "54afcfd2e5fa7179:BlackRainMainLobby.PentaShape",
+									Vec4 Color = [0.8861, 0.33, 1, 0.085],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 432,
+								},
+								Named = 
+								{
+									string Name = "MovingPlatformController",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [23.984, 2.16626, 7.46346],
+									Vec3 Scale = [4.00001, 2.80865, 4.00001],
+									Quat Rotation = [-0.0348273, -0.0340614, 0.734687, 0.676655],
+								},
+								Model = 
+								{
+									bool Visible = false,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "4de020863e85bb61:DefaultMaterial",
+									string MeshName = "4de0354322b345ae:Cube",
+									Vec4 Color = [1, 1, 1, 1],
+								},
+								RigidBody = 
+								{
+									bool Static = false,
+									bool Asleep = false,
+									bool Kinematic = true,
+									bool RotationLocked = false,
+									bool Mode2D = false,
+									bool AllowSleep = true,
+									bool Inherit2DMode = true,
+									Vec3 Velocity = [0, 0, 0],
+									Vec3 AngularVelocity = [0, 0, 0],
+								},
+								BoxCollider = 
+								{
+									bool Ghost = true,
+									bool SendsMessages = true,
+									bool Seamless = true,
+									string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+									string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+									Vec3 Offset = [0, 0, 0],
+									Vec3 Size = [4.65, 7.5, 1.1],
+								},
+								MovingPlatform = 
+								{
+								},
+								Hierarchy = 
+								{
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 433,
+								},
+								Named = 
+								{
+									string Name = "HandPlatform",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [24.676, 2.18707, 0.383018],
+									Vec3 Scale = [4.00001, 2.80865, 4.00001],
+									Quat Rotation = [-0.0348273, -0.0340614, 0.734687, 0.676655],
+								},
+								Model = 
+								{
+									bool Visible = false,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "4de020863e85bb61:DefaultMaterial",
+									string MeshName = "4de0354322b345ae:Cube",
+									Vec4 Color = [1, 1, 1, 1],
+								},
+								RigidBody = 
+								{
+									bool Static = false,
+									bool Asleep = false,
+									bool Kinematic = true,
+									bool RotationLocked = false,
+									bool Mode2D = false,
+									bool AllowSleep = true,
+									bool Inherit2DMode = true,
+									Vec3 Velocity = [0, 0, 0],
+									Vec3 AngularVelocity = [0, 0, 0],
+								},
+								BoxCollider = 
+								{
+									bool Ghost = false,
+									bool SendsMessages = true,
+									bool Seamless = true,
+									string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+									string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+									Vec3 Offset = [0, 0, 0],
+									Vec3 Size = [4.65, 7.5, 1.1],
+								},
+								Hierarchy = 
+								{
 								},
 							},
 						},

@@ -38,7 +38,8 @@ class PlayerController : ZilchComponent
     var FreezeMovement:Boolean = false;
     var MoveAngle:Real = 0;
     var Camera:Cog = null;
-    
+    [Property]
+    var MoveUpwards:Boolean = false;
     var ContextButton:Cog = null;
     var ContextInteract:Boolean = false;
     var ContextString:String = "";
@@ -312,6 +313,10 @@ class PlayerController : ZilchComponent
                 var targetAngle = Math.ATan2(targetDistanceVec.Y,targetDistanceVec.X) - 1.57079633;
                 
                 var flatTargetVector = Real3(targetDistanceVec.X, targetDistanceVec.Y, 0.0);
+                if(this.MoveUpwards)
+                {
+                    flatTargetVector = Real3(targetDistanceVec.X, targetDistanceVec.Y, 0.3);
+                }
                 if(this.FreezeMovement == false)
                 {
                 this.MoveAngle = targetAngle;

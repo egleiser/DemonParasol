@@ -1,0 +1,28 @@
+GeometryContent = 
+{
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	AnimationBuilder = 
+	{
+		string Name = "DivinerHandProne",
+		uint64 ResourceId = 55fdf81b08e6e81a,
+		bool MakeAnimationSet = false,
+		ResourceCompression CompressAnimation = None,
+		string PreviewArchetype = "",
+		Array Clips = 
+		[
+			{
+				string Name = "All",
+				uint64 ResourceId = 55fdf81a08d8f379,
+				int StartFrame = 0,
+				int EndFrame = 50,
+				LoopingMode LoopingMode = Default,
+			},
+		],
+	},
+},

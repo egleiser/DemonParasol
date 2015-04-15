@@ -97,6 +97,11 @@ Cog =
 		float Deceleration = 1.5,
 		CogPath CameraPath = ":/Camera",
 	},
+	FollowTongueMount = 
+	{
+		float SpeedMultiplier = 1,
+		Vec3 Offset = [0, 0, 0],
+	},
 	Hierarchy = 
 	{
 	},
