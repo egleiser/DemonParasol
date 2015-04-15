@@ -21,6 +21,13 @@ class Z_GamepadButtonController:ZilchComponent
     [Property]
     var KeyboardBackButton:Keys = Keys.Back;
     
+    //MOVE AWAY AND FADE OUT ANIMATION
+    var AMoveAwayAndDestroy:ActionSet = null;
+    var FadeOutColor:Real4 = Real4(1,1,1,0.0);
+    var FadeOutTiming:Real = Real(0.5);
+    var FadeOutPos:Real3 = Real3(0,-100,0);
+    var FadeOutEaseType:Ease = Ease.QuadIn;
+    
     //GENERAL MENU POSITIONS
     var AwayPos:Real3 = Real3(0,-100,3);
     var QuitAwayPos:Real3 = Real3(0, -100, 5);
