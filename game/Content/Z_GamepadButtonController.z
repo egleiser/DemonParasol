@@ -18,6 +18,8 @@ class Z_GamepadButtonController:ZilchComponent
     var GamepadConfirmationButton:Buttons = Buttons.A;
     [Property]
     var GamepadBackButton:Buttons = Buttons.B;
+    [Property]
+    var KeyboardBackButton:Keys = Keys.Back;
     
     //GENERAL MENU POSITIONS
     var AwayPos:Real3 = Real3(0,-100,3);
@@ -106,7 +108,7 @@ class Z_GamepadButtonController:ZilchComponent
         if(this.Active)
         {
             //BACK BUTTON PRESSED
-            if(this.Gamepad.IsButtonPressed(this.GamepadBackButton))
+            if(this.Gamepad.IsButtonPressed(this.GamepadBackButton) || Zero.Keyboard.KeyIsPressed(this.KeyboardBackButton))
             {
                 if(this.GameSession.FindSpaceByName("HUD") != null)
                 {
@@ -165,8 +167,13 @@ class Z_GamepadButtonController:ZilchComponent
                 }
                 
                 //if currently on the OPTIONS MENU
-                if(this.Owner.Name =="BtnOMainMenu" || 
-                   this.Owner.Name =="BtnEraseData")
+                if(this.Owner.Name == "BtnOMainMenu" || 
+                   this.Owner.Name == "BtnEraseData" ||
+                   this.Owner.Name == "BtnWindowed" ||
+                   this.Owner.Name == "BtnHDR" ||
+                   this.Owner.Name == "BtnAA" ||
+                   this.Owner.Name == "BtnMotionBlur" ||
+                   this.Owner.Name == "BtnRefraction")
                 {
                     //return -> MAIN MENU
                     //fade out the background

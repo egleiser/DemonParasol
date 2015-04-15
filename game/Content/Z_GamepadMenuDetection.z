@@ -46,15 +46,16 @@ class Z_GamepadMenuDetection : ZilchComponent
     //////////////////////////////////////////////////////////////////////////////////////////////////////*/
     function OnLogicUpdate(event:UpdateEvent):Void
     {
+        Console.WriteLine(this.Gamepad.IsActive);
         if(this.Gamepad.IsActive && !this.IsTextSwapped)
         {
             this.IsTextSwapped = true;
             this.SwapOutText("gamepad");
         }
         //check to see if gamepad does exist
-        if(!this.Gamepad.IsActive && this.IsTextSwapped)
+        if(!this.Gamepad.IsActive && !this.IsTextSwapped)
         {
-            this.IsTextSwapped = false;
+            this.IsTextSwapped = true;
             this.SwapOutText("keyboard");
         }
     }
