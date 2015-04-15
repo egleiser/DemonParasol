@@ -3,11 +3,19 @@ Material =
 	Lambert = 
 	{
 	},
+	EmissiveMapping = 
+	{
+		float EmissiveScale = 1,
+		string EmissiveMapTexture = "55a6587b821b148f:texDemonParasolEye",
+		Vec2 EmissiveScroll = [0, 0],
+		Vec2 EmissiveTiling = [2, 1],
+		Vec2 EmissiveOffset = [0, 0],
+	},
 	TextureDiffuse = 
 	{
 		string DiffuseTexture = "55a6587b821b148f:texDemonParasolEye",
 		Vec2 DiffuseScroll = [0, 0],
-		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseTiling = [2, 1],
 		Vec2 DiffuseOffset = [0, 0],
 	},
 },
