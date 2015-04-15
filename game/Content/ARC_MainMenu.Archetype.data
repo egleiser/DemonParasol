@@ -8,9 +8,13 @@ Cog =
 	{
 		string Name = "goMainMenuGroup",
 	},
+	Archetyped = 
+	{
+		string Name = "55071358e6be63ab:ARC_MainMenu",
+	},
 	Transform = 
 	{
-		Vec3 Translation = [0, -33.0035, 3],
+		Vec3 Translation = [41.6938, -24.4571, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -68,8 +72,8 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, 1.46664, 0],
-				Vec3 Scale = [1, 1, 1],
+				Vec3 Translation = [0, 2.46642, 0],
+				Vec3 Scale = [1.25, 1.25, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
 			SpriteText = 
@@ -133,8 +137,8 @@ Cog =
 			},
 			Z_ButtonAnimations = 
 			{
-				Vec4 ActiveColor = [0.768628, 0.309804, 0.313726, 1],
-				Vec3 ActiveSize = [1.1, 1.1, 0],
+				Vec4 ActiveColor = [0.231373, 0.0862745, 0.113725, 1],
+				Vec3 ActiveSize = [1.5, 1.5, 0],
 				Vec3 ActivePos = [0, -0.25, 0],
 				Enum ActiveEaseType = QuadInOut,
 				float ActiveTiming = 1,
@@ -147,11 +151,12 @@ Cog =
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,
 				Enum GamepadBackButton = B,
+				Enum KeyboardBackButton = Back,
 				string AltSprite = "",
 				int GamepadIndex = 0,
 				bool Active = false,
 				float Timer = 0,
-				string LevelToLoad = "",
+				string LevelToLoad = "55cddb1c620a255c:LVL_IntroArea",
 			},
 		},
 		Cog = 
@@ -170,8 +175,8 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, -0.533359, 0],
-				Vec3 Scale = [1, 1, 1],
+				Vec3 Translation = [0, 0.466418, 0],
+				Vec3 Scale = [1.25, 1.25, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
 			SpriteText = 
@@ -235,8 +240,8 @@ Cog =
 			},
 			Z_ButtonAnimations = 
 			{
-				Vec4 ActiveColor = [0.768628, 0.309804, 0.313726, 1],
-				Vec3 ActiveSize = [1.1, 1.1, 0],
+				Vec4 ActiveColor = [0.231373, 0.0862745, 0.113725, 1],
+				Vec3 ActiveSize = [1.5, 1.5, 0],
 				Vec3 ActivePos = [0, -0.25, 0],
 				Enum ActiveEaseType = QuadInOut,
 				float ActiveTiming = 1,
@@ -249,6 +254,7 @@ Cog =
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,
 				Enum GamepadBackButton = B,
+				Enum KeyboardBackButton = Back,
 				string AltSprite = "",
 				int GamepadIndex = 0,
 				bool Active = false,
@@ -272,8 +278,8 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, -2.53336, 0],
-				Vec3 Scale = [1, 1, 1],
+				Vec3 Translation = [0, -1.53358, 0],
+				Vec3 Scale = [1.25, 1.25, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
 			SpriteText = 
@@ -337,8 +343,8 @@ Cog =
 			},
 			Z_ButtonAnimations = 
 			{
-				Vec4 ActiveColor = [0.768628, 0.309804, 0.313726, 1],
-				Vec3 ActiveSize = [1.1, 1.1, 0],
+				Vec4 ActiveColor = [0.231373, 0.0862745, 0.113725, 1],
+				Vec3 ActiveSize = [1.5, 1.5, 0],
 				Vec3 ActivePos = [0, -0.25, 0],
 				Enum ActiveEaseType = QuadInOut,
 				float ActiveTiming = 1,
@@ -351,6 +357,7 @@ Cog =
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,
 				Enum GamepadBackButton = B,
+				Enum KeyboardBackButton = Back,
 				string AltSprite = "",
 				int GamepadIndex = 0,
 				bool Active = false,
@@ -374,8 +381,8 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, -4.53336, 0],
-				Vec3 Scale = [1, 1, 1],
+				Vec3 Translation = [0, -3.53358, 0],
+				Vec3 Scale = [1.25, 1.25, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
 			SpriteText = 
@@ -439,8 +446,8 @@ Cog =
 			},
 			Z_ButtonAnimations = 
 			{
-				Vec4 ActiveColor = [0.768628, 0.309804, 0.313726, 1],
-				Vec3 ActiveSize = [1.1, 1.1, 0],
+				Vec4 ActiveColor = [0.231373, 0.0862745, 0.113725, 1],
+				Vec3 ActiveSize = [1.5, 1.5, 0],
 				Vec3 ActivePos = [0, -0.25, 0],
 				Enum ActiveEaseType = QuadInOut,
 				float ActiveTiming = 1,
@@ -453,6 +460,7 @@ Cog =
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,
 				Enum GamepadBackButton = B,
+				Enum KeyboardBackButton = Back,
 				string AltSprite = "",
 				int GamepadIndex = 0,
 				bool Active = false,
@@ -476,8 +484,8 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, -6.53336, 0],
-				Vec3 Scale = [1, 1, 1],
+				Vec3 Translation = [0, -5.53358, 0],
+				Vec3 Scale = [1.25, 1.25, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
 			SpriteText = 
@@ -541,8 +549,8 @@ Cog =
 			},
 			Z_ButtonAnimations = 
 			{
-				Vec4 ActiveColor = [0.768628, 0.309804, 0.313726, 1],
-				Vec3 ActiveSize = [1.1, 1.1, 0],
+				Vec4 ActiveColor = [0.231373, 0.0862745, 0.113725, 1],
+				Vec3 ActiveSize = [1.5, 1.5, 0],
 				Vec3 ActivePos = [0, -0.25, 0],
 				Enum ActiveEaseType = QuadInOut,
 				float ActiveTiming = 1,
@@ -555,6 +563,7 @@ Cog =
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,
 				Enum GamepadBackButton = B,
+				Enum KeyboardBackButton = Back,
 				string AltSprite = "",
 				int GamepadIndex = 0,
 				bool Active = false,
