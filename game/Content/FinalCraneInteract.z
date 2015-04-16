@@ -86,6 +86,6 @@ class FinalCraneInteract : ZilchComponent
     {
         this.LevelSettings.DataLoader.SaveFile.SaveData.LastLevel = this.Space.CurrentLevel.Name;
         this.LevelSettings.DataLoader.StoreSaveFile();
-        //this.Space.LoadLevel(this.Room);
+        //this.Space.LoadLevel(Level.Find("lvl_Credits"));
     }
 }
