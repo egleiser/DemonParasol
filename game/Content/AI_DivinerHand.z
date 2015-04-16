@@ -1,7 +1,7 @@
 enum DivHandState{Intro, Idle, Gun, Fist, Rocket, Point, Hurt, Resting, Death, Returning, Prone, DeathB}
 class AI_DivinerHand : ZilchComponent
 {
-    var Health : Integer = 100;
+    var Health : Integer = 70;
     var AttackCount : Integer = 0;
     var PrevRoll : Integer = 0;
     var NumberOfBullets : Integer = 3;

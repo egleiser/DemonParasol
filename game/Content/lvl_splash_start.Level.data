@@ -19,7 +19,7 @@ Level =
 			bool EditorIconDepth = true,
 			bool Hdr = true,
 			bool Shadows = false,
-			bool AntiAliasing = false,
+			bool AntiAliasing = true,
 			bool Refraction = true,
 			bool GodRays = true,
 			bool RenderMasks = false,
@@ -127,7 +127,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [13.0425, -9.90152, 50],
+			Vec3 Translation = [-1.05306, 11.4742, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -139,7 +139,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 100,
+			float Size = 44.9329,
 		},
 		EditorCameraController = 
 		{
@@ -147,7 +147,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [13.0425, -9.90152, -4.33293e-007],
+			Vec3 LookTarget = [-1.05306, 11.4742, -1.04943e-006],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 

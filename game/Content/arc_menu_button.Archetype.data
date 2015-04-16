@@ -6,7 +6,7 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "BtnMainMenu",
+		string Name = "BtnNewGame",
 	},
 	Archetyped = 
 	{
@@ -14,8 +14,8 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, -7, 0],
-		Vec3 Scale = [1, 1, 1],
+		Vec3 Translation = [0, 2.46642, 0],
+		Vec3 Scale = [1.25, 1.25, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	SpriteText = 
@@ -31,7 +31,7 @@ Cog =
 		TextPositionMode Position = Centered,
 		string FontName = "545d0deafc601f9d:Canaro",
 		uint FontSize = 35,
-		string Text = "MAIN MENU",
+		string Text = "NEW GAME",
 		bool OnTop = false,
 		Vec2 Size = [0, 0],
 		TextAlign Align = Center,
@@ -79,24 +79,25 @@ Cog =
 	},
 	Z_ButtonAnimations = 
 	{
-		Vec4 ActiveColor = [0.768628, 0.309804, 0.313726, 1],
-		Vec3 ActiveSize = [1.1, 1.1, 0],
+		Vec4 ActiveColor = [0.231373, 0.0862745, 0.113725, 1],
+		Vec3 ActiveSize = [1.5, 1.5, 0],
 		Vec3 ActivePos = [0, -0.25, 0],
 		Enum ActiveEaseType = QuadInOut,
 		float ActiveTiming = 1,
 	},
 	Z_GamepadButtonController = 
 	{
-		CogPath UpButton = "",
-		CogPath DownButton = "",
+		CogPath UpButton = "../BtnQuitGame",
+		CogPath DownButton = "../BtnHowToPlay",
 		CogPath LeftButton = "",
 		CogPath RightButton = "",
 		Enum GamepadConfirmationButton = A,
 		Enum GamepadBackButton = B,
+		Enum KeyboardBackButton = Back,
 		string AltSprite = "",
 		int GamepadIndex = 0,
 		bool Active = false,
 		float Timer = 0,
-		string LevelToLoad = "",
+		string LevelToLoad = "55cddb1c620a255c:LVL_IntroArea",
 	},
 },

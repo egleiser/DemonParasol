@@ -104,6 +104,9 @@ Level =
 			Enum EaseType = QuadIn,
 			Vec3 StartingPosition = [0, 0, 20],
 		},
+		SetOptions = 
+		{
+		},
 		Hierarchy = 
 		{
 			Cog = 
@@ -196,9 +199,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [152.94, -38.2982, 38.7823],
+			Vec3 Translation = [151.972, -110.838, 78.1359],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.441933, -0.0359537, 0.0177304, 0.896152],
+			Quat Rotation = [0.441933, -0.0359538, 0.0177304, 0.896152],
 		},
 		Camera = 
 		{
@@ -213,10 +216,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 66.4823,
+			float LookDistance = 147.959,
 			float VerticalAngle = -0.916298,
 			float HorizontalAngle = 0.0801973,
-			Vec3 LookTarget = [156.182, 14.4457, -1.55952],
+			Vec3 LookTarget = [159.188, 6.54596, -11.6463],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 

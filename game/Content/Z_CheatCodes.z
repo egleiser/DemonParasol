@@ -38,7 +38,7 @@ class Z_CheatCodes:ZilchComponent
         {
             if(this.Space.FindObjectByName("SwordBossMaster") != null)
             {
-                this.Space.FindObjectByName("SwordBossMaster").Health.ApplyDamage(3);
+                this.Space.FindObjectByName("SwordBossMaster").Health.ApplyDamage(1);
             }
         }
         

@@ -227,7 +227,7 @@ class AI_Nurikabe : ZilchComponent
             var realRayDistance = Math.Length(this.Space.PhysicsSpace.CastRayFirst(rayCast).WorldPosition - this.Owner.Transform.WorldTranslation);
             
             this.RayDistance = this.SightRange;
-            if(objectHit.PlayerController != null && realRayDistance < this.RayDistance)
+            if(objectHit.PlayerController != null && realRayDistance < this.RayDistance &&  realRayDistance > 2.0)
             {
                 if(this.CurrentState != NurikabeState.Chase)
                 {

@@ -42,7 +42,7 @@ class HUDTargeting : ZilchComponent
 
         
         //Determine Visibility
-        if(Math.Length(inputVec) > 0.3)
+        if(Math.Length(inputVec) > 0.3 && !this.MainSpace.TimeSpace.Paused && this.MainSpace.CurrentLevel.Name != "LVL_IntroArea")
         {
             this.Visible = true;
         }

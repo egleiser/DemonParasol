@@ -21,6 +21,12 @@ class SetOptions : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+     /*   var setOpt = Action.Sequence(this.Owner.Actions);
+        Action.Delay(setOpt, 0.1);
+        Action.Call(setOpt, this.OnLoadSettings);
+        Action.Delay(setOpt, 1.1);
+        Action.Call(setOpt, this.SetGraphicsSettings);*/
+        
     }
     function OnLogicUpdate(event : UpdateEvent)
     {
@@ -38,17 +44,31 @@ class SetOptions : ZilchComponent
         */
         
     }
-    function OnChangeSettings(event : UpdateEvent)
+    function OnChangeSettings()
     {
         if(this.LevelSettings.DataLoader.SaveFile != null)
         {
-            this.LevelSettings.DataLoader.SaveFile.SaveData.Resolution = this.PrefResolution;
+            //this.LevelSettings.DataLoader.SaveFile.SaveData.Resolution = this.PrefResolution;
             this.LevelSettings.DataLoader.SaveFile.SaveData.Windowed = this.PrefWindowed;
             this.LevelSettings.DataLoader.SaveFile.SaveData.HDR = this.PrefHDR;
             this.LevelSettings.DataLoader.SaveFile.SaveData.AA = this.PrefAA;
             this.LevelSettings.DataLoader.SaveFile.SaveData.Refraction = this.PrefRefraction;
             this.LevelSettings.DataLoader.SaveFile.SaveData.MusicVolume = this.MusicVolume;
             this.LevelSettings.DataLoader.StoreSaveFile();
+            Console.WriteLine("Change Settings");
+        }
+    }
+    function OnLoadSettings()
+    {
+        if(this.LevelSettings.DataLoader.SaveFile != null)
+        {
+            Console.WriteLine("Loaded Settings");
+            //this.PrefResolution = this.LevelSettings.DataLoader.SaveFile.SaveData.Resolution;
+            this.PrefWindowed = this.LevelSettings.DataLoader.SaveFile.SaveData.Windowed;
+            this.PrefHDR = this.LevelSettings.DataLoader.SaveFile.SaveData.HDR;
+            this.PrefAA = this.LevelSettings.DataLoader.SaveFile.SaveData.AA;
+            this.PrefRefraction = this.LevelSettings.DataLoader.SaveFile.SaveData.Refraction;
+            this.MusicVolume = this.LevelSettings.DataLoader.SaveFile.SaveData.MusicVolume;
         }
     }
     function SetGraphicsSettings()

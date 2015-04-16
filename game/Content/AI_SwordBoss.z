@@ -424,10 +424,29 @@ class AI_SwordBoss : ZilchComponent
         this.Owner.LevelSettings.FindChildByName("BGMManager").Destroy();
         this.StarGlow.PentaGlow.Active = true;
         this.Space.CreateAtPosition(Archetype.Find("DeathSmoke"), this.Owner.Transform.WorldTranslation);
-        this.Owner.Destroy();
+        this.Owner.Transform.WorldTranslation = Real3(200,200,2000);
         
         //boss defeated
-        this.Space.LevelSettings.Z_WinLoseTrigger.DisplayMessage("BossDefeated");
+        this.TeleportNext();
         this.Player.PlayerController.FreezeMovement = true;
+    }
+    function TeleportNext()
+    {
+            this.Space.SoundSpace.PlayCue(SoundCue.Find("TeleportSound"));
+            var fadeEvent = new FadeToBlackEvent();
+            fadeEvent.EaseCurve = Ease.Linear;
+            fadeEvent.IsFadeIn = false;
+            fadeEvent.TimeToFade = 3.0;
+            this.LevelSettings.CameraViewport.Camera.DispatchEvent("fadeEvent", fadeEvent);
+            var teleport = Action.Sequence(this.Owner.Actions);
+            Action.Delay(teleport, 3.0);
+            Action.Call(teleport, this.Teleport);
+    }
+    function Teleport()
+    {
+        this.Space.TimeSpace.TimeScale = 1.0;
+        this.LevelSettings.DataLoader.SaveFile.SaveData.LastLevel = this.Space.CurrentLevel.Name;
+        this.LevelSettings.DataLoader.StoreSaveFile();
+        this.Space.LoadLevel(Level.Find("LVL_BurntCity"));
     }
 }

@@ -39,6 +39,9 @@ class SaveData : ZilchComponent
     var FatManPuzzleComplete:Boolean = false;
     [Serialized]
     var BossComplete:Boolean = false;
+    [Serialized]
+    var BlackRain:Boolean = false;
+    
     
     function Initialize(init : CogInitializer)
     {
@@ -46,7 +49,6 @@ class SaveData : ZilchComponent
         this.TestInt += 1;
         Console.WriteLine("DEBUG: SaveData Loaded `this.TestInt` times!");
         Console.WriteLine("DEBUG: Last Level Loaded Was `this.LastLevel`!");
-
     }
 
 

@@ -369,6 +369,7 @@ class Z_GamepadButtonController:ZilchComponent
                     }
                     //reset resolution
                     this.Space.LevelSettings.SetOptions.SetScreenResolution();
+                    this.Space.LevelSettings.SetOptions.OnChangeSettings();
                 }
                 
                 //OPTIONS MENU
@@ -376,7 +377,7 @@ class Z_GamepadButtonController:ZilchComponent
                 if(this.Owner.Name == "BtnAA")
                 {
                     //name change on the button
-                    if(this.Owner.SpriteText.Text == "ANTI-ALIASING ENABLED")
+                    if(this.Space.LevelSettings.SetOptions.PrefAA)
                     {
                         this.Owner.SpriteText.Text = "ANTI-ALIASING DISABLED";
                         //turn AA off
@@ -390,6 +391,7 @@ class Z_GamepadButtonController:ZilchComponent
                     }
                     //set the graphics
                     this.Space.LevelSettings.SetOptions.SetGraphicsSettings();
+                    this.Space.LevelSettings.SetOptions.OnChangeSettings();
                 }
                 
                 //OPTIONS MENU
@@ -411,6 +413,7 @@ class Z_GamepadButtonController:ZilchComponent
                     }
                     //set the graphics
                     this.Space.LevelSettings.SetOptions.SetGraphicsSettings();
+                    this.Space.LevelSettings.SetOptions.OnChangeSettings();
                 }
                 
                 //OPTIONS MENU
@@ -432,6 +435,7 @@ class Z_GamepadButtonController:ZilchComponent
                     }
                     //set the graphics
                     this.Space.LevelSettings.SetOptions.SetGraphicsSettings();
+                    this.Space.LevelSettings.SetOptions.OnChangeSettings();
                 }
                 
                 //OPTIONS MENU
@@ -453,6 +457,7 @@ class Z_GamepadButtonController:ZilchComponent
                     }
                     //set the graphics
                     this.Space.LevelSettings.SetOptions.SetGraphicsSettings();
+                    this.Space.LevelSettings.SetOptions.OnChangeSettings();
                 }
                 
                 //OPTIONS MENU

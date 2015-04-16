@@ -48,6 +48,7 @@ class FinalCraneInteract : ZilchComponent
             (this.Player.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space)))
             {
                 Console.WriteLine("End Game");
+                this.Space.CreateAtPosition(Archetype.Find("EndGameTextFont"), this.Owner.Transform.WorldTranslation);
                 this.TeleportCrane();
             }
             if(this.Boss.AI_DivinerHand.AiState == DivHandState.Death)
@@ -72,11 +73,11 @@ class FinalCraneInteract : ZilchComponent
     function TeleportCrane()
     {
             this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Accept"));
-            var fadeEvent = new FadeToBlackEvent();
-            fadeEvent.EaseCurve = Ease.Linear;
-            fadeEvent.IsFadeIn = false;
-            fadeEvent.TimeToFade = 6.0;
-            this.LevelSettings.CameraViewport.Camera.DispatchEvent("fadeEvent", fadeEvent);
+            //var fadeEvent = new FadeToBlackEvent();
+            //fadeEvent.EaseCurve = Ease.Linear;
+            //fadeEvent.IsFadeIn = false;
+            //fadeEvent.TimeToFade = 6.0;
+            //this.LevelSettings.CameraViewport.Camera.DispatchEvent("fadeEvent", fadeEvent);
             var teleport = Action.Sequence(this.Owner.Actions);
             Action.Delay(teleport, 6.0);
             Action.Call(teleport, this.Teleport);

@@ -94,7 +94,7 @@ class AI_Mother : ZilchComponent
         }
         if(this.Boss.AI_DivinerHand.MainTimer == 402)
         {
-            this.Space.CreateAtPosition(Archetype.Find("DeathSmokeXL"), this.Owner.Transform.WorldTranslation );
+            //this.Space.CreateAtPosition(Archetype.Find("DeathSmokeXL"), this.Owner.Transform.WorldTranslation );
         }
 
     }

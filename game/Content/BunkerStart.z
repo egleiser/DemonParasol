@@ -17,10 +17,13 @@ class BunkerStart : ZilchComponent
         this.BargainSprite = this.Camera.FindChildByName("BargainText");
         
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-        Zero.Connect(this.Space, Events.LevelStarted, this.OnLevelStarted);
+        if(!this.LevelSettings.DataLoader.SaveFile.SaveData.BlackRain)
+        {
+            this.Start();
+        }
     }
 
-    function OnLevelStarted(event : GameEvent)
+    function Start()
     {
         this.FadeSprite.Sprite.Visible = true;
         
@@ -43,6 +46,8 @@ class BunkerStart : ZilchComponent
         Action.Property(grp2, @this.BargainSprite.SpriteText.Color, Real4(1,1,1,0), 2.0, Ease.QuadInOut);
         
         Action.Call(seq, this.UnfreezePlayer);
+        this.LevelSettings.DataLoader.SaveFile.SaveData.BlackRain = true;
+        this.LevelSettings.DataLoader.StoreSaveFile();
     }
     
     function FreezePlayer()

@@ -80,15 +80,6 @@ Level =
 		QuickPause = 
 		{
 		},
-		Z_WinLoseTrigger = 
-		{
-			Vec3 StartingPosition = [0, 0, 1],
-			Vec3 EndingPosition = [0, 6, 1],
-			float FadeInTime = 2,
-			Vec3 TrackingScale = [1.1, 1.1, 1],
-			float TrackingTime = 20,
-			Enum EaseType = QuadIn,
-		},
 		Z_UI_MenuPopUp = 
 		{
 			float FadeInTime = 1,
@@ -202,9 +193,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [319.376, 114.791, 76.1573],
+			Vec3 Translation = [41.56, 6.34776, 30.7655],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.0157042, 0.0201404, -0.000316392, 0.999674],
+			Quat Rotation = [0.323852, 0.117719, -0.0406489, 0.937875],
 		},
 		Camera = 
 		{
@@ -219,10 +210,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 122.457,
-			float VerticalAngle = -0.0314161,
-			float HorizontalAngle = -0.0402884,
-			Vec3 LookTarget = [314.446, 118.637, -46.1398],
+			float LookDistance = 60.8104,
+			float VerticalAngle = -0.664971,
+			float HorizontalAngle = -0.249728,
+			Vec3 LookTarget = [29.7334, 43.87, -15.6039],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -1721,7 +1712,7 @@ Level =
 		Health = 
 		{
 			float MaxHealth = 3,
-			bool DestroyAtZeroHealth = true,
+			bool DestroyAtZeroHealth = false,
 			bool SendsHealthModified = true,
 			float DamageScalar = 1,
 		},
@@ -4375,7 +4366,7 @@ Level =
 			float VelocityScale = 0.1,
 			float LengthScale = 0.01,
 			float MaxParticleSize = 100,
-			Vec3 SystemSize = [20, 20, 50],
+			Vec3 SystemSize = [90, 90, 50],
 		},
 		LinearParticleAnimator = 
 		{
@@ -4592,7 +4583,7 @@ Level =
 			float VelocityScale = 0.1,
 			float LengthScale = 0.01,
 			float MaxParticleSize = 100,
-			Vec3 SystemSize = [20, 20, 50],
+			Vec3 SystemSize = [90, 90, 50],
 		},
 		LinearParticleAnimator = 
 		{
@@ -4758,7 +4749,7 @@ Level =
 			float VelocityScale = 0.1,
 			float LengthScale = 0.01,
 			float MaxParticleSize = 100,
-			Vec3 SystemSize = [20, 20, 50],
+			Vec3 SystemSize = [90, 90, 50],
 		},
 		LinearParticleAnimator = 
 		{
@@ -4885,22 +4876,71 @@ Level =
 			},
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "55a0870678a56143:ARC_HowToPlayPause",
 		LinkId = 
 		{
 			uint Id = 129,
 		},
-		Transform = 
-		{
-			Vec3 Translation = [298.921, 132.526, -45.0772],
-			Vec3 Scale = [1.5, 1.5, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
 		Named = 
 		{
-			string Name = "goHowToPlayPauseGroup",
+			string Name = "WaterPlaneBR",
+		},
+		Archetyped = 
+		{
+			string Name = "553087e81b8c33a0:WaterPlaneBR",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [33.4252, -29.5382, -3.01726],
+			Vec3 Scale = [200, 200, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "55308732551b3a58:BlackRainWaterFlow",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		CollideDeathPlane = 
+		{
+		},
+		FootstepSurface = 
+		{
+			Enum SurfaceType = Water,
+		},
+		SinTranslate = 
+		{
+			float SinSpeedX = 0.5,
+			float SinSpeedY = 0.2,
+			float Intensity = 2,
+			bool UseInitialRot = false,
 		},
 	},
 },
