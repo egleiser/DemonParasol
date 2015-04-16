@@ -1,0 +1,50 @@
+class PortToPalace : ZilchComponent
+{
+    [Property]
+    var Room : Level = null;
+    [Property]
+    var PlayerPath : CogPath = null;
+    var Player : Cog = null;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player")
+        {
+            this.Space.SoundSpace.PlayCue(SoundCue.Find("TeleportSound"));
+            this.Player.PlayerController.Active = false;
+            if(this.Player.AutoHopper != null)
+            {
+                this.Player.AutoHopper.Active = false;
+            }
+            
+            var fadeEvent = new FadeToBlackEvent();
+            fadeEvent.EaseCurve = Ease.Linear;
+            fadeEvent.IsFadeIn = false;
+            fadeEvent.TimeToFade = 2.0;
+            this.LevelSettings.CameraViewport.Camera.DispatchEvent("fadeEvent", fadeEvent);
+            
+            var teleport = Action.Sequence(this.Owner.Actions);
+            Action.Delay(teleport, 2.0);
+            Action.Call(teleport, this.Teleport);
+        }
+    }
+    
+    function Teleport()
+    {
+        this.LevelSettings.DataLoader.SaveFile.SaveData.LastLevel = this.Space.CurrentLevel.Name;
+        this.LevelSettings.DataLoader.StoreSaveFile();
+        this.Space.LoadLevel(this.Room);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

@@ -187,7 +187,7 @@ class PlayerController : ZilchComponent
     
     function ZTargetingUpdate(event : UpdateEvent)
     {
-    
+        
         this.TargetIndicator.IndicatorLock.Target = this.Target;
         
         if(this.Owner.InputController.Gamepad.RightTrigger > 0.5 || Zero.Keyboard.KeyIsDown(Keys.A) ||  this.TargetingActive)
