@@ -61,8 +61,8 @@ class HealthFlower : ZilchComponent
             }
             if(this.Player.Health.CurrentHealth == 0)
             {
-                this.MainSpace.ReloadLevel();
-                
+                this.Player.Health.CurrentHealth = -100;
+                this.MainSpace.Create(Archetype.Find("GameOverSpawner"));
             }
         }
     }
