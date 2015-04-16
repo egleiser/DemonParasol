@@ -6,6 +6,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 class Z_CheatCodes:ZilchComponent
 {
+    var GodMode :Boolean = false;
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCTION-Initialize
     //EXPLANATION-Initialize variables/functions for further use
@@ -22,16 +23,16 @@ class Z_CheatCodes:ZilchComponent
     function OnLogicUpdate(event:UpdateEvent):Void
     {
         //lose cheat-NUMPAD 0
-        if(Zero.Keyboard.KeyIsPressed(Keys.NumPad0))
-        {
-            this.Space.LevelSettings.Z_WinLoseTrigger.DisplayMessage("YouLose");
-        }
+        //if(Zero.Keyboard.KeyIsPressed(Keys.NumPad0))
+        //{
+        //    this.Space.LevelSettings.Z_WinLoseTrigger.DisplayMessage("YouLose");
+        //}
         
         //monk win cheat-NUMPAD 1
-        if(Zero.Keyboard.KeyIsPressed(Keys.NumPad1))
-        {
-            this.Space.LevelSettings.Z_WinLoseTrigger.DisplayMessage("Success");
-        }
+        //if(Zero.Keyboard.KeyIsPressed(Keys.NumPad1))
+        //{
+        //    this.Space.LevelSettings.Z_WinLoseTrigger.DisplayMessage("Success");
+        //}
         
         //boss win cheat-NUMPAD 7
         if(Zero.Keyboard.KeyIsPressed(Keys.NumPad7))
@@ -71,6 +72,17 @@ class Z_CheatCodes:ZilchComponent
             {
                 this.Space.FindObjectByName("Player").Health.CurrentHealth = this.Space.FindObjectByName("Player").Health.MaxHealth;
                 this.LevelSettings.HudCreator.HudSpace.FindObjectByName("FlowerHealth").HealthFlower.RestorePetals();
+            }
+        }
+        if(Zero.Keyboard.KeyIsPressed(Keys.NumPad1))
+        {
+            this.GodMode = true;
+        }
+        if(this.GodMode)
+        {
+            if(this.Space.FindObjectByName("Player") != null)
+            {
+                this.Space.FindObjectByName("Player").Health.CurrentHealth = this.Space.FindObjectByName("Player").Health.MaxHealth;
             }
         }
     }

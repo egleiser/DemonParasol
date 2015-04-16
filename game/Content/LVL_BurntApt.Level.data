@@ -155,7 +155,7 @@ Level =
 							bool StartPlaying = true,
 							int ExtraPriority = 0,
 							string CueName = "55fec7cf850f0141:MothersThemePiano",
-							float Volume = 1,
+							float Volume = 0,
 							float Pitch = 1,
 							bool Positional = false,
 						},
@@ -181,7 +181,7 @@ Level =
 							bool StartPlaying = true,
 							int ExtraPriority = 0,
 							string CueName = "55dcb49a6d1d5ee1:MothersThemeDaiko",
-							float Volume = 1,
+							float Volume = 0,
 							float Pitch = 1,
 							bool Positional = false,
 						},
@@ -202,9 +202,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [158.362, -40.5911, 15.0236],
+			Vec3 Translation = [158.362, -40.5912, 15.0235],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.638313, 0.0456243, -0.0379454, 0.767487],
+			Quat Rotation = [0.638313, 0.0456248, -0.0379459, 0.767486],
 		},
 		Camera = 
 		{
@@ -15579,6 +15579,258 @@ Level =
 		Named = 
 		{
 			string Name = "DivinerCS",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 452,
+		},
+		Named = 
+		{
+			string Name = "LastDiag",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [157.049, 19.2009, 4.01994],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 453,
+				},
+				Named = 
+				{
+					string Name = "LastDiagText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "545746f1032f78a0:ui-textbox-diviner",
+					string SpeakerTextBlock = "55096ca82b12211d:BurntRoom1",
+					string SpeakerSong = "",
+					Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 454,
+				},
+				Named = 
+				{
+					string Name = "LastDiagText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
+					string SpeakerTextBlock = "55096ca52ceeb49d:BurntRoom2",
+					string SpeakerSong = "",
+					Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 455,
+				},
+				Named = 
+				{
+					string Name = "LastDiagText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "545746f1032f78a0:ui-textbox-diviner",
+					string SpeakerTextBlock = "55096cbd2e65ea6c:BurntRoom3",
+					string SpeakerSong = "",
+					Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 456,
+				},
+				Named = 
+				{
+					string Name = "LastDiagText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
+					string SpeakerTextBlock = "55096cb72036b67c:BurntRoom4",
+					string SpeakerSong = "",
+					Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 457,
+				},
+				Named = 
+				{
+					string Name = "LastDiagText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "545746f1032c12f2:ui-textbox-mother",
+					string SpeakerTextBlock = "550bebadd1ab72ef:BurntRoom5",
+					string SpeakerSong = "",
+					Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 458,
+				},
+				Named = 
+				{
+					string Name = "LastDiagText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "545746f1032f78a0:ui-textbox-diviner",
+					string SpeakerTextBlock = "55096c464e42b700:PreFinalFight1",
+					string SpeakerSong = "",
+					Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 459,
+				},
+				Named = 
+				{
+					string Name = "LastDiagText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				TextBlockInfo = 
+				{
+					string SpeakerName = "",
+					string SpeakerSprite = "545746f1032f78a0:ui-textbox-diviner",
+					string SpeakerTextBlock = "55096c5d4fd6e4d5:PreFinalFight2",
+					string SpeakerSong = "",
+					Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 460,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [163.042, -14.5854, 4.01994],
+			Vec3 Scale = [5, 5, 5],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		CollisionBasedDialogue = 
+		{
+			bool OnCollideStart = true,
+			bool OnCollideEnd = false,
+			bool OnCollidePersist = false,
+			CogPath DiagSegPath = ":/LastDiag",
+			bool ShouldFadeInOnStart = false,
 		},
 	},
 },
