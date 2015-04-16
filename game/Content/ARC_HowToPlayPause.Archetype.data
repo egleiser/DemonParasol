@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [19.0125, -16.4142, 0],
+		Vec3 Translation = [298.921, 132.526, -45.0772],
 		Vec3 Scale = [1.5, 1.5, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -25,42 +25,6 @@ Cog =
 			LinkId = 
 			{
 				uint Id = 2,
-			},
-			Named = 
-			{
-				string Name = "goHowToPlayTitle",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [0, 5.75446, 0],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Sprite = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = false,
-				bool CastShadows = false,
-				Vec4 Color = [1, 1, 1, 1],
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "5507361bacf70fa4:sprHowToPlayTitle",
-				bool RenderMask = false,
-				bool FlipX = false,
-				bool FlipY = false,
-				bool OnTop = false,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 3,
 			},
 			Named = 
 			{
@@ -78,7 +42,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 4,
+						uint Id = 3,
 					},
 					Named = 
 					{
@@ -181,7 +145,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 5,
+						uint Id = 4,
 					},
 					Named = 
 					{
@@ -217,7 +181,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 6,
+						uint Id = 5,
 					},
 					Named = 
 					{
@@ -225,7 +189,7 @@ Cog =
 					},
 					Transform = 
 					{
-						Vec3 Translation = [0, 3.41269, 2.64024e-007],
+						Vec3 Translation = [-0.339986, 3.41269, 2.64024e-007],
 						Vec3 Scale = [1, 1, 1],
 						Quat Rotation = [0, 0, 0, 1],
 					},
@@ -239,7 +203,7 @@ Cog =
 						BlendMode BlendMode = Alpha,
 						SpriteGeometryMode GeometryMode = ZPlane,
 						string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-						TextPositionMode Position = UpperLeft,
+						TextPositionMode Position = Centered,
 						string FontName = "545d0deafc601f9d:Canaro",
 						uint FontSize = 45,
 						string Text = "GAMEPAD CONTROLS",
@@ -256,7 +220,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 7,
+				uint Id = 6,
 			},
 			Named = 
 			{
@@ -274,7 +238,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 8,
+						uint Id = 7,
 					},
 					Named = 
 					{
@@ -377,7 +341,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 9,
+						uint Id = 8,
 					},
 					Named = 
 					{
@@ -413,7 +377,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 10,
+						uint Id = 9,
 					},
 					Named = 
 					{
@@ -435,7 +399,7 @@ Cog =
 						BlendMode BlendMode = Alpha,
 						SpriteGeometryMode GeometryMode = ZPlane,
 						string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-						TextPositionMode Position = UpperLeft,
+						TextPositionMode Position = Centered,
 						string FontName = "545d0deafc601f9d:Canaro",
 						uint FontSize = 45,
 						string Text = "KEYBOARD CONTROLS",
@@ -452,7 +416,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 11,
+				uint Id = 10,
 			},
 			Named = 
 			{

@@ -202,9 +202,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [31.7925, 112.378, -4.70588],
+			Vec3 Translation = [319.376, 114.791, 76.1573],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.0157042, 0.0201403, -0.000316391, 0.999674],
+			Quat Rotation = [0.0157042, 0.0201404, -0.000316392, 0.999674],
 		},
 		Camera = 
 		{
@@ -219,10 +219,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 30.1975,
+			float LookDistance = 122.457,
 			float VerticalAngle = -0.0314161,
 			float HorizontalAngle = -0.0402884,
-			Vec3 LookTarget = [30.5768, 113.327, -34.864],
+			Vec3 LookTarget = [314.446, 118.637, -46.1398],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -4883,6 +4883,24 @@ Level =
 				{
 				},
 			},
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55a0870678a56143:ARC_HowToPlayPause",
+		LinkId = 
+		{
+			uint Id = 129,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [298.921, 132.526, -45.0772],
+			Vec3 Scale = [1.5, 1.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "goHowToPlayPauseGroup",
 		},
 	},
 },
