@@ -493,6 +493,25 @@ class Z_GamepadButtonController:ZilchComponent
                     this.Space.LevelSettings.Z_MenuAnimations.MoveInMenuGroup(this.CreditsGroup, this.ViewPos);
                 }
                 
+                //if currently on the CREDITS
+                if(this.Owner.Name =="BtnCMainMenu")
+                {
+                    //return -> MAIN MENU
+                    //fade out the background
+                    this.Space.LevelSettings.Z_MenuAnimations.FadeOutDarkMenuAnimation();
+                    //assign and create the MainMenuGroup from its archetype
+                    this.MainMenuGroup = this.Space.CreateAtPosition(this.ARC_MainMenu, this.AwayPos);
+                    //make this last button presed inactive
+                    this.Owner.Z_GamepadButtonController.Active = false;
+                    //find the CreditsGroup, then move and destroy it
+                    this.CreditsGroup = this.Space.FindObjectByName("goCreditsGroup");
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveAwayAndDestroy(this.CreditsGroup, this.AwayPos);
+                    //make the incoming MainMenuGroup BtnNewGame active
+                    this.MainMenuGroup.FindChildByName("BtnNewGame").Z_GamepadButtonController.Active = true;
+                    //move the entire start menu group into view
+                    this.Space.LevelSettings.Z_MenuAnimations.MoveInMenuGroup(this.MainMenuGroup, this.ViewPos);
+                }
+                
                 //MAIN MENU
                 //--QUIT GAME BUTTON
                 if(this.Owner.Name == "BtnQuitGame")
