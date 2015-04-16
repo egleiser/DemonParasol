@@ -150,8 +150,7 @@ class TextBoxManager : ZilchComponent
         }
         else
         {
-            Console.WriteLine("Current Text Index = `this.CurrentTextIdx`");
-            Console.WriteLine("ChildTexts Count = `this.ChildTexts.Count`");
+
             
             var speakerSprite = SpriteSource.Find("ui-textbox-setsuko");
             if(this.CurrentTextIdx <= this.ChildTexts.Count)
@@ -222,7 +221,7 @@ class TextBoxManager : ZilchComponent
         //BUGGG
         if(this.CurrentTextIdx <= this.ChildTexts.Count)
         {
-            Console.WriteLine("Index Part1 `this.CurrentTextIdx`");
+            //Console.WriteLine("Index Part1 `this.CurrentTextIdx`");
             this.TextBoxSprite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerSprite;
         }
         this.Owner.Sprite.SpriteSource = this.TextBoxSprite;
@@ -234,7 +233,7 @@ class TextBoxManager : ZilchComponent
         //BUGGG
         if(this.CurrentTextIdx <= this.ChildTexts.Count)
         {
-            Console.WriteLine("Index Part2 `this.CurrentTextIdx`");
+            //Console.WriteLine("Index Part2 `this.CurrentTextIdx`");
             e.TextToWrite = this.ChildTexts.Get(this.CurrentTextIdx).TextBlockInfo.SpeakerTextBlock;
         }
         this.TextBoxText.DispatchEvent("textScrollEvent", e);
