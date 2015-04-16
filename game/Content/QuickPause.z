@@ -5,7 +5,7 @@ class QuickPause : ZilchComponent
     var Gamepad:Gamepad = null;
     var PauseMenu:Cog = null;
     
-    var PauseMenuPosition:Real3 = Real3(0,6.25,20);
+    var PauseMenuPosition:Real3 = Real3(0,0.25,20);
     
     var IsPauseActive:Boolean = false;
     
