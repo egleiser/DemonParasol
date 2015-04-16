@@ -1,0 +1,71 @@
+class DivPalaceStuff : ZilchComponent
+{
+    [Property]
+    var CameraPath: CogPath = null;
+    var Camera : Cog = null;
+    
+    [Property]
+    var PlayerPath: CogPath = null;
+    var Player : Cog = null;
+    
+    [Property]
+    var ThronePath : CogPath = null;
+    var Throne : Cog = null;
+    
+    var TextBox : Cog = null;
+    
+    [Property]
+    var Room : Level = null;
+    
+    var Hooray : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Camera = this.CameraPath.Cog;
+        this.Player = this.PlayerPath.Cog;
+        this.Throne = this.ThronePath.Cog;
+        
+        var hud = this.GameSession.FindSpaceByName("HudSpace");
+        this.TextBox = hud.FindObjectByName("TextBox");
+        
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Camera.OrbitCameraController.OrbitTarget.Cog = this.Throne;
+        
+        Console.WriteLine(this.TextBox.TextBoxManager.DialogueFinished);
+        
+        if(this.TextBox.TextBoxManager.DialogueFinished == true && this.Hooray == false)
+        {
+            this.Space.SoundSpace.PlayCue(SoundCue.Find("TeleportSound"));
+            this.Player.PlayerController.Active = false;
+            if(this.Player.AutoHopper != null)
+            {
+                this.Player.AutoHopper.Active = false;
+            }
+            
+            var fadeEvent = new FadeToBlackEvent();
+            fadeEvent.EaseCurve = Ease.Linear;
+            fadeEvent.IsFadeIn = false;
+            fadeEvent.TimeToFade = 2.0;
+            this.LevelSettings.CameraViewport.Camera.DispatchEvent("fadeEvent", fadeEvent);
+            
+            var teleport = Action.Sequence(this.Owner.Actions);
+            Action.Delay(teleport, 2.0);
+            Action.Call(teleport, this.Teleport);
+            this.Hooray = true;
+        }
+    }
+    
+    
+    
+    function Teleport()
+    {
+        this.LevelSettings.DataLoader.SaveFile.SaveData.LastLevel = this.Space.CurrentLevel.Name;
+        this.LevelSettings.DataLoader.StoreSaveFile();
+        this.Space.LoadLevel(this.Room);
+    }
+}

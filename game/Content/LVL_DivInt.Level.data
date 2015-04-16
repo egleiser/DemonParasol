@@ -1,0 +1,6452 @@
+Level = 
+{
+	LevelSettings = 
+	{
+		LinkId = 
+		{
+			uint Id = 1,
+		},
+		Named = 
+		{
+			string Name = "LevelSettings",
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = false,
+			bool LocalSpaceDirection = true,
+			float Strength = 0,
+			Vec3 Direction = [0, 0, -1],
+		},
+		DragEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = false,
+			float Drag = 0.7,
+		},
+		CameraViewport = 
+		{
+			bool Background = true,
+			Vec2 Offset = [0, 0],
+			Vec2 Size = [1, 1],
+			int Layer = 0,
+			bool Active = true,
+			bool Blocking = true,
+			uint Renderer = 1,
+			uint Camera = 2,
+			ViewportScaling Scaling = Letterbox,
+			Vec2 Resolution = [1280, 720],
+			Vec4 MarginColor = [0, 0, 0, 1],
+		},
+		DeferredRenderer = 
+		{
+			Vec4 ClearColor = [0.12, 0.12, 0.12, 1],
+			bool DrawNonVisible = false,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool EditorIconDepth = true,
+			bool Hdr = true,
+			bool Shadows = true,
+			bool AntiAliasing = true,
+			bool Refraction = true,
+			bool GodRays = true,
+			bool RenderMasks = false,
+			bool Glow = true,
+			float GlowThreshold = 0.4,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "5481f8da7cf1018a:Death of a God Ambience",
+			float Volume = 0.6,
+			float Pitch = 1,
+			bool Positional = false,
+		},
+		DataLoader = 
+		{
+		},
+		HudCreator = 
+		{
+			string HudLevel = "54f4128b2690c25b:HUD",
+			string SpaceArchetype = "537644322bbe895a:Space",
+		},
+		QuitGameTest = 
+		{
+			bool AllowQuit = false,
+		},
+		QuickPause = 
+		{
+		},
+		Z_CheatCodes = 
+		{
+		},
+		Z_WinLoseTrigger = 
+		{
+			Vec3 StartingPosition = [0, 0, 1],
+			Vec3 EndingPosition = [0, 6, 1],
+			float FadeInTime = 2,
+			Vec3 TrackingScale = [1.1, 1.1, 1],
+			float TrackingTime = 20,
+			Enum EaseType = QuadIn,
+		},
+		Z_UI_MenuPopUp = 
+		{
+			float FadeInTime = 1,
+			float FadeOutTime = 0.25,
+			Vec3 ScaleOutSize = [0.75, 0.75, 0.75],
+			float ScaleOutTime = 0.2,
+			Vec3 ScaleInSize = [1, 1, 1],
+			float ScaleInTime = 0.8,
+			Enum EaseType = QuadIn,
+			Vec3 StartingPosition = [0, 0, 20],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 3,
+				},
+				Named = 
+				{
+					string Name = "BGMManager",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				DungeonSoundManager = 
+				{
+					float Ducking = 1,
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 4,
+						},
+						Named = 
+						{
+							string Name = "BGMNormal",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						SoundEmitter = 
+						{
+							bool StartPlaying = true,
+							int ExtraPriority = 0,
+							string CueName = "55fec7cf850f0141:MothersThemePiano",
+							float Volume = 1,
+							float Pitch = 1,
+							bool Positional = false,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 5,
+						},
+						Named = 
+						{
+							string Name = "BGMEnemy",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						SoundEmitter = 
+						{
+							bool StartPlaying = true,
+							int ExtraPriority = 0,
+							string CueName = "55dcb49a6d1d5ee1:MothersThemeDaiko",
+							float Volume = 1,
+							float Pitch = 1,
+							bool Positional = false,
+						},
+					},
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 6,
+		},
+		Named = 
+		{
+			string Name = "EditorCamera",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [8.54391, -37.6627, -3.30297],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.705554, -0.0468397, 0.0468397, 0.705554],
+		},
+		Camera = 
+		{
+			ProjectionMode ProjectionMode = Perspective,
+			Facing Facing = NegativeZ,
+			CameraTransparentSort TransparentSort = InheritFromSpace,
+			float FieldOfView = 45,
+			float NearPlane = 0.5,
+			float FarPlane = 1000,
+			float Size = 20,
+		},
+		EditorCameraController = 
+		{
+			ControlMode ControlMode = Orbit,
+			float LookDistance = 34.9798,
+			float VerticalAngle = -1.5708,
+			float HorizontalAngle = 0.13258,
+			Vec3 LookTarget = [8.54391, -2.6829, -3.30297],
+			float MoveSensitivity = 1,
+		},
+		EditorRenderer = 
+		{
+			Vec4 ClearColor = [0.155, 0.155, 0.155, 1],
+			bool DrawNonVisible = true,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool Wireframe = false,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 7,
+		},
+		Named = 
+		{
+			string Name = "Grid",
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, -0.375614],
+			Vec3 Scale = [100, 100, 10],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		GridDraw = 
+		{
+			bool Active = false,
+			bool HalfCellOffset = false,
+			float CellSize = 0.05,
+			GridAxis Axis = ZAxis,
+			int Lines = 100,
+			bool DrawAxisOrigins = true,
+			bool AlwaysDrawInEditor = true,
+			bool DrawInGame = true,
+			Vec4 GridColor = [0.5, 0.5, 0.5, 0.4],
+			Vec4 GridHiLight = [0.97, 0.47045, 0.47045, 0.4],
+			int HilightInterval = 2,
+			bool FollowEditorCamera = false,
+		},
+		Hierarchy = 
+		{
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54affc0867034c6b:SpawnPoint",
+		LinkId = 
+		{
+			uint Id = 8,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [26.1763, -73.3817, 2.39391],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "SpawnPoint",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 9,
+		},
+		Named = 
+		{
+			string Name = "Palace",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [2.17526, 11.6059, -49.8125],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		DivPalaceStuff = 
+		{
+			CogPath CameraPath = ":/Camera",
+			CogPath PlayerPath = ":/Player",
+			CogPath ThronePath = ":/StarCube",
+			string Room = "553e107315b83606:LVL_SwampArea",
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 10,
+				},
+				Named = 
+				{
+					string Name = "Throne.ThroneEmeblishments",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.17526, -12.2699, 50.3033],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5535f74b7608d13d:mat_gradientLowGloss",
+					string MeshName = "5558e738f07724b5:Throne.ThroneEmeblishments",
+					Vec4 Color = [0.93, 0.678621, 0.19065, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 11,
+				},
+				Named = 
+				{
+					string Name = "LanternHooks",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-1.59212, 18.8311, 65.2729],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 12,
+						},
+						Named = 
+						{
+							string Name = "RightFacingHooks",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [2.22869, 0, -1.71661e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 13,
+								},
+								Named = 
+								{
+									string Name = "PillarLantern.pCube56",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [44.4731, 0, -15.1114],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e73bf050b17a:PillarLantern.pCube56",
+									Vec4 Color = [0.575, 0.07475, 0.07475, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 14,
+								},
+								Named = 
+								{
+									string Name = "PillarLantern.pCube56",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [44.4731, 0, -44.8818],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e73bf050b17a:PillarLantern.pCube56",
+									Vec4 Color = [0.575, 0.07475, 0.07475, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 15,
+								},
+								Named = 
+								{
+									string Name = "PillarLantern.pCube56",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-44.4731, 0, 14.8079],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e73bf050b17a:PillarLantern.pCube56",
+									Vec4 Color = [0.575, 0.07475, 0.07475, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 16,
+								},
+								Named = 
+								{
+									string Name = "PillarLantern.pCube56",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-44.4732, 3.8147e-006, -44.8817],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e73bf050b17a:PillarLantern.pCube56",
+									Vec4 Color = [0.575, 0.07475, 0.07475, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 17,
+								},
+								Named = 
+								{
+									string Name = "PillarLantern.pCube56",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [44.4731, 0, 45.1852],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e73bf050b17a:PillarLantern.pCube56",
+									Vec4 Color = [0.575, 0.07475, 0.07475, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 18,
+								},
+								Named = 
+								{
+									string Name = "PillarLantern.pCube56",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-44.4731, 0, 45.1853],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e73bf050b17a:PillarLantern.pCube56",
+									Vec4 Color = [0.575, 0.07475, 0.07475, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 19,
+								},
+								Named = 
+								{
+									string Name = "PillarLantern.pCube56",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [44.4731, 0, 14.8079],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e73bf050b17a:PillarLantern.pCube56",
+									Vec4 Color = [0.575, 0.07475, 0.07475, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 20,
+								},
+								Named = 
+								{
+									string Name = "PillarLantern.pCube56",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-44.4731, 0, -15.1114],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e73bf050b17a:PillarLantern.pCube56",
+									Vec4 Color = [0.575, 0.07475, 0.07475, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 21,
+						},
+						Named = 
+						{
+							string Name = "LeftFacingHooks",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-2.22869, 0, 1.71661e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 1, 0, 1.64676e-005],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 22,
+								},
+								Named = 
+								{
+									string Name = "PillarLantern.pCube56",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [44.4731, 0, -15.1114],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e73bf050b17a:PillarLantern.pCube56",
+									Vec4 Color = [0.575, 0.07475, 0.07475, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 23,
+								},
+								Named = 
+								{
+									string Name = "PillarLantern.pCube56",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [44.4731, 0, -44.8818],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e73bf050b17a:PillarLantern.pCube56",
+									Vec4 Color = [0.575, 0.07475, 0.07475, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 24,
+								},
+								Named = 
+								{
+									string Name = "PillarLantern.pCube56",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-44.4731, 0, 14.8079],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e73bf050b17a:PillarLantern.pCube56",
+									Vec4 Color = [0.575, 0.07475, 0.07475, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 25,
+								},
+								Named = 
+								{
+									string Name = "PillarLantern.pCube56",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-44.4732, 3.8147e-006, -44.8817],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e73bf050b17a:PillarLantern.pCube56",
+									Vec4 Color = [0.575, 0.07475, 0.07475, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 26,
+								},
+								Named = 
+								{
+									string Name = "PillarLantern.pCube56",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [44.4731, 0, 45.1852],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e73bf050b17a:PillarLantern.pCube56",
+									Vec4 Color = [0.575, 0.07475, 0.07475, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 27,
+								},
+								Named = 
+								{
+									string Name = "PillarLantern.pCube56",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-44.4731, 0, 45.1853],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e73bf050b17a:PillarLantern.pCube56",
+									Vec4 Color = [0.575, 0.07475, 0.07475, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 28,
+								},
+								Named = 
+								{
+									string Name = "PillarLantern.pCube56",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [44.4731, 0, 14.8079],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e73bf050b17a:PillarLantern.pCube56",
+									Vec4 Color = [0.575, 0.07475, 0.07475, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 29,
+								},
+								Named = 
+								{
+									string Name = "PillarLantern.pCube56",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-44.4731, 0, -15.1114],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e73bf050b17a:PillarLantern.pCube56",
+									Vec4 Color = [0.575, 0.07475, 0.07475, 1],
+								},
+							},
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 30,
+				},
+				Named = 
+				{
+					string Name = "SilkCurtains.pPlane3",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-19.1753, 14.3941, -27.1875],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5433b545862c8fae:mat_GhostDS",
+					string MeshName = "5558e738f056572f:SilkCurtains.pPlane3",
+					Vec4 Color = [0.275, 0.0605, 0.275, 0.88],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 31,
+				},
+				Named = 
+				{
+					string Name = "SilkCurtains.pPlane5",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.17526, 23.9116, -22.9965],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5433b545862c8fae:mat_GhostDS",
+					string MeshName = "5558e738f0565736:SilkCurtains.pPlane5",
+					Vec4 Color = [0.27451, 0.0588235, 0.27451, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 32,
+				},
+				Named = 
+				{
+					string Name = "LeftSideLanterns",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [79.9969, -4.80643, 56.5313],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 33,
+						},
+						Named = 
+						{
+							string Name = "PillarLantern(Actual)",
+						},
+						Archetyped = 
+						{
+							string Name = "5558da8edfc5c6a0:PillarLantern(Actual)",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.44073, 55.4776],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 34,
+								},
+								Named = 
+								{
+									string Name = "pCube57",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-31.0847, 26.2497, -1.57802],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+									string MeshName = "5558da8edfc61b39:PillarLantern(Actual).pCube57",
+									Vec4 Color = [0.42, 0.0273, 0.0273, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 35,
+								},
+								Named = 
+								{
+									string Name = "pPlane10",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-3.55271e-015, 0.394663, 30.1982],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5539643565eabbcc:mat_gradientSelfIllumn",
+									string MeshName = "5558da8edfc61b40:PillarLantern(Actual).pPlane10",
+									Vec4 Color = [0.625, 0.584062, 0.215625, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 36,
+						},
+						Named = 
+						{
+							string Name = "pCube57",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-25.9039, 21.809, -36.2363],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+							string MeshName = "5558da8edfc61b39:PillarLantern(Actual).pCube57",
+							Vec4 Color = [0.42, 0.0273, 0.0273, 1],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 37,
+						},
+						Named = 
+						{
+							string Name = "PillarLantern(Actual)",
+						},
+						Archetyped = 
+						{
+							string Name = "5558da8edfc5c6a0:PillarLantern(Actual)",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.44073, -5.10464],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 38,
+								},
+								Named = 
+								{
+									string Name = "pCube57",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-31.0847, 26.2497, -1.57802],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+									string MeshName = "5558da8edfc61b39:PillarLantern(Actual).pCube57",
+									Vec4 Color = [0.42, 0.0273, 0.0273, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 39,
+								},
+								Named = 
+								{
+									string Name = "pPlane10",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-3.55271e-015, 0.394663, 30.1982],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5539643565eabbcc:mat_gradientSelfIllumn",
+									string MeshName = "5558da8edfc61b40:PillarLantern(Actual).pPlane10",
+									Vec4 Color = [0.625, 0.584062, 0.215625, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 40,
+						},
+						Named = 
+						{
+							string Name = "pPlane10",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.04606, -4.46008],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "5539643565eabbcc:mat_gradientSelfIllumn",
+							string MeshName = "5558da8edfc61b40:PillarLantern(Actual).pPlane10",
+							Vec4 Color = [0.625, 0.584062, 0.215625, 1],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 41,
+						},
+						Named = 
+						{
+							string Name = "PillarLantern(Actual)",
+						},
+						Archetyped = 
+						{
+							string Name = "5558da8edfc5c6a0:PillarLantern(Actual)",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.44073, -34.6583],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 42,
+						},
+						Named = 
+						{
+							string Name = "PillarLantern(Actual)",
+						},
+						Archetyped = 
+						{
+							string Name = "5558da8edfc5c6a0:PillarLantern(Actual)",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.44073, 24.9816],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 43,
+								},
+								Named = 
+								{
+									string Name = "pCube57",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-31.0847, 26.2497, -1.57802],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+									string MeshName = "5558da8edfc61b39:PillarLantern(Actual).pCube57",
+									Vec4 Color = [0.42, 0.0273, 0.0273, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 44,
+								},
+								Named = 
+								{
+									string Name = "pPlane10",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-3.55271e-015, 0.394663, 30.1982],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5539643565eabbcc:mat_gradientSelfIllumn",
+									string MeshName = "5558da8edfc61b40:PillarLantern(Actual).pPlane10",
+									Vec4 Color = [0.625, 0.584062, 0.215625, 1],
+								},
+							},
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 45,
+				},
+				Named = 
+				{
+					string Name = "DivinerModel",
+				},
+				Archetyped = 
+				{
+					string Name = "5558db1b1df50b95:DivinerModel",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-18.4158, -22.3496, 73.8987],
+					Vec3 Scale = [1.5, 1.5, 1.5],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				AnimationGraph = 
+				{
+					bool Active = true,
+					AnimPlayMode PlayMode = PlayOnce,
+					float TimeScale = 0.75,
+					string AnimationName = "4f8ebbde619389d0:DefaultAnimation",
+					uint64 DebugPreviewId = 65646461206e6565,
+				},
+				SimpleAnimation = 
+				{
+					string AnimationName = "5558db2a14a10fdc:DivinerWalkAnimation.All",
+					AnimPlayMode PlayMode = Loop,
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 46,
+						},
+						Named = 
+						{
+							string Name = "group3",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [9.67994, 4.11237, 0.0937454],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 47,
+								},
+								Named = 
+								{
+									string Name = "pasted__joint1",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-9.56014, 4.10017, -50.3794],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0.704339, 0.709863, 4.34666e-017, 4.31283e-017],
+								},
+								Hierarchy = 
+								{
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 48,
+										},
+										Named = 
+										{
+											string Name = "pasted__joint2",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [4.01565, 0, 0],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [-1.90757e-020, 2.38104e-022, -0.0124811, 0.999922],
+										},
+										Hierarchy = 
+										{
+											Cog = 
+											{
+												LinkId = 
+												{
+													uint Id = 49,
+												},
+												Named = 
+												{
+													string Name = "pasted__joint3",
+												},
+												Transform = 
+												{
+													Vec3 Translation = [0.95734, -7.77156e-016, 0],
+													Vec3 Scale = [1, 1, 1],
+													Quat Rotation = [0.695425, 0.718599, 4.40148e-017, 4.25688e-017],
+												},
+												Hierarchy = 
+												{
+													Cog = 
+													{
+														LinkId = 
+														{
+															uint Id = 50,
+														},
+														Named = 
+														{
+															string Name = "pasted__pSphere1",
+														},
+														Transform = 
+														{
+															Vec3 Translation = [-0.0199238, 0.131995, 0],
+															Vec3 Scale = [1, 1, 1],
+															Quat Rotation = [0, -0, -7.43999e-033, 1],
+														},
+														Model = 
+														{
+															bool Visible = true,
+															bool VisibilityCulling = true,
+															bool VisibilityEvents = false,
+															bool CastShadows = true,
+															string MaterialName = "5481b84e008be766:mat_gradient",
+															string MeshName = "5558db1b1df7bee8:DivinerModel.pasted__pSphere1",
+															Vec4 Color = [0.933333, 0.866667, 0.631373, 1],
+														},
+														Hierarchy = 
+														{
+															Cog = 
+															{
+																LinkId = 
+																{
+																	uint Id = 51,
+																},
+																Named = 
+																{
+																	string Name = "pasted__pPlane2",
+																},
+																Transform = 
+																{
+																	Vec3 Translation = [0.015458, -0.513927, 0.962022],
+																	Vec3 Scale = [1, 1, 1],
+																	Quat Rotation = [0, -0, -7.43999e-033, 1],
+																},
+																Model = 
+																{
+																	bool Visible = true,
+																	bool VisibilityCulling = true,
+																	bool VisibilityEvents = false,
+																	bool CastShadows = true,
+																	string MaterialName = "5481b84e008be766:mat_gradient",
+																	string MeshName = "5558db1b1df7beef:DivinerModel.pasted__pPlane2",
+																	Vec4 Color = [0.74, 0.703, 0.74, 1],
+																},
+															},
+															Cog = 
+															{
+																LinkId = 
+																{
+																	uint Id = 52,
+																},
+																Named = 
+																{
+																	string Name = "pasted__pCylinder5",
+																},
+																Transform = 
+																{
+																	Vec3 Translation = [-6.77342e-009, 0.407785, 0.0264385],
+																	Vec3 Scale = [1, 1, 1],
+																	Quat Rotation = [0, -0, -7.43999e-033, 1],
+																},
+																Model = 
+																{
+																	bool Visible = true,
+																	bool VisibilityCulling = true,
+																	bool VisibilityEvents = false,
+																	bool CastShadows = true,
+																	string MaterialName = "5481b84e008be766:mat_gradient",
+																	string MeshName = "5558db1b1df7bef2:DivinerModel.pasted__pCylinder5",
+																	Vec4 Color = [0.74, 0.703, 0.74, 1],
+																},
+															},
+															Cog = 
+															{
+																LinkId = 
+																{
+																	uint Id = 53,
+																},
+																Named = 
+																{
+																	string Name = "pasted__pCylinder8",
+																},
+																Transform = 
+																{
+																	Vec3 Translation = [-0.00450595, 0.453991, 0],
+																	Vec3 Scale = [1, 1, 1],
+																	Quat Rotation = [0, -0, -7.43999e-033, 1],
+																},
+																Model = 
+																{
+																	bool Visible = true,
+																	bool VisibilityCulling = true,
+																	bool VisibilityEvents = false,
+																	bool CastShadows = true,
+																	string MaterialName = "5481b84e008be766:mat_gradient",
+																	string MeshName = "5558db1b1df7bef4:DivinerModel.pasted__pCylinder8",
+																	Vec4 Color = [0.37, 0.1036, 0.37, 1],
+																},
+															},
+														},
+													},
+												},
+											},
+											Cog = 
+											{
+												LinkId = 
+												{
+													uint Id = 54,
+												},
+												Named = 
+												{
+													string Name = "pasted__joint4",
+												},
+												Transform = 
+												{
+													Vec3 Translation = [-0.20586, -0.901313, 0],
+													Vec3 Scale = [1, 1, 1],
+													Quat Rotation = [1.2326e-032, 1.34815e-033, -3.46945e-018, 1],
+												},
+												Hierarchy = 
+												{
+													Cog = 
+													{
+														LinkId = 
+														{
+															uint Id = 55,
+														},
+														Named = 
+														{
+															string Name = "pasted__pCube1",
+														},
+														Transform = 
+														{
+															Vec3 Translation = [-0.139998, -0.262614, 0],
+															Vec3 Scale = [1, 1, 1],
+															Quat Rotation = [1.2326e-032, 5.77779e-034, -1.87172e-034, 1],
+														},
+														Model = 
+														{
+															bool Visible = true,
+															bool VisibilityCulling = true,
+															bool VisibilityEvents = false,
+															bool CastShadows = true,
+															string MaterialName = "5481b84e008be766:mat_gradient",
+															string MeshName = "5558db1b1df7bef7:DivinerModel.pasted__pCube1",
+															Vec4 Color = [0.368627, 0.101961, 0.368627, 1],
+														},
+														Hierarchy = 
+														{
+															Cog = 
+															{
+																LinkId = 
+																{
+																	uint Id = 56,
+																},
+																Named = 
+																{
+																	string Name = "pasted__pCube2",
+																},
+																Transform = 
+																{
+																	Vec3 Translation = [-1.46946, -0.211256, 0],
+																	Vec3 Scale = [1, 1, 1],
+																	Quat Rotation = [1.2326e-032, 1.34815e-033, 3.46945e-018, 1],
+																},
+																Model = 
+																{
+																	bool Visible = true,
+																	bool VisibilityCulling = true,
+																	bool VisibilityEvents = false,
+																	bool CastShadows = true,
+																	string MaterialName = "5481b84e008be766:mat_gradient",
+																	string MeshName = "5558db1b1df7befa:DivinerModel.pasted__pCube2",
+																	Vec4 Color = [0.935, 0.868147, 0.631125, 1],
+																},
+															},
+														},
+													},
+												},
+											},
+											Cog = 
+											{
+												LinkId = 
+												{
+													uint Id = 57,
+												},
+												Named = 
+												{
+													string Name = "pasted__joint5",
+												},
+												Transform = 
+												{
+													Vec3 Translation = [-0.201748, 0.887949, 0],
+													Vec3 Scale = [1, 1, 1],
+													Quat Rotation = [1.2326e-032, 1.34815e-033, -3.46945e-018, 1],
+												},
+												Hierarchy = 
+												{
+													Cog = 
+													{
+														LinkId = 
+														{
+															uint Id = 58,
+														},
+														Named = 
+														{
+															string Name = "pasted__pCube3",
+														},
+														Transform = 
+														{
+															Vec3 Translation = [-0.220246, 0.270271, 0],
+															Vec3 Scale = [1, 1, 1],
+															Quat Rotation = [1.2326e-032, 5.77779e-034, -1.87172e-034, 1],
+														},
+														Model = 
+														{
+															bool Visible = true,
+															bool VisibilityCulling = true,
+															bool VisibilityEvents = false,
+															bool CastShadows = true,
+															string MaterialName = "5481b84e008be766:mat_gradient",
+															string MeshName = "5558db1b1df7befc:DivinerModel.pasted__pCube3",
+															Vec4 Color = [0.368627, 0.101961, 0.368627, 1],
+														},
+														Hierarchy = 
+														{
+															Cog = 
+															{
+																LinkId = 
+																{
+																	uint Id = 59,
+																},
+																Named = 
+																{
+																	string Name = "pasted__pCube4",
+																},
+																Transform = 
+																{
+																	Vec3 Translation = [-1.47921, 0.0860397, 0],
+																	Vec3 Scale = [1, 1, 1],
+																	Quat Rotation = [1.23206e-032, 1.52837e-018, 3.46945e-018, 1],
+																},
+																Model = 
+																{
+																	bool Visible = true,
+																	bool VisibilityCulling = true,
+																	bool VisibilityEvents = false,
+																	bool CastShadows = true,
+																	string MaterialName = "5481b84e008be766:mat_gradient",
+																	string MeshName = "5558db1b1df7befe:DivinerModel.pasted__pCube4",
+																	Vec4 Color = [0.935, 0.868147, 0.631125, 1],
+																},
+															},
+														},
+													},
+												},
+											},
+										},
+									},
+									Cog = 
+									{
+										LinkId = 
+										{
+											uint Id = 60,
+										},
+										Named = 
+										{
+											string Name = "pasted__pCylinder3",
+										},
+										Transform = 
+										{
+											Vec3 Translation = [0.0210794, -0.0155214, 0],
+											Vec3 Scale = [1, 1, 1],
+											Quat Rotation = [0, 0, 0, 1],
+										},
+										Model = 
+										{
+											bool Visible = true,
+											bool VisibilityCulling = true,
+											bool VisibilityEvents = false,
+											bool CastShadows = true,
+											string MaterialName = "5481b84e008be766:mat_gradient",
+											string MeshName = "5558db1b1df7bf01:DivinerModel.pasted__pCylinder3",
+											Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+										},
+										Hierarchy = 
+										{
+											Cog = 
+											{
+												LinkId = 
+												{
+													uint Id = 61,
+												},
+												Named = 
+												{
+													string Name = "pasted__pCylinder6",
+												},
+												Transform = 
+												{
+													Vec3 Translation = [3.74034, 0.0344807, -0.0684337],
+													Vec3 Scale = [1, 1, 1],
+													Quat Rotation = [0, 0, 0, 1],
+												},
+												Model = 
+												{
+													bool Visible = true,
+													bool VisibilityCulling = true,
+													bool VisibilityEvents = false,
+													bool CastShadows = true,
+													string MaterialName = "5481b84e008be766:mat_gradient",
+													string MeshName = "5558db1b1df7bf04:DivinerModel.pasted__pCylinder6",
+													Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 62,
+				},
+				Named = 
+				{
+					string Name = "Cube",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.17526, -13.0567, -15.0176],
+					Vec3 Scale = [70, 20, 40],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "4de020863e85bb61:DefaultMaterial",
+					string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+					Vec4 Color = [1, 1, 1, 1],
+				},
+				RigidBody = 
+				{
+					bool Static = false,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = false,
+					bool Mode2D = false,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 63,
+				},
+				Named = 
+				{
+					string Name = "Pillars",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [41.3524, -11.6059, -16.9426],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 64,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [79.05, 0, -23.6536],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 65,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 66,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 67,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 68,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-44.8953, 0, 36.1108],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 69,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 70,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 71,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 72,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [44.8953, 0, -23.6536],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 73,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 74,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 75,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 76,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [44.8953, 0, 6.05374],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 77,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 78,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 79,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 80,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-44.8953, 0, 6.05376],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 81,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 82,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 83,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 84,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [44.8953, 0, 66.5449],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 85,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 86,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 87,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 88,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-79.05, 0, -85.0559],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 89,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 90,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 91,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 92,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [79.05, 0, 66.5449],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 93,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 94,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 95,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 96,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [79.05, 0, -85.0559],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 97,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 98,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 99,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 100,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [79.05, 0, 36.1107],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 101,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 102,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 103,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 104,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [44.8953, 0, -85.0559],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 105,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 106,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 107,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 108,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-79.05, 0, -23.6536],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 109,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 110,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 111,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 112,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-44.8953, 0, 66.5449],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 113,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 114,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 115,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 116,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-79.05, 0, 66.5449],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 117,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 118,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 119,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 120,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-44.8953, 0, -85.0559],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 121,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 122,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 123,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 124,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-44.8953, 0, -23.6536],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 125,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 126,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 127,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 128,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [44.8953, 0, 36.1107],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 129,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 130,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 131,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 132,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-79.05, 0, 36.1107],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 133,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 134,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 135,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 136,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [79.05, 0, 6.05374],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 137,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 138,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 139,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 140,
+						},
+						Named = 
+						{
+							string Name = "Pillar",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-79.05, 0, 6.05374],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 141,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface22",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a71:Pillar.polySurface22",
+									Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 142,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface24",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a6e:Pillar.polySurface24",
+									Vec4 Color = [0.975, 0.770981, 0.316875, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 143,
+								},
+								Named = 
+								{
+									string Name = "Pillar.polySurface23",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [0, 0, 0],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481b84e008be766:mat_gradient",
+									string MeshName = "5558e739f0641a69:Pillar.polySurface23",
+									Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+								},
+							},
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 144,
+				},
+				Named = 
+				{
+					string Name = "StageStairs.pCube86",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.17526, -11.6059, 49.8125],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481b84e008be766:mat_gradient",
+					string MeshName = "5558e738f07364ee:StageStairs.pCube86",
+					Vec4 Color = [0.341176, 0.298039, 0.239216, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 145,
+				},
+				Named = 
+				{
+					string Name = "DialogueStarter",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-1.27273, 1.20671, 69.3674],
+					Vec3 Scale = [100, 100, 100],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "4de020863e85bb61:DefaultMaterial",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 1],
+				},
+				RigidBody = 
+				{
+					bool Static = true,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = false,
+					bool Mode2D = false,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = true,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				CollisionBasedDialogue = 
+				{
+					bool OnCollideStart = true,
+					bool OnCollideEnd = false,
+					bool OnCollidePersist = false,
+					CogPath DiagSegPath = ":/IntroDiagObject",
+					bool ShouldFadeInOnStart = false,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 146,
+				},
+				Named = 
+				{
+					string Name = "FlameSconce.pCylinder24",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-26.1753, -3.60589, -18.1875],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+					string MeshName = "5558e738f07afb0b:FlameSconce.pCylinder24",
+					Vec4 Color = [0.85, 0.602905, 0.12325, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 147,
+				},
+				Named = 
+				{
+					string Name = "LeftSideLanterns",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [6.07749, -4.62645, 73.6812],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [4.37114e-008, 1, 4.37114e-008, 1.91069e-015],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 148,
+						},
+						Named = 
+						{
+							string Name = "PillarLantern(Actual)",
+						},
+						Archetyped = 
+						{
+							string Name = "5558da8edfc5c6a0:PillarLantern(Actual)",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.44073, 55.4776],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 149,
+								},
+								Named = 
+								{
+									string Name = "pCube57",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-31.0847, 26.2497, -1.57802],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+									string MeshName = "5558da8edfc61b39:PillarLantern(Actual).pCube57",
+									Vec4 Color = [0.42, 0.0273, 0.0273, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 150,
+								},
+								Named = 
+								{
+									string Name = "pPlane10",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-3.55271e-015, 0.394663, 30.1982],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5539643565eabbcc:mat_gradientSelfIllumn",
+									string MeshName = "5558da8edfc61b40:PillarLantern(Actual).pPlane10",
+									Vec4 Color = [0.625, 0.584062, 0.215625, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 151,
+						},
+						Named = 
+						{
+							string Name = "pCube57",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-25.9039, 21.809, -36.2363],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+							string MeshName = "5558da8edfc61b39:PillarLantern(Actual).pCube57",
+							Vec4 Color = [0.42, 0.0273, 0.0273, 1],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 152,
+						},
+						Named = 
+						{
+							string Name = "PillarLantern(Actual)",
+						},
+						Archetyped = 
+						{
+							string Name = "5558da8edfc5c6a0:PillarLantern(Actual)",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.44073, -5.10464],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 153,
+								},
+								Named = 
+								{
+									string Name = "pCube57",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-31.0847, 26.2497, -1.57802],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+									string MeshName = "5558da8edfc61b39:PillarLantern(Actual).pCube57",
+									Vec4 Color = [0.42, 0.0273, 0.0273, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 154,
+								},
+								Named = 
+								{
+									string Name = "pPlane10",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-3.55271e-015, 0.394663, 30.1982],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5539643565eabbcc:mat_gradientSelfIllumn",
+									string MeshName = "5558da8edfc61b40:PillarLantern(Actual).pPlane10",
+									Vec4 Color = [0.625, 0.584062, 0.215625, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 155,
+						},
+						Named = 
+						{
+							string Name = "pPlane10",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.04606, -4.46008],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "5539643565eabbcc:mat_gradientSelfIllumn",
+							string MeshName = "5558da8edfc61b40:PillarLantern(Actual).pPlane10",
+							Vec4 Color = [0.625, 0.584062, 0.215625, 1],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 156,
+						},
+						Named = 
+						{
+							string Name = "PillarLantern(Actual)",
+						},
+						Archetyped = 
+						{
+							string Name = "5558da8edfc5c6a0:PillarLantern(Actual)",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.44073, -34.6583],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 157,
+						},
+						Named = 
+						{
+							string Name = "PillarLantern(Actual)",
+						},
+						Archetyped = 
+						{
+							string Name = "5558da8edfc5c6a0:PillarLantern(Actual)",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.44073, 24.9816],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 158,
+								},
+								Named = 
+								{
+									string Name = "pCube57",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-31.0847, 26.2497, -1.57802],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+									string MeshName = "5558da8edfc61b39:PillarLantern(Actual).pCube57",
+									Vec4 Color = [0.42, 0.0273, 0.0273, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 159,
+								},
+								Named = 
+								{
+									string Name = "pPlane10",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-3.55271e-015, 0.394663, 30.1982],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5539643565eabbcc:mat_gradientSelfIllumn",
+									string MeshName = "5558da8edfc61b40:PillarLantern(Actual).pPlane10",
+									Vec4 Color = [0.625, 0.584062, 0.215625, 1],
+								},
+							},
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 160,
+				},
+				Named = 
+				{
+					string Name = "FlameSconce.pCylinder24",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [16.1875, -11.6059, 9.5719],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+					string MeshName = "5558e738f07afb0b:FlameSconce.pCylinder24",
+					Vec4 Color = [0.85, 0.602905, 0.12325, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 161,
+				},
+				Named = 
+				{
+					string Name = "StageGuards.pCube74",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.17526, -11.6059, 49.8125],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = false,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+					string MeshName = "5558e738f045fa41:StageGuards.pCube74",
+					Vec4 Color = [0.87, 0.588338, 0.10875, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 162,
+				},
+				Named = 
+				{
+					string Name = "FlameSconce.pCylinder24",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [21.8247, -3.60589, -18.1875],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+					string MeshName = "5558e738f07afb0b:FlameSconce.pCylinder24",
+					Vec4 Color = [0.85, 0.602905, 0.12325, 1],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "5558dd4a599ac0ac:SconceFire",
+				LinkId = 
+				{
+					uint Id = 163,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-26.2319, 2.93371, -18.1647],
+					Vec3 Scale = [1.23334, 1.23334, 1.23334],
+					Quat Rotation = [-0.707107, 0, 0, 0.707107],
+				},
+				Named = 
+				{
+					string Name = "SconceFire",
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 164,
+				},
+				Named = 
+				{
+					string Name = "LeftSideLanterns",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-83.0126, -4.5502, 73.6812],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [4.37114e-008, 1, 4.37114e-008, 1.91069e-015],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 165,
+						},
+						Named = 
+						{
+							string Name = "PillarLantern(Actual)",
+						},
+						Archetyped = 
+						{
+							string Name = "5558da8edfc5c6a0:PillarLantern(Actual)",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.44073, 55.4776],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 166,
+								},
+								Named = 
+								{
+									string Name = "pCube57",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-31.0847, 26.2497, -1.57802],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+									string MeshName = "5558da8edfc61b39:PillarLantern(Actual).pCube57",
+									Vec4 Color = [0.42, 0.0273, 0.0273, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 167,
+								},
+								Named = 
+								{
+									string Name = "pPlane10",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-3.55271e-015, 0.394663, 30.1982],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5539643565eabbcc:mat_gradientSelfIllumn",
+									string MeshName = "5558da8edfc61b40:PillarLantern(Actual).pPlane10",
+									Vec4 Color = [0.625, 0.584062, 0.215625, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 168,
+						},
+						Named = 
+						{
+							string Name = "pCube57",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-25.9039, 21.809, -36.2363],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+							string MeshName = "5558da8edfc61b39:PillarLantern(Actual).pCube57",
+							Vec4 Color = [0.42, 0.0273, 0.0273, 1],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 169,
+						},
+						Named = 
+						{
+							string Name = "PillarLantern(Actual)",
+						},
+						Archetyped = 
+						{
+							string Name = "5558da8edfc5c6a0:PillarLantern(Actual)",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.44073, -5.10464],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 170,
+								},
+								Named = 
+								{
+									string Name = "pCube57",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-31.0847, 26.2497, -1.57802],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+									string MeshName = "5558da8edfc61b39:PillarLantern(Actual).pCube57",
+									Vec4 Color = [0.42, 0.0273, 0.0273, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 171,
+								},
+								Named = 
+								{
+									string Name = "pPlane10",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-3.55271e-015, 0.394663, 30.1982],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5539643565eabbcc:mat_gradientSelfIllumn",
+									string MeshName = "5558da8edfc61b40:PillarLantern(Actual).pPlane10",
+									Vec4 Color = [0.625, 0.584062, 0.215625, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 172,
+						},
+						Named = 
+						{
+							string Name = "pPlane10",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.04606, -4.46008],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "5539643565eabbcc:mat_gradientSelfIllumn",
+							string MeshName = "5558da8edfc61b40:PillarLantern(Actual).pPlane10",
+							Vec4 Color = [0.625, 0.584062, 0.215625, 1],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 173,
+						},
+						Named = 
+						{
+							string Name = "PillarLantern(Actual)",
+						},
+						Archetyped = 
+						{
+							string Name = "5558da8edfc5c6a0:PillarLantern(Actual)",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.44073, -34.6583],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 174,
+						},
+						Named = 
+						{
+							string Name = "PillarLantern(Actual)",
+						},
+						Archetyped = 
+						{
+							string Name = "5558da8edfc5c6a0:PillarLantern(Actual)",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.44073, 24.9816],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 175,
+								},
+								Named = 
+								{
+									string Name = "pCube57",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-31.0847, 26.2497, -1.57802],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+									string MeshName = "5558da8edfc61b39:PillarLantern(Actual).pCube57",
+									Vec4 Color = [0.42, 0.0273, 0.0273, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 176,
+								},
+								Named = 
+								{
+									string Name = "pPlane10",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-3.55271e-015, 0.394663, 30.1982],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5539643565eabbcc:mat_gradientSelfIllumn",
+									string MeshName = "5558da8edfc61b40:PillarLantern(Actual).pPlane10",
+									Vec4 Color = [0.625, 0.584062, 0.215625, 1],
+								},
+							},
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 177,
+				},
+				Named = 
+				{
+					string Name = "Sphere",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.17526, 56.3543, -90.6515],
+					Vec3 Scale = [27.9806, 27.9806, 27.9806],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54ff27758d4308c1:mat_Ghost",
+					string MeshName = "4de0354322b376ae:Sphere",
+					Vec4 Color = [0.775, 0.06975, 0.06975, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 178,
+				},
+				Named = 
+				{
+					string Name = "ThroneThroneCore",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.17526, -1.60589, -15.1875],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+					string MeshName = "5558e738f07724af:Throne.ThroneCore",
+					Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 179,
+				},
+				Named = 
+				{
+					string Name = "OuterWalls",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.17526, -11.6059, 36.4524],
+					Vec3 Scale = [192.997, 409.981, 264.292],
+					Quat Rotation = [0.0348995, 0, 0, 0.999391],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = false,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "54510363ad53c2ee:mat_gradientDarkDS",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0.16, 0.1496, 0.1496, 1],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "5558dd4a599ac0ac:SconceFire",
+				LinkId = 
+				{
+					uint Id = 180,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [16.1176, -5.05288, 9.5875],
+					Vec3 Scale = [1.23334, 1.23334, 1.23334],
+					Quat Rotation = [-0.707107, 0, 0, 0.707107],
+				},
+				Named = 
+				{
+					string Name = "SconceFire",
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 181,
+				},
+				Named = 
+				{
+					string Name = "SilkCurtains.pPlane4",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [14.8247, 14.3941, -27.1875],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5433b545862c8fae:mat_GhostDS",
+					string MeshName = "5558e738f0565735:SilkCurtains.pPlane4",
+					Vec4 Color = [0.27451, 0.0588235, 0.27451, 1],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "5558dd4a599ac0ac:SconceFire",
+				LinkId = 
+				{
+					uint Id = 182,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-20.5765, -5.05288, 9.5875],
+					Vec3 Scale = [1.23334, 1.23334, 1.23334],
+					Quat Rotation = [-0.707107, 0, 0, 0.707107],
+				},
+				Named = 
+				{
+					string Name = "SconceFire",
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 183,
+				},
+				Named = 
+				{
+					string Name = "BlackRainMainLobby.CenterStage",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.17526, 52.8343, -62.2905],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0.707107, 0, 0, 0.707107],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+					string MeshName = "54afcfd2e5fa7165:BlackRainMainLobby.CenterStage",
+					Vec4 Color = [0.12, 0.1164, 0.1164, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 184,
+				},
+				Named = 
+				{
+					string Name = "Floor and Stage",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.17526, -11.6059, 49.8125],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 185,
+						},
+						Named = 
+						{
+							string Name = "FloorAndStage.polySurface27",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "5558e58091eeb7d1:FloorAndStage.polySurface27",
+							Vec4 Color = [0.895, 0.676441, 0.3043, 1],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 186,
+						},
+						Named = 
+						{
+							string Name = "PurplePath",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "5558e404844a0d0a:PurplePath",
+							Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 187,
+						},
+						Named = 
+						{
+							string Name = "FloorAndStage.polySurface31",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "5481b84e008be766:mat_gradient",
+							string MeshName = "5558e58091eeb7d3:FloorAndStage.polySurface31",
+							Vec4 Color = [0.34, 0.2992, 0.238, 1],
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 188,
+				},
+				Named = 
+				{
+					string Name = "Throne.ThroneTopper",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.17526, 18.8204, -11.5268],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+					string MeshName = "5558e738f07724b7:Throne.ThroneTopper",
+					Vec4 Color = [0.470588, 0.156863, 0.470588, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 189,
+				},
+				Named = 
+				{
+					string Name = "LeftSideLanterns",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-9.17251, -4.528, 56.5313],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 190,
+						},
+						Named = 
+						{
+							string Name = "PillarLantern(Actual)",
+						},
+						Archetyped = 
+						{
+							string Name = "5558da8edfc5c6a0:PillarLantern(Actual)",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.44073, 55.4776],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 191,
+								},
+								Named = 
+								{
+									string Name = "pCube57",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-31.0847, 26.2497, -1.57802],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+									string MeshName = "5558da8edfc61b39:PillarLantern(Actual).pCube57",
+									Vec4 Color = [0.42, 0.0273, 0.0273, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 192,
+								},
+								Named = 
+								{
+									string Name = "pPlane10",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-3.55271e-015, 0.394663, 30.1982],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5539643565eabbcc:mat_gradientSelfIllumn",
+									string MeshName = "5558da8edfc61b40:PillarLantern(Actual).pPlane10",
+									Vec4 Color = [0.625, 0.584062, 0.215625, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 193,
+						},
+						Named = 
+						{
+							string Name = "pCube57",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-25.9039, 21.809, -36.2363],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+							string MeshName = "5558da8edfc61b39:PillarLantern(Actual).pCube57",
+							Vec4 Color = [0.42, 0.0273, 0.0273, 1],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 194,
+						},
+						Named = 
+						{
+							string Name = "PillarLantern(Actual)",
+						},
+						Archetyped = 
+						{
+							string Name = "5558da8edfc5c6a0:PillarLantern(Actual)",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.44073, -5.10464],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 195,
+								},
+								Named = 
+								{
+									string Name = "pCube57",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-31.0847, 26.2497, -1.57802],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+									string MeshName = "5558da8edfc61b39:PillarLantern(Actual).pCube57",
+									Vec4 Color = [0.42, 0.0273, 0.0273, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 196,
+								},
+								Named = 
+								{
+									string Name = "pPlane10",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-3.55271e-015, 0.394663, 30.1982],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5539643565eabbcc:mat_gradientSelfIllumn",
+									string MeshName = "5558da8edfc61b40:PillarLantern(Actual).pPlane10",
+									Vec4 Color = [0.625, 0.584062, 0.215625, 1],
+								},
+							},
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 197,
+						},
+						Named = 
+						{
+							string Name = "pPlane10",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.04606, -4.46008],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "5539643565eabbcc:mat_gradientSelfIllumn",
+							string MeshName = "5558da8edfc61b40:PillarLantern(Actual).pPlane10",
+							Vec4 Color = [0.625, 0.584062, 0.215625, 1],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 198,
+						},
+						Named = 
+						{
+							string Name = "PillarLantern(Actual)",
+						},
+						Archetyped = 
+						{
+							string Name = "5558da8edfc5c6a0:PillarLantern(Actual)",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.44073, -34.6583],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 199,
+						},
+						Named = 
+						{
+							string Name = "PillarLantern(Actual)",
+						},
+						Archetyped = 
+						{
+							string Name = "5558da8edfc5c6a0:PillarLantern(Actual)",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [5.18078, -4.44073, 24.9816],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Hierarchy = 
+						{
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 200,
+								},
+								Named = 
+								{
+									string Name = "pCube57",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-31.0847, 26.2497, -1.57802],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+									string MeshName = "5558da8edfc61b39:PillarLantern(Actual).pCube57",
+									Vec4 Color = [0.42, 0.0273, 0.0273, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 201,
+								},
+								Named = 
+								{
+									string Name = "pPlane10",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-3.55271e-015, 0.394663, 30.1982],
+									Vec3 Scale = [1, 1, 1],
+									Quat Rotation = [0, 0, 0, 1],
+								},
+								Model = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5539643565eabbcc:mat_gradientSelfIllumn",
+									string MeshName = "5558da8edfc61b40:PillarLantern(Actual).pPlane10",
+									Vec4 Color = [0.625, 0.584062, 0.215625, 1],
+								},
+							},
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 202,
+				},
+				Named = 
+				{
+					string Name = "Cube",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.17526, -21.6409, 35.2083],
+					Vec3 Scale = [200, 20, 200],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "4de020863e85bb61:DefaultMaterial",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 1],
+				},
+				RigidBody = 
+				{
+					bool Static = true,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = false,
+					bool Mode2D = false,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 203,
+				},
+				Named = 
+				{
+					string Name = "IntroDiagObject",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-17.9839, -22.8222, 22.3395],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 204,
+						},
+						Named = 
+						{
+							string Name = "IntroDiagText",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.05176e-005, -9.53674e-006, -1.14441e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						TextBlockInfo = 
+						{
+							string SpeakerName = "",
+							string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
+							string SpeakerTextBlock = "55096f29b5061076:InsidePalace1",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 205,
+						},
+						Named = 
+						{
+							string Name = "IntroDiagText",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.05176e-005, -9.53674e-006, -1.14441e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						TextBlockInfo = 
+						{
+							string SpeakerName = "",
+							string SpeakerSprite = "545746f1032f78a0:ui-textbox-diviner",
+							string SpeakerTextBlock = "55096f5eae9b681e:InsidePalace2",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 206,
+						},
+						Named = 
+						{
+							string Name = "IntroDiagText",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.05176e-005, -9.53674e-006, -1.14441e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						TextBlockInfo = 
+						{
+							string SpeakerName = "",
+							string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
+							string SpeakerTextBlock = "55096f57a08cd236:InsidePalace3",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 207,
+						},
+						Named = 
+						{
+							string Name = "IntroDiagText",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.05176e-005, -9.53674e-006, -1.14441e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						TextBlockInfo = 
+						{
+							string SpeakerName = "",
+							string SpeakerSprite = "545746f1032f78a0:ui-textbox-diviner",
+							string SpeakerTextBlock = "55096f69a289c701:InsidePalace4",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 208,
+						},
+						Named = 
+						{
+							string Name = "IntroDiagText",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.05176e-005, -9.53674e-006, -1.14441e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						TextBlockInfo = 
+						{
+							string SpeakerName = "",
+							string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
+							string SpeakerTextBlock = "55096f62a499e317:InsidePalace5",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 209,
+						},
+						Named = 
+						{
+							string Name = "IntroDiagText",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.05176e-005, -9.53674e-006, -1.14441e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						TextBlockInfo = 
+						{
+							string SpeakerName = "",
+							string SpeakerSprite = "545746f1032f78a0:ui-textbox-diviner",
+							string SpeakerTextBlock = "55096f75a73dd62c:InsidePalace6",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 210,
+						},
+						Named = 
+						{
+							string Name = "IntroDiagText",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.05176e-005, -9.53674e-006, -1.14441e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						TextBlockInfo = 
+						{
+							string SpeakerName = "",
+							string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
+							string SpeakerTextBlock = "55096e89d9ea6e57:InsidePalace7",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 211,
+						},
+						Named = 
+						{
+							string Name = "IntroDiagText",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.05176e-005, -9.53674e-006, -1.14441e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						TextBlockInfo = 
+						{
+							string SpeakerName = "",
+							string SpeakerSprite = "545746f1032f78a0:ui-textbox-diviner",
+							string SpeakerTextBlock = "55096e81db2d8821:InsidePalace8",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 212,
+						},
+						Named = 
+						{
+							string Name = "IntroDiagText",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						TextBlockInfo = 
+						{
+							string SpeakerName = "",
+							string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
+							string SpeakerTextBlock = "55096e98dcbedece:InsidePalace9",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 213,
+						},
+						Named = 
+						{
+							string Name = "IntroDiagText",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.05176e-005, -9.53674e-006, -1.14441e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						TextBlockInfo = 
+						{
+							string SpeakerName = "",
+							string SpeakerSprite = "545746f1032f78a0:ui-textbox-diviner",
+							string SpeakerTextBlock = "55096e91dedaf496:InsidePalace10",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 214,
+						},
+						Named = 
+						{
+							string Name = "IntroDiagText",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.05176e-005, -9.53674e-006, -1.14441e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						TextBlockInfo = 
+						{
+							string SpeakerName = "",
+							string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
+							string SpeakerTextBlock = "55096ea8d0593239:InsidePalace11",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 215,
+						},
+						Named = 
+						{
+							string Name = "IntroDiagText",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.05176e-005, -9.53674e-006, -1.14441e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						TextBlockInfo = 
+						{
+							string SpeakerName = "",
+							string SpeakerSprite = "545746f1032f78a0:ui-textbox-diviner",
+							string SpeakerTextBlock = "55096ea0d1b49f9b:InsidePalace12",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 216,
+						},
+						Named = 
+						{
+							string Name = "IntroDiagText",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.05176e-005, -9.53674e-006, -1.14441e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						TextBlockInfo = 
+						{
+							string SpeakerName = "",
+							string SpeakerSprite = "545746e70fdccb8f:ui-textbox-setsuko",
+							string SpeakerTextBlock = "55096eb8d30afc8b:InsidePalace13",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 217,
+						},
+						Named = 
+						{
+							string Name = "IntroDiagText",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.05176e-005, -9.53674e-006, -1.14441e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						TextBlockInfo = 
+						{
+							string SpeakerName = "",
+							string SpeakerSprite = "545746f1032f78a0:ui-textbox-diviner",
+							string SpeakerTextBlock = "55096eb0d54d3a6c:InsidePalace14",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 218,
+						},
+						Named = 
+						{
+							string Name = "IntroDiagText",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.05176e-005, -9.53674e-006, -1.14441e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						TextBlockInfo = 
+						{
+							string SpeakerName = "",
+							string SpeakerSprite = "545746f1032f78a0:ui-textbox-diviner",
+							string SpeakerTextBlock = "55096ec7c8126c1b:InsidePalace15",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 219,
+						},
+						Named = 
+						{
+							string Name = "IntroDiagText",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.05176e-005, -9.53674e-006, -1.14441e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						TextBlockInfo = 
+						{
+							string SpeakerName = "",
+							string SpeakerSprite = "545746f1032f78a0:ui-textbox-diviner",
+							string SpeakerTextBlock = "55096edfca661cd1:InsidePalace16",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 220,
+						},
+						Named = 
+						{
+							string Name = "IntroDiagText",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [3.05176e-005, -9.53674e-006, -1.14441e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						TextBlockInfo = 
+						{
+							string SpeakerName = "",
+							string SpeakerSprite = "545746f1032f78a0:ui-textbox-diviner",
+							string SpeakerTextBlock = "55096ed0cb8fa2e6:InsidePalace17",
+							string SpeakerSong = "",
+							Vec4 SpeakerParticleColor = [0, 0, 0, 0],
+						},
+					},
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "5558dd4a599ac0ac:SconceFire",
+				LinkId = 
+				{
+					uint Id = 221,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [21.8322, 2.93371, -18.1647],
+					Vec3 Scale = [1.23334, 1.23334, 1.23334],
+					Quat Rotation = [-0.707107, 0, 0, 0.707107],
+				},
+				Named = 
+				{
+					string Name = "SconceFire",
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 222,
+				},
+				Named = 
+				{
+					string Name = "FlameSconce.pCylinder24",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-20.4651, -11.6059, 9.57199],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+					string MeshName = "5558e738f07afb0b:FlameSconce.pCylinder24",
+					Vec4 Color = [0.85, 0.602905, 0.12325, 1],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2,
+		},
+		Named = 
+		{
+			string Name = "Camera",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, -0.482194, 1.24711],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.258819, 0, 0, 0.965926],
+		},
+		Camera = 
+		{
+			ProjectionMode ProjectionMode = Perspective,
+			Facing Facing = NegativeZ,
+			CameraTransparentSort TransparentSort = InheritFromSpace,
+			float FieldOfView = 43,
+			float NearPlane = 0.5,
+			float FarPlane = 200,
+			float Size = 60,
+		},
+		MotionBlur = 
+		{
+			int Samples = 10,
+			float Density = 1.22,
+			bool RadialOnly = true,
+		},
+		Fog = 
+		{
+			FogType FogType = Exp2,
+			float BeginDepth = 60,
+			float EndDepth = 100,
+			float BeginDensity = 0,
+			float EndDensity = 1,
+			Vec4 Color = [0.305882, 0.388235, 0.568627, 1],
+			float FogDensity = 0.118,
+			float FogStart = 80,
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 1, 0],
+			Vec3 UpVector = [0, 1, 0],
+			Vec3 ForwardVector = [0, 0, 1],
+			OrientationBases DefaultBases = ForwardZUpY,
+		},
+		OrbitCameraController = 
+		{
+			CogPath OrbitTarget = ":/Player",
+			float SpeedMod = 1,
+			float Height = -20,
+			float Radius = 150,
+			float AngleChange = 90,
+			float AngleOrigin = 0,
+			Vec3 CamLerp = [0, 0, 30],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 223,
+				},
+				Named = 
+				{
+					string Name = "AmbienceManager",
+				},
+				Archetyped = 
+				{
+					string Name = "54fd940c712168ab:AmbienceManager",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [-0.258819, 0, 0, 0.965926],
+				},
+				Thunderstorm = 
+				{
+					bool Active = false,
+					string LightningArchetype = "54fdef646265a31e:LightningStrike",
+					int DiceSize = 8,
+					int StrikeFreq = 60,
+				},
+				SoundEmitter = 
+				{
+					bool StartPlaying = false,
+					int ExtraPriority = 0,
+					string CueName = "5481f8da7cf1018a:Death of a God Ambience",
+					float Volume = 1,
+					float Pitch = 1,
+					bool Positional = false,
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 224,
+						},
+						Named = 
+						{
+							string Name = "DreamFogger",
+						},
+						Archetyped = 
+						{
+							string Name = "4faa6050b86884ec:DefaultArchetype",
+						},
+						EditorFlags = 
+						{
+							bool Locked = true,
+							bool Hidden = false,
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 14.3137, -7.81046],
+							Vec3 Scale = [100, 100, 1],
+							Quat Rotation = [1.49012e-008, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = false,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = false,
+							string MaterialName = "543828feeb5b6cf5:DreamFog",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [0.586881, 0.169275, 0.915, 0.045],
+						},
+						SoundEmitter = 
+						{
+							bool StartPlaying = false,
+							int ExtraPriority = 0,
+							string CueName = "54fdee753324d46c:Wind_BlowingLoop2",
+							float Volume = 1,
+							float Pitch = 1,
+							bool Positional = true,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 225,
+						},
+						Named = 
+						{
+							string Name = "Rain",
+						},
+						EditorFlags = 
+						{
+							bool Locked = true,
+							bool Hidden = false,
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 7.30544, -1.65058],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						SpriteParticleSystem = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = false,
+							SystemChildMode ChildMode = Independent,
+							SystemSpace SystemSpace = WorldSpace,
+							uint DrawOrder = 0,
+							float WarmUpTime = 0,
+							ParticleGeometry GeometryMode = Billboarded,
+							ParticleRenderMode RenderMode = Additive,
+							ParticleSortMode SortMode = Youngest,
+							ParticleAnimation ParticleAnimation = Single,
+							string Texture = "54382d46a1e2190e:soft",
+							Vec4 Tint = [1, 1, 1, 0.15],
+							float VelocityScale = 0.2,
+							float LengthScale = 0.2,
+							float MaxParticleSize = 100,
+							Vec3 SystemSize = [20, 20, 5],
+						},
+						LinearParticleAnimator = 
+						{
+							Vec3 Force = [0, 0, 0],
+							Vec3 RandomForce = [0, 0, 0],
+							float Torque = 0,
+							float Growth = 0,
+							float Dampening = 0,
+							Vec3 Twist = [0, 0, 0],
+						},
+						ParticleColorAnimator = 
+						{
+							Vec4 Color0 = [0.535, 0.535, 0.535, 0],
+							Vec4 Color1 = [1, 1, 1, 1],
+							Vec4 Color2 = [1, 1, 1, 0.9999],
+							Vec4 Color3 = [0.575, 0.575, 0.575, 1],
+							Vec4 Color4 = [0.245, 0.245, 0.245, 0],
+						},
+						BoxParticleEmitter = 
+						{
+							bool Active = true,
+							uint EmitCount = 0,
+							float EmitRate = 500,
+							float EmitVariance = 0,
+							float Size = 0.25,
+							float SizeVariance = 0.1,
+							float Lifetime = 2,
+							float LifetimeVariance = 0.1,
+							float Spin = 0,
+							float SpinVariance = 50,
+							bool RandomSpin = true,
+							float Fill = 1,
+							float EmitterVelocityPercent = 0,
+							Vec3 StartVelocity = [0, 0, -10],
+							Vec3 RandomVelocity = [2, 0, 2],
+							Vec3 TangentVelocity = [1, 0, 0],
+							Vec3 EmitterSize = [70, 50, 5],
+							bool FastMovingEmitter = true,
+						},
+						SoundEmitter = 
+						{
+							bool StartPlaying = false,
+							int ExtraPriority = 0,
+							string CueName = "54fdeee4493c2c1a:Rain_Loop10",
+							float Volume = 1,
+							float Pitch = 1,
+							bool Positional = false,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 226,
+						},
+						Named = 
+						{
+							string Name = "MainLight",
+						},
+						EditorFlags = 
+						{
+							bool Locked = true,
+							bool Hidden = false,
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, -36.2956, -21.3908],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0.204158, 0.253013, 0.0547137, 0.944092],
+						},
+						Light = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = false,
+							LightType LightType = Directional,
+							Vec4 Color = [0.624105, 0.47925, 0.675, 1],
+							float Intensity = 1.58,
+							float Range = 50,
+							float Falloff = 1,
+							float Angle = 107,
+							float Size = 128,
+						},
+						GodRayLight = 
+						{
+							GodRayLightType LightType = Point,
+							bool Active = false,
+							int Samples = 80,
+							Vec4 Color = [0.329879, 0.00222501, 0.445, 1],
+							float Intensity = 0.23,
+							float ScreenRadius = 1,
+							float OccluderClarity = 0.1,
+							bool ScreenEdgeFade = false,
+							float BeginFade = -0.1,
+							float EndFade = 0.1,
+							float DepthOffset = 0,
+						},
+						DreamLighting = 
+						{
+							bool DreamWorld = false,
+							bool SetFogColor = false,
+							Vec4 DayLightColor = [0.623529, 0.478431, 0.67451, 1],
+							Vec4 DreamLightColor = [0.623529, 0.478431, 0.67451, 1],
+							float TransitionSpeed = 0.4,
+						},
+					},
+				},
+			},
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54affc0867034c6b:SpawnPoint",
+		LinkId = 
+		{
+			uint Id = 227,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [26.1763, -73.3817, 2.39391],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "SpawnPoint",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 228,
+		},
+		Named = 
+		{
+			string Name = "Grid",
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, -0.375614],
+			Vec3 Scale = [100, 100, 10],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		GridDraw = 
+		{
+			bool Active = false,
+			bool HalfCellOffset = false,
+			float CellSize = 0.05,
+			GridAxis Axis = ZAxis,
+			int Lines = 100,
+			bool DrawAxisOrigins = true,
+			bool AlwaysDrawInEditor = true,
+			bool DrawInGame = true,
+			Vec4 GridColor = [0.5, 0.5, 0.5, 0.4],
+			Vec4 GridHiLight = [0.97, 0.47045, 0.47045, 0.4],
+			int HilightInterval = 2,
+			bool FollowEditorCamera = false,
+		},
+		Hierarchy = 
+		{
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5481a2f612bcc3ec:TargetLock",
+		LinkId = 
+		{
+			uint Id = 229,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [5.01634, 0.612282, -73.4696],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "TargetLock",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 230,
+		},
+		Named = 
+		{
+			string Name = "Player",
+		},
+		Archetyped = 
+		{
+			string Name = "53765c31a01574f5:Player",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [6.9905, -11.3378, -51.0465],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		InputController = 
+		{
+			bool Active = false,
+			int GamepadIndex = 0,
+		},
+		PlayerController = 
+		{
+			float MovmentSpeed = 700,
+			float RotateSpeed = 25,
+			float MaxMoveForce = 1000,
+			float Deceleration = 1.5,
+			CogPath CameraPath = ":/Camera",
+			bool WindActive = true,
+			bool HideTongueUI = false,
+			string HideTongueString = "Action",
+			bool FreezeMovement = true,
+			bool MoveUpwards = false,
+		},
+		FootstepDetector = 
+		{
+			int WalkRate = 15,
+			bool DebugDraw = false,
+			Vec4 DebugColor = [0, 1, 0, 0.7],
+		},
+		Orientation = 
+		{
+			Vec3 GlobalUp = [0, 1, 0],
+			Vec3 UpVector = [0, 0, 1],
+			Vec3 ForwardVector = [0, 1, 0],
+			OrientationBases DefaultBases = ForwardYUpZ,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CapsuleCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "53766787684b6ebf:phyMat_NoFriction",
+			string SerializedGroupName = "54bebd865c1562ee:CG_Player",
+			Vec3 Offset = [0, 0, 1],
+			float Radius = 1,
+			float Height = 1,
+			uint Direction = 2,
+		},
+		DynamicMotor = 
+		{
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 100,
+			Vec3 Direction = [0, 0, -1],
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "4e1bd44008b4dc2a:DefaultCue",
+			float Volume = 2.5,
+			float Pitch = 1,
+			bool Positional = true,
+		},
+		WaterSplasher = 
+		{
+			int SplashRate = 20,
+			float SplashIntensity = 1,
+		},
+		Z_Teleport = 
+		{
+			Vec3 TeleportToLocation = [3, 7.5, 0],
+		},
+		AutoHopper = 
+		{
+			float JumpDistance = 2,
+			bool Active = true,
+			bool DebugDraw = false,
+			Vec4 DebugColorA = [0.17, 0, 1, 0.7],
+			Vec4 DebugColorB = [1, 0, 0.000599861, 0.7],
+			string GruntSound = "54fc772fa224f98d:PlayerAttackGrunt",
+		},
+		Health = 
+		{
+			float MaxHealth = 5,
+			bool DestroyAtZeroHealth = false,
+			bool SendsHealthModified = true,
+			float DamageScalar = 1,
+		},
+		TextBoxTester = 
+		{
+			CogPath DiagSegPath = "",
+		},
+		Microphone = 
+		{
+			bool Active = true,
+		},
+		Hierarchy = 
+		{
+			ArchetypeInstance = 
+			{
+				string Name = "549a983f28a95fba:OnFire",
+				LinkId = 
+				{
+					uint Id = 231,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.0153871, 0.459993, 0.334081],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Named = 
+				{
+					string Name = "OnFire",
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 232,
+				},
+				Named = 
+				{
+					string Name = "Sparkle",
+				},
+				Archetyped = 
+				{
+					string Name = "54af9ff15e8501bd:Sparkle",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.0128422, 0.459993, 1.52721],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteParticleSystem = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					SystemChildMode ChildMode = Independent,
+					SystemSpace SystemSpace = WorldSpace,
+					uint DrawOrder = 0,
+					float WarmUpTime = 0,
+					ParticleGeometry GeometryMode = Billboarded,
+					ParticleRenderMode RenderMode = Additive,
+					ParticleSortMode SortMode = Youngest,
+					ParticleAnimation ParticleAnimation = Single,
+					string Texture = "548d76e779a3aea4:tex_light_ray",
+					Vec4 Tint = [1, 1, 1, 0.87],
+					float VelocityScale = 1,
+					float LengthScale = 1,
+					float MaxParticleSize = 100,
+					Vec3 SystemSize = [4, 4, 4],
+				},
+				LinearParticleAnimator = 
+				{
+					Vec3 Force = [0, 0, 0],
+					Vec3 RandomForce = [0, 0, 0],
+					float Torque = 0,
+					float Growth = -1,
+					float Dampening = 0,
+					Vec3 Twist = [0, 0, 0],
+				},
+				ParticleColorAnimator = 
+				{
+					Vec4 Color0 = [1, 1, 1, 0],
+					Vec4 Color1 = [0.495, 1, 0.65155, 1],
+					Vec4 Color2 = [0.269, 1, 0.15, 1],
+					Vec4 Color3 = [0.5, 1, 0, 1],
+					Vec4 Color4 = [0.0500001, 1, 0, 0],
+				},
+				BoxParticleEmitter = 
+				{
+					bool Active = false,
+					uint EmitCount = 0,
+					float EmitRate = 300,
+					float EmitVariance = 0,
+					float Size = 1,
+					float SizeVariance = 0.5,
+					float Lifetime = 0.2,
+					float LifetimeVariance = 0.1,
+					float Spin = 0,
+					float SpinVariance = 50,
+					bool RandomSpin = true,
+					float Fill = 1,
+					float EmitterVelocityPercent = 0,
+					Vec3 StartVelocity = [0, 0, 0],
+					Vec3 RandomVelocity = [0, 0, 0],
+					Vec3 TangentVelocity = [0, 0, 0],
+					Vec3 EmitterSize = [3, 2, 4],
+					bool FastMovingEmitter = false,
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "5437a6c16a41952b:SetsukoModel",
+				LinkId = 
+				{
+					uint Id = 233,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [0.8, 0.8, 0.8],
+					Quat Rotation = [-3.09086e-008, 0.707107, 0.707107, -3.09086e-008],
+				},
+				Named = 
+				{
+					string Name = "SetsukoModel",
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 234,
+		},
+		Named = 
+		{
+			string Name = "StarCube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [1.14314, 66.9613, -39.4021],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+	},
+},
