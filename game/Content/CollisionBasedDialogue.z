@@ -62,7 +62,6 @@ class CollisionBasedDialogue : ZilchComponent
     
     function OnLogicUpdate(event : UpdateEvent)
     {
-        Console.WriteLine("Collision Based Dialogue Boolean = `this.HasDialogueStarted`");
     }
     
     function OnCollisionStarted(event : CollisionEvent)
