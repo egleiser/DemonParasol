@@ -1,0 +1,29 @@
+class DialogueEndSwamp : ZilchComponent
+{
+    
+    var PalaceCollider : Cog = null;
+    var DiagFinished : Boolean = false;
+    var Txtboxman : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        var hud = this.LevelSettings.HudCreator.HudSpace;
+        
+        this.Txtboxman = hud.FindObjectByName("TextBox");
+        this.PalaceCollider = this.Space.FindObjectByName("PrePalaceObject");
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.DiagFinished = this.Txtboxman.TextBoxManager.DialogueFinished;
+        
+        if(this.DiagFinished == true && this.PalaceCollider.Transform.Translation.Z == -500)
+        {
+            Console.WriteLine("Teleport me!!!");
+        }
+        
+        
+    }
+}

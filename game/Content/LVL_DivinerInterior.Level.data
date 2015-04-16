@@ -62,6 +62,25 @@ Level =
 			int HilightInterval = 10,
 			bool FollowEditorCamera = false,
 		},
+		QuickPause = 
+		{
+		},
+		Z_UI_MenuPopUp = 
+		{
+			float FadeInTime = 1,
+			float FadeOutTime = 0.25,
+			Vec3 ScaleOutSize = [0.75, 0.75, 0.75],
+			float ScaleOutTime = 0.2,
+			Vec3 ScaleInSize = [1, 1, 1],
+			float ScaleInTime = 0.8,
+			Enum EaseType = QuadIn,
+			Vec3 StartingPosition = [0, 0, 20],
+		},
+		HudCreator = 
+		{
+			string HudLevel = "54f4128b2690c25b:HUD",
+			string SpaceArchetype = "537644322bbe895a:Space",
+		},
 	},
 	Cog = 
 	{
@@ -75,9 +94,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [15.6114, 133.194, 12.2948],
+			Vec3 Translation = [15.6115, 133.194, 12.2949],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.626692, 0.191453, 0.162651, 0.737664],
+			Quat Rotation = [-0.626691, 0.191453, 0.162652, 0.737664],
 		},
 		Camera = 
 		{
@@ -5163,10 +5182,10 @@ Level =
 		},
 		CollisionBasedDialogue = 
 		{
-			bool OnCollideStart = false,
+			bool OnCollideStart = true,
 			bool OnCollideEnd = false,
 			bool OnCollidePersist = false,
-			CogPath DiagSegPath = "",
+			CogPath DiagSegPath = ":/IntroDiagObject",
 			bool ShouldFadeInOnStart = false,
 		},
 	},

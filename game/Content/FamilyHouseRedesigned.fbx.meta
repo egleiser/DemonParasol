@@ -1,0 +1,53 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 550b861921d79e01,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "FamilyHouseRedesigned.HouseBase_Patio",
+				uint64 ResourceId = 550b861921c9523d,
+			},
+			{
+				string Name = "FamilyHouseRedesigned.WoodenStructure",
+				uint64 ResourceId = 550b861921c95242,
+			},
+			{
+				string Name = "FamilyHouseRedesigned.PaperWindows",
+				uint64 ResourceId = 550b861921c95244,
+			},
+			{
+				string Name = "FamilyHouseRedesigned.WindowFrames",
+				uint64 ResourceId = 550b861921c95246,
+			},
+			{
+				string Name = "FamilyHouseRedesigned.ThatchedRoof",
+				uint64 ResourceId = 550b861921c95248,
+			},
+			{
+				string Name = "FamilyHouseRedesigned.RoofOrnament",
+				uint64 ResourceId = 550b861921c9524b,
+			},
+			{
+				string Name = "FamilyHouseRedesigned.Overhang",
+				uint64 ResourceId = 550b861921c9524d,
+			},
+		],
+		MeshMode MeshMode = Multi,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},

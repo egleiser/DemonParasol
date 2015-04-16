@@ -9,6 +9,7 @@ class IntroTextFadeInOut : ZilchComponent
     var UnscarredLine : Cog = null;
     
     var MainSpace : Space = null;
+    var Speaker : Cog = null;
     
     function Initialize(init : CogInitializer)
     {
@@ -21,6 +22,7 @@ class IntroTextFadeInOut : ZilchComponent
         this.UnscarredSprite = this.Hudcamera.FindChildByName("UnscarredLands");
         this.DenialSprite = this.Hudcamera.FindChildByName("DenialText");
         this.UnscarredLine = this.UnscarredSprite.FindChildByName("UnscarredLine");
+        this.Speaker = this.MainSpace.FindObjectByName("Speakerbox");
         
         Zero.Connect(this.Owner, "IntroTextFade", this.OnIntroTextFade);
     }
@@ -76,19 +78,25 @@ class IntroTextFadeInOut : ZilchComponent
     function PlayNarrationA()
     {
         this.MainSpace.FindObjectByName("BGMManager").DungeonSoundManager.Ducking = 0.2;
-        this.Owner.SoundEmitter.Cue = SoundCue.Find("01 Narrator_Intro to Game");
-        this.Owner.SoundEmitter.Volume = 0.6;
+        this.Speaker.SoundEmitter.Cue = SoundCue.Find("01 Narrator_Intro to Game");
+        this.Speaker.SoundEmitter.Play();
+        this.Speaker.SoundEmitter.Play();        
+        //this.Owner.SoundEmitter.Cue = SoundCue.Find("01 Narrator_Intro to Game");
+        //this.Owner.SoundEmitter.Volume = 0.6;
         //The recording is too quiet so the only way to increase the volume is to call this twice
-        this.Owner.SoundEmitter.Play();
-        this.Owner.SoundEmitter.Play();
+        //this.Owner.SoundEmitter.Play();
+        //this.Owner.SoundEmitter.Play();
     }
     function PlayNarrationB()
     {
-        this.Owner.SoundEmitter.Stop();
-        this.Owner.SoundEmitter.Cue = SoundCue.Find("02 Narrator_Setsuko Leaving House");
+        this.Speaker.SoundEmitter.Stop();
+        this.Speaker.SoundEmitter.Cue = SoundCue.Find("02 Narrator_Setsuko Leaving House");
+        this.Speaker.SoundEmitter.Play();
+        this.Speaker.SoundEmitter.Play();
+        //this.Owner.SoundEmitter.Cue = SoundCue.Find("02 Narrator_Setsuko Leaving House");
         //The recording is too quiet so the only way to increase the volume is to call this twice
-        this.Owner.SoundEmitter.Play();
-        this.Owner.SoundEmitter.Play();
+        //this.Owner.SoundEmitter.Play();
+        //this.Owner.SoundEmitter.Play();
     }
     function StartIntroDialogue()
     {
