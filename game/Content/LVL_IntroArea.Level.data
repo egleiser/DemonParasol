@@ -187,7 +187,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-69.759, 14.3935, 78.4063],
+			Vec3 Translation = [-253.923, -259.492, 77.8319],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.379674, -0.0515377, 0.0211898, 0.923441],
 		},
@@ -204,10 +204,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 77.4776,
+			float LookDistance = 284.288,
 			float VerticalAngle = -0.780165,
 			float HorizontalAngle = -6.17168,
-			Vec3 LookTarget = [-63.6311, 68.891, 23.6774],
+			Vec3 LookTarget = [-231.438, -59.5246, -122.985],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -255,6 +255,7 @@ Level =
 			bool HideTongueUI = true,
 			string HideTongueString = "Action",
 			bool FreezeMovement = false,
+			bool MoveUpwards = false,
 		},
 		Orientation = 
 		{
@@ -1201,6 +1202,7 @@ Level =
 		OrbitCameraController = 
 		{
 			CogPath OrbitTarget = ":/Player",
+			float SpeedMod = 1,
 			float Height = 90,
 			float Radius = 90,
 			float AngleChange = 90,
@@ -1401,6 +1403,7 @@ Level =
 						DreamLighting = 
 						{
 							bool DreamWorld = false,
+							bool SetFogColor = false,
 							Vec4 DayLightColor = [0.92549, 0.890196, 0.847059, 1],
 							Vec4 DreamLightColor = [0.18, 0.0999, 0.0999481, 1],
 							float TransitionSpeed = 0.4,
@@ -51078,6 +51081,32 @@ Level =
 			bool OnCollideEnd = true,
 			CogPath BckGrnManagerPath = ":/LevelSettings/BGMManager",
 			float DuckingTime = 13,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 1581,
+		},
+		Named = 
+		{
+			string Name = "Speakerbox",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-231.438, -59.5246, -122.985],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "4e1bd44008b4dc2a:DefaultCue",
+			float Volume = 1,
+			float Pitch = 1,
+			bool Positional = true,
 		},
 	},
 },
