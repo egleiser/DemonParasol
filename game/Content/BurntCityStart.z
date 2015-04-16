@@ -23,7 +23,6 @@ class BurntCityStart : ZilchComponent
     function OnLevelStarted(event : GameEvent)
     {
         this.FadeSprite.Sprite.Visible = true;
-        this.FreezePlayer();
         
         var seq = Action.Sequence(this.Owner.Actions);
         

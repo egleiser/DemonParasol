@@ -51,6 +51,8 @@ class TextBoxManager : ZilchComponent
     
     var MainSpace : Space = null;
     
+    var TextBoxHidden : Boolean = false;
+    
     function Initialize(init : CogInitializer)
     {
         this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
@@ -82,6 +84,7 @@ class TextBoxManager : ZilchComponent
 
     function OnStartDialogueEvent(event : TextBoxEvent)
     {
+        this.TextBoxHidden = false;
         this.Unskippable = event.Unskippable;
         this.DialogueStarted = true;
         this.TextBoxText.TextScrollManager.DialogueSequence = true;
@@ -107,6 +110,7 @@ class TextBoxManager : ZilchComponent
         var seq = Action.Sequence(this.Owner.Actions);
         var grp = Action.Group(seq);
         //Action.Call(seq, this.FirstTextScroll);
+        
         Action.Property(grp,
                         @this.Owner.Transform.Translation,
                         Real3(this.Owner.Transform.Translation.X, event.DistanceOnScreen, this.Owner.Transform.Translation.Z),
@@ -249,7 +253,8 @@ class TextBoxManager : ZilchComponent
     function OnCancelDialogue(event : CancelDialogueEvent)
     {
         this.DialogueFinished = true;
-        var grp = Action.Group(this.Owner.Actions);
+        var seq = Action.Sequence(this.Owner.Actions);
+        var grp = Action.Group(seq);
         Action.Property(grp,
                             @this.Owner.Transform.Translation,
                             Real3(this.Owner.Transform.Translation.X, -13.0, this.Owner.Transform.Translation.Z),
@@ -262,6 +267,8 @@ class TextBoxManager : ZilchComponent
                         0.3,
                         Ease.Linear);
         Action.Call(grp, this.TextBoxText.TextScrollManager.DialogueEndSettings);
+        Action.Delay(seq, 0.3);
+        Action.Call(seq, this.ChangeBoxHideBool);
                         
         this.CurrentTextIdx = 0;
     }
@@ -273,6 +280,11 @@ class TextBoxManager : ZilchComponent
         var e = new TextScrollEvent();
         e.TextToWrite = this.ChildTexts.Get(0).TextBlockInfo.SpeakerTextBlock;
         this.TextBoxText.DispatchEvent("textScrollEvent", e);
+    }
+    
+    function ChangeBoxHideBool()
+    {
+        this.TextBoxHidden = true;
     }
     
 
