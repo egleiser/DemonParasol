@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [136.691, 2.28889, -16.3657],
+		Vec3 Translation = [154.959, -2.02316, -19.8086],
 		Vec3 Scale = [0.5, 0.5, 0.5],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -57,12 +57,6 @@ Cog =
 		float Volume = 0.6,
 		float Pitch = 1,
 		bool Positional = true,
-	},
-	Targetable = 
-	{
-		Enum IndicatorType = Enemy,
-		Vec3 IndicatorOffset = [0, 0, 0],
-		float Range = 30,
 	},
 	FollowPlayer = 
 	{

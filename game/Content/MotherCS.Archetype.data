@@ -1,0 +1,176 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "MotherCS",
+	},
+	Archetyped = 
+	{
+		string Name = "55fed9d05314e346:MotherBattle",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [166.843, 2.51714, -0.132411],
+		Vec3 Scale = [2.3659, 2.3659, 2.3659],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = false,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	Orientation = 
+	{
+		Vec3 GlobalUp = [0, 1, 0],
+		Vec3 UpVector = [0, 0, 1],
+		Vec3 ForwardVector = [1, 0, 0],
+		OrientationBases DefaultBases = ForwardXUpZ,
+	},
+	Targetable = 
+	{
+		Enum IndicatorType = Information,
+		Vec3 IndicatorOffset = [0, 0, 7],
+		float Range = 30,
+	},
+	Hierarchy = 
+	{
+		ArchetypeInstance = 
+		{
+			string Name = "55fedc583b19cc80:MotherModel",
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [4.81331, 0.0141809, -0.465463],
+				Vec3 Scale = [0.5, 0.5, 0.5],
+				Quat Rotation = [0.696316, 0, 0, 0.717735],
+			},
+			Named = 
+			{
+				string Name = "MotherModel",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "55ff2c071ade66da:MotherParticleEffect",
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0.047516, 1.23873],
+				Vec3 Scale = [0.422672, 0.422672, 0.422672],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "MotherParticleEffect",
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "ArParticleEffect",
+			},
+			Archetyped = 
+			{
+				string Name = "55ff23f3f29bc7e2:ArParticleEffect",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0.047516, 0.517713],
+				Vec3 Scale = [0.422672, 0.422672, 0.422672],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteParticleSystem = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				SystemChildMode ChildMode = Independent,
+				SystemSpace SystemSpace = WorldSpace,
+				uint DrawOrder = 0,
+				float WarmUpTime = 0,
+				ParticleGeometry GeometryMode = Billboarded,
+				ParticleRenderMode RenderMode = Additive,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Single,
+				string Texture = "5310e87946ed955b:Twinkle",
+				Vec4 Tint = [0.715, 0.92305, 1, 0.555],
+				float VelocityScale = 1,
+				float LengthScale = 1,
+				float MaxParticleSize = 100,
+				Vec3 SystemSize = [4, 4, 4],
+			},
+			LinearParticleAnimator = 
+			{
+				Vec3 Force = [0, 0, 0],
+				Vec3 RandomForce = [0, 0, 0],
+				float Torque = 0,
+				float Growth = 30,
+				float Dampening = 0,
+				Vec3 Twist = [0, 0, 0],
+			},
+			ParticleColorAnimator = 
+			{
+				Vec4 Color0 = [1, 1, 1, 0],
+				Vec4 Color1 = [1, 1, 1, 1],
+				Vec4 Color2 = [1, 1, 1, 1],
+				Vec4 Color3 = [1, 1, 1, 1],
+				Vec4 Color4 = [1, 1, 1, 0],
+			},
+			SphericalParticleEmitter = 
+			{
+				bool Active = false,
+				uint EmitCount = 0,
+				float EmitRate = 50,
+				float EmitVariance = 0,
+				float Size = 2,
+				float SizeVariance = 0.5,
+				float Lifetime = 0.3,
+				float LifetimeVariance = 0.2,
+				float Spin = 0,
+				float SpinVariance = 50,
+				bool RandomSpin = true,
+				float Fill = 1,
+				float EmitterVelocityPercent = 0,
+				Vec3 StartVelocity = [0, 0, 0],
+				Vec3 RandomVelocity = [3, 3, 3],
+				Vec3 TangentVelocity = [0, 0, 0],
+				Vec3 EmitterSize = [0, 0, 0],
+				bool FastMovingEmitter = false,
+			},
+			SoundOnSpherePart = 
+			{
+				float Vol = 0.3,
+			},
+			SoundEmitter = 
+			{
+				bool StartPlaying = true,
+				int ExtraPriority = 0,
+				string CueName = "54afb4516b13f2fd:Amb_Choir_LevitateLoop1",
+				float Volume = 0,
+				float Pitch = 1,
+				bool Positional = false,
+			},
+		},
+	},
+},
