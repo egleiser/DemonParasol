@@ -72,7 +72,18 @@ class DamagePlayerOnCollide : ZilchComponent
                 this.Owner.Destroy();
             }
         }
-        
+        if( otherObject.Name == "CollisionCubeX")
+        {
+            if(this.DieOnCollide)
+            {
+                if(this.SpawnOnDeath != null)
+                {
+                    this.Space.CreateAtPosition(this.SpawnOnDeath, this.Owner.Transform.WorldTranslation);
+                    
+                }
+                this.Owner.Destroy();
+            }
+        }
         if(this.SendsDeathEvent)
         {
             // Let anyone listening know we just died.

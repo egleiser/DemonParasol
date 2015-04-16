@@ -1,0 +1,27 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "WoodFlooringBC",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [34.2575, 3.65736, -6.66665],
+		Vec3 Scale = [0.512077, 0.736715, 0.7],
+		Quat Rotation = [-2.10734e-007, -2.10734e-007, 0.707107, 0.707107],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+		string MeshName = "55fcb123ea0df7f0:ApartmentBetaLEVEL.WoodFlooring001",
+		Vec4 Color = [0.25098, 0.196078, 0.137255, 1],
+	},
+},

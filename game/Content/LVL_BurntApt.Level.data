@@ -62,7 +62,7 @@ Level =
 		},
 		SoundEmitter = 
 		{
-			bool StartPlaying = true,
+			bool StartPlaying = false,
 			int ExtraPriority = 0,
 			string CueName = "5481f8da7cf1018a:Death of a God Ambience",
 			float Volume = 0.6,
@@ -151,7 +151,7 @@ Level =
 						{
 							bool StartPlaying = true,
 							int ExtraPriority = 0,
-							string CueName = "54052acac6675076:BurntCity",
+							string CueName = "55fec7cf850f0141:MothersThemePiano",
 							float Volume = 1,
 							float Pitch = 1,
 							bool Positional = false,
@@ -177,7 +177,7 @@ Level =
 						{
 							bool StartPlaying = true,
 							int ExtraPriority = 0,
-							string CueName = "54fc7096f93b9e50:DreamWorld_Forest_MainLoop",
+							string CueName = "55dcb49a6d1d5ee1:MothersThemeDaiko",
 							float Volume = 1,
 							float Pitch = 1,
 							bool Positional = false,
@@ -199,9 +199,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [159.668, -31.7355, 27.5176],
+			Vec3 Translation = [176.182, -0.64205, 69.7156],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.385098, -0.00318644, 0.00132966, 0.922869],
+			Quat Rotation = [-0.0129139, 0.163349, 0.00213839, 0.986481],
 		},
 		Camera = 
 		{
@@ -216,10 +216,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 33.3734,
-			float VerticalAngle = -0.790634,
-			float HorizontalAngle = -6.27628,
-			Vec3 LookTarget = [159.83, -8.01374, 4.0435],
+			float LookDistance = 100.259,
+			float VerticalAngle = 0.0261803,
+			float HorizontalAngle = -6.61138,
+			Vec3 LookTarget = [143.876, -3.26657, -25.1597],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -267,6 +267,7 @@ Level =
 			bool HideTongueUI = false,
 			string HideTongueString = "Action",
 			bool FreezeMovement = false,
+			bool MoveUpwards = false,
 		},
 		FootstepDetector = 
 		{
@@ -834,7 +835,7 @@ Level =
 																},
 																Transform = 
 																{
-																	Vec3 Translation = [0.0594749, 4.03428, -0.0567627],
+																	Vec3 Translation = [0.0594749, 4.89582, -0.0567626],
 																	Vec3 Scale = [0.3, 4.5, 0.3],
 																	Quat Rotation = [6.62274e-008, -6.20881e-008, 1.5522e-008, 1],
 																},
@@ -1249,6 +1250,7 @@ Level =
 		OrbitCameraController = 
 		{
 			CogPath OrbitTarget = ":/Player",
+			float SpeedMod = 1,
 			float Height = 20,
 			float Radius = 30,
 			float AngleChange = 90,
@@ -1489,6 +1491,7 @@ Level =
 						DreamLighting = 
 						{
 							bool DreamWorld = false,
+							bool SetFogColor = false,
 							Vec4 DayLightColor = [0.3078, 0.389082, 0.57, 1],
 							Vec4 DreamLightColor = [0.305882, 0.388235, 0.568627, 1],
 							float TransitionSpeed = 0.4,
@@ -3521,6 +3524,15 @@ Level =
 			float Falloff = 1,
 			float Angle = 45,
 			float Size = 20,
+		},
+		SoundDucking = 
+		{
+			float DuckSpeed = 3,
+			bool StartPlaying = true,
+		},
+		FakePositionalAudio = 
+		{
+			float Scale = 10,
 		},
 		Hierarchy = 
 		{
@@ -15280,6 +15292,86 @@ Level =
 			string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 			string MeshName = "5481fffe3b4f9c65:ToriiGate.pCube7",
 			Vec4 Color = [0.0531, 0.157117, 0.295, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 446,
+		},
+		Named = 
+		{
+			string Name = "TeleporterDemooT",
+		},
+		Archetyped = 
+		{
+			string Name = "55fec1bfebe1f184:TeleporterDemooT",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [156.32, 11.1247, 0.904022],
+			Vec3 Scale = [3.07005, 6.58777, 3.07005],
+			Quat Rotation = [0.440573, -0.553078, -0.553078, 0.440573],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "5450caa5de3555f3:WaveGlow2side",
+			string MeshName = "4de0354322b3572e:Cylinder",
+			Vec4 Color = [0.67815, 0.821601, 0.99, 0.17],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = true,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CylinderCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "54ff0eb5b975b8c8:CG_Tongue",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 1,
+			float Height = 1,
+			uint Direction = 1,
+		},
+		FootstepSurface = 
+		{
+			Enum SurfaceType = Dirt,
+		},
+		Light = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			LightType LightType = Point,
+			Vec4 Color = [0.4455, 0.99, 0.614295, 0.375],
+			float Intensity = 1,
+			float Range = 20,
+			float Falloff = 1,
+			float Angle = 45,
+			float Size = 20,
+		},
+		DungeonTeleporter = 
+		{
+			string Room = "55fd7d0dc71b139d:LVL_FinalBoss",
+		},
+		Hierarchy = 
+		{
 		},
 	},
 },

@@ -3,6 +3,7 @@ class AI_DivinerHand : ZilchComponent
 {
     var Health : Integer = 100;
     var AttackCount : Integer = 0;
+    var PrevRoll : Integer = 0;
     var NumberOfBullets : Integer = 3;
     var Player:Cog = null;
     var BGMManager : Cog = null;
@@ -22,6 +23,8 @@ class AI_DivinerHand : ZilchComponent
     var LaserLight : Archetype = null;
     var Light : Cog = null;
     var Timer : Integer = 0;
+    var MainTimer : Integer = 0;
+    var Arrow : Boolean = false;
     var ThinkTimer : Integer = 0;
     var HurtTimer : Integer = 60;
     var AniTimer : Integer = 0;
@@ -88,18 +91,28 @@ class AI_DivinerHand : ZilchComponent
         {
             var random = new Random();
             var dieRoll = random.RangeInclusiveMax(1,3);
-            Console.WriteLine("Dice Roll: `dieRoll`");
-            if(dieRoll == 1)
+            if(dieRoll != this.PrevRoll)
             {
-                this.RocketFist();
+                Console.WriteLine("Dice Roll: `dieRoll`");
+                if(dieRoll == 1)
+                {
+                    this.RocketFist();
+                    this.PrevRoll = 1;
+                }
+                else if(dieRoll == 2)
+                {
+                    this.StartUpGun();
+                    this.PrevRoll = 2;
+                }
+                else if(dieRoll == 3)
+                {
+                    this.FireLaser();
+                    this.PrevRoll = 3;
+                }
             }
-            else if(dieRoll == 2)
+            else
             {
-                this.StartUpGun();
-            }
-            else if(dieRoll == 3)
-            {
-                this.FireLaser();
+                this.ThinkTimer = 235;
             }
         }
         //Checkfor Health
@@ -158,6 +171,12 @@ class AI_DivinerHand : ZilchComponent
                 this.LevelSettings.CameraViewport.Camera.OrbitCameraController.Height = 23;
                 this.LevelSettings.CameraViewport.Camera.OrbitCameraController.Radius = 60;
             }
+            else if(this.AiState == DivHandState.Idle )
+            {
+                this.LevelSettings.CameraViewport.Camera.OrbitCameraController.SpeedMod = 0.1;
+                this.LevelSettings.CameraViewport.Camera.OrbitCameraController.Height = 23;
+                this.LevelSettings.CameraViewport.Camera.OrbitCameraController.Radius = this.CamR;
+            }
             else
             {
                 this.LevelSettings.CameraViewport.Camera.OrbitCameraController.SpeedMod = this.CamS;
@@ -168,7 +187,7 @@ class AI_DivinerHand : ZilchComponent
         if(this.AiState == DivHandState.Point || this.AiState == DivHandState.Gun || this.AiState == DivHandState.Fist 
         || this.AiState == DivHandState.Returning ||this.AiState == DivHandState.Idle || this.AiState == DivHandState.Prone)
         {
-            if(this.LevelSettings.CameraViewport.Camera.OrbitCameraController.SpeedMod <= 1.0)
+            if(this.LevelSettings.CameraViewport.Camera.OrbitCameraController.SpeedMod <= 0.3)
             {
                 this.LevelSettings.CameraViewport.Camera.OrbitCameraController.SpeedMod *= 10.0;
             }
@@ -182,6 +201,7 @@ class AI_DivinerHand : ZilchComponent
         this.Timer += 1;
         this.HurtTimer +=1;
         this.ThinkTimer +=1;
+        this.MainTimer +=1;
     }
     ////////////////////////
     ////               /////
@@ -467,6 +487,7 @@ class AI_DivinerHand : ZilchComponent
         if(this.AiState == DivHandState.Gun && this.AniTimer <= 30)
         {
             this.HandModel.SimpleAnimation.CrossBlend(this.GunAnim,0.2, AnimPlayMode.PlayOnce);
+            this.Arrow = true;
         }
         if(this.AiState == DivHandState.Gun && this.AniTimer >= 20)
         {
@@ -499,6 +520,7 @@ class AI_DivinerHand : ZilchComponent
         }
         if((this.AiState == DivHandState.Fist || this.AiState == DivHandState.Rocket))
         {
+            this.Arrow = false;
             this.SinShaker(event);
             if(this.AttackCount == 4)
             {
@@ -527,6 +549,7 @@ class AI_DivinerHand : ZilchComponent
         if(this.AiState == DivHandState.Point && this.AniTimer <= 15)
         {
             this.ActivateFingerParticle(true);
+            this.Arrow = true;
             this.HandModel.SimpleAnimation.CrossBlend(this.PointAnim,1.0, AnimPlayMode.Loop);
             
             
@@ -545,18 +568,21 @@ class AI_DivinerHand : ZilchComponent
         }
         if(this.AiState == DivHandState.Point)
         {
+            this.Arrow = true;
             this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, this.InitPosition, event.Dt);
         }
         
         //Hurt Anim
         if(this.AiState == DivHandState.Hurt && this.AniTimer <= 20)
         {
+            this.Arrow = true;
             this.HandModel.SimpleAnimation.CrossBlend(this.HurtAnim,1.0, AnimPlayMode.Loop);
             
         }
         //Prone Anim
         if(this.AiState == DivHandState.Prone && this.AniTimer <= 20)
         {
+            this.Arrow = false;
             this.HandModel.SimpleAnimation.CrossBlend(this.ProneAnim,1.0, AnimPlayMode.Loop);
             this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, this.InitPosition + Real3(0,0,-7.5), event.Dt * 8);
             
@@ -564,13 +590,15 @@ class AI_DivinerHand : ZilchComponent
         //Death Anim
         if(this.AiState == DivHandState.Death && this.AniTimer <= 10 && this.Timer < 300)
         {
+            this.Arrow = false;
             this.HandModel.SimpleAnimation.CrossBlend(this.DeathAnim,1.0, AnimPlayMode.PlayOnce);
             this.BGMManager.DungeonSoundManager.Ducking = 0.0;
             this.Player.PlayerController.FreezeMovement = true;
         }
         if(this.AiState == DivHandState.Death)
         {
-            
+            this.Arrow = false;
+            this.MainTimer = 0;
             if(this.Timer < 400)
             {
                 this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, this.InitPosition+ Real3(0,25,6), event.Dt);
@@ -662,6 +690,7 @@ class AI_DivinerHand : ZilchComponent
         }
         if(this.AiState == DivHandState.Returning)
         {
+            this.Arrow = true;
             this.Owner.Transform.WorldTranslation = Math.Lerp(this.Owner.Transform.WorldTranslation, this.InitPosition, event.Dt);
             if((Math.Length(this.InitPosition - this.Owner.Transform.WorldTranslation) < 2.0))
             {

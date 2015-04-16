@@ -1,0 +1,132 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BanArrowM",
+	},
+	Archetyped = 
+	{
+		string Name = "55fed7a15bed324d:BanArrow",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-7.20761, -0.117988, -0.268315],
+		Vec3 Scale = [1.2812, 1.2812, 1.2812],
+		Quat Rotation = [0, 0, -0.707107, 0.707107],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "BanArrowHead",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 9.2842, 0],
+				Vec3 Scale = [0.521071, 0.268721, 0.521071],
+				Quat Rotation = [-0.707107, -3.22526e-009, -3.22526e-009, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "54ff27758d4308c1:mat_Ghost",
+				string MeshName = "55fed7a15bf48af6:BanArrow.BanArrowHead",
+				Vec4 Color = [1, 0.9352, 0.595, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "BanArrowShaft",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [0.497722, 1, 1],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "54ff27758d4308c1:mat_Ghost",
+				string MeshName = "55fed7a15bf48afb:BanArrow.BanArrowShaft",
+				Vec4 Color = [1, 0.9352, 0.595, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "BanArrowTail",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.0118514, 2.05459, 0.0351417],
+				Vec3 Scale = [1.10699, 1.10699, 0.720981],
+				Quat Rotation = [5.76012e-008, -0.707107, 5.76012e-008, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "54ff27758d4308c1:mat_Ghost",
+				string MeshName = "55fed7a15bf48afd:BanArrow.BanArrowTail",
+				Vec4 Color = [1, 0.9352, 0.595, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "BanArrowBlossom",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 9.51901, -1.6784e-008],
+				Vec3 Scale = [0.707927, 0.707927, 2.99091],
+				Quat Rotation = [3.65792e-009, -0.707106, 3.65792e-009, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "5539643565eabbcc:mat_gradientSelfIllumn",
+				string MeshName = "55fed7a15bf48aff:BanArrow.BanArrowBlossom",
+				Vec4 Color = [0.78276, 0.308, 0.88, 1],
+			},
+		},
+	},
+},

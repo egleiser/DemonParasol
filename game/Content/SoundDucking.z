@@ -26,7 +26,10 @@ class SoundDucking : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        this.Ducking = this.BGMManager.DungeonSoundManager.Ducking;
-        this.Owner.SoundEmitter.Volume = Math.Lerp(this.Owner.SoundEmitter.Volume, this.InitVolume * this.Ducking * this.MasterVolume, event.Dt * this.DuckSpeed);
+        if(this.BGMManager != null)
+        {
+            this.Ducking = this.BGMManager.DungeonSoundManager.Ducking;
+            this.Owner.SoundEmitter.Volume = Math.Lerp(this.Owner.SoundEmitter.Volume, this.InitVolume * this.Ducking * this.MasterVolume, event.Dt * this.DuckSpeed);
+        }
     }
 }

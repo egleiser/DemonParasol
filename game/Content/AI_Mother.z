@@ -1,0 +1,101 @@
+class AI_Mother : ZilchComponent
+{
+    [Property]
+    var Active : Boolean = true;
+    [Property]
+    var Radius : Real = 10.0;
+    var SinOffset : Real3 = Real3(0,0,0);
+    [Property]
+    var OrbitTarget : CogPath = null;
+    var Timer : Integer = 1;
+    var CurrentAngle : Real = 0;
+    var Player:Cog = null;
+    var Boss:Cog = null;
+    var Particle:Cog = null;
+    [Property]
+    var AngleChange : Real = 20;
+    
+    var StartLoc : Real3 = Real3(0,0,0);
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.LevelSettings.CameraViewport.Camera.OrbitCameraController.OrbitTarget.Cog;
+        this.Boss = this.Space.FindObjectByName("DivinerHandFinalBoss");
+        this.Particle = this.Owner.FindChildByName("ArParticleEffect");
+        var startDir : Real3 = Math.Normalize(this.Owner.Transform.WorldTranslation - this.OrbitTarget.Cog.Transform.WorldTranslation );
+        this.CurrentAngle = Math.ATan2(startDir.Y, startDir.X);
+        this.StartLoc = this.OrbitTarget.Cog.Transform.WorldTranslation;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+    }
+    function SinBobber(event : UpdateEvent)
+    {
+        this.SinOffset = Real3(0,0,Math.Sin(event.TimePassed * 2.0) * 2.3);
+
+    }
+    function FacePlayer(event : UpdateEvent)
+    {
+            var targetRotation = this.Owner.Orientation.GetLookAtPointWithUpRotation(
+            Real3(this.Boss.Transform.WorldTranslation.X,this.Boss.Transform.WorldTranslation.Y,this.Owner.Transform.WorldTranslation.Z),this.Owner.Orientation.WorldUp);
+            targetRotation = Math.Multiply(targetRotation, Math.Euler(Real3(0,0,1.57079633)));
+            this.Owner.Transform.WorldRotation = Math.Slerp(this.Owner.Transform.WorldRotation, targetRotation, event.Dt * 8);
+    }
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var prevColor = this.Particle.SpriteParticleSystem.Tint;
+        
+        this.SinBobber(event);
+        this.FacePlayer(event);
+        var range = Math.Length(this.Boss.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation);
+        if(range < 40 && range > 10)
+        {
+            Console.WriteLine("InRange: `this.Timer/900.0`");
+            this.Timer += 1;
+            this.Particle.SphericalParticleEmitter.Active = true;
+        }
+        else
+        {
+            this.Particle.SphericalParticleEmitter.Active = false;
+            
+        }
+        if(this.Timer >= 300 && this.Boss.AI_DivinerHand.Arrow)
+        {
+            this.Space.CreateAtPosition(Archetype.Find("ArrowOfLight"), this.Owner.Transform.WorldTranslation);
+            this.Space.SoundSpace.PlayCue(SoundCue.Find("Menu_Accept"));
+            this.Particle.SoundEmitter.Volume = 0;
+            this.Particle.SoundEmitter.Pitch = 0;
+            this.Timer = 1;
+        }
+        if(this.Timer > 270)
+        {
+            this.Particle.SpriteParticleSystem.Tint = Real4(1.0,0.1 , 0.8, this.Timer/300.0);
+        }
+        else
+        {
+            this.Particle.SpriteParticleSystem.Tint = Real4(0.9,0.9 , 1.0, this.Timer/900.0);
+        }
+        if(this.Active)
+        {
+            var startDir : Real3 = Math.Normalize(this.Owner.Transform.WorldTranslation - this.OrbitTarget.Cog.Transform.WorldTranslation );
+            this.CurrentAngle = Math.ATan2(startDir.Y, startDir.X);
+            this.StartLoc = this.OrbitTarget.Cog.Transform.WorldTranslation + Real3(0,0,8) + this.SinOffset;
+        
+        ////////
+            this.CurrentAngle += Math.ToRadians(this.AngleChange) * event.Dt;
+            
+            var objectVec : Real3 = Real3(Math.Cos(this.CurrentAngle), Math.Sin(this.CurrentAngle), 0) ;
+            this.Owner.Transform.WorldTranslation = (objectVec * this.Radius) + this.StartLoc;
+        }
+        //Make Mother Appear!
+        if(this.Boss.AI_DivinerHand.MainTimer < 400)
+        {
+            this.Owner.Transform.WorldTranslation += Real3(0,0,600);
+        }
+        if(this.Boss.AI_DivinerHand.MainTimer == 402)
+        {
+            this.Space.CreateAtPosition(Archetype.Find("DeathSmokeXL"), this.Owner.Transform.WorldTranslation );
+        }
+
+    }
+}
