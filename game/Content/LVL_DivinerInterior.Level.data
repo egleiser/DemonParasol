@@ -5182,10 +5182,10 @@ Level =
 		},
 		CollisionBasedDialogue = 
 		{
-			bool OnCollideStart = false,
+			bool OnCollideStart = true,
 			bool OnCollideEnd = false,
 			bool OnCollidePersist = false,
-			CogPath DiagSegPath = "",
+			CogPath DiagSegPath = ":/IntroDiagObject",
 			bool ShouldFadeInOnStart = false,
 		},
 	},

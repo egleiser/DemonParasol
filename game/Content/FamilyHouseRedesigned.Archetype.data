@@ -1,0 +1,1467 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "FamilyHouseRedesigned",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "HouseBase_Patio",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -1.91159, -12.085],
+				Vec3 Scale = [4.37042, 4.37042, 4.37042],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "550b861921c3e880:WoodenHouse",
+				string MeshName = "550b861921c9523d:FamilyHouseRedesigned.HouseBase_Patio",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "pCube1",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -0.763094, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 4,
+					},
+					Named = 
+					{
+						string Name = "WoodenStructure",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, -10.6281],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Model = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "550b861921c3e880:WoodenHouse",
+						string MeshName = "550b861921c95242:FamilyHouseRedesigned.WoodenStructure",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 5,
+					},
+					Named = 
+					{
+						string Name = "SmallRightWindow",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [12.4135, 4.47936, 6.21978],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 6,
+							},
+							Named = 
+							{
+								string Name = "transform3",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [-12.4135, -3.97936, -6.21978],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 7,
+					},
+					Named = 
+					{
+						string Name = "transform1",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 8,
+			},
+			Named = 
+			{
+				string Name = "pCube2",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-11.7851, 2.04544, 6.25876],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 9,
+					},
+					Named = 
+					{
+						string Name = "polySurface1",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 10,
+							},
+							Named = 
+							{
+								string Name = "transform23",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 11,
+					},
+					Named = 
+					{
+						string Name = "polySurface2",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 12,
+							},
+							Named = 
+							{
+								string Name = "transform8",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 13,
+					},
+					Named = 
+					{
+						string Name = "polySurface3",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 14,
+							},
+							Named = 
+							{
+								string Name = "transform11",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 15,
+					},
+					Named = 
+					{
+						string Name = "polySurface4",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 16,
+							},
+							Named = 
+							{
+								string Name = "transform12",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 17,
+					},
+					Named = 
+					{
+						string Name = "polySurface5",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 18,
+							},
+							Named = 
+							{
+								string Name = "transform4",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 19,
+					},
+					Named = 
+					{
+						string Name = "polySurface6",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 20,
+							},
+							Named = 
+							{
+								string Name = "transform7",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 21,
+					},
+					Named = 
+					{
+						string Name = "polySurface7",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 22,
+							},
+							Named = 
+							{
+								string Name = "transform9",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 23,
+					},
+					Named = 
+					{
+						string Name = "polySurface8",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 24,
+							},
+							Named = 
+							{
+								string Name = "transform10",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 25,
+					},
+					Named = 
+					{
+						string Name = "polySurface9",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 26,
+							},
+							Named = 
+							{
+								string Name = "transform13",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 27,
+					},
+					Named = 
+					{
+						string Name = "polySurface10",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 28,
+							},
+							Named = 
+							{
+								string Name = "transform6",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 29,
+					},
+					Named = 
+					{
+						string Name = "polySurface11",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 30,
+							},
+							Named = 
+							{
+								string Name = "transform19",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 31,
+					},
+					Named = 
+					{
+						string Name = "polySurface12",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 32,
+							},
+							Named = 
+							{
+								string Name = "transform16",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 33,
+					},
+					Named = 
+					{
+						string Name = "polySurface13",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 34,
+							},
+							Named = 
+							{
+								string Name = "transform15",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 35,
+					},
+					Named = 
+					{
+						string Name = "polySurface14",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 36,
+							},
+							Named = 
+							{
+								string Name = "transform5",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 37,
+					},
+					Named = 
+					{
+						string Name = "polySurface15",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 38,
+							},
+							Named = 
+							{
+								string Name = "transform20",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 39,
+					},
+					Named = 
+					{
+						string Name = "polySurface16",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 40,
+							},
+							Named = 
+							{
+								string Name = "transform18",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 41,
+					},
+					Named = 
+					{
+						string Name = "polySurface17",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 42,
+							},
+							Named = 
+							{
+								string Name = "transform17",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 43,
+					},
+					Named = 
+					{
+						string Name = "polySurface18",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 44,
+							},
+							Named = 
+							{
+								string Name = "transform14",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 45,
+					},
+					Named = 
+					{
+						string Name = "polySurface19",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 46,
+							},
+							Named = 
+							{
+								string Name = "transform21",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 47,
+					},
+					Named = 
+					{
+						string Name = "transform2",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 48,
+			},
+			Named = 
+			{
+				string Name = "PaperWindows",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.508024, 2.77254, 6.30845],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "550b861921c22180:Paper",
+				string MeshName = "550b861921c95244:FamilyHouseRedesigned.PaperWindows",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 49,
+			},
+			Named = 
+			{
+				string Name = "pCube3",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [13.4218, 3.71627, 6.21978],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 50,
+					},
+					Named = 
+					{
+						string Name = "transform22",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0.5],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 51,
+			},
+			Named = 
+			{
+				string Name = "WindowFrames",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [3.63995, 2.04544, 6.75876],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "550b861921c25b80:WindowFrames1",
+				string MeshName = "550b861921c95246:FamilyHouseRedesigned.WindowFrames",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 52,
+			},
+			Named = 
+			{
+				string Name = "ThatchedRoof",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-16.7631, 13.2927, -10.6281],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "550b861921c28eee:ThatchedRoof1",
+				string MeshName = "550b861921c95248:FamilyHouseRedesigned.ThatchedRoof",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 53,
+			},
+			Named = 
+			{
+				string Name = "pCube4",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-6.74663, 23.1681, -3.14227],
+				Vec3 Scale = [1.15275, 1.15275, 1.15275],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 54,
+					},
+					Named = 
+					{
+						string Name = "transform29",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0.5],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 55,
+			},
+			Named = 
+			{
+				string Name = "pCube5",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-5.99716, 24.6769, -1.96913],
+				Vec3 Scale = [0.695853, 0.695853, 0.695853],
+				Quat Rotation = [0.382683, 0, 0, 0.92388],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 56,
+					},
+					Named = 
+					{
+						string Name = "transform28",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0.500002, 1.06176],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 57,
+			},
+			Named = 
+			{
+				string Name = "pCube6",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-3.0382, 24.6769, -1.96913],
+				Vec3 Scale = [0.695853, 0.695853, 0.695853],
+				Quat Rotation = [0.382683, 0, 0, 0.92388],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 58,
+					},
+					Named = 
+					{
+						string Name = "transform27",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0.500002, 1.06176],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 59,
+			},
+			Named = 
+			{
+				string Name = "pCube7",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.00593687, 24.6769, -1.96913],
+				Vec3 Scale = [0.695853, 0.695853, 0.695853],
+				Quat Rotation = [0.382683, 0, 0, 0.92388],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 60,
+					},
+					Named = 
+					{
+						string Name = "transform26",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0.500002, 1.06176],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 61,
+			},
+			Named = 
+			{
+				string Name = "pCube8",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [3.23754, 24.6769, -1.96913],
+				Vec3 Scale = [0.695853, 0.695853, 0.695853],
+				Quat Rotation = [0.382683, 0, 0, 0.92388],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 62,
+					},
+					Named = 
+					{
+						string Name = "transform25",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0.500002, 1.06176],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 63,
+			},
+			Named = 
+			{
+				string Name = "pCube9",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [6.01222, 24.6769, -1.96913],
+				Vec3 Scale = [0.695853, 0.695853, 0.695853],
+				Quat Rotation = [0.382683, 0, 0, 0.92388],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 64,
+					},
+					Named = 
+					{
+						string Name = "transform24",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0.500002, 1.06176],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 65,
+			},
+			Named = 
+			{
+				string Name = "pCube10",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 23.1681, -1.96913],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 66,
+					},
+					Named = 
+					{
+						string Name = "transform31",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, -23.1681, 1.96913],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 67,
+			},
+			Named = 
+			{
+				string Name = "pCylinder1",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 26.1096, -1.96795],
+				Vec3 Scale = [0.323081, 0.323081, 0.323081],
+				Quat Rotation = [0, 0, 0.707107, 0.707107],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 68,
+					},
+					Named = 
+					{
+						string Name = "transform30",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 69,
+			},
+			Named = 
+			{
+				string Name = "RoofOrnament",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 23.1681, -1.96913],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "550b861921c25b80:WindowFrames1",
+				string MeshName = "550b861921c9524b:FamilyHouseRedesigned.RoofOrnament",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 70,
+			},
+			Named = 
+			{
+				string Name = "pCube12",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [11.69, 8.92194, 7.61748],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 71,
+					},
+					Named = 
+					{
+						string Name = "transform34",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0.5],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 72,
+			},
+			Named = 
+			{
+				string Name = "pCube13",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [10.8925, 6.14003, 7.61748],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 73,
+					},
+					Named = 
+					{
+						string Name = "transform33",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0.5],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 74,
+			},
+			Named = 
+			{
+				string Name = "pCube14",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [15.5672, 6.14003, 7.61748],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 75,
+					},
+					Named = 
+					{
+						string Name = "transform32",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.5, 0.5, 0.5],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 76,
+			},
+			Named = 
+			{
+				string Name = "Overhang",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [10.8925, 6.14003, 7.61748],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "550b861921c3e880:WoodenHouse",
+				string MeshName = "550b861921c9524d:FamilyHouseRedesigned.Overhang",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+	},
+},
