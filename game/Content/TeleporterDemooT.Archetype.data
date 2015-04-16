@@ -1,0 +1,80 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "TeleporterDemooT",
+	},
+	Archetyped = 
+	{
+		string Name = "55dcbc9dfa14f381:TeleporterDemoo",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [52.9036, 72.4988, -1.53673],
+		Vec3 Scale = [3.07005, 6.58777, 3.07005],
+		Quat Rotation = [0.440573, -0.553078, -0.553078, 0.440573],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5450caa5de3555f3:WaveGlow2side",
+		string MeshName = "4de0354322b3572e:Cylinder",
+		Vec4 Color = [0.67815, 0.821601, 0.99, 0.17],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = true,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	CylinderCollider = 
+	{
+		bool Ghost = true,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "54ff0eb5b975b8c8:CG_Tongue",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 1,
+		float Height = 1,
+		uint Direction = 1,
+	},
+	FootstepSurface = 
+	{
+		Enum SurfaceType = Dirt,
+	},
+	Light = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		LightType LightType = Point,
+		Vec4 Color = [0.4455, 0.99, 0.614295, 0.375],
+		float Intensity = 1,
+		float Range = 20,
+		float Falloff = 1,
+		float Angle = 45,
+		float Size = 20,
+	},
+	DungeonTeleporter = 
+	{
+		string Room = "55fcb3ba6a09ee5e:LVL_BurntApt",
+	},
+	Hierarchy = 
+	{
+	},
+},

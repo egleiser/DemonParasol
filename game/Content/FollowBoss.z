@@ -1,0 +1,48 @@
+class FollowBoss : ZilchComponent
+{
+    var Boss:Cog = null;
+    var MoveVec : Real3 = Real3(0,0,0);
+    [Property]
+    var SpeedMultiplier : Real = 8.0;
+    [Property]
+    var Offset : Real3 = Real3(0,0,5);
+    function Initialize(init : CogInitializer)
+    {
+        this.Boss = this.Space.FindObjectByName("DivinerHandFinalBoss");
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+    function OnCollisionStarted(collisionEvent : CollisionEvent)
+    {
+        var otherObject = collisionEvent.OtherObject;
+        if( otherObject.Name == "DivinerHandFinalBoss")
+        {
+            this.Space.CreateAtPosition(Archetype.Find("PullSparksBig"), collisionEvent.FirstPoint.WorldPoint);
+            this.Boss.AI_DivinerHand.Damage();
+            this.Owner.Destroy();
+        }
+    }
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.StepTowardsPlayer(event);
+        this.FacePlayer(event);
+    }
+    
+    function FacePlayer(event : UpdateEvent)
+    {
+            var targetRotation = this.Owner.Orientation.GetLookAtPointWithUpRotation(
+            Real3(this.Boss.Transform.WorldTranslation.X,this.Boss.Transform.WorldTranslation.Y,this.Owner.Transform.WorldTranslation.Z),this.Owner.Orientation.WorldUp);
+            targetRotation = Math.Multiply(targetRotation, Math.Euler(Real3(0,0,0)));
+            this.Owner.Transform.WorldRotation = Math.Slerp(this.Owner.Transform.WorldRotation, targetRotation, event.Dt * 8);
+    }
+    function StepTowardsPlayer(event : UpdateEvent)
+    {
+        this.MoveVec = (this.Boss.Transform.WorldTranslation + this.Offset) - this.Owner.Transform.WorldTranslation;
+        //Console.WriteLine("Move Vector Initial: `this.MoveVec`");
+        this.MoveVec = Math.Normalize(this.MoveVec);
+        //Console.WriteLine("Move Vector Normalized: `this.MoveVec`");
+        this.MoveVec *= this.SpeedMultiplier * 0.015;
+        //Console.WriteLine("Move Vector Final: `this.MoveVec`");
+        this.Owner.Transform.WorldTranslation += this.MoveVec;
+    }
+}

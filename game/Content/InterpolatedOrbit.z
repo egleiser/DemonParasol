@@ -18,22 +18,22 @@ class InterpolatedOrbit : ZilchComponent
     
     function Initialize(init : CogInitializer)
     {
-        var startDir : Real3 = Math.Normalize(this.Owner.Transform.Translation - this.OrbitTarget.Cog.Transform.Translation);
+        var startDir : Real3 = Math.Normalize(this.Owner.Transform.WorldTranslation - this.OrbitTarget.Cog.Transform.WorldTranslation);
         this.CurrentAngle = Math.ATan2(startDir.Y, startDir.X);
-        this.StartLoc = this.OrbitTarget.Cog.Transform.Translation;
+        this.StartLoc = this.OrbitTarget.Cog.Transform.WorldTranslation;
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         
     }
     
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(!this.Active)
+        if(this.Active)
         {
-            return;
+            this.CurrentAngle += Math.ToRadians(this.AngleChange) * event.Dt;
+            
+            var objectVec : Real3 = Real3(Math.Cos(this.CurrentAngle), Math.Sin(this.CurrentAngle), 0) ;
+            this.Owner.Transform.WorldTranslation = (objectVec * this.Radius) + this.StartLoc;
         }
-        this.CurrentAngle += Math.ToRadians(this.AngleChange) * event.Dt;
-        
-        var objectVec : Real3 = Real3(Math.Cos(this.CurrentAngle), Math.Sin(this.CurrentAngle), 0) ;
-        this.Owner.Transform.Translation = (objectVec * this.Radius) + this.StartLoc;
+
     }
 }

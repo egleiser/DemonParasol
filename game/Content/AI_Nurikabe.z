@@ -70,7 +70,7 @@ class AI_Nurikabe : ZilchComponent
             this.CurrentNode = otherObject.PatrolNode.NextNode.Cog;
             this.WaitValue = otherObject.PatrolNode.WaitTime;
             this.Waiting = true;
-            Console.WriteLine("New Node is: `this.CurrentNode`");
+            //Console.WriteLine("New Node is: `this.CurrentNode`");
         }
         if(otherObject.TongueFinder != null && this.CurrentState != NurikabeState.Chase)
         {
