@@ -29,7 +29,7 @@ class CollideDeathPlane : ZilchComponent
             {
                 var reset = Action.Sequence(this.Owner.Actions);
                 this.Space.SoundSpace.PlayCue(SoundCue.Find("PlayerHurt"));
-                if(this.Space.CurrentLevel.Name != "LVL_IntroArea")
+                if(this.Space.CurrentLevel.Name != "LVL_IntroArea" && this.Space.CurrentLevel.Name != "LVL_SwampArea")
                 {
                     this.Player.Health.ApplyDamage(1);
                 }
