@@ -238,9 +238,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [54.3096, -56.6871, 93.6198],
+			Vec3 Translation = [83.24, -257.06, 457.587],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.0992367, -0.0398733, 0.00397976, 0.994257],
+			Quat Rotation = [0.114674, 0.0667593, -0.00772408, 0.991127],
 		},
 		Camera = 
 		{
@@ -255,10 +255,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 122.457,
-			float VerticalAngle = -0.198961,
-			float HorizontalAngle = -6.20302,
-			Vec3 LookTarget = [63.9222, -32.4834, -26.0357],
+			float LookDistance = 548.813,
+			float VerticalAngle = -0.230377,
+			float HorizontalAngle = -6.4177,
+			Vec3 LookTarget = [11.5856, -131.741, -71.9006],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -21629,6 +21629,372 @@ Level =
 			string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
 			string MeshName = "55fcb123ea0df82e:ApartmentBetaLEVEL.ChamferBox209",
 			Vec4 Color = [0.17415, 0.191715, 0.215, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 606,
+		},
+		Named = 
+		{
+			string Name = "DeathPlane",
+		},
+		Archetyped = 
+		{
+			string Name = "54affc6d4b81969b:DeathPlane",
+		},
+		EditorFlags = 
+		{
+			bool Locked = true,
+			bool Hidden = false,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [24.5104, -136.275, -12.3508],
+			Vec3 Scale = [200, 200, 12.1963],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0, 0, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		CollideDeathPlane = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 607,
+		},
+		Named = 
+		{
+			string Name = "DeathPlane",
+		},
+		Archetyped = 
+		{
+			string Name = "54affc6d4b81969b:DeathPlane",
+		},
+		EditorFlags = 
+		{
+			bool Locked = true,
+			bool Hidden = false,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [191.789, -136.275, -12.3508],
+			Vec3 Scale = [200, 200, 12.1963],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0, 0, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		CollideDeathPlane = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 608,
+		},
+		Named = 
+		{
+			string Name = "DeathPlane",
+		},
+		Archetyped = 
+		{
+			string Name = "54affc6d4b81969b:DeathPlane",
+		},
+		EditorFlags = 
+		{
+			bool Locked = true,
+			bool Hidden = false,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-167.275, -136.275, -12.3508],
+			Vec3 Scale = [200, 200, 12.1963],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0, 0, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		CollideDeathPlane = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 609,
+		},
+		Named = 
+		{
+			string Name = "DeathPlane",
+		},
+		Archetyped = 
+		{
+			string Name = "54affc6d4b81969b:DeathPlane",
+		},
+		EditorFlags = 
+		{
+			bool Locked = true,
+			bool Hidden = false,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-167.275, 51.5463, -12.3508],
+			Vec3 Scale = [200, 200, 12.1963],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0, 0, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		CollideDeathPlane = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 610,
+		},
+		Named = 
+		{
+			string Name = "DeathPlane",
+		},
+		Archetyped = 
+		{
+			string Name = "54affc6d4b81969b:DeathPlane",
+		},
+		EditorFlags = 
+		{
+			bool Locked = true,
+			bool Hidden = false,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [222.297, 51.5463, -12.3508],
+			Vec3 Scale = [200, 200, 12.1963],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0, 0, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		CollideDeathPlane = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 611,
+		},
+		Named = 
+		{
+			string Name = "DeathPlane",
+		},
+		Archetyped = 
+		{
+			string Name = "54affc6d4b81969b:DeathPlane",
+		},
+		EditorFlags = 
+		{
+			bool Locked = true,
+			bool Hidden = false,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [24.5104, -329.411, -12.3508],
+			Vec3 Scale = [200, 200, 12.1963],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "5404506d3dd2a41e:mat_Light",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0, 0, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		CollideDeathPlane = 
+		{
 		},
 	},
 },

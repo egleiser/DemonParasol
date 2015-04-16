@@ -2,7 +2,7 @@
 #define MyExeName "Zero.exe"
 
 [Setup]
-AppId={{75AAB164-27A4-4C0B-AB67-DE449C49CE2C}}
+AppId={{46EA78C5-7915-4BBF-8C2B-C97EFBECDAF0}}
 AppName={#MyGameName}
 AppVersion=1.5
 DefaultDirName={pf}\DigiPen\{#MyGameName}
@@ -19,7 +19,7 @@ PrivilegesRequired=none
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";
 
 [Files]
-Source: "C:\Users\Garrett\AppData\Local\Temp\DemonParasol\*"; DestDir: "{app}";  Excludes: "*.exp,*.lib,__pycache__"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\Travis\AppData\Local\Temp\DemonParasol\*"; DestDir: "{app}";  Excludes: "*.exp,*.lib,__pycache__"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{group}\Setsuko\{#MyGameName}"; Filename: "{app}\{#MyExeName}"; Parameters: "-play -file DemonParasol.zeroproj"
