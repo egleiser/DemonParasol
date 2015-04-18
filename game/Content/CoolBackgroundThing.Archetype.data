@@ -1,0 +1,76 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "CoolBackgroundThing",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 12.995, -21.8776],
+		Vec3 Scale = [1.34382, 1.928, 1.99153],
+		Quat Rotation = [-0.133289, 0.694431, -0.133289, 0.694431],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+		string MeshName = "54afcfd2e5fa716e:BlackRainMainLobby.PlatformA",
+		Vec4 Color = [0.84, 0.6048, 0.633024, 1],
+	},
+	SinRotate = 
+	{
+		float SinSpeedX = 0.5,
+		float SinSpeedY = 0.2,
+		float Intensity = 0.03,
+		bool UseInitialRot = true,
+		bool UseLocal = true,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "PlatformA",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [8.58307e-006, -2.00272e-005, 6.82121e-013],
+				Vec3 Scale = [1, 1, 0.999999],
+				Quat Rotation = [1.88717e-013, 2.01096e-007, -1.63912e-007, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "541c3b59602b9f69:mat_blackRain",
+				string MeshName = "54afcfd2e5fa716e:BlackRainMainLobby.PlatformA",
+				Vec4 Color = [0.84, 0.6048, 0.633024, 0.085],
+			},
+			SinRotate = 
+			{
+				float SinSpeedX = 0.5,
+				float SinSpeedY = 0.2,
+				float Intensity = 0.03,
+				bool UseInitialRot = true,
+				bool UseLocal = true,
+			},
+			Hierarchy = 
+			{
+			},
+		},
+	},
+},
