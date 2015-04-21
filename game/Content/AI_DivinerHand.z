@@ -343,7 +343,9 @@ class AI_DivinerHand : ZilchComponent
             this.Owner.FindChildByName("TargetBase").Model.Visible = false;
             this.Owner.FindChildByName("TargetRingsA").Model.Visible = false;
             this.Owner.FindChildByName("TargetRingsB").Model.Visible = false;
-            this.Space.SoundSpace.PlayCue(SoundCue.Find("Setsuko_ThemeEnd"));
+            this.BGMManager.DungeonSoundManager.Ducking = 1.0;
+            this.Space.FindObjectByName("BGMManager").DungeonSoundManager.MusicSpotted.SoundEmitter.Play();
+            this.Space.FindObjectByName("BGMManager").DungeonSoundManager.Spotted = true;
             
     }
     //DAMAGE THE BOSS~~~
@@ -595,7 +597,7 @@ class AI_DivinerHand : ZilchComponent
         {
             this.Arrow = false;
             this.HandModel.SimpleAnimation.CrossBlend(this.DeathAnim,1.0, AnimPlayMode.PlayOnce);
-            this.BGMManager.DungeonSoundManager.Ducking = 0.0;
+            //this.BGMManager.DungeonSoundManager.Ducking = 0.0;
             this.Player.PlayerController.FreezeMovement = true;
         }
         if(this.AiState == DivHandState.Death)

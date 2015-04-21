@@ -5,6 +5,7 @@ class FinalCraneInteract : ZilchComponent
     var Player: Cog = null;
     var Boss: Cog = null;
     var Timer:Integer = 10;
+    var Active:Boolean = false;
     function Initialize(init : CogInitializer)
     {
         this.Player = this.Space.FindObjectByName("Player");
@@ -44,10 +45,11 @@ class FinalCraneInteract : ZilchComponent
         {
             this.Timer += 1;
             //Console.WriteLine(this.TextBox.TextBoxManager.Owner.Sprite.Color.W);
-            if(this.Boss.AI_DivinerHand.AiState == DivHandState.Death &&
+            if(this.Boss.AI_DivinerHand.AiState == DivHandState.Death && this.Active == false &&
             (this.Player.InputController.Gamepad.IsButtonPressed(Buttons.A) || Zero.Keyboard.KeyIsPressed(Keys.Space)))
             {
                 Console.WriteLine("End Game");
+                this.Active = true;
                 this.Space.CreateAtPosition(Archetype.Find("EndGameTextFont"), this.Owner.Transform.WorldTranslation);
                 this.TeleportCrane();
             }
@@ -79,13 +81,13 @@ class FinalCraneInteract : ZilchComponent
             //fadeEvent.TimeToFade = 6.0;
             //this.LevelSettings.CameraViewport.Camera.DispatchEvent("fadeEvent", fadeEvent);
             var teleport = Action.Sequence(this.Owner.Actions);
-            Action.Delay(teleport, 6.0);
+            Action.Delay(teleport, 12.0);
             Action.Call(teleport, this.Teleport);
     }
     function Teleport()
     {
         this.LevelSettings.DataLoader.SaveFile.SaveData.LastLevel = this.Space.CurrentLevel.Name;
         this.LevelSettings.DataLoader.StoreSaveFile();
-        //this.Space.LoadLevel(Level.Find("lvl_Credits"));
+        this.Space.LoadLevel(Level.Find("lvl_menu_credits"));
     }
 }
