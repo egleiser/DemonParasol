@@ -1,0 +1,31 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "PaperCraneC",
+	},
+	Archetyped = 
+	{
+		string Name = "55239fe2ee97035b:PaperCraneC",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [11.1296, -12.0528, -2.52084],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		string MaterialName = "55239f7c70c9dab0:mat_LightTrans",
+		string MeshName = "54606c2b552de2ef:PaperCrane",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+},

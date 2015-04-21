@@ -36,7 +36,7 @@ Level =
 			bool Blocking = true,
 			uint Renderer = 1,
 			uint Camera = 2,
-			ViewportScaling Scaling = Fill,
+			ViewportScaling Scaling = Letterbox,
 			Vec2 Resolution = [1280, 720],
 			Vec4 MarginColor = [0, 0, 0, 1],
 		},
@@ -73,12 +73,123 @@ Level =
 		SetOptions = 
 		{
 		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 3,
+				},
+				Named = 
+				{
+					string Name = "BGMManager",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				DungeonSoundManager = 
+				{
+					float Ducking = 1,
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 4,
+						},
+						Named = 
+						{
+							string Name = "BGMNormal",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						SoundEmitter = 
+						{
+							bool StartPlaying = true,
+							int ExtraPriority = 0,
+							string CueName = "55fec7cf850f0141:MothersThemePiano",
+							float Volume = 1,
+							float Pitch = 1,
+							bool Positional = false,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 5,
+						},
+						Named = 
+						{
+							string Name = "BGMEnemy",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						SoundEmitter = 
+						{
+							bool StartPlaying = true,
+							int ExtraPriority = 0,
+							string CueName = "55dcb49a6d1d5ee1:MothersThemeDaiko",
+							float Volume = 0,
+							float Pitch = 1,
+							bool Positional = false,
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 6,
+						},
+						Named = 
+						{
+							string Name = "BGMSpotted",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						SoundEmitter = 
+						{
+							bool StartPlaying = true,
+							int ExtraPriority = 0,
+							string CueName = "55dcb49a6d1d5ee1:MothersThemeDaiko",
+							float Volume = 0,
+							float Pitch = 1,
+							bool Positional = false,
+						},
+					},
+				},
+			},
+		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 3,
+			uint Id = 7,
 		},
 		Named = 
 		{
@@ -119,7 +230,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 4,
+			uint Id = 8,
 		},
 		Named = 
 		{
@@ -127,9 +238,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [10.4327, 12.4136, 54.377],
+			Vec3 Translation = [6.55626, 9.72812, 54.5903],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0471058, -0.00522884, -0.000246586, 0.998876],
+			Quat Rotation = [-0.0471058, -0.00522883, -0.000246586, 0.998876],
 		},
 		Camera = 
 		{
@@ -139,7 +250,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 44.9329,
+			float Size = 33.2871,
 		},
 		EditorCameraController = 
 		{
@@ -147,7 +258,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0.0942477,
 			float HorizontalAngle = 0.0104693,
-			Vec3 LookTarget = [10.9538, 7.70823, 4.60161],
+			Vec3 LookTarget = [7.07739, 5.02271, 4.81489],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -215,7 +326,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 5,
+			uint Id = 9,
 		},
 		Named = 
 		{
@@ -270,7 +381,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 6,
+			uint Id = 10,
 		},
 		Named = 
 		{
@@ -311,7 +422,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 7,
+			uint Id = 11,
 		},
 		Named = 
 		{
@@ -352,7 +463,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 8,
+			uint Id = 12,
 		},
 		Named = 
 		{
@@ -389,7 +500,7 @@ Level =
 		string Name = "55070c5e9df78f63:ARC_StartMenu",
 		LinkId = 
 		{
-			uint Id = 9,
+			uint Id = 13,
 		},
 		Transform = 
 		{
@@ -407,7 +518,7 @@ Level =
 		string Name = "550feaf7af3185b7:MenuSphereParticleEffect",
 		LinkId = 
 		{
-			uint Id = 10,
+			uint Id = 14,
 		},
 		Transform = 
 		{
@@ -425,7 +536,7 @@ Level =
 		string Name = "5525022090c92efe:CoolBackgroundThing",
 		LinkId = 
 		{
-			uint Id = 11,
+			uint Id = 15,
 		},
 		Transform = 
 		{
@@ -442,7 +553,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 12,
+			uint Id = 16,
 		},
 		Named = 
 		{
@@ -483,7 +594,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 13,
+			uint Id = 17,
 		},
 		Named = 
 		{
@@ -524,7 +635,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 14,
+			uint Id = 18,
 		},
 		Named = 
 		{

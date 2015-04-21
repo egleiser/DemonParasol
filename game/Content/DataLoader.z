@@ -18,6 +18,7 @@ class DataLoader : ZilchComponent
     var SaveFile:Cog = null;
     function Initialize(init : CogInitializer)
     {
+
         Console.WriteLine("Auto Reading SaveData...");
         this.ReadSaveFile();
         

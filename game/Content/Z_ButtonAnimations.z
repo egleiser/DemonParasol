@@ -90,6 +90,8 @@ class Z_ButtonAnimations:ZilchComponent
         }
         else
         {
+
+            this.Owner.Actions.Cancel();
             this.AActiveAnimation = null;
             this.AResetAnimation = null;
             this.Owner.Transform.Translation = this.BtnOriginalPos;
@@ -134,13 +136,13 @@ class Z_ButtonAnimations:ZilchComponent
         Action.Property(this.AResetAnimation,
                         @this.Owner.Transform.Scale,
                         this.BtnOriginalScale,
-                        this.ActiveTiming,
+                        this.ActiveTiming/1.9,
                         this.ActiveEaseType);
         //change back to original color
         Action.Property(this.AResetAnimation,
                         @this.Owner.SpriteText.Color,
                         this.ActiveColor,
-                        this.ActiveTiming,
+                        this.ActiveTiming/1.9,
                         this.ActiveEaseType);
     }
 }

@@ -38,15 +38,6 @@ Level =
 			Vec2 Resolution = [1280, 720],
 			Vec4 MarginColor = [0, 0, 0, 1],
 		},
-		ForwardRenderer = 
-		{
-			Vec4 ClearColor = [0.155, 0.155, 0.155, 1],
-			bool DrawNonVisible = false,
-			bool DrawDebugObjects = true,
-			bool DrawEditorIcons = true,
-			bool EditorIconDepth = true,
-			bool Wireframe = false,
-		},
 		GridDraw = 
 		{
 			bool Active = true,
@@ -69,6 +60,22 @@ Level =
 			bool IsSplash = false,
 			string NextLevelToLoad = "",
 		},
+		DeferredRenderer = 
+		{
+			Vec4 ClearColor = [0, 0, 0, 1],
+			bool DrawNonVisible = false,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool EditorIconDepth = true,
+			bool Hdr = true,
+			bool Shadows = true,
+			bool AntiAliasing = true,
+			bool Refraction = true,
+			bool GodRays = false,
+			bool RenderMasks = false,
+			bool Glow = true,
+			float GlowThreshold = 0.9,
+		},
 	},
 	Cog = 
 	{
@@ -82,9 +89,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-2.87261, 3.26687, 50],
+			Vec3 Translation = [11.7715, 4.15329, 46.2469],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0, -1.09278e-008, 0, 1],
+			Quat Rotation = [-0.0600382, 0.0678919, 0.00409298, 0.995876],
 		},
 		Camera = 
 		{
@@ -94,15 +101,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 33.2872,
+			float Size = 30.1196,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = ZPlane,
 			float LookDistance = 50,
-			float VerticalAngle = 0,
-			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-2.87261, 3.26687, -8.77063e-008],
+			float VerticalAngle = 0.120428,
+			float HorizontalAngle = -0.136136,
+			Vec3 LookTarget = [5.03484, -1.85356, -2.93173],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -140,51 +147,11 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "bg-menu-red",
-		},
-		Archetyped = 
-		{
-			string Name = "545d0ce33b4dab02:arc_bg_menu_red",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0, 0, 0],
-			Vec3 Scale = [82.1718, 44.1504, 34.1574],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = false,
-			Vec4 Color = [0, 0, 0, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5275aa4d802dd6dc:Square",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool OnTop = false,
-			bool AnimationActive = false,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 5,
-		},
-		Named = 
-		{
 			string Name = "ui_credits",
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 17, 1],
+			Vec3 Translation = [0, 11.4211, 1],
 			Vec3 Scale = [1.5, 1.5, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -210,16 +177,16 @@ Level =
 		Z_UI_CreditScroll = 
 		{
 			Vec3 StartingPosition = [0, -33, 1],
-			float ScrollTime = 15,
-			float EndingYPosition = 50,
+			float ScrollTime = 20,
+			Vec3 EndPos = [0, 15, 0],
 			Enum EaseType = Linear,
 		},
 		SoundEmitter = 
 		{
 			bool StartPlaying = true,
 			int ExtraPriority = 0,
-			string CueName = "55dbbe3be22313e0:BurntCityDarknessPiano",
-			float Volume = 0.5,
+			string CueName = "55fec7cf850f0141:MothersThemePiano",
+			float Volume = 0.7,
 			float Pitch = 1,
 			bool Positional = false,
 		},
@@ -229,7 +196,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 6,
+					uint Id = 5,
 				},
 				Named = 
 				{
@@ -241,7 +208,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, -16, 2],
+					Vec3 Translation = [0, -14.4, 2],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -290,11 +257,14 @@ Level =
 					CogPath DownButton = "",
 					CogPath LeftButton = "",
 					CogPath RightButton = "",
-					string AltSprite = "545d438a9a2a9707:btn-menu-main-red-active",
+					Enum GamepadConfirmationButton = A,
+					Enum GamepadBackButton = B,
+					Enum KeyboardBackButton = Back,
+					string AltSprite = "545d2b4bfc3f8313:btn-menu-main-active",
 					int GamepadIndex = 0,
 					bool Active = true,
 					float Timer = 0,
-					string LevelToLoad = "54682358d686e046:lvl_menu_main",
+					string LevelToLoad = "54682326dd6dfdb8:lvl_splash_start",
 				},
 			},
 		},
@@ -304,7 +274,7 @@ Level =
 		string Name = "545d477758b1a37e:arc_bg_white_fade",
 		LinkId = 
 		{
-			uint Id = 7,
+			uint Id = 6,
 		},
 		Transform = 
 		{
@@ -322,22 +292,305 @@ Level =
 			string Name = "bg-white",
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "550feaf7af3185b7:MenuSphereParticleEffect",
+		LinkId = 
+		{
+			uint Id = 7,
+		},
+		Named = 
+		{
+			string Name = "MenuCraneParticleEffect",
+		},
+		Archetyped = 
+		{
+			string Name = "55239fc0cacc2bdf:MenuCraneParticleEffect",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.375378, -9.36656, 1],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		ObjectSystem = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			SystemChildMode ChildMode = Independent,
+			SystemSpace SystemSpace = WorldSpace,
+			uint DrawOrder = 0,
+			float WarmUpTime = 0,
+			Vec3 StartRotation = [180, 0, 0],
+			Vec3 RandomRotation = [0, 200, 0],
+			Vec3 StartTorque = [0, 0, 0],
+			Vec3 RandomTorque = [0, 0, 0],
+			bool FaceVelocity = false,
+			bool EffectsTransform = true,
+			bool EffectsColor = true,
+			bool ControlsLifetime = true,
+			string SpawnArchetype = "55239fe2ee97035b:PaperCraneC",
+			Vec3 SystemSize = [5, 5, 5],
+		},
+		BoxParticleEmitter = 
+		{
+			bool Active = true,
+			uint EmitCount = 0,
+			float EmitRate = 3,
+			float EmitVariance = 0,
+			float Size = 1,
+			float SizeVariance = 0.5,
+			float Lifetime = 4,
+			float LifetimeVariance = 0.2,
+			float Spin = 0,
+			float SpinVariance = 50,
+			bool RandomSpin = true,
+			float Fill = 1,
+			float EmitterVelocityPercent = 0,
+			Vec3 StartVelocity = [0, 2, 0],
+			Vec3 RandomVelocity = [2, 2, 2],
+			Vec3 TangentVelocity = [0, 0, 0],
+			Vec3 EmitterSize = [30, 0, 0],
+			bool FastMovingEmitter = false,
+		},
+		LinearParticleAnimator = 
+		{
+			Vec3 Force = [0, 0, 0],
+			Vec3 RandomForce = [0, 0, 0],
+			float Torque = 0,
+			float Growth = 0,
+			float Dampening = 0,
+			Vec3 Twist = [0, 0, 0],
+		},
+		ParticleColorAnimator = 
+		{
+			Vec4 Color0 = [1, 1, 1, 0],
+			Vec4 Color1 = [1, 1, 1, 0.71],
+			Vec4 Color2 = [1, 1, 1, 0.225],
+			Vec4 Color3 = [1, 1, 1, 0.09],
+			Vec4 Color4 = [1, 1, 1, 0],
+		},
+	},
+	Cog = 
+	{
 		LinkId = 
 		{
 			uint Id = 8,
 		},
+		Named = 
+		{
+			string Name = "Light",
+		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.375378, -9.33731, 1],
+			Vec3 Translation = [0, 0, 14.8474],
+			Vec3 Scale = [1, 0.333336, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Light = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			LightType LightType = Spot,
+			Vec4 Color = [0.64, 0.0416, 0.0416, 1],
+			float Intensity = 0.17,
+			float Range = 100,
+			float Falloff = 0.78,
+			float Angle = 89,
+			float Size = 20,
+		},
+		SinTranXYZ = 
+		{
+			float SinSpeedX = 0.2,
+			float SinSpeedY = 0,
+			float SinSpeedZ = 0,
+			float IntensityX = 5,
+			float IntensityY = 0,
+			float IntensityZ = 0,
+			bool UseInitialRot = false,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 9,
+		},
+		Named = 
+		{
+			string Name = "Light",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-10.8333, 0, 14.8474],
+			Vec3 Scale = [1, 0.333336, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Light = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			LightType LightType = Spot,
+			Vec4 Color = [1, 0.37355, 0.065, 1],
+			float Intensity = 0.17,
+			float Range = 100,
+			float Falloff = 0.78,
+			float Angle = 89,
+			float Size = 20,
+		},
+		SinTranXYZ = 
+		{
+			float SinSpeedX = 0.5,
+			float SinSpeedY = 0,
+			float SinSpeedZ = 0,
+			float IntensityX = 10,
+			float IntensityY = 0,
+			float IntensityZ = 0,
+			bool UseInitialRot = false,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 10,
+		},
+		Named = 
+		{
+			string Name = "CoolBackgroundThing",
+		},
+		Archetyped = 
+		{
+			string Name = "5525022090c92efe:CoolBackgroundThing",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 12.995, -21.8776],
+			Vec3 Scale = [1.34382, 1.928, 1.99153],
+			Quat Rotation = [-0.133289, 0.694431, -0.133289, 0.694431],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "5481bfbdf15c6038:mat_gradientDark",
+			string MeshName = "54afcfd2e5fa716e:BlackRainMainLobby.PlatformA",
+			Vec4 Color = [0.083315, 0.0665, 0.095, 1],
+		},
+		SinRotate = 
+		{
+			float SinSpeedX = 0.5,
+			float SinSpeedY = 0.2,
+			float Intensity = 0.03,
+			bool UseInitialRot = true,
+			bool UseLocal = true,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 11,
+				},
+				Named = 
+				{
+					string Name = "PlatformA",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [8.58307e-006, -2.00272e-005, 6.82121e-013],
+					Vec3 Scale = [1, 1, 0.999999],
+					Quat Rotation = [1.88717e-013, 2.01096e-007, -1.63912e-007, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "541c3b59602b9f69:mat_blackRain",
+					string MeshName = "54afcfd2e5fa716e:BlackRainMainLobby.PlatformA",
+					Vec4 Color = [0.214277, 0.175175, 0.245, 0.085],
+				},
+				SinRotate = 
+				{
+					float SinSpeedX = 0.5,
+					float SinSpeedY = 0.2,
+					float Intensity = 0.03,
+					bool UseInitialRot = true,
+					bool UseLocal = true,
+				},
+				Hierarchy = 
+				{
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 12,
+		},
+		Named = 
+		{
+			string Name = "Light",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [13.9109, 0, 14.8474],
+			Vec3 Scale = [1, 0.333336, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Light = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			LightType LightType = Spot,
+			Vec4 Color = [1, 0.37355, 0.065, 1],
+			float Intensity = 0.17,
+			float Range = 100,
+			float Falloff = 0.78,
+			float Angle = 89,
+			float Size = 20,
+		},
+		SinTranXYZ = 
+		{
+			float SinSpeedX = 0.5,
+			float SinSpeedY = 0,
+			float SinSpeedZ = 0,
+			float IntensityX = -10,
+			float IntensityY = 0,
+			float IntensityZ = 0,
+			bool UseInitialRot = false,
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55239fe2ee97035b:PaperCraneC",
+		LinkId = 
+		{
+			uint Id = 13,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [11.1296, -12.0528, -2.52084],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Named = 
 		{
-			string Name = "MenuSphereParticleEffect",
+			string Name = "PaperCraneC",
 		},
 	},
 },

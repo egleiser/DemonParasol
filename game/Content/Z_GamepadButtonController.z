@@ -83,7 +83,7 @@ class Z_GamepadButtonController:ZilchComponent
     
     [Property]
     var LevelToLoad:Level = null;
-    
+    var BGMManager : Cog = null;
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
     //FUNCTION-Initialize()
     //EXPLANATION-Initializes variables and events
@@ -94,7 +94,7 @@ class Z_GamepadButtonController:ZilchComponent
         
         //find the start menu group
         this.StartMenuGroup = this.Space.FindObjectByName("goStartMenuGroup");
-        
+        this.BGMManager = this.LevelSettings.FindChildByName("BGMManager");
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
     }
@@ -109,6 +109,7 @@ class Z_GamepadButtonController:ZilchComponent
         {
             Zero.Mouse.Cursor = Cursor.Invisible;
         }
+        
         if(this.Active)
         {
             //BACK BUTTON PRESSED
@@ -140,6 +141,10 @@ class Z_GamepadButtonController:ZilchComponent
                     this.Space.LevelSettings.Z_MenuAnimations.FadeInDarkMenuAnimation();
                     //assign and create the StartMenuGroup from its archetype
                     this.StartMenuGroup = this.Space.CreateAtPosition(this.ARC_StartMenu, this.AwayPos);
+                    if(this.BGMManager != null)
+                    {
+                        this.BGMManager.DungeonSoundManager.Spotted = false;
+                    }
                     //make this last button presed inactive
                     this.Owner.Z_GamepadButtonController.Active = false;
                     //find the MainMenuGroup, then move and destroy it
@@ -149,7 +154,9 @@ class Z_GamepadButtonController:ZilchComponent
                     this.StartMenuGroup.FindChildByName("BtnGameStart").Z_GamepadButtonController.Active = true;
                     //move the entire start menu group into view
                     this.Space.LevelSettings.Z_MenuAnimations.MoveInMenuGroup(this.StartMenuGroup, this.ViewPos);
+                    
                 }
+
                  
                 //if currently on the HOW TO PLAY MENU
                 if(this.Owner.Name =="BtnHTPMainMenu")
@@ -159,6 +166,7 @@ class Z_GamepadButtonController:ZilchComponent
                     this.Space.LevelSettings.Z_MenuAnimations.FadeOutDarkMenuAnimation();
                     //assign and create the MainMenuGroup from its archetype
                     this.MainMenuGroup = this.Space.CreateAtPosition(this.ARC_MainMenu, this.AwayPos);
+                    
                     //make this last button presed inactive
                     this.Owner.Z_GamepadButtonController.Active = false;
                     //find the HowToPlayGroup, then move and destroy it
@@ -193,6 +201,7 @@ class Z_GamepadButtonController:ZilchComponent
                     this.MainMenuGroup.FindChildByName("BtnNewGame").Z_GamepadButtonController.Active = true;
                     //move the entire start menu group into view
                     this.Space.LevelSettings.Z_MenuAnimations.MoveInMenuGroup(this.MainMenuGroup, this.ViewPos);
+
                 }
                 
                 //if currently on the CREDITS
@@ -273,6 +282,10 @@ class Z_GamepadButtonController:ZilchComponent
                 {
                     //fade out the background
                     this.Space.LevelSettings.Z_MenuAnimations.FadeOutDarkMenuAnimation();
+                    if(this.BGMManager != null)
+                    {
+                        this.BGMManager.DungeonSoundManager.Spotted = true;
+                    }
                     //assign and create the main menu group from its archetype
                     this.MainMenuGroup = this.Space.CreateAtPosition(this.ARC_MainMenu, this.AwayPos);
                     //make this last button presed inactive
@@ -330,6 +343,7 @@ class Z_GamepadButtonController:ZilchComponent
                 {
                     //fade in the background
                     this.Space.LevelSettings.Z_MenuAnimations.FadeInDarkMenuAnimation();
+                    
                     //assign and create the OptionsMenuGroup from its archetype
                     this.OptionsMenuGroup = this.Space.CreateAtPosition(this.ARC_OptionsMenu, this.AwayPos);
                     //make this last button presed inactive

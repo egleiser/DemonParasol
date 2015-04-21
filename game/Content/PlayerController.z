@@ -97,6 +97,7 @@ class PlayerController : ZilchComponent
         if(this.GameSession.InEditor == false)
         {
             Zero.Mouse.Cursor = Cursor.Invisible;
+           
         }
         if(this.FreezeMovement == true)
         {
