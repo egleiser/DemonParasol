@@ -6,7 +6,7 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "BtnNewGame",
+		string Name = "BtnPCredits",
 	},
 	Archetyped = 
 	{
@@ -14,41 +14,26 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 2.46642, 0],
-		Vec3 Scale = [1.25, 1.25, 1],
+		Vec3 Translation = [0, -2, 1],
+		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
-	SpriteText = 
+	Reactive = 
 	{
-		bool Visible = true,
-		bool VisibilityCulling = true,
-		bool VisibilityEvents = false,
-		bool CastShadows = false,
-		Vec4 Color = [1, 1, 1, 1],
-		BlendMode BlendMode = Alpha,
-		SpriteGeometryMode GeometryMode = ZPlane,
-		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		TextPositionMode Position = Centered,
-		string FontName = "545d0deafc601f9d:Canaro",
-		uint FontSize = 35,
-		string Text = "NEW GAME",
-		bool OnTop = false,
-		Vec2 Size = [0, 0],
-		TextAlign Align = Center,
-		float PixelsPerUnit = 64,
-		bool Smoothing = true,
+		bool Active = true,
+		bool CaptureMouse = true,
 	},
 	Sprite = 
 	{
 		bool Visible = false,
 		bool VisibilityCulling = true,
-		bool VisibilityEvents = false,
+		bool VisibilityEvents = true,
 		bool CastShadows = false,
 		Vec4 Color = [1, 1, 1, 1],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "4e07948c35993095:DefaultSprite",
+		string SpriteSource = "55a09105de751ce9:sprHighlight",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
@@ -57,14 +42,9 @@ Cog =
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
 	},
-	Reactive = 
-	{
-		bool Active = true,
-		bool CaptureMouse = true,
-	},
 	Area = 
 	{
-		Vec2 Size = [10, 1],
+		Vec2 Size = [10, 1.5],
 		Location Origin = Center,
 	},
 	Z_UI_Transitions = 
@@ -77,27 +57,39 @@ Cog =
 		float ScaleBiggerSize = 1.1,
 		Enum EaseType = QuadInOut,
 	},
-	Z_ButtonAnimations = 
-	{
-		Vec4 ActiveColor = [0.231373, 0.0862745, 0.113725, 1],
-		Vec3 ActiveSize = [1.5, 1.5, 0],
-		Vec3 ActivePos = [0, -0.25, 0],
-		Enum ActiveEaseType = QuadInOut,
-		float ActiveTiming = 1,
-	},
 	Z_GamepadButtonController = 
 	{
-		CogPath UpButton = "../BtnQuitGame",
-		CogPath DownButton = "../BtnHowToPlay",
+		CogPath UpButton = "../BtnGameHowPlay",
+		CogPath DownButton = "../BtnPauseMenuMain",
 		CogPath LeftButton = "",
 		CogPath RightButton = "",
 		Enum GamepadConfirmationButton = A,
 		Enum GamepadBackButton = B,
 		Enum KeyboardBackButton = Back,
-		string AltSprite = "",
+		string AltSprite = "55a09105de751ce9:sprHighlight",
 		int GamepadIndex = 0,
-		bool Active = false,
+		bool Active = true,
 		float Timer = 0,
-		string LevelToLoad = "55cddb1c620a255c:LVL_IntroArea",
+		string LevelToLoad = "",
+	},
+	SpriteText = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = false,
+		Vec4 Color = [1, 1, 1, 1],
+		BlendMode BlendMode = Alpha,
+		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		TextPositionMode Position = UpperLeft,
+		string FontName = "545d0deafc601f9d:Canaro",
+		uint FontSize = 60,
+		string Text = "CREDITS",
+		bool OnTop = false,
+		Vec2 Size = [0, 0],
+		TextAlign Align = Center,
+		float PixelsPerUnit = 64,
+		bool Smoothing = true,
 	},
 },
