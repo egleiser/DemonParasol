@@ -1,3 +1,6 @@
+//Written by: Zero Team
+//© 2015 DigiPen, All Rights Reserved.
+
 Pixel
 
 fragment Fresnel
