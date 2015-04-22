@@ -109,6 +109,10 @@ Level =
 		},
 		GameMinimizer = 
 		{
+			bool Mute = false,
+		},
+		SetOptions = 
+		{
 		},
 		Hierarchy = 
 		{
@@ -204,7 +208,7 @@ Level =
 		{
 			Vec3 Translation = [63.3317, 12.8715, -11.8371],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.0062728, 0.800719, -0.00838595, 0.598949],
+			Quat Rotation = [0.00627281, 0.800719, -0.00838595, 0.598949],
 		},
 		Camera = 
 		{
@@ -337,6 +341,7 @@ Level =
 		OrbitCameraController = 
 		{
 			CogPath OrbitTarget = ":/Player",
+			float SpeedMod = 1,
 			float Height = 20,
 			float Radius = 30,
 			float AngleChange = 90,
@@ -581,6 +586,7 @@ Level =
 						DreamLighting = 
 						{
 							bool DreamWorld = false,
+							bool SetFogColor = false,
 							Vec4 DayLightColor = [0.3078, 0.389082, 0.57, 1],
 							Vec4 DreamLightColor = [0.588, 0.251, 0.784, 1],
 							float TransitionSpeed = 0.4,

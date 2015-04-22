@@ -101,7 +101,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 30.1196,
+			float Size = 74.0818,
 		},
 		EditorCameraController = 
 		{
@@ -152,7 +152,7 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [0, 11.4211, 1],
-			Vec3 Scale = [1.5, 1.5, 1],
+			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -176,9 +176,7 @@ Level =
 		},
 		Z_UI_CreditScroll = 
 		{
-			Vec3 StartingPosition = [0, -33, 1],
 			float ScrollTime = 20,
-			Vec3 EndPos = [0, 15, 0],
 			Enum EaseType = Linear,
 		},
 		SoundEmitter = 
@@ -208,7 +206,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, -14.4, 2],
+					Vec3 Translation = [3.75926, -28.5392, 2],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},

@@ -109,6 +109,7 @@ Level =
 		},
 		GameMinimizer = 
 		{
+			bool Mute = false,
 		},
 		SoundDucking = 
 		{
@@ -116,6 +117,9 @@ Level =
 			bool StartPlaying = true,
 		},
 		SwampStart = 
+		{
+		},
+		SetOptions = 
 		{
 		},
 		Hierarchy = 
@@ -210,9 +214,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [118.733, -71.9008, 24.3749],
+			Vec3 Translation = [118.733, -71.9007, 24.3749],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.502839, 0.133952, -0.0792189, 0.850255],
+			Quat Rotation = [0.502839, 0.133951, -0.079218, 0.850256],
 		},
 		Camera = 
 		{

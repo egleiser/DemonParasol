@@ -7,12 +7,10 @@
 class Z_UI_CreditScroll:ZilchComponent
 {
     //PROPERTIES
-    [Property]
-    var StartingPosition:Real3 = Real3(0,-33,1);
+    var StartingPosition:Real3 = Real3(-3.6,-33,1);
     [Property]
     var ScrollTime:Real = 10.0;
-    [Property]
-    var EndPos:Real3 = Real3(0,11,0);
+    var EndPos:Real3 = Real3(-3.6,25,0);
     [Property]
     var EaseType:Ease = Ease.Linear;
     

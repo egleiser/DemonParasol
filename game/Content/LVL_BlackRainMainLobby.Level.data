@@ -106,6 +106,7 @@ Level =
 		},
 		GameMinimizer = 
 		{
+			bool Mute = false,
 		},
 		SoundDucking = 
 		{
@@ -113,6 +114,9 @@ Level =
 			bool StartPlaying = true,
 		},
 		BunkerStart = 
+		{
+		},
+		SetOptions = 
 		{
 		},
 		Hierarchy = 
@@ -207,7 +211,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [19.3612, -90.3744, 23.4781],
+			Vec3 Translation = [19.3611, -90.3744, 23.4781],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.303199, -0.0705301, 0.0225091, 0.950047],
 		},
