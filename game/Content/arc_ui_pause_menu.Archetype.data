@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [465.108, -0.250275, -183.729],
+		Vec3 Translation = [708.143, 10.6937, 17.0011],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -37,7 +37,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, 6, -2],
+				Vec3 Translation = [0, 6.55349, -2],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -205,7 +205,7 @@ Cog =
 			Z_GamepadButtonController = 
 			{
 				CogPath UpButton = "../BtnPQuitGame",
-				CogPath DownButton = "../BtnGameHowPlay",
+				CogPath DownButton = "../BtnPauseOpt",
 				CogPath LeftButton = "",
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,
@@ -246,7 +246,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "BtnGameHowPlay",
+				string Name = "BtnPauseOpt",
 			},
 			Archetyped = 
 			{
@@ -254,7 +254,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, 0.5, 1],
+				Vec3 Translation = [0, 0.900527, 1],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -300,7 +300,7 @@ Cog =
 			Z_GamepadButtonController = 
 			{
 				CogPath UpButton = "../BtnGameResume",
-				CogPath DownButton = "../BtnPCredits",
+				CogPath DownButton = "../BtnGameHowPlay",
 				CogPath LeftButton = "",
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,
@@ -325,7 +325,7 @@ Cog =
 				TextPositionMode Position = UpperLeft,
 				string FontName = "545d0deafc601f9d:Canaro",
 				uint FontSize = 60,
-				string Text = "HOW TO PlAY",
+				string Text = "OPTIONS",
 				bool OnTop = false,
 				Vec2 Size = [0, 0],
 				TextAlign Align = Center,
@@ -344,7 +344,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "BtnPCredits",
+				string Name = "BtnGameHowPlay",
 			},
 			Archetyped = 
 			{
@@ -352,7 +352,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, -2, 1],
+				Vec3 Translation = [0, -1.19118, 1],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -397,8 +397,8 @@ Cog =
 			},
 			Z_GamepadButtonController = 
 			{
-				CogPath UpButton = "../BtnGameHowPlay",
-				CogPath DownButton = "../BtnPauseMenuMain",
+				CogPath UpButton = "../BtnPauseOpt",
+				CogPath DownButton = "../BtnPCredits",
 				CogPath LeftButton = "",
 				CogPath RightButton = "",
 				Enum GamepadConfirmationButton = A,
@@ -423,12 +423,15 @@ Cog =
 				TextPositionMode Position = UpperLeft,
 				string FontName = "545d0deafc601f9d:Canaro",
 				uint FontSize = 60,
-				string Text = "CREDITS",
+				string Text = "HOW TO PLAY",
 				bool OnTop = false,
 				Vec2 Size = [0, 0],
 				TextAlign Align = Center,
 				float PixelsPerUnit = 64,
 				bool Smoothing = true,
+			},
+			Hierarchy = 
+			{
 			},
 		},
 		Cog = 
@@ -447,7 +450,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, -4.5, 1],
+				Vec3 Translation = [0, -5.59417, 1],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -534,6 +537,101 @@ Cog =
 			},
 			Named = 
 			{
+				string Name = "BtnPCredits",
+			},
+			Archetyped = 
+			{
+				string Name = "549359035ea57e68:arc_menu_button",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -3.39224, 1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Reactive = 
+			{
+				bool Active = true,
+				bool CaptureMouse = true,
+			},
+			Sprite = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = false,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "55a09105de751ce9:sprHighlight",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			Area = 
+			{
+				Vec2 Size = [10, 1.5],
+				Location Origin = Center,
+			},
+			Z_UI_Transitions = 
+			{
+				float FadeInTime = 0.5,
+				float FadeOutTime = 0.25,
+				float WaitTime = 2,
+				float ScaleOutTime = 0.2,
+				float ScaleInTime = 0.25,
+				float ScaleBiggerSize = 1.1,
+				Enum EaseType = QuadInOut,
+			},
+			Z_GamepadButtonController = 
+			{
+				CogPath UpButton = "../BtnGameHowPlay",
+				CogPath DownButton = "../BtnPauseMenuMain",
+				CogPath LeftButton = "",
+				CogPath RightButton = "",
+				Enum GamepadConfirmationButton = A,
+				Enum GamepadBackButton = B,
+				Enum KeyboardBackButton = Back,
+				string AltSprite = "55a09105de751ce9:sprHighlight",
+				int GamepadIndex = 0,
+				bool Active = false,
+				float Timer = 0,
+				string LevelToLoad = "",
+			},
+			SpriteText = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = false,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				TextPositionMode Position = UpperLeft,
+				string FontName = "545d0deafc601f9d:Canaro",
+				uint FontSize = 60,
+				string Text = "CREDITS",
+				bool OnTop = false,
+				Vec2 Size = [0, 0],
+				TextAlign Align = Center,
+				float PixelsPerUnit = 64,
+				bool Smoothing = true,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 10,
+			},
+			Named = 
+			{
 				string Name = "BtnPQuitGame",
 			},
 			Archetyped = 
@@ -542,7 +640,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, -7, 1],
+				Vec3 Translation = [0, -7.73153, 1],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},

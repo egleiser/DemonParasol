@@ -1,0 +1,40 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "BackGrounda",
+	},
+	Archetyped = 
+	{
+		string Name = "55e72ace47c29a04:arc_menu_buttonssss",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0.339996, -3.60243, -0.110826],
+		Vec3 Scale = [0.812655, 0.820992, 0.154675],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Sprite = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		Vec4 Color = [1, 1, 1, 0.485],
+		BlendMode BlendMode = Multiply,
+		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		string SpriteSource = "55964530558ea2ac:sprMenuBackgroundDark",
+		bool RenderMask = false,
+		bool FlipX = false,
+		bool FlipY = false,
+		bool OnTop = true,
+		bool AnimationActive = true,
+		float AnimationSpeed = 1,
+		uint StartFrame = 0,
+	},
+},

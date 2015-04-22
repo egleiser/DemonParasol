@@ -1,0 +1,537 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "goOptionsPause",
+	},
+	Archetyped = 
+	{
+		string Name = "55e6d55cc20bb2b7:ARC_OptionsPause",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [579.097, -29.2209, -124.936],
+		Vec3 Scale = [1.5, 1.5, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "goGamepadGroup",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -1.4992, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "txtGamepadControls",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 3.91734, 2.64024e-007],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					SpriteText = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = false,
+						Vec4 Color = [1, 1, 1, 1],
+						BlendMode BlendMode = Alpha,
+						SpriteGeometryMode GeometryMode = ZPlane,
+						string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+						TextPositionMode Position = Centered,
+						string FontName = "545d0deafc601f9d:Canaro",
+						uint FontSize = 90,
+						string Text = "OPTIONS",
+						bool OnTop = false,
+						Vec2 Size = [0, 0],
+						TextAlign Align = Center,
+						float PixelsPerUnit = 64,
+						bool Smoothing = true,
+					},
+					Hierarchy = 
+					{
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "BtnBackToPauseOpt",
+			},
+			Archetyped = 
+			{
+				string Name = "549359035ea57e68:arc_menu_button",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -2.94375, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteText = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				TextPositionMode Position = UpperLeft,
+				string FontName = "545d0deafc601f9d:Canaro",
+				uint FontSize = 35,
+				string Text = "BACK TO PAUSE MENU",
+				bool OnTop = false,
+				Vec2 Size = [0, 0],
+				TextAlign Align = Center,
+				float PixelsPerUnit = 64,
+				bool Smoothing = true,
+			},
+			Sprite = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "4e07948c35993095:DefaultSprite",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			Reactive = 
+			{
+				bool Active = true,
+				bool CaptureMouse = true,
+			},
+			Area = 
+			{
+				Vec2 Size = [10, 1],
+				Location Origin = Center,
+			},
+			Z_UI_Transitions = 
+			{
+				float FadeInTime = 0.5,
+				float FadeOutTime = 0.25,
+				float WaitTime = 2,
+				float ScaleOutTime = 0.2,
+				float ScaleInTime = 0.25,
+				float ScaleBiggerSize = 1.1,
+				Enum EaseType = QuadInOut,
+			},
+			Z_ButtonAnimations = 
+			{
+				Vec4 ActiveColor = [0.768628, 0.309804, 0.313726, 1],
+				Vec3 ActiveSize = [1.1, 1.1, 0],
+				Vec3 ActivePos = [0, -0.25, 0],
+				Enum ActiveEaseType = QuadInOut,
+				float ActiveTiming = 1,
+			},
+			Z_GamepadButtonController = 
+			{
+				CogPath UpButton = "../BtnPMute",
+				CogPath DownButton = "../BtnPFullScreen",
+				CogPath LeftButton = "",
+				CogPath RightButton = "",
+				Enum GamepadConfirmationButton = A,
+				Enum GamepadBackButton = B,
+				Enum KeyboardBackButton = Back,
+				string AltSprite = "",
+				int GamepadIndex = 0,
+				bool Active = false,
+				float Timer = 0,
+				string LevelToLoad = "",
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "BtnPMute",
+			},
+			Archetyped = 
+			{
+				string Name = "549359035ea57e68:arc_menu_button",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -1.8303, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteText = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				TextPositionMode Position = UpperLeft,
+				string FontName = "545d0deafc601f9d:Canaro",
+				uint FontSize = 35,
+				string Text = "MUTE OFF",
+				bool OnTop = false,
+				Vec2 Size = [0, 0],
+				TextAlign Align = Center,
+				float PixelsPerUnit = 64,
+				bool Smoothing = true,
+			},
+			Sprite = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "4e07948c35993095:DefaultSprite",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			Reactive = 
+			{
+				bool Active = true,
+				bool CaptureMouse = true,
+			},
+			Area = 
+			{
+				Vec2 Size = [10, 1],
+				Location Origin = Center,
+			},
+			Z_UI_Transitions = 
+			{
+				float FadeInTime = 0.5,
+				float FadeOutTime = 0.25,
+				float WaitTime = 2,
+				float ScaleOutTime = 0.2,
+				float ScaleInTime = 0.25,
+				float ScaleBiggerSize = 1.1,
+				Enum EaseType = QuadInOut,
+			},
+			Z_ButtonAnimations = 
+			{
+				Vec4 ActiveColor = [0.768628, 0.309804, 0.313726, 1],
+				Vec3 ActiveSize = [1.1, 1.1, 0],
+				Vec3 ActivePos = [0, -0.25, 0],
+				Enum ActiveEaseType = QuadInOut,
+				float ActiveTiming = 1,
+			},
+			Z_GamepadButtonController = 
+			{
+				CogPath UpButton = "../BtnPMusicVol",
+				CogPath DownButton = "../BtnBackToPauseOpt",
+				CogPath LeftButton = "",
+				CogPath RightButton = "",
+				Enum GamepadConfirmationButton = A,
+				Enum GamepadBackButton = B,
+				Enum KeyboardBackButton = Back,
+				string AltSprite = "",
+				int GamepadIndex = 0,
+				bool Active = false,
+				float Timer = 0,
+				string LevelToLoad = "",
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "BtnPMusicVol",
+			},
+			Archetyped = 
+			{
+				string Name = "549359035ea57e68:arc_menu_button",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -0.769328, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteText = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				TextPositionMode Position = UpperLeft,
+				string FontName = "545d0deafc601f9d:Canaro",
+				uint FontSize = 35,
+				string Text = "MUSIC VOLUME: 99",
+				bool OnTop = false,
+				Vec2 Size = [0, 0],
+				TextAlign Align = Center,
+				float PixelsPerUnit = 64,
+				bool Smoothing = true,
+			},
+			Sprite = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "4e07948c35993095:DefaultSprite",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			Reactive = 
+			{
+				bool Active = true,
+				bool CaptureMouse = true,
+			},
+			Area = 
+			{
+				Vec2 Size = [10, 1],
+				Location Origin = Center,
+			},
+			Z_UI_Transitions = 
+			{
+				float FadeInTime = 0.5,
+				float FadeOutTime = 0.25,
+				float WaitTime = 2,
+				float ScaleOutTime = 0.2,
+				float ScaleInTime = 0.25,
+				float ScaleBiggerSize = 1.1,
+				Enum EaseType = QuadInOut,
+			},
+			Z_ButtonAnimations = 
+			{
+				Vec4 ActiveColor = [0.768628, 0.309804, 0.313726, 1],
+				Vec3 ActiveSize = [1.1, 1.1, 0],
+				Vec3 ActivePos = [0, -0.25, 0],
+				Enum ActiveEaseType = QuadInOut,
+				float ActiveTiming = 1,
+			},
+			Z_GamepadButtonController = 
+			{
+				CogPath UpButton = "../BtnPFullScreen",
+				CogPath DownButton = "../BtnPMute",
+				CogPath LeftButton = "",
+				CogPath RightButton = "",
+				Enum GamepadConfirmationButton = A,
+				Enum GamepadBackButton = B,
+				Enum KeyboardBackButton = Back,
+				string AltSprite = "",
+				int GamepadIndex = 0,
+				bool Active = false,
+				float Timer = 0,
+				string LevelToLoad = "",
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 7,
+			},
+			Named = 
+			{
+				string Name = "BtnPFullScreen",
+			},
+			Archetyped = 
+			{
+				string Name = "549359035ea57e68:arc_menu_button",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0.326373, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteText = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				TextPositionMode Position = UpperLeft,
+				string FontName = "545d0deafc601f9d:Canaro",
+				uint FontSize = 35,
+				string Text = "WINDOWED",
+				bool OnTop = false,
+				Vec2 Size = [0, 0],
+				TextAlign Align = Center,
+				float PixelsPerUnit = 64,
+				bool Smoothing = true,
+			},
+			Sprite = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "4e07948c35993095:DefaultSprite",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			Reactive = 
+			{
+				bool Active = true,
+				bool CaptureMouse = true,
+			},
+			Area = 
+			{
+				Vec2 Size = [10, 1],
+				Location Origin = Center,
+			},
+			Z_UI_Transitions = 
+			{
+				float FadeInTime = 0.5,
+				float FadeOutTime = 0.25,
+				float WaitTime = 2,
+				float ScaleOutTime = 0.2,
+				float ScaleInTime = 0.25,
+				float ScaleBiggerSize = 1.1,
+				Enum EaseType = QuadInOut,
+			},
+			Z_ButtonAnimations = 
+			{
+				Vec4 ActiveColor = [0.768628, 0.309804, 0.313726, 1],
+				Vec3 ActiveSize = [1.1, 1.1, 0],
+				Vec3 ActivePos = [0, -0.25, 0],
+				Enum ActiveEaseType = QuadInOut,
+				float ActiveTiming = 1,
+			},
+			Z_GamepadButtonController = 
+			{
+				CogPath UpButton = "../BtnBackToPauseOpt",
+				CogPath DownButton = "../BtnPMusicVol",
+				CogPath LeftButton = "",
+				CogPath RightButton = "",
+				Enum GamepadConfirmationButton = A,
+				Enum GamepadBackButton = B,
+				Enum KeyboardBackButton = Back,
+				string AltSprite = "",
+				int GamepadIndex = 0,
+				bool Active = false,
+				float Timer = 0,
+				string LevelToLoad = "",
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 8,
+			},
+			Named = 
+			{
+				string Name = "sprQuitGameBackground",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, -0.140451],
+				Vec3 Scale = [0.666667, 0.666667, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Sprite = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = false,
+				Vec4 Color = [0.46, 0.2461, 0.2461, 0.905],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "55a0ac305e0e65d4:sprQuitGameBackground",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool OnTop = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			Area = 
+			{
+				Vec2 Size = [17, 12],
+				Location Origin = Center,
+			},
+		},
+	},
+},

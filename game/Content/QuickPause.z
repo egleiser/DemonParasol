@@ -60,6 +60,37 @@ class QuickPause : ZilchComponent
                         pauseHow.Destroy();
                         
                     }
+                    var pauseOpt = this.LevelSettings.HudCreator.HudSpace.FindObjectByName("goOptionsPause");
+                    if(pauseOpt != null)
+                    {
+                        pauseOpt.Destroy();
+                        
+                    }
+                    
+                    var pauseHowTo = this.LevelSettings.HudCreator.HudSpace.FindObjectByName("goHowToPlayPauseGroup");
+                    if(pauseHowTo != null)
+                    {
+                        pauseHowTo.Destroy();
+                        
+                    }
+                    var pauseCredits = this.LevelSettings.HudCreator.HudSpace.FindObjectByName("goCreditsGroup");
+                    if(pauseCredits != null)
+                    {
+                        pauseCredits.Destroy();
+                        
+                    }
+                    var pauseMainMenuConf = this.LevelSettings.HudCreator.HudSpace.FindObjectByName("goMainMenuConfirmationGroup");
+                    if(pauseMainMenuConf != null)
+                    {
+                        pauseMainMenuConf.Destroy();
+                        
+                    }
+                    var pauseQuitConf = this.LevelSettings.HudCreator.HudSpace.FindObjectByName("goPauseQuitGameGroup");
+                    if(pauseQuitConf != null)
+                    {
+                        pauseQuitConf.Destroy();
+                        
+                    }
                 }
             }
     }

@@ -517,12 +517,19 @@ Level =
 			string Name = "goStartMenuGroup",
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "550feaf7af3185b7:MenuSphereParticleEffect",
 		LinkId = 
 		{
 			uint Id = 14,
+		},
+		Named = 
+		{
+			string Name = "MenuSphereParticleEffect",
+		},
+		Archetyped = 
+		{
+			string Name = "550feaf7af3185b7:MenuSphereParticleEffect",
 		},
 		Transform = 
 		{
@@ -530,9 +537,64 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Named = 
+		SpriteParticleSystem = 
 		{
-			string Name = "MenuSphereParticleEffect",
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			SystemChildMode ChildMode = Independent,
+			SystemSpace SystemSpace = WorldSpace,
+			uint DrawOrder = 0,
+			float WarmUpTime = 5,
+			ParticleGeometry GeometryMode = Billboarded,
+			ParticleRenderMode RenderMode = Additive,
+			ParticleSortMode SortMode = Youngest,
+			ParticleAnimation ParticleAnimation = Single,
+			string Texture = "5274db4c2e7c11f9:Circle",
+			Vec4 Tint = [1, 1, 1, 0.12],
+			float VelocityScale = 1,
+			float LengthScale = 1,
+			float MaxParticleSize = 100,
+			Vec3 SystemSize = [4, 4, 4],
+		},
+		LinearParticleAnimator = 
+		{
+			Vec3 Force = [0, 0, 0],
+			Vec3 RandomForce = [0, 0, 0],
+			float Torque = 0,
+			float Growth = 0,
+			float Dampening = 0,
+			Vec3 Twist = [0, 0, 0],
+		},
+		ParticleColorAnimator = 
+		{
+			Vec4 Color0 = [0.465, 0.2976, 0.2976, 0],
+			Vec4 Color1 = [1, 0.44, 0.44, 1],
+			Vec4 Color2 = [1, 0.3, 0.3, 1],
+			Vec4 Color3 = [0.23, 0.23, 0.23, 0.475],
+			Vec4 Color4 = [0, 0, 0, 0],
+		},
+		BoxParticleEmitter = 
+		{
+			bool Active = false,
+			uint EmitCount = 0,
+			float EmitRate = 10,
+			float EmitVariance = 0,
+			float Size = 0.25,
+			float SizeVariance = 0.3,
+			float Lifetime = 8,
+			float LifetimeVariance = 0.2,
+			float Spin = 0,
+			float SpinVariance = 50,
+			bool RandomSpin = true,
+			float Fill = 1,
+			float EmitterVelocityPercent = 0,
+			Vec3 StartVelocity = [0, 2, 0],
+			Vec3 RandomVelocity = [0.6, 0.2, 0],
+			Vec3 TangentVelocity = [0, 0, 0],
+			Vec3 EmitterSize = [35, 0, 0],
+			bool FastMovingEmitter = false,
 		},
 	},
 	ArchetypeInstance = 
