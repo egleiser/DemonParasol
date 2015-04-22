@@ -100,6 +100,7 @@ Level =
 		},
 		GameMinimizer = 
 		{
+			bool Mute = false,
 		},
 		Hierarchy = 
 		{
@@ -195,7 +196,7 @@ Level =
 		{
 			Vec3 Translation = [472.22, 10.0855, -118.371],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0885685, 0.0851512, 0.00759951, 0.992395],
+			Quat Rotation = [-0.0885686, 0.0851511, 0.0075995, 0.992395],
 		},
 		Camera = 
 		{
@@ -4941,24 +4942,6 @@ Level =
 			float SinSpeedY = 0.2,
 			float Intensity = 2,
 			bool UseInitialRot = false,
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "540a8b380e40915e:arc_ui_pause_menu",
-		LinkId = 
-		{
-			uint Id = 130,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [461.031, 0.464737, -182.774],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Named = 
-		{
-			string Name = "ui-pause-menu",
 		},
 	},
 },
