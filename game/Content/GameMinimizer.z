@@ -3,26 +3,50 @@
 ////  Name: GameMinimizer.z          ////
 ////    Written by: Eric Gleiser     ////
 ////                                 ////
-////     Last Updated: 04-07-15      ////
+////     Last Updated: 04-21-15      ////
 ////                                 ////
 /////////////////////////////////////////
 class GameMinimizer : ZilchComponent
 {
+    [Property]
+    var Mute:Boolean = false;
+    var Focus:Boolean = true;
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.GameSession, Events.GameFocusIn, this.OnGameFocusIn);
         Zero.Connect(this.GameSession, Events.GameFocusOut, this.OnGameFocusOut);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
 
     function OnGameFocusIn(event : GameEvent)
     {
         
         this.Space.SoundSpace.Volume = 1;
+        this.Focus = true;
         this.Owner.QuickPause.TogglePauseMenu();
     }
     function OnGameFocusOut(event : GameEvent)
     {
         this.Space.SoundSpace.Volume = 0;
+        this.Focus = false;
         this.Owner.QuickPause.TogglePauseMenu();
+    }
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.LevelSettings.DataLoader != null)
+        {
+            if(this.LevelSettings.DataLoader.SaveFile != null)
+            {
+                this.Mute = this.LevelSettings.DataLoader.SaveFile.SaveData.AudioMute;
+            }
+        }
+        if(this.Focus == true && this.Mute == false)
+        {
+            this.Space.SoundSpace.Volume = 1;
+        }
+        else
+        {
+            this.Space.SoundSpace.Volume = 0;
+        }
     }
 }

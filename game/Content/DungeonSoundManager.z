@@ -29,6 +29,7 @@ class DungeonSoundManager : ZilchComponent
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.MusicNormal.SoundEmitter.Volume = 0.001;
         this.MusicEnemy.SoundEmitter.Volume = 0.001;
+
         if(this.MusicSpotted != null)
         {
             this.MusicSpotted.SoundEmitter.Volume = 0.001;
@@ -38,16 +39,13 @@ class DungeonSoundManager : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        /*
-        if(Zero.Keyboard.KeyIsDown(Keys.Control) && Zero.Keyboard.KeyIsPressed(Keys.M))
+        if(this.LevelSettings.DataLoader != null)
         {
-            this.Ducking = 0.25;
+            if(this.LevelSettings.DataLoader.SaveFile != null)
+            {
+                this.MasterVolume = this.LevelSettings.DataLoader.SaveFile.SaveData.MusicVolume;
+            }
         }
-        if(Zero.Keyboard.KeyIsDown(Keys.Shift) && Zero.Keyboard.KeyIsPressed(Keys.M))
-        {
-            this.Ducking = 1.0;
-        }
-        */
         this.MusicNormal.SoundEmitter.Pitch = Math.Lerp(this.MusicNormal.SoundEmitter.Pitch, this.MasterPitch, event.Dt * 4.0);
         this.MusicEnemy.SoundEmitter.Pitch = Math.Lerp(this.MusicEnemy.SoundEmitter.Pitch, this.MasterPitch, event.Dt * 4.0);
         if(this.MusicSpotted != null)

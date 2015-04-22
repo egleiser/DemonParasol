@@ -22,7 +22,8 @@ class SaveData : ZilchComponent
     var AA:Boolean = true;
     var Refraction:Boolean = true;
     var MotionBlur:Real = 1.5;
-    var MusicVolume:Real = 1.0;
+    var MusicVolume:Real = 0.5;
+    var AudioMute:Boolean = false;
     
     //Player Data
     [Serialized]
