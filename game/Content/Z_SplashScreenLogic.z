@@ -35,6 +35,12 @@ class Z_SplashScreenLogic:ZilchComponent
         this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
         //connect to LogicUpdate event
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.MouseDown, this.OnMouseDown);
+    }
+
+    function OnMouseDown(event : ViewportMouseEvent)
+    {
+        this.Space.LoadLevel(this.NextLevel);
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
