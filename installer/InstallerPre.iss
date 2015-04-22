@@ -2,7 +2,7 @@
 #define MyExeName "Zero.exe"
 
 [Setup]
-AppId={{EA71D250-97D8-4096-AA0E-035A5AE5AAA0}}
+AppId={{EA21D250-97D8-4096-AA0E-035A5AE5AAA0}}
 AppName={#MyGameName}
 AppVersion=1.5
 DefaultDirName={pf}\DigiPen\{#MyGameName}
