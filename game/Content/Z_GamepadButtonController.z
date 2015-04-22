@@ -111,6 +111,23 @@ class Z_GamepadButtonController:ZilchComponent
         this.BGMManager = this.LevelSettings.FindChildByName("BGMManager");
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.Gamepad = Zero.Gamepads.GetGamePad(this.GamepadIndex);
+        
+        if(this.Owner.Name == "BtnVolume")
+        {
+            this.Owner.SpriteText.Text = "MUSIC VOLUME: `(this.LevelSettings.DataLoader.SaveFile.SaveData.MusicVolume * 100.0) as Integer`";
+        }
+        if(this.Owner.Name == "BtnMute")
+        {
+            this.Owner.SpriteText.Text = "MUSIC VOLUME: `(this.LevelSettings.DataLoader.SaveFile.SaveData.MusicVolume * 100.0) as Integer`";                    if(this.LevelSettings.DataLoader.SaveFile.SaveData.AudioMute)
+            {
+            this.Owner.SpriteText.Text = "MUTE ON";
+            }
+            else
+            {
+                this.Owner.SpriteText.Text = "MUTE OFF";
+            }
+        }
+
     }
     
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -527,7 +544,31 @@ class Z_GamepadButtonController:ZilchComponent
                     
                     this.Space.LevelSettings.DataLoader.StoreSaveFile();
                 }
-                
+                if(this.Owner.Name == "BtnVolume")
+                {
+                    //name change on the button
+                    this.LevelSettings.DataLoader.SaveFile.SaveData.MusicVolume += 0.1;
+                    if(this.LevelSettings.DataLoader.SaveFile.SaveData.MusicVolume > 1.05)
+                    {
+                         this.LevelSettings.DataLoader.SaveFile.SaveData.MusicVolume = 0.0;
+                    }
+                    this.Owner.SpriteText.Text = "MUSIC VOLUME: `(this.LevelSettings.DataLoader.SaveFile.SaveData.MusicVolume * 100.0) as Integer`";
+                    
+                    this.Space.LevelSettings.DataLoader.StoreSaveFile();
+                }
+                if(this.Owner.Name == "BtnMute")
+                {
+                    this.LevelSettings.DataLoader.SaveFile.SaveData.AudioMute = ! this.LevelSettings.DataLoader.SaveFile.SaveData.AudioMute;
+                    if(this.LevelSettings.DataLoader.SaveFile.SaveData.AudioMute)
+                    {
+                        this.Owner.SpriteText.Text = "MUTE ON";
+                    }
+                    else
+                    {
+                        this.Owner.SpriteText.Text = "MUTE OFF";
+                    }
+                    this.Space.LevelSettings.DataLoader.StoreSaveFile();
+                }
                 //OPTIONS MENU
                 //--MAIN MENU BUTTON
                 if(this.Owner.Name =="BtnOMainMenu")
