@@ -16,7 +16,7 @@ class SetOptions : ZilchComponent
     var PrefAA:Boolean = true;
     var PrefRefraction:Boolean = true;
     var PrefMotionBlur:Real = 1.5;
-    var MusicVolume:Real = 1.0;
+    //var MusicVolume:Real = 1.0;
     
     function Initialize(init : CogInitializer)
     {
@@ -53,7 +53,7 @@ class SetOptions : ZilchComponent
             this.LevelSettings.DataLoader.SaveFile.SaveData.HDR = this.PrefHDR;
             this.LevelSettings.DataLoader.SaveFile.SaveData.AA = this.PrefAA;
             this.LevelSettings.DataLoader.SaveFile.SaveData.Refraction = this.PrefRefraction;
-            this.LevelSettings.DataLoader.SaveFile.SaveData.MusicVolume = this.MusicVolume;
+            //this.LevelSettings.DataLoader.SaveFile.SaveData.MusicVolume = this.MusicVolume;
             this.LevelSettings.DataLoader.StoreSaveFile();
             Console.WriteLine("Change Settings");
         }
@@ -68,7 +68,7 @@ class SetOptions : ZilchComponent
             this.PrefHDR = this.LevelSettings.DataLoader.SaveFile.SaveData.HDR;
             this.PrefAA = this.LevelSettings.DataLoader.SaveFile.SaveData.AA;
             this.PrefRefraction = this.LevelSettings.DataLoader.SaveFile.SaveData.Refraction;
-            this.MusicVolume = this.LevelSettings.DataLoader.SaveFile.SaveData.MusicVolume;
+            //this.MusicVolume = this.LevelSettings.DataLoader.SaveFile.SaveData.MusicVolume;
         }
     }
     function SetGraphicsSettings()

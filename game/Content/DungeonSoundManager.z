@@ -44,6 +44,8 @@ class DungeonSoundManager : ZilchComponent
             if(this.LevelSettings.DataLoader.SaveFile != null)
             {
                 this.MasterVolume = this.LevelSettings.DataLoader.SaveFile.SaveData.MusicVolume;
+                Console.WriteLine("Music Vol: `this.MasterVolume`");
+                Console.WriteLine("Music VolSav: `this.LevelSettings.DataLoader.SaveFile.SaveData.MusicVolume`");
             }
         }
         this.MusicNormal.SoundEmitter.Pitch = Math.Lerp(this.MusicNormal.SoundEmitter.Pitch, this.MasterPitch, event.Dt * 4.0);

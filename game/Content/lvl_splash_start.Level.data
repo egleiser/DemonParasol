@@ -79,6 +79,10 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
+		GameMinimizer = 
+		{
+			bool Mute = false,
+		},
 		Hierarchy = 
 		{
 			Cog = 
@@ -238,9 +242,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [29.1761, -14.1205, 57.0314],
+			Vec3 Translation = [40.3187, -4.64728, 55.6753],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0680151, 0.0026132, 0.000178148, 0.997681],
+			Quat Rotation = [-0.0680152, 0.0026132, 0.000178149, 0.997681],
 		},
 		Camera = 
 		{
@@ -250,7 +254,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 44.9329,
+			float Size = 14.9569,
 		},
 		EditorCameraController = 
 		{
@@ -258,7 +262,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0.136136,
 			float HorizontalAngle = -0.00523857,
-			Vec3 LookTarget = [28.9166, -20.9063, 7.49468],
+			Vec3 LookTarget = [40.0592, -11.4331, 6.13861],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 

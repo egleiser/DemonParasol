@@ -512,16 +512,20 @@ class Z_GamepadButtonController:ZilchComponent
                         this.Owner.SpriteText.Text = "REFRACTION DISABLED";
                         //turn off refraction
                         this.Space.LevelSettings.SetOptions.PrefRefraction = false;
+
                     }
                     else
                     {
                         this.Owner.SpriteText.Text = "REFRACTION ENABLED";
                         //turn on refraction
                         this.Space.LevelSettings.SetOptions.PrefRefraction = true;
+
                     }
                     //set the graphics
                     this.Space.LevelSettings.SetOptions.SetGraphicsSettings();
                     this.Space.LevelSettings.SetOptions.OnChangeSettings();
+                    
+                    this.Space.LevelSettings.DataLoader.StoreSaveFile();
                 }
                 
                 //OPTIONS MENU

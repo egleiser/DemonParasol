@@ -17,12 +17,21 @@ class SaveData : ZilchComponent
     var CheatsEneabled:Boolean = false;
     //Options Data
     var Resolution:ScreenResolution = ScreenResolution.SR1920x1080;
+    [Serialized]
     var Windowed:Boolean = false;
+
+    [Serialized]    
     var HDR:Boolean = true;
+
+    [Serialized]
     var AA:Boolean = true;
+    [Serialized]
     var Refraction:Boolean = true;
+    [Serialized]   
     var MotionBlur:Real = 1.5;
+    [Property]
     var MusicVolume:Real = 0.5;
+    [Serialized]
     var AudioMute:Boolean = false;
     
     //Player Data
